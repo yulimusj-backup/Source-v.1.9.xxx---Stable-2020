@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseMast_Session" targetNamespace="http://tempuri.org/DseMast_Session.xsd" xmlns:mstns="http://tempuri.org/DseMast_Session.xsd" xmlns="http://tempuri.org/DseMast_Session.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SMESS_POS.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_sessionTableAdapter" GeneratorDataComponentClassName="tblmaster_sessionTableAdapter" Name="tblmaster_session" UserDataComponentName="tblmaster_sessionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_session" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Reference Name`, `Session Period`, `Session Through`, `Primary Cashier`, `Primary Branch`, Remarks, `Beginning Cash`, 
+                         `Primary Begining Cash Account`, `Primary Cashier Cash Account`, `Primary Balance Cash Account`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, 
+                         `Timestamp`
+FROM            tblmaster_session</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Reference Name" DataSetColumn="Reference Name" />
+              <Mapping SourceColumn="Session Period" DataSetColumn="Session Period" />
+              <Mapping SourceColumn="Session Through" DataSetColumn="Session Through" />
+              <Mapping SourceColumn="Primary Cashier" DataSetColumn="Primary Cashier" />
+              <Mapping SourceColumn="Primary Branch" DataSetColumn="Primary Branch" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Beginning Cash" DataSetColumn="Beginning Cash" />
+              <Mapping SourceColumn="Primary Begining Cash Account" DataSetColumn="Primary Begining Cash Account" />
+              <Mapping SourceColumn="Primary Cashier Cash Account" DataSetColumn="Primary Cashier Cash Account" />
+              <Mapping SourceColumn="Primary Balance Cash Account" DataSetColumn="Primary Balance Cash Account" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetCreatedBy" Modifier="Public" Name="ScalarQuery_GetCreatedBy" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetCreatedBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Created By`, '') AS CreatedBy
+FROM            tblmaster_session
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByRefName" Modifier="Public" Name="ScalarQuery_GetJmlByRefName" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetJmlByRefName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Expr1
+FROM            tblmaster_session
+WHERE        (`Reference Name` = @RefName)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="RefName" ColumnName="Reference Name" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@RefName" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Reference Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="ScalarQuery_GetPrimary" Modifier="Public" Name="ScalarQuery_GetPrimary" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Primary`, - 1) AS `Primary`
+FROM            tblmaster_session
+WHERE        (`Reference Name` = @RefName)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="RefName" ColumnName="Reference Name" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@RefName" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Reference Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_session" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryBranch" Modifier="Public" Name="ScalarQuery_GetPrimaryBranch" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetPrimaryBranch">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Branch`
+FROM            tblmaster_session
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_session" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryCashier" Modifier="Public" Name="ScalarQuery_GetPrimaryCashier" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_GetPrimaryCashier">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Cashier`
+FROM            tblmaster_session
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetRefName" Modifier="Public" Name="ScalarQuery_GetRefName" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_GetRefName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Reference Name`, '') AS RefName
+FROM            tblmaster_session
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_session" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetSessionThroughDate" Modifier="Public" Name="ScalarQuery_GetSessionThroughDate" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy7" UserSourceName="ScalarQuery_GetSessionThroughDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Session Through`
+FROM            tblmaster_session
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_session" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetTimestamp" Modifier="Public" Name="ScalarQuery_GetTimestamp" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy6" UserSourceName="ScalarQuery_GetTimestamp">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Timestamp`
+FROM            tblmaster_session
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_session1TableAdapter" GeneratorDataComponentClassName="tblmaster_session1TableAdapter" Name="tblmaster_session1" UserDataComponentName="tblmaster_session1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_session" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tblmaster_session
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tblmaster_session
+                         (`Reference Name`, `Session Period`, `Session Through`, `Cashier Code`, `Primary Branch`, Remarks, `Beginning Cash`, `Primary Begining Cash Account`, 
+                         `Primary Cashier Cash Account`, `Primary Balance Cash Account`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`)
+VALUES        (@Reference_Name, @Session_Period, @Session_Through, @Cashier_Code, @Primary_Branch, @Remarks, @Beginning_Cash, 
+                         @Primary_Begining_Cash_Account, @Primary_Cashier_Cash_Account, @Primary_Balance_Cash_Account, @Created_By, @Created_Date, @Modified_By, 
+                         @Modified_Date, @Timestamp)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Reference_Name" ColumnName="Reference Name" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Reference_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Reference Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Session_Period" ColumnName="Session Period" DataSourceName="core_db.tblmaster_session" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Session_Period" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Session Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Session_Through" ColumnName="Session Through" DataSourceName="core_db.tblmaster_session" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Session_Through" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Session Through" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cashier_Code" ColumnName="Cashier Code" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Cashier_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Cashier Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Branch" ColumnName="Primary Branch" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Branch" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Branch" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Beginning_Cash" ColumnName="Beginning Cash" DataSourceName="core_db.tblmaster_session" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@Beginning_Cash" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Beginning Cash" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Begining_Cash_Account" ColumnName="Primary Begining Cash Account" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Begining_Cash_Account" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Begining Cash Account" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Cashier_Cash_Account" ColumnName="Primary Cashier Cash Account" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Cashier_Cash_Account" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Cashier Cash Account" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Balance_Cash_Account" ColumnName="Primary Balance Cash Account" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Balance_Cash_Account" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Balance Cash Account" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Created_By" ColumnName="Created By" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Created_Date" ColumnName="Created Date" DataSourceName="core_db.tblmaster_session" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_By" ColumnName="Modified By" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_Date" ColumnName="Modified Date" DataSourceName="core_db.tblmaster_session" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Timestamp" ColumnName="Timestamp" DataSourceName="core_db.tblmaster_session" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Reference Name`, `Session Period`, `Session Through`, `Cashier Code`, `Primary Branch`, Remarks, `Beginning Cash`, `Primary Begining Cash Account`, 
+                         `Primary Cashier Cash Account`, `Primary Balance Cash Account`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`
+FROM            tblmaster_session</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_session
+SET                `Reference Name` = @Reference_Name, `Session Period` = @Session_Period, `Session Through` = @Session_Through, `Cashier Code` = @Cashier_Code, 
+                         `Primary Branch` = @Primary_Branch, Remarks = @Remarks, `Beginning Cash` = @Beginning_Cash, 
+                         `Primary Begining Cash Account` = @Primary_Begining_Cash_Account, `Primary Cashier Cash Account` = @Primary_Cashier_Cash_Account, 
+                         `Primary Balance Cash Account` = @Primary_Balance_Cash_Account, `Modified By` = @Modified_By, `Modified Date` = @Modified_Date, 
+                         `Timestamp` = @Timestamp
+WHERE        (`Primary` = @Original_Primary) AND (`Timestamp` = @Original_Timestamp)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Reference_Name" ColumnName="Reference Name" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Reference_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Reference Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Session_Period" ColumnName="Session Period" DataSourceName="core_db.tblmaster_session" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Session_Period" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Session Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Session_Through" ColumnName="Session Through" DataSourceName="core_db.tblmaster_session" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Session_Through" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Session Through" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cashier_Code" ColumnName="Cashier Code" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Cashier_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Cashier Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Branch" ColumnName="Primary Branch" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Branch" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Branch" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Beginning_Cash" ColumnName="Beginning Cash" DataSourceName="core_db.tblmaster_session" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@Beginning_Cash" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Beginning Cash" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Begining_Cash_Account" ColumnName="Primary Begining Cash Account" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Begining_Cash_Account" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Begining Cash Account" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Cashier_Cash_Account" ColumnName="Primary Cashier Cash Account" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Cashier_Cash_Account" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Cashier Cash Account" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Balance_Cash_Account" ColumnName="Primary Balance Cash Account" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Balance_Cash_Account" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Balance Cash Account" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_By" ColumnName="Modified By" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_Date" ColumnName="Modified Date" DataSourceName="core_db.tblmaster_session" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Timestamp" ColumnName="Timestamp" DataSourceName="core_db.tblmaster_session" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Original_Timestamp" ColumnName="Timestamp" DataSourceName="core_db.tblmaster_session" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Original_Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Reference Name" DataSetColumn="Reference Name" />
+              <Mapping SourceColumn="Session Period" DataSetColumn="Session Period" />
+              <Mapping SourceColumn="Session Through" DataSetColumn="Session Through" />
+              <Mapping SourceColumn="Cashier Code" DataSetColumn="Cashier Code" />
+              <Mapping SourceColumn="Primary Branch" DataSetColumn="Primary Branch" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Beginning Cash" DataSetColumn="Beginning Cash" />
+              <Mapping SourceColumn="Primary Begining Cash Account" DataSetColumn="Primary Begining Cash Account" />
+              <Mapping SourceColumn="Primary Cashier Cash Account" DataSetColumn="Primary Cashier Cash Account" />
+              <Mapping SourceColumn="Primary Balance Cash Account" DataSetColumn="Primary Balance Cash Account" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_session" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_Primary" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_Primary" GeneratorSourceName="FillBy_Primary" GetMethodModifier="Public" GetMethodName="GetDataBy_Primary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_Primary" UserSourceName="FillBy_Primary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Reference Name`, `Session Period`, `Session Through`, `Cashier Code`, `Primary Branch`, Remarks, `Beginning Cash`, `Primary Begining Cash Account`, 
+                         `Primary Cashier Cash Account`, `Primary Balance Cash Account`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`
+FROM            tblmaster_session
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tblmaster_session" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_session.`Primary`, tblmaster_session.`Reference Name`, tblmaster_session.`Session Period`, tblmaster_session.`Session Through`, tbluser.`Kode User`,
+                          tblmaster_cabang.Code AS `Branch Code`, tblmaster_session.Remarks
+FROM            tblmaster_session INNER JOIN
+                         tbluser ON tblmaster_session.`Cashier Code` = tbluser.`Kode User` INNER JOIN
+                         tblmaster_cabang ON tblmaster_session.`Primary Branch` = tblmaster_cabang.`Primary`
+ORDER BY tblmaster_session.`Reference Name`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Reference Name" DataSetColumn="Reference Name" />
+              <Mapping SourceColumn="Session Period" DataSetColumn="Session Period" />
+              <Mapping SourceColumn="Session Through" DataSetColumn="Session Through" />
+              <Mapping SourceColumn="Kode User" DataSetColumn="Kode User" />
+              <Mapping SourceColumn="Branch Code" DataSetColumn="Branch Code" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_BranchCodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_BranchCodeLIKE" GeneratorSourceName="FillBy_BranchCodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_BranchCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_BranchCodeLIKE" UserSourceName="FillBy_BranchCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_session.`Primary`, tblmaster_session.`Reference Name`, tblmaster_session.`Session Period`, tblmaster_session.`Session Through`, tbluser.`Kode User`,
+                          tblmaster_cabang.Code AS `Branch Code`, tblmaster_session.Remarks
+FROM            tblmaster_session INNER JOIN
+                         tbluser ON tblmaster_session.`Cashier Code` = tbluser.`Kode User` INNER JOIN
+                         tblmaster_cabang ON tblmaster_session.`Primary Branch` = tblmaster_cabang.`Primary`
+WHERE        (tblmaster_cabang.Code LIKE @BranchCode)
+ORDER BY tblmaster_session.`Reference Name`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BranchCode" ColumnName="Code" DataSourceName="core_db.tblmaster_cabang" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@BranchCode" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Branch Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_CashierCodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_CashierCodeLIKE" GeneratorSourceName="FillBy_CashierCodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_CashierCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_CashierCodeLIKE" UserSourceName="FillBy_CashierCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_session.`Primary`, tblmaster_session.`Reference Name`, tblmaster_session.`Session Period`, tblmaster_session.`Session Through`, tbluser.`Kode User`,
+                          tblmaster_cabang.Code AS `Branch Code`, tblmaster_session.Remarks
+FROM            tblmaster_session INNER JOIN
+                         tbluser ON tblmaster_session.`Cashier Code` = tbluser.`Kode User` INNER JOIN
+                         tblmaster_cabang ON tblmaster_session.`Primary Branch` = tblmaster_cabang.`Primary`
+WHERE        (tbluser.`Kode User` LIKE @KodeUser)
+ORDER BY tblmaster_session.`Reference Name`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="KodeUser" ColumnName="Kode User" DataSourceName="core_db.tbluser" DataTypeServer="varchar(255)(255)" DbType="String" Direction="Input" ParameterName="@KodeUser" Precision="0" ProviderType="VarChar" Scale="0" Size="255" SourceColumn="Kode User" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_RefNumberLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_RefNumberLIKE" GeneratorSourceName="FillBy_RefNumberLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_RefNumberLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_RefNumberLIKE" UserSourceName="FillBy_RefNumberLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_session.`Primary`, tblmaster_session.`Reference Name`, tblmaster_session.`Session Period`, tblmaster_session.`Session Through`, tbluser.`Kode User`,
+                          tblmaster_cabang.Code AS `Branch Code`, tblmaster_session.Remarks
+FROM            tblmaster_session INNER JOIN
+                         tbluser ON tblmaster_session.`Cashier Code` = tbluser.`Kode User` INNER JOIN
+                         tblmaster_cabang ON tblmaster_session.`Primary Branch` = tblmaster_cabang.`Primary`
+WHERE        (tblmaster_session.`Reference Name` LIKE @RefName)
+ORDER BY tblmaster_session.`Reference Name`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="RefName" ColumnName="Reference Name" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@RefName" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Reference Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_RemarksLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_RemarksLIKE" GeneratorSourceName="FillBy_RemarksLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_RemarksLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_RemarksLIKE" UserSourceName="FillBy_RemarksLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_session.`Primary`, tblmaster_session.`Reference Name`, tblmaster_session.`Session Period`, tblmaster_session.`Session Through`, tbluser.`Kode User`,
+                          tblmaster_cabang.Code AS `Branch Code`, tblmaster_session.Remarks
+FROM            tblmaster_session INNER JOIN
+                         tbluser ON tblmaster_session.`Cashier Code` = tbluser.`Kode User` INNER JOIN
+                         tblmaster_cabang ON tblmaster_session.`Primary Branch` = tblmaster_cabang.`Primary`
+WHERE        (tblmaster_session.Remarks LIKE @Remarks)
+ORDER BY tblmaster_session.`Reference Name`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByBranchCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByBranchCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetJmlByBranchCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(tblmaster_session.`Primary`) AS Jml
+FROM            tblmaster_session INNER JOIN
+                         tblmaster_cabang ON tblmaster_session.`Primary Branch` = tblmaster_cabang.`Primary`
+WHERE        (tblmaster_cabang.Code LIKE @BranchCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BranchCode" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Object" Direction="Input" ParameterName="@BranchCode" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCashierCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByCashierCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetJmlByCashierCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(tblmaster_session.`Primary`) AS Jml
+FROM            tblmaster_session INNER JOIN
+                         tbluser ON tblmaster_session.`Cashier Code` = tbluser.`Kode User`
+WHERE        (tbluser.`Kode User` LIKE @CashierCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CashierCode" ColumnName="Kode User" DataSourceName="core_db.tbluser" DataTypeServer="varchar(255)(255)" DbType="String" Direction="Input" ParameterName="@CashierCode" Precision="0" ProviderType="VarChar" Scale="0" Size="255" SourceColumn="Kode User" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByRefNameLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByRefNameLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetJmlByRefNameLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Jml
+FROM            tblmaster_session
+WHERE        (`Reference Name` LIKE @RefName)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="RefName" ColumnName="Reference Name" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@RefName" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Reference Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByRemarksLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByRemarksLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetJmlByRemarksLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Jml
+FROM            tblmaster_session
+WHERE        (Remarks LIKE @Remarks)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="core_db.tblmaster_session" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseMast_Session" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseMast_Session" msprop:Generator_DataSetName="DseMast_Session">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblmaster_session" msprop:Generator_UserTableName="tblmaster_session" msprop:Generator_RowDeletedName="tblmaster_sessionRowDeleted" msprop:Generator_RowChangedName="tblmaster_sessionRowChanged" msprop:Generator_RowClassName="tblmaster_sessionRow" msprop:Generator_RowChangingName="tblmaster_sessionRowChanging" msprop:Generator_RowEvArgName="tblmaster_sessionRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_sessionRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_sessionDataTable" msprop:Generator_TableVarName="tabletblmaster_session" msprop:Generator_RowDeletingName="tblmaster_sessionRowDeleting" msprop:Generator_TablePropName="tblmaster_session">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Reference_x0020_Name" msprop:Generator_UserColumnName="Reference Name" msprop:Generator_ColumnVarNameInTable="columnReference_Name" msprop:Generator_ColumnPropNameInRow="Reference_Name" msprop:Generator_ColumnPropNameInTable="Reference_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Session_x0020_Period" msprop:Generator_UserColumnName="Session Period" msprop:Generator_ColumnVarNameInTable="columnSession_Period" msprop:Generator_ColumnPropNameInRow="Session_Period" msprop:Generator_ColumnPropNameInTable="Session_PeriodColumn" type="xs:dateTime" />
+              <xs:element name="Session_x0020_Through" msprop:Generator_UserColumnName="Session Through" msprop:Generator_ColumnVarNameInTable="columnSession_Through" msprop:Generator_ColumnPropNameInRow="Session_Through" msprop:Generator_ColumnPropNameInTable="Session_ThroughColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Cashier" msprop:Generator_UserColumnName="Primary Cashier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Cashier" msprop:Generator_ColumnPropNameInRow="Primary_Cashier" msprop:Generator_ColumnPropNameInTable="Primary_CashierColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Branch" msprop:Generator_UserColumnName="Primary Branch" msprop:Generator_ColumnVarNameInTable="columnPrimary_Branch" msprop:Generator_ColumnPropNameInRow="Primary_Branch" msprop:Generator_ColumnPropNameInTable="Primary_BranchColumn" type="xs:double" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Beginning_x0020_Cash" msprop:Generator_UserColumnName="Beginning Cash" msprop:Generator_ColumnVarNameInTable="columnBeginning_Cash" msprop:Generator_ColumnPropNameInRow="Beginning_Cash" msprop:Generator_ColumnPropNameInTable="Beginning_CashColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Begining_x0020_Cash_x0020_Account" msprop:Generator_UserColumnName="Primary Begining Cash Account" msprop:Generator_ColumnVarNameInTable="columnPrimary_Begining_Cash_Account" msprop:Generator_ColumnPropNameInRow="Primary_Begining_Cash_Account" msprop:Generator_ColumnPropNameInTable="Primary_Begining_Cash_AccountColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Cashier_x0020_Cash_x0020_Account" msprop:Generator_UserColumnName="Primary Cashier Cash Account" msprop:Generator_ColumnVarNameInTable="columnPrimary_Cashier_Cash_Account" msprop:Generator_ColumnPropNameInRow="Primary_Cashier_Cash_Account" msprop:Generator_ColumnPropNameInTable="Primary_Cashier_Cash_AccountColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Balance_x0020_Cash_x0020_Account" msprop:Generator_UserColumnName="Primary Balance Cash Account" msprop:Generator_ColumnVarNameInTable="columnPrimary_Balance_Cash_Account" msprop:Generator_ColumnPropNameInRow="Primary_Balance_Cash_Account" msprop:Generator_ColumnPropNameInTable="Primary_Balance_Cash_AccountColumn" type="xs:double" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_session1" msprop:Generator_UserTableName="tblmaster_session1" msprop:Generator_RowDeletedName="tblmaster_session1RowDeleted" msprop:Generator_RowChangedName="tblmaster_session1RowChanged" msprop:Generator_RowClassName="tblmaster_session1Row" msprop:Generator_RowChangingName="tblmaster_session1RowChanging" msprop:Generator_RowEvArgName="tblmaster_session1RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_session1RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_session1DataTable" msprop:Generator_TableVarName="tabletblmaster_session1" msprop:Generator_RowDeletingName="tblmaster_session1RowDeleting" msprop:Generator_TablePropName="tblmaster_session1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Reference_x0020_Name" msprop:Generator_UserColumnName="Reference Name" msprop:Generator_ColumnPropNameInRow="Reference_Name" msprop:Generator_ColumnVarNameInTable="columnReference_Name" msprop:Generator_ColumnPropNameInTable="Reference_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Session_x0020_Period" msprop:Generator_UserColumnName="Session Period" msprop:Generator_ColumnPropNameInRow="Session_Period" msprop:Generator_ColumnVarNameInTable="columnSession_Period" msprop:Generator_ColumnPropNameInTable="Session_PeriodColumn" type="xs:dateTime" />
+              <xs:element name="Session_x0020_Through" msprop:Generator_UserColumnName="Session Through" msprop:Generator_ColumnPropNameInRow="Session_Through" msprop:Generator_ColumnVarNameInTable="columnSession_Through" msprop:Generator_ColumnPropNameInTable="Session_ThroughColumn" type="xs:dateTime" />
+              <xs:element name="Cashier_x0020_Code" msprop:Generator_UserColumnName="Cashier Code" msprop:Generator_ColumnPropNameInRow="Cashier_Code" msprop:Generator_ColumnVarNameInTable="columnCashier_Code" msprop:Generator_ColumnPropNameInTable="Cashier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Branch" msprop:Generator_UserColumnName="Primary Branch" msprop:Generator_ColumnPropNameInRow="Primary_Branch" msprop:Generator_ColumnVarNameInTable="columnPrimary_Branch" msprop:Generator_ColumnPropNameInTable="Primary_BranchColumn" type="xs:double" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Beginning_x0020_Cash" msprop:Generator_UserColumnName="Beginning Cash" msprop:Generator_ColumnPropNameInRow="Beginning_Cash" msprop:Generator_ColumnVarNameInTable="columnBeginning_Cash" msprop:Generator_ColumnPropNameInTable="Beginning_CashColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Begining_x0020_Cash_x0020_Account" msprop:Generator_UserColumnName="Primary Begining Cash Account" msprop:Generator_ColumnPropNameInRow="Primary_Begining_Cash_Account" msprop:Generator_ColumnVarNameInTable="columnPrimary_Begining_Cash_Account" msprop:Generator_ColumnPropNameInTable="Primary_Begining_Cash_AccountColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Cashier_x0020_Cash_x0020_Account" msprop:Generator_UserColumnName="Primary Cashier Cash Account" msprop:Generator_ColumnPropNameInRow="Primary_Cashier_Cash_Account" msprop:Generator_ColumnVarNameInTable="columnPrimary_Cashier_Cash_Account" msprop:Generator_ColumnPropNameInTable="Primary_Cashier_Cash_AccountColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Balance_x0020_Cash_x0020_Account" msprop:Generator_UserColumnName="Primary Balance Cash Account" msprop:Generator_ColumnPropNameInRow="Primary_Balance_Cash_Account" msprop:Generator_ColumnVarNameInTable="columnPrimary_Balance_Cash_Account" msprop:Generator_ColumnPropNameInTable="Primary_Balance_Cash_AccountColumn" type="xs:double" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Reference_x0020_Name" msprop:Generator_UserColumnName="Reference Name" msprop:Generator_ColumnPropNameInRow="Reference_Name" msprop:Generator_ColumnVarNameInTable="columnReference_Name" msprop:Generator_ColumnPropNameInTable="Reference_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Session_x0020_Period" msprop:Generator_UserColumnName="Session Period" msprop:Generator_ColumnPropNameInRow="Session_Period" msprop:Generator_ColumnVarNameInTable="columnSession_Period" msprop:Generator_ColumnPropNameInTable="Session_PeriodColumn" type="xs:dateTime" />
+              <xs:element name="Session_x0020_Through" msprop:Generator_UserColumnName="Session Through" msprop:Generator_ColumnPropNameInRow="Session_Through" msprop:Generator_ColumnVarNameInTable="columnSession_Through" msprop:Generator_ColumnPropNameInTable="Session_ThroughColumn" type="xs:dateTime" />
+              <xs:element name="Kode_x0020_User" msprop:Generator_UserColumnName="Kode User" msprop:Generator_ColumnPropNameInRow="Kode_User" msprop:Generator_ColumnVarNameInTable="columnKode_User" msprop:Generator_ColumnPropNameInTable="Kode_UserColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Branch_x0020_Code" msprop:Generator_UserColumnName="Branch Code" msprop:Generator_ColumnPropNameInRow="Branch_Code" msprop:Generator_ColumnVarNameInTable="columnBranch_Code" msprop:Generator_ColumnPropNameInTable="Branch_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_session" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_session1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_session1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="DataTable1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

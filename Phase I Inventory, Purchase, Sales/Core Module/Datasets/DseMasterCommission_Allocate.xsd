@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseMasterCommission_Allocate" targetNamespace="http://tempuri.org/DseMasterCommission_Allocate.xsd" xmlns:mstns="http://tempuri.org/DseMasterCommission_Allocate.xsd" xmlns="http://tempuri.org/DseMasterCommission_Allocate.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Core_DbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="Core_DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Core_Module.My.MySettings.GlobalReference.Default.Core_DbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblproductTableAdapter" GeneratorDataComponentClassName="tblproductTableAdapter" Name="tblproduct" UserDataComponentName="tblproductTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_product.`Primary`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, tblmaster_product.`Primary Unit`, 
+                         tblmaster_master_unit.`Unit Code`, tblmaster_product.`Primary Category`, tblmaster_category.`Category Code`, tblmaster_category.Description AS `Category Desc`, 
+                         tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Group Code` AS `Sub Brand Code`, 
+                         tblmaster_product_group.Description AS `Sub Brand Desc`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, 
+                         tblmaster_product_group_1.`Group Code` AS `Brand Code`, tblmaster_product_group_1.Description AS `Brand Desc`, 
+                         tblmaster_product_group_1.`Parent Group Primary` AS `Primary Product Group`, tblmaster_product_group_2.`Group Code` AS `Product Group Code`, 
+                         tblmaster_product_group_2.Description AS `Product Group Desc`
+FROM            tblmaster_product INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_2 ON tblmaster_product_group_1.`Parent Group Primary` = tblmaster_product_group_2.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Primary Unit" DataSetColumn="Primary Unit" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Category Desc" DataSetColumn="Category Desc" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Sub Brand Code" DataSetColumn="Sub Brand Code" />
+              <Mapping SourceColumn="Sub Brand Desc" DataSetColumn="Sub Brand Desc" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+              <Mapping SourceColumn="Primary Product Group" DataSetColumn="Primary Product Group" />
+              <Mapping SourceColumn="Product Group Code" DataSetColumn="Product Group Code" />
+              <Mapping SourceColumn="Product Group Desc" DataSetColumn="Product Group Desc" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salesinvoice_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_salesinvoice_itemTableAdapter" Name="tbltrans_salesinvoice_item" UserDataComponentName="tbltrans_salesinvoice_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salesinvoice_item.`Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Primary Category`, 
+                         tblmaster_category.`Category Code`, tblmaster_category.Description AS `Category Desc`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, 
+                         tblmaster_product_group.`Group Code` AS `Sub Brand Code`, tblmaster_product_group.Description AS `Sub Brand Desc`, 
+                         tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Group Code` AS `Brand Code`, 
+                         tblmaster_product_group_1.Description AS `Brand Desc`, tblmaster_product_group_1.`Parent Group Primary` AS `Primary Product Group`, 
+                         tblmaster_product_group_2.`Group Code` AS `Product Group Code`, tblmaster_product_group_2.Description AS `Product Group Desc`
+FROM            tbltrans_salesinvoice INNER JOIN
+                         tbltrans_salesinvoice_item ON tbltrans_salesinvoice.`Primary` = tbltrans_salesinvoice_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_salesinvoice_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_2 ON tblmaster_product_group_1.`Parent Group Primary` = tblmaster_product_group_2.`Primary`
+WHERE        (tbltrans_salesinvoice.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salesinvoice.`Tanggal Transaksi` &gt;= @FromDate)
+GROUP BY tbltrans_salesinvoice_item.`Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Primary Category`, 
+                         tblmaster_category.`Category Code`, tblmaster_category.Description, tblmaster_category.`Parent Group Primary`, tblmaster_product_group.`Group Code`, 
+                         tblmaster_product_group.Description, tblmaster_product_group.`Parent Group Primary`, tblmaster_product_group_1.`Group Code`, 
+                         tblmaster_product_group_1.Description, tblmaster_product_group_1.`Parent Group Primary`, tblmaster_product_group_2.`Group Code`, 
+                         tblmaster_product_group_2.Description
+ORDER BY tbltrans_salesinvoice_item.`Primary Product`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_gemilang.tbltrans_salesinvoice" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="FromDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_gemilang.tbltrans_salesinvoice" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@FromDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Category Desc" DataSetColumn="Category Desc" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Sub Brand Code" DataSetColumn="Sub Brand Code" />
+              <Mapping SourceColumn="Sub Brand Desc" DataSetColumn="Sub Brand Desc" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+              <Mapping SourceColumn="Primary Product Group" DataSetColumn="Primary Product Group" />
+              <Mapping SourceColumn="Product Group Code" DataSetColumn="Product Group Code" />
+              <Mapping SourceColumn="Product Group Desc" DataSetColumn="Product Group Desc" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_sales_commission_allocateTableAdapter" GeneratorDataComponentClassName="tblmaster_sales_commission_allocateTableAdapter" Name="tblmaster_sales_commission_allocate" UserDataComponentName="tblmaster_sales_commission_allocateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_gemilang.tblmaster_sales_commission_allocate" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tblmaster_sales_commission_allocate
+WHERE        (`primary code no` = @Original_primary_code_no)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_code_no" ColumnName="primary code no" DataSourceName="smess_gemilang.tblmaster_sales_commission_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_code_no" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary code no" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tblmaster_sales_commission_allocate
+                         (`primary code no`, `primary commission`)
+VALUES        (@primary_code_no, @primary_commission)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_code_no" ColumnName="primary code no" DataSourceName="smess_gemilang.tblmaster_sales_commission_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_code_no" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary code no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_commission" ColumnName="primary commission" DataSourceName="smess_gemilang.tblmaster_sales_commission_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_commission" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary commission" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary code no`, `primary commission`
+FROM            tblmaster_sales_commission_allocate</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_sales_commission_allocate
+SET                `primary code no` = @primary_code_no, `primary commission` = @primary_commission
+WHERE        (`primary code no` = @Original_primary_code_no) AND (`primary commission` = @Original_primary_commission)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_code_no" ColumnName="primary code no" DataSourceName="smess_gemilang.tblmaster_sales_commission_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_code_no" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary code no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_commission" ColumnName="primary commission" DataSourceName="smess_gemilang.tblmaster_sales_commission_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_commission" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary commission" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_code_no" ColumnName="primary code no" DataSourceName="smess_gemilang.tblmaster_sales_commission_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_code_no" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary code no" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_commission" ColumnName="primary commission" DataSourceName="smess_gemilang.tblmaster_sales_commission_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_commission" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary commission" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary code no" DataSetColumn="primary code no" />
+              <Mapping SourceColumn="primary commission" DataSetColumn="primary commission" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_sales_commission_allocate1TableAdapter" GeneratorDataComponentClassName="tblmaster_sales_commission_allocate1TableAdapter" Name="tblmaster_sales_commission_allocate1" UserDataComponentName="tblmaster_sales_commission_allocate1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_gemilang.tblmaster_product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_sales_commission_allocate.`primary`, tblmaster_sales_commission_allocate.`primary code no`, tblmaster_product.`Product Code`, 
+                         tblmaster_product.Description, tblmaster_sales_commission_allocate.`primary commission` AS `Primary Commission`, 
+                         tblmaster_sales_commission.Code AS `Commission Code`, tblmaster_sales_commission.Description AS `Commission Desc`
+FROM            tblmaster_sales_commission_allocate INNER JOIN
+                         tblmaster_sales_commission ON tblmaster_sales_commission_allocate.`primary commission` = tblmaster_sales_commission.`Primary` INNER JOIN
+                         tblmaster_product ON tblmaster_sales_commission_allocate.`primary code no` = tblmaster_product.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary code no" DataSetColumn="primary code no" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Commission" DataSetColumn="Primary Commission" />
+              <Mapping SourceColumn="Commission Code" DataSetColumn="Commission Code" />
+              <Mapping SourceColumn="Commission Desc" DataSetColumn="Commission Desc" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseMasterCommission_Allocate" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseMasterCommission_Allocate" msprop:Generator_DataSetName="DseMasterCommission_Allocate">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblproduct" msprop:Generator_UserTableName="tblproduct" msprop:Generator_RowDeletedName="tblproductRowDeleted" msprop:Generator_RowChangedName="tblproductRowChanged" msprop:Generator_RowClassName="tblproductRow" msprop:Generator_RowChangingName="tblproductRowChanging" msprop:Generator_RowEvArgName="tblproductRowChangeEvent" msprop:Generator_RowEvHandlerName="tblproductRowChangeEventHandler" msprop:Generator_TableClassName="tblproductDataTable" msprop:Generator_TableVarName="tabletblproduct" msprop:Generator_RowDeletingName="tblproductRowDeleting" msprop:Generator_TablePropName="tblproduct">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Unit" msprop:Generator_UserColumnName="Primary Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit" msprop:Generator_ColumnPropNameInRow="Primary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_UnitColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category_x0020_Desc" msprop:Generator_UserColumnName="Category Desc" msprop:Generator_ColumnVarNameInTable="columnCategory_Desc" msprop:Generator_ColumnPropNameInRow="Category_Desc" msprop:Generator_ColumnPropNameInTable="Category_DescColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Sub_x0020_Brand_x0020_Code" msprop:Generator_UserColumnName="Sub Brand Code" msprop:Generator_ColumnVarNameInTable="columnSub_Brand_Code" msprop:Generator_ColumnPropNameInRow="Sub_Brand_Code" msprop:Generator_ColumnPropNameInTable="Sub_Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sub_x0020_Brand_x0020_Desc" msprop:Generator_UserColumnName="Sub Brand Desc" msprop:Generator_ColumnVarNameInTable="columnSub_Brand_Desc" msprop:Generator_ColumnPropNameInRow="Sub_Brand_Desc" msprop:Generator_ColumnPropNameInTable="Sub_Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product_x0020_Group" msprop:Generator_UserColumnName="Primary Product Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product_Group" msprop:Generator_ColumnPropNameInRow="Primary_Product_Group" msprop:Generator_ColumnPropNameInTable="Primary_Product_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Product_x0020_Group_x0020_Code" msprop:Generator_UserColumnName="Product Group Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Group_Code" msprop:Generator_ColumnPropNameInRow="Product_Group_Code" msprop:Generator_ColumnPropNameInTable="Product_Group_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Group_x0020_Desc" msprop:Generator_UserColumnName="Product Group Desc" msprop:Generator_ColumnVarNameInTable="columnProduct_Group_Desc" msprop:Generator_ColumnPropNameInRow="Product_Group_Desc" msprop:Generator_ColumnPropNameInTable="Product_Group_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salesinvoice_item" msprop:Generator_UserTableName="tbltrans_salesinvoice_item" msprop:Generator_RowDeletedName="tbltrans_salesinvoice_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_salesinvoice_itemRowChanged" msprop:Generator_RowClassName="tbltrans_salesinvoice_itemRow" msprop:Generator_RowChangingName="tbltrans_salesinvoice_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_salesinvoice_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salesinvoice_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salesinvoice_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_salesinvoice_item" msprop:Generator_RowDeletingName="tbltrans_salesinvoice_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_salesinvoice_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category_x0020_Desc" msprop:Generator_UserColumnName="Category Desc" msprop:Generator_ColumnVarNameInTable="columnCategory_Desc" msprop:Generator_ColumnPropNameInRow="Category_Desc" msprop:Generator_ColumnPropNameInTable="Category_DescColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Sub_x0020_Brand_x0020_Code" msprop:Generator_UserColumnName="Sub Brand Code" msprop:Generator_ColumnVarNameInTable="columnSub_Brand_Code" msprop:Generator_ColumnPropNameInRow="Sub_Brand_Code" msprop:Generator_ColumnPropNameInTable="Sub_Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sub_x0020_Brand_x0020_Desc" msprop:Generator_UserColumnName="Sub Brand Desc" msprop:Generator_ColumnVarNameInTable="columnSub_Brand_Desc" msprop:Generator_ColumnPropNameInRow="Sub_Brand_Desc" msprop:Generator_ColumnPropNameInTable="Sub_Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product_x0020_Group" msprop:Generator_UserColumnName="Primary Product Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product_Group" msprop:Generator_ColumnPropNameInRow="Primary_Product_Group" msprop:Generator_ColumnPropNameInTable="Primary_Product_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Product_x0020_Group_x0020_Code" msprop:Generator_UserColumnName="Product Group Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Group_Code" msprop:Generator_ColumnPropNameInRow="Product_Group_Code" msprop:Generator_ColumnPropNameInTable="Product_Group_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Group_x0020_Desc" msprop:Generator_UserColumnName="Product Group Desc" msprop:Generator_ColumnVarNameInTable="columnProduct_Group_Desc" msprop:Generator_ColumnPropNameInRow="Product_Group_Desc" msprop:Generator_ColumnPropNameInTable="Product_Group_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_sales_commission_allocate" msprop:Generator_UserTableName="tblmaster_sales_commission_allocate" msprop:Generator_RowDeletedName="tblmaster_sales_commission_allocateRowDeleted" msprop:Generator_RowChangedName="tblmaster_sales_commission_allocateRowChanged" msprop:Generator_RowClassName="tblmaster_sales_commission_allocateRow" msprop:Generator_RowChangingName="tblmaster_sales_commission_allocateRowChanging" msprop:Generator_RowEvArgName="tblmaster_sales_commission_allocateRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_sales_commission_allocateRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_sales_commission_allocateDataTable" msprop:Generator_TableVarName="tabletblmaster_sales_commission_allocate" msprop:Generator_RowDeletingName="tblmaster_sales_commission_allocateRowDeleting" msprop:Generator_TablePropName="tblmaster_sales_commission_allocate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_code_x0020_no" msprop:Generator_UserColumnName="primary code no" msprop:Generator_ColumnVarNameInTable="columnprimary_code_no" msprop:Generator_ColumnPropNameInRow="primary_code_no" msprop:Generator_ColumnPropNameInTable="primary_code_noColumn" type="xs:double" />
+              <xs:element name="primary_x0020_commission" msprop:Generator_UserColumnName="primary commission" msprop:Generator_ColumnVarNameInTable="columnprimary_commission" msprop:Generator_ColumnPropNameInRow="primary_commission" msprop:Generator_ColumnPropNameInTable="primary_commissionColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbldummy_allocate" msprop:Generator_UserTableName="tbldummy_allocate" msprop:Generator_RowDeletedName="tbldummy_allocateRowDeleted" msprop:Generator_RowChangedName="tbldummy_allocateRowChanged" msprop:Generator_RowClassName="tbldummy_allocateRow" msprop:Generator_RowChangingName="tbldummy_allocateRowChanging" msprop:Generator_RowEvArgName="tbldummy_allocateRowChangeEvent" msprop:Generator_RowEvHandlerName="tbldummy_allocateRowChangeEventHandler" msprop:Generator_TableClassName="tbldummy_allocateDataTable" msprop:Generator_TableVarName="tabletbldummy_allocate" msprop:Generator_RowDeletingName="tbldummy_allocateRowDeleting" msprop:Generator_TablePropName="tbldummy_allocate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Primary_x0020_Commission" msprop:Generator_UserColumnName="Primary Commission" msprop:Generator_ColumnVarNameInTable="columnPrimary_Commission" msprop:Generator_ColumnPropNameInRow="Primary_Commission" msprop:Generator_ColumnPropNameInTable="Primary_CommissionColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Commission_x0020_Code" msprop:Generator_UserColumnName="Commission Code" msprop:Generator_ColumnVarNameInTable="columnCommission_Code" msprop:Generator_ColumnPropNameInRow="Commission_Code" msprop:Generator_ColumnPropNameInTable="Commission_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Commission_x0020_Desc" msprop:Generator_UserColumnName="Commission Desc" msprop:Generator_ColumnVarNameInTable="columnCommission_Desc" msprop:Generator_ColumnPropNameInRow="Commission_Desc" msprop:Generator_ColumnPropNameInTable="Commission_DescColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Set_x0020_Filter" msprop:Generator_UserColumnName="Set Filter" msprop:Generator_ColumnVarNameInTable="columnSet_Filter" msprop:Generator_ColumnPropNameInRow="Set_Filter" msprop:Generator_ColumnPropNameInTable="Set_FilterColumn" type="xs:int" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_sales_commission_allocate1" msprop:Generator_UserTableName="tblmaster_sales_commission_allocate1" msprop:Generator_RowDeletedName="tblmaster_sales_commission_allocate1RowDeleted" msprop:Generator_RowChangedName="tblmaster_sales_commission_allocate1RowChanged" msprop:Generator_RowClassName="tblmaster_sales_commission_allocate1Row" msprop:Generator_RowChangingName="tblmaster_sales_commission_allocate1RowChanging" msprop:Generator_RowEvArgName="tblmaster_sales_commission_allocate1RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_sales_commission_allocate1RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_sales_commission_allocate1DataTable" msprop:Generator_TableVarName="tabletblmaster_sales_commission_allocate1" msprop:Generator_RowDeletingName="tblmaster_sales_commission_allocate1RowDeleting" msprop:Generator_TablePropName="tblmaster_sales_commission_allocate1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_code_x0020_no" msprop:Generator_UserColumnName="primary code no" msprop:Generator_ColumnVarNameInTable="columnprimary_code_no" msprop:Generator_ColumnPropNameInRow="primary_code_no" msprop:Generator_ColumnPropNameInTable="primary_code_noColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Commission" msprop:Generator_UserColumnName="Primary Commission" msprop:Generator_ColumnVarNameInTable="columnPrimary_Commission" msprop:Generator_ColumnPropNameInRow="Primary_Commission" msprop:Generator_ColumnPropNameInTable="Primary_CommissionColumn" type="xs:double" />
+              <xs:element name="Commission_x0020_Code" msprop:Generator_UserColumnName="Commission Code" msprop:Generator_ColumnVarNameInTable="columnCommission_Code" msprop:Generator_ColumnPropNameInRow="Commission_Code" msprop:Generator_ColumnPropNameInTable="Commission_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Commission_x0020_Desc" msprop:Generator_UserColumnName="Commission Desc" msprop:Generator_ColumnVarNameInTable="columnCommission_Desc" msprop:Generator_ColumnPropNameInRow="Commission_Desc" msprop:Generator_ColumnPropNameInTable="Commission_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

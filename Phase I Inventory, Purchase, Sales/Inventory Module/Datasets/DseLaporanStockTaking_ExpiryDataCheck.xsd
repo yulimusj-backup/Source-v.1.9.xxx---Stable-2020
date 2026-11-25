@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanStockTaking_ExpiryDataCheck" targetNamespace="http://tempuri.org/DseLaporanStockTaking_ExpiryDataCheck.xsd" xmlns:mstns="http://tempuri.org/DseLaporanStockTaking_ExpiryDataCheck.xsd" xmlns="http://tempuri.org/DseLaporanStockTaking_ExpiryDataCheck.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable8TableAdapter" GeneratorDataComponentClassName="DataTable8TableAdapter" Name="DataTable8" UserDataComponentName="DataTable8TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_stock_taking_tag.`Primary Stock Taking`, tbltrans_stock_taking_tag_item.`Primary Product`, SUM(tbltrans_stock_taking_tag_item.Qty) 
+                         AS `Qty Taking`, tbltrans_stock_taking_tag_item.`Batch No` AS `Lot No`
+FROM            tbltrans_stock_taking_tag_item INNER JOIN
+                         tbltrans_stock_taking_tag ON tbltrans_stock_taking_tag_item.`Primary Tag` = tbltrans_stock_taking_tag.`Primary` INNER JOIN
+                         tblmaster_product ON tbltrans_stock_taking_tag_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.`Expiry Date Controlled` = 1)
+GROUP BY tbltrans_stock_taking_tag_item.`Batch No`, tbltrans_stock_taking_tag_item.`Primary Product`, tbltrans_stock_taking_tag.`Primary Stock Taking`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Stock Taking" DataSetColumn="Primary Stock Taking" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty Taking" DataSetColumn="Qty Taking" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_stock_taking_itemstartTableAdapter" GeneratorDataComponentClassName="tbltrans_stock_taking_itemstartTableAdapter" Name="tbltrans_stock_taking_itemstart" UserDataComponentName="tbltrans_stock_taking_itemstartTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_stock_taking_itemstart" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_stock_taking_itemstart.`Primary Product`, SUM(tbltrans_stock_taking_itemstart.Qty) AS `Qty On Hand`, tbltrans_stock_taking_itemstart.`Lot No`, 
+                         tbltrans_stock_taking_itemstart.`Expiry Date`
+FROM            tbltrans_stock_taking_itemstart INNER JOIN
+                         tblmaster_product ON tbltrans_stock_taking_itemstart.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.`Expiry Date Controlled` = 1)
+GROUP BY tbltrans_stock_taking_itemstart.`Lot No`, tbltrans_stock_taking_itemstart.`Expiry Date`, tbltrans_stock_taking_itemstart.`Primary Product`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty On Hand" DataSetColumn="Qty On Hand" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+              <Mapping SourceColumn="Expiry Date" DataSetColumn="Expiry Date" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        laporan_stock_taking_view_expirydate1_view.`Primary Product`, laporan_stock_taking_view_expirydate1_view.`Lot No`, 
+                         laporan_stock_taking_view_expirydate1_view.`Qty Taking`, tbltrans_stock_taking_tag_item.`Expiry Date` AS `Expiry Date Taking`, 
+                         laporan_stock_taking_view_expirydate1_view.`Primary Stock Taking`
+FROM            laporan_stock_taking_view_expirydate1_view INNER JOIN
+                         tbltrans_stock_taking_tag_item ON laporan_stock_taking_view_expirydate1_view.`Primary Product` = tbltrans_stock_taking_tag_item.`Primary Product` AND 
+                         laporan_stock_taking_view_expirydate1_view.`Lot No` = tbltrans_stock_taking_tag_item.`Batch No`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+              <Mapping SourceColumn="Qty Taking" DataSetColumn="Qty Taking" />
+              <Mapping SourceColumn="Expiry Date Taking" DataSetColumn="Expiry Date Taking" />
+              <Mapping SourceColumn="Primary Stock Taking" DataSetColumn="Primary Stock Taking" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        laporan_stock_taking_view_expirydate2_view.`Primary Stock Taking`, laporan_stock_taking_view_expirydate2_view.`Primary Product`, 
+                         tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_master_unit.`Unit Code`, laporan_stock_taking_view_expirydate2_view.`Lot No`, 
+                         laporan_stock_taking_view_expirydate2_view.`Qty Taking`, laporan_stock_taking_view_expirydate0_view.`Qty On Hand`, 
+                         laporan_stock_taking_view_expirydate2_view.`Expiry Date Taking`, laporan_stock_taking_view_expirydate0_view.`Expiry Date`
+FROM            laporan_stock_taking_view_expirydate2_view INNER JOIN
+                         tblmaster_product ON laporan_stock_taking_view_expirydate2_view.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         laporan_stock_taking_view_expirydate0_view ON 
+                         laporan_stock_taking_view_expirydate2_view.`Primary Product` = laporan_stock_taking_view_expirydate0_view.`Primary Product` AND 
+                         laporan_stock_taking_view_expirydate2_view.`Lot No` = laporan_stock_taking_view_expirydate0_view.`Lot No`
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Stock Taking" DataSetColumn="Primary Stock Taking" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+              <Mapping SourceColumn="Qty Taking" DataSetColumn="Qty Taking" />
+              <Mapping SourceColumn="Qty On Hand" DataSetColumn="Qty On Hand" />
+              <Mapping SourceColumn="Expiry Date Taking" DataSetColumn="Expiry Date Taking" />
+              <Mapping SourceColumn="Expiry Date" DataSetColumn="Expiry Date" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_stock_taking_tag.`Primary Stock Taking`, tbltrans_stock_taking_tag.`Tag No`, tbltrans_stock_taking_tag_item.`Primary Product`, 
+                         tbltrans_stock_taking_tag_item.`Batch No` AS `Lot No`, SUM(tbltrans_stock_taking_tag_item.Qty) AS Qty, tbltrans_stock_taking_tag_item.`Expiry Date`
+FROM            tbltrans_stock_taking_tag INNER JOIN
+                         tbltrans_stock_taking_tag_item ON tbltrans_stock_taking_tag.`Primary` = tbltrans_stock_taking_tag_item.`Primary Tag`
+GROUP BY tbltrans_stock_taking_tag_item.`Primary Product`, tbltrans_stock_taking_tag.`Primary Stock Taking`, tbltrans_stock_taking_tag_item.`Batch No`, 
+                         tbltrans_stock_taking_tag_item.`Expiry Date`, tbltrans_stock_taking_tag.`Tag No`
+HAVING        (tbltrans_stock_taking_tag.`Primary Stock Taking` = @PrimaryStockTaking)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryStockTaking" ColumnName="Primary Stock Taking" DataSourceName="tbltrans_stock_taking_tag" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryStockTaking" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Stock Taking" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Stock Taking" DataSetColumn="Primary Stock Taking" />
+              <Mapping SourceColumn="Tag No" DataSetColumn="Tag No" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Expiry Date" DataSetColumn="Expiry Date" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="laporan_stock_taking_view_expirydate3_viewSumberTableAdapter" GeneratorDataComponentClassName="laporan_stock_taking_view_expirydate3_viewSumberTableAdapter" Name="laporan_stock_taking_view_expirydate3_viewSumber" UserDataComponentName="laporan_stock_taking_view_expirydate3_viewSumberTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_stock_taking_view_expirydate3_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Product`, `Product Code`, Description, `Unit Code`, `Lot No`, `Qty Taking`, `Qty On Hand`, `Expiry Date Taking`, `Expiry Date`, `Decimal`
+FROM            laporan_stock_taking_view_expirydate3_view
+WHERE        (`Primary Stock Taking` = @PrimaryStockTaking) AND (Type = @TypeItem)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryStockTaking" ColumnName="Primary Stock Taking" DataSourceName="core_db.laporan_stock_taking_view_expirydate3_view" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryStockTaking" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Stock Taking" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TypeItem" ColumnName="Type" DataSourceName="core_db.laporan_stock_taking_view_expirydate3_view" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@TypeItem" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+              <Mapping SourceColumn="Qty Taking" DataSetColumn="Qty Taking" />
+              <Mapping SourceColumn="Qty On Hand" DataSetColumn="Qty On Hand" />
+              <Mapping SourceColumn="Expiry Date Taking" DataSetColumn="Expiry Date Taking" />
+              <Mapping SourceColumn="Expiry Date" DataSetColumn="Expiry Date" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanStockTaking_ExpiryDataCheck" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanStockTaking_ExpiryDataCheck" msprop:Generator_DataSetName="DseLaporanStockTaking_ExpiryDataCheck">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable8" msprop:Generator_UserTableName="DataTable8" msprop:Generator_RowDeletedName="DataTable8RowDeleted" msprop:Generator_RowChangedName="DataTable8RowChanged" msprop:Generator_RowClassName="DataTable8Row" msprop:Generator_RowChangingName="DataTable8RowChanging" msprop:Generator_RowEvArgName="DataTable8RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable8RowChangeEventHandler" msprop:Generator_TableClassName="DataTable8DataTable" msprop:Generator_TableVarName="tableDataTable8" msprop:Generator_RowDeletingName="DataTable8RowDeleting" msprop:Generator_TablePropName="DataTable8">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Stock_x0020_Taking" msprop:Generator_UserColumnName="Primary Stock Taking" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Taking" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Taking" msprop:Generator_ColumnPropNameInTable="Primary_Stock_TakingColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty_x0020_Taking" msprop:Generator_UserColumnName="Qty Taking" msprop:Generator_ColumnPropNameInRow="Qty_Taking" msprop:Generator_ColumnVarNameInTable="columnQty_Taking" msprop:Generator_ColumnPropNameInTable="Qty_TakingColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_stock_taking_itemstart" msprop:Generator_UserTableName="tbltrans_stock_taking_itemstart" msprop:Generator_RowDeletedName="tbltrans_stock_taking_itemstartRowDeleted" msprop:Generator_RowChangedName="tbltrans_stock_taking_itemstartRowChanged" msprop:Generator_RowClassName="tbltrans_stock_taking_itemstartRow" msprop:Generator_RowChangingName="tbltrans_stock_taking_itemstartRowChanging" msprop:Generator_RowEvArgName="tbltrans_stock_taking_itemstartRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_stock_taking_itemstartRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_stock_taking_itemstartDataTable" msprop:Generator_TableVarName="tabletbltrans_stock_taking_itemstart" msprop:Generator_RowDeletingName="tbltrans_stock_taking_itemstartRowDeleting" msprop:Generator_TablePropName="tbltrans_stock_taking_itemstart">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty_x0020_On_x0020_Hand" msprop:Generator_UserColumnName="Qty On Hand" msprop:Generator_ColumnPropNameInRow="Qty_On_Hand" msprop:Generator_ColumnVarNameInTable="columnQty_On_Hand" msprop:Generator_ColumnPropNameInTable="Qty_On_HandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qty_x0020_Taking" msprop:Generator_UserColumnName="Qty Taking" msprop:Generator_ColumnPropNameInRow="Qty_Taking" msprop:Generator_ColumnVarNameInTable="columnQty_Taking" msprop:Generator_ColumnPropNameInTable="Qty_TakingColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Expiry_x0020_Date_x0020_Taking" msprop:Generator_UserColumnName="Expiry Date Taking" msprop:Generator_ColumnPropNameInRow="Expiry_Date_Taking" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date_Taking" msprop:Generator_ColumnPropNameInTable="Expiry_Date_TakingColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Stock_x0020_Taking" msprop:Generator_UserColumnName="Primary Stock Taking" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Taking" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Taking" msprop:Generator_ColumnPropNameInTable="Primary_Stock_TakingColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Stock_x0020_Taking" msprop:Generator_UserColumnName="Primary Stock Taking" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Taking" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Taking" msprop:Generator_ColumnPropNameInTable="Primary_Stock_TakingColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qty_x0020_Taking" msprop:Generator_UserColumnName="Qty Taking" msprop:Generator_ColumnPropNameInRow="Qty_Taking" msprop:Generator_ColumnVarNameInTable="columnQty_Taking" msprop:Generator_ColumnPropNameInTable="Qty_TakingColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Qty_x0020_On_x0020_Hand" msprop:Generator_UserColumnName="Qty On Hand" msprop:Generator_ColumnPropNameInRow="Qty_On_Hand" msprop:Generator_ColumnVarNameInTable="columnQty_On_Hand" msprop:Generator_ColumnPropNameInTable="Qty_On_HandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Expiry_x0020_Date_x0020_Taking" msprop:Generator_UserColumnName="Expiry Date Taking" msprop:Generator_ColumnPropNameInRow="Expiry_Date_Taking" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date_Taking" msprop:Generator_ColumnPropNameInTable="Expiry_Date_TakingColumn" type="xs:dateTime" />
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable3" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_TablePropName="DataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Stock_x0020_Taking" msprop:Generator_UserColumnName="Primary Stock Taking" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Taking" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Taking" msprop:Generator_ColumnPropNameInTable="Primary_Stock_TakingColumn" type="xs:double" />
+              <xs:element name="Tag_x0020_No" msprop:Generator_UserColumnName="Tag No" msprop:Generator_ColumnVarNameInTable="columnTag_No" msprop:Generator_ColumnPropNameInRow="Tag_No" msprop:Generator_ColumnPropNameInTable="Tag_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laporan_stock_taking_view_expirydate3_view" msprop:Generator_UserTableName="laporan_stock_taking_view_expirydate3_view" msprop:Generator_RowDeletedName="laporan_stock_taking_view_expirydate3_viewRowDeleted" msprop:Generator_RowChangedName="laporan_stock_taking_view_expirydate3_viewRowChanged" msprop:Generator_RowClassName="laporan_stock_taking_view_expirydate3_viewRow" msprop:Generator_RowChangingName="laporan_stock_taking_view_expirydate3_viewRowChanging" msprop:Generator_RowEvArgName="laporan_stock_taking_view_expirydate3_viewRowChangeEvent" msprop:Generator_RowEvHandlerName="laporan_stock_taking_view_expirydate3_viewRowChangeEventHandler" msprop:Generator_TableClassName="laporan_stock_taking_view_expirydate3_viewDataTable" msprop:Generator_TableVarName="tablelaporan_stock_taking_view_expirydate3_view" msprop:Generator_RowDeletingName="laporan_stock_taking_view_expirydate3_viewRowDeleting" msprop:Generator_TablePropName="laporan_stock_taking_view_expirydate3_view">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qty_x0020_Taking" msprop:Generator_UserColumnName="Qty Taking" msprop:Generator_ColumnPropNameInRow="Qty_Taking" msprop:Generator_ColumnVarNameInTable="columnQty_Taking" msprop:Generator_ColumnPropNameInTable="Qty_TakingColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Qty_x0020_On_x0020_Hand" msprop:Generator_UserColumnName="Qty On Hand" msprop:Generator_ColumnPropNameInRow="Qty_On_Hand" msprop:Generator_ColumnVarNameInTable="columnQty_On_Hand" msprop:Generator_ColumnPropNameInTable="Qty_On_HandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Expiry_x0020_Date_x0020_Taking" msprop:Generator_UserColumnName="Expiry Date Taking" msprop:Generator_ColumnPropNameInRow="Expiry_Date_Taking" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date_Taking" msprop:Generator_ColumnPropNameInTable="Expiry_Date_TakingColumn" type="xs:dateTime" />
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+              <xs:element name="Tag_x0020_No" msprop:Generator_UserColumnName="Tag No" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Tag_No" msprop:Generator_ColumnPropNameInTable="Tag_NoColumn" msprop:Generator_ColumnVarNameInTable="columnTag_No" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Group_x0020_No" msprop:Generator_UserColumnName="Group No" msprop:Generator_ColumnPropNameInRow="Group_No" msprop:Generator_ColumnVarNameInTable="columnGroup_No" msprop:Generator_ColumnPropNameInTable="Group_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laporan_stock_taking_view_expirydate3_viewSumber" msprop:Generator_UserTableName="laporan_stock_taking_view_expirydate3_viewSumber" msprop:Generator_RowDeletedName="laporan_stock_taking_view_expirydate3_viewSumberRowDeleted" msprop:Generator_RowChangedName="laporan_stock_taking_view_expirydate3_viewSumberRowChanged" msprop:Generator_RowClassName="laporan_stock_taking_view_expirydate3_viewSumberRow" msprop:Generator_RowChangingName="laporan_stock_taking_view_expirydate3_viewSumberRowChanging" msprop:Generator_RowEvArgName="laporan_stock_taking_view_expirydate3_viewSumberRowChangeEvent" msprop:Generator_RowEvHandlerName="laporan_stock_taking_view_expirydate3_viewSumberRowChangeEventHandler" msprop:Generator_TableClassName="laporan_stock_taking_view_expirydate3_viewSumberDataTable" msprop:Generator_TableVarName="tablelaporan_stock_taking_view_expirydate3_viewSumber" msprop:Generator_RowDeletingName="laporan_stock_taking_view_expirydate3_viewSumberRowDeleting" msprop:Generator_TablePropName="laporan_stock_taking_view_expirydate3_viewSumber">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qty_x0020_Taking" msprop:Generator_UserColumnName="Qty Taking" msprop:Generator_ColumnVarNameInTable="columnQty_Taking" msprop:Generator_ColumnPropNameInRow="Qty_Taking" msprop:Generator_ColumnPropNameInTable="Qty_TakingColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Qty_x0020_On_x0020_Hand" msprop:Generator_UserColumnName="Qty On Hand" msprop:Generator_ColumnVarNameInTable="columnQty_On_Hand" msprop:Generator_ColumnPropNameInRow="Qty_On_Hand" msprop:Generator_ColumnPropNameInTable="Qty_On_HandColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Expiry_x0020_Date_x0020_Taking" msprop:Generator_UserColumnName="Expiry Date Taking" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date_Taking" msprop:Generator_ColumnPropNameInRow="Expiry_Date_Taking" msprop:Generator_ColumnPropNameInTable="Expiry_Date_TakingColumn" type="xs:dateTime" />
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Tag_x0020_No" msprop:Generator_UserColumnName="Tag No" msprop:Generator_ColumnVarNameInTable="columnTag_No" msprop:Generator_ColumnPropNameInRow="Tag_No" msprop:Generator_ColumnPropNameInTable="Tag_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Group_x0020_No" msprop:Generator_UserColumnName="Group No" msprop:Generator_ColumnVarNameInTable="columnGroup_No" msprop:Generator_ColumnPropNameInRow="Group_No" msprop:Generator_ColumnPropNameInTable="Group_NoColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

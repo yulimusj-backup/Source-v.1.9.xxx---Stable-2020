@@ -1,0 +1,2 @@
+﻿Partial Class DseTransaksiDO_AddByLocation
+End Class

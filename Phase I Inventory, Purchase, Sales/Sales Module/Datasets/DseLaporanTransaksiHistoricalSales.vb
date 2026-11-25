@@ -1,0 +1,2 @@
+﻿Partial Class DseLaporanTransaksiHistoricalSales
+End Class

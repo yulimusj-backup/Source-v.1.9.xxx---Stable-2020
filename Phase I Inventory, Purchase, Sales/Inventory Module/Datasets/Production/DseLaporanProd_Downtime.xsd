@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanProd_Downtime" targetNamespace="http://tempuri.org/DseLaporanProd_Downtime.xsd" xmlns:mstns="http://tempuri.org/DseLaporanProd_Downtime.xsd" xmlns="http://tempuri.org/DseLaporanProd_Downtime.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockbundling_item_downtime.`primary downtime` AS `Primary Down Time`, tblmaster_downtime.`Down Time Code`, tblmaster_downtime.Description AS `Down Time Desc`, 
+                         tbltransaksi_stockbundling_item_downtime.`primary bundling` AS `Primary Bundling`, tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Tanggal Bundling`, 
+                         tbltransaksi_stockbundling.`identifier wo` AS `Identifier WO`, tbltrans_mo_item_wo.`Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Desc`, 
+                         tbltrans_mo_item_wo.`WO Number` AS `WO No`, tbltrans_mo_item_wo.`Primary Process`, tblmaster_proses.Code AS `Process Code`, tblmaster_proses.`Desc` AS `Process Desc`, 
+                         tbltrans_mo_item_wo.`Primary Work Unit`, tblmaster_workunit.`work unit code` AS `Work Unit Code`, tblmaster_workunit.description AS `Work Unit Desc`, 
+                         tbltransaksi_stockbundling_item_downtime.duration AS `Down Time Duration`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, 
+                         tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltrans_mo.`MO Number` AS `MO No`, 
+                         tbltrans_mo.`Primary` AS `Primary MO`
+FROM            tblmaster_downtime INNER JOIN
+                         tbltransaksi_stockbundling_item_downtime ON tblmaster_downtime.`Primary` = tbltransaksi_stockbundling_item_downtime.`primary downtime` INNER JOIN
+                         tbltransaksi_stockbundling ON tbltransaksi_stockbundling_item_downtime.`primary bundling` = tbltransaksi_stockbundling.`Primary` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltransaksi_stockbundling.`identifier wo` = tbltrans_mo_item_wo.Identifier INNER JOIN
+                         tblmaster_product ON tbltrans_mo_item_wo.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_proses ON tbltrans_mo_item_wo.`Primary Process` = tblmaster_proses.`Primary` INNER JOIN
+                         tblmaster_workunit ON tbltrans_mo_item_wo.`Primary Work Unit` = tblmaster_workunit.`primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                         tbltrans_mo ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo.`Primary`
+WHERE        (tbltransaksi_stockbundling.`Tanggal Transaksi` &gt;= @bundling_from AND tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @bundling_to)
+ORDER BY tblmaster_downtime.`Down Time Code`, `Tanggal Bundling`, `MO No`, tblmaster_product.`Product Code`, `WO No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bundling_from" ColumnName="Tanggal Transaksi" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@bundling_from" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bundling_to" ColumnName="Tanggal Transaksi" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@bundling_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Down Time" DataSetColumn="Primary Down Time" />
+              <Mapping SourceColumn="Down Time Code" DataSetColumn="Down Time Code" />
+              <Mapping SourceColumn="Down Time Desc" DataSetColumn="Down Time Desc" />
+              <Mapping SourceColumn="Primary Bundling" DataSetColumn="Primary Bundling" />
+              <Mapping SourceColumn="Tanggal Bundling" DataSetColumn="Tanggal Bundling" />
+              <Mapping SourceColumn="Identifier WO" DataSetColumn="Identifier WO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Product Desc" DataSetColumn="Product Desc" />
+              <Mapping SourceColumn="WO No" DataSetColumn="WO No" />
+              <Mapping SourceColumn="Primary Process" DataSetColumn="Primary Process" />
+              <Mapping SourceColumn="Process Code" DataSetColumn="Process Code" />
+              <Mapping SourceColumn="Process Desc" DataSetColumn="Process Desc" />
+              <Mapping SourceColumn="Primary Work Unit" DataSetColumn="Primary Work Unit" />
+              <Mapping SourceColumn="Work Unit Code" DataSetColumn="Work Unit Code" />
+              <Mapping SourceColumn="Work Unit Desc" DataSetColumn="Work Unit Desc" />
+              <Mapping SourceColumn="Down Time Duration" DataSetColumn="Down Time Duration" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="MO No" DataSetColumn="MO No" />
+              <Mapping SourceColumn="Primary MO" DataSetColumn="Primary MO" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanProd_Downtime" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanProd_Downtime" msprop:Generator_DataSetName="DseLaporanProd_Downtime">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Down_x0020_Time" msprop:Generator_UserColumnName="Primary Down Time" msprop:Generator_ColumnPropNameInRow="Primary_Down_Time" msprop:Generator_ColumnVarNameInTable="columnPrimary_Down_Time" msprop:Generator_ColumnPropNameInTable="Primary_Down_TimeColumn" type="xs:double" />
+              <xs:element name="Down_x0020_Time_x0020_Code" msprop:Generator_UserColumnName="Down Time Code" msprop:Generator_ColumnPropNameInRow="Down_Time_Code" msprop:Generator_ColumnVarNameInTable="columnDown_Time_Code" msprop:Generator_ColumnPropNameInTable="Down_Time_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Down_x0020_Time_x0020_Desc" msprop:Generator_UserColumnName="Down Time Desc" msprop:Generator_ColumnPropNameInRow="Down_Time_Desc" msprop:Generator_ColumnVarNameInTable="columnDown_Time_Desc" msprop:Generator_ColumnPropNameInTable="Down_Time_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Bundling" msprop:Generator_UserColumnName="Primary Bundling" msprop:Generator_ColumnPropNameInRow="Primary_Bundling" msprop:Generator_ColumnVarNameInTable="columnPrimary_Bundling" msprop:Generator_ColumnPropNameInTable="Primary_BundlingColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Bundling" msprop:Generator_UserColumnName="Tanggal Bundling" msprop:Generator_ColumnPropNameInRow="Tanggal_Bundling" msprop:Generator_ColumnVarNameInTable="columnTanggal_Bundling" msprop:Generator_ColumnPropNameInTable="Tanggal_BundlingColumn" type="xs:dateTime" />
+              <xs:element name="Identifier_x0020_WO" msprop:Generator_UserColumnName="Identifier WO" msprop:Generator_ColumnPropNameInRow="Identifier_WO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_WO" msprop:Generator_ColumnPropNameInTable="Identifier_WOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Desc" msprop:Generator_UserColumnName="Product Desc" msprop:Generator_ColumnPropNameInRow="Product_Desc" msprop:Generator_ColumnVarNameInTable="columnProduct_Desc" msprop:Generator_ColumnPropNameInTable="Product_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WO_x0020_No" msprop:Generator_UserColumnName="WO No" msprop:Generator_ColumnPropNameInRow="WO_No" msprop:Generator_ColumnVarNameInTable="columnWO_No" msprop:Generator_ColumnPropNameInTable="WO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Process" msprop:Generator_UserColumnName="Primary Process" msprop:Generator_ColumnPropNameInRow="Primary_Process" msprop:Generator_ColumnVarNameInTable="columnPrimary_Process" msprop:Generator_ColumnPropNameInTable="Primary_ProcessColumn" type="xs:double" />
+              <xs:element name="Process_x0020_Code" msprop:Generator_UserColumnName="Process Code" msprop:Generator_ColumnPropNameInRow="Process_Code" msprop:Generator_ColumnVarNameInTable="columnProcess_Code" msprop:Generator_ColumnPropNameInTable="Process_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Process_x0020_Desc" msprop:Generator_UserColumnName="Process Desc" msprop:Generator_ColumnPropNameInRow="Process_Desc" msprop:Generator_ColumnVarNameInTable="columnProcess_Desc" msprop:Generator_ColumnPropNameInTable="Process_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Work_x0020_Unit" msprop:Generator_UserColumnName="Primary Work Unit" msprop:Generator_ColumnPropNameInRow="Primary_Work_Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Work_Unit" msprop:Generator_ColumnPropNameInTable="Primary_Work_UnitColumn" type="xs:double" />
+              <xs:element name="Work_x0020_Unit_x0020_Code" msprop:Generator_UserColumnName="Work Unit Code" msprop:Generator_ColumnPropNameInRow="Work_Unit_Code" msprop:Generator_ColumnVarNameInTable="columnWork_Unit_Code" msprop:Generator_ColumnPropNameInTable="Work_Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Work_x0020_Unit_x0020_Desc" msprop:Generator_UserColumnName="Work Unit Desc" msprop:Generator_ColumnPropNameInRow="Work_Unit_Desc" msprop:Generator_ColumnVarNameInTable="columnWork_Unit_Desc" msprop:Generator_ColumnPropNameInTable="Work_Unit_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Down_x0020_Time_x0020_Duration" msprop:Generator_UserColumnName="Down Time Duration" msprop:Generator_ColumnPropNameInRow="Down_Time_Duration" msprop:Generator_ColumnVarNameInTable="columnDown_Time_Duration" msprop:Generator_ColumnPropNameInTable="Down_Time_DurationColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="MO_x0020_No" msprop:Generator_UserColumnName="MO No" msprop:Generator_ColumnPropNameInRow="MO_No" msprop:Generator_ColumnVarNameInTable="columnMO_No" msprop:Generator_ColumnPropNameInTable="MO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_MO" msprop:Generator_UserColumnName="Primary MO" msprop:Generator_ColumnPropNameInRow="Primary_MO" msprop:Generator_ColumnVarNameInTable="columnPrimary_MO" msprop:Generator_ColumnPropNameInTable="Primary_MOColumn" type="xs:double" />
+              <xs:element name="Down_x0020_Time_x0020_Duration_x0020_Str" msprop:Generator_UserColumnName="Down Time Duration Str" msprop:Generator_ColumnPropNameInRow="Down_Time_Duration_Str" msprop:Generator_ColumnVarNameInTable="columnDown_Time_Duration_Str" msprop:Generator_ColumnPropNameInTable="Down_Time_Duration_StrColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Sub_x0020_Total_x0020_Per_x0020_DT" msprop:Generator_UserColumnName="Sub Total Per DT" msprop:Generator_ColumnPropNameInRow="Sub_Total_Per_DT" msprop:Generator_ColumnVarNameInTable="columnSub_Total_Per_DT" msprop:Generator_ColumnPropNameInTable="Sub_Total_Per_DTColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Sub_x0020_Total_x0020_Per_x0020_DT_x0020_Str" msprop:Generator_UserColumnName="Sub Total Per DT Str" msprop:Generator_ColumnPropNameInRow="Sub_Total_Per_DT_Str" msprop:Generator_ColumnVarNameInTable="columnSub_Total_Per_DT_Str" msprop:Generator_ColumnPropNameInTable="Sub_Total_Per_DT_StrColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_DT" msprop:Generator_UserColumnName="Primary DT" msprop:Generator_ColumnVarNameInTable="columnPrimary_DT" msprop:Generator_ColumnPropNameInRow="Primary_DT" msprop:Generator_ColumnPropNameInTable="Primary_DTColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Duration" msprop:Generator_UserColumnName="Duration" msprop:Generator_ColumnVarNameInTable="columnDuration" msprop:Generator_ColumnPropNameInRow="Duration" msprop:Generator_ColumnPropNameInTable="DurationColumn" type="xs:double" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

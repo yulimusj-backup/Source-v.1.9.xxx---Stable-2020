@@ -1,0 +1,2 @@
+﻿Partial Class DsLaporanStockByBatchNumberByGroup
+End Class

@@ -1,0 +1,2 @@
+﻿Partial Class dsLaporanStockOutPurchase
+End Class

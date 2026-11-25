@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsLaporanStockUnderMinQty" targetNamespace="http://tempuri.org/dsLaporanStockUnderMinQty.xsd" xmlns:mstns="http://tempuri.org/dsLaporanStockUnderMinQty.xsd" xmlns="http://tempuri.org/dsLaporanStockUnderMinQty.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_productqtyTableAdapter" GeneratorDataComponentClassName="tblmaster_productqtyTableAdapter" Name="tblmaster_productqty" UserDataComponentName="tblmaster_productqtyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb.tblmaster_productqty" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT IFNULL(SUM(Qty), 0) AS Qty, `Primary Product`
+FROM     tblmaster_productqty
+GROUP BY `Primary Product`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblStockMinimumTableAdapter" GeneratorDataComponentClassName="TblStockMinimumTableAdapter" Name="TblStockMinimum" UserDataComponentName="TblStockMinimumTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description AS `Deskripsi Unit`, 0 AS `Jumlah Qty Tbl Product Qty`, tblmaster_product.`Minimum Stock`, 
+                         tblmaster_product.`Primary`, tblmaster_product.Description, tblmaster_product.`Decimal`
+FROM            tblmaster_master_unit INNER JOIN
+                         tblmaster_product ON tblmaster_master_unit.`Primary` = tblmaster_product.`Primary Unit`
+HAVING        (tblmaster_product.`Minimum Stock` &gt; 0)
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Deskripsi Unit" DataSetColumn="Deskripsi Unit" />
+              <Mapping SourceColumn="Minimum Stock" DataSetColumn="Minimum Stock" />
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Jumlah Qty Tbl Product Qty" DataSetColumn="Jumlah Qty Tbl Product Qty" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_Brand" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_Brand" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_Brand">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description AS `Deskripsi Unit`, 0 AS `Jumlah Qty Tbl Product Qty`, tblmaster_product.`Minimum Stock`, 
+                         tblmaster_product.`Primary`, tblmaster_product.Description, tblmaster_product.`Decimal`
+FROM            tblmaster_master_unit INNER JOIN
+                         tblmaster_product ON tblmaster_master_unit.`Primary` = tblmaster_product.`Primary Unit` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary`
+WHERE        (tblmaster_product_group.`Parent Group Primary` = @primary_brand)
+HAVING        (tblmaster_product.`Minimum Stock` &gt; 0)
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_brand" ColumnName="Parent Group Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_brand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Parent Group Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_Category" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_Category" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_Category">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description AS `Deskripsi Unit`, 0 AS `Jumlah Qty Tbl Product Qty`, tblmaster_product.`Minimum Stock`, 
+                         tblmaster_product.`Primary`, tblmaster_product.Description, tblmaster_product.`Decimal`
+FROM            tblmaster_master_unit INNER JOIN
+                         tblmaster_product ON tblmaster_master_unit.`Primary` = tblmaster_product.`Primary Unit`
+WHERE        (tblmaster_product.`Primary Category` = @primary_category)
+HAVING        (tblmaster_product.`Minimum Stock` &gt; 0)
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_category" ColumnName="Primary Category" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_category" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Category" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_Product" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_Product" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="FillBy_Product">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description AS `Deskripsi Unit`, 0 AS `Jumlah Qty Tbl Product Qty`, tblmaster_product.`Minimum Stock`, 
+                         tblmaster_product.`Primary`, tblmaster_product.Description, tblmaster_product.`Decimal`
+FROM            tblmaster_master_unit INNER JOIN
+                         tblmaster_product ON tblmaster_master_unit.`Primary` = tblmaster_product.`Primary Unit`
+WHERE        (tblmaster_product.`Primary` = @primary_product)
+HAVING        (tblmaster_product.`Minimum Stock` &gt; 0)
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_product" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_product" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ProductGroup" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_ProductGroup" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="FillBy_ProductGroup">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description AS `Deskripsi Unit`, 0 AS `Jumlah Qty Tbl Product Qty`, tblmaster_product.`Minimum Stock`, 
+                         tblmaster_product.`Primary`, tblmaster_product.Description, tblmaster_product.`Decimal`
+FROM            tblmaster_master_unit INNER JOIN
+                         tblmaster_product ON tblmaster_master_unit.`Primary` = tblmaster_product.`Primary Unit` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary`
+WHERE        (tblmaster_product_group_1.`Parent Group Primary` = @product_group)
+HAVING        (tblmaster_product.`Minimum Stock` &gt; 0)
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="product_group" ColumnName="Parent Group Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@product_group" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Parent Group Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_SubBrand" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_SubBrand" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="FillBy_SubBrand">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description AS `Deskripsi Unit`, 0 AS `Jumlah Qty Tbl Product Qty`, tblmaster_product.`Minimum Stock`, 
+                         tblmaster_product.`Primary`, tblmaster_product.Description, tblmaster_product.`Decimal`
+FROM            tblmaster_master_unit INNER JOIN
+                         tblmaster_product ON tblmaster_master_unit.`Primary` = tblmaster_product.`Primary Unit` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary`
+WHERE        (tblmaster_category.`Parent Group Primary` = @primary_sub_brand)
+HAVING        (tblmaster_product.`Minimum Stock` &gt; 0)
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_sub_brand" ColumnName="Parent Group Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_sub_brand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Parent Group Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsLaporanStockUnderMinQty" msdata:IsDataSet="true" msdata:Locale="en-AU" msprop:Generator_UserDSName="dsLaporanStockUnderMinQty" msprop:Generator_DataSetName="dsLaporanStockUnderMinQty">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblcetak" msprop:Generator_UserTableName="tblcetak" msprop:Generator_RowDeletedName="tblcetakRowDeleted" msprop:Generator_RowChangedName="tblcetakRowChanged" msprop:Generator_RowClassName="tblcetakRow" msprop:Generator_RowChangingName="tblcetakRowChanging" msprop:Generator_RowEvArgName="tblcetakRowChangeEvent" msprop:Generator_RowEvHandlerName="tblcetakRowChangeEventHandler" msprop:Generator_TableClassName="tblcetakDataTable" msprop:Generator_TableVarName="tabletblcetak" msprop:Generator_RowDeletingName="tblcetakRowDeleting" msprop:Generator_TablePropName="tblcetak">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code_x0020_No" msprop:Generator_UserColumnName="Code No" msprop:Generator_ColumnVarNameInTable="columnCode_No" msprop:Generator_ColumnPropNameInRow="Code_No" msprop:Generator_ColumnPropNameInTable="Code_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_UserColumnName="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Min_x0020_Qty" msprop:Generator_UserColumnName="Min Qty" msprop:Generator_ColumnVarNameInTable="columnMin_Qty" msprop:Generator_ColumnPropNameInRow="Min_Qty" msprop:Generator_ColumnPropNameInTable="Min_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="def_x0020_prec" msprop:Generator_UserColumnName="def prec" msprop:Generator_ColumnVarNameInTable="columndef_prec" msprop:Generator_ColumnPropNameInRow="def_prec" msprop:Generator_ColumnPropNameInTable="def_precColumn" type="xs:short" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_productqty" msprop:Generator_UserTableName="tblmaster_productqty" msprop:Generator_RowDeletedName="tblmaster_productqtyRowDeleted" msprop:Generator_RowChangedName="tblmaster_productqtyRowChanged" msprop:Generator_RowClassName="tblmaster_productqtyRow" msprop:Generator_RowChangingName="tblmaster_productqtyRowChanging" msprop:Generator_RowEvArgName="tblmaster_productqtyRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_productqtyRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_productqtyDataTable" msprop:Generator_TableVarName="tabletblmaster_productqty" msprop:Generator_RowDeletingName="tblmaster_productqtyRowDeleting" msprop:Generator_TablePropName="tblmaster_productqty">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblStockMinimum" msprop:Generator_UserTableName="TblStockMinimum" msprop:Generator_RowDeletedName="TblStockMinimumRowDeleted" msprop:Generator_TableClassName="TblStockMinimumDataTable" msprop:Generator_RowChangedName="TblStockMinimumRowChanged" msprop:Generator_RowClassName="TblStockMinimumRow" msprop:Generator_RowChangingName="TblStockMinimumRowChanging" msprop:Generator_RowEvArgName="TblStockMinimumRowChangeEvent" msprop:Generator_RowEvHandlerName="TblStockMinimumRowChangeEventHandler" msprop:Generator_TablePropName="TblStockMinimum" msprop:Generator_TableVarName="tableTblStockMinimum" msprop:Generator_RowDeletingName="TblStockMinimumRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deskripsi_x0020_Unit" msprop:Generator_UserColumnName="Deskripsi Unit" msprop:Generator_ColumnPropNameInRow="Deskripsi_Unit" msprop:Generator_ColumnVarNameInTable="columnDeskripsi_Unit" msprop:Generator_ColumnPropNameInTable="Deskripsi_UnitColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Minimum_x0020_Stock" msprop:Generator_UserColumnName="Minimum Stock" msprop:Generator_ColumnPropNameInRow="Minimum_Stock" msprop:Generator_ColumnVarNameInTable="columnMinimum_Stock" msprop:Generator_ColumnPropNameInTable="Minimum_StockColumn" type="xs:decimal" />
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Jumlah_x0020_Qty_x0020_Tbl_x0020_Product_x0020_Qty" msprop:Generator_UserColumnName="Jumlah Qty Tbl Product Qty" msprop:Generator_ColumnPropNameInRow="Jumlah_Qty_Tbl_Product_Qty" msprop:Generator_ColumnVarNameInTable="columnJumlah_Qty_Tbl_Product_Qty" msprop:Generator_ColumnPropNameInTable="Jumlah_Qty_Tbl_Product_QtyColumn" type="xs:long" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

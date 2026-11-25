@@ -1,0 +1,3 @@
+Public Class FrmEmailSettings_LogReport_Print
+
+End Class

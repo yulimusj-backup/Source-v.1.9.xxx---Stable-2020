@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseUserLocationPrivilegeSetting" targetNamespace="http://tempuri.org/DseUserLocationPrivilegeSetting.xsd" xmlns:mstns="http://tempuri.org/DseUserLocationPrivilegeSetting.xsd" xmlns="http://tempuri.org/DseUserLocationPrivilegeSetting.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Core_DbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="Core_DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Core_Module.My.MySettings.GlobalReference.Default.Core_DbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Core_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString1" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_setting_user_location_privilegeTableAdapter" GeneratorDataComponentClassName="tbl_setting_user_location_privilegeTableAdapter" Name="tbl_setting_user_location_privilege" UserDataComponentName="tbl_setting_user_location_privilegeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_produksi.tbl_setting_user_location_privilege" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, usercode, `default access`
+FROM            tbl_setting_user_location_privilege</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="usercode" DataSetColumn="usercode" />
+              <Mapping SourceColumn="default access" DataSetColumn="default access" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="DeleteQuery_All" Modifier="Public" Name="DeleteQuery_All" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery_All">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tbl_setting_user_location_privilege</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_lmb.tbl_setting_user_location_privilege" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_UserCode" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_UserCode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_UserCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, usercode, `default access`
+FROM            tbl_setting_user_location_privilege
+WHERE `usercode` = @user_code</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="user_code" ColumnName="usercode" DataSourceName="" DataTypeServer="unknown" DbType="String" Direction="Input" ParameterName="@user_code" Precision="0" ProviderType="VarChar" Scale="0" Size="1024" SourceColumn="usercode" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tbl_setting_user_location_privilege
+                         (usercode, `default access`)
+VALUES        (@user_code, @default_access)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="user_code" ColumnName="usercode" DataSourceName="smess_produksi.tbl_setting_user_location_privilege" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@user_code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="usercode" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="default_access" ColumnName="default access" DataSourceName="smess_produksi.tbl_setting_user_location_privilege" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@default_access" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="default access" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJml" Modifier="Public" Name="ScalarQuery_GetJml" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetJml">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT COUNT(`primary`) AS Expr1
+FROM     tbl_setting_user_location_privilege
+WHERE  (usercode = @user_code)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="user_code" ColumnName="usercode" DataSourceName="smess_lmb.tbl_setting_user_location_privilege" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@user_code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="usercode" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_setting_user_location_privilege_itemTableAdapter" GeneratorDataComponentClassName="tbl_setting_user_location_privilege_itemTableAdapter" Name="tbl_setting_user_location_privilege_item" UserDataComponentName="tbl_setting_user_location_privilege_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_lmb.tbl_setting_user_location_privilege_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `primary`, usercode, `location level`, `primary location`, `stock in purchase`, `stock in sales return`, `stock in adjust`, `stock out sales`, `stock out purchase return`, `stock out adjust`, `stock transfer out`, `stock transfer in`, 
+                  `stock bundling before`, `stock bundling after`, `production log before`, `production log after`
+FROM     tbl_setting_user_location_privilege_item</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="usercode" DataSetColumn="usercode" />
+              <Mapping SourceColumn="location level" DataSetColumn="location level" />
+              <Mapping SourceColumn="primary location" DataSetColumn="primary location" />
+              <Mapping SourceColumn="stock in purchase" DataSetColumn="stock in purchase" />
+              <Mapping SourceColumn="stock in sales return" DataSetColumn="stock in sales return" />
+              <Mapping SourceColumn="stock in adjust" DataSetColumn="stock in adjust" />
+              <Mapping SourceColumn="stock out sales" DataSetColumn="stock out sales" />
+              <Mapping SourceColumn="stock out purchase return" DataSetColumn="stock out purchase return" />
+              <Mapping SourceColumn="stock out adjust" DataSetColumn="stock out adjust" />
+              <Mapping SourceColumn="stock transfer out" DataSetColumn="stock transfer out" />
+              <Mapping SourceColumn="stock transfer in" DataSetColumn="stock transfer in" />
+              <Mapping SourceColumn="stock bundling before" DataSetColumn="stock bundling before" />
+              <Mapping SourceColumn="stock bundling after" DataSetColumn="stock bundling after" />
+              <Mapping SourceColumn="production log before" DataSetColumn="production log before" />
+              <Mapping SourceColumn="production log after" DataSetColumn="production log after" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="DeleteQuery_All" Modifier="Public" Name="DeleteQuery_All" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery_All">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tbl_setting_user_location_privilege_item</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_lmb.tbl_setting_user_location_privilege_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_UserCode" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_UserCode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_UserCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `primary`, usercode, `location level`, `primary location`, `stock in purchase`, `stock in sales return`, `stock in adjust`, `stock out sales`, `stock out purchase return`, `stock out adjust`, `stock transfer out`, `stock transfer in`, 
+                  `stock bundling before`, `stock bundling after`, `production log before`, `production log after`
+FROM     tbl_setting_user_location_privilege_item
+WHERE  (usercode = @user_code)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="user_code" ColumnName="usercode" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@user_code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="usercode" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_lmb.tbl_setting_user_location_privilege_item" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="InsertQuery" Modifier="Public" Name="InsertQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="InsertQuery">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tbl_setting_user_location_privilege_item
+                         (  usercode, `location level`, `primary location`, `stock in purchase`, `stock in sales return`, `stock in adjust`, `stock out sales`, `stock out purchase return`, `stock out adjust`, 
+                         `stock transfer out`, `stock transfer in`, `stock bundling before`, `stock bundling after`)
+VALUES        ( @user_code, @location_level, @primary_ref_party, @stock_in_purchase, @stock_in_sales_return, @stock_in_adj, @stock_out_sales, @stock_out_purchase_return, @stock_out_adj, @transfer_out, 
+                         @transfer_in, @bundling_before, @bundling_after)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="user_code" ColumnName="usercode" DataSourceName="" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@user_code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="usercode" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="location_level" ColumnName="location level" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@location_level" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="location level" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_ref_party" ColumnName="primary location" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_ref_party" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary location" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_in_purchase" ColumnName="stock in purchase" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_in_purchase" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock in purchase" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_in_sales_return" ColumnName="stock in sales return" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_in_sales_return" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock in sales return" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_in_adj" ColumnName="stock in adjust" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_in_adj" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock in adjust" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_out_sales" ColumnName="stock out sales" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_out_sales" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock out sales" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_out_purchase_return" ColumnName="stock out purchase return" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_out_purchase_return" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock out purchase return" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_out_adj" ColumnName="stock out adjust" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_out_adj" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock out adjust" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="transfer_out" ColumnName="stock transfer out" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@transfer_out" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock transfer out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="transfer_in" ColumnName="stock transfer in" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@transfer_in" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock transfer in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bundling_before" ColumnName="stock bundling before" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@bundling_before" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock bundling before" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bundling_after" ColumnName="stock bundling after" DataSourceName="" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@bundling_after" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock bundling after" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tbl_setting_user_location_privilege_item
+                  (usercode, `location level`, `primary location`, `stock in purchase`, `stock in sales return`, `stock in adjust`, `stock out sales`, `stock out purchase return`, `stock out adjust`, `stock transfer out`, `stock transfer in`, 
+                  `stock bundling before`, `stock bundling after`, `production log before`, `production log after`)
+VALUES (@user_code, @location_level, @primary_ref_party, @stock_in_purchase, @stock_in_sales_return, @stock_in_adj, @stock_out_sales, @stock_out_purchase_return, @stock_out_adj, @transfer_out, @transfer_in, 
+                  @bundling_before, @bundling_after, @production_log_before, @production_log_after)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="user_code" ColumnName="usercode" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@user_code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="usercode" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="location_level" ColumnName="location level" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@location_level" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="location level" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_ref_party" ColumnName="primary location" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_ref_party" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary location" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_in_purchase" ColumnName="stock in purchase" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_in_purchase" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock in purchase" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_in_sales_return" ColumnName="stock in sales return" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_in_sales_return" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock in sales return" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_in_adj" ColumnName="stock in adjust" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_in_adj" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock in adjust" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_out_sales" ColumnName="stock out sales" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_out_sales" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock out sales" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_out_purchase_return" ColumnName="stock out purchase return" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_out_purchase_return" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock out purchase return" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="stock_out_adj" ColumnName="stock out adjust" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@stock_out_adj" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock out adjust" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="transfer_out" ColumnName="stock transfer out" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@transfer_out" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock transfer out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="transfer_in" ColumnName="stock transfer in" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@transfer_in" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock transfer in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bundling_before" ColumnName="stock bundling before" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@bundling_before" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock bundling before" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bundling_after" ColumnName="stock bundling after" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@bundling_after" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="stock bundling after" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="production_log_before" ColumnName="production log before" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@production_log_before" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="production log before" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="production_log_after" ColumnName="production log after" DataSourceName="smess_lmb.tbl_setting_user_location_privilege_item" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@production_log_after" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="production log after" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_lmb.tblmaster_warehouse" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary`, `Warehouse Code`, Description
+FROM            tblmaster_warehouse</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Warehouse Code" DataSetColumn="Warehouse Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_lmb.tblmaster_storage_area" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary`, `Storage Area Code`, Description
+FROM            tblmaster_storage_area</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Storage Area Code" DataSetColumn="Storage Area Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_storage_areaTableAdapter" GeneratorDataComponentClassName="tblmaster_storage_areaTableAdapter" Name="tblmaster_storage_area" UserDataComponentName="tblmaster_storage_areaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString1 (MySettings)" DbObjectName="smess_lmb.tblmaster_storage_area" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Primary`, `Primary Warehouse`, `Storage Area Code`
+FROM     tblmaster_storage_area</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Warehouse" DataSetColumn="Primary Warehouse" />
+              <Mapping SourceColumn="Storage Area Code" DataSetColumn="Storage Area Code" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString1 (MySettings)" DbObjectName="smess_lmb.tblmaster_storage_area" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryWarehouse" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryWarehouse" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryWarehouse">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `Primary`, `Primary Warehouse`, `Storage Area Code`
+FROM     tblmaster_storage_area
+WHERE  (`Primary Warehouse` = @primary_warehouse)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_warehouse" ColumnName="Primary Warehouse" DataSourceName="smess_lmb.tblmaster_storage_area" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_warehouse" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Warehouse" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseUserLocationPrivilegeSetting" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseUserLocationPrivilegeSetting" msprop:Generator_DataSetName="DseUserLocationPrivilegeSetting">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbl_setting_user_location_privilege" msprop:Generator_UserTableName="tbl_setting_user_location_privilege" msprop:Generator_RowDeletedName="tbl_setting_user_location_privilegeRowDeleted" msprop:Generator_RowChangedName="tbl_setting_user_location_privilegeRowChanged" msprop:Generator_RowClassName="tbl_setting_user_location_privilegeRow" msprop:Generator_RowChangingName="tbl_setting_user_location_privilegeRowChanging" msprop:Generator_RowEvArgName="tbl_setting_user_location_privilegeRowChangeEvent" msprop:Generator_RowEvHandlerName="tbl_setting_user_location_privilegeRowChangeEventHandler" msprop:Generator_TableClassName="tbl_setting_user_location_privilegeDataTable" msprop:Generator_TableVarName="tabletbl_setting_user_location_privilege" msprop:Generator_RowDeletingName="tbl_setting_user_location_privilegeRowDeleting" msprop:Generator_TablePropName="tbl_setting_user_location_privilege">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="usercode" msprop:Generator_UserColumnName="usercode" msprop:Generator_ColumnPropNameInRow="usercode" msprop:Generator_ColumnVarNameInTable="columnusercode" msprop:Generator_ColumnPropNameInTable="usercodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="default_x0020_access" msprop:Generator_UserColumnName="default access" msprop:Generator_ColumnPropNameInRow="default_access" msprop:Generator_ColumnVarNameInTable="columndefault_access" msprop:Generator_ColumnPropNameInTable="default_accessColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_setting_user_location_privilege_item" msprop:Generator_UserTableName="tbl_setting_user_location_privilege_item" msprop:Generator_RowDeletedName="tbl_setting_user_location_privilege_itemRowDeleted" msprop:Generator_RowChangedName="tbl_setting_user_location_privilege_itemRowChanged" msprop:Generator_RowClassName="tbl_setting_user_location_privilege_itemRow" msprop:Generator_RowChangingName="tbl_setting_user_location_privilege_itemRowChanging" msprop:Generator_RowEvArgName="tbl_setting_user_location_privilege_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbl_setting_user_location_privilege_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbl_setting_user_location_privilege_itemDataTable" msprop:Generator_TableVarName="tabletbl_setting_user_location_privilege_item" msprop:Generator_RowDeletingName="tbl_setting_user_location_privilege_itemRowDeleting" msprop:Generator_TablePropName="tbl_setting_user_location_privilege_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" default="-1" />
+              <xs:element name="usercode" msprop:Generator_UserColumnName="usercode" msprop:Generator_ColumnPropNameInRow="usercode" msprop:Generator_ColumnVarNameInTable="columnusercode" msprop:Generator_ColumnPropNameInTable="usercodeColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="location_x0020_level" msprop:Generator_UserColumnName="location level" msprop:Generator_ColumnPropNameInRow="location_level" msprop:Generator_ColumnVarNameInTable="columnlocation_level" msprop:Generator_ColumnPropNameInTable="location_levelColumn" type="xs:int" default="0" />
+              <xs:element name="primary_x0020_location" msprop:Generator_UserColumnName="primary location" msprop:Generator_ColumnPropNameInRow="primary_location" msprop:Generator_ColumnVarNameInTable="columnprimary_location" msprop:Generator_ColumnPropNameInTable="primary_locationColumn" type="xs:double" default="-1" />
+              <xs:element name="stock_x0020_in_x0020_purchase" msprop:Generator_UserColumnName="stock in purchase" msprop:Generator_ColumnPropNameInRow="stock_in_purchase" msprop:Generator_ColumnVarNameInTable="columnstock_in_purchase" msprop:Generator_ColumnPropNameInTable="stock_in_purchaseColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_in_x0020_sales_x0020_return" msprop:Generator_UserColumnName="stock in sales return" msprop:Generator_ColumnPropNameInRow="stock_in_sales_return" msprop:Generator_ColumnVarNameInTable="columnstock_in_sales_return" msprop:Generator_ColumnPropNameInTable="stock_in_sales_returnColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_in_x0020_adjust" msprop:Generator_UserColumnName="stock in adjust" msprop:Generator_ColumnPropNameInRow="stock_in_adjust" msprop:Generator_ColumnVarNameInTable="columnstock_in_adjust" msprop:Generator_ColumnPropNameInTable="stock_in_adjustColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_out_x0020_sales" msprop:Generator_UserColumnName="stock out sales" msprop:Generator_ColumnPropNameInRow="stock_out_sales" msprop:Generator_ColumnVarNameInTable="columnstock_out_sales" msprop:Generator_ColumnPropNameInTable="stock_out_salesColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_out_x0020_purchase_x0020_return" msprop:Generator_UserColumnName="stock out purchase return" msprop:Generator_ColumnPropNameInRow="stock_out_purchase_return" msprop:Generator_ColumnVarNameInTable="columnstock_out_purchase_return" msprop:Generator_ColumnPropNameInTable="stock_out_purchase_returnColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_out_x0020_adjust" msprop:Generator_UserColumnName="stock out adjust" msprop:Generator_ColumnPropNameInRow="stock_out_adjust" msprop:Generator_ColumnVarNameInTable="columnstock_out_adjust" msprop:Generator_ColumnPropNameInTable="stock_out_adjustColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_transfer_x0020_out" msprop:Generator_UserColumnName="stock transfer out" msprop:Generator_ColumnPropNameInRow="stock_transfer_out" msprop:Generator_ColumnVarNameInTable="columnstock_transfer_out" msprop:Generator_ColumnPropNameInTable="stock_transfer_outColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_transfer_x0020_in" msprop:Generator_UserColumnName="stock transfer in" msprop:Generator_ColumnPropNameInRow="stock_transfer_in" msprop:Generator_ColumnVarNameInTable="columnstock_transfer_in" msprop:Generator_ColumnPropNameInTable="stock_transfer_inColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_bundling_x0020_before" msprop:Generator_UserColumnName="stock bundling before" msprop:Generator_ColumnPropNameInRow="stock_bundling_before" msprop:Generator_ColumnVarNameInTable="columnstock_bundling_before" msprop:Generator_ColumnPropNameInTable="stock_bundling_beforeColumn" type="xs:int" default="1" />
+              <xs:element name="stock_x0020_bundling_x0020_after" msprop:Generator_UserColumnName="stock bundling after" msprop:Generator_ColumnPropNameInRow="stock_bundling_after" msprop:Generator_ColumnVarNameInTable="columnstock_bundling_after" msprop:Generator_ColumnPropNameInTable="stock_bundling_afterColumn" type="xs:int" default="1" />
+              <xs:element name="production_x0020_log_x0020_before" msprop:Generator_UserColumnName="production log before" msprop:Generator_ColumnVarNameInTable="columnproduction_log_before" msprop:Generator_ColumnPropNameInRow="production_log_before" msprop:Generator_ColumnPropNameInTable="production_log_beforeColumn" type="xs:int" default="1" />
+              <xs:element name="production_x0020_log_x0020_after" msprop:Generator_UserColumnName="production log after" msprop:Generator_ColumnVarNameInTable="columnproduction_log_after" msprop:Generator_ColumnPropNameInRow="production_log_after" msprop:Generator_ColumnPropNameInTable="production_log_afterColumn" type="xs:int" default="1" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Warehouse_x0020_Code" msprop:Generator_UserColumnName="Warehouse Code" msprop:Generator_ColumnPropNameInRow="Warehouse_Code" msprop:Generator_ColumnVarNameInTable="columnWarehouse_Code" msprop:Generator_ColumnPropNameInTable="Warehouse_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Storage_x0020_Area_x0020_Code" msprop:Generator_UserColumnName="Storage Area Code" msprop:Generator_ColumnPropNameInRow="Storage_Area_Code" msprop:Generator_ColumnVarNameInTable="columnStorage_Area_Code" msprop:Generator_ColumnPropNameInTable="Storage_Area_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_storage_area" msprop:Generator_UserTableName="tblmaster_storage_area" msprop:Generator_RowDeletedName="tblmaster_storage_areaRowDeleted" msprop:Generator_RowChangedName="tblmaster_storage_areaRowChanged" msprop:Generator_RowClassName="tblmaster_storage_areaRow" msprop:Generator_RowChangingName="tblmaster_storage_areaRowChanging" msprop:Generator_RowEvArgName="tblmaster_storage_areaRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_storage_areaRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_storage_areaDataTable" msprop:Generator_TableVarName="tabletblmaster_storage_area" msprop:Generator_RowDeletingName="tblmaster_storage_areaRowDeleting" msprop:Generator_TablePropName="tblmaster_storage_area">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Warehouse" msprop:Generator_UserColumnName="Primary Warehouse" msprop:Generator_ColumnVarNameInTable="columnPrimary_Warehouse" msprop:Generator_ColumnPropNameInRow="Primary_Warehouse" msprop:Generator_ColumnPropNameInTable="Primary_WarehouseColumn" type="xs:double" />
+              <xs:element name="Storage_x0020_Area_x0020_Code" msprop:Generator_UserColumnName="Storage Area Code" msprop:Generator_ColumnVarNameInTable="columnStorage_Area_Code" msprop:Generator_ColumnPropNameInRow="Storage_Area_Code" msprop:Generator_ColumnPropNameInTable="Storage_Area_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_storage_area" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

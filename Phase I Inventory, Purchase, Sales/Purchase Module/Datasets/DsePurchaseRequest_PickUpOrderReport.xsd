@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsePurchaseRequest_PickUpOrderReport" targetNamespace="http://tempuri.org/DsePurchaseRequest_PickUpOrderReport.xsd" xmlns:mstns="http://tempuri.org/DsePurchaseRequest_PickUpOrderReport.xsd" xmlns="http://tempuri.org/DsePurchaseRequest_PickUpOrderReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblCetak_HeaderTableAdapter" GeneratorDataComponentClassName="TblCetak_HeaderTableAdapter" Name="TblCetak_Header" UserDataComponentName="TblCetak_HeaderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_req_pickup_order.`primary`, tbltrans_purchase_req_pickup_order.`no transaksi` AS `Document No`, tbltrans_purchase_req_pickup_order.tanggal, 
+                         tbltrans_purchase_req_pickup_order.remarks, tblmaster_refparty.`primary` AS `primary ref party`, tblmaster_refparty.code AS `request by`, 
+                         tblmaster_refparty.`desc` AS `desc ref party`
+FROM            tbltrans_purchase_req_pickup_order INNER JOIN
+                         tbltrans_purchase_req_pickup_order_item ON 
+                         tbltrans_purchase_req_pickup_order.`primary` = tbltrans_purchase_req_pickup_order_item.`primary transaksi` INNER JOIN
+                         tbltrans_purchase_req ON tbltrans_purchase_req_pickup_order_item.`primary pr` = tbltrans_purchase_req.`primary` INNER JOIN
+                         tblmaster_refparty ON tbltrans_purchase_req.`primary ref party` = tblmaster_refparty.`primary`
+GROUP BY tbltrans_purchase_req_pickup_order.`primary`, tblmaster_refparty.`desc`
+ORDER BY tbltrans_purchase_req_pickup_order.tanggal, `Document No`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="Document No" DataSetColumn="Document No" />
+              <Mapping SourceColumn="tanggal" DataSetColumn="tanggal" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+              <Mapping SourceColumn="primary ref party" DataSetColumn="primary ref party" />
+              <Mapping SourceColumn="request by" DataSetColumn="request by" />
+              <Mapping SourceColumn="desc ref party" DataSetColumn="desc ref party" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_AllProduct" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_AllProduct" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_AllProduct">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_req_pickup_order.`primary`, tbltrans_purchase_req_pickup_order.`no transaksi` AS `Document No`, tbltrans_purchase_req_pickup_order.tanggal, 
+                         tbltrans_purchase_req_pickup_order.remarks, tblmaster_refparty.`primary` AS `primary ref party`, tblmaster_refparty.code AS `request by`, 
+                         tblmaster_refparty.`desc` AS `desc ref party`
+FROM            tbltrans_purchase_req_pickup_order INNER JOIN
+                         tbltrans_purchase_req_pickup_order_item ON 
+                         tbltrans_purchase_req_pickup_order.`primary` = tbltrans_purchase_req_pickup_order_item.`primary transaksi` INNER JOIN
+                         tbltrans_purchase_req ON tbltrans_purchase_req_pickup_order_item.`primary pr` = tbltrans_purchase_req.`primary` INNER JOIN
+                         tblmaster_refparty ON tbltrans_purchase_req.`primary ref party` = tblmaster_refparty.`primary`
+WHERE        (tbltrans_purchase_req_pickup_order_item.`primary code no` = @PrimaryCode)
+GROUP BY tbltrans_purchase_req_pickup_order.`primary`, tbltrans_purchase_req_pickup_order.tanggal, tblmaster_refparty.`desc`
+HAVING        (tbltrans_purchase_req_pickup_order.tanggal &gt;= @TglDari) AND (tbltrans_purchase_req_pickup_order.tanggal &lt;= @TglSampai)
+ORDER BY tbltrans_purchase_req_pickup_order.tanggal, `Document No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryCode" ColumnName="primary code no" DataSourceName="smess_creative.tbltrans_purchase_req_pickup_order_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryCode" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary code no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="tanggal" DataSourceName="smess_creative.tbltrans_purchase_req_pickup_order" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="tanggal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="tanggal" DataSourceName="smess_creative.tbltrans_purchase_req_pickup_order" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="tanggal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_StartEndDate" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy_StartEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_StartEndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_req_pickup_order.`primary`, tbltrans_purchase_req_pickup_order.`no transaksi` AS `Document No`, tbltrans_purchase_req_pickup_order.tanggal, 
+                         tbltrans_purchase_req_pickup_order.remarks, tblmaster_refparty.`primary` AS `primary ref party`, tblmaster_refparty.code AS `request by`, 
+                         tblmaster_refparty.`desc` AS `desc ref party`
+FROM            tbltrans_purchase_req_pickup_order INNER JOIN
+                         tbltrans_purchase_req_pickup_order_item ON 
+                         tbltrans_purchase_req_pickup_order.`primary` = tbltrans_purchase_req_pickup_order_item.`primary transaksi` INNER JOIN
+                         tbltrans_purchase_req ON tbltrans_purchase_req_pickup_order_item.`primary pr` = tbltrans_purchase_req.`primary` INNER JOIN
+                         tblmaster_refparty ON tbltrans_purchase_req.`primary ref party` = tblmaster_refparty.`primary`
+GROUP BY tbltrans_purchase_req_pickup_order.`primary`, tbltrans_purchase_req_pickup_order.tanggal, tblmaster_refparty.`desc`
+HAVING        (tbltrans_purchase_req_pickup_order.tanggal &gt;= @TglDari) AND (tbltrans_purchase_req_pickup_order.tanggal &lt;= @TglSampai)
+ORDER BY tbltrans_purchase_req_pickup_order.tanggal, `Document No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="tanggal" DataSourceName="smess_creative.tbltrans_purchase_req_pickup_order" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="tanggal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="tanggal" DataSourceName="smess_creative.tbltrans_purchase_req_pickup_order" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="tanggal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblCetak_ItemTableAdapter" GeneratorDataComponentClassName="TblCetak_ItemTableAdapter" Name="TblCetak_Item" UserDataComponentName="TblCetak_ItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_purchase_req_pickup_order_item.`primary`, tbltrans_purchase_req_pickup_order_item.`primary transaksi`, tbltrans_purchase_req_pickup_order_item.qty, tbltrans_purchase_req_pickup_order_item.remarks, 
+                  tbltrans_purchase_req.`no transaksi` AS `PR No`, tblmaster_product.`Primary` AS `primary product`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, 
+                  tblmaster_master_unit.`Primary` AS `primary unit`, tblmaster_master_unit.`Unit Code`, tbltrans_purchase_req_pickup_order_item.`primary pr`, tbltrans_purchase_req.tanggal, 
+                  tbltrans_purchase_req.remarks AS `remarks header`, tbltrans_purchase_req.`primary ref party`, tblmaster_refparty.code AS `request by`, tblmaster_refparty.`desc` AS `request by desc`
+FROM     tbltrans_purchase_req_pickup_order_item INNER JOIN
+                  tbltrans_purchase_req ON tbltrans_purchase_req_pickup_order_item.`primary pr` = tbltrans_purchase_req.`primary` INNER JOIN
+                  tblmaster_product ON tbltrans_purchase_req_pickup_order_item.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tbltrans_purchase_req_pickup_order_item.`primary unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                  tblmaster_refparty ON tbltrans_purchase_req.`primary ref party` = tblmaster_refparty.`primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary transaksi" DataSetColumn="primary transaksi" />
+              <Mapping SourceColumn="qty" DataSetColumn="qty" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+              <Mapping SourceColumn="PR No" DataSetColumn="PR No" />
+              <Mapping SourceColumn="primary product" DataSetColumn="primary product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="primary unit" DataSetColumn="primary unit" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="primary pr" DataSetColumn="primary pr" />
+              <Mapping SourceColumn="tanggal" DataSetColumn="tanggal" />
+              <Mapping SourceColumn="remarks header" DataSetColumn="remarks header" />
+              <Mapping SourceColumn="primary ref party" DataSetColumn="primary ref party" />
+              <Mapping SourceColumn="request by" DataSetColumn="request by" />
+              <Mapping SourceColumn="request by desc" DataSetColumn="request by desc" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryMinAndMax" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryMinAndMax" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryMinAndMax">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_purchase_req_pickup_order_item.`primary`, tbltrans_purchase_req_pickup_order_item.`primary transaksi`, tbltrans_purchase_req_pickup_order_item.qty, tbltrans_purchase_req_pickup_order_item.remarks, 
+                  tbltrans_purchase_req.`no transaksi` AS `PR No`, tblmaster_product.`Primary` AS `primary product`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, 
+                  tblmaster_master_unit.`Primary` AS `primary unit`, tblmaster_master_unit.`Unit Code`, tbltrans_purchase_req_pickup_order_item.`primary pr`, tblmaster_refparty.code AS `request by`, 
+                  tblmaster_refparty.`desc` AS `request by desc`, tbltrans_purchase_req.`primary ref party`, tbltrans_purchase_req.remarks AS `remarks header`, tbltrans_purchase_req.tanggal
+FROM     tbltrans_purchase_req_pickup_order_item INNER JOIN
+                  tbltrans_purchase_req ON tbltrans_purchase_req_pickup_order_item.`primary pr` = tbltrans_purchase_req.`primary` INNER JOIN
+                  tblmaster_product ON tbltrans_purchase_req_pickup_order_item.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tbltrans_purchase_req_pickup_order_item.`primary unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                  tblmaster_refparty ON tbltrans_purchase_req.`primary ref party` = tblmaster_refparty.`primary`
+WHERE  (tbltrans_purchase_req_pickup_order_item.`primary transaksi` &gt;= @PrimaryMin) AND (tbltrans_purchase_req_pickup_order_item.`primary transaksi` &lt;= @PrimaryMax)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryMin" ColumnName="primary transaksi" DataSourceName="smess_lmb.tbltrans_purchase_req_pickup_order_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryMin" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryMax" ColumnName="primary transaksi" DataSourceName="smess_lmb.tbltrans_purchase_req_pickup_order_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryMax" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsePurchaseRequest_PickUpOrderReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DsePurchaseRequest_PickUpOrderReport" msprop:Generator_DataSetName="DsePurchaseRequest_PickUpOrderReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TblCetak_Header" msprop:Generator_UserTableName="TblCetak_Header" msprop:Generator_RowDeletedName="TblCetak_HeaderRowDeleted" msprop:Generator_RowChangedName="TblCetak_HeaderRowChanged" msprop:Generator_RowClassName="TblCetak_HeaderRow" msprop:Generator_RowChangingName="TblCetak_HeaderRowChanging" msprop:Generator_RowEvArgName="TblCetak_HeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetak_HeaderRowChangeEventHandler" msprop:Generator_TableClassName="TblCetak_HeaderDataTable" msprop:Generator_TableVarName="tableTblCetak_Header" msprop:Generator_RowDeletingName="TblCetak_HeaderRowDeleting" msprop:Generator_TablePropName="TblCetak_Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tanggal" msprop:Generator_UserColumnName="tanggal" msprop:Generator_ColumnVarNameInTable="columntanggal" msprop:Generator_ColumnPropNameInRow="tanggal" msprop:Generator_ColumnPropNameInTable="tanggalColumn" type="xs:dateTime" />
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_ref_x0020_party" msprop:Generator_UserColumnName="primary ref party" msprop:Generator_ColumnVarNameInTable="columnprimary_ref_party" msprop:Generator_ColumnPropNameInRow="primary_ref_party" msprop:Generator_ColumnPropNameInTable="primary_ref_partyColumn" type="xs:double" />
+              <xs:element name="request_x0020_by" msprop:Generator_UserColumnName="request by" msprop:Generator_ColumnVarNameInTable="columnrequest_by" msprop:Generator_ColumnPropNameInRow="request_by" msprop:Generator_ColumnPropNameInTable="request_byColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="desc_x0020_ref_x0020_party" msprop:Generator_UserColumnName="desc ref party" msprop:Generator_ColumnPropNameInRow="desc_ref_party" msprop:Generator_ColumnVarNameInTable="columndesc_ref_party" msprop:Generator_ColumnPropNameInTable="desc_ref_partyColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblCetak_Item" msprop:Generator_UserTableName="TblCetak_Item" msprop:Generator_RowDeletedName="TblCetak_ItemRowDeleted" msprop:Generator_RowChangedName="TblCetak_ItemRowChanged" msprop:Generator_RowClassName="TblCetak_ItemRow" msprop:Generator_RowChangingName="TblCetak_ItemRowChanging" msprop:Generator_RowEvArgName="TblCetak_ItemRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetak_ItemRowChangeEventHandler" msprop:Generator_TableClassName="TblCetak_ItemDataTable" msprop:Generator_TableVarName="tableTblCetak_Item" msprop:Generator_RowDeletingName="TblCetak_ItemRowDeleting" msprop:Generator_TablePropName="TblCetak_Item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_transaksi" msprop:Generator_UserColumnName="primary transaksi" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi" msprop:Generator_ColumnPropNameInRow="primary_transaksi" msprop:Generator_ColumnPropNameInTable="primary_transaksiColumn" type="xs:double" />
+              <xs:element name="qty" msprop:Generator_UserColumnName="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" type="xs:decimal" />
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PR_x0020_No" msprop:Generator_UserColumnName="PR No" msprop:Generator_ColumnVarNameInTable="columnPR_No" msprop:Generator_ColumnPropNameInRow="PR_No" msprop:Generator_ColumnPropNameInTable="PR_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_product" msprop:Generator_UserColumnName="primary product" msprop:Generator_ColumnVarNameInTable="columnprimary_product" msprop:Generator_ColumnPropNameInRow="primary_product" msprop:Generator_ColumnPropNameInTable="primary_productColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="primary_x0020_unit" msprop:Generator_UserColumnName="primary unit" msprop:Generator_ColumnVarNameInTable="columnprimary_unit" msprop:Generator_ColumnPropNameInRow="primary_unit" msprop:Generator_ColumnPropNameInTable="primary_unitColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_pr" msprop:Generator_UserColumnName="primary pr" msprop:Generator_ColumnVarNameInTable="columnprimary_pr" msprop:Generator_ColumnPropNameInRow="primary_pr" msprop:Generator_ColumnPropNameInTable="primary_prColumn" type="xs:double" />
+              <xs:element name="tanggal" msprop:Generator_UserColumnName="tanggal" msprop:Generator_ColumnVarNameInTable="columntanggal" msprop:Generator_ColumnPropNameInRow="tanggal" msprop:Generator_ColumnPropNameInTable="tanggalColumn" type="xs:dateTime" />
+              <xs:element name="remarks_x0020_header" msprop:Generator_UserColumnName="remarks header" msprop:Generator_ColumnVarNameInTable="columnremarks_header" msprop:Generator_ColumnPropNameInRow="remarks_header" msprop:Generator_ColumnPropNameInTable="remarks_headerColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_ref_x0020_party" msprop:Generator_UserColumnName="primary ref party" msprop:Generator_ColumnVarNameInTable="columnprimary_ref_party" msprop:Generator_ColumnPropNameInRow="primary_ref_party" msprop:Generator_ColumnPropNameInTable="primary_ref_partyColumn" type="xs:double" />
+              <xs:element name="request_x0020_by" msprop:Generator_UserColumnName="request by" msprop:Generator_ColumnVarNameInTable="columnrequest_by" msprop:Generator_ColumnPropNameInRow="request_by" msprop:Generator_ColumnPropNameInTable="request_byColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="request_x0020_by_x0020_desc" msprop:Generator_UserColumnName="request by desc" msprop:Generator_ColumnVarNameInTable="columnrequest_by_desc" msprop:Generator_ColumnPropNameInRow="request_by_desc" msprop:Generator_ColumnPropNameInTable="request_by_descColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TBLHeader" msprop:Generator_UserTableName="TBLHeader" msprop:Generator_RowDeletedName="TBLHeaderRowDeleted" msprop:Generator_RowChangedName="TBLHeaderRowChanged" msprop:Generator_RowClassName="TBLHeaderRow" msprop:Generator_RowChangingName="TBLHeaderRowChanging" msprop:Generator_RowEvArgName="TBLHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="TBLHeaderRowChangeEventHandler" msprop:Generator_TableClassName="TBLHeaderDataTable" msprop:Generator_TableVarName="tableTBLHeader" msprop:Generator_RowDeletingName="TBLHeaderRowDeleting" msprop:Generator_TablePropName="TBLHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Primary_x0020_Ref_x0020_Party" msprop:Generator_UserColumnName="Primary Ref Party" msprop:Generator_ColumnVarNameInTable="columnPrimary_Ref_Party" msprop:Generator_ColumnPropNameInRow="Primary_Ref_Party" msprop:Generator_ColumnPropNameInTable="Primary_Ref_PartyColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Request_x0020_By" msprop:Generator_UserColumnName="Request By" msprop:Generator_ColumnVarNameInTable="columnRequest_By" msprop:Generator_ColumnPropNameInRow="Request_By" msprop:Generator_ColumnPropNameInTable="Request_ByColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Stock_x0020_Out" msprop:Generator_UserColumnName="Stock Out" msprop:Generator_ColumnVarNameInTable="columnStock_Out" msprop:Generator_ColumnPropNameInRow="Stock_Out" msprop:Generator_ColumnPropNameInTable="Stock_OutColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TBLItem" msprop:Generator_UserTableName="TBLItem" msprop:Generator_RowDeletedName="TBLItemRowDeleted" msprop:Generator_RowChangedName="TBLItemRowChanged" msprop:Generator_RowClassName="TBLItemRow" msprop:Generator_RowChangingName="TBLItemRowChanging" msprop:Generator_RowEvArgName="TBLItemRowChangeEvent" msprop:Generator_RowEvHandlerName="TBLItemRowChangeEventHandler" msprop:Generator_TableClassName="TBLItemDataTable" msprop:Generator_TableVarName="tableTBLItem" msprop:Generator_RowDeletingName="TBLItemRowDeleting" msprop:Generator_TablePropName="TBLItem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="PR_x0020_Number" msprop:Generator_UserColumnName="PR Number" msprop:Generator_ColumnVarNameInTable="columnPR_Number" msprop:Generator_ColumnPropNameInRow="PR_Number" msprop:Generator_ColumnPropNameInTable="PR_NumberColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Request_x0020_By" msprop:Generator_UserColumnName="Request By" msprop:Generator_ColumnVarNameInTable="columnRequest_By" msprop:Generator_ColumnPropNameInRow="Request_By" msprop:Generator_ColumnPropNameInTable="Request_ByColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

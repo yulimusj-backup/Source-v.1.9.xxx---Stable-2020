@@ -1,0 +1,2 @@
+﻿Partial Class DseMaster_SPL_EmployeeCustom
+End Class

@@ -1,0 +1,1053 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanSalaryStaff_SMESS" targetNamespace="http://tempuri.org/DseLaporanSalaryStaff_SMESS.xsd" xmlns:mstns="http://tempuri.org/DseLaporanSalaryStaff_SMESS.xsd" xmlns="http://tempuri.org/DseLaporanSalaryStaff_SMESS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HR.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_salary.`Primary Employee`, tblmaster_karyawan.`Full Name` AS Nama, tbltrans_salary_item.Description AS `Salary Desc`, 
+                         tbltrans_salary_item.`Identifier Salary Component`, SUM(tbltrans_salary_item.Amount) AS Amount, tblmaster_karyawan.`primary departemen`, 
+                         tblmaster_departemen.`Dept Code`, tblmaster_departemen.Description AS `Dept Desc`, tbltrans_salary_item.Type, SUM(tbltrans_salary.Income) AS Income, 
+                         SUM(tbltrans_salary.Deduction) AS Deduction, SUM(tbltrans_salary.`Gross Salary`) AS `Gross Salary`, SUM(tbltrans_salary.`Income Tax`) AS `Income Tax`, 
+                         SUM(tbltrans_salary.`Other Deduction`) AS `Other Deduction`, SUM(tbltrans_salary.`Salary Received`) AS `Take Home Pay`, 
+                         tblmaster_karyawan.`primary position`
+FROM            tbltrans_salary_item INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary` INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary`
+WHERE        (tbltrans_salary_item.Amount &gt; 0)
+GROUP BY tbltrans_salary.`Primary Employee`, tblmaster_karyawan.`Full Name`, tbltrans_salary_item.Description, tbltrans_salary_item.`Identifier Salary Component`, 
+                         tblmaster_karyawan.`primary departemen`, tblmaster_departemen.`Dept Code`, tblmaster_departemen.Description, tbltrans_salary_item.Type, 
+                         tblmaster_karyawan.`primary position`, tbltrans_salary_item.`Primary`
+ORDER BY tblmaster_departemen.`Dept Code`, Nama, tbltrans_salary_item.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Nama" DataSetColumn="Nama" />
+              <Mapping SourceColumn="Salary Desc" DataSetColumn="Salary Desc" />
+              <Mapping SourceColumn="Identifier Salary Component" DataSetColumn="Identifier Salary Component" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="Dept Code" DataSetColumn="Dept Code" />
+              <Mapping SourceColumn="Dept Desc" DataSetColumn="Dept Desc" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="Income" DataSetColumn="Income" />
+              <Mapping SourceColumn="Deduction" DataSetColumn="Deduction" />
+              <Mapping SourceColumn="Gross Salary" DataSetColumn="Gross Salary" />
+              <Mapping SourceColumn="Income Tax" DataSetColumn="Income Tax" />
+              <Mapping SourceColumn="Other Deduction" DataSetColumn="Other Deduction" />
+              <Mapping SourceColumn="Take Home Pay" DataSetColumn="Take Home Pay" />
+              <Mapping SourceColumn="primary position" DataSetColumn="primary position" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary.`Primary Employee`, tblmaster_karyawan.`Full Name` AS Nama, tbltrans_salary_item.Description AS `Salary Desc`, 
+                         tbltrans_salary_item.`Identifier Salary Component`, SUM(tbltrans_salary_item.Amount) AS Amount, tblmaster_karyawan.`primary departemen`, 
+                         tblmaster_departemen.`Dept Code`, tblmaster_departemen.Description AS `Dept Desc`, tbltrans_salary_item.Type, SUM(tbltrans_salary.Income) AS Income, 
+                         SUM(tbltrans_salary.Deduction) AS Deduction, SUM(tbltrans_salary.`Gross Salary`) AS `Gross Salary`, SUM(tbltrans_salary.`Income Tax`) AS `Income Tax`, 
+                         SUM(tbltrans_salary.`Other Deduction`) AS `Other Deduction`, SUM(tbltrans_salary.`Salary Received`) AS `Take Home Pay`, 
+                         tblmaster_karyawan.`primary position`
+FROM            tbltrans_salary_item INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary` INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary`
+WHERE        (tbltrans_salary_item.Amount &gt; 0) AND (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary.`Primary Employee`, tblmaster_karyawan.`Full Name`, tbltrans_salary_item.Description, tbltrans_salary_item.`Identifier Salary Component`, 
+                         tblmaster_karyawan.`primary departemen`, tblmaster_departemen.`Dept Code`, tblmaster_departemen.Description, tbltrans_salary_item.Type, 
+                         tblmaster_karyawan.`primary position`, tbltrans_salary_item.`Primary`
+ORDER BY tblmaster_departemen.`Dept Code`, Nama, tbltrans_salary_item.`Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_item_otherdeductionTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_item_otherdeductionTableAdapter" Name="tbltrans_salary_item_otherdeduction" UserDataComponentName="tbltrans_salary_item_otherdeductionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tbltrans_salary_item_otherdeduction` WHERE ((`Primary Transaksi` = @Original_Primary_Salary) AND (`Description` = @Original_Salary_Desc) AND (`Primary Other Deduction` = @Original_Primary_Other_Deduction) AND (`Amount` = @Original_Amount) AND (`Primary` = @Original_Primary))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Salary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Salary_Desc" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Salary Desc" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Other_Deduction" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Other Deduction" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_salary_item_otherdeduction.Description AS `Salary Desc`, tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, 
+                         SUM(tbltrans_salary_item_otherdeduction.Amount) AS Amount, tbltrans_salary.`Primary Employee`, tblmaster_karyawan.`primary departemen`
+FROM            tbltrans_salary_item_otherdeduction INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item_otherdeduction.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary_item_otherdeduction.Amount &gt; 0)
+GROUP BY tbltrans_salary_item_otherdeduction.Description, tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, tbltrans_salary.`Primary Employee`, 
+                         tblmaster_karyawan.`primary departemen`
+ORDER BY `Salary Desc`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tbltrans_salary_item_otherdeduction` SET `Primary Transaksi` = @Primary_Salary, `Description` = @Salary_Desc, `Primary Other Deduction` = @Primary_Other_Deduction, `Amount` = @Amount WHERE ((`Primary Transaksi` = @Original_Primary_Salary) AND (`Description` = @Original_Salary_Desc) AND (`Primary Other Deduction` = @Original_Primary_Other_Deduction) AND (`Amount` = @Original_Amount) AND (`Primary` = @Original_Primary))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Salary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Salary_Desc" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Salary Desc" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Other_Deduction" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Other Deduction" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Salary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Salary_Desc" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Salary Desc" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Other_Deduction" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Other Deduction" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Salary Desc" DataSetColumn="Salary Desc" />
+              <Mapping SourceColumn="Primary Other Deduction" DataSetColumn="Primary Other Deduction" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_item_otherdeduction.Description AS `Salary Desc`, tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, 
+                         SUM(tbltrans_salary_item_otherdeduction.Amount) AS Amount, tbltrans_salary.`Primary Employee`, tblmaster_karyawan.`primary departemen`
+FROM            tbltrans_salary_item_otherdeduction INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item_otherdeduction.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary_item_otherdeduction.Amount &gt; 0) AND (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary_item_otherdeduction.Description, tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, tbltrans_salary.`Primary Employee`, 
+                         tblmaster_karyawan.`primary departemen`
+ORDER BY `Salary Desc`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_akun.`Account Code`, tblmaster_akun.Description, SUM(tbltrans_salary_employee_d_igi.amount) AS Amount, tbltrans_salary.`Primary Employee`, 
+                         tblmaster_karyawan.`primary departemen`, tbltrans_salary_employee_d_igi.`primary akun payment`
+FROM            tbltrans_salary_employee_d_igi INNER JOIN
+                         tblmaster_akun ON tbltrans_salary_employee_d_igi.`primary akun payment` = tblmaster_akun.`Primary` INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_employee_d_igi.`primary transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+GROUP BY tblmaster_akun.`Account Code`, tblmaster_akun.Description, tbltrans_salary.`Primary Employee`, tblmaster_karyawan.`primary departemen`, 
+                         tbltrans_salary_employee_d_igi.`primary akun payment`
+ORDER BY tblmaster_akun.Description</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Account Code" DataSetColumn="Account Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="primary akun payment" DataSetColumn="primary akun payment" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_akun.`Account Code`, tblmaster_akun.Description, SUM(tbltrans_salary_employee_d_igi.amount) AS Amount, tbltrans_salary.`Primary Employee`, 
+                         tblmaster_karyawan.`primary departemen`, tbltrans_salary_employee_d_igi.`primary akun payment`
+FROM            tbltrans_salary_employee_d_igi INNER JOIN
+                         tblmaster_akun ON tbltrans_salary_employee_d_igi.`primary akun payment` = tblmaster_akun.`Primary` INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_employee_d_igi.`primary transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tblmaster_akun.`Account Code`, tblmaster_akun.Description, tbltrans_salary.`Primary Employee`, tblmaster_karyawan.`primary departemen`, 
+                         tbltrans_salary_employee_d_igi.`primary akun payment`
+ORDER BY tblmaster_akun.Description</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable6TableAdapter" GeneratorDataComponentClassName="DataTable6TableAdapter" Name="DataTable6" UserDataComponentName="DataTable6TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_salary_item.`Identifier Salary Component`, SUM(tbltrans_salary_item.Amount) AS TotalAmount_PerDept, tblmaster_karyawan.`primary departemen`
+FROM            tbltrans_salary_item INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+GROUP BY tbltrans_salary_item.`Identifier Salary Component`, tblmaster_karyawan.`primary departemen`
+HAVING        (SUM(tbltrans_salary_item.Amount) &gt; 0)
+ORDER BY tblmaster_karyawan.`primary departemen`, tbltrans_salary_item.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Identifier Salary Component" DataSetColumn="Identifier Salary Component" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="TotalAmount_PerDept" DataSetColumn="TotalAmount_PerDept" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_item.`Identifier Salary Component`, SUM(tbltrans_salary_item.Amount) AS TotalAmount_PerDept, tblmaster_karyawan.`primary departemen`
+FROM            tbltrans_salary_item INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary_item.`Identifier Salary Component`, tblmaster_karyawan.`primary departemen`
+HAVING        (SUM(tbltrans_salary_item.Amount) &gt; 0)
+ORDER BY tblmaster_karyawan.`primary departemen`, tbltrans_salary_item.`Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable7TableAdapter" GeneratorDataComponentClassName="DataTable7TableAdapter" Name="DataTable7" UserDataComponentName="DataTable7TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, SUM(tbltrans_salary_item_otherdeduction.Amount) AS TotalAmount_PerDept, 
+                         tblmaster_karyawan.`primary departemen`
+FROM            tbltrans_salary_item_otherdeduction INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item_otherdeduction.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary_item_otherdeduction.Amount &gt; 0)
+GROUP BY tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, tblmaster_karyawan.`primary departemen`
+ORDER BY tblmaster_karyawan.`primary departemen`, tbltrans_salary_item_otherdeduction.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Other Deduction" DataSetColumn="Primary Other Deduction" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="TotalAmount_PerDept" DataSetColumn="TotalAmount_PerDept" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, SUM(tbltrans_salary_item_otherdeduction.Amount) AS TotalAmount_PerDept, 
+                         tblmaster_karyawan.`primary departemen`
+FROM            tbltrans_salary_item_otherdeduction INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item_otherdeduction.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary_item_otherdeduction.Amount &gt; 0) AND (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, tblmaster_karyawan.`primary departemen`
+ORDER BY tblmaster_karyawan.`primary departemen`, tbltrans_salary_item_otherdeduction.`Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable8TableAdapter" GeneratorDataComponentClassName="DataTable8TableAdapter" Name="DataTable8" UserDataComponentName="DataTable8TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_employee_d_igi.`primary akun payment`, SUM(tbltrans_salary_employee_d_igi.amount) AS TotalAmount_PerDept, 
+                         tblmaster_karyawan.`primary departemen`
+FROM            tbltrans_salary_employee_d_igi INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_employee_d_igi.`primary transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+GROUP BY tbltrans_salary_employee_d_igi.`primary akun payment`, tblmaster_karyawan.`primary departemen`
+ORDER BY tblmaster_karyawan.`primary departemen`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary akun payment" DataSetColumn="primary akun payment" />
+              <Mapping SourceColumn="TotalAmount_PerDept" DataSetColumn="TotalAmount_PerDept" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_employee_d_igi.`primary akun payment`, SUM(tbltrans_salary_employee_d_igi.amount) AS TotalAmount_PerDept, 
+                         tblmaster_karyawan.`primary departemen`
+FROM            tbltrans_salary_employee_d_igi INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_employee_d_igi.`primary transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary_employee_d_igi.`primary akun payment`, tblmaster_karyawan.`primary departemen`
+ORDER BY tblmaster_karyawan.`primary departemen`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_itemTableAdapter" Name="tbltrans_salary_item" UserDataComponentName="tbltrans_salary_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_salary_item.`Identifier Salary Component`, SUM(tbltrans_salary_item.Amount) AS TotalAmount_All
+FROM            tbltrans_salary_item INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item.`Primary Transaksi` = tbltrans_salary.`Primary`
+GROUP BY tbltrans_salary_item.`Identifier Salary Component`
+HAVING        (SUM(tbltrans_salary_item.Amount) &gt; 0)</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Identifier Salary Component" DataSetColumn="Identifier Salary Component" />
+              <Mapping SourceColumn="TotalAmount_All" DataSetColumn="TotalAmount_All" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_item.`Identifier Salary Component`, SUM(tbltrans_salary_item.Amount) AS TotalAmount_All
+FROM            tbltrans_salary_item INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item.`Primary Transaksi` = tbltrans_salary.`Primary`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary_item.`Identifier Salary Component`
+HAVING        (SUM(tbltrans_salary_item.Amount) &gt; 0)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_item_otherdeduction1TableAdapter" GeneratorDataComponentClassName="tbltrans_salary_item_otherdeduction1TableAdapter" Name="tbltrans_salary_item_otherdeduction1" UserDataComponentName="tbltrans_salary_item_otherdeduction1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_item_otherdeduction" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, SUM(tbltrans_salary_item_otherdeduction.Amount) AS TotalAmount_PerDept
+FROM            tbltrans_salary_item_otherdeduction INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item_otherdeduction.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary_item_otherdeduction.Amount &gt; 0)
+GROUP BY tbltrans_salary_item_otherdeduction.`Primary Other Deduction`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Other Deduction" DataSetColumn="Primary Other Deduction" />
+              <Mapping SourceColumn="TotalAmount_PerDept" DataSetColumn="TotalAmount_PerDept" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_item_otherdeduction" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_item_otherdeduction.`Primary Other Deduction`, SUM(tbltrans_salary_item_otherdeduction.Amount) AS TotalAmount_PerDept
+FROM            tbltrans_salary_item_otherdeduction INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item_otherdeduction.`Primary Transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary_item_otherdeduction.Amount &gt; 0) AND (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary_item_otherdeduction.`Primary Other Deduction`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_employee_d_igiTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_employee_d_igiTableAdapter" Name="tbltrans_salary_employee_d_igi" UserDataComponentName="tbltrans_salary_employee_d_igiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_employee_d_igi" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_employee_d_igi.`primary akun payment`, SUM(tbltrans_salary_employee_d_igi.amount) AS TotalAmount_PerDept
+FROM            tbltrans_salary_employee_d_igi INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_employee_d_igi.`primary transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+GROUP BY tbltrans_salary_employee_d_igi.`primary akun payment`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary akun payment" DataSetColumn="primary akun payment" />
+              <Mapping SourceColumn="TotalAmount_PerDept" DataSetColumn="TotalAmount_PerDept" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_employee_d_igi" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_employee_d_igi.`primary akun payment`, SUM(tbltrans_salary_employee_d_igi.amount) AS TotalAmount_PerDept
+FROM            tbltrans_salary_employee_d_igi INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_employee_d_igi.`primary transaksi` = tbltrans_salary.`Primary` INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary_employee_d_igi.`primary akun payment`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_jobpositionTableAdapter" GeneratorDataComponentClassName="tblmaster_jobpositionTableAdapter" Name="tblmaster_jobposition" UserDataComponentName="tblmaster_jobpositionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_jobposition" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_jobposition` WHERE ((`primary` = @Original_primary) AND (`desc` = @Original_Position))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `desc` AS Position
+FROM            tblmaster_jobposition
+ORDER BY Position</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_jobposition` SET `desc` = @Position WHERE ((`primary` = @Original_primary) AND (`desc` = @Original_Position))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="Position" DataSetColumn="Position" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_departemenTableAdapter" GeneratorDataComponentClassName="tblmaster_departemenTableAdapter" Name="tblmaster_departemen" UserDataComponentName="tblmaster_departemenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_departemen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_departemen` WHERE ((`Primary` = @Original_Primary) AND (`Description` = @Original_Departement))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Departement" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Departement" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, Description AS Departement
+FROM            tblmaster_departemen
+ORDER BY Departement</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_departemen` SET `Description` = @Departement WHERE ((`Primary` = @Original_Primary) AND (`Description` = @Original_Departement))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Departement" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Departement" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Departement" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Departement" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Departement" DataSetColumn="Departement" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_salary_formula1TableAdapter" GeneratorDataComponentClassName="tblmaster_salary_formula1TableAdapter" Name="tblmaster_salary_formula1" UserDataComponentName="tblmaster_salary_formula1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_salary_formula" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_salary_formula` WHERE ((`primary` = @Original_primary) AND (`desc` = @Original_Formula))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Formula" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Formula" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `desc` AS Formula
+FROM            tblmaster_salary_formula
+ORDER BY Formula</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_salary_formula` SET `desc` = @Formula WHERE ((`primary` = @Original_primary) AND (`desc` = @Original_Formula))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Formula" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Formula" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Formula" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Formula" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="Formula" DataSetColumn="Formula" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_karyawanTableAdapter" GeneratorDataComponentClassName="tblmaster_karyawanTableAdapter" Name="tblmaster_karyawan" UserDataComponentName="tblmaster_karyawanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_karyawan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_karyawan` WHERE ((`Primary` = @Original_Primary) AND (`Code` = @Original_Code) AND (`Full Name` = @Original_Full_Name) AND (`NIK` = @Original_NIK) AND (`primary departemen` = @Original_primary_departemen) AND (`primary position` = @Original_primary_position) AND (`Remarks` = @Original_Remarks))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Full_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Full Name" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NIK" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NIK" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_departemen" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary departemen" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_position" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary position" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, Code, `Full Name`, NIK, `primary departemen`, `primary position`, Remarks
+FROM            tblmaster_karyawan
+ORDER BY `Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_karyawan` SET `Code` = @Code, `Full Name` = @Full_Name, `NIK` = @NIK, `primary departemen` = @primary_departemen, `primary position` = @primary_position, `Remarks` = @Remarks WHERE ((`Primary` = @Original_Primary) AND (`Code` = @Original_Code) AND (`Full Name` = @Original_Full_Name) AND (`NIK` = @Original_NIK) AND (`primary departemen` = @Original_primary_departemen) AND (`primary position` = @Original_primary_position) AND (`Remarks` = @Original_Remarks))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Full_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Full Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NIK" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NIK" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_departemen" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary departemen" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_position" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary position" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Full_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Full Name" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NIK" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NIK" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_departemen" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary departemen" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_position" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary position" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="NIK" DataSetColumn="NIK" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="primary position" DataSetColumn="primary position" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salaryTableAdapter" GeneratorDataComponentClassName="tbltrans_salaryTableAdapter" Name="tbltrans_salary" UserDataComponentName="tbltrans_salaryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_salary" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `Primary Employee`, SUM(`Loan Installment`) AS `Loan Installment`, SUM(`Company Expense`) AS `Company Expense`, SUM(`Employee Expense`) AS `Employee Expense`
+FROM  tbltrans_salary
+WHERE (`Tanggal Transaksi` &lt;= @EndDate) AND (`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY `Primary Employee`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_hr_iniled_actual.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_hr_iniled_actual.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Loan Installment" DataSetColumn="Loan Installment" />
+              <Mapping SourceColumn="Company Expense" DataSetColumn="Company Expense" />
+              <Mapping SourceColumn="Employee Expense" DataSetColumn="Employee Expense" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanSalaryStaff_SMESS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanSalaryStaff_SMESS" msprop:Generator_DataSetName="DseLaporanSalaryStaff_SMESS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnPropNameInTable="NamaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Salary_x0020_Desc" msprop:Generator_UserColumnName="Salary Desc" msprop:Generator_ColumnVarNameInTable="columnSalary_Desc" msprop:Generator_ColumnPropNameInRow="Salary_Desc" msprop:Generator_ColumnPropNameInTable="Salary_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Identifier_x0020_Salary_x0020_Component" msprop:Generator_UserColumnName="Identifier Salary Component" msprop:Generator_ColumnVarNameInTable="columnIdentifier_Salary_Component" msprop:Generator_ColumnPropNameInRow="Identifier_Salary_Component" msprop:Generator_ColumnPropNameInTable="Identifier_Salary_ComponentColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="Dept_x0020_Code" msprop:Generator_UserColumnName="Dept Code" msprop:Generator_ColumnVarNameInTable="columnDept_Code" msprop:Generator_ColumnPropNameInRow="Dept_Code" msprop:Generator_ColumnPropNameInTable="Dept_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_x0020_Desc" msprop:Generator_UserColumnName="Dept Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" type="xs:int" />
+              <xs:element name="Income" msprop:Generator_UserColumnName="Income" msprop:Generator_ColumnVarNameInTable="columnIncome" msprop:Generator_ColumnPropNameInRow="Income" msprop:Generator_ColumnPropNameInTable="IncomeColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Deduction" msprop:Generator_UserColumnName="Deduction" msprop:Generator_ColumnVarNameInTable="columnDeduction" msprop:Generator_ColumnPropNameInRow="Deduction" msprop:Generator_ColumnPropNameInTable="DeductionColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Gross_x0020_Salary" msprop:Generator_UserColumnName="Gross Salary" msprop:Generator_ColumnVarNameInTable="columnGross_Salary" msprop:Generator_ColumnPropNameInRow="Gross_Salary" msprop:Generator_ColumnPropNameInTable="Gross_SalaryColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Income_x0020_Tax" msprop:Generator_UserColumnName="Income Tax" msprop:Generator_ColumnVarNameInTable="columnIncome_Tax" msprop:Generator_ColumnPropNameInRow="Income_Tax" msprop:Generator_ColumnPropNameInTable="Income_TaxColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Other_x0020_Deduction" msprop:Generator_UserColumnName="Other Deduction" msprop:Generator_ColumnVarNameInTable="columnOther_Deduction" msprop:Generator_ColumnPropNameInRow="Other_Deduction" msprop:Generator_ColumnPropNameInTable="Other_DeductionColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Take_x0020_Home_x0020_Pay" msprop:Generator_UserColumnName="Take Home Pay" msprop:Generator_ColumnVarNameInTable="columnTake_Home_Pay" msprop:Generator_ColumnPropNameInRow="Take_Home_Pay" msprop:Generator_ColumnPropNameInTable="Take_Home_PayColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="primary_x0020_position" msprop:Generator_UserColumnName="primary position" msprop:Generator_ColumnVarNameInTable="columnprimary_position" msprop:Generator_ColumnPropNameInRow="primary_position" msprop:Generator_ColumnPropNameInTable="primary_positionColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblCetak" msprop:Generator_UserTableName="TblCetak" msprop:Generator_RowDeletedName="TblCetakRowDeleted" msprop:Generator_RowChangedName="TblCetakRowChanged" msprop:Generator_RowClassName="TblCetakRow" msprop:Generator_RowChangingName="TblCetakRowChanging" msprop:Generator_RowEvArgName="TblCetakRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetakRowChangeEventHandler" msprop:Generator_TableClassName="TblCetakDataTable" msprop:Generator_TableVarName="tableTblCetak" msprop:Generator_RowDeletingName="TblCetakRowDeleting" msprop:Generator_TablePropName="TblCetak">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Department" msprop:Generator_UserColumnName="Department" msprop:Generator_ColumnVarNameInTable="columnDepartment" msprop:Generator_ColumnPropNameInRow="Department" msprop:Generator_ColumnPropNameInTable="DepartmentColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Employee_x0020_Name" msprop:Generator_UserColumnName="Employee Name" msprop:Generator_ColumnVarNameInTable="columnEmployee_Name" msprop:Generator_ColumnPropNameInRow="Employee_Name" msprop:Generator_ColumnPropNameInTable="Employee_NameColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Income" msprop:Generator_UserColumnName="Income" msprop:Generator_ColumnVarNameInTable="columnIncome" msprop:Generator_ColumnPropNameInRow="Income" msprop:Generator_ColumnPropNameInTable="IncomeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Deduction" msprop:Generator_UserColumnName="Deduction" msprop:Generator_ColumnVarNameInTable="columnDeduction" msprop:Generator_ColumnPropNameInRow="Deduction" msprop:Generator_ColumnPropNameInTable="DeductionColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Gross_x0020_Salary" msprop:Generator_UserColumnName="Gross Salary" msprop:Generator_ColumnVarNameInTable="columnGross_Salary" msprop:Generator_ColumnPropNameInRow="Gross_Salary" msprop:Generator_ColumnPropNameInTable="Gross_SalaryColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Income_x0020_Tax" msprop:Generator_UserColumnName="Income Tax" msprop:Generator_ColumnVarNameInTable="columnIncome_Tax" msprop:Generator_ColumnPropNameInRow="Income_Tax" msprop:Generator_ColumnPropNameInTable="Income_TaxColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Other_x0020_Deduction" msprop:Generator_UserColumnName="Other Deduction" msprop:Generator_ColumnVarNameInTable="columnOther_Deduction" msprop:Generator_ColumnPropNameInRow="Other_Deduction" msprop:Generator_ColumnPropNameInTable="Other_DeductionColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Take_x0020_Home_x0020_Pay" msprop:Generator_UserColumnName="Take Home Pay" msprop:Generator_ColumnVarNameInTable="columnTake_Home_Pay" msprop:Generator_ColumnPropNameInRow="Take_Home_Pay" msprop:Generator_ColumnPropNameInTable="Take_Home_PayColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Detail_Income" msprop:Generator_UserColumnName="Detail_Income" msprop:Generator_ColumnVarNameInTable="columnDetail_Income" msprop:Generator_ColumnPropNameInRow="Detail_Income" msprop:Generator_ColumnPropNameInTable="Detail_IncomeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Detail_Income_Amount" msprop:Generator_UserColumnName="Detail_Income_Amount" msprop:Generator_ColumnVarNameInTable="columnDetail_Income_Amount" msprop:Generator_ColumnPropNameInRow="Detail_Income_Amount" msprop:Generator_ColumnPropNameInTable="Detail_Income_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Detail_Deduction" msprop:Generator_UserColumnName="Detail_Deduction" msprop:Generator_ColumnVarNameInTable="columnDetail_Deduction" msprop:Generator_ColumnPropNameInRow="Detail_Deduction" msprop:Generator_ColumnPropNameInTable="Detail_DeductionColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Detail_Deduction_Amount" msprop:Generator_UserColumnName="Detail_Deduction_Amount" msprop:Generator_ColumnVarNameInTable="columnDetail_Deduction_Amount" msprop:Generator_ColumnPropNameInRow="Detail_Deduction_Amount" msprop:Generator_ColumnPropNameInTable="Detail_Deduction_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Detail_Other" msprop:Generator_UserColumnName="Detail_Other" msprop:Generator_ColumnVarNameInTable="columnDetail_Other" msprop:Generator_ColumnPropNameInRow="Detail_Other" msprop:Generator_ColumnPropNameInTable="Detail_OtherColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Detail_Other_Amount" msprop:Generator_UserColumnName="Detail_Other_Amount" msprop:Generator_ColumnVarNameInTable="columnDetail_Other_Amount" msprop:Generator_ColumnPropNameInRow="Detail_Other_Amount" msprop:Generator_ColumnPropNameInTable="Detail_Other_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Detail_Payment" msprop:Generator_UserColumnName="Detail_Payment" msprop:Generator_ColumnVarNameInTable="columnDetail_Payment" msprop:Generator_ColumnPropNameInRow="Detail_Payment" msprop:Generator_ColumnPropNameInTable="Detail_PaymentColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Detail_Payment_Amount" msprop:Generator_UserColumnName="Detail_Payment_Amount" msprop:Generator_ColumnVarNameInTable="columnDetail_Payment_Amount" msprop:Generator_ColumnPropNameInRow="Detail_Payment_Amount" msprop:Generator_ColumnPropNameInTable="Detail_Payment_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TD_Income" msprop:Generator_UserColumnName="TD_Income" msprop:Generator_ColumnVarNameInTable="columnTD_Income" msprop:Generator_ColumnPropNameInRow="TD_Income" msprop:Generator_ColumnPropNameInTable="TD_IncomeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TD_Income_Amount" msprop:Generator_UserColumnName="TD_Income_Amount" msprop:Generator_ColumnVarNameInTable="columnTD_Income_Amount" msprop:Generator_ColumnPropNameInRow="TD_Income_Amount" msprop:Generator_ColumnPropNameInTable="TD_Income_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TD_Deduction" msprop:Generator_UserColumnName="TD_Deduction" msprop:Generator_ColumnVarNameInTable="columnTD_Deduction" msprop:Generator_ColumnPropNameInRow="TD_Deduction" msprop:Generator_ColumnPropNameInTable="TD_DeductionColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TD_Deduction_Amount" msprop:Generator_UserColumnName="TD_Deduction_Amount" msprop:Generator_ColumnVarNameInTable="columnTD_Deduction_Amount" msprop:Generator_ColumnPropNameInRow="TD_Deduction_Amount" msprop:Generator_ColumnPropNameInTable="TD_Deduction_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TD_Other" msprop:Generator_UserColumnName="TD_Other" msprop:Generator_ColumnVarNameInTable="columnTD_Other" msprop:Generator_ColumnPropNameInRow="TD_Other" msprop:Generator_ColumnPropNameInTable="TD_OtherColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TD_Other_Amount" msprop:Generator_UserColumnName="TD_Other_Amount" msprop:Generator_ColumnVarNameInTable="columnTD_Other_Amount" msprop:Generator_ColumnPropNameInRow="TD_Other_Amount" msprop:Generator_ColumnPropNameInTable="TD_Other_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TD_Payment" msprop:Generator_UserColumnName="TD_Payment" msprop:Generator_ColumnVarNameInTable="columnTD_Payment" msprop:Generator_ColumnPropNameInRow="TD_Payment" msprop:Generator_ColumnPropNameInTable="TD_PaymentColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="TD_Payment_Amount" msprop:Generator_UserColumnName="TD_Payment_Amount" msprop:Generator_ColumnVarNameInTable="columnTD_Payment_Amount" msprop:Generator_ColumnPropNameInRow="TD_Payment_Amount" msprop:Generator_ColumnPropNameInTable="TD_Payment_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Primary_x0020_Dept" msprop:Generator_UserColumnName="Primary Dept" msprop:Generator_ColumnPropNameInRow="Primary_Dept" msprop:Generator_ColumnVarNameInTable="columnPrimary_Dept" msprop:Generator_ColumnPropNameInTable="Primary_DeptColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Grand_Income" msprop:Generator_UserColumnName="Grand_Income" msprop:Generator_ColumnPropNameInRow="Grand_Income" msprop:Generator_ColumnVarNameInTable="columnGrand_Income" msprop:Generator_ColumnPropNameInTable="Grand_IncomeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Grand_Income_Amount" msprop:Generator_UserColumnName="Grand_Income_Amount" msprop:Generator_ColumnPropNameInRow="Grand_Income_Amount" msprop:Generator_ColumnVarNameInTable="columnGrand_Income_Amount" msprop:Generator_ColumnPropNameInTable="Grand_Income_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Grand_Deduction" msprop:Generator_UserColumnName="Grand_Deduction" msprop:Generator_ColumnPropNameInRow="Grand_Deduction" msprop:Generator_ColumnVarNameInTable="columnGrand_Deduction" msprop:Generator_ColumnPropNameInTable="Grand_DeductionColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Grand_Deduction_Amount" msprop:Generator_UserColumnName="Grand_Deduction_Amount" msprop:Generator_ColumnPropNameInRow="Grand_Deduction_Amount" msprop:Generator_ColumnVarNameInTable="columnGrand_Deduction_Amount" msprop:Generator_ColumnPropNameInTable="Grand_Deduction_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Grand_Other" msprop:Generator_UserColumnName="Grand_Other" msprop:Generator_ColumnPropNameInRow="Grand_Other" msprop:Generator_ColumnVarNameInTable="columnGrand_Other" msprop:Generator_ColumnPropNameInTable="Grand_OtherColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Grand_Other_Amount" msprop:Generator_UserColumnName="Grand_Other_Amount" msprop:Generator_ColumnPropNameInRow="Grand_Other_Amount" msprop:Generator_ColumnVarNameInTable="columnGrand_Other_Amount" msprop:Generator_ColumnPropNameInTable="Grand_Other_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Grand_Payment" msprop:Generator_UserColumnName="Grand_Payment" msprop:Generator_ColumnPropNameInRow="Grand_Payment" msprop:Generator_ColumnVarNameInTable="columnGrand_Payment" msprop:Generator_ColumnPropNameInTable="Grand_PaymentColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Grand_Payment_Amount" msprop:Generator_UserColumnName="Grand_Payment_Amount" msprop:Generator_ColumnPropNameInRow="Grand_Payment_Amount" msprop:Generator_ColumnVarNameInTable="columnGrand_Payment_Amount" msprop:Generator_ColumnPropNameInTable="Grand_Payment_AmountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Company_x0020_Expense" msprop:Generator_UserColumnName="Company Expense" msprop:Generator_ColumnPropNameInRow="Company_Expense" msprop:Generator_ColumnVarNameInTable="columnCompany_Expense" msprop:Generator_ColumnPropNameInTable="Company_ExpenseColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Employee_x0020_Expense" msprop:Generator_UserColumnName="Employee Expense" msprop:Generator_ColumnPropNameInRow="Employee_Expense" msprop:Generator_ColumnVarNameInTable="columnEmployee_Expense" msprop:Generator_ColumnPropNameInTable="Employee_ExpenseColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Loan_x0020_Payment" msprop:Generator_UserColumnName="Loan Payment" msprop:Generator_ColumnPropNameInRow="Loan_Payment" msprop:Generator_ColumnVarNameInTable="columnLoan_Payment" msprop:Generator_ColumnPropNameInTable="Loan_PaymentColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_item_otherdeduction" msprop:Generator_UserTableName="tbltrans_salary_item_otherdeduction" msprop:Generator_RowDeletedName="tbltrans_salary_item_otherdeductionRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_item_otherdeductionRowChanged" msprop:Generator_RowClassName="tbltrans_salary_item_otherdeductionRow" msprop:Generator_RowChangingName="tbltrans_salary_item_otherdeductionRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_item_otherdeductionRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_item_otherdeductionRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_item_otherdeductionDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_item_otherdeduction" msprop:Generator_RowDeletingName="tbltrans_salary_item_otherdeductionRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_item_otherdeduction">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Salary_x0020_Desc" msprop:Generator_UserColumnName="Salary Desc" msprop:Generator_ColumnVarNameInTable="columnSalary_Desc" msprop:Generator_ColumnPropNameInRow="Salary_Desc" msprop:Generator_ColumnPropNameInTable="Salary_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Other_x0020_Deduction" msprop:Generator_UserColumnName="Primary Other Deduction" msprop:Generator_ColumnVarNameInTable="columnPrimary_Other_Deduction" msprop:Generator_ColumnPropNameInRow="Primary_Other_Deduction" msprop:Generator_ColumnPropNameInTable="Primary_Other_DeductionColumn" type="xs:double" />
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Account_x0020_Code" msprop:Generator_UserColumnName="Account Code" msprop:Generator_ColumnVarNameInTable="columnAccount_Code" msprop:Generator_ColumnPropNameInRow="Account_Code" msprop:Generator_ColumnPropNameInTable="Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="primary_x0020_akun_x0020_payment" msprop:Generator_UserColumnName="primary akun payment" msprop:Generator_ColumnVarNameInTable="columnprimary_akun_payment" msprop:Generator_ColumnPropNameInRow="primary_akun_payment" msprop:Generator_ColumnPropNameInTable="primary_akun_paymentColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable6" msprop:Generator_UserTableName="DataTable6" msprop:Generator_RowDeletedName="DataTable6RowDeleted" msprop:Generator_RowChangedName="DataTable6RowChanged" msprop:Generator_RowClassName="DataTable6Row" msprop:Generator_RowChangingName="DataTable6RowChanging" msprop:Generator_RowEvArgName="DataTable6RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable6RowChangeEventHandler" msprop:Generator_TableClassName="DataTable6DataTable" msprop:Generator_TableVarName="tableDataTable6" msprop:Generator_RowDeletingName="DataTable6RowDeleting" msprop:Generator_TablePropName="DataTable6">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Identifier_x0020_Salary_x0020_Component" msprop:Generator_UserColumnName="Identifier Salary Component" msprop:Generator_ColumnVarNameInTable="columnIdentifier_Salary_Component" msprop:Generator_ColumnPropNameInRow="Identifier_Salary_Component" msprop:Generator_ColumnPropNameInTable="Identifier_Salary_ComponentColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="TotalAmount_PerDept" msprop:Generator_UserColumnName="TotalAmount_PerDept" msprop:Generator_ColumnVarNameInTable="columnTotalAmount_PerDept" msprop:Generator_ColumnPropNameInRow="TotalAmount_PerDept" msprop:Generator_ColumnPropNameInTable="TotalAmount_PerDeptColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable7" msprop:Generator_UserTableName="DataTable7" msprop:Generator_RowDeletedName="DataTable7RowDeleted" msprop:Generator_RowChangedName="DataTable7RowChanged" msprop:Generator_RowClassName="DataTable7Row" msprop:Generator_RowChangingName="DataTable7RowChanging" msprop:Generator_RowEvArgName="DataTable7RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable7RowChangeEventHandler" msprop:Generator_TableClassName="DataTable7DataTable" msprop:Generator_TableVarName="tableDataTable7" msprop:Generator_RowDeletingName="DataTable7RowDeleting" msprop:Generator_TablePropName="DataTable7">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Other_x0020_Deduction" msprop:Generator_UserColumnName="Primary Other Deduction" msprop:Generator_ColumnVarNameInTable="columnPrimary_Other_Deduction" msprop:Generator_ColumnPropNameInRow="Primary_Other_Deduction" msprop:Generator_ColumnPropNameInTable="Primary_Other_DeductionColumn" type="xs:double" />
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="TotalAmount_PerDept" msprop:Generator_UserColumnName="TotalAmount_PerDept" msprop:Generator_ColumnVarNameInTable="columnTotalAmount_PerDept" msprop:Generator_ColumnPropNameInRow="TotalAmount_PerDept" msprop:Generator_ColumnPropNameInTable="TotalAmount_PerDeptColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable8" msprop:Generator_UserTableName="DataTable8" msprop:Generator_RowDeletedName="DataTable8RowDeleted" msprop:Generator_RowChangedName="DataTable8RowChanged" msprop:Generator_RowClassName="DataTable8Row" msprop:Generator_RowChangingName="DataTable8RowChanging" msprop:Generator_RowEvArgName="DataTable8RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable8RowChangeEventHandler" msprop:Generator_TableClassName="DataTable8DataTable" msprop:Generator_TableVarName="tableDataTable8" msprop:Generator_RowDeletingName="DataTable8RowDeleting" msprop:Generator_TablePropName="DataTable8">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_akun_x0020_payment" msprop:Generator_UserColumnName="primary akun payment" msprop:Generator_ColumnVarNameInTable="columnprimary_akun_payment" msprop:Generator_ColumnPropNameInRow="primary_akun_payment" msprop:Generator_ColumnPropNameInTable="primary_akun_paymentColumn" type="xs:double" />
+              <xs:element name="TotalAmount_PerDept" msprop:Generator_UserColumnName="TotalAmount_PerDept" msprop:Generator_ColumnVarNameInTable="columnTotalAmount_PerDept" msprop:Generator_ColumnPropNameInRow="TotalAmount_PerDept" msprop:Generator_ColumnPropNameInTable="TotalAmount_PerDeptColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_item" msprop:Generator_UserTableName="tbltrans_salary_item" msprop:Generator_RowDeletedName="tbltrans_salary_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_itemRowChanged" msprop:Generator_RowClassName="tbltrans_salary_itemRow" msprop:Generator_RowChangingName="tbltrans_salary_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_item" msprop:Generator_RowDeletingName="tbltrans_salary_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Identifier_x0020_Salary_x0020_Component" msprop:Generator_UserColumnName="Identifier Salary Component" msprop:Generator_ColumnPropNameInRow="Identifier_Salary_Component" msprop:Generator_ColumnVarNameInTable="columnIdentifier_Salary_Component" msprop:Generator_ColumnPropNameInTable="Identifier_Salary_ComponentColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalAmount_All" msprop:Generator_UserColumnName="TotalAmount_All" msprop:Generator_ColumnPropNameInRow="TotalAmount_All" msprop:Generator_ColumnVarNameInTable="columnTotalAmount_All" msprop:Generator_ColumnPropNameInTable="TotalAmount_AllColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_item_otherdeduction1" msprop:Generator_UserTableName="tbltrans_salary_item_otherdeduction1" msprop:Generator_RowDeletedName="tbltrans_salary_item_otherdeduction1RowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_item_otherdeduction1RowChanged" msprop:Generator_RowClassName="tbltrans_salary_item_otherdeduction1Row" msprop:Generator_RowChangingName="tbltrans_salary_item_otherdeduction1RowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_item_otherdeduction1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_item_otherdeduction1RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_item_otherdeduction1DataTable" msprop:Generator_TableVarName="tabletbltrans_salary_item_otherdeduction1" msprop:Generator_RowDeletingName="tbltrans_salary_item_otherdeduction1RowDeleting" msprop:Generator_TablePropName="tbltrans_salary_item_otherdeduction1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Other_x0020_Deduction" msprop:Generator_UserColumnName="Primary Other Deduction" msprop:Generator_ColumnPropNameInRow="Primary_Other_Deduction" msprop:Generator_ColumnVarNameInTable="columnPrimary_Other_Deduction" msprop:Generator_ColumnPropNameInTable="Primary_Other_DeductionColumn" type="xs:double" />
+              <xs:element name="TotalAmount_PerDept" msprop:Generator_UserColumnName="TotalAmount_PerDept" msprop:Generator_ColumnPropNameInRow="TotalAmount_PerDept" msprop:Generator_ColumnVarNameInTable="columnTotalAmount_PerDept" msprop:Generator_ColumnPropNameInTable="TotalAmount_PerDeptColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_employee_d_igi" msprop:Generator_UserTableName="tbltrans_salary_employee_d_igi" msprop:Generator_RowDeletedName="tbltrans_salary_employee_d_igiRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_employee_d_igiRowChanged" msprop:Generator_RowClassName="tbltrans_salary_employee_d_igiRow" msprop:Generator_RowChangingName="tbltrans_salary_employee_d_igiRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_employee_d_igiRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_employee_d_igiRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_employee_d_igiDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_employee_d_igi" msprop:Generator_RowDeletingName="tbltrans_salary_employee_d_igiRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_employee_d_igi">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_akun_x0020_payment" msprop:Generator_UserColumnName="primary akun payment" msprop:Generator_ColumnPropNameInRow="primary_akun_payment" msprop:Generator_ColumnVarNameInTable="columnprimary_akun_payment" msprop:Generator_ColumnPropNameInTable="primary_akun_paymentColumn" type="xs:double" />
+              <xs:element name="TotalAmount_PerDept" msprop:Generator_UserColumnName="TotalAmount_PerDept" msprop:Generator_ColumnPropNameInRow="TotalAmount_PerDept" msprop:Generator_ColumnVarNameInTable="columnTotalAmount_PerDept" msprop:Generator_ColumnPropNameInTable="TotalAmount_PerDeptColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_jobposition" msprop:Generator_UserTableName="tblmaster_jobposition" msprop:Generator_RowDeletedName="tblmaster_jobpositionRowDeleted" msprop:Generator_RowChangedName="tblmaster_jobpositionRowChanged" msprop:Generator_RowClassName="tblmaster_jobpositionRow" msprop:Generator_RowChangingName="tblmaster_jobpositionRowChanging" msprop:Generator_RowEvArgName="tblmaster_jobpositionRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_jobpositionRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_jobpositionDataTable" msprop:Generator_TableVarName="tabletblmaster_jobposition" msprop:Generator_RowDeletingName="tblmaster_jobpositionRowDeleting" msprop:Generator_TablePropName="tblmaster_jobposition">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="Position" msprop:Generator_UserColumnName="Position" msprop:Generator_ColumnPropNameInRow="Position" msprop:Generator_ColumnVarNameInTable="columnPosition" msprop:Generator_ColumnPropNameInTable="PositionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_departemen" msprop:Generator_UserTableName="tblmaster_departemen" msprop:Generator_RowDeletedName="tblmaster_departemenRowDeleted" msprop:Generator_RowChangedName="tblmaster_departemenRowChanged" msprop:Generator_RowClassName="tblmaster_departemenRow" msprop:Generator_RowChangingName="tblmaster_departemenRowChanging" msprop:Generator_RowEvArgName="tblmaster_departemenRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_departemenRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_departemenDataTable" msprop:Generator_TableVarName="tabletblmaster_departemen" msprop:Generator_RowDeletingName="tblmaster_departemenRowDeleting" msprop:Generator_TablePropName="tblmaster_departemen">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Departement" msprop:Generator_UserColumnName="Departement" msprop:Generator_ColumnPropNameInRow="Departement" msprop:Generator_ColumnVarNameInTable="columnDepartement" msprop:Generator_ColumnPropNameInTable="DepartementColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_salary_formula1" msprop:Generator_UserTableName="tblmaster_salary_formula1" msprop:Generator_RowDeletedName="tblmaster_salary_formula1RowDeleted" msprop:Generator_RowChangedName="tblmaster_salary_formula1RowChanged" msprop:Generator_RowClassName="tblmaster_salary_formula1Row" msprop:Generator_RowChangingName="tblmaster_salary_formula1RowChanging" msprop:Generator_RowEvArgName="tblmaster_salary_formula1RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_salary_formula1RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_salary_formula1DataTable" msprop:Generator_TableVarName="tabletblmaster_salary_formula1" msprop:Generator_RowDeletingName="tblmaster_salary_formula1RowDeleting" msprop:Generator_TablePropName="tblmaster_salary_formula1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="Formula" msprop:Generator_UserColumnName="Formula" msprop:Generator_ColumnPropNameInRow="Formula" msprop:Generator_ColumnVarNameInTable="columnFormula" msprop:Generator_ColumnPropNameInTable="FormulaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_karyawan" msprop:Generator_UserTableName="tblmaster_karyawan" msprop:Generator_RowDeletedName="tblmaster_karyawanRowDeleted" msprop:Generator_RowChangedName="tblmaster_karyawanRowChanged" msprop:Generator_RowClassName="tblmaster_karyawanRow" msprop:Generator_RowChangingName="tblmaster_karyawanRowChanging" msprop:Generator_RowEvArgName="tblmaster_karyawanRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_karyawanRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_karyawanDataTable" msprop:Generator_TableVarName="tabletblmaster_karyawan" msprop:Generator_RowDeletingName="tblmaster_karyawanRowDeleting" msprop:Generator_TablePropName="tblmaster_karyawan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInTable="CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIK" msprop:Generator_UserColumnName="NIK" msprop:Generator_ColumnPropNameInRow="NIK" msprop:Generator_ColumnVarNameInTable="columnNIK" msprop:Generator_ColumnPropNameInTable="NIKColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="primary_x0020_position" msprop:Generator_UserColumnName="primary position" msprop:Generator_ColumnPropNameInRow="primary_position" msprop:Generator_ColumnVarNameInTable="columnprimary_position" msprop:Generator_ColumnPropNameInTable="primary_positionColumn" type="xs:double" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary" msprop:Generator_UserTableName="tbltrans_salary" msprop:Generator_RowDeletedName="tbltrans_salaryRowDeleted" msprop:Generator_RowChangedName="tbltrans_salaryRowChanged" msprop:Generator_RowClassName="tbltrans_salaryRow" msprop:Generator_RowChangingName="tbltrans_salaryRowChanging" msprop:Generator_RowEvArgName="tbltrans_salaryRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salaryRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salaryDataTable" msprop:Generator_TableVarName="tabletbltrans_salary" msprop:Generator_RowDeletingName="tbltrans_salaryRowDeleting" msprop:Generator_TablePropName="tbltrans_salary">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="Loan_x0020_Installment" msprop:Generator_UserColumnName="Loan Installment" msprop:Generator_ColumnVarNameInTable="columnLoan_Installment" msprop:Generator_ColumnPropNameInRow="Loan_Installment" msprop:Generator_ColumnPropNameInTable="Loan_InstallmentColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Company_x0020_Expense" msprop:Generator_UserColumnName="Company Expense" msprop:Generator_ColumnVarNameInTable="columnCompany_Expense" msprop:Generator_ColumnPropNameInRow="Company_Expense" msprop:Generator_ColumnPropNameInTable="Company_ExpenseColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Employee_x0020_Expense" msprop:Generator_UserColumnName="Employee Expense" msprop:Generator_ColumnVarNameInTable="columnEmployee_Expense" msprop:Generator_ColumnPropNameInRow="Employee_Expense" msprop:Generator_ColumnPropNameInTable="Employee_ExpenseColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_jobposition" />
+      <xs:field xpath="mstns:primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_departemen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_departemen" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_salary_formula1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_salary_formula1" />
+      <xs:field xpath="mstns:primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_karyawan_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_karyawan" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

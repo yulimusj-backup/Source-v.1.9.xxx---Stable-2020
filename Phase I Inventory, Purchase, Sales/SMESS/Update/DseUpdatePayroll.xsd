@@ -1,0 +1,780 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseUpdatePayroll" targetNamespace="http://tempuri.org/DseUpdatePayroll.xsd" xmlns:mstns="http://tempuri.org/DseUpdatePayroll.xsd" xmlns="http://tempuri.org/DseUpdatePayroll.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SMESS.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_karyawanTableAdapter" GeneratorDataComponentClassName="tblmaster_karyawanTableAdapter" Name="tblmaster_karyawan" UserDataComponentName="tblmaster_karyawanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_mst.tblmaster_karyawan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Primary`, `Full Name`, Prefix, `First Name`, `Middle Name`, `Last Name`, Suffix, `npwp no`, `npwp address`, `current address`, email, `Bank Name`, `Bank Branch`, `Bank Account No`, `Bank Account Holder`, Nama, `id card no`, `id card expiry`, 
+                  `id card address`, kpa_astek_no, `kpj no`, `picture path`
+FROM     tblmaster_karyawan</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="Prefix" DataSetColumn="Prefix" />
+              <Mapping SourceColumn="First Name" DataSetColumn="First Name" />
+              <Mapping SourceColumn="Middle Name" DataSetColumn="Middle Name" />
+              <Mapping SourceColumn="Last Name" DataSetColumn="Last Name" />
+              <Mapping SourceColumn="Suffix" DataSetColumn="Suffix" />
+              <Mapping SourceColumn="npwp no" DataSetColumn="npwp no" />
+              <Mapping SourceColumn="npwp address" DataSetColumn="npwp address" />
+              <Mapping SourceColumn="current address" DataSetColumn="current address" />
+              <Mapping SourceColumn="email" DataSetColumn="email" />
+              <Mapping SourceColumn="Bank Name" DataSetColumn="Bank Name" />
+              <Mapping SourceColumn="Bank Branch" DataSetColumn="Bank Branch" />
+              <Mapping SourceColumn="Bank Account No" DataSetColumn="Bank Account No" />
+              <Mapping SourceColumn="Bank Account Holder" DataSetColumn="Bank Account Holder" />
+              <Mapping SourceColumn="Nama" DataSetColumn="Nama" />
+              <Mapping SourceColumn="id card no" DataSetColumn="id card no" />
+              <Mapping SourceColumn="id card expiry" DataSetColumn="id card expiry" />
+              <Mapping SourceColumn="id card address" DataSetColumn="id card address" />
+              <Mapping SourceColumn="kpa_astek_no" DataSetColumn="kpa_astek_no" />
+              <Mapping SourceColumn="kpj no" DataSetColumn="kpj no" />
+              <Mapping SourceColumn="picture path" DataSetColumn="picture path" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery1" Modifier="Public" Name="UpdateQuery1" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery1">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tblmaster_karyawan
+SET          `Full Name` = @FullName, Prefix = '', `First Name` = @FullName, `Middle Name` = '', `Last Name` = '', Suffix = '', `npwp no` = @npwp_no, `npwp address` = @npwp_add, `current address` = @current_add, email = @email, 
+                  kpa_astek_no = @kpa_no, `kpj no` = @kpj_no, `Bank Name` = @bank_name, `Bank Branch` = @bank_branch, `Bank Account No` = @bank_acc_no, `Bank Account Holder` = @bank_acc_holder, Nama = @nama, `id card no` = @id_card_no, 
+                  `id card expiry` = @Id_card_expiry, `id card address` = @id_card_add, `picture path` = @pic_path
+WHERE  (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="FullName" ColumnName="Full Name" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@FullName" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Full Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="npwp_no" ColumnName="npwp no" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@npwp_no" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="npwp no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="npwp_add" ColumnName="npwp address" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@npwp_add" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="npwp address" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="current_add" ColumnName="current address" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@current_add" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="current address" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="email" ColumnName="email" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@email" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="email" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="kpa_no" ColumnName="kpa_astek_no" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@kpa_no" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="kpa_astek_no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="kpj_no" ColumnName="kpj no" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@kpj_no" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="kpj no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bank_name" ColumnName="Bank Name" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@bank_name" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Bank Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bank_branch" ColumnName="Bank Branch" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@bank_branch" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Bank Branch" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bank_acc_no" ColumnName="Bank Account No" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@bank_acc_no" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Bank Account No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="bank_acc_holder" ColumnName="Bank Account Holder" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@bank_acc_holder" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Bank Account Holder" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="nama" ColumnName="Nama" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@nama" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Nama" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="id_card_no" ColumnName="id card no" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@id_card_no" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="id card no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Id_card_expiry" ColumnName="id card expiry" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Id_card_expiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="id card expiry" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="id_card_add" ColumnName="id card address" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@id_card_add" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="id card address" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="pic_path" ColumnName="picture path" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="varchar(1500)(1500)" DbType="String" Direction="Input" ParameterName="@pic_path" Precision="0" ProviderType="VarChar" Scale="0" Size="1500" SourceColumn="picture path" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="smess_mst.tblmaster_karyawan" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery2" Modifier="Public" Name="UpdateQuery2" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery2">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbl_setting_update
+SET          `Path Public Server` = ''</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery3" Modifier="Public" Name="UpdateQuery3" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery3">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltrans_version_operating
+SET          version = '1.6.40'</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery4" Modifier="Public" Name="UpdateQuery4" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQuery4">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltrans_salary
+SET          `NPWP Pemotong` = @npwp_pemotong, `Nama Pemotong` = @nama_pemotong, `A NPWP` = @npwp, `A Nama` = @nama_kary, `A Alamat1` = @alamat1, `A Alamat2` = '', `C NPWP` = @npwp, `C Nama` = @nama_kary
+WHERE  (`Primary Employee` = @primary_employee)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="npwp_pemotong" ColumnName="NPWP Pemotong" DataSourceName="smess_mst.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@npwp_pemotong" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="NPWP Pemotong" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="nama_pemotong" ColumnName="Nama Pemotong" DataSourceName="smess_mst.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@nama_pemotong" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Nama Pemotong" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="npwp" ColumnName="A NPWP" DataSourceName="smess_mst.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@npwp" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="A NPWP" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="nama_kary" ColumnName="A Nama" DataSourceName="smess_mst.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@nama_kary" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="A Nama" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="alamat1" ColumnName="A Alamat1" DataSourceName="smess_mst.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@alamat1" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="A Alamat1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_employee" ColumnName="Primary Employee" DataSourceName="smess_mst.tbltrans_salary" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_employee" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Employee" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_karyawan_itemTableAdapter" GeneratorDataComponentClassName="tblmaster_karyawan_itemTableAdapter" Name="tblmaster_karyawan_item" UserDataComponentName="tblmaster_karyawan_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_mst.tblmaster_karyawan_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tblmaster_karyawan_item</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `smess_mst`.`tblmaster_karyawan_item` (`primary karyawan`, `identifier`, `nama`, `relationship`, `Is dependent`, `education`, `sex`, `phone no`, `birth place`, `birthday`, `remarks`, `Blood Type`) VALUES (@primary_karyawan, @identifier, @nama, @relationship, @Is_dependent, @education, @sex, @phone_no, @birth_place, @birthday, @remarks, @Blood_Type)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_karyawan" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary karyawan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@nama" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="nama" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@relationship" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="relationship" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Is_dependent" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Is dependent" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@education" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="education" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@sex" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="sex" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@phone_no" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="phone no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@birth_place" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="birth place" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@birthday" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="birthday" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Blood_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Blood Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `primary`, `primary karyawan`, identifier, nama, relationship, `Is dependent`, education, sex, `phone no`, `birth place`, birthday, remarks, `Blood Type`
+FROM     tblmaster_karyawan_item</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tblmaster_karyawan_item
+SET          `primary karyawan` = @primary_karyawan, identifier = @identifier, nama = @nama, relationship = @relationship, `Is dependent` = @Is_dependent, education = @education, sex = @sex, `phone no` = @phone_no, `birth place` = @birth_place, 
+                  birthday = @birthday, remarks = @remarks, `Blood Type` = @Blood_Type
+WHERE  (`primary` = @Original_primary) AND (`primary karyawan` = @Original_primary_karyawan) AND (identifier = @Original_identifier) AND (nama = @Original_nama) AND (relationship = @Original_relationship) AND 
+                  (`Is dependent` = @Original_Is_dependent) AND (education = @Original_education) AND (sex = @Original_sex) AND (`phone no` = @Original_phone_no) AND (`birth place` = @Original_birth_place) AND (birthday = @Original_birthday) AND 
+                  (remarks = @Original_remarks) AND (`Blood Type` = @Original_Blood_Type)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_karyawan" ColumnName="primary karyawan" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_karyawan" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary karyawan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="identifier" ColumnName="identifier" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="identifier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="nama" ColumnName="nama" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@nama" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="nama" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="relationship" ColumnName="relationship" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@relationship" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="relationship" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Is_dependent" ColumnName="Is dependent" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Is_dependent" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Is dependent" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="education" ColumnName="education" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@education" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="education" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="sex" ColumnName="sex" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@sex" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="sex" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="phone_no" ColumnName="phone no" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@phone_no" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="phone no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="birth_place" ColumnName="birth place" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@birth_place" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="birth place" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="birthday" ColumnName="birthday" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@birthday" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="birthday" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="remarks" ColumnName="remarks" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Blood_Type" ColumnName="Blood Type" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Blood_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Blood Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary" ColumnName="primary" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_karyawan" ColumnName="primary karyawan" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_karyawan" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary karyawan" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_identifier" ColumnName="identifier" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Original_identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="identifier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_nama" ColumnName="nama" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Original_nama" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="nama" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_relationship" ColumnName="relationship" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Original_relationship" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="relationship" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Is_dependent" ColumnName="Is dependent" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Original_Is_dependent" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Is dependent" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_education" ColumnName="education" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Original_education" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="education" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_sex" ColumnName="sex" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Original_sex" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="sex" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_phone_no" ColumnName="phone no" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Original_phone_no" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="phone no" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_birth_place" ColumnName="birth place" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Original_birth_place" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="birth place" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_birthday" ColumnName="birthday" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Original_birthday" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="birthday" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_remarks" ColumnName="remarks" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Blood_Type" ColumnName="Blood Type" DataSourceName="smess_mst.tblmaster_karyawan_item" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Original_Blood_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Blood Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary karyawan" DataSetColumn="primary karyawan" />
+              <Mapping SourceColumn="identifier" DataSetColumn="identifier" />
+              <Mapping SourceColumn="nama" DataSetColumn="nama" />
+              <Mapping SourceColumn="relationship" DataSetColumn="relationship" />
+              <Mapping SourceColumn="Is dependent" DataSetColumn="Is dependent" />
+              <Mapping SourceColumn="education" DataSetColumn="education" />
+              <Mapping SourceColumn="sex" DataSetColumn="sex" />
+              <Mapping SourceColumn="phone no" DataSetColumn="phone no" />
+              <Mapping SourceColumn="birth place" DataSetColumn="birth place" />
+              <Mapping SourceColumn="birthday" DataSetColumn="birthday" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+              <Mapping SourceColumn="Blood Type" DataSetColumn="Blood Type" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_company_dataTableAdapter" GeneratorDataComponentClassName="tbltrans_company_dataTableAdapter" Name="tbltrans_company_data" UserDataComponentName="tbltrans_company_dataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_mst.tbltrans_company_data" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `Primary`, `Company Name`, `Add Line 1`, `Add Line 2`, `Add Line 3`, `Add Line 4`, `Add Line 5`, City, `NPWP Number`, `PKP Registration Date`, `Tax Add Line 1`, `Tax Add Line 2`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, 
+                  `Timestamp`
+FROM     tbltrans_company_data</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltrans_company_data
+SET          `Company Name` = @Company_Name, `Add Line 1` = @Add_Line_1, `Add Line 2` = @Add_Line_2, `Add Line 3` = @Add_Line_3, `Add Line 4` = @Add_Line_4, `Add Line 5` = @Add_Line_5, City = @City, `NPWP Number` = @NPWP_Number, 
+                  `PKP Registration Date` = @PKP_Registration_Date, `Tax Add Line 1` = @Tax_Add_Line_1, `Tax Add Line 2` = @Tax_Add_Line_2
+WHERE  (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Company_Name" ColumnName="Company Name" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Company_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Company Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Add_Line_1" ColumnName="Add Line 1" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Add_Line_1" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Add Line 1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Add_Line_2" ColumnName="Add Line 2" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Add_Line_2" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Add Line 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Add_Line_3" ColumnName="Add Line 3" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Add_Line_3" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Add Line 3" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Add_Line_4" ColumnName="Add Line 4" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Add_Line_4" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Add Line 4" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Add_Line_5" ColumnName="Add Line 5" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Add_Line_5" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Add Line 5" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="City" ColumnName="City" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@City" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="City" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NPWP_Number" ColumnName="NPWP Number" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@NPWP_Number" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="NPWP Number" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PKP_Registration_Date" ColumnName="PKP Registration Date" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@PKP_Registration_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PKP Registration Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tax_Add_Line_1" ColumnName="Tax Add Line 1" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Tax_Add_Line_1" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Tax Add Line 1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tax_Add_Line_2" ColumnName="Tax Add Line 2" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Tax_Add_Line_2" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Tax Add Line 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="smess_mst.tbltrans_company_data" DataTypeServer="double(15,3)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="3" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Company Name" DataSetColumn="Company Name" />
+              <Mapping SourceColumn="Add Line 1" DataSetColumn="Add Line 1" />
+              <Mapping SourceColumn="Add Line 2" DataSetColumn="Add Line 2" />
+              <Mapping SourceColumn="Add Line 3" DataSetColumn="Add Line 3" />
+              <Mapping SourceColumn="Add Line 4" DataSetColumn="Add Line 4" />
+              <Mapping SourceColumn="Add Line 5" DataSetColumn="Add Line 5" />
+              <Mapping SourceColumn="City" DataSetColumn="City" />
+              <Mapping SourceColumn="NPWP Number" DataSetColumn="NPWP Number" />
+              <Mapping SourceColumn="PKP Registration Date" DataSetColumn="PKP Registration Date" />
+              <Mapping SourceColumn="Tax Add Line 1" DataSetColumn="Tax Add Line 1" />
+              <Mapping SourceColumn="Tax Add Line 2" DataSetColumn="Tax Add Line 2" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_company_data_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_company_data_itemTableAdapter" Name="tbltrans_company_data_item" UserDataComponentName="tbltrans_company_data_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_mst.tbltrans_company_data_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `Primary`, `Primary Transaksi`, `Add Identifier`, `Line 1`, `Line 2`, `Line 3`, `Line 4`, `Line 5`, Remarks, AddressCode
+FROM     tbltrans_company_data_item</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltrans_company_data_item
+SET          `Line 1` = @Line_1, `Line 2` = @Line_2, `Line 3` = @Line_3, `Line 4` = @Line_4, `Line 5` = @Line_5, Remarks = @Remarks
+WHERE  (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Line_1" ColumnName="Line 1" DataSourceName="smess_mst.tbltrans_company_data_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Line_1" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Line 1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Line_2" ColumnName="Line 2" DataSourceName="smess_mst.tbltrans_company_data_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Line_2" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Line 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Line_3" ColumnName="Line 3" DataSourceName="smess_mst.tbltrans_company_data_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Line_3" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Line 3" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Line_4" ColumnName="Line 4" DataSourceName="smess_mst.tbltrans_company_data_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Line_4" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Line 4" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Line_5" ColumnName="Line 5" DataSourceName="smess_mst.tbltrans_company_data_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Line_5" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Line 5" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="smess_mst.tbltrans_company_data_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="smess_mst.tbltrans_company_data_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Transaksi" DataSetColumn="Primary Transaksi" />
+              <Mapping SourceColumn="Add Identifier" DataSetColumn="Add Identifier" />
+              <Mapping SourceColumn="Line 1" DataSetColumn="Line 1" />
+              <Mapping SourceColumn="Line 2" DataSetColumn="Line 2" />
+              <Mapping SourceColumn="Line 3" DataSetColumn="Line 3" />
+              <Mapping SourceColumn="Line 4" DataSetColumn="Line 4" />
+              <Mapping SourceColumn="Line 5" DataSetColumn="Line 5" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="AddressCode" DataSetColumn="AddressCode" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseUpdatePayroll" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseUpdatePayroll" msprop:Generator_DataSetName="DseUpdatePayroll">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblmaster_karyawan" msprop:Generator_UserTableName="tblmaster_karyawan" msprop:Generator_RowDeletedName="tblmaster_karyawanRowDeleted" msprop:Generator_RowChangedName="tblmaster_karyawanRowChanged" msprop:Generator_RowClassName="tblmaster_karyawanRow" msprop:Generator_RowChangingName="tblmaster_karyawanRowChanging" msprop:Generator_RowEvArgName="tblmaster_karyawanRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_karyawanRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_karyawanDataTable" msprop:Generator_TableVarName="tabletblmaster_karyawan" msprop:Generator_RowDeletingName="tblmaster_karyawanRowDeleting" msprop:Generator_TablePropName="tblmaster_karyawan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Prefix" msprop:Generator_UserColumnName="Prefix" msprop:Generator_ColumnPropNameInRow="Prefix" msprop:Generator_ColumnVarNameInTable="columnPrefix" msprop:Generator_ColumnPropNameInTable="PrefixColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="First_x0020_Name" msprop:Generator_UserColumnName="First Name" msprop:Generator_ColumnPropNameInRow="First_Name" msprop:Generator_ColumnVarNameInTable="columnFirst_Name" msprop:Generator_ColumnPropNameInTable="First_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Middle_x0020_Name" msprop:Generator_UserColumnName="Middle Name" msprop:Generator_ColumnPropNameInRow="Middle_Name" msprop:Generator_ColumnVarNameInTable="columnMiddle_Name" msprop:Generator_ColumnPropNameInTable="Middle_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Last_x0020_Name" msprop:Generator_UserColumnName="Last Name" msprop:Generator_ColumnPropNameInRow="Last_Name" msprop:Generator_ColumnVarNameInTable="columnLast_Name" msprop:Generator_ColumnPropNameInTable="Last_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Suffix" msprop:Generator_UserColumnName="Suffix" msprop:Generator_ColumnPropNameInRow="Suffix" msprop:Generator_ColumnVarNameInTable="columnSuffix" msprop:Generator_ColumnPropNameInTable="SuffixColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="npwp_x0020_no" msprop:Generator_UserColumnName="npwp no" msprop:Generator_ColumnPropNameInRow="npwp_no" msprop:Generator_ColumnVarNameInTable="columnnpwp_no" msprop:Generator_ColumnPropNameInTable="npwp_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="npwp_x0020_address" msprop:Generator_UserColumnName="npwp address" msprop:Generator_ColumnPropNameInRow="npwp_address" msprop:Generator_ColumnVarNameInTable="columnnpwp_address" msprop:Generator_ColumnPropNameInTable="npwp_addressColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="current_x0020_address" msprop:Generator_UserColumnName="current address" msprop:Generator_ColumnPropNameInRow="current_address" msprop:Generator_ColumnVarNameInTable="columncurrent_address" msprop:Generator_ColumnPropNameInTable="current_addressColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="email" msprop:Generator_UserColumnName="email" msprop:Generator_ColumnPropNameInRow="email" msprop:Generator_ColumnVarNameInTable="columnemail" msprop:Generator_ColumnPropNameInTable="emailColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bank_x0020_Name" msprop:Generator_UserColumnName="Bank Name" msprop:Generator_ColumnPropNameInRow="Bank_Name" msprop:Generator_ColumnVarNameInTable="columnBank_Name" msprop:Generator_ColumnPropNameInTable="Bank_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bank_x0020_Branch" msprop:Generator_UserColumnName="Bank Branch" msprop:Generator_ColumnPropNameInRow="Bank_Branch" msprop:Generator_ColumnVarNameInTable="columnBank_Branch" msprop:Generator_ColumnPropNameInTable="Bank_BranchColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bank_x0020_Account_x0020_No" msprop:Generator_UserColumnName="Bank Account No" msprop:Generator_ColumnPropNameInRow="Bank_Account_No" msprop:Generator_ColumnVarNameInTable="columnBank_Account_No" msprop:Generator_ColumnPropNameInTable="Bank_Account_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bank_x0020_Account_x0020_Holder" msprop:Generator_UserColumnName="Bank Account Holder" msprop:Generator_ColumnPropNameInRow="Bank_Account_Holder" msprop:Generator_ColumnVarNameInTable="columnBank_Account_Holder" msprop:Generator_ColumnPropNameInTable="Bank_Account_HolderColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_ColumnPropNameInTable="NamaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_x0020_card_x0020_no" msprop:Generator_UserColumnName="id card no" msprop:Generator_ColumnPropNameInRow="id_card_no" msprop:Generator_ColumnVarNameInTable="columnid_card_no" msprop:Generator_ColumnPropNameInTable="id_card_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="id_x0020_card_x0020_expiry" msprop:Generator_UserColumnName="id card expiry" msprop:Generator_ColumnPropNameInRow="id_card_expiry" msprop:Generator_ColumnVarNameInTable="columnid_card_expiry" msprop:Generator_ColumnPropNameInTable="id_card_expiryColumn" type="xs:dateTime" />
+              <xs:element name="id_x0020_card_x0020_address" msprop:Generator_UserColumnName="id card address" msprop:Generator_ColumnPropNameInRow="id_card_address" msprop:Generator_ColumnVarNameInTable="columnid_card_address" msprop:Generator_ColumnPropNameInTable="id_card_addressColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kpa_astek_no" msprop:Generator_UserColumnName="kpa_astek_no" msprop:Generator_ColumnPropNameInRow="kpa_astek_no" msprop:Generator_ColumnVarNameInTable="columnkpa_astek_no" msprop:Generator_ColumnPropNameInTable="kpa_astek_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="kpj_x0020_no" msprop:Generator_UserColumnName="kpj no" msprop:Generator_ColumnPropNameInRow="kpj_no" msprop:Generator_ColumnVarNameInTable="columnkpj_no" msprop:Generator_ColumnPropNameInTable="kpj_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="picture_x0020_path" msprop:Generator_UserColumnName="picture path" msprop:Generator_ColumnPropNameInRow="picture_path" msprop:Generator_ColumnVarNameInTable="columnpicture_path" msprop:Generator_ColumnPropNameInTable="picture_pathColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_karyawan_item" msprop:Generator_UserTableName="tblmaster_karyawan_item" msprop:Generator_RowDeletedName="tblmaster_karyawan_itemRowDeleted" msprop:Generator_RowChangedName="tblmaster_karyawan_itemRowChanged" msprop:Generator_RowClassName="tblmaster_karyawan_itemRow" msprop:Generator_RowChangingName="tblmaster_karyawan_itemRowChanging" msprop:Generator_RowEvArgName="tblmaster_karyawan_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_karyawan_itemRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_karyawan_itemDataTable" msprop:Generator_TableVarName="tabletblmaster_karyawan_item" msprop:Generator_RowDeletingName="tblmaster_karyawan_itemRowDeleting" msprop:Generator_TablePropName="tblmaster_karyawan_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_karyawan" msprop:Generator_UserColumnName="primary karyawan" msprop:Generator_ColumnPropNameInRow="primary_karyawan" msprop:Generator_ColumnVarNameInTable="columnprimary_karyawan" msprop:Generator_ColumnPropNameInTable="primary_karyawanColumn" type="xs:double" />
+              <xs:element name="identifier" msprop:Generator_UserColumnName="identifier" msprop:Generator_ColumnPropNameInRow="identifier" msprop:Generator_ColumnVarNameInTable="columnidentifier" msprop:Generator_ColumnPropNameInTable="identifierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nama" msprop:Generator_UserColumnName="nama" msprop:Generator_ColumnPropNameInRow="nama" msprop:Generator_ColumnVarNameInTable="columnnama" msprop:Generator_ColumnPropNameInTable="namaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="relationship" msprop:Generator_UserColumnName="relationship" msprop:Generator_ColumnPropNameInRow="relationship" msprop:Generator_ColumnVarNameInTable="columnrelationship" msprop:Generator_ColumnPropNameInTable="relationshipColumn" type="xs:int" />
+              <xs:element name="Is_x0020_dependent" msprop:Generator_UserColumnName="Is dependent" msprop:Generator_ColumnPropNameInRow="Is_dependent" msprop:Generator_ColumnVarNameInTable="columnIs_dependent" msprop:Generator_ColumnPropNameInTable="Is_dependentColumn" type="xs:int" />
+              <xs:element name="education" msprop:Generator_UserColumnName="education" msprop:Generator_ColumnPropNameInRow="education" msprop:Generator_ColumnVarNameInTable="columneducation" msprop:Generator_ColumnPropNameInTable="educationColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="sex" msprop:Generator_UserColumnName="sex" msprop:Generator_ColumnPropNameInRow="sex" msprop:Generator_ColumnVarNameInTable="columnsex" msprop:Generator_ColumnPropNameInTable="sexColumn" type="xs:int" />
+              <xs:element name="phone_x0020_no" msprop:Generator_UserColumnName="phone no" msprop:Generator_ColumnPropNameInRow="phone_no" msprop:Generator_ColumnVarNameInTable="columnphone_no" msprop:Generator_ColumnPropNameInTable="phone_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="birth_x0020_place" msprop:Generator_UserColumnName="birth place" msprop:Generator_ColumnPropNameInRow="birth_place" msprop:Generator_ColumnVarNameInTable="columnbirth_place" msprop:Generator_ColumnPropNameInTable="birth_placeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="birthday" msprop:Generator_UserColumnName="birthday" msprop:Generator_ColumnPropNameInRow="birthday" msprop:Generator_ColumnVarNameInTable="columnbirthday" msprop:Generator_ColumnPropNameInTable="birthdayColumn" type="xs:dateTime" />
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Blood_x0020_Type" msprop:Generator_UserColumnName="Blood Type" msprop:Generator_ColumnPropNameInRow="Blood_Type" msprop:Generator_ColumnVarNameInTable="columnBlood_Type" msprop:Generator_ColumnPropNameInTable="Blood_TypeColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_company_data" msprop:Generator_UserTableName="tbltrans_company_data" msprop:Generator_RowDeletedName="tbltrans_company_dataRowDeleted" msprop:Generator_RowChangedName="tbltrans_company_dataRowChanged" msprop:Generator_RowClassName="tbltrans_company_dataRow" msprop:Generator_RowChangingName="tbltrans_company_dataRowChanging" msprop:Generator_RowEvArgName="tbltrans_company_dataRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_company_dataRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_company_dataDataTable" msprop:Generator_TableVarName="tabletbltrans_company_data" msprop:Generator_RowDeletingName="tbltrans_company_dataRowDeleting" msprop:Generator_TablePropName="tbltrans_company_data">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Company_x0020_Name" msprop:Generator_UserColumnName="Company Name" msprop:Generator_ColumnVarNameInTable="columnCompany_Name" msprop:Generator_ColumnPropNameInRow="Company_Name" msprop:Generator_ColumnPropNameInTable="Company_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Add_x0020_Line_x0020_1" msprop:Generator_UserColumnName="Add Line 1" msprop:Generator_ColumnVarNameInTable="columnAdd_Line_1" msprop:Generator_ColumnPropNameInRow="Add_Line_1" msprop:Generator_ColumnPropNameInTable="Add_Line_1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Add_x0020_Line_x0020_2" msprop:Generator_UserColumnName="Add Line 2" msprop:Generator_ColumnVarNameInTable="columnAdd_Line_2" msprop:Generator_ColumnPropNameInRow="Add_Line_2" msprop:Generator_ColumnPropNameInTable="Add_Line_2Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Add_x0020_Line_x0020_3" msprop:Generator_UserColumnName="Add Line 3" msprop:Generator_ColumnVarNameInTable="columnAdd_Line_3" msprop:Generator_ColumnPropNameInRow="Add_Line_3" msprop:Generator_ColumnPropNameInTable="Add_Line_3Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Add_x0020_Line_x0020_4" msprop:Generator_UserColumnName="Add Line 4" msprop:Generator_ColumnVarNameInTable="columnAdd_Line_4" msprop:Generator_ColumnPropNameInRow="Add_Line_4" msprop:Generator_ColumnPropNameInTable="Add_Line_4Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Add_x0020_Line_x0020_5" msprop:Generator_UserColumnName="Add Line 5" msprop:Generator_ColumnVarNameInTable="columnAdd_Line_5" msprop:Generator_ColumnPropNameInRow="Add_Line_5" msprop:Generator_ColumnPropNameInTable="Add_Line_5Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="City" msprop:Generator_UserColumnName="City" msprop:Generator_ColumnVarNameInTable="columnCity" msprop:Generator_ColumnPropNameInRow="City" msprop:Generator_ColumnPropNameInTable="CityColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NPWP_x0020_Number" msprop:Generator_UserColumnName="NPWP Number" msprop:Generator_ColumnVarNameInTable="columnNPWP_Number" msprop:Generator_ColumnPropNameInRow="NPWP_Number" msprop:Generator_ColumnPropNameInTable="NPWP_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PKP_x0020_Registration_x0020_Date" msprop:Generator_UserColumnName="PKP Registration Date" msprop:Generator_ColumnVarNameInTable="columnPKP_Registration_Date" msprop:Generator_ColumnPropNameInRow="PKP_Registration_Date" msprop:Generator_ColumnPropNameInTable="PKP_Registration_DateColumn" type="xs:dateTime" />
+              <xs:element name="Tax_x0020_Add_x0020_Line_x0020_1" msprop:Generator_UserColumnName="Tax Add Line 1" msprop:Generator_ColumnVarNameInTable="columnTax_Add_Line_1" msprop:Generator_ColumnPropNameInRow="Tax_Add_Line_1" msprop:Generator_ColumnPropNameInTable="Tax_Add_Line_1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tax_x0020_Add_x0020_Line_x0020_2" msprop:Generator_UserColumnName="Tax Add Line 2" msprop:Generator_ColumnVarNameInTable="columnTax_Add_Line_2" msprop:Generator_ColumnPropNameInRow="Tax_Add_Line_2" msprop:Generator_ColumnPropNameInTable="Tax_Add_Line_2Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_company_data_item" msprop:Generator_UserTableName="tbltrans_company_data_item" msprop:Generator_RowDeletedName="tbltrans_company_data_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_company_data_itemRowChanged" msprop:Generator_RowClassName="tbltrans_company_data_itemRow" msprop:Generator_RowChangingName="tbltrans_company_data_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_company_data_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_company_data_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_company_data_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_company_data_item" msprop:Generator_RowDeletingName="tbltrans_company_data_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_company_data_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" />
+              <xs:element name="Add_x0020_Identifier" msprop:Generator_UserColumnName="Add Identifier" msprop:Generator_ColumnVarNameInTable="columnAdd_Identifier" msprop:Generator_ColumnPropNameInRow="Add_Identifier" msprop:Generator_ColumnPropNameInTable="Add_IdentifierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_1" msprop:Generator_UserColumnName="Line 1" msprop:Generator_ColumnVarNameInTable="columnLine_1" msprop:Generator_ColumnPropNameInRow="Line_1" msprop:Generator_ColumnPropNameInTable="Line_1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_2" msprop:Generator_UserColumnName="Line 2" msprop:Generator_ColumnVarNameInTable="columnLine_2" msprop:Generator_ColumnPropNameInRow="Line_2" msprop:Generator_ColumnPropNameInTable="Line_2Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_3" msprop:Generator_UserColumnName="Line 3" msprop:Generator_ColumnVarNameInTable="columnLine_3" msprop:Generator_ColumnPropNameInRow="Line_3" msprop:Generator_ColumnPropNameInTable="Line_3Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_4" msprop:Generator_UserColumnName="Line 4" msprop:Generator_ColumnVarNameInTable="columnLine_4" msprop:Generator_ColumnPropNameInRow="Line_4" msprop:Generator_ColumnPropNameInTable="Line_4Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_5" msprop:Generator_UserColumnName="Line 5" msprop:Generator_ColumnVarNameInTable="columnLine_5" msprop:Generator_ColumnPropNameInRow="Line_5" msprop:Generator_ColumnPropNameInTable="Line_5Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AddressCode" msprop:Generator_UserColumnName="AddressCode" msprop:Generator_ColumnVarNameInTable="columnAddressCode" msprop:Generator_ColumnPropNameInRow="AddressCode" msprop:Generator_ColumnPropNameInTable="AddressCodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_karyawan_item" />
+      <xs:field xpath="mstns:primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_company_data_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_company_data" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_company_data_item_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_company_data_item" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

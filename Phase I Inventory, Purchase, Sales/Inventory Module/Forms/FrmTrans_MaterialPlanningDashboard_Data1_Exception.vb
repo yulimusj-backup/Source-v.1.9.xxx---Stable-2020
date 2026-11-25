@@ -1,0 +1,3 @@
+Public Class FrmTrans_MaterialPlanningDashboard_Data1_Exception
+
+End Class

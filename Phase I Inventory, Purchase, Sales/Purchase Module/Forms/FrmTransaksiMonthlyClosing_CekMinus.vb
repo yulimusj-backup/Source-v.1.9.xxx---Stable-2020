@@ -1,0 +1,3 @@
+Public Class FrmTransaksiMonthlyClosing_CekMinus
+
+End Class

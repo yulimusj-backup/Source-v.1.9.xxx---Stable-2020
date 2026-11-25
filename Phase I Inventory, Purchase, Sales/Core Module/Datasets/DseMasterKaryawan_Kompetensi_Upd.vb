@@ -1,0 +1,2 @@
+﻿Partial Class DseMasterKaryawan_Kompetensi_Upd
+End Class

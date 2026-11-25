@@ -1,0 +1,2 @@
+﻿Partial Class DseLaporanChequePerPeriod
+End Class

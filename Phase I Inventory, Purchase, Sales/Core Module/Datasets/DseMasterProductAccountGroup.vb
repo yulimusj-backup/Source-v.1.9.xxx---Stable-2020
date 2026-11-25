@@ -1,0 +1,2 @@
+﻿Partial Class DseMasterProductAccountGroup
+End Class

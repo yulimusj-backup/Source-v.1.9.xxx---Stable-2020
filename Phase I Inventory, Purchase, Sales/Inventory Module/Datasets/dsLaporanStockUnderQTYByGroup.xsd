@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsLaporanStockUnderQTYByGroup" targetNamespace="http://tempuri.org/dsLaporanStockUnderQTYByGroup.xsd" xmlns:mstns="http://tempuri.org/dsLaporanStockUnderQTYByGroup.xsd" xmlns="http://tempuri.org/dsLaporanStockUnderQTYByGroup.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblStockMinimumTableAdapter" GeneratorDataComponentClassName="TblStockMinimumTableAdapter" Name="TblStockMinimum" UserDataComponentName="TblStockMinimumTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description AS `Deskripsi Unit`, SUM(tblmaster_productqty.Qty) 
+                         AS `Jumlah Qty Tbl Product Qty`, tblmaster_product.`Minimum Stock`, tblmaster_product.`Primary`, tblmaster_product.Description, 
+                         tblmaster_category.`Category Code`, tblmaster_category.Description AS Desc_Code
+FROM            tblmaster_master_unit INNER JOIN
+                         tblmaster_product ON tblmaster_master_unit.`Primary` = tblmaster_product.`Primary Unit` INNER JOIN
+                         tblmaster_productqty ON tblmaster_product.`Primary` = tblmaster_productqty.`Primary Product` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary`
+GROUP BY tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description, tblmaster_product.`Primary`, 
+                         tblmaster_product.`Minimum Stock`, tblmaster_product.Description, tblmaster_category.`Category Code`, tblmaster_category.Description
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Deskripsi Unit" DataSetColumn="Deskripsi Unit" />
+              <Mapping SourceColumn="Minimum Stock" DataSetColumn="Minimum Stock" />
+              <Mapping SourceColumn="Jumlah Qty Tbl Product Qty" DataSetColumn="Jumlah Qty Tbl Product Qty" />
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Desc_Code" DataSetColumn="Desc_Code" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryProduct" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryProduct" GeneratorSourceName="FillBy_PrimaryProduct" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryProduct" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryProduct" UserSourceName="FillBy_PrimaryProduct">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description AS `Deskripsi Unit`, SUM(tblmaster_productqty.Qty) 
+                         AS `Jumlah Qty Tbl Product Qty`, tblmaster_product.`Minimum Stock`, tblmaster_product.`Primary`
+FROM            tblmaster_master_unit INNER JOIN
+                         tblmaster_product ON tblmaster_master_unit.`Primary` = tblmaster_product.`Primary Unit` INNER JOIN
+                         tblmaster_productqty ON tblmaster_product.`Primary` = tblmaster_productqty.`Primary Product`
+WHERE        (tblmaster_product.`Primary` = @PrimaryProduct)
+GROUP BY tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit.Description, tblmaster_product.`Minimum Stock`, 
+                         tblmaster_product.`Primary`
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsLaporanStockUnderQTYByGroup" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dsLaporanStockUnderQTYByGroup" msprop:Generator_DataSetName="dsLaporanStockUnderQTYByGroup">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TblStockMinimum" msprop:Generator_UserTableName="TblStockMinimum" msprop:Generator_RowDeletedName="TblStockMinimumRowDeleted" msprop:Generator_RowChangedName="TblStockMinimumRowChanged" msprop:Generator_RowClassName="TblStockMinimumRow" msprop:Generator_RowChangingName="TblStockMinimumRowChanging" msprop:Generator_RowEvArgName="TblStockMinimumRowChangeEvent" msprop:Generator_RowEvHandlerName="TblStockMinimumRowChangeEventHandler" msprop:Generator_TableClassName="TblStockMinimumDataTable" msprop:Generator_TableVarName="tableTblStockMinimum" msprop:Generator_RowDeletingName="TblStockMinimumRowDeleting" msprop:Generator_TablePropName="TblStockMinimum">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deskripsi_x0020_Unit" msprop:Generator_UserColumnName="Deskripsi Unit" msprop:Generator_ColumnVarNameInTable="columnDeskripsi_Unit" msprop:Generator_ColumnPropNameInRow="Deskripsi_Unit" msprop:Generator_ColumnPropNameInTable="Deskripsi_UnitColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Minimum_x0020_Stock" msprop:Generator_UserColumnName="Minimum Stock" msprop:Generator_ColumnVarNameInTable="columnMinimum_Stock" msprop:Generator_ColumnPropNameInRow="Minimum_Stock" msprop:Generator_ColumnPropNameInTable="Minimum_StockColumn" type="xs:double" />
+              <xs:element name="Jumlah_x0020_Qty_x0020_Tbl_x0020_Product_x0020_Qty" msprop:Generator_UserColumnName="Jumlah Qty Tbl Product Qty" msprop:Generator_ColumnVarNameInTable="columnJumlah_Qty_Tbl_Product_Qty" msprop:Generator_ColumnPropNameInRow="Jumlah_Qty_Tbl_Product_Qty" msprop:Generator_ColumnPropNameInTable="Jumlah_Qty_Tbl_Product_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Desc_Code" msprop:Generator_UserColumnName="Desc_Code" msprop:Generator_ColumnVarNameInTable="columnDesc_Code" msprop:Generator_ColumnPropNameInRow="Desc_Code" msprop:Generator_ColumnPropNameInTable="Desc_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblcetak" msprop:Generator_UserTableName="tblcetak" msprop:Generator_RowDeletedName="tblcetakRowDeleted" msprop:Generator_RowChangedName="tblcetakRowChanged" msprop:Generator_RowClassName="tblcetakRow" msprop:Generator_RowChangingName="tblcetakRowChanging" msprop:Generator_RowEvArgName="tblcetakRowChangeEvent" msprop:Generator_RowEvHandlerName="tblcetakRowChangeEventHandler" msprop:Generator_TableClassName="tblcetakDataTable" msprop:Generator_TableVarName="tabletblcetak" msprop:Generator_RowDeletingName="tblcetakRowDeleting" msprop:Generator_TablePropName="tblcetak">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code_x0020_No" msprop:Generator_UserColumnName="Code No" msprop:Generator_ColumnVarNameInTable="columnCode_No" msprop:Generator_ColumnPropNameInRow="Code_No" msprop:Generator_ColumnPropNameInTable="Code_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_UserColumnName="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Min_x0020_Qty" msprop:Generator_UserColumnName="Min Qty" msprop:Generator_ColumnVarNameInTable="columnMin_Qty" msprop:Generator_ColumnPropNameInRow="Min_Qty" msprop:Generator_ColumnPropNameInTable="Min_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="CategoryNDescCode" msprop:Generator_UserColumnName="CategoryNDescCode" msprop:Generator_ColumnVarNameInTable="columnCategoryNDescCode" msprop:Generator_ColumnPropNameInRow="CategoryNDescCode" msprop:Generator_ColumnPropNameInTable="CategoryNDescCodeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TblStockMinimum" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

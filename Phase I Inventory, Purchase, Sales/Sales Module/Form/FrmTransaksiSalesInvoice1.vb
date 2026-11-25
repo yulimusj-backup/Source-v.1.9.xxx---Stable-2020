@@ -1,0 +1,3 @@
+Public Class FrmTransaksiSalesInvoice1
+
+End Class

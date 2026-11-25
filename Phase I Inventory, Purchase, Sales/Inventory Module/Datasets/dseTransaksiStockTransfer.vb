@@ -1,0 +1,2 @@
+﻿Partial Class dseTransaksiStockTransfer
+End Class

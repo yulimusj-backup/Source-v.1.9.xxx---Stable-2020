@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTransaksiPurchaseReturn" targetNamespace="http://tempuri.org/DseTransaksiPurchaseReturn.xsd" xmlns:mstns="http://tempuri.org/DseTransaksiPurchaseReturn.xsd" xmlns="http://tempuri.org/DseTransaksiPurchaseReturn.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AccModule.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltrans_grn ON tbltransaksi_stockinout.`Primary` = tbltrans_grn.`Primary Stock In Purchase` LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="No Stock In Purchase" DataSetColumn="No Stock In Purchase" />
+              <Mapping SourceColumn="No GRN" DataSetColumn="No GRN" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Supplier DO Number" DataSetColumn="Supplier DO Number" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_NoGRNLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_NoGRNLIKE" GeneratorSourceName="FillBy_NoGRNLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_NoGRNLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_NoGRNLIKE" UserSourceName="FillBy_NoGRNLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltrans_grn ON tbltransaksi_stockinout.`Primary` = tbltrans_grn.`Primary Stock In Purchase` LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tbltrans_grn.`No Transaksi` LIKE @NoGRN) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)
+GROUP BY tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltrans_grn.`No Transaksi`, 
+                         tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoGRN" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_grn" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoGRN" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No GRN" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_NoStockInPurchaseLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_NoStockInPurchaseLIKE" GeneratorSourceName="FillBy_NoStockInPurchaseLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_NoStockInPurchaseLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_NoStockInPurchaseLIKE" UserSourceName="FillBy_NoStockInPurchaseLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltrans_grn ON tbltransaksi_stockinout.`Primary` = tbltrans_grn.`Primary Stock In Purchase` LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tbltransaksi_stockinout.`No Transaksi` LIKE @NoStockInPurchase) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)
+GROUP BY tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltrans_grn.`No Transaksi`, 
+                         tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoStockInPurchase" ColumnName="No Transaksi" DataSourceName="core_db.tbltransaksi_stockinout" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoStockInPurchase" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Stock In Purchase" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_NoTransaksiLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_NoTransaksiLIKE" GeneratorSourceName="FillBy_NoTransaksiLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_NoTransaksiLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_NoTransaksiLIKE" UserSourceName="FillBy_NoTransaksiLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltrans_grn ON tbltransaksi_stockinout.`Primary` = tbltrans_grn.`Primary Stock In Purchase` LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tbltrans_purchasereturn.`No Transaksi` LIKE @NoTransaksi) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)
+GROUP BY tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltrans_grn.`No Transaksi`, 
+                         tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryAOP" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryAOP" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy7" UserSourceName="FillBy_PrimaryAOP">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltrans_grn ON tbltransaksi_stockinout.`Primary` = tbltrans_grn.`Primary Stock In Purchase` LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tbltrans_purchasereturn.`Tipe PR` = @TipePR) AND (tbltrans_grn.`primary aop` = @PrimaryAOP)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAOP" ColumnName="primary aop" DataSourceName="core_db.tbltrans_grn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAOP" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary aop" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_SuppCodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_SuppCodeLIKE" GeneratorSourceName="FillBy_SuppCodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_SuppCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_SuppCodeLIKE" UserSourceName="FillBy_SuppCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltrans_grn ON tbltransaksi_stockinout.`Primary` = tbltrans_grn.`Primary Stock In Purchase` LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tblmaster_supplier.`Supplier Code` LIKE @SupplierCode) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)
+GROUP BY tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltrans_grn.`No Transaksi`, 
+                         tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SupplierCode" ColumnName="Supplier Code" DataSourceName="core_db.tblmaster_supplier" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@SupplierCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Supplier Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_SuppNameLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_SuppNameLIKE" GeneratorSourceName="FillBy_SuppNameLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_SuppNameLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_SuppNameLIKE" UserSourceName="FillBy_SuppNameLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltrans_grn ON tbltransaksi_stockinout.`Primary` = tbltrans_grn.`Primary Stock In Purchase` LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tblmaster_supplier.`Supplier Name` LIKE @SupplierName) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)
+GROUP BY tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltrans_grn.`No Transaksi`, 
+                         tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SupplierName" ColumnName="Supplier Name" DataSourceName="core_db.tblmaster_supplier" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@SupplierName" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Supplier Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalDariSampai" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TanggalDariSampai" GeneratorSourceName="FillBy_TanggalDariSampai" GetMethodModifier="Public" GetMethodName="GetDataBy_TanggalDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_TanggalDariSampai" UserSourceName="FillBy_TanggalDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltrans_grn ON tbltransaksi_stockinout.`Primary` = tbltrans_grn.`Primary Stock In Purchase` LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tbltrans_purchasereturn.`Tanggal Transaksi` &gt;= @TglDari) AND (tbltrans_purchasereturn.`Tanggal Transaksi` &lt;= @TglSampai) AND 
+                         (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND (tbltrans_purchasereturn.`Tipe PR` = @TipePR)
+GROUP BY tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltrans_grn.`No Transaksi`, 
+                         tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByNoTransaksi" Modifier="Public" Name="ScalarQuery_GetJmlByNoTransaksi" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetJmlByNoTransaksi">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tbltrans_purchasereturn
+WHERE        (`No Transaksi` = @NoTransaksi) </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_purchasereturn" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPRDate" Modifier="Public" Name="ScalarQuery_GetPRDate" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetPRDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Tanggal Transaksi`
+FROM            tbltrans_purchasereturn
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="ScalarQuery_GetPrimary" Modifier="Public" Name="ScalarQuery_GetPrimary" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Primary`, - 1) AS `Primary`
+FROM            tbltrans_purchasereturn
+WHERE        (`No Transaksi` = @NoTransaksi)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_purchasereturn" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryCurrency" Modifier="Public" Name="ScalarQuery_GetPrimaryCurrency" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetPrimaryCurrency">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Currency`
+FROM            tbltrans_purchasereturn
+WHERE        (`Primary` = @PrimaryPR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPR" ColumnName="Primary" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPR" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPRNumber" Modifier="Public" Name="ScalarQuery_GetPRNumber" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_GetPRNumber">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`No Transaksi`, '') AS NoTransaksi
+FROM            tbltrans_purchasereturn
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy4" GeneratorSourceName="ScalarQuery_GetSuppCode" Modifier="Public" Name="ScalarQuery_GetSuppCode" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_GetSuppCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(tblmaster_supplier.`Supplier Code`, '') AS SuppCode
+FROM            tbltrans_grn LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tbltrans_purchasereturn.`Primary` = @PrimaryPR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPR" ColumnName="Primary" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPR" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetSuppName" Modifier="Public" Name="ScalarQuery_GetSuppName" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy6" UserSourceName="ScalarQuery_GetSuppName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(tblmaster_supplier.`Supplier Name`, '') AS SuppName
+FROM            tbltrans_grn LEFT OUTER JOIN
+                         tblmaster_supplier ON tbltrans_grn.`Primary Supplier` = tblmaster_supplier.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tbltrans_purchasereturn.`Primary` = @PrimaryPR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPR" ColumnName="Primary" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPR" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable31TableAdapter" GeneratorDataComponentClassName="DataTable31TableAdapter" Name="DataTable31" UserDataComponentName="DataTable31TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi` AS `No Stock In Purchase`, 
+                         tbltrans_grn.`No Transaksi` AS `No GRN`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`
+FROM            tblmaster_supplier RIGHT OUTER JOIN
+                         tbltrans_grn ON tblmaster_supplier.`Primary` = tbltrans_grn.`Primary Supplier` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn INNER JOIN
+                         tbltrans_purchasereturn_item ON tbltrans_purchasereturn.`Primary` = tbltrans_purchasereturn_item.`Primary Transaksi` ON 
+                         tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN` LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON tbltrans_purchasereturn.`Primary Stock Out Purchase Return` = tbltransaksi_stockinout.`Primary`
+GROUP BY tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltrans_grn.`No Transaksi`, 
+                         tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.`Supplier DO Number`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="No Stock In Purchase" DataSetColumn="No Stock In Purchase" />
+              <Mapping SourceColumn="No GRN" DataSetColumn="No GRN" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Supplier DO Number" DataSetColumn="Supplier DO Number" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByNoGRN" Modifier="Public" Name="ScalarQuery_GetJmlByNoGRN" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetJmlByNoGRN">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_purchasereturn.`Primary`), 0) AS Expr1
+FROM            tblmaster_supplier RIGHT OUTER JOIN
+                         tbltrans_grn ON tblmaster_supplier.`Primary` = tbltrans_grn.`Primary Supplier` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn INNER JOIN
+                         tbltrans_purchasereturn_item ON tbltrans_purchasereturn.`Primary` = tbltrans_purchasereturn_item.`Primary Transaksi` ON 
+                         tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN` LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON tbltrans_purchasereturn.`Primary Stock Out Purchase Return` = tbltransaksi_stockinout.`Primary`
+WHERE        (tbltrans_grn.`No Transaksi` LIKE @NoGRN) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoGRN" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_grn" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoGRN" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlBySuppCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlBySuppCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetJmlBySuppCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_purchasereturn.`Primary`), 0) AS Expr1
+FROM            tblmaster_supplier RIGHT OUTER JOIN
+                         tbltrans_grn ON tblmaster_supplier.`Primary` = tbltrans_grn.`Primary Supplier` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn INNER JOIN
+                         tbltrans_purchasereturn_item ON tbltrans_purchasereturn.`Primary` = tbltrans_purchasereturn_item.`Primary Transaksi` ON 
+                         tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN` LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON tbltrans_purchasereturn.`Primary Stock Out Purchase Return` = tbltransaksi_stockinout.`Primary`
+WHERE        (tblmaster_supplier.`Supplier Code` LIKE @SupplierCode) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SupplierCode" ColumnName="Supplier Code" DataSourceName="core_db.tblmaster_supplier" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@SupplierCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Supplier Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlBySuppNameLIKE" Modifier="Public" Name="ScalarQuery_GetJmlBySuppNameLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetJmlBySuppNameLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_purchasereturn.`Primary`), 0) AS Expr1
+FROM            tblmaster_supplier RIGHT OUTER JOIN
+                         tbltrans_grn ON tblmaster_supplier.`Primary` = tbltrans_grn.`Primary Supplier` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn INNER JOIN
+                         tbltrans_purchasereturn_item ON tbltrans_purchasereturn.`Primary` = tbltrans_purchasereturn_item.`Primary Transaksi` ON 
+                         tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN` LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON tbltrans_purchasereturn.`Primary Stock Out Purchase Return` = tbltransaksi_stockinout.`Primary`
+WHERE        (tblmaster_supplier.`Supplier Name` LIKE @SupplierName) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SupplierName" ColumnName="Supplier Name" DataSourceName="core_db.tblmaster_supplier" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@SupplierName" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Supplier Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByTanggalSampaiDari" Modifier="Public" Name="ScalarQuery_GetJmlByTanggalSampaiDari" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetJmlByTanggalSampaiDari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_purchasereturn.`Primary`), 0) AS Expr1
+FROM            tblmaster_supplier RIGHT OUTER JOIN
+                         tbltrans_grn ON tblmaster_supplier.`Primary` = tbltrans_grn.`Primary Supplier` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn INNER JOIN
+                         tbltrans_purchasereturn_item ON tbltrans_purchasereturn.`Primary` = tbltrans_purchasereturn_item.`Primary Transaksi` ON 
+                         tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN` LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON tbltrans_purchasereturn.`Primary Stock Out Purchase Return` = tbltransaksi_stockinout.`Primary`
+WHERE        (tbltrans_purchasereturn.`Tanggal Transaksi` &gt;= @TglDari) AND (tbltrans_purchasereturn.`Tanggal Transaksi` &lt;= @TglSampai) AND 
+                         (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND (tbltrans_purchasereturn.`Tipe PR` = @TipePR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_NoStockInPurchaseLIKE" Modifier="Public" Name="ScalarQuery_NoStockInPurchaseLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_NoStockInPurchaseLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_purchasereturn.`Primary`), 0) AS Expr1
+FROM            tblmaster_supplier RIGHT OUTER JOIN
+                         tbltrans_grn ON tblmaster_supplier.`Primary` = tbltrans_grn.`Primary Supplier` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn INNER JOIN
+                         tbltrans_purchasereturn_item ON tbltrans_purchasereturn.`Primary` = tbltrans_purchasereturn_item.`Primary Transaksi` ON 
+                         tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN` LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON tbltrans_purchasereturn.`Primary Stock Out Purchase Return` = tbltransaksi_stockinout.`Primary`
+WHERE        (tbltransaksi_stockinout.`No Transaksi` LIKE @NoStockInPurchase) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoStockInPurchase" ColumnName="No Transaksi" DataSourceName="core_db.tbltransaksi_stockinout" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoStockInPurchase" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_NoTransaksiLIKE" Modifier="Public" Name="ScalarQuery_NoTransaksiLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_NoTransaksiLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_purchasereturn.`Primary`), 0) AS Expr1
+FROM            tblmaster_supplier RIGHT OUTER JOIN
+                         tbltrans_grn ON tblmaster_supplier.`Primary` = tbltrans_grn.`Primary Supplier` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn INNER JOIN
+                         tbltrans_purchasereturn_item ON tbltrans_purchasereturn.`Primary` = tbltrans_purchasereturn_item.`Primary Transaksi` ON 
+                         tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN` LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON tbltrans_purchasereturn.`Primary Stock Out Purchase Return` = tbltransaksi_stockinout.`Primary`
+WHERE        (tbltrans_purchasereturn.`No Transaksi` LIKE @NoTransaksi) AND (tbltrans_purchasereturn.`Primary Stock Out Purchase Return` &lt;&gt; - 1) AND 
+                         (tbltrans_purchasereturn.`Tipe PR` = @TipePR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePR" ColumnName="Tipe PR" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@TipePR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe PR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_purchasereturn" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn.`Primary`, tbltrans_purchasereturn.`No Transaksi`, tbltrans_purchasereturn.`Tanggal Transaksi`, tbltrans_purchasereturn.Remarks, 
+                         IFNULL(tbltrans_aop.`Supplier Invoice No`, '') AS `Supplier Invoice No`
+FROM            tbltrans_aop RIGHT OUTER JOIN
+                         tbltrans_grn ON tbltrans_aop.`Primary` = tbltrans_grn.`primary aop` RIGHT OUTER JOIN
+                         tbltrans_purchasereturn ON tbltrans_grn.`Primary` = tbltrans_purchasereturn.`Primary GRN`
+WHERE        (tbltrans_purchasereturn.`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_purchasereturn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Supplier Invoice No" DataSetColumn="Supplier Invoice No" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTransaksiPurchaseReturn" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTransaksiPurchaseReturn" msprop:Generator_DataSetName="DseTransaksiPurchaseReturn">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable3" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_TablePropName="DataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_Stock_x0020_In_x0020_Purchase" msprop:Generator_UserColumnName="No Stock In Purchase" msprop:Generator_ColumnVarNameInTable="columnNo_Stock_In_Purchase" msprop:Generator_ColumnPropNameInRow="No_Stock_In_Purchase" msprop:Generator_ColumnPropNameInTable="No_Stock_In_PurchaseColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_GRN" msprop:Generator_UserColumnName="No GRN" msprop:Generator_ColumnVarNameInTable="columnNo_GRN" msprop:Generator_ColumnPropNameInRow="No_GRN" msprop:Generator_ColumnPropNameInTable="No_GRNColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Supplier_x0020_DO_x0020_Number" msprop:Generator_UserColumnName="Supplier DO Number" msprop:Generator_ColumnVarNameInTable="columnSupplier_DO_Number" msprop:Generator_ColumnPropNameInRow="Supplier_DO_Number" msprop:Generator_ColumnPropNameInTable="Supplier_DO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable31" msprop:Generator_UserTableName="DataTable31" msprop:Generator_RowDeletedName="DataTable31RowDeleted" msprop:Generator_RowChangedName="DataTable31RowChanged" msprop:Generator_RowClassName="DataTable31Row" msprop:Generator_RowChangingName="DataTable31RowChanging" msprop:Generator_RowEvArgName="DataTable31RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable31RowChangeEventHandler" msprop:Generator_TableClassName="DataTable31DataTable" msprop:Generator_TableVarName="tableDataTable31" msprop:Generator_RowDeletingName="DataTable31RowDeleting" msprop:Generator_TablePropName="DataTable31">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_Stock_x0020_In_x0020_Purchase" msprop:Generator_UserColumnName="No Stock In Purchase" msprop:Generator_ColumnVarNameInTable="columnNo_Stock_In_Purchase" msprop:Generator_ColumnPropNameInRow="No_Stock_In_Purchase" msprop:Generator_ColumnPropNameInTable="No_Stock_In_PurchaseColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_GRN" msprop:Generator_UserColumnName="No GRN" msprop:Generator_ColumnVarNameInTable="columnNo_GRN" msprop:Generator_ColumnPropNameInRow="No_GRN" msprop:Generator_ColumnPropNameInTable="No_GRNColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Supplier_x0020_DO_x0020_Number" msprop:Generator_UserColumnName="Supplier DO Number" msprop:Generator_ColumnVarNameInTable="columnSupplier_DO_Number" msprop:Generator_ColumnPropNameInRow="Supplier_DO_Number" msprop:Generator_ColumnPropNameInTable="Supplier_DO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Invoice_x0020_No" msprop:Generator_UserColumnName="Supplier Invoice No" msprop:Generator_ColumnVarNameInTable="columnSupplier_Invoice_No" msprop:Generator_ColumnPropNameInRow="Supplier_Invoice_No" msprop:Generator_ColumnPropNameInTable="Supplier_Invoice_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable3" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="DataTable31_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable31" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:DataTable31" />
+      <xs:field xpath="mstns:No_x0020_Transaksi" />
+    </xs:unique>
+    <xs:unique name="Constraint3">
+      <xs:selector xpath=".//mstns:DataTable31" />
+      <xs:field xpath="mstns:No_x0020_Stock_x0020_In_x0020_Purchase" />
+    </xs:unique>
+    <xs:unique name="DataTable1_Constraint2" msdata:ConstraintName="Constraint2">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:No_x0020_Transaksi" />
+    </xs:unique>
+    <xs:unique name="DataTable1_Constraint3" msdata:ConstraintName="Constraint3" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

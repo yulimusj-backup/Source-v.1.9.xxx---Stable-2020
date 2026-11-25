@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseMasterSalaryFormula_Print" targetNamespace="http://tempuri.org/DseMasterSalaryFormula_Print.xsd" xmlns:mstns="http://tempuri.org/DseMasterSalaryFormula_Print.xsd" xmlns="http://tempuri.org/DseMasterSalaryFormula_Print.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Core_DbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="Core_DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Core_Module.My.MySettings.GlobalReference.Default.Core_DbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Tbl_Cetak_EmployeeListTableAdapter" GeneratorDataComponentClassName="Tbl_Cetak_EmployeeListTableAdapter" Name="Tbl_Cetak_EmployeeList" UserDataComponentName="Tbl_Cetak_EmployeeListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_salary_formula_component_detailemployee.`Primary`, tblmaster_salary_formula_component_detailemployee.`Primary Transaksi` AS `Primary Salary`, 
+                         tblmaster_karyawan.Code AS `Employee Code`, tblmaster_karyawan.`Full Name` AS `Employee Name`, tblmaster_jobposition.code AS JP_Code, 
+                         tblmaster_jobposition.`desc` AS JP_Desc, tblmaster_salary_formula_component_detailemployee.`Basic Salary`, 
+                         tblmaster_salary_formula_component_detailemployee.Remarks, tblmaster_akun.`Account Code` AS Exp_AccCode, tblmaster_akun.Description AS Exp_AccDesc, 
+                         tblmaster_akun_1.`Account Code` AS Pay_AccCode, tblmaster_akun_1.Description AS Pay_Desc, tblmaster_departemen.`Dept Code` AS Dept_Code, 
+                         tblmaster_departemen.Description AS Dept_Desc
+FROM            tblmaster_salary_formula_component_detailemployee INNER JOIN
+                         tblmaster_karyawan ON tblmaster_salary_formula_component_detailemployee.`Primary Karyawan` = tblmaster_karyawan.`Primary` INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` INNER JOIN
+                         tblmaster_jobposition ON tblmaster_karyawan.`primary position` = tblmaster_jobposition.`primary` INNER JOIN
+                         tblmaster_akun ON tblmaster_salary_formula_component_detailemployee.`Primary Expense Account` = tblmaster_akun.`Primary` INNER JOIN
+                         tblmaster_akun tblmaster_akun_1 ON 
+                         tblmaster_salary_formula_component_detailemployee.`Primary Default Payment Account` = tblmaster_akun_1.`Primary`
+ORDER BY tblmaster_salary_formula_component_detailemployee.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Salary" DataSetColumn="Primary Salary" />
+              <Mapping SourceColumn="Employee Code" DataSetColumn="Employee Code" />
+              <Mapping SourceColumn="Employee Name" DataSetColumn="Employee Name" />
+              <Mapping SourceColumn="JP_Code" DataSetColumn="JP_Code" />
+              <Mapping SourceColumn="JP_Desc" DataSetColumn="JP_Desc" />
+              <Mapping SourceColumn="Basic Salary" DataSetColumn="Basic Salary" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Exp_AccCode" DataSetColumn="Exp_AccCode" />
+              <Mapping SourceColumn="Exp_AccDesc" DataSetColumn="Exp_AccDesc" />
+              <Mapping SourceColumn="Pay_AccCode" DataSetColumn="Pay_AccCode" />
+              <Mapping SourceColumn="Pay_Desc" DataSetColumn="Pay_Desc" />
+              <Mapping SourceColumn="Dept_Code" DataSetColumn="Dept_Code" />
+              <Mapping SourceColumn="Dept_Desc" DataSetColumn="Dept_Desc" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySalary" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_PrimarySalary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySalary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_salary_formula_component_detailemployee.`Primary`, tblmaster_salary_formula_component_detailemployee.`Primary Transaksi` AS `Primary Salary`, tblmaster_karyawan.Code AS `Employee Code`, 
+                         tblmaster_karyawan.`Full Name` AS `Employee Name`, tblmaster_jobposition.code AS JP_Code, tblmaster_jobposition.`desc` AS JP_Desc, tblmaster_salary_formula_component_detailemployee.`Basic Salary`, 
+                         tblmaster_salary_formula_component_detailemployee.Remarks, tblmaster_akun.`Account Code` AS Exp_AccCode, tblmaster_akun.Description AS Exp_AccDesc, IFNULL(tblmaster_akun_1.`Account Code`, '') 
+                         AS Pay_AccCode, IFNULL(tblmaster_akun_1.Description, '') AS Pay_Desc, tblmaster_departemen.`Dept Code` AS Dept_Code, tblmaster_departemen.Description AS Dept_Desc
+FROM            tblmaster_salary_formula_component_detailemployee INNER JOIN
+                         tblmaster_karyawan ON tblmaster_salary_formula_component_detailemployee.`Primary Karyawan` = tblmaster_karyawan.`Primary` INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` INNER JOIN
+                         tblmaster_jobposition ON tblmaster_karyawan.`primary position` = tblmaster_jobposition.`primary` LEFT OUTER JOIN
+                         tblmaster_akun ON tblmaster_salary_formula_component_detailemployee.`Primary Expense Account` = tblmaster_akun.`Primary` LEFT OUTER JOIN
+                         tblmaster_akun tblmaster_akun_1 ON tblmaster_salary_formula_component_detailemployee.`Primary Default Payment Account` = tblmaster_akun_1.`Primary`
+WHERE        (tblmaster_salary_formula_component_detailemployee.`Primary Transaksi` = @PrimarySalary)
+ORDER BY Dept_Desc, `Employee Code`, `Employee Name`, JP_Desc</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalary" ColumnName="Primary Transaksi" DataSourceName="core_db_payroll.tblmaster_salary_formula_component_detailemployee" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_salary_formula_parameterTableAdapter" GeneratorDataComponentClassName="tblmaster_salary_formula_parameterTableAdapter" Name="tblmaster_salary_formula_parameter" UserDataComponentName="tblmaster_salary_formula_parameterTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_hr_iniled.tblmaster_salary_formula_parameter" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        Code AS `Nama Parameter`, Description, Unit AS Satuan, `Is Variable`, `Is Constraint`, Tipe
+FROM            tblmaster_salary_formula_parameter
+ORDER BY `Nama Parameter`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Nama Parameter" DataSetColumn="Nama Parameter" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Satuan" DataSetColumn="Satuan" />
+              <Mapping SourceColumn="Is Variable" DataSetColumn="Is Variable" />
+              <Mapping SourceColumn="Is Constraint" DataSetColumn="Is Constraint" />
+              <Mapping SourceColumn="Tipe" DataSetColumn="Tipe" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetTipeParameterByPrimary" Modifier="Public" Name="ScalarQuery_GetTipeParameterByPrimary" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetTipeParameterByPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(Unit, '') AS unit
+FROM            tblmaster_salary_formula_parameter
+WHERE        (`Primary` = @primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary" ColumnName="Primary" DataSourceName="smess_fp.tblmaster_salary_formula_parameter" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_salary_formula_salarycomponentTableAdapter" GeneratorDataComponentClassName="tblmaster_salary_formula_salarycomponentTableAdapter" Name="tblmaster_salary_formula_salarycomponent" UserDataComponentName="tblmaster_salary_formula_salarycomponentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="core_db_payroll.tblmaster_salary_formula_salarycomponent" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_salary_formula_salarycomponent` WHERE ((`Primary` = @Original_Primary) AND (`Primary Transaksi` = @Original_Primary_Transaksi) AND (`Type` = @Original_Type) AND (`Description` = @Original_Description) AND (`Primary Slip Desc` = @Original_Primary_Slip_Desc) AND (`Tax Component` = @Original_Tax_Component) AND (`Primary Expense Account` = @Original_Primary_Expense_Account) AND (`Formula` = @Original_Formula) AND (`Calculation Period` = @Original_Calculation_Period) AND (`Calculate On` = @Original_Calculate_On) AND (`Yearly Max Value` = @Original_Yearly_Max_Value) AND (`Monthly Max Value` = @Original_Monthly_Max_Value) AND (`Identifier` = @Original_Identifier) AND (`Rounding Unit` = @Original_Rounding_Unit) AND (`Rounding Type` = @Original_Rounding_Type) AND (`Yearly Min Value` = @Original_Yearly_Min_Value) AND (`Monthly Min Value` = @Original_Monthly_Min_Value) AND (`Yearly Date` = @Original_Yearly_Date) AND (`Urutan` = @Original_Urutan))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Slip_Desc" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Slip Desc" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tax_Component" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tax Component" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Expense_Account" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Expense Account" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Formula" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Formula" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Calculation_Period" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Calculation Period" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Calculate_On" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Calculate On" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Yearly_Max_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Yearly Max Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Monthly_Max_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Monthly Max Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Identifier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Rounding_Unit" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Rounding Unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Rounding_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Rounding Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Yearly_Min_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Yearly Min Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Monthly_Min_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Monthly Min Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Yearly_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Yearly Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `tblmaster_salary_formula_salarycomponent` (`Primary Transaksi`, `Type`, `Description`, `Primary Slip Desc`, `Tax Component`, `Primary Expense Account`, `Formula`, `Calculation Period`, `Calculate On`, `Yearly Max Value`, `Monthly Max Value`, `Identifier`, `Rounding Unit`, `Rounding Type`, `Yearly Min Value`, `Monthly Min Value`, `Yearly Date`, `Urutan`) VALUES (@Primary_Transaksi, @Type, @Description, @Primary_Slip_Desc, @Tax_Component, @Primary_Expense_Account, @Formula, @Calculation_Period, @Calculate_On, @Yearly_Max_Value, @Monthly_Max_Value, @Identifier, @Rounding_Unit, @Rounding_Type, @Yearly_Min_Value, @Monthly_Min_Value, @Yearly_Date, @Urutan)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Slip_Desc" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Slip Desc" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Tax_Component" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tax Component" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Expense_Account" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Expense Account" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Formula" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Formula" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Calculation_Period" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Calculation Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Calculate_On" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Calculate On" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Yearly_Max_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Yearly Max Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Monthly_Max_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Monthly Max Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Identifier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Rounding_Unit" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Rounding Unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Rounding_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Rounding Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Yearly_Min_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Yearly Min Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Monthly_Min_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Monthly Min Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Yearly_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Yearly Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary`, `Primary Transaksi`, Description, Formula, `Calculation Period`, `Calculate On`, `Yearly Max Value`, `Monthly Max Value`, Identifier, `Rounding Unit`, 
+                         `Rounding Type`, `Yearly Min Value`, `Monthly Min Value`, `Yearly Date`, Urutan
+FROM            tblmaster_salary_formula_salarycomponent
+ORDER BY `Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_salary_formula_salarycomponent` SET `Primary Transaksi` = @Primary_Transaksi, `Type` = @Type, `Description` = @Description, `Primary Slip Desc` = @Primary_Slip_Desc, `Tax Component` = @Tax_Component, `Primary Expense Account` = @Primary_Expense_Account, `Formula` = @Formula, `Calculation Period` = @Calculation_Period, `Calculate On` = @Calculate_On, `Yearly Max Value` = @Yearly_Max_Value, `Monthly Max Value` = @Monthly_Max_Value, `Identifier` = @Identifier, `Rounding Unit` = @Rounding_Unit, `Rounding Type` = @Rounding_Type, `Yearly Min Value` = @Yearly_Min_Value, `Monthly Min Value` = @Monthly_Min_Value, `Yearly Date` = @Yearly_Date, `Urutan` = @Urutan WHERE ((`Primary` = @Original_Primary) AND (`Primary Transaksi` = @Original_Primary_Transaksi) AND (`Type` = @Original_Type) AND (`Description` = @Original_Description) AND (`Primary Slip Desc` = @Original_Primary_Slip_Desc) AND (`Tax Component` = @Original_Tax_Component) AND (`Primary Expense Account` = @Original_Primary_Expense_Account) AND (`Formula` = @Original_Formula) AND (`Calculation Period` = @Original_Calculation_Period) AND (`Calculate On` = @Original_Calculate_On) AND (`Yearly Max Value` = @Original_Yearly_Max_Value) AND (`Monthly Max Value` = @Original_Monthly_Max_Value) AND (`Identifier` = @Original_Identifier) AND (`Rounding Unit` = @Original_Rounding_Unit) AND (`Rounding Type` = @Original_Rounding_Type) AND (`Yearly Min Value` = @Original_Yearly_Min_Value) AND (`Monthly Min Value` = @Original_Monthly_Min_Value) AND (`Yearly Date` = @Original_Yearly_Date) AND (`Urutan` = @Original_Urutan))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Slip_Desc" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Slip Desc" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Tax_Component" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tax Component" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Expense_Account" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Expense Account" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Formula" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Formula" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Calculation_Period" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Calculation Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Calculate_On" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Calculate On" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Yearly_Max_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Yearly Max Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Monthly_Max_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Monthly Max Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Identifier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Rounding_Unit" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Rounding Unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Rounding_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Rounding Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Yearly_Min_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Yearly Min Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Monthly_Min_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Monthly Min Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Yearly_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Yearly Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Slip_Desc" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Slip Desc" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tax_Component" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tax Component" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Expense_Account" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Expense Account" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Formula" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Formula" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Calculation_Period" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Calculation Period" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Calculate_On" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Calculate On" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Yearly_Max_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Yearly Max Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Monthly_Max_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Monthly Max Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Identifier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Rounding_Unit" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Rounding Unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Rounding_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Rounding Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Yearly_Min_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Yearly Min Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Monthly_Min_Value" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Monthly Min Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Yearly_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Yearly Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Transaksi" DataSetColumn="Primary Transaksi" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Formula" DataSetColumn="Formula" />
+              <Mapping SourceColumn="Calculation Period" DataSetColumn="Calculation Period" />
+              <Mapping SourceColumn="Calculate On" DataSetColumn="Calculate On" />
+              <Mapping SourceColumn="Yearly Max Value" DataSetColumn="Yearly Max Value" />
+              <Mapping SourceColumn="Monthly Max Value" DataSetColumn="Monthly Max Value" />
+              <Mapping SourceColumn="Identifier" DataSetColumn="Identifier" />
+              <Mapping SourceColumn="Rounding Unit" DataSetColumn="Rounding Unit" />
+              <Mapping SourceColumn="Rounding Type" DataSetColumn="Rounding Type" />
+              <Mapping SourceColumn="Yearly Min Value" DataSetColumn="Yearly Min Value" />
+              <Mapping SourceColumn="Monthly Min Value" DataSetColumn="Monthly Min Value" />
+              <Mapping SourceColumn="Yearly Date" DataSetColumn="Yearly Date" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="core_db_payroll.tblmaster_salary_formula_salarycomponent" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySalary" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimarySalary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySalary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Transaksi`, Description, Formula, `Calculation Period`, `Calculate On`, `Yearly Max Value`, `Monthly Max Value`, Identifier, `Rounding Unit`, 
+                         `Rounding Type`, `Yearly Min Value`, `Monthly Min Value`, `Yearly Date`, Urutan
+FROM            tblmaster_salary_formula_salarycomponent
+WHERE        (`Primary Transaksi` = @PrimarySalary)
+ORDER BY `Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalary" ColumnName="Primary Transaksi" DataSourceName="tblmaster_salary_formula_salarycomponent" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_salary_formula_salarycomponent_variableTableAdapter" GeneratorDataComponentClassName="tblmaster_salary_formula_salarycomponent_variableTableAdapter" Name="tblmaster_salary_formula_salarycomponent_variable" UserDataComponentName="tblmaster_salary_formula_salarycomponent_variableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_salary_formula_salarycomponent_variable` WHERE ((`Primary` = @Original_Primary) AND (`Primary Transaksi` = @Original_Primary_Transaksi) AND (`Primary Parameter` = @Original_Primary_Parameter) AND (`Type` = @Original_Type) AND (`Variable` = @Original_Variable) AND (`Identifier Salary Component` = @Original_Identifier_Salary_Component) AND (`Rounding Unit` = @Original_Rounding_Unit) AND (`Rounding Type` = @Original_Rounding_Type))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Parameter" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Parameter" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Variable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Variable" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Identifier_Salary_Component" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Identifier Salary Component" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Rounding_Unit" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Rounding Unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Rounding_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Rounding Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `tblmaster_salary_formula_salarycomponent_variable` (`Primary Transaksi`, `Primary Parameter`, `Type`, `Variable`, `Identifier Salary Component`, `Rounding Unit`, `Rounding Type`) VALUES (@Primary_Transaksi, @Primary_Parameter, @Type, @Variable, @Identifier_Salary_Component, @Rounding_Unit, @Rounding_Type)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Parameter" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Parameter" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Variable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Variable" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Identifier_Salary_Component" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Identifier Salary Component" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Rounding_Unit" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Rounding Unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Rounding_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Rounding Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tblmaster_salary_formula_salarycomponent_variable.`Primary`, tblmaster_salary_formula_salarycomponent_variable.`Primary Transaksi`, tblmaster_salary_formula_salarycomponent_variable.`Primary Parameter`, 
+            tblmaster_salary_formula_salarycomponent_variable.Type, tblmaster_salary_formula_salarycomponent_variable.Variable, tblmaster_salary_formula_salarycomponent_variable.`Identifier Salary Component`, 
+            tblmaster_salary_formula_salarycomponent_variable.`Rounding Unit`, tblmaster_salary_formula_salarycomponent_variable.`Rounding Type`, tblmaster_salary_formula_parameter.Code AS Param_Code, 
+            tblmaster_salary_formula_parameter.Description AS Param_Desc, tblmaster_salary_formula_salarycomponent_variable.Type2
+FROM  tblmaster_salary_formula_salarycomponent_variable INNER JOIN
+            tblmaster_salary_formula_parameter ON tblmaster_salary_formula_salarycomponent_variable.`Primary Parameter` = tblmaster_salary_formula_parameter.`Primary`
+ORDER BY tblmaster_salary_formula_salarycomponent_variable.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_salary_formula_salarycomponent_variable` SET `Primary Transaksi` = @Primary_Transaksi, `Primary Parameter` = @Primary_Parameter, `Type` = @Type, `Variable` = @Variable, `Identifier Salary Component` = @Identifier_Salary_Component, `Rounding Unit` = @Rounding_Unit, `Rounding Type` = @Rounding_Type WHERE ((`Primary` = @Original_Primary) AND (`Primary Transaksi` = @Original_Primary_Transaksi) AND (`Primary Parameter` = @Original_Primary_Parameter) AND (`Type` = @Original_Type) AND (`Variable` = @Original_Variable) AND (`Identifier Salary Component` = @Original_Identifier_Salary_Component) AND (`Rounding Unit` = @Original_Rounding_Unit) AND (`Rounding Type` = @Original_Rounding_Type))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Parameter" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Parameter" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Variable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Variable" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Identifier_Salary_Component" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Identifier Salary Component" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Rounding_Unit" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Rounding Unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Rounding_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Rounding Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Parameter" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Parameter" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Variable" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Variable" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Identifier_Salary_Component" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Identifier Salary Component" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Rounding_Unit" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Rounding Unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Rounding_Type" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Rounding Type" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Transaksi" DataSetColumn="Primary Transaksi" />
+              <Mapping SourceColumn="Primary Parameter" DataSetColumn="Primary Parameter" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="Variable" DataSetColumn="Variable" />
+              <Mapping SourceColumn="Identifier Salary Component" DataSetColumn="Identifier Salary Component" />
+              <Mapping SourceColumn="Rounding Unit" DataSetColumn="Rounding Unit" />
+              <Mapping SourceColumn="Rounding Type" DataSetColumn="Rounding Type" />
+              <Mapping SourceColumn="Param_Code" DataSetColumn="Param_Code" />
+              <Mapping SourceColumn="Param_Desc" DataSetColumn="Param_Desc" />
+              <Mapping SourceColumn="Type2" DataSetColumn="Type2" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySalary" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimarySalary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySalary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tblmaster_salary_formula_salarycomponent_variable.`Primary`, tblmaster_salary_formula_salarycomponent_variable.`Primary Transaksi`, tblmaster_salary_formula_salarycomponent_variable.`Primary Parameter`, 
+            tblmaster_salary_formula_salarycomponent_variable.Type, tblmaster_salary_formula_salarycomponent_variable.Variable, tblmaster_salary_formula_salarycomponent_variable.`Identifier Salary Component`, 
+            tblmaster_salary_formula_salarycomponent_variable.`Rounding Unit`, tblmaster_salary_formula_salarycomponent_variable.`Rounding Type`, tblmaster_salary_formula_parameter.Code AS Param_Code, 
+            tblmaster_salary_formula_parameter.Description AS Param_Desc, tblmaster_salary_formula_salarycomponent_variable.Type2
+FROM  tblmaster_salary_formula_salarycomponent_variable INNER JOIN
+            tblmaster_salary_formula_parameter ON tblmaster_salary_formula_salarycomponent_variable.`Primary Parameter` = tblmaster_salary_formula_parameter.`Primary`
+WHERE (tblmaster_salary_formula_salarycomponent_variable.`Primary Transaksi` = @PrimarySalary)
+ORDER BY tblmaster_salary_formula_salarycomponent_variable.`Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalary" ColumnName="Primary Transaksi" DataSourceName="smess_hr_iniled_actual.tblmaster_salary_formula_salarycomponent_variable" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_salary_formula_salarycomponent_constraintTableAdapter" GeneratorDataComponentClassName="tblmaster_salary_formula_salarycomponent_constraintTableAdapter" Name="tblmaster_salary_formula_salarycomponent_constraint" UserDataComponentName="tblmaster_salary_formula_salarycomponent_constraintTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tblmaster_salary_formula_salarycomponent_constraint.`Primary`, tblmaster_salary_formula_salarycomponent_constraint.`Primary Transaksi`, tblmaster_salary_formula_salarycomponent_constraint.`Primary Parameter`, 
+            tblmaster_salary_formula_salarycomponent_constraint.Type, tblmaster_salary_formula_salarycomponent_constraint.Compare, tblmaster_salary_formula_salarycomponent_constraint.`Ref Value`, 
+            tblmaster_salary_formula_salarycomponent_constraint.`Identifier Salary Component`, tblmaster_salary_formula_parameter.Code AS Param_Code, tblmaster_salary_formula_parameter.Description AS Param_Desc, 
+            tblmaster_salary_formula_salarycomponent_constraint.Type2
+FROM  tblmaster_salary_formula_salarycomponent_constraint INNER JOIN
+            tblmaster_salary_formula_parameter ON tblmaster_salary_formula_salarycomponent_constraint.`Primary Parameter` = tblmaster_salary_formula_parameter.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Transaksi" DataSetColumn="Primary Transaksi" />
+              <Mapping SourceColumn="Primary Parameter" DataSetColumn="Primary Parameter" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="Compare" DataSetColumn="Compare" />
+              <Mapping SourceColumn="Ref Value" DataSetColumn="Ref Value" />
+              <Mapping SourceColumn="Identifier Salary Component" DataSetColumn="Identifier Salary Component" />
+              <Mapping SourceColumn="Param_Code" DataSetColumn="Param_Code" />
+              <Mapping SourceColumn="Param_Desc" DataSetColumn="Param_Desc" />
+              <Mapping SourceColumn="Type2" DataSetColumn="Type2" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySalary" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_PrimarySalary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySalary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tblmaster_salary_formula_salarycomponent_constraint.`Primary`, tblmaster_salary_formula_salarycomponent_constraint.`Primary Transaksi`, tblmaster_salary_formula_salarycomponent_constraint.`Primary Parameter`, 
+            tblmaster_salary_formula_salarycomponent_constraint.Type, tblmaster_salary_formula_salarycomponent_constraint.Compare, tblmaster_salary_formula_salarycomponent_constraint.`Ref Value`, 
+            tblmaster_salary_formula_salarycomponent_constraint.`Identifier Salary Component`, tblmaster_salary_formula_parameter.Code AS Param_Code, tblmaster_salary_formula_parameter.Description AS Param_Desc, 
+            tblmaster_salary_formula_salarycomponent_constraint.Type2
+FROM  tblmaster_salary_formula_salarycomponent_constraint INNER JOIN
+            tblmaster_salary_formula_parameter ON tblmaster_salary_formula_salarycomponent_constraint.`Primary Parameter` = tblmaster_salary_formula_parameter.`Primary`
+WHERE (tblmaster_salary_formula_salarycomponent_constraint.`Primary Transaksi` = @PrimarySalary)
+ORDER BY tblmaster_salary_formula_salarycomponent_constraint.`Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalary" ColumnName="Primary Transaksi" DataSourceName="smess_hr_iniled_actual.tblmaster_salary_formula_salarycomponent_constraint" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseMasterSalaryFormula_Print" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseMasterSalaryFormula_Print" msprop:Generator_DataSetName="DseMasterSalaryFormula_Print">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Tbl_Cetak_EmployeeList" msprop:Generator_UserTableName="Tbl_Cetak_EmployeeList" msprop:Generator_RowDeletedName="Tbl_Cetak_EmployeeListRowDeleted" msprop:Generator_RowChangedName="Tbl_Cetak_EmployeeListRowChanged" msprop:Generator_RowClassName="Tbl_Cetak_EmployeeListRow" msprop:Generator_RowChangingName="Tbl_Cetak_EmployeeListRowChanging" msprop:Generator_RowEvArgName="Tbl_Cetak_EmployeeListRowChangeEvent" msprop:Generator_RowEvHandlerName="Tbl_Cetak_EmployeeListRowChangeEventHandler" msprop:Generator_TableClassName="Tbl_Cetak_EmployeeListDataTable" msprop:Generator_TableVarName="tableTbl_Cetak_EmployeeList" msprop:Generator_RowDeletingName="Tbl_Cetak_EmployeeListRowDeleting" msprop:Generator_TablePropName="Tbl_Cetak_EmployeeList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Salary" msprop:Generator_UserColumnName="Primary Salary" msprop:Generator_ColumnPropNameInRow="Primary_Salary" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary" msprop:Generator_ColumnPropNameInTable="Primary_SalaryColumn" type="xs:double" />
+              <xs:element name="Employee_x0020_Code" msprop:Generator_UserColumnName="Employee Code" msprop:Generator_ColumnPropNameInRow="Employee_Code" msprop:Generator_ColumnVarNameInTable="columnEmployee_Code" msprop:Generator_ColumnPropNameInTable="Employee_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Employee_x0020_Name" msprop:Generator_UserColumnName="Employee Name" msprop:Generator_ColumnPropNameInRow="Employee_Name" msprop:Generator_ColumnVarNameInTable="columnEmployee_Name" msprop:Generator_ColumnPropNameInTable="Employee_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JP_Code" msprop:Generator_UserColumnName="JP_Code" msprop:Generator_ColumnPropNameInRow="JP_Code" msprop:Generator_ColumnVarNameInTable="columnJP_Code" msprop:Generator_ColumnPropNameInTable="JP_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JP_Desc" msprop:Generator_UserColumnName="JP_Desc" msprop:Generator_ColumnPropNameInRow="JP_Desc" msprop:Generator_ColumnVarNameInTable="columnJP_Desc" msprop:Generator_ColumnPropNameInTable="JP_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Basic_x0020_Salary" msprop:Generator_UserColumnName="Basic Salary" msprop:Generator_ColumnPropNameInRow="Basic_Salary" msprop:Generator_ColumnVarNameInTable="columnBasic_Salary" msprop:Generator_ColumnPropNameInTable="Basic_SalaryColumn" type="xs:decimal" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Exp_AccCode" msprop:Generator_UserColumnName="Exp_AccCode" msprop:Generator_ColumnPropNameInRow="Exp_AccCode" msprop:Generator_ColumnVarNameInTable="columnExp_AccCode" msprop:Generator_ColumnPropNameInTable="Exp_AccCodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Exp_AccDesc" msprop:Generator_UserColumnName="Exp_AccDesc" msprop:Generator_ColumnPropNameInRow="Exp_AccDesc" msprop:Generator_ColumnVarNameInTable="columnExp_AccDesc" msprop:Generator_ColumnPropNameInTable="Exp_AccDescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pay_AccCode" msprop:Generator_UserColumnName="Pay_AccCode" msprop:Generator_ColumnPropNameInRow="Pay_AccCode" msprop:Generator_ColumnVarNameInTable="columnPay_AccCode" msprop:Generator_ColumnPropNameInTable="Pay_AccCodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Pay_Desc" msprop:Generator_UserColumnName="Pay_Desc" msprop:Generator_ColumnPropNameInRow="Pay_Desc" msprop:Generator_ColumnVarNameInTable="columnPay_Desc" msprop:Generator_ColumnPropNameInTable="Pay_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_Code" msprop:Generator_UserColumnName="Dept_Code" msprop:Generator_ColumnPropNameInRow="Dept_Code" msprop:Generator_ColumnVarNameInTable="columnDept_Code" msprop:Generator_ColumnPropNameInTable="Dept_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_Desc" msprop:Generator_UserColumnName="Dept_Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GroupingPayDanExpAccbyCode" msprop:Generator_UserColumnName="GroupingPayDanExpAccbyCode" msprop:Generator_ColumnPropNameInRow="GroupingPayDanExpAccbyCode" msprop:Generator_ColumnVarNameInTable="columnGroupingPayDanExpAccbyCode" msprop:Generator_ColumnPropNameInTable="GroupingPayDanExpAccbyCodeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_salary_formula_parameter" msprop:Generator_UserTableName="tblmaster_salary_formula_parameter" msprop:Generator_RowDeletedName="tblmaster_salary_formula_parameterRowDeleted" msprop:Generator_RowChangedName="tblmaster_salary_formula_parameterRowChanged" msprop:Generator_RowClassName="tblmaster_salary_formula_parameterRow" msprop:Generator_RowChangingName="tblmaster_salary_formula_parameterRowChanging" msprop:Generator_RowEvArgName="tblmaster_salary_formula_parameterRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_salary_formula_parameterRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_salary_formula_parameterDataTable" msprop:Generator_TableVarName="tabletblmaster_salary_formula_parameter" msprop:Generator_RowDeletingName="tblmaster_salary_formula_parameterRowDeleting" msprop:Generator_TablePropName="tblmaster_salary_formula_parameter">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Nama_x0020_Parameter" msprop:Generator_UserColumnName="Nama Parameter" msprop:Generator_ColumnPropNameInRow="Nama_Parameter" msprop:Generator_ColumnVarNameInTable="columnNama_Parameter" msprop:Generator_ColumnPropNameInTable="Nama_ParameterColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Satuan" msprop:Generator_UserColumnName="Satuan" msprop:Generator_ColumnPropNameInRow="Satuan" msprop:Generator_ColumnVarNameInTable="columnSatuan" msprop:Generator_ColumnPropNameInTable="SatuanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VarConst" msprop:Generator_UserColumnName="VarConst" msprop:Generator_ColumnPropNameInRow="VarConst" msprop:Generator_ColumnVarNameInTable="columnVarConst" msprop:Generator_ColumnPropNameInTable="VarConstColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Is_x0020_Variable" msprop:Generator_UserColumnName="Is Variable" msprop:Generator_ColumnVarNameInTable="columnIs_Variable" msprop:Generator_ColumnPropNameInRow="Is_Variable" msprop:Generator_ColumnPropNameInTable="Is_VariableColumn" type="xs:int" />
+              <xs:element name="Is_x0020_Constraint" msprop:Generator_UserColumnName="Is Constraint" msprop:Generator_ColumnVarNameInTable="columnIs_Constraint" msprop:Generator_ColumnPropNameInRow="Is_Constraint" msprop:Generator_ColumnPropNameInTable="Is_ConstraintColumn" type="xs:int" />
+              <xs:element name="Tipe" msprop:Generator_UserColumnName="Tipe" msprop:Generator_ColumnPropNameInRow="Tipe" msprop:Generator_ColumnVarNameInTable="columnTipe" msprop:Generator_ColumnPropNameInTable="TipeColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblCetak" msprop:Generator_UserTableName="TblCetak" msprop:Generator_RowDeletedName="TblCetakRowDeleted" msprop:Generator_RowChangedName="TblCetakRowChanged" msprop:Generator_RowClassName="TblCetakRow" msprop:Generator_RowChangingName="TblCetakRowChanging" msprop:Generator_RowEvArgName="TblCetakRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetakRowChangeEventHandler" msprop:Generator_TableClassName="TblCetakDataTable" msprop:Generator_TableVarName="tableTblCetak" msprop:Generator_RowDeletingName="TblCetakRowDeleting" msprop:Generator_TablePropName="TblCetak">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Auto_Component" msprop:Generator_UserColumnName="Primary Auto_Component" msprop:Generator_ColumnPropNameInRow="Primary_Auto_Component" msprop:Generator_ColumnVarNameInTable="columnPrimary_Auto_Component" msprop:Generator_ColumnPropNameInTable="Primary_Auto_ComponentColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Var_Const" msprop:Generator_UserColumnName="Var_Const" msprop:Generator_ColumnVarNameInTable="columnVar_Const" msprop:Generator_ColumnPropNameInRow="Var_Const" msprop:Generator_ColumnPropNameInTable="Var_ConstColumn" type="xs:string" default="A" minOccurs="0" />
+              <xs:element name="Parameter" msprop:Generator_UserColumnName="Parameter" msprop:Generator_ColumnVarNameInTable="columnParameter" msprop:Generator_ColumnPropNameInRow="Parameter" msprop:Generator_ColumnPropNameInTable="ParameterColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Variable" msprop:Generator_UserColumnName="Variable" msprop:Generator_ColumnVarNameInTable="columnVariable" msprop:Generator_ColumnPropNameInRow="Variable" msprop:Generator_ColumnPropNameInTable="VariableColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="RUnit_RefValue" msprop:Generator_UserColumnName="RUnit_RefValue" msprop:Generator_ColumnVarNameInTable="columnRUnit_RefValue" msprop:Generator_ColumnPropNameInRow="RUnit_RefValue" msprop:Generator_ColumnPropNameInTable="RUnit_RefValueColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Param_Header0" msprop:Generator_UserColumnName="Param_Header0" msprop:Generator_ColumnPropNameInRow="Param_Header0" msprop:Generator_ColumnVarNameInTable="columnParam_Header0" msprop:Generator_ColumnPropNameInTable="Param_Header0Column" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Param_HeaderType_CalcPeriod" msprop:Generator_UserColumnName="Param_HeaderType_CalcPeriod" msprop:Generator_ColumnPropNameInRow="Param_HeaderType_CalcPeriod" msprop:Generator_ColumnVarNameInTable="columnParam_HeaderType_CalcPeriod" msprop:Generator_ColumnPropNameInTable="Param_HeaderType_CalcPeriodColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Param_HeaderRounding" msprop:Generator_UserColumnName="Param_HeaderRounding" msprop:Generator_ColumnPropNameInRow="Param_HeaderRounding" msprop:Generator_ColumnVarNameInTable="columnParam_HeaderRounding" msprop:Generator_ColumnPropNameInTable="Param_HeaderRoundingColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Param_HeaderMonthlyMin" msprop:Generator_UserColumnName="Param_HeaderMonthlyMin" msprop:Generator_ColumnPropNameInRow="Param_HeaderMonthlyMin" msprop:Generator_ColumnVarNameInTable="columnParam_HeaderMonthlyMin" msprop:Generator_ColumnPropNameInTable="Param_HeaderMonthlyMinColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Param_HeaderMonthlyMax" msprop:Generator_UserColumnName="Param_HeaderMonthlyMax" msprop:Generator_ColumnPropNameInRow="Param_HeaderMonthlyMax" msprop:Generator_ColumnVarNameInTable="columnParam_HeaderMonthlyMax" msprop:Generator_ColumnPropNameInTable="Param_HeaderMonthlyMaxColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Param_HeaderStartOn_CalcOn" msprop:Generator_UserColumnName="Param_HeaderStartOn_CalcOn" msprop:Generator_ColumnPropNameInRow="Param_HeaderStartOn_CalcOn" msprop:Generator_ColumnVarNameInTable="columnParam_HeaderStartOn_CalcOn" msprop:Generator_ColumnPropNameInTable="Param_HeaderStartOn_CalcOnColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Param_HeaderYearlyMin" msprop:Generator_UserColumnName="Param_HeaderYearlyMin" msprop:Generator_ColumnPropNameInRow="Param_HeaderYearlyMin" msprop:Generator_ColumnVarNameInTable="columnParam_HeaderYearlyMin" msprop:Generator_ColumnPropNameInTable="Param_HeaderYearlyMinColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Param_HeaderYearlyMax" msprop:Generator_UserColumnName="Param_HeaderYearlyMax" msprop:Generator_ColumnPropNameInRow="Param_HeaderYearlyMax" msprop:Generator_ColumnVarNameInTable="columnParam_HeaderYearlyMax" msprop:Generator_ColumnPropNameInTable="Param_HeaderYearlyMaxColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Formula" msprop:Generator_UserColumnName="Formula" msprop:Generator_ColumnVarNameInTable="columnFormula" msprop:Generator_ColumnPropNameInRow="Formula" msprop:Generator_ColumnPropNameInTable="FormulaColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_salary_formula_salarycomponent" msprop:Generator_UserTableName="tblmaster_salary_formula_salarycomponent" msprop:Generator_RowDeletedName="tblmaster_salary_formula_salarycomponentRowDeleted" msprop:Generator_RowChangedName="tblmaster_salary_formula_salarycomponentRowChanged" msprop:Generator_RowClassName="tblmaster_salary_formula_salarycomponentRow" msprop:Generator_RowChangingName="tblmaster_salary_formula_salarycomponentRowChanging" msprop:Generator_RowEvArgName="tblmaster_salary_formula_salarycomponentRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_salary_formula_salarycomponentRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_salary_formula_salarycomponentDataTable" msprop:Generator_TableVarName="tabletblmaster_salary_formula_salarycomponent" msprop:Generator_RowDeletingName="tblmaster_salary_formula_salarycomponentRowDeleting" msprop:Generator_TablePropName="tblmaster_salary_formula_salarycomponent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Formula" msprop:Generator_UserColumnName="Formula" msprop:Generator_ColumnPropNameInRow="Formula" msprop:Generator_ColumnVarNameInTable="columnFormula" msprop:Generator_ColumnPropNameInTable="FormulaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Calculation_x0020_Period" msprop:Generator_UserColumnName="Calculation Period" msprop:Generator_ColumnPropNameInRow="Calculation_Period" msprop:Generator_ColumnVarNameInTable="columnCalculation_Period" msprop:Generator_ColumnPropNameInTable="Calculation_PeriodColumn" type="xs:int" />
+              <xs:element name="Calculate_x0020_On" msprop:Generator_UserColumnName="Calculate On" msprop:Generator_ColumnPropNameInRow="Calculate_On" msprop:Generator_ColumnVarNameInTable="columnCalculate_On" msprop:Generator_ColumnPropNameInTable="Calculate_OnColumn" type="xs:int" />
+              <xs:element name="Yearly_x0020_Max_x0020_Value" msprop:Generator_UserColumnName="Yearly Max Value" msprop:Generator_ColumnPropNameInRow="Yearly_Max_Value" msprop:Generator_ColumnVarNameInTable="columnYearly_Max_Value" msprop:Generator_ColumnPropNameInTable="Yearly_Max_ValueColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Monthly_x0020_Max_x0020_Value" msprop:Generator_UserColumnName="Monthly Max Value" msprop:Generator_ColumnPropNameInRow="Monthly_Max_Value" msprop:Generator_ColumnVarNameInTable="columnMonthly_Max_Value" msprop:Generator_ColumnPropNameInTable="Monthly_Max_ValueColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Identifier" msprop:Generator_UserColumnName="Identifier" msprop:Generator_ColumnPropNameInRow="Identifier" msprop:Generator_ColumnVarNameInTable="columnIdentifier" msprop:Generator_ColumnPropNameInTable="IdentifierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rounding_x0020_Unit" msprop:Generator_UserColumnName="Rounding Unit" msprop:Generator_ColumnPropNameInRow="Rounding_Unit" msprop:Generator_ColumnVarNameInTable="columnRounding_Unit" msprop:Generator_ColumnPropNameInTable="Rounding_UnitColumn" type="xs:decimal" />
+              <xs:element name="Rounding_x0020_Type" msprop:Generator_UserColumnName="Rounding Type" msprop:Generator_ColumnPropNameInRow="Rounding_Type" msprop:Generator_ColumnVarNameInTable="columnRounding_Type" msprop:Generator_ColumnPropNameInTable="Rounding_TypeColumn" type="xs:int" />
+              <xs:element name="Yearly_x0020_Min_x0020_Value" msprop:Generator_UserColumnName="Yearly Min Value" msprop:Generator_ColumnPropNameInRow="Yearly_Min_Value" msprop:Generator_ColumnVarNameInTable="columnYearly_Min_Value" msprop:Generator_ColumnPropNameInTable="Yearly_Min_ValueColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Monthly_x0020_Min_x0020_Value" msprop:Generator_UserColumnName="Monthly Min Value" msprop:Generator_ColumnPropNameInRow="Monthly_Min_Value" msprop:Generator_ColumnVarNameInTable="columnMonthly_Min_Value" msprop:Generator_ColumnPropNameInTable="Monthly_Min_ValueColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Yearly_x0020_Date" msprop:Generator_UserColumnName="Yearly Date" msprop:Generator_ColumnPropNameInRow="Yearly_Date" msprop:Generator_ColumnVarNameInTable="columnYearly_Date" msprop:Generator_ColumnPropNameInTable="Yearly_DateColumn" type="xs:dateTime" />
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_salary_formula_salarycomponent_variable" msprop:Generator_UserTableName="tblmaster_salary_formula_salarycomponent_variable" msprop:Generator_RowDeletedName="tblmaster_salary_formula_salarycomponent_variableRowDeleted" msprop:Generator_RowChangedName="tblmaster_salary_formula_salarycomponent_variableRowChanged" msprop:Generator_RowClassName="tblmaster_salary_formula_salarycomponent_variableRow" msprop:Generator_RowChangingName="tblmaster_salary_formula_salarycomponent_variableRowChanging" msprop:Generator_RowEvArgName="tblmaster_salary_formula_salarycomponent_variableRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_salary_formula_salarycomponent_variableRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_salary_formula_salarycomponent_variableDataTable" msprop:Generator_TableVarName="tabletblmaster_salary_formula_salarycomponent_variable" msprop:Generator_RowDeletingName="tblmaster_salary_formula_salarycomponent_variableRowDeleting" msprop:Generator_TablePropName="tblmaster_salary_formula_salarycomponent_variable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Parameter" msprop:Generator_UserColumnName="Primary Parameter" msprop:Generator_ColumnPropNameInRow="Primary_Parameter" msprop:Generator_ColumnVarNameInTable="columnPrimary_Parameter" msprop:Generator_ColumnPropNameInTable="Primary_ParameterColumn" type="xs:double" />
+              <xs:element name="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInTable="TypeColumn" type="xs:int" />
+              <xs:element name="Variable" msprop:Generator_UserColumnName="Variable" msprop:Generator_ColumnPropNameInRow="Variable" msprop:Generator_ColumnVarNameInTable="columnVariable" msprop:Generator_ColumnPropNameInTable="VariableColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Identifier_x0020_Salary_x0020_Component" msprop:Generator_UserColumnName="Identifier Salary Component" msprop:Generator_ColumnPropNameInRow="Identifier_Salary_Component" msprop:Generator_ColumnVarNameInTable="columnIdentifier_Salary_Component" msprop:Generator_ColumnPropNameInTable="Identifier_Salary_ComponentColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rounding_x0020_Unit" msprop:Generator_UserColumnName="Rounding Unit" msprop:Generator_ColumnPropNameInRow="Rounding_Unit" msprop:Generator_ColumnVarNameInTable="columnRounding_Unit" msprop:Generator_ColumnPropNameInTable="Rounding_UnitColumn" type="xs:decimal" />
+              <xs:element name="Rounding_x0020_Type" msprop:Generator_UserColumnName="Rounding Type" msprop:Generator_ColumnPropNameInRow="Rounding_Type" msprop:Generator_ColumnVarNameInTable="columnRounding_Type" msprop:Generator_ColumnPropNameInTable="Rounding_TypeColumn" type="xs:int" />
+              <xs:element name="Param_Code" msprop:Generator_UserColumnName="Param_Code" msprop:Generator_ColumnVarNameInTable="columnParam_Code" msprop:Generator_ColumnPropNameInRow="Param_Code" msprop:Generator_ColumnPropNameInTable="Param_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Param_Desc" msprop:Generator_UserColumnName="Param_Desc" msprop:Generator_ColumnVarNameInTable="columnParam_Desc" msprop:Generator_ColumnPropNameInRow="Param_Desc" msprop:Generator_ColumnPropNameInTable="Param_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Type2" msprop:Generator_UserColumnName="Type2" msprop:Generator_ColumnVarNameInTable="columnType2" msprop:Generator_ColumnPropNameInRow="Type2" msprop:Generator_ColumnPropNameInTable="Type2Column" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_salary_formula_salarycomponent_constraint" msprop:Generator_UserTableName="tblmaster_salary_formula_salarycomponent_constraint" msprop:Generator_RowDeletedName="tblmaster_salary_formula_salarycomponent_constraintRowDeleted" msprop:Generator_RowChangedName="tblmaster_salary_formula_salarycomponent_constraintRowChanged" msprop:Generator_RowClassName="tblmaster_salary_formula_salarycomponent_constraintRow" msprop:Generator_RowChangingName="tblmaster_salary_formula_salarycomponent_constraintRowChanging" msprop:Generator_RowEvArgName="tblmaster_salary_formula_salarycomponent_constraintRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_salary_formula_salarycomponent_constraintRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_salary_formula_salarycomponent_constraintDataTable" msprop:Generator_TableVarName="tabletblmaster_salary_formula_salarycomponent_constraint" msprop:Generator_RowDeletingName="tblmaster_salary_formula_salarycomponent_constraintRowDeleting" msprop:Generator_TablePropName="tblmaster_salary_formula_salarycomponent_constraint">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Parameter" msprop:Generator_UserColumnName="Primary Parameter" msprop:Generator_ColumnVarNameInTable="columnPrimary_Parameter" msprop:Generator_ColumnPropNameInRow="Primary_Parameter" msprop:Generator_ColumnPropNameInTable="Primary_ParameterColumn" type="xs:double" />
+              <xs:element name="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" type="xs:int" />
+              <xs:element name="Compare" msprop:Generator_UserColumnName="Compare" msprop:Generator_ColumnVarNameInTable="columnCompare" msprop:Generator_ColumnPropNameInRow="Compare" msprop:Generator_ColumnPropNameInTable="CompareColumn" type="xs:int" />
+              <xs:element name="Ref_x0020_Value" msprop:Generator_UserColumnName="Ref Value" msprop:Generator_ColumnVarNameInTable="columnRef_Value" msprop:Generator_ColumnPropNameInRow="Ref_Value" msprop:Generator_ColumnPropNameInTable="Ref_ValueColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Identifier_x0020_Salary_x0020_Component" msprop:Generator_UserColumnName="Identifier Salary Component" msprop:Generator_ColumnVarNameInTable="columnIdentifier_Salary_Component" msprop:Generator_ColumnPropNameInRow="Identifier_Salary_Component" msprop:Generator_ColumnPropNameInTable="Identifier_Salary_ComponentColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Param_Code" msprop:Generator_UserColumnName="Param_Code" msprop:Generator_ColumnVarNameInTable="columnParam_Code" msprop:Generator_ColumnPropNameInRow="Param_Code" msprop:Generator_ColumnPropNameInTable="Param_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Param_Desc" msprop:Generator_UserColumnName="Param_Desc" msprop:Generator_ColumnVarNameInTable="columnParam_Desc" msprop:Generator_ColumnPropNameInRow="Param_Desc" msprop:Generator_ColumnPropNameInTable="Param_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Type2" msprop:Generator_UserColumnName="Type2" msprop:Generator_ColumnVarNameInTable="columnType2" msprop:Generator_ColumnPropNameInRow="Type2" msprop:Generator_ColumnPropNameInTable="Type2Column" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_salary_formula_salarycomponent" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_salary_formula_salarycomponent_variable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_salary_formula_salarycomponent_variable" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_salary_formula_salarycomponent_constraint_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_salary_formula_salarycomponent_constraint" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

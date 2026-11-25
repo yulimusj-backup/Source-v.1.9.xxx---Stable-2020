@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanProductivity" targetNamespace="http://tempuri.org/DseLaporanProductivity.xsd" xmlns:mstns="http://tempuri.org/DseLaporanProductivity.xsd" xmlns="http://tempuri.org/DseLaporanProductivity.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTableTableAdapter" GeneratorDataComponentClassName="DataTableTableAdapter" Name="DataTable" UserDataComponentName="DataTableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_mo.`Primary`, tbltrans_mo.`MO Number`, tbltrans_mo.`Date` AS `Tanggal MO`, tbltrans_mo_item.Identifier AS `Identifier JO`, tbltrans_mo_item.`JO Number`, tbltrans_mo_item.`Actual Finish Date`, 
+                         tbltrans_mo_item.`Target Finish Date`, tbltrans_mo_item.`Target Finish Date R1`, tbltrans_mo_item.`Target Finish Date R2`, tbltrans_mo_item_wo.`WO Number`, tbltrans_mo_item_wo.Identifier AS `Identifier WO`, 
+                         tbltrans_mo_item_wo.`Primary Product` AS `Primary Product WO`, tbltrans_mo_item_wo.`Primary Process`, tbltrans_mo_item_wo.`Primary Work Unit`, tbltrans_mo_item_wo.Level AS `Level WO`, 
+                         tbltrans_mo_item_wo.`Qty Target Prod`, tbltrans_mo_item_wo.`Qty Actual Prod`, tbltrans_mo_item_wo.`Qty Target Result`, tbltrans_mo_item_wo.`Qty Actual Result`, tbltrans_mo_item_wo.`Plan Good Perct`, 
+                         tbltrans_mo_item_wo.`Actual Good Perct`, tbltrans_mo_item_wo.`Plan Setup Time`, tbltrans_mo_item_wo.`Actual Setup Time`, tbltrans_mo_item_wo.`Plan Work Hour`, tbltrans_mo_item_wo.`Actual Work Hour`, 
+                         tbltrans_mo_item_wo.`Plan Delay Time`, tbltrans_mo_item_wo.`Actual Delay Time`, tbltrans_mo_item_wo.`Plan Total Time`, tbltrans_mo_item_wo.`Actual Total Time`, tbltrans_mo_item_wo.`Plan Prod Rate`, 
+                         tbltrans_mo_item_wo.`Actual Prod Rate`, tblmaster_proses.Code AS `Process Code`, tblmaster_proses.`Desc` AS `Process Desc`, IFNULL(tblmaster_workunit.`work unit code`, '') AS `work unit code`, 
+                         IFNULL(tblmaster_workunit.description, '') AS description, tblmaster_product.`Decimal` AS ```Decimal`` WO`, tblmaster_master_unit_1.`Unit Code` AS `Unit Code WO`, tbltrans_mo_item_wo.Status AS `Status WO`, 
+                         tblmaster_product.`Primary Category`, product_sub_brand_view.`Primary Sub Brand`, product_sub_brand_view.`Primary Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Group`, 
+                         tblmaster_product.`Product Code`, tbltrans_mo_item_wo.`Plan End Time`
+FROM            tbltrans_mo INNER JOIN
+                         tbltrans_mo_item ON tbltrans_mo.`Primary` = tbltrans_mo_item.`Primary MO` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo_item_wo.`Primary MO` AND tbltrans_mo_item.Identifier = tbltrans_mo_item_wo.`Identifier JO` INNER JOIN
+                         tblmaster_proses ON tbltrans_mo_item_wo.`Primary Process` = tblmaster_proses.`Primary` INNER JOIN
+                         tblmaster_product ON tbltrans_mo_item_wo.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_master_unit tblmaster_master_unit_1 ON tblmaster_product.`Primary Unit` = tblmaster_master_unit_1.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                         tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` LEFT OUTER JOIN
+                         tblmaster_workunit ON tbltrans_mo_item_wo.`Primary Work Unit` = tblmaster_workunit.`primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="MO Number" DataSetColumn="MO Number" />
+              <Mapping SourceColumn="Tanggal MO" DataSetColumn="Tanggal MO" />
+              <Mapping SourceColumn="Identifier JO" DataSetColumn="Identifier JO" />
+              <Mapping SourceColumn="JO Number" DataSetColumn="JO Number" />
+              <Mapping SourceColumn="Actual Finish Date" DataSetColumn="Actual Finish Date" />
+              <Mapping SourceColumn="Target Finish Date" DataSetColumn="Target Finish Date" />
+              <Mapping SourceColumn="Target Finish Date R1" DataSetColumn="Target Finish Date R1" />
+              <Mapping SourceColumn="Target Finish Date R2" DataSetColumn="Target Finish Date R2" />
+              <Mapping SourceColumn="WO Number" DataSetColumn="WO Number" />
+              <Mapping SourceColumn="Identifier WO" DataSetColumn="Identifier WO" />
+              <Mapping SourceColumn="Primary Product WO" DataSetColumn="Primary Product WO" />
+              <Mapping SourceColumn="Primary Process" DataSetColumn="Primary Process" />
+              <Mapping SourceColumn="Primary Work Unit" DataSetColumn="Primary Work Unit" />
+              <Mapping SourceColumn="Level WO" DataSetColumn="Level WO" />
+              <Mapping SourceColumn="Qty Target Prod" DataSetColumn="Qty Target Prod" />
+              <Mapping SourceColumn="Qty Actual Prod" DataSetColumn="Qty Actual Prod" />
+              <Mapping SourceColumn="Qty Target Result" DataSetColumn="Qty Target Result" />
+              <Mapping SourceColumn="Qty Actual Result" DataSetColumn="Qty Actual Result" />
+              <Mapping SourceColumn="Plan Good Perct" DataSetColumn="Plan Good Perct" />
+              <Mapping SourceColumn="Actual Good Perct" DataSetColumn="Actual Good Perct" />
+              <Mapping SourceColumn="Plan Setup Time" DataSetColumn="Plan Setup Time" />
+              <Mapping SourceColumn="Actual Setup Time" DataSetColumn="Actual Setup Time" />
+              <Mapping SourceColumn="Plan Work Hour" DataSetColumn="Plan Work Hour" />
+              <Mapping SourceColumn="Actual Work Hour" DataSetColumn="Actual Work Hour" />
+              <Mapping SourceColumn="Plan Delay Time" DataSetColumn="Plan Delay Time" />
+              <Mapping SourceColumn="Actual Delay Time" DataSetColumn="Actual Delay Time" />
+              <Mapping SourceColumn="Plan Total Time" DataSetColumn="Plan Total Time" />
+              <Mapping SourceColumn="Actual Total Time" DataSetColumn="Actual Total Time" />
+              <Mapping SourceColumn="Plan Prod Rate" DataSetColumn="Plan Prod Rate" />
+              <Mapping SourceColumn="Actual Prod Rate" DataSetColumn="Actual Prod Rate" />
+              <Mapping SourceColumn="work unit code" DataSetColumn="work unit code" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="`Decimal` WO" DataSetColumn="`Decimal` WO" />
+              <Mapping SourceColumn="Unit Code WO" DataSetColumn="Unit Code WO" />
+              <Mapping SourceColumn="Status WO" DataSetColumn="Status WO" />
+              <Mapping SourceColumn="Process Code" DataSetColumn="Process Code" />
+              <Mapping SourceColumn="Process Desc" DataSetColumn="Process Desc" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Plan End Time" DataSetColumn="Plan End Time" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TglSampaiDari" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglSampaiDari" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TglSampaiDari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_mo.`Primary`, tbltrans_mo.`MO Number`, tbltrans_mo.`Date` AS `Tanggal MO`, tbltrans_mo_item.Identifier AS `Identifier JO`, tbltrans_mo_item.`JO Number`, tbltrans_mo_item.`Actual Finish Date`, 
+                  tbltrans_mo_item.`Target Finish Date`, tbltrans_mo_item.`Target Finish Date R1`, tbltrans_mo_item.`Target Finish Date R2`, tbltrans_mo_item_wo.`WO Number`, tbltrans_mo_item_wo.Identifier AS `Identifier WO`, 
+                  tbltrans_mo_item_wo.`Primary Product` AS `Primary Product WO`, tbltrans_mo_item_wo.`Primary Process`, tbltrans_mo_item_wo.`Primary Work Unit`, tbltrans_mo_item_wo.Level AS `Level WO`, tbltrans_mo_item_wo.`Qty Target Prod`, 
+                  tbltrans_mo_item_wo.`Qty Actual Prod`, tbltrans_mo_item_wo.`Qty Target Result`, tbltrans_mo_item_wo.`Qty Actual Result`, tbltrans_mo_item_wo.`Plan Good Perct`, tbltrans_mo_item_wo.`Actual Good Perct`, 
+                  tbltrans_mo_item_wo.`Plan Setup Time`, tbltrans_mo_item_wo.`Actual Setup Time`, tbltrans_mo_item_wo.`Plan Work Hour`, tbltrans_mo_item_wo.`Actual Work Hour`, tbltrans_mo_item_wo.`Plan Delay Time`, 
+                  tbltrans_mo_item_wo.`Actual Delay Time`, tbltrans_mo_item_wo.`Plan Total Time`, tbltrans_mo_item_wo.`Actual Total Time`, tbltrans_mo_item_wo.`Plan Prod Rate`, tbltrans_mo_item_wo.`Actual Prod Rate`, 
+                  tblmaster_proses.Code AS `Process Code`, tblmaster_proses.`Desc` AS `Process Desc`, IFNULL(tblmaster_workunit.`work unit code`, '') AS `work unit code`, IFNULL(tblmaster_workunit.description, '') AS description, 
+                  tblmaster_product.`Decimal` AS ```Decimal`` WO`, tblmaster_master_unit_1.`Unit Code` AS `Unit Code WO`, tbltrans_mo_item_wo.Status AS `Status WO`, tblmaster_product.`Primary Category`, 
+                  product_sub_brand_view.`Primary Sub Brand`, product_sub_brand_view.`Primary Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Group`, tblmaster_product.`Product Code`, 
+                  tbltrans_mo_item_wo.`Plan End Time`
+FROM     tbltrans_mo INNER JOIN
+                  tbltrans_mo_item ON tbltrans_mo.`Primary` = tbltrans_mo_item.`Primary MO` INNER JOIN
+                  tbltrans_mo_item_wo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo_item_wo.`Primary MO` AND tbltrans_mo_item.Identifier = tbltrans_mo_item_wo.`Identifier JO` INNER JOIN
+                  tblmaster_proses ON tbltrans_mo_item_wo.`Primary Process` = tblmaster_proses.`Primary` INNER JOIN
+                  tblmaster_product ON tbltrans_mo_item_wo.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_master_unit tblmaster_master_unit_1 ON tblmaster_product.`Primary Unit` = tblmaster_master_unit_1.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                  tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` LEFT OUTER JOIN
+                  tblmaster_workunit ON tbltrans_mo_item_wo.`Primary Work Unit` = tblmaster_workunit.`primary`
+WHERE  (tbltrans_mo.`Date` &gt;= @TglDari) AND (tbltrans_mo.`Date` &lt;= @TglSampai) AND (tbltrans_mo_item_wo.Status = @Status_WO OR
+                  tbltrans_mo_item_wo.Status = @Status_WO2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal MO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal MO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Status_WO" ColumnName="Status" DataSourceName="smess_lmb.tbltrans_mo_item_wo" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@Status_WO" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Status WO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Status_WO2" ColumnName="Status" DataSourceName="smess_lmb.tbltrans_mo_item_wo" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@Status_WO2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Status WO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TglSampaiDariNLevelWO" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglSampaiDariNLevelWO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_TglSampaiDariNLevelWO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo.`Primary`, tbltrans_mo.`MO Number`, tbltrans_mo.`Date` AS `Tanggal MO`, tbltrans_mo_item.Identifier AS `Identifier JO`, tbltrans_mo_item.`JO Number`, tbltrans_mo_item.`Actual Finish Date`, 
+                         tbltrans_mo_item.`Target Finish Date`, tbltrans_mo_item.`Target Finish Date R1`, tbltrans_mo_item.`Target Finish Date R2`, tbltrans_mo_item_wo.`WO Number`, tbltrans_mo_item_wo.Identifier AS `Identifier WO`, 
+                         tbltrans_mo_item_wo.`Primary Product` AS `Primary Product WO`, tbltrans_mo_item_wo.`Primary Process`, tbltrans_mo_item_wo.`Primary Work Unit`, tbltrans_mo_item_wo.Level AS `Level WO`, 
+                         tbltrans_mo_item_wo.`Qty Target Prod`, tbltrans_mo_item_wo.`Qty Actual Prod`, tbltrans_mo_item_wo.`Qty Target Result`, tbltrans_mo_item_wo.`Qty Actual Result`, tbltrans_mo_item_wo.`Plan Good Perct`, 
+                         tbltrans_mo_item_wo.`Actual Good Perct`, tbltrans_mo_item_wo.`Plan Setup Time`, tbltrans_mo_item_wo.`Actual Setup Time`, tbltrans_mo_item_wo.`Plan Work Hour`, tbltrans_mo_item_wo.`Actual Work Hour`, 
+                         tbltrans_mo_item_wo.`Plan Delay Time`, tbltrans_mo_item_wo.`Actual Delay Time`, tbltrans_mo_item_wo.`Plan Total Time`, tbltrans_mo_item_wo.`Actual Total Time`, tbltrans_mo_item_wo.`Plan Prod Rate`, 
+                         tbltrans_mo_item_wo.`Actual Prod Rate`, tblmaster_proses.Code AS `Process Code`, tblmaster_proses.`Desc` AS `Process Desc`, IFNULL(tblmaster_workunit.`work unit code`, '') AS `work unit code`, 
+                         IFNULL(tblmaster_workunit.description, '') AS description, tblmaster_product.`Decimal` AS ```Decimal`` WO`, tblmaster_master_unit_1.`Unit Code` AS `Unit Code WO`, tbltrans_mo_item_wo.Status AS `Status WO`, 
+                         tblmaster_product.`Primary Category`, product_sub_brand_view.`Primary Sub Brand`, product_sub_brand_view.`Primary Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Group`, 
+                         tblmaster_product.`Product Code`, tbltrans_mo_item_wo.`Plan End Time`
+FROM            tbltrans_mo INNER JOIN
+                         tbltrans_mo_item ON tbltrans_mo.`Primary` = tbltrans_mo_item.`Primary MO` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo_item_wo.`Primary MO` AND tbltrans_mo_item.Identifier = tbltrans_mo_item_wo.`Identifier JO` INNER JOIN
+                         tblmaster_proses ON tbltrans_mo_item_wo.`Primary Process` = tblmaster_proses.`Primary` INNER JOIN
+                         tblmaster_product ON tbltrans_mo_item_wo.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_master_unit tblmaster_master_unit_1 ON tblmaster_product.`Primary Unit` = tblmaster_master_unit_1.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                         tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` LEFT OUTER JOIN
+                         tblmaster_workunit ON tbltrans_mo_item_wo.`Primary Work Unit` = tblmaster_workunit.`primary`
+WHERE        (tbltrans_mo.`Date` &gt;= @TglDari) AND (tbltrans_mo.`Date` &lt;= @TglSampai) AND (tbltrans_mo_item_wo.Status = @Status_WO OR
+                         tbltrans_mo_item_wo.Status = @Status_WO2) AND (tbltrans_mo_item_wo.Level = @LevelWO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal MO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal MO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Status_WO" ColumnName="Status" DataSourceName="smess_lmb.tbltrans_mo_item_wo" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@Status_WO" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Status WO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Status_WO2" ColumnName="Status" DataSourceName="smess_lmb.tbltrans_mo_item_wo" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@Status_WO2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Status WO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="LevelWO" ColumnName="Level" DataSourceName="smess_lmb.tbltrans_mo_item_wo" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@LevelWO" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Level WO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_mo_processorderTableAdapter" GeneratorDataComponentClassName="tbltrans_mo_processorderTableAdapter" Name="tbltrans_mo_processorder" UserDataComponentName="tbltrans_mo_processorderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb.tbltrans_mo_processorder" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_mo_processorder.`primary mo`, tbltrans_mo_processorder.`primary product`, tbltrans_mo_processorder.`primary process`, tbltrans_mo_processorder.urutan, tbltrans_mo_processorder.`identifier jo`
+FROM     tbltrans_mo_processorder INNER JOIN
+                  tbltrans_mo ON tbltrans_mo_processorder.`primary mo` = tbltrans_mo.`Primary`
+WHERE  (tbltrans_mo.`Date` &lt;= @TglSampai) AND (tbltrans_mo.`Date` &gt;= @TglDari)
+ORDER BY tbltrans_mo_processorder.`primary mo`, tbltrans_mo_processorder.`identifier jo`, tbltrans_mo_processorder.urutan</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary mo" DataSetColumn="primary mo" />
+              <Mapping SourceColumn="primary product" DataSetColumn="primary product" />
+              <Mapping SourceColumn="primary process" DataSetColumn="primary process" />
+              <Mapping SourceColumn="urutan" DataSetColumn="urutan" />
+              <Mapping SourceColumn="identifier jo" DataSetColumn="identifier jo" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanProductivity" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanProductivity" msprop:Generator_DataSetName="DseLaporanProductivity">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable" msprop:Generator_UserTableName="DataTable" msprop:Generator_RowDeletedName="DataTableRowDeleted" msprop:Generator_RowChangedName="DataTableRowChanged" msprop:Generator_RowClassName="DataTableRow" msprop:Generator_RowChangingName="DataTableRowChanging" msprop:Generator_RowEvArgName="DataTableRowChangeEvent" msprop:Generator_RowEvHandlerName="DataTableRowChangeEventHandler" msprop:Generator_TableClassName="DataTableDataTable" msprop:Generator_TableVarName="tableDataTable" msprop:Generator_RowDeletingName="DataTableRowDeleting" msprop:Generator_TablePropName="DataTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="MO_x0020_Number" msprop:Generator_UserColumnName="MO Number" msprop:Generator_ColumnVarNameInTable="columnMO_Number" msprop:Generator_ColumnPropNameInRow="MO_Number" msprop:Generator_ColumnPropNameInTable="MO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_MO" msprop:Generator_UserColumnName="Tanggal MO" msprop:Generator_ColumnVarNameInTable="columnTanggal_MO" msprop:Generator_ColumnPropNameInRow="Tanggal_MO" msprop:Generator_ColumnPropNameInTable="Tanggal_MOColumn" type="xs:dateTime" />
+              <xs:element name="Identifier_x0020_JO" msprop:Generator_UserColumnName="Identifier JO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_JO" msprop:Generator_ColumnPropNameInRow="Identifier_JO" msprop:Generator_ColumnPropNameInTable="Identifier_JOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JO_x0020_Number" msprop:Generator_UserColumnName="JO Number" msprop:Generator_ColumnVarNameInTable="columnJO_Number" msprop:Generator_ColumnPropNameInRow="JO_Number" msprop:Generator_ColumnPropNameInTable="JO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Actual_x0020_Finish_x0020_Date" msprop:Generator_UserColumnName="Actual Finish Date" msprop:Generator_ColumnVarNameInTable="columnActual_Finish_Date" msprop:Generator_ColumnPropNameInRow="Actual_Finish_Date" msprop:Generator_ColumnPropNameInTable="Actual_Finish_DateColumn" type="xs:dateTime" />
+              <xs:element name="Target_x0020_Finish_x0020_Date" msprop:Generator_UserColumnName="Target Finish Date" msprop:Generator_ColumnVarNameInTable="columnTarget_Finish_Date" msprop:Generator_ColumnPropNameInRow="Target_Finish_Date" msprop:Generator_ColumnPropNameInTable="Target_Finish_DateColumn" type="xs:dateTime" />
+              <xs:element name="Target_x0020_Finish_x0020_Date_x0020_R1" msprop:Generator_UserColumnName="Target Finish Date R1" msprop:Generator_ColumnVarNameInTable="columnTarget_Finish_Date_R1" msprop:Generator_ColumnPropNameInRow="Target_Finish_Date_R1" msprop:Generator_ColumnPropNameInTable="Target_Finish_Date_R1Column" type="xs:dateTime" />
+              <xs:element name="Target_x0020_Finish_x0020_Date_x0020_R2" msprop:Generator_UserColumnName="Target Finish Date R2" msprop:Generator_ColumnVarNameInTable="columnTarget_Finish_Date_R2" msprop:Generator_ColumnPropNameInRow="Target_Finish_Date_R2" msprop:Generator_ColumnPropNameInTable="Target_Finish_Date_R2Column" type="xs:dateTime" />
+              <xs:element name="WO_x0020_Number" msprop:Generator_UserColumnName="WO Number" msprop:Generator_ColumnVarNameInTable="columnWO_Number" msprop:Generator_ColumnPropNameInRow="WO_Number" msprop:Generator_ColumnPropNameInTable="WO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Identifier_x0020_WO" msprop:Generator_UserColumnName="Identifier WO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_WO" msprop:Generator_ColumnPropNameInRow="Identifier_WO" msprop:Generator_ColumnPropNameInTable="Identifier_WOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product_x0020_WO" msprop:Generator_UserColumnName="Primary Product WO" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product_WO" msprop:Generator_ColumnPropNameInRow="Primary_Product_WO" msprop:Generator_ColumnPropNameInTable="Primary_Product_WOColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Process" msprop:Generator_UserColumnName="Primary Process" msprop:Generator_ColumnVarNameInTable="columnPrimary_Process" msprop:Generator_ColumnPropNameInRow="Primary_Process" msprop:Generator_ColumnPropNameInTable="Primary_ProcessColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Work_x0020_Unit" msprop:Generator_UserColumnName="Primary Work Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Work_Unit" msprop:Generator_ColumnPropNameInRow="Primary_Work_Unit" msprop:Generator_ColumnPropNameInTable="Primary_Work_UnitColumn" type="xs:double" />
+              <xs:element name="Level_x0020_WO" msprop:Generator_UserColumnName="Level WO" msprop:Generator_ColumnVarNameInTable="columnLevel_WO" msprop:Generator_ColumnPropNameInRow="Level_WO" msprop:Generator_ColumnPropNameInTable="Level_WOColumn" type="xs:int" />
+              <xs:element name="Qty_x0020_Target_x0020_Prod" msprop:Generator_UserColumnName="Qty Target Prod" msprop:Generator_ColumnVarNameInTable="columnQty_Target_Prod" msprop:Generator_ColumnPropNameInRow="Qty_Target_Prod" msprop:Generator_ColumnPropNameInTable="Qty_Target_ProdColumn" type="xs:decimal" />
+              <xs:element name="Qty_x0020_Actual_x0020_Prod" msprop:Generator_UserColumnName="Qty Actual Prod" msprop:Generator_ColumnVarNameInTable="columnQty_Actual_Prod" msprop:Generator_ColumnPropNameInRow="Qty_Actual_Prod" msprop:Generator_ColumnPropNameInTable="Qty_Actual_ProdColumn" type="xs:decimal" />
+              <xs:element name="Qty_x0020_Target_x0020_Result" msprop:Generator_UserColumnName="Qty Target Result" msprop:Generator_ColumnVarNameInTable="columnQty_Target_Result" msprop:Generator_ColumnPropNameInRow="Qty_Target_Result" msprop:Generator_ColumnPropNameInTable="Qty_Target_ResultColumn" type="xs:decimal" />
+              <xs:element name="Qty_x0020_Actual_x0020_Result" msprop:Generator_UserColumnName="Qty Actual Result" msprop:Generator_ColumnVarNameInTable="columnQty_Actual_Result" msprop:Generator_ColumnPropNameInRow="Qty_Actual_Result" msprop:Generator_ColumnPropNameInTable="Qty_Actual_ResultColumn" type="xs:decimal" />
+              <xs:element name="Plan_x0020_Good_x0020_Perct" msprop:Generator_UserColumnName="Plan Good Perct" msprop:Generator_ColumnVarNameInTable="columnPlan_Good_Perct" msprop:Generator_ColumnPropNameInRow="Plan_Good_Perct" msprop:Generator_ColumnPropNameInTable="Plan_Good_PerctColumn" type="xs:decimal" />
+              <xs:element name="Actual_x0020_Good_x0020_Perct" msprop:Generator_UserColumnName="Actual Good Perct" msprop:Generator_ColumnVarNameInTable="columnActual_Good_Perct" msprop:Generator_ColumnPropNameInRow="Actual_Good_Perct" msprop:Generator_ColumnPropNameInTable="Actual_Good_PerctColumn" type="xs:decimal" />
+              <xs:element name="Plan_x0020_Setup_x0020_Time" msprop:Generator_UserColumnName="Plan Setup Time" msprop:Generator_ColumnVarNameInTable="columnPlan_Setup_Time" msprop:Generator_ColumnPropNameInRow="Plan_Setup_Time" msprop:Generator_ColumnPropNameInTable="Plan_Setup_TimeColumn" type="xs:double" />
+              <xs:element name="Actual_x0020_Setup_x0020_Time" msprop:Generator_UserColumnName="Actual Setup Time" msprop:Generator_ColumnVarNameInTable="columnActual_Setup_Time" msprop:Generator_ColumnPropNameInRow="Actual_Setup_Time" msprop:Generator_ColumnPropNameInTable="Actual_Setup_TimeColumn" type="xs:double" />
+              <xs:element name="Plan_x0020_Work_x0020_Hour" msprop:Generator_UserColumnName="Plan Work Hour" msprop:Generator_ColumnVarNameInTable="columnPlan_Work_Hour" msprop:Generator_ColumnPropNameInRow="Plan_Work_Hour" msprop:Generator_ColumnPropNameInTable="Plan_Work_HourColumn" type="xs:double" />
+              <xs:element name="Actual_x0020_Work_x0020_Hour" msprop:Generator_UserColumnName="Actual Work Hour" msprop:Generator_ColumnVarNameInTable="columnActual_Work_Hour" msprop:Generator_ColumnPropNameInRow="Actual_Work_Hour" msprop:Generator_ColumnPropNameInTable="Actual_Work_HourColumn" type="xs:double" />
+              <xs:element name="Plan_x0020_Delay_x0020_Time" msprop:Generator_UserColumnName="Plan Delay Time" msprop:Generator_ColumnVarNameInTable="columnPlan_Delay_Time" msprop:Generator_ColumnPropNameInRow="Plan_Delay_Time" msprop:Generator_ColumnPropNameInTable="Plan_Delay_TimeColumn" type="xs:double" />
+              <xs:element name="Actual_x0020_Delay_x0020_Time" msprop:Generator_UserColumnName="Actual Delay Time" msprop:Generator_ColumnVarNameInTable="columnActual_Delay_Time" msprop:Generator_ColumnPropNameInRow="Actual_Delay_Time" msprop:Generator_ColumnPropNameInTable="Actual_Delay_TimeColumn" type="xs:double" />
+              <xs:element name="Plan_x0020_Total_x0020_Time" msprop:Generator_UserColumnName="Plan Total Time" msprop:Generator_ColumnVarNameInTable="columnPlan_Total_Time" msprop:Generator_ColumnPropNameInRow="Plan_Total_Time" msprop:Generator_ColumnPropNameInTable="Plan_Total_TimeColumn" type="xs:double" />
+              <xs:element name="Actual_x0020_Total_x0020_Time" msprop:Generator_UserColumnName="Actual Total Time" msprop:Generator_ColumnVarNameInTable="columnActual_Total_Time" msprop:Generator_ColumnPropNameInRow="Actual_Total_Time" msprop:Generator_ColumnPropNameInTable="Actual_Total_TimeColumn" type="xs:double" />
+              <xs:element name="Plan_x0020_Prod_x0020_Rate" msprop:Generator_UserColumnName="Plan Prod Rate" msprop:Generator_ColumnVarNameInTable="columnPlan_Prod_Rate" msprop:Generator_ColumnPropNameInRow="Plan_Prod_Rate" msprop:Generator_ColumnPropNameInTable="Plan_Prod_RateColumn" type="xs:decimal" />
+              <xs:element name="Actual_x0020_Prod_x0020_Rate" msprop:Generator_UserColumnName="Actual Prod Rate" msprop:Generator_ColumnVarNameInTable="columnActual_Prod_Rate" msprop:Generator_ColumnPropNameInRow="Actual_Prod_Rate" msprop:Generator_ColumnPropNameInTable="Actual_Prod_RateColumn" type="xs:decimal" />
+              <xs:element name="work_x0020_unit_x0020_code" msprop:Generator_UserColumnName="work unit code" msprop:Generator_ColumnVarNameInTable="columnwork_unit_code" msprop:Generator_ColumnPropNameInRow="work_unit_code" msprop:Generator_ColumnPropNameInTable="work_unit_codeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="_x0060_Decimal_x0060__x0020_WO" msprop:Generator_UserColumnName="`Decimal` WO" msprop:Generator_ColumnVarNameInTable="_column_Decimal__WO" msprop:Generator_ColumnPropNameInRow="__Decimal__WO" msprop:Generator_ColumnPropNameInTable="__Decimal__WOColumn" type="xs:int" />
+              <xs:element name="Unit_x0020_Code_x0020_WO" msprop:Generator_UserColumnName="Unit Code WO" msprop:Generator_ColumnVarNameInTable="columnUnit_Code_WO" msprop:Generator_ColumnPropNameInRow="Unit_Code_WO" msprop:Generator_ColumnPropNameInTable="Unit_Code_WOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status_x0020_WO" msprop:Generator_UserColumnName="Status WO" msprop:Generator_ColumnVarNameInTable="columnStatus_WO" msprop:Generator_ColumnPropNameInRow="Status_WO" msprop:Generator_ColumnPropNameInTable="Status_WOColumn" type="xs:int" />
+              <xs:element name="Process_x0020_Code" msprop:Generator_UserColumnName="Process Code" msprop:Generator_ColumnVarNameInTable="columnProcess_Code" msprop:Generator_ColumnPropNameInRow="Process_Code" msprop:Generator_ColumnPropNameInTable="Process_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Process_x0020_Desc" msprop:Generator_UserColumnName="Process Desc" msprop:Generator_ColumnVarNameInTable="columnProcess_Desc" msprop:Generator_ColumnPropNameInRow="Process_Desc" msprop:Generator_ColumnPropNameInTable="Process_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Plan_x0020_Reject_x0020_Qty" msprop:Generator_UserColumnName="Plan Reject Qty" msprop:Generator_ColumnPropNameInRow="Plan_Reject_Qty" msprop:Generator_ColumnVarNameInTable="columnPlan_Reject_Qty" msprop:Generator_ColumnPropNameInTable="Plan_Reject_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Actual_x0020_Reject_x0020_Qty" msprop:Generator_UserColumnName="Actual Reject Qty" msprop:Generator_ColumnPropNameInRow="Actual_Reject_Qty" msprop:Generator_ColumnVarNameInTable="columnActual_Reject_Qty" msprop:Generator_ColumnPropNameInTable="Actual_Reject_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Progress" msprop:Generator_UserColumnName="Progress" msprop:Generator_ColumnPropNameInRow="Progress" msprop:Generator_ColumnVarNameInTable="columnProgress" msprop:Generator_ColumnPropNameInTable="ProgressColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Plan_x0020_End_x0020_Time" msprop:Generator_UserColumnName="Plan End Time" msprop:Generator_ColumnPropNameInRow="Plan_End_Time" msprop:Generator_ColumnVarNameInTable="columnPlan_End_Time" msprop:Generator_ColumnPropNameInTable="Plan_End_TimeColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tbl_Cetak" msprop:Generator_UserTableName="Tbl_Cetak" msprop:Generator_RowDeletedName="Tbl_CetakRowDeleted" msprop:Generator_RowChangedName="Tbl_CetakRowChanged" msprop:Generator_RowClassName="Tbl_CetakRow" msprop:Generator_RowChangingName="Tbl_CetakRowChanging" msprop:Generator_RowEvArgName="Tbl_CetakRowChangeEvent" msprop:Generator_RowEvHandlerName="Tbl_CetakRowChangeEventHandler" msprop:Generator_TableClassName="Tbl_CetakDataTable" msprop:Generator_TableVarName="tableTbl_Cetak" msprop:Generator_RowDeletingName="Tbl_CetakRowDeleting" msprop:Generator_TablePropName="Tbl_Cetak">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MO_x0020_Number" msprop:Generator_UserColumnName="MO Number" msprop:Generator_ColumnVarNameInTable="columnMO_Number" msprop:Generator_ColumnPropNameInRow="MO_Number" msprop:Generator_ColumnPropNameInTable="MO_NumberColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_MO" msprop:Generator_UserColumnName="Tanggal MO" msprop:Generator_ColumnVarNameInTable="columnTanggal_MO" msprop:Generator_ColumnPropNameInRow="Tanggal_MO" msprop:Generator_ColumnPropNameInTable="Tanggal_MOColumn" type="xs:dateTime" />
+              <xs:element name="JO_x0020_Number" msprop:Generator_UserColumnName="JO Number" msprop:Generator_ColumnVarNameInTable="columnJO_Number" msprop:Generator_ColumnPropNameInRow="JO_Number" msprop:Generator_ColumnPropNameInTable="JO_NumberColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Actual_x0020_Finish_x0020_Date" msprop:Generator_UserColumnName="Actual Finish Date" msprop:Generator_ColumnVarNameInTable="columnActual_Finish_Date" msprop:Generator_ColumnPropNameInRow="Actual_Finish_Date" msprop:Generator_ColumnPropNameInTable="Actual_Finish_DateColumn" type="xs:dateTime" />
+              <xs:element name="Target_x0020_Finish_x0020_Date" msprop:Generator_UserColumnName="Target Finish Date" msprop:Generator_ColumnVarNameInTable="columnTarget_Finish_Date" msprop:Generator_ColumnPropNameInRow="Target_Finish_Date" msprop:Generator_ColumnPropNameInTable="Target_Finish_DateColumn" type="xs:dateTime" />
+              <xs:element name="Target_x0020_Finish_x0020_Date_x0020_R1" msprop:Generator_UserColumnName="Target Finish Date R1" msprop:Generator_ColumnVarNameInTable="columnTarget_Finish_Date_R1" msprop:Generator_ColumnPropNameInRow="Target_Finish_Date_R1" msprop:Generator_ColumnPropNameInTable="Target_Finish_Date_R1Column" type="xs:dateTime" />
+              <xs:element name="Target_x0020_Finish_x0020_Date_x0020_R2" msprop:Generator_UserColumnName="Target Finish Date R2" msprop:Generator_ColumnVarNameInTable="columnTarget_Finish_Date_R2" msprop:Generator_ColumnPropNameInRow="Target_Finish_Date_R2" msprop:Generator_ColumnPropNameInTable="Target_Finish_Date_R2Column" type="xs:dateTime" />
+              <xs:element name="WO_x0020_Number" msprop:Generator_UserColumnName="WO Number" msprop:Generator_ColumnVarNameInTable="columnWO_Number" msprop:Generator_ColumnPropNameInRow="WO_Number" msprop:Generator_ColumnPropNameInTable="WO_NumberColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Level_x0020_WO" msprop:Generator_UserColumnName="Level WO" msprop:Generator_ColumnVarNameInTable="columnLevel_WO" msprop:Generator_ColumnPropNameInRow="Level_WO" msprop:Generator_ColumnPropNameInTable="Level_WOColumn" type="xs:int" default="0" />
+              <xs:element name="Qty_x0020_Target_x0020_Prod" msprop:Generator_UserColumnName="Qty Target Prod" msprop:Generator_ColumnVarNameInTable="columnQty_Target_Prod" msprop:Generator_ColumnPropNameInRow="Qty_Target_Prod" msprop:Generator_ColumnPropNameInTable="Qty_Target_ProdColumn" type="xs:decimal" default="0" />
+              <xs:element name="Qty_x0020_Actual_x0020_Prod" msprop:Generator_UserColumnName="Qty Actual Prod" msprop:Generator_ColumnVarNameInTable="columnQty_Actual_Prod" msprop:Generator_ColumnPropNameInRow="Qty_Actual_Prod" msprop:Generator_ColumnPropNameInTable="Qty_Actual_ProdColumn" type="xs:decimal" default="0" />
+              <xs:element name="Qty_x0020_Target_x0020_Result" msprop:Generator_UserColumnName="Qty Target Result" msprop:Generator_ColumnVarNameInTable="columnQty_Target_Result" msprop:Generator_ColumnPropNameInRow="Qty_Target_Result" msprop:Generator_ColumnPropNameInTable="Qty_Target_ResultColumn" type="xs:decimal" default="0" />
+              <xs:element name="Qty_x0020_Actual_x0020_Result" msprop:Generator_UserColumnName="Qty Actual Result" msprop:Generator_ColumnVarNameInTable="columnQty_Actual_Result" msprop:Generator_ColumnPropNameInRow="Qty_Actual_Result" msprop:Generator_ColumnPropNameInTable="Qty_Actual_ResultColumn" type="xs:decimal" default="0" />
+              <xs:element name="Plan_x0020_Good_x0020_Perct" msprop:Generator_UserColumnName="Plan Good Perct" msprop:Generator_ColumnVarNameInTable="columnPlan_Good_Perct" msprop:Generator_ColumnPropNameInRow="Plan_Good_Perct" msprop:Generator_ColumnPropNameInTable="Plan_Good_PerctColumn" type="xs:decimal" default="0" />
+              <xs:element name="Actual_x0020_Good_x0020_Perct" msprop:Generator_UserColumnName="Actual Good Perct" msprop:Generator_ColumnVarNameInTable="columnActual_Good_Perct" msprop:Generator_ColumnPropNameInRow="Actual_Good_Perct" msprop:Generator_ColumnPropNameInTable="Actual_Good_PerctColumn" type="xs:decimal" default="0" />
+              <xs:element name="Plan_x0020_Setup_x0020_Time" msprop:Generator_UserColumnName="Plan Setup Time" msprop:Generator_ColumnVarNameInTable="columnPlan_Setup_Time" msprop:Generator_ColumnPropNameInRow="Plan_Setup_Time" msprop:Generator_ColumnPropNameInTable="Plan_Setup_TimeColumn" type="xs:string" default="0" />
+              <xs:element name="Actual_x0020_Setup_x0020_Time" msprop:Generator_UserColumnName="Actual Setup Time" msprop:Generator_ColumnVarNameInTable="columnActual_Setup_Time" msprop:Generator_ColumnPropNameInRow="Actual_Setup_Time" msprop:Generator_ColumnPropNameInTable="Actual_Setup_TimeColumn" type="xs:string" default="0" />
+              <xs:element name="Plan_x0020_Work_x0020_Hour" msprop:Generator_UserColumnName="Plan Work Hour" msprop:Generator_ColumnVarNameInTable="columnPlan_Work_Hour" msprop:Generator_ColumnPropNameInRow="Plan_Work_Hour" msprop:Generator_ColumnPropNameInTable="Plan_Work_HourColumn" type="xs:string" default="0" />
+              <xs:element name="Actual_x0020_Work_x0020_Hour" msprop:Generator_UserColumnName="Actual Work Hour" msprop:Generator_ColumnVarNameInTable="columnActual_Work_Hour" msprop:Generator_ColumnPropNameInRow="Actual_Work_Hour" msprop:Generator_ColumnPropNameInTable="Actual_Work_HourColumn" type="xs:string" default="0" />
+              <xs:element name="Plan_x0020_Delay_x0020_Time" msprop:Generator_UserColumnName="Plan Delay Time" msprop:Generator_ColumnVarNameInTable="columnPlan_Delay_Time" msprop:Generator_ColumnPropNameInRow="Plan_Delay_Time" msprop:Generator_ColumnPropNameInTable="Plan_Delay_TimeColumn" type="xs:string" default="0" />
+              <xs:element name="Actual_x0020_Delay_x0020_Time" msprop:Generator_UserColumnName="Actual Delay Time" msprop:Generator_ColumnVarNameInTable="columnActual_Delay_Time" msprop:Generator_ColumnPropNameInRow="Actual_Delay_Time" msprop:Generator_ColumnPropNameInTable="Actual_Delay_TimeColumn" type="xs:string" default="0" />
+              <xs:element name="Plan_x0020_Total_x0020_Time" msprop:Generator_UserColumnName="Plan Total Time" msprop:Generator_ColumnVarNameInTable="columnPlan_Total_Time" msprop:Generator_ColumnPropNameInRow="Plan_Total_Time" msprop:Generator_ColumnPropNameInTable="Plan_Total_TimeColumn" type="xs:string" default="0" />
+              <xs:element name="Plan_x0020_Prod_x0020_Rate" msprop:Generator_UserColumnName="Plan Prod Rate" msprop:Generator_ColumnVarNameInTable="columnPlan_Prod_Rate" msprop:Generator_ColumnPropNameInRow="Plan_Prod_Rate" msprop:Generator_ColumnPropNameInTable="Plan_Prod_RateColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Actual_x0020_Total_x0020_Time" msprop:Generator_UserColumnName="Actual Total Time" msprop:Generator_ColumnVarNameInTable="columnActual_Total_Time" msprop:Generator_ColumnPropNameInRow="Actual_Total_Time" msprop:Generator_ColumnPropNameInTable="Actual_Total_TimeColumn" type="xs:string" default="0" />
+              <xs:element name="Actual_x0020_Prod_x0020_Rate" msprop:Generator_UserColumnName="Actual Prod Rate" msprop:Generator_ColumnVarNameInTable="columnActual_Prod_Rate" msprop:Generator_ColumnPropNameInRow="Actual_Prod_Rate" msprop:Generator_ColumnPropNameInTable="Actual_Prod_RateColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="work_x0020_unit_x0020_code" msprop:Generator_UserColumnName="work unit code" msprop:Generator_ColumnVarNameInTable="columnwork_unit_code" msprop:Generator_ColumnPropNameInRow="work_unit_code" msprop:Generator_ColumnPropNameInTable="work_unit_codeColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="_x0060_Decimal_x0060__x0020_WO" msprop:Generator_UserColumnName="`Decimal` WO" msprop:Generator_ColumnVarNameInTable="_column_Decimal__WO" msprop:Generator_ColumnPropNameInRow="__Decimal__WO" msprop:Generator_ColumnPropNameInTable="__Decimal__WOColumn" type="xs:int" default="0" />
+              <xs:element name="Unit_x0020_Code_x0020_WO" msprop:Generator_UserColumnName="Unit Code WO" msprop:Generator_ColumnVarNameInTable="columnUnit_Code_WO" msprop:Generator_ColumnPropNameInRow="Unit_Code_WO" msprop:Generator_ColumnPropNameInTable="Unit_Code_WOColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status_x0020_WO" msprop:Generator_UserColumnName="Status WO" msprop:Generator_ColumnVarNameInTable="columnStatus_WO" msprop:Generator_ColumnPropNameInRow="Status_WO" msprop:Generator_ColumnPropNameInTable="Status_WOColumn" type="xs:int" default="0" />
+              <xs:element name="Process_x0020_Code" msprop:Generator_UserColumnName="Process Code" msprop:Generator_ColumnVarNameInTable="columnProcess_Code" msprop:Generator_ColumnPropNameInRow="Process_Code" msprop:Generator_ColumnPropNameInTable="Process_CodeColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Process_x0020_Desc" msprop:Generator_UserColumnName="Process Desc" msprop:Generator_ColumnVarNameInTable="columnProcess_Desc" msprop:Generator_ColumnPropNameInRow="Process_Desc" msprop:Generator_ColumnPropNameInTable="Process_DescColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Plan_x0020_Reject_x0020_Qty" msprop:Generator_UserColumnName="Plan Reject Qty" msprop:Generator_ColumnVarNameInTable="columnPlan_Reject_Qty" msprop:Generator_ColumnPropNameInRow="Plan_Reject_Qty" msprop:Generator_ColumnPropNameInTable="Plan_Reject_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Actual_x0020_Reject_x0020_Qty" msprop:Generator_UserColumnName="Actual Reject Qty" msprop:Generator_ColumnVarNameInTable="columnActual_Reject_Qty" msprop:Generator_ColumnPropNameInRow="Actual_Reject_Qty" msprop:Generator_ColumnPropNameInTable="Actual_Reject_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Progress" msprop:Generator_UserColumnName="Progress" msprop:Generator_ColumnVarNameInTable="columnProgress" msprop:Generator_ColumnPropNameInRow="Progress" msprop:Generator_ColumnPropNameInTable="ProgressColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tolerance_x0020_Qty_x0020_Result" msprop:Generator_UserColumnName="Tolerance Qty Result" msprop:Generator_ColumnVarNameInTable="columnTolerance_Qty_Result" msprop:Generator_ColumnPropNameInRow="Tolerance_Qty_Result" msprop:Generator_ColumnPropNameInTable="Tolerance_Qty_ResultColumn" type="xs:string" default="0" minOccurs="0" />
+              <xs:element name="Tolerance_x0020_Qty_x0020_Produce" msprop:Generator_UserColumnName="Tolerance Qty Produce" msprop:Generator_ColumnVarNameInTable="columnTolerance_Qty_Produce" msprop:Generator_ColumnPropNameInRow="Tolerance_Qty_Produce" msprop:Generator_ColumnPropNameInTable="Tolerance_Qty_ProduceColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Tolerance_x0020_GP" msprop:Generator_UserColumnName="Tolerance GP" msprop:Generator_ColumnVarNameInTable="columnTolerance_GP" msprop:Generator_ColumnPropNameInRow="Tolerance_GP" msprop:Generator_ColumnPropNameInTable="Tolerance_GPColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Tolerance_x0020_ProdRate" msprop:Generator_UserColumnName="Tolerance ProdRate" msprop:Generator_ColumnVarNameInTable="columnTolerance_ProdRate" msprop:Generator_ColumnPropNameInRow="Tolerance_ProdRate" msprop:Generator_ColumnPropNameInTable="Tolerance_ProdRateColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Group" msprop:Generator_UserColumnName="Group" msprop:Generator_ColumnVarNameInTable="columnGroup" msprop:Generator_ColumnPropNameInRow="Group" msprop:Generator_ColumnPropNameInTable="GroupColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Plan_x0020_End_x0020_Date" msprop:Generator_UserColumnName="Plan End Date" msprop:Generator_ColumnPropNameInRow="Plan_End_Date" msprop:Generator_ColumnVarNameInTable="columnPlan_End_Date" msprop:Generator_ColumnPropNameInTable="Plan_End_DateColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+              <xs:element name="primary_x0020_mo" msprop:Generator_UserColumnName="primary mo" msprop:Generator_ColumnVarNameInTable="columnprimary_mo" msprop:Generator_ColumnPropNameInRow="primary_mo" msprop:Generator_ColumnPropNameInTable="primary_moColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="identifier_x0020_jo" msprop:Generator_UserColumnName="identifier jo" msprop:Generator_ColumnVarNameInTable="columnidentifier_jo" msprop:Generator_ColumnPropNameInRow="identifier_jo" msprop:Generator_ColumnPropNameInTable="identifier_joColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="primary_x0020_process" msprop:Generator_UserColumnName="primary process" msprop:Generator_ColumnVarNameInTable="columnprimary_process" msprop:Generator_ColumnPropNameInRow="primary_process" msprop:Generator_ColumnPropNameInTable="primary_processColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="urutan" msprop:Generator_UserColumnName="urutan" msprop:Generator_ColumnVarNameInTable="columnurutan" msprop:Generator_ColumnPropNameInRow="urutan" msprop:Generator_ColumnPropNameInTable="urutanColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_mo_processorder" msprop:Generator_UserTableName="tbltrans_mo_processorder" msprop:Generator_RowDeletedName="tbltrans_mo_processorderRowDeleted" msprop:Generator_RowChangedName="tbltrans_mo_processorderRowChanged" msprop:Generator_RowClassName="tbltrans_mo_processorderRow" msprop:Generator_RowChangingName="tbltrans_mo_processorderRowChanging" msprop:Generator_RowEvArgName="tbltrans_mo_processorderRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_mo_processorderRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_mo_processorderDataTable" msprop:Generator_TableVarName="tabletbltrans_mo_processorder" msprop:Generator_RowDeletingName="tbltrans_mo_processorderRowDeleting" msprop:Generator_TablePropName="tbltrans_mo_processorder">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_mo" msprop:Generator_UserColumnName="primary mo" msprop:Generator_ColumnVarNameInTable="columnprimary_mo" msprop:Generator_ColumnPropNameInRow="primary_mo" msprop:Generator_ColumnPropNameInTable="primary_moColumn" type="xs:double" />
+              <xs:element name="primary_x0020_product" msprop:Generator_UserColumnName="primary product" msprop:Generator_ColumnVarNameInTable="columnprimary_product" msprop:Generator_ColumnPropNameInRow="primary_product" msprop:Generator_ColumnPropNameInTable="primary_productColumn" type="xs:double" />
+              <xs:element name="primary_x0020_process" msprop:Generator_UserColumnName="primary process" msprop:Generator_ColumnVarNameInTable="columnprimary_process" msprop:Generator_ColumnPropNameInRow="primary_process" msprop:Generator_ColumnPropNameInTable="primary_processColumn" type="xs:double" />
+              <xs:element name="urutan" msprop:Generator_UserColumnName="urutan" msprop:Generator_ColumnVarNameInTable="columnurutan" msprop:Generator_ColumnPropNameInRow="urutan" msprop:Generator_ColumnPropNameInTable="urutanColumn" type="xs:double" />
+              <xs:element name="identifier_x0020_jo" msprop:Generator_UserColumnName="identifier jo" msprop:Generator_ColumnVarNameInTable="columnidentifier_jo" msprop:Generator_ColumnPropNameInRow="identifier_jo" msprop:Generator_ColumnPropNameInTable="identifier_joColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

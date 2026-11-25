@@ -1,0 +1,1104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseMasterAkun" targetNamespace="http://tempuri.org/DseMasterAkun.xsd" xmlns:mstns="http://tempuri.org/DseMasterAkun.xsd" xmlns="http://tempuri.org/DseMasterAkun.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_akunTableAdapter" GeneratorDataComponentClassName="tblmaster_akunTableAdapter" Name="tblmaster_akun" UserDataComponentName="tblmaster_akunTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, IFNULL(SUM(tbltrans_jurnal_item.Debet), 0) AS Debet, 
+                         IFNULL(SUM(tbltrans_jurnal_item.Kredit), 0) AS Kredit, tblmaster_akun.Header, tblmaster_akun.`Level Perkiraan`
+FROM            tblmaster_akun LEFT OUTER JOIN
+                         tbltrans_jurnal_item ON tblmaster_akun.`Primary` = tbltrans_jurnal_item.`Primary Akun`
+GROUP BY tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, tblmaster_akun.Header, 
+                         tblmaster_akun.`Level Perkiraan`
+ORDER BY tblmaster_akun.Urutan</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Tampilan" DataSetColumn="Tampilan" />
+              <Mapping SourceColumn="Saldo Normal" DataSetColumn="Saldo Normal" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Primary Lvl 1" DataSetColumn="Primary Lvl 1" />
+              <Mapping SourceColumn="Primary Lvl 2" DataSetColumn="Primary Lvl 2" />
+              <Mapping SourceColumn="Primary Lvl 3" DataSetColumn="Primary Lvl 3" />
+              <Mapping SourceColumn="Beginning Balance" DataSetColumn="Beginning Balance" />
+              <Mapping SourceColumn="Debet" DataSetColumn="Debet" />
+              <Mapping SourceColumn="Kredit" DataSetColumn="Kredit" />
+              <Mapping SourceColumn="Header" DataSetColumn="Header" />
+              <Mapping SourceColumn="Level Perkiraan" DataSetColumn="Level Perkiraan" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryAkun_TanggalSampai" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryAkun_TanggalSampai" GeneratorSourceName="FillBy_PrimaryAkun_TanggalSampai" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryAkun_TanggalSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryAkun_TanggalSampai" UserSourceName="FillBy_PrimaryAkun_TanggalSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, IFNULL(SUM(derivedtbl_1.Debet), 0) AS Debet, 
+                         IFNULL(SUM(derivedtbl_1.Kredit), 0) AS Kredit, tblmaster_akun.Header, tblmaster_akun.`Level Perkiraan`
+FROM            (SELECT        IFNULL(SUM(tbltrans_jurnal_item_1.Debet), 0) AS Debet, IFNULL(SUM(tbltrans_jurnal_item_1.Kredit), 0) AS Kredit, tbltrans_jurnal_1.`Date`, 
+                                                    tbltrans_jurnal_item_1.`Primary Akun`
+                          FROM            tbltrans_jurnal tbltrans_jurnal_1 INNER JOIN
+                                                    tbltrans_jurnal_item tbltrans_jurnal_item_1 ON tbltrans_jurnal_1.`Primary` = tbltrans_jurnal_item_1.`Primary Jurnal`
+                          WHERE        (tbltrans_jurnal_1.`Date` &lt;= @TanggalSampai)
+                          GROUP BY tbltrans_jurnal_1.`Date`, tbltrans_jurnal_item_1.`Primary Akun`) derivedtbl_1 RIGHT OUTER JOIN
+                         tblmaster_akun ON derivedtbl_1.`Primary Akun` = tblmaster_akun.`Primary`
+GROUP BY tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, tblmaster_akun.Header, 
+                         tblmaster_akun.`Level Perkiraan`
+HAVING        (tblmaster_akun.`Primary` = @PrimaryAkun)
+ORDER BY tblmaster_akun.Urutan</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetAccountCodeByPrimary" Modifier="Public" Name="ScalarQuery_GetAccountCodeByPrimary" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetAccountCodeByPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Account Code`, '') AS Account_Code
+FROM            tblmaster_akun
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetDesc" Modifier="Public" Name="ScalarQuery_GetDesc" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetDesc">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        Description
+FROM            tblmaster_akun
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetDesc_ByAccCode" Modifier="Public" Name="ScalarQuery_GetDesc_ByAccCode" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetDesc_ByAccCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        Description
+FROM            tblmaster_akun
+WHERE        (`Account Code` = @Acc_Code)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Acc_Code" ColumnName="Account Code" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Acc_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Account Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetHeader" Modifier="Public" Name="ScalarQuery_GetHeader" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetHeader">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        Header
+FROM            tblmaster_akun
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJml" Modifier="Public" Name="ScalarQuery_GetJml" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_GetJml">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(*) AS Expr1
+FROM            tblmaster_akun
+WHERE        (`Account Code` = @Acc_Code)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Acc_Code" ColumnName="Account Code" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Acc_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Account Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy8" GeneratorSourceName="ScalarQuery_GetJml_Aktif_NonHeader" Modifier="Public" Name="ScalarQuery_GetJml_Aktif_NonHeader" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_GetJml_Aktif_NonHeader">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tblmaster_akun
+WHERE        (`Account Code` = @AccountCode) AND (Header = 0) AND (Aktif = 1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="AccountCode" ColumnName="Account Code" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@AccountCode" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Account Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlAktif_ByPrimaryLvl1" Modifier="Public" Name="ScalarQuery_GetJmlAktif_ByPrimaryLvl1" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy6" UserSourceName="ScalarQuery_GetJmlAktif_ByPrimaryLvl1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Expr2
+FROM            tblmaster_akun
+WHERE        (Aktif = 1) AND (`Primary Lvl 1` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary Lvl 1" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Lvl 1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlAktif_ByPrimaryLvl2" Modifier="Public" Name="ScalarQuery_GetJmlAktif_ByPrimaryLvl2" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy7" UserSourceName="ScalarQuery_GetJmlAktif_ByPrimaryLvl2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Expr2
+FROM            tblmaster_akun
+WHERE        (Aktif = 1) AND (`Primary Lvl 2` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary Lvl 2" DataSourceName="tblmaster_akun" DataTypeServer="double(15,3)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="3" Size="0" SourceColumn="Primary Lvl 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlAktif_ByPrimaryLvl3" Modifier="Public" Name="ScalarQuery_GetJmlAktif_ByPrimaryLvl3" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy8" UserSourceName="ScalarQuery_GetJmlAktif_ByPrimaryLvl3">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Expr2
+FROM            tblmaster_akun
+WHERE        (Aktif = 1) AND (`Primary Lvl 3` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary Lvl 3" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Lvl 3" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlAnak_ByPrimaryLvl1" Modifier="Public" Name="ScalarQuery_GetJmlAnak_ByPrimaryLvl1" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy9" UserSourceName="ScalarQuery_GetJmlAnak_ByPrimaryLvl1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Expr2
+FROM            tblmaster_akun
+WHERE        (`Primary Lvl 1` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary Lvl 1" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Lvl 1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlAnak_ByPrimaryLvl2" Modifier="Public" Name="ScalarQuery_GetJmlAnak_ByPrimaryLvl2" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy10" UserSourceName="ScalarQuery_GetJmlAnak_ByPrimaryLvl2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Expr2
+FROM            tblmaster_akun
+WHERE        (`Primary Lvl 2` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary Lvl 2" DataSourceName="tblmaster_akun" DataTypeServer="double(15,3)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="3" Size="0" SourceColumn="Primary Lvl 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlAnak_ByPrimaryLvl3" Modifier="Public" Name="ScalarQuery_GetJmlAnak_ByPrimaryLvl3" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy11" UserSourceName="ScalarQuery_GetJmlAnak_ByPrimaryLvl3">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Expr2
+FROM            tblmaster_akun
+WHERE        (`Primary Lvl 3` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary Lvl 3" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Lvl 3" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByAccountCode" Modifier="Public" Name="ScalarQuery_GetJmlByAccountCode" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy12" UserSourceName="ScalarQuery_GetJmlByAccountCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tblmaster_akun
+WHERE        (`Account Code` = @AccountCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="AccountCode" ColumnName="Account Code" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@AccountCode" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Account Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetLevel" Modifier="Public" Name="ScalarQuery_GetLevel" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy13" UserSourceName="ScalarQuery_GetLevel">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Level Perkiraan`
+FROM            tblmaster_akun
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy4" GeneratorSourceName="ScalarQuery_GetPrimary" Modifier="Public" Name="ScalarQuery_GetPrimary" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy14" UserSourceName="ScalarQuery_GetPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Primary`, - 1) AS `Primary`
+FROM            tblmaster_akun
+WHERE        (`Account Code` = @AccountCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="AccountCode" ColumnName="Account Code" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@AccountCode" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Account Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryCurrency" Modifier="Public" Name="ScalarQuery_GetPrimaryCurrency" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy21" UserSourceName="ScalarQuery_GetPrimaryCurrency">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary currency`
+FROM            tblmaster_akun
+WHERE        (`Primary` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy6" GeneratorSourceName="ScalarQuery_GetSaldoNormal" Modifier="Public" Name="ScalarQuery_GetSaldoNormal" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy15" UserSourceName="ScalarQuery_GetSaldoNormal">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Saldo Normal`, 0) AS SaldoNormal
+FROM            tblmaster_akun
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="ScalarQuery_GetTampilanByPrimary" Modifier="Public" Name="ScalarQuery_GetTampilanByPrimary" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy16" UserSourceName="ScalarQuery_GetTampilanByPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(Tampilan, '') AS Tampilan
+FROM            tblmaster_akun
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetTimestamp" Modifier="Public" Name="ScalarQuery_GetTimestamp" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy17" UserSourceName="ScalarQuery_GetTimestamp">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Timestamp`
+FROM            tblmaster_akun
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetTipeAkun2" Modifier="Public" Name="ScalarQuery_GetTipeAkun2" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy20" UserSourceName="ScalarQuery_GetTipeAkun2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Tipe Perkiraan2`
+FROM            tblmaster_akun
+WHERE        (`Primary` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy7" GeneratorSourceName="ScalarQuery_GetTipePerkiraan" Modifier="Public" Name="ScalarQuery_GetTipePerkiraan" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy18" UserSourceName="ScalarQuery_GetTipePerkiraan">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Tipe Perkiraan`, 0) AS TipePerkiraan
+FROM            tblmaster_akun
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetUrutan" Modifier="Public" Name="ScalarQuery_GetUrutan" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy19" UserSourceName="ScalarQuery_GetUrutan">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        Urutan
+FROM            tblmaster_akun
+WHERE        (`Primary` = @PrimaryAkun)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_akun1TableAdapter" GeneratorDataComponentClassName="tblmaster_akun1TableAdapter" Name="tblmaster_akun1" UserDataComponentName="tblmaster_akun1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Account Code`, Description, `Account Nature`, Aktif, Header, `Beginning Balance`, `Tipe Perkiraan`, `Level Perkiraan`, Tampilan, `Saldo Normal`, 
+                         Urutan, `Primary Lvl 1`, `Primary Lvl 2`, `Primary Lvl 3`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`
+FROM            tblmaster_akun</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Account Code" DataSetColumn="Account Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Account Nature" DataSetColumn="Account Nature" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+              <Mapping SourceColumn="Header" DataSetColumn="Header" />
+              <Mapping SourceColumn="Beginning Balance" DataSetColumn="Beginning Balance" />
+              <Mapping SourceColumn="Tipe Perkiraan" DataSetColumn="Tipe Perkiraan" />
+              <Mapping SourceColumn="Level Perkiraan" DataSetColumn="Level Perkiraan" />
+              <Mapping SourceColumn="Tampilan" DataSetColumn="Tampilan" />
+              <Mapping SourceColumn="Saldo Normal" DataSetColumn="Saldo Normal" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Primary Lvl 1" DataSetColumn="Primary Lvl 1" />
+              <Mapping SourceColumn="Primary Lvl 2" DataSetColumn="Primary Lvl 2" />
+              <Mapping SourceColumn="Primary Lvl 3" DataSetColumn="Primary Lvl 3" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_Urutan" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_Urutan" GeneratorSourceName="FillBy_Urutan" GetMethodModifier="Public" GetMethodName="GetDataBy_Urutan" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_Urutan" UserSourceName="FillBy_Urutan">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Account Code`, Description, `Account Nature`, Aktif, Header, `Beginning Balance`, `Tipe Perkiraan`, `Level Perkiraan`, Tampilan, `Saldo Normal`, 
+                         Urutan, `Primary Lvl 1`, `Primary Lvl 2`, `Primary Lvl 3`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`
+FROM            tblmaster_akun
+WHERE        (Urutan &gt;= @Urutan) AND (`Primary` &lt;&gt; @PrimaryAkun)
+ORDER BY Urutan</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan" ColumnName="Urutan" DataSourceName="tblmaster_akun" DataTypeServer="int(6)" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAkun" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAkun" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_NoAccount" Modifier="Public" Name="UpdateQuery_NoAccount" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery_NoAccount">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_akun
+SET                `Account Code` = @Account_Code, Description = @Description, Tampilan = @Tampilan, `Modified By` = @Modified_By, `Modified Date` = @Modified_Date, 
+                         `Timestamp` = @Timestamp, `Account Nature` = @AccountNature, Aktif = @Aktif, Header = @Header, `Beginning Balance` = @BeginningBalance
+WHERE        (`Primary` = @Original_Primary) AND (`Timestamp` = @Original_Timestamp)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Account_Code" ColumnName="Account Code" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Account_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Account Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Description" ColumnName="Description" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tampilan" ColumnName="Tampilan" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Tampilan" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Tampilan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_By" ColumnName="Modified By" DataSourceName="tblmaster_akun" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_Date" ColumnName="Modified Date" DataSourceName="tblmaster_akun" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Timestamp" ColumnName="Timestamp" DataSourceName="tblmaster_akun" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="AccountNature" ColumnName="Account Nature" DataSourceName="tblmaster_akun" DataTypeServer="varchar(500)(500)" DbType="String" Direction="Input" ParameterName="@AccountNature" Precision="0" ProviderType="VarChar" Scale="0" Size="500" SourceColumn="Account Nature" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Aktif" ColumnName="Aktif" DataSourceName="tblmaster_akun" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@Aktif" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Aktif" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Header" ColumnName="Header" DataSourceName="tblmaster_akun" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@Header" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Header" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BeginningBalance" ColumnName="Beginning Balance" DataSourceName="tblmaster_akun" DataTypeServer="double(18,6)" DbType="Decimal" Direction="Input" ParameterName="@BeginningBalance" Precision="18" ProviderType="Double" Scale="6" Size="0" SourceColumn="Beginning Balance" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Original_Timestamp" ColumnName="Timestamp" DataSourceName="tblmaster_akun" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Original_Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="UpdateQuery_Urutan" Modifier="Public" Name="UpdateQuery_Urutan" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery_Urutan">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_akun
+SET                Urutan = @Urutan
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan" ColumnName="Urutan" DataSourceName="tblmaster_akun" DataTypeServer="int(6)" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblCariDetail_master_akunTableAdapter" GeneratorDataComponentClassName="tblCariDetail_master_akunTableAdapter" Name="tblCariDetail_master_akun" UserDataComponentName="tblCariDetail_master_akunTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, IFNULL(SUM(tbltrans_jurnal_item.Debet), 0) AS Debet, 
+                         IFNULL(SUM(tbltrans_jurnal_item.Kredit), 0) AS Kredit, tblmaster_akun.Header, tblmaster_akun.`Level Perkiraan`, tblmaster_akun.`Account Code`, 
+                         tblmaster_akun.Description, tblmaster_akun.`Account Nature`, tblmaster_akun.Aktif, tblmaster_akun.`Tipe Perkiraan`, tblmaster_akun.`Created By`, 
+                         tblmaster_akun.`Created Date`, tblmaster_akun.`Modified By`, tblmaster_akun.`Modified Date`, tblmaster_akun.`Timestamp`
+FROM            tblmaster_akun LEFT OUTER JOIN
+                         tbltrans_jurnal_item ON tblmaster_akun.`Primary` = tbltrans_jurnal_item.`Primary Akun`
+GROUP BY tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, tblmaster_akun.Header, 
+                         tblmaster_akun.`Level Perkiraan`, tblmaster_akun.`Account Code`, tblmaster_akun.Description, tblmaster_akun.`Account Nature`, tblmaster_akun.Aktif, 
+                         tblmaster_akun.`Tipe Perkiraan`, tblmaster_akun.`Created By`, tblmaster_akun.`Created Date`, tblmaster_akun.`Modified By`, 
+                         tblmaster_akun.`Modified Date`, tblmaster_akun.`Timestamp`
+ORDER BY tblmaster_akun.Urutan</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Tampilan" DataSetColumn="Tampilan" />
+              <Mapping SourceColumn="Saldo Normal" DataSetColumn="Saldo Normal" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Primary Lvl 1" DataSetColumn="Primary Lvl 1" />
+              <Mapping SourceColumn="Primary Lvl 2" DataSetColumn="Primary Lvl 2" />
+              <Mapping SourceColumn="Primary Lvl 3" DataSetColumn="Primary Lvl 3" />
+              <Mapping SourceColumn="Beginning Balance" DataSetColumn="Beginning Balance" />
+              <Mapping SourceColumn="Debet" DataSetColumn="Debet" />
+              <Mapping SourceColumn="Kredit" DataSetColumn="Kredit" />
+              <Mapping SourceColumn="Header" DataSetColumn="Header" />
+              <Mapping SourceColumn="Level Perkiraan" DataSetColumn="Level Perkiraan" />
+              <Mapping SourceColumn="Account Code" DataSetColumn="Account Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Account Nature" DataSetColumn="Account Nature" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+              <Mapping SourceColumn="Tipe Perkiraan" DataSetColumn="Tipe Perkiraan" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_Primary" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_Primary" GeneratorSourceName="FillBy_Primary" GetMethodModifier="Public" GetMethodName="GetDataBy_Primary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_Primary" UserSourceName="FillBy_Primary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, IFNULL(SUM(tbltrans_jurnal_item.Debet), 0) AS Debet, 
+                         IFNULL(SUM(tbltrans_jurnal_item.Kredit), 0) AS Kredit, tblmaster_akun.Header, tblmaster_akun.`Level Perkiraan`, tblmaster_akun.`Account Code`, 
+                         tblmaster_akun.Description, tblmaster_akun.`Account Nature`, tblmaster_akun.Aktif, tblmaster_akun.`Tipe Perkiraan`, tblmaster_akun.`Created By`, 
+                         tblmaster_akun.`Created Date`, tblmaster_akun.`Modified By`, tblmaster_akun.`Modified Date`, tblmaster_akun.`Timestamp`
+FROM            tblmaster_akun LEFT OUTER JOIN
+                         tbltrans_jurnal_item ON tblmaster_akun.`Primary` = tbltrans_jurnal_item.`Primary Akun`
+WHERE        (tblmaster_akun.`Primary` = @Primary)
+GROUP BY tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, tblmaster_akun.Header, 
+                         tblmaster_akun.`Level Perkiraan`, tblmaster_akun.`Account Code`, tblmaster_akun.Description, tblmaster_akun.`Account Nature`, tblmaster_akun.Aktif, 
+                         tblmaster_akun.`Tipe Perkiraan`, tblmaster_akun.`Created By`, tblmaster_akun.`Created Date`, tblmaster_akun.`Modified By`, 
+                         tblmaster_akun.`Modified Date`, tblmaster_akun.`Timestamp`
+ORDER BY tblmaster_akun.Urutan</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_Acari_master_akunTableAdapter" GeneratorDataComponentClassName="tbl_Acari_master_akunTableAdapter" Name="tbl_Acari_master_akun" UserDataComponentName="tbl_Acari_master_akunTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Account Code`, Description
+FROM            tblmaster_akun</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Account Code" DataSetColumn="Account Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_AccountCodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_AccountCodeLIKE" GeneratorSourceName="FillBy_AccountCodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_AccountCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_AccountCodeLIKE" UserSourceName="FillBy_AccountCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Account Code`, Description
+FROM            tblmaster_akun
+WHERE        (`Account Code` LIKE @AccountCode) AND (Header = 0) AND (Aktif = 1)
+ORDER BY `Account Code`, Description</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="AccountCode" ColumnName="Account Code" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@AccountCode" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Account Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_DescLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_DescLIKE" GeneratorSourceName="FillBy_DescLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_DescLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_DescLIKE" UserSourceName="FillBy_DescLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Account Code`, Description
+FROM            tblmaster_akun
+WHERE        (Description LIKE @Desc) AND (Header = 0) AND (Aktif = 1)
+ORDER BY `Account Code`, Description</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Desc" ColumnName="Description" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Desc" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByAccountCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByAccountCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetJmlByAccountCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tblmaster_akun
+WHERE        (`Account Code` LIKE @AccountCode) AND (Header = 0) AND (Aktif = 1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="AccountCode" ColumnName="Account Code" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@AccountCode" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Account Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByDescLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByDescLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetJmlByDescLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tblmaster_akun
+WHERE        (Description LIKE @Desc) AND (Header = 0) AND (Aktif = 1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Desc" ColumnName="Description" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Desc" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblCetak_master_akunTableAdapter" GeneratorDataComponentClassName="tblCetak_master_akunTableAdapter" Name="tblCetak_master_akun" UserDataComponentName="tblCetak_master_akunTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, IFNULL(SUM(tbltrans_jurnal_item.Debet), 0) AS Debet, 
+                         IFNULL(SUM(tbltrans_jurnal_item.Kredit), 0) AS Kredit, tblmaster_akun.Header, tblmaster_akun.`Level Perkiraan`, tblmaster_akun.`Account Code`, 
+                         tblmaster_akun.Description, tblmaster_akun.`Account Nature`, tblmaster_akun.Aktif, tblmaster_akun.`Tipe Perkiraan`, tblmaster_akun.`Created By`, 
+                         tblmaster_akun.`Created Date`, tblmaster_akun.`Modified By`, tblmaster_akun.`Modified Date`, tblmaster_akun.`Timestamp`
+FROM            tblmaster_akun LEFT OUTER JOIN
+                         tbltrans_jurnal_item ON tblmaster_akun.`Primary` = tbltrans_jurnal_item.`Primary Akun`
+GROUP BY tblmaster_akun.`Primary`, tblmaster_akun.Tampilan, tblmaster_akun.`Saldo Normal`, tblmaster_akun.Urutan, tblmaster_akun.`Primary Lvl 1`, 
+                         tblmaster_akun.`Primary Lvl 2`, tblmaster_akun.`Primary Lvl 3`, tblmaster_akun.`Beginning Balance`, tblmaster_akun.Header, 
+                         tblmaster_akun.`Level Perkiraan`, tblmaster_akun.`Account Code`, tblmaster_akun.Description, tblmaster_akun.`Account Nature`, tblmaster_akun.Aktif, 
+                         tblmaster_akun.`Tipe Perkiraan`, tblmaster_akun.`Created By`, tblmaster_akun.`Created Date`, tblmaster_akun.`Modified By`, 
+                         tblmaster_akun.`Modified Date`, tblmaster_akun.`Timestamp`
+ORDER BY tblmaster_akun.Urutan</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Tampilan" DataSetColumn="Tampilan" />
+              <Mapping SourceColumn="Saldo Normal" DataSetColumn="Saldo Normal" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Primary Lvl 1" DataSetColumn="Primary Lvl 1" />
+              <Mapping SourceColumn="Primary Lvl 2" DataSetColumn="Primary Lvl 2" />
+              <Mapping SourceColumn="Primary Lvl 3" DataSetColumn="Primary Lvl 3" />
+              <Mapping SourceColumn="Beginning Balance" DataSetColumn="Beginning Balance" />
+              <Mapping SourceColumn="Debet" DataSetColumn="Debet" />
+              <Mapping SourceColumn="Kredit" DataSetColumn="Kredit" />
+              <Mapping SourceColumn="Header" DataSetColumn="Header" />
+              <Mapping SourceColumn="Level Perkiraan" DataSetColumn="Level Perkiraan" />
+              <Mapping SourceColumn="Account Code" DataSetColumn="Account Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Account Nature" DataSetColumn="Account Nature" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+              <Mapping SourceColumn="Tipe Perkiraan" DataSetColumn="Tipe Perkiraan" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_akun2TableAdapter" GeneratorDataComponentClassName="tblmaster_akun2TableAdapter" Name="tblmaster_akun2" UserDataComponentName="tblmaster_akun2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Account Code`, Description, `Account Nature`, Aktif, Header, `Beginning Balance`, `Tipe Perkiraan`, `Level Perkiraan`, Tampilan, `Saldo Normal`, 
+                         Urutan, `Primary Lvl 1`, `Primary Lvl 2`, `Primary Lvl 3`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`
+FROM            tblmaster_akun</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Account Code" DataSetColumn="Account Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Account Nature" DataSetColumn="Account Nature" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+              <Mapping SourceColumn="Header" DataSetColumn="Header" />
+              <Mapping SourceColumn="Beginning Balance" DataSetColumn="Beginning Balance" />
+              <Mapping SourceColumn="Tipe Perkiraan" DataSetColumn="Tipe Perkiraan" />
+              <Mapping SourceColumn="Level Perkiraan" DataSetColumn="Level Perkiraan" />
+              <Mapping SourceColumn="Tampilan" DataSetColumn="Tampilan" />
+              <Mapping SourceColumn="Saldo Normal" DataSetColumn="Saldo Normal" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Primary Lvl 1" DataSetColumn="Primary Lvl 1" />
+              <Mapping SourceColumn="Primary Lvl 2" DataSetColumn="Primary Lvl 2" />
+              <Mapping SourceColumn="Primary Lvl 3" DataSetColumn="Primary Lvl 3" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_akun
+SET                `Level Perkiraan` = @Level_Perkiraan, Tampilan = @Tampilan, `Primary Lvl 1` = @Primary_Lvl_1, `Primary Lvl 2` = @Primary_Lvl_2, 
+                         `Primary Lvl 3` = @Primary_Lvl_3
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Level_Perkiraan" ColumnName="Level Perkiraan" DataSourceName="tblmaster_akun" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@Level_Perkiraan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Level Perkiraan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tampilan" ColumnName="Tampilan" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Tampilan" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Tampilan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Lvl_1" ColumnName="Primary Lvl 1" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Lvl_1" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Lvl 1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Lvl_2" ColumnName="Primary Lvl 2" DataSourceName="tblmaster_akun" DataTypeServer="double(15,3)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Lvl_2" Precision="15" ProviderType="Double" Scale="3" Size="0" SourceColumn="Primary Lvl 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Lvl_3" ColumnName="Primary Lvl 3" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Lvl_3" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Lvl 3" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery1" Modifier="Public" Name="UpdateQuery1" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery1">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_akun
+SET                `Level Perkiraan` = @Level_Perkiraan, Tampilan = @Tampilan, Urutan = @Urutan, `Primary Lvl 1` = @Primary_Lvl_1, `Primary Lvl 2` = @Primary_Lvl_2, 
+                         `Primary Lvl 3` = @Primary_Lvl_3
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Level_Perkiraan" ColumnName="Level Perkiraan" DataSourceName="tblmaster_akun" DataTypeServer="int(2)" DbType="Int32" Direction="Input" ParameterName="@Level_Perkiraan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Level Perkiraan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tampilan" ColumnName="Tampilan" DataSourceName="tblmaster_akun" DataTypeServer="varchar(200)(200)" DbType="String" Direction="Input" ParameterName="@Tampilan" Precision="0" ProviderType="VarChar" Scale="0" Size="200" SourceColumn="Tampilan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan" ColumnName="Urutan" DataSourceName="tblmaster_akun" DataTypeServer="int(6)" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Lvl_1" ColumnName="Primary Lvl 1" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Lvl_1" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Lvl 1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Lvl_2" ColumnName="Primary Lvl 2" DataSourceName="tblmaster_akun" DataTypeServer="double(15,3)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Lvl_2" Precision="15" ProviderType="Double" Scale="3" Size="0" SourceColumn="Primary Lvl 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Lvl_3" ColumnName="Primary Lvl 3" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Lvl_3" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Lvl 3" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="tblmaster_akun" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseMasterAkun" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseMasterAkun" msprop:Generator_DataSetName="DseMasterAkun">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblmaster_akun" msprop:Generator_UserTableName="tblmaster_akun" msprop:Generator_RowDeletedName="tblmaster_akunRowDeleted" msprop:Generator_RowChangedName="tblmaster_akunRowChanged" msprop:Generator_RowClassName="tblmaster_akunRow" msprop:Generator_RowChangingName="tblmaster_akunRowChanging" msprop:Generator_RowEvArgName="tblmaster_akunRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_akunRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_akunDataTable" msprop:Generator_TableVarName="tabletblmaster_akun" msprop:Generator_RowDeletingName="tblmaster_akunRowDeleting" msprop:Generator_TablePropName="tblmaster_akun">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Tampilan" msprop:Generator_UserColumnName="Tampilan" msprop:Generator_ColumnVarNameInTable="columnTampilan" msprop:Generator_ColumnPropNameInRow="Tampilan" msprop:Generator_ColumnPropNameInTable="TampilanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Saldo_x0020_Normal" msprop:Generator_UserColumnName="Saldo Normal" msprop:Generator_ColumnVarNameInTable="columnSaldo_Normal" msprop:Generator_ColumnPropNameInRow="Saldo_Normal" msprop:Generator_ColumnPropNameInTable="Saldo_NormalColumn" type="xs:int" />
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Lvl_x0020_1" msprop:Generator_UserColumnName="Primary Lvl 1" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_1" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_1" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_1Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_2" msprop:Generator_UserColumnName="Primary Lvl 2" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_2" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_2" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_2Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_3" msprop:Generator_UserColumnName="Primary Lvl 3" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_3" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_3" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_3Column" type="xs:double" />
+              <xs:element name="Beginning_x0020_Balance" msprop:Generator_UserColumnName="Beginning Balance" msprop:Generator_ColumnVarNameInTable="columnBeginning_Balance" msprop:Generator_ColumnPropNameInRow="Beginning_Balance" msprop:Generator_ColumnPropNameInTable="Beginning_BalanceColumn" type="xs:double" />
+              <xs:element name="Debet" msprop:Generator_UserColumnName="Debet" msprop:Generator_ColumnVarNameInTable="columnDebet" msprop:Generator_ColumnPropNameInRow="Debet" msprop:Generator_ColumnPropNameInTable="DebetColumn" type="xs:double" />
+              <xs:element name="Kredit" msprop:Generator_UserColumnName="Kredit" msprop:Generator_ColumnVarNameInTable="columnKredit" msprop:Generator_ColumnPropNameInRow="Kredit" msprop:Generator_ColumnPropNameInTable="KreditColumn" type="xs:double" />
+              <xs:element name="Header" msprop:Generator_UserColumnName="Header" msprop:Generator_ColumnPropNameInRow="Header" msprop:Generator_ColumnVarNameInTable="columnHeader" msprop:Generator_ColumnPropNameInTable="HeaderColumn" type="xs:int" />
+              <xs:element name="Level_x0020_Perkiraan" msprop:Generator_UserColumnName="Level Perkiraan" msprop:Generator_ColumnPropNameInRow="Level_Perkiraan" msprop:Generator_ColumnVarNameInTable="columnLevel_Perkiraan" msprop:Generator_ColumnPropNameInTable="Level_PerkiraanColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_akun1" msprop:Generator_UserTableName="tblmaster_akun1" msprop:Generator_RowDeletedName="tblmaster_akun1RowDeleted" msprop:Generator_RowChangedName="tblmaster_akun1RowChanged" msprop:Generator_RowClassName="tblmaster_akun1Row" msprop:Generator_RowChangingName="tblmaster_akun1RowChanging" msprop:Generator_RowEvArgName="tblmaster_akun1RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_akun1RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_akun1DataTable" msprop:Generator_TableVarName="tabletblmaster_akun1" msprop:Generator_RowDeletingName="tblmaster_akun1RowDeleting" msprop:Generator_TablePropName="tblmaster_akun1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Account_x0020_Code" msprop:Generator_UserColumnName="Account Code" msprop:Generator_ColumnPropNameInRow="Account_Code" msprop:Generator_ColumnVarNameInTable="columnAccount_Code" msprop:Generator_ColumnPropNameInTable="Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Account_x0020_Nature" msprop:Generator_UserColumnName="Account Nature" msprop:Generator_ColumnPropNameInRow="Account_Nature" msprop:Generator_ColumnVarNameInTable="columnAccount_Nature" msprop:Generator_ColumnPropNameInTable="Account_NatureColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" />
+              <xs:element name="Header" msprop:Generator_UserColumnName="Header" msprop:Generator_ColumnPropNameInRow="Header" msprop:Generator_ColumnVarNameInTable="columnHeader" msprop:Generator_ColumnPropNameInTable="HeaderColumn" type="xs:int" />
+              <xs:element name="Beginning_x0020_Balance" msprop:Generator_UserColumnName="Beginning Balance" msprop:Generator_ColumnPropNameInRow="Beginning_Balance" msprop:Generator_ColumnVarNameInTable="columnBeginning_Balance" msprop:Generator_ColumnPropNameInTable="Beginning_BalanceColumn" type="xs:double" />
+              <xs:element name="Tipe_x0020_Perkiraan" msprop:Generator_UserColumnName="Tipe Perkiraan" msprop:Generator_ColumnPropNameInRow="Tipe_Perkiraan" msprop:Generator_ColumnVarNameInTable="columnTipe_Perkiraan" msprop:Generator_ColumnPropNameInTable="Tipe_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Level_x0020_Perkiraan" msprop:Generator_UserColumnName="Level Perkiraan" msprop:Generator_ColumnPropNameInRow="Level_Perkiraan" msprop:Generator_ColumnVarNameInTable="columnLevel_Perkiraan" msprop:Generator_ColumnPropNameInTable="Level_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Tampilan" msprop:Generator_UserColumnName="Tampilan" msprop:Generator_ColumnPropNameInRow="Tampilan" msprop:Generator_ColumnVarNameInTable="columnTampilan" msprop:Generator_ColumnPropNameInTable="TampilanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Saldo_x0020_Normal" msprop:Generator_UserColumnName="Saldo Normal" msprop:Generator_ColumnPropNameInRow="Saldo_Normal" msprop:Generator_ColumnVarNameInTable="columnSaldo_Normal" msprop:Generator_ColumnPropNameInTable="Saldo_NormalColumn" type="xs:int" />
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Lvl_x0020_1" msprop:Generator_UserColumnName="Primary Lvl 1" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_1" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_1" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_1Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_2" msprop:Generator_UserColumnName="Primary Lvl 2" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_2" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_2" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_2Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_3" msprop:Generator_UserColumnName="Primary Lvl 3" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_3" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_3" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_3Column" type="xs:double" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblCariDetail_master_akun" msprop:Generator_UserTableName="tblCariDetail_master_akun" msprop:Generator_RowDeletedName="tblCariDetail_master_akunRowDeleted" msprop:Generator_RowChangedName="tblCariDetail_master_akunRowChanged" msprop:Generator_RowClassName="tblCariDetail_master_akunRow" msprop:Generator_RowChangingName="tblCariDetail_master_akunRowChanging" msprop:Generator_RowEvArgName="tblCariDetail_master_akunRowChangeEvent" msprop:Generator_RowEvHandlerName="tblCariDetail_master_akunRowChangeEventHandler" msprop:Generator_TableClassName="tblCariDetail_master_akunDataTable" msprop:Generator_TableVarName="tabletblCariDetail_master_akun" msprop:Generator_RowDeletingName="tblCariDetail_master_akunRowDeleting" msprop:Generator_TablePropName="tblCariDetail_master_akun">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Tampilan" msprop:Generator_UserColumnName="Tampilan" msprop:Generator_ColumnVarNameInTable="columnTampilan" msprop:Generator_ColumnPropNameInRow="Tampilan" msprop:Generator_ColumnPropNameInTable="TampilanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Saldo_x0020_Normal" msprop:Generator_UserColumnName="Saldo Normal" msprop:Generator_ColumnVarNameInTable="columnSaldo_Normal" msprop:Generator_ColumnPropNameInRow="Saldo_Normal" msprop:Generator_ColumnPropNameInTable="Saldo_NormalColumn" type="xs:int" />
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Lvl_x0020_1" msprop:Generator_UserColumnName="Primary Lvl 1" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_1" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_1" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_1Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_2" msprop:Generator_UserColumnName="Primary Lvl 2" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_2" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_2" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_2Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_3" msprop:Generator_UserColumnName="Primary Lvl 3" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_3" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_3" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_3Column" type="xs:double" />
+              <xs:element name="Beginning_x0020_Balance" msprop:Generator_UserColumnName="Beginning Balance" msprop:Generator_ColumnVarNameInTable="columnBeginning_Balance" msprop:Generator_ColumnPropNameInRow="Beginning_Balance" msprop:Generator_ColumnPropNameInTable="Beginning_BalanceColumn" type="xs:double" />
+              <xs:element name="Debet" msprop:Generator_UserColumnName="Debet" msprop:Generator_ColumnVarNameInTable="columnDebet" msprop:Generator_ColumnPropNameInRow="Debet" msprop:Generator_ColumnPropNameInTable="DebetColumn" type="xs:double" />
+              <xs:element name="Kredit" msprop:Generator_UserColumnName="Kredit" msprop:Generator_ColumnVarNameInTable="columnKredit" msprop:Generator_ColumnPropNameInRow="Kredit" msprop:Generator_ColumnPropNameInTable="KreditColumn" type="xs:double" />
+              <xs:element name="Header" msprop:Generator_UserColumnName="Header" msprop:Generator_ColumnVarNameInTable="columnHeader" msprop:Generator_ColumnPropNameInRow="Header" msprop:Generator_ColumnPropNameInTable="HeaderColumn" type="xs:int" />
+              <xs:element name="Level_x0020_Perkiraan" msprop:Generator_UserColumnName="Level Perkiraan" msprop:Generator_ColumnVarNameInTable="columnLevel_Perkiraan" msprop:Generator_ColumnPropNameInRow="Level_Perkiraan" msprop:Generator_ColumnPropNameInTable="Level_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Account_x0020_Code" msprop:Generator_UserColumnName="Account Code" msprop:Generator_ColumnVarNameInTable="columnAccount_Code" msprop:Generator_ColumnPropNameInRow="Account_Code" msprop:Generator_ColumnPropNameInTable="Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Account_x0020_Nature" msprop:Generator_UserColumnName="Account Nature" msprop:Generator_ColumnVarNameInTable="columnAccount_Nature" msprop:Generator_ColumnPropNameInRow="Account_Nature" msprop:Generator_ColumnPropNameInTable="Account_NatureColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" />
+              <xs:element name="Tipe_x0020_Perkiraan" msprop:Generator_UserColumnName="Tipe Perkiraan" msprop:Generator_ColumnVarNameInTable="columnTipe_Perkiraan" msprop:Generator_ColumnPropNameInRow="Tipe_Perkiraan" msprop:Generator_ColumnPropNameInTable="Tipe_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_Acari_master_akun" msprop:Generator_UserTableName="tbl_Acari_master_akun" msprop:Generator_RowDeletedName="tbl_Acari_master_akunRowDeleted" msprop:Generator_RowChangedName="tbl_Acari_master_akunRowChanged" msprop:Generator_RowClassName="tbl_Acari_master_akunRow" msprop:Generator_RowChangingName="tbl_Acari_master_akunRowChanging" msprop:Generator_RowEvArgName="tbl_Acari_master_akunRowChangeEvent" msprop:Generator_RowEvHandlerName="tbl_Acari_master_akunRowChangeEventHandler" msprop:Generator_TableClassName="tbl_Acari_master_akunDataTable" msprop:Generator_TableVarName="tabletbl_Acari_master_akun" msprop:Generator_RowDeletingName="tbl_Acari_master_akunRowDeleting" msprop:Generator_TablePropName="tbl_Acari_master_akun">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Account_x0020_Code" msprop:Generator_UserColumnName="Account Code" msprop:Generator_ColumnVarNameInTable="columnAccount_Code" msprop:Generator_ColumnPropNameInRow="Account_Code" msprop:Generator_ColumnPropNameInTable="Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblCetak_master_akun" msprop:Generator_UserTableName="tblCetak_master_akun" msprop:Generator_RowDeletedName="tblCetak_master_akunRowDeleted" msprop:Generator_RowChangedName="tblCetak_master_akunRowChanged" msprop:Generator_RowClassName="tblCetak_master_akunRow" msprop:Generator_RowChangingName="tblCetak_master_akunRowChanging" msprop:Generator_RowEvArgName="tblCetak_master_akunRowChangeEvent" msprop:Generator_RowEvHandlerName="tblCetak_master_akunRowChangeEventHandler" msprop:Generator_TableClassName="tblCetak_master_akunDataTable" msprop:Generator_TableVarName="tabletblCetak_master_akun" msprop:Generator_RowDeletingName="tblCetak_master_akunRowDeleting" msprop:Generator_TablePropName="tblCetak_master_akun">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Tampilan" msprop:Generator_UserColumnName="Tampilan" msprop:Generator_ColumnVarNameInTable="columnTampilan" msprop:Generator_ColumnPropNameInRow="Tampilan" msprop:Generator_ColumnPropNameInTable="TampilanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Saldo_x0020_Normal" msprop:Generator_UserColumnName="Saldo Normal" msprop:Generator_ColumnVarNameInTable="columnSaldo_Normal" msprop:Generator_ColumnPropNameInRow="Saldo_Normal" msprop:Generator_ColumnPropNameInTable="Saldo_NormalColumn" type="xs:int" />
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Lvl_x0020_1" msprop:Generator_UserColumnName="Primary Lvl 1" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_1" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_1" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_1Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_2" msprop:Generator_UserColumnName="Primary Lvl 2" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_2" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_2" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_2Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_3" msprop:Generator_UserColumnName="Primary Lvl 3" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_3" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_3" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_3Column" type="xs:double" />
+              <xs:element name="Beginning_x0020_Balance" msprop:Generator_UserColumnName="Beginning Balance" msprop:Generator_ColumnVarNameInTable="columnBeginning_Balance" msprop:Generator_ColumnPropNameInRow="Beginning_Balance" msprop:Generator_ColumnPropNameInTable="Beginning_BalanceColumn" type="xs:double" />
+              <xs:element name="Debet" msprop:Generator_UserColumnName="Debet" msprop:Generator_ColumnVarNameInTable="columnDebet" msprop:Generator_ColumnPropNameInRow="Debet" msprop:Generator_ColumnPropNameInTable="DebetColumn" type="xs:double" />
+              <xs:element name="Kredit" msprop:Generator_UserColumnName="Kredit" msprop:Generator_ColumnVarNameInTable="columnKredit" msprop:Generator_ColumnPropNameInRow="Kredit" msprop:Generator_ColumnPropNameInTable="KreditColumn" type="xs:double" />
+              <xs:element name="Header" msprop:Generator_UserColumnName="Header" msprop:Generator_ColumnVarNameInTable="columnHeader" msprop:Generator_ColumnPropNameInRow="Header" msprop:Generator_ColumnPropNameInTable="HeaderColumn" type="xs:int" />
+              <xs:element name="Level_x0020_Perkiraan" msprop:Generator_UserColumnName="Level Perkiraan" msprop:Generator_ColumnVarNameInTable="columnLevel_Perkiraan" msprop:Generator_ColumnPropNameInRow="Level_Perkiraan" msprop:Generator_ColumnPropNameInTable="Level_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Account_x0020_Code" msprop:Generator_UserColumnName="Account Code" msprop:Generator_ColumnVarNameInTable="columnAccount_Code" msprop:Generator_ColumnPropNameInRow="Account_Code" msprop:Generator_ColumnPropNameInTable="Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Account_x0020_Nature" msprop:Generator_UserColumnName="Account Nature" msprop:Generator_ColumnVarNameInTable="columnAccount_Nature" msprop:Generator_ColumnPropNameInRow="Account_Nature" msprop:Generator_ColumnPropNameInTable="Account_NatureColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" />
+              <xs:element name="Tipe_x0020_Perkiraan" msprop:Generator_UserColumnName="Tipe Perkiraan" msprop:Generator_ColumnVarNameInTable="columnTipe_Perkiraan" msprop:Generator_ColumnPropNameInRow="Tipe_Perkiraan" msprop:Generator_ColumnPropNameInTable="Tipe_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+              <xs:element name="Tebal" msprop:Generator_UserColumnName="Tebal" msprop:Generator_ColumnVarNameInTable="columnTebal" msprop:Generator_ColumnPropNameInRow="Tebal" msprop:Generator_ColumnPropNameInTable="TebalColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_akun2" msprop:Generator_UserTableName="tblmaster_akun2" msprop:Generator_RowDeletedName="tblmaster_akun2RowDeleted" msprop:Generator_RowChangedName="tblmaster_akun2RowChanged" msprop:Generator_RowClassName="tblmaster_akun2Row" msprop:Generator_RowChangingName="tblmaster_akun2RowChanging" msprop:Generator_RowEvArgName="tblmaster_akun2RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_akun2RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_akun2DataTable" msprop:Generator_TableVarName="tabletblmaster_akun2" msprop:Generator_RowDeletingName="tblmaster_akun2RowDeleting" msprop:Generator_TablePropName="tblmaster_akun2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Account_x0020_Code" msprop:Generator_UserColumnName="Account Code" msprop:Generator_ColumnPropNameInRow="Account_Code" msprop:Generator_ColumnVarNameInTable="columnAccount_Code" msprop:Generator_ColumnPropNameInTable="Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Account_x0020_Nature" msprop:Generator_UserColumnName="Account Nature" msprop:Generator_ColumnPropNameInRow="Account_Nature" msprop:Generator_ColumnVarNameInTable="columnAccount_Nature" msprop:Generator_ColumnPropNameInTable="Account_NatureColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" />
+              <xs:element name="Header" msprop:Generator_UserColumnName="Header" msprop:Generator_ColumnPropNameInRow="Header" msprop:Generator_ColumnVarNameInTable="columnHeader" msprop:Generator_ColumnPropNameInTable="HeaderColumn" type="xs:int" />
+              <xs:element name="Beginning_x0020_Balance" msprop:Generator_UserColumnName="Beginning Balance" msprop:Generator_ColumnPropNameInRow="Beginning_Balance" msprop:Generator_ColumnVarNameInTable="columnBeginning_Balance" msprop:Generator_ColumnPropNameInTable="Beginning_BalanceColumn" type="xs:double" />
+              <xs:element name="Tipe_x0020_Perkiraan" msprop:Generator_UserColumnName="Tipe Perkiraan" msprop:Generator_ColumnPropNameInRow="Tipe_Perkiraan" msprop:Generator_ColumnVarNameInTable="columnTipe_Perkiraan" msprop:Generator_ColumnPropNameInTable="Tipe_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Level_x0020_Perkiraan" msprop:Generator_UserColumnName="Level Perkiraan" msprop:Generator_ColumnPropNameInRow="Level_Perkiraan" msprop:Generator_ColumnVarNameInTable="columnLevel_Perkiraan" msprop:Generator_ColumnPropNameInTable="Level_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Tampilan" msprop:Generator_UserColumnName="Tampilan" msprop:Generator_ColumnPropNameInRow="Tampilan" msprop:Generator_ColumnVarNameInTable="columnTampilan" msprop:Generator_ColumnPropNameInTable="TampilanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Saldo_x0020_Normal" msprop:Generator_UserColumnName="Saldo Normal" msprop:Generator_ColumnPropNameInRow="Saldo_Normal" msprop:Generator_ColumnVarNameInTable="columnSaldo_Normal" msprop:Generator_ColumnPropNameInTable="Saldo_NormalColumn" type="xs:int" />
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Lvl_x0020_1" msprop:Generator_UserColumnName="Primary Lvl 1" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_1" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_1" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_1Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_2" msprop:Generator_UserColumnName="Primary Lvl 2" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_2" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_2" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_2Column" type="xs:double" />
+              <xs:element name="Primary_x0020_Lvl_x0020_3" msprop:Generator_UserColumnName="Primary Lvl 3" msprop:Generator_ColumnPropNameInRow="Primary_Lvl_3" msprop:Generator_ColumnVarNameInTable="columnPrimary_Lvl_3" msprop:Generator_ColumnPropNameInTable="Primary_Lvl_3Column" type="xs:double" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_akun" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_akun1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_akun1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:tblmaster_akun1" />
+      <xs:field xpath="mstns:Account_x0020_Code" />
+    </xs:unique>
+    <xs:unique name="tblCariDetail_master_akun_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblCariDetail_master_akun" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblCariDetail_master_akun_Constraint2" msdata:ConstraintName="Constraint2">
+      <xs:selector xpath=".//mstns:tblCariDetail_master_akun" />
+      <xs:field xpath="mstns:Account_x0020_Code" />
+    </xs:unique>
+    <xs:unique name="tbl_Acari_master_akun_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbl_Acari_master_akun" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbl_Acari_master_akun_Constraint2" msdata:ConstraintName="Constraint2">
+      <xs:selector xpath=".//mstns:tbl_Acari_master_akun" />
+      <xs:field xpath="mstns:Account_x0020_Code" />
+    </xs:unique>
+    <xs:unique name="tblmaster_akun2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_akun2" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_akun2_Constraint2" msdata:ConstraintName="Constraint2">
+      <xs:selector xpath=".//mstns:tblmaster_akun2" />
+      <xs:field xpath="mstns:Account_x0020_Code" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

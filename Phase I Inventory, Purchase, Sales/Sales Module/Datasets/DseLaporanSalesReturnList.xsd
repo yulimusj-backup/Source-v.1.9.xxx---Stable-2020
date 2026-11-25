@@ -1,0 +1,813 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanSalesReturnList" targetNamespace="http://tempuri.org/DseLaporanSalesReturnList.xsd" xmlns:mstns="http://tempuri.org/DseLaporanSalesReturnList.xsd" xmlns="http://tempuri.org/DseLaporanSalesReturnList.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Sales_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salesreturn.`Primary`, tbltrans_salesreturn.`No Transaksi` AS `SR No`, tbltrans_salesreturn.`Tanggal Transaksi` AS `SR Date`, 
+                         IFNULL(tbltrans_salesinvoice.`No Transaksi`, '') AS `Invoice No`, tblmaster_customer.`Customer Code`, tblmaster_customer.`Customer Name`, 
+                         tbltrans_salesreturn.`Sub Total`
+FROM            tbltrans_do INNER JOIN
+                         tblmaster_customer ON tbltrans_do.`Primary` = tblmaster_customer.`Primary` RIGHT OUTER JOIN
+                         tbltrans_salesreturn ON tbltrans_do.`Primary` = tbltrans_salesreturn.`Primary DO` LEFT OUTER JOIN
+                         tbltrans_salesinvoice RIGHT OUTER JOIN
+                         tbltrans_salesinvoice_item ON tbltrans_salesinvoice.`Primary` = tbltrans_salesinvoice_item.`Primary Transaksi` ON 
+                         tbltrans_salesreturn.`Primary DO` = tbltrans_salesinvoice_item.`Primary DO`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="SR No" DataSetColumn="SR No" />
+              <Mapping SourceColumn="SR Date" DataSetColumn="SR Date" />
+              <Mapping SourceColumn="Invoice No" DataSetColumn="Invoice No" />
+              <Mapping SourceColumn="Customer Code" DataSetColumn="Customer Code" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+              <Mapping SourceColumn="Sub Total" DataSetColumn="Sub Total" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_closing.`Closing Period`, tbltrans_purchase_closing_item.`Primary Product`, tbltrans_purchase_closing_item.`Ending Qty`, 
+                         tbltrans_purchase_closing_item.`Ending Amount`, tbltrans_purchase_closing_item.`Out Qty`, tbltrans_purchase_closing_item.`Out Amount`
+FROM            tbltrans_purchase_closing INNER JOIN
+                         tbltrans_purchase_closing_item ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item.`Primary Transaksi`
+WHERE        (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="Closing Period" DataSourceName="tbltrans_purchase_closing" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Closing Period" DataSetColumn="Closing Period" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Ending Qty" DataSetColumn="Ending Qty" />
+              <Mapping SourceColumn="Ending Amount" DataSetColumn="Ending Amount" />
+              <Mapping SourceColumn="Out Qty" DataSetColumn="Out Qty" />
+              <Mapping SourceColumn="Out Amount" DataSetColumn="Out Amount" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchaseclosing_item8TableAdapter" GeneratorDataComponentClassName="tbltrans_purchaseclosing_item8TableAdapter" Name="tbltrans_purchaseclosing_item8" UserDataComponentName="tbltrans_purchaseclosing_item8TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_purchaseclosing_item8" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchaseclosing_item8.`Primary Product`, SUM(tbltrans_purchaseclosing_item8.`Total Qty`) AS `Total Qty Retur`, 
+                         tbltrans_purchaseclosing_item8.`Closing Period`, 
+                         IFNULL(ROUND(tbltrans_purchase_closing_item.`Ending Amount` / tbltrans_purchase_closing_item.`Ending Qty`, 0), 0) AS `Price At Closing`
+FROM            tbltrans_purchase_closing_item INNER JOIN
+                         tbltrans_purchase_closing ON tbltrans_purchase_closing_item.`Primary Transaksi` = tbltrans_purchase_closing.`Primary` RIGHT OUTER JOIN
+                         tbltrans_purchaseclosing_item8 ON tbltrans_purchase_closing_item.`Primary Product` = tbltrans_purchaseclosing_item8.`Primary Product` AND 
+                         tbltrans_purchase_closing.`Closing Period` = tbltrans_purchaseclosing_item8.`Closing Period`
+WHERE        (tbltrans_purchaseclosing_item8.`Tanggal Retur` &lt;= @TanggalAkhirPeriode) AND (tbltrans_purchaseclosing_item8.`Tanggal Retur` &gt;= @TanggalAwalPeriode)
+GROUP BY tbltrans_purchaseclosing_item8.`Closing Period`, ROUND(tbltrans_purchase_closing_item.`Ending Amount` / tbltrans_purchase_closing_item.`Ending Qty`, 
+                         0), tbltrans_purchaseclosing_item8.`Primary Product`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalAkhirPeriode" ColumnName="Tanggal Retur" DataSourceName="tbltrans_purchaseclosing_item8" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalAkhirPeriode" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Retur" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalAwalPeriode" ColumnName="Tanggal Retur" DataSourceName="tbltrans_purchaseclosing_item8" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalAwalPeriode" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Retur" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Total Qty Retur" DataSetColumn="Total Qty Retur" />
+              <Mapping SourceColumn="Closing Period" DataSetColumn="Closing Period" />
+              <Mapping SourceColumn="Price At Closing" DataSetColumn="Price At Closing" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable5TableAdapter" GeneratorDataComponentClassName="DataTable5TableAdapter" Name="DataTable5" UserDataComponentName="DataTable5TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_product.`Primary` AS `Primary Product`, tblmaster_product_group.`Primary` AS `Primary Brand`, tblmaster_product_group.`Group Code` AS Brand, 
+                         tblmaster_product.Description, tblmaster_product.`Product Code`, tblmaster_master_unit.`Unit Code`
+FROM            tblmaster_product INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                         tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary`
+WHERE        (tblmaster_product_group.`Primary` = @PrimaryBrand)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryBrand" ColumnName="Primary" DataSourceName="tblmaster_product_group" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Brand" DataSetColumn="Brand" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable6TableAdapter" GeneratorDataComponentClassName="DataTable6TableAdapter" Name="DataTable6" UserDataComponentName="DataTable6TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_closing.`Closing Period`, tbltrans_purchase_closing_item_inadjustment.`Primary Code No`, 
+                         tbltrans_purchase_closing_item_inadjustment.`Qty In Adjust`, tbltrans_purchase_closing_item_inadjustment.`Unit Price`, 
+                         tbltrans_purchase_closing_item_inadjustment.`Primary Dokumen Acuan`
+FROM            tbltrans_purchase_closing_item_inadjustment INNER JOIN
+                         tbltrans_purchase_closing ON tbltrans_purchase_closing_item_inadjustment.`Primary Transaksi` = tbltrans_purchase_closing.`Primary`
+WHERE        (tbltrans_purchase_closing_item_inadjustment.`Tipe Dokumen Acuan` = 3) AND (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriode" ColumnName="Closing Period" DataSourceName="tbltrans_purchase_closing" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriode" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Closing Period" DataSetColumn="Closing Period" />
+              <Mapping SourceColumn="Primary Code No" DataSetColumn="Primary Code No" />
+              <Mapping SourceColumn="Qty In Adjust" DataSetColumn="Qty In Adjust" />
+              <Mapping SourceColumn="Unit Price" DataSetColumn="Unit Price" />
+              <Mapping SourceColumn="Primary Dokumen Acuan" DataSetColumn="Primary Dokumen Acuan" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_salesinvoice.`No Transaksi` AS `Invoice Number`, tbltrans_salesreturn.`Primary` AS `Primary SR`, tbltrans_salesreturn.`Tanggal Transaksi`, 
+                  tbltrans_salesreturn.`Primary Stock In Sales Return`
+FROM     tbltrans_salesreturn INNER JOIN
+                  tbltrans_salesinvoice_item_salesreturn ON tbltrans_salesreturn.`Primary` = tbltrans_salesinvoice_item_salesreturn.`Primary SR` INNER JOIN
+                  tbltrans_salesinvoice ON tbltrans_salesinvoice_item_salesreturn.`Primary Sales Invoice` = tbltrans_salesinvoice.`Primary`
+WHERE  (tbltrans_salesreturn.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_salesreturn.`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="core_db1.tbltrans_salesreturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="core_db1.tbltrans_salesreturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary SR" DataSetColumn="Primary SR" />
+              <Mapping SourceColumn="Invoice Number" DataSetColumn="Invoice Number" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Primary Stock In Sales Return" DataSetColumn="Primary Stock In Sales Return" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchaseclosing_item9_1TableAdapter" GeneratorDataComponentClassName="tbltrans_purchaseclosing_item9_1TableAdapter" Name="tbltrans_purchaseclosing_item9_1" UserDataComponentName="tbltrans_purchaseclosing_item9_1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_purchaseclosing_item9_1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `SO Number`, `DO Number`, `SR Number`, Customer, `Return Date`, `Total Qty`, 0 AS `Unit Price`, 0 AS `Total Unit Price`, `Primary Stock In Sales Return`, `DO Date`, 
+                         `Primary Product`
+FROM            tbltrans_purchaseclosing_item9_1
+WHERE        (`Return Date` &lt;= @TanggalSampai) AND (`Return Date` &gt;= @TanggalDari) AND (`Tipe SR` = 2)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Return Date" DataSourceName="tbltrans_purchaseclosing_item9_1" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Return Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Return Date" DataSourceName="tbltrans_purchaseclosing_item9_1" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Return Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SO Number" DataSetColumn="SO Number" />
+              <Mapping SourceColumn="DO Number" DataSetColumn="DO Number" />
+              <Mapping SourceColumn="SR Number" DataSetColumn="SR Number" />
+              <Mapping SourceColumn="Customer" DataSetColumn="Customer" />
+              <Mapping SourceColumn="Return Date" DataSetColumn="Return Date" />
+              <Mapping SourceColumn="Total Qty" DataSetColumn="Total Qty" />
+              <Mapping SourceColumn="Primary Stock In Sales Return" DataSetColumn="Primary Stock In Sales Return" />
+              <Mapping SourceColumn="DO Date" DataSetColumn="DO Date" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Unit Price" DataSetColumn="Unit Price" />
+              <Mapping SourceColumn="Total Unit Price" DataSetColumn="Total Unit Price" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db1.tbltrans_purchaseclosing_item9_1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_purchaseclosing_item9_1.`SO Number`, tbltrans_purchaseclosing_item9_1.`DO Number`, tbltrans_purchaseclosing_item9_1.`SR Number`, 
+                  tbltrans_purchaseclosing_item9_1.Customer, tbltrans_purchaseclosing_item9_1.`Return Date`, tbltrans_purchaseclosing_item9_1.`Total Qty`, 0 AS `Unit Price`, 
+                  0 AS `Total Unit Price`, tbltrans_purchaseclosing_item9_1.`Primary Stock In Sales Return`, tbltrans_purchaseclosing_item9_1.`DO Date`, 
+                  tbltrans_purchaseclosing_item9_1.`Primary Product`
+FROM     tbltrans_purchaseclosing_item9_1 INNER JOIN
+                  tblmaster_product ON tbltrans_purchaseclosing_item9_1.`Primary Product` = tblmaster_product.`Primary`
+WHERE  (tbltrans_purchaseclosing_item9_1.`Return Date` &lt;= @TanggalSampai) AND (tbltrans_purchaseclosing_item9_1.`Return Date` &gt;= @TanggalDari) AND 
+                  (tbltrans_purchaseclosing_item9_1.`Tipe SR` = 2) AND (tblmaster_product.Type = @Tipe)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Return Date" DataSourceName="core_db1.tbltrans_purchaseclosing_item9_1" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Return Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Return Date" DataSourceName="core_db1.tbltrans_purchaseclosing_item9_1" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Return Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tipe" ColumnName="Type" DataSourceName="core_db1.tblmaster_product" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Tipe" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SR_RevInvoiceTableAdapter" GeneratorDataComponentClassName="SR_RevInvoiceTableAdapter" Name="SR_RevInvoice" UserDataComponentName="SR_RevInvoiceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salesreturn.`No Transaksi` AS `SR Number`, tbltrans_salesinvoice.`No Transaksi` AS `Invoice Number`, tblmaster_product.`Product Code`, 
+                         tblmaster_product.Description, SUM(tbltrans_salesreturn_item.`Total Qty`) AS Quantity, tblmaster_master_unit.`Unit Code`, 0 AS Cost, 
+                         product_sub_brand_view.`Primary Brand`, tblmaster_product_group.`Group Code` AS `Brand Code`, tbltrans_salesinvoice.`Tanggal Transaksi` AS `Invoice Date`, 
+                         tbltrans_salesreturn_item.`Primary Product`, tblmaster_product.`Decimal`
+FROM            tbltrans_salesreturn INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_salesreturn_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tbltrans_salesinvoice_item_salesreturn ON tbltrans_salesreturn.`Primary` = tbltrans_salesinvoice_item_salesreturn.`Primary SR` INNER JOIN
+                         tbltrans_salesinvoice ON tbltrans_salesinvoice_item_salesreturn.`Primary Sales Invoice` = tbltrans_salesinvoice.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                         tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary`
+GROUP BY tblmaster_product.`Product Code`, tbltrans_salesreturn.`No Transaksi`, tblmaster_product.Description, tbltrans_salesinvoice.`No Transaksi`, 
+                         tblmaster_master_unit.`Unit Code`, product_sub_brand_view.`Primary Brand`, tblmaster_product_group.`Group Code`, tbltrans_salesinvoice.`Tanggal Transaksi`, 
+                         tbltrans_salesreturn_item.`Primary Product`, tblmaster_product.`Decimal`
+HAVING        (tbltrans_salesinvoice.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_salesinvoice.`Tanggal Transaksi` &gt;= @TanggalDari) AND 
+                         (product_sub_brand_view.`Primary Brand` = @PrimaryBrand)
+ORDER BY `Brand Code`, tblmaster_product.`Product Code`, `Invoice Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_salesinvoice" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Invoice Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_salesinvoice" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Invoice Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db.product_sub_brand_view" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SR Number" DataSetColumn="SR Number" />
+              <Mapping SourceColumn="Invoice Number" DataSetColumn="Invoice Number" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Cost" DataSetColumn="Cost" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Invoice Date" DataSetColumn="Invoice Date" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_productTableAdapter" GeneratorDataComponentClassName="tblmaster_productTableAdapter" Name="tblmaster_product" UserDataComponentName="tblmaster_productTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Product Code`, `Decimal`
+FROM            tblmaster_product</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchase_closing_item_detailTableAdapter" GeneratorDataComponentClassName="tbltrans_purchase_closing_item_detailTableAdapter" Name="tbltrans_purchase_closing_item_detail" UserDataComponentName="tbltrans_purchase_closing_item_detailTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_purchase_closing_item_detail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `primary transaksi` AS `primary closing`, `primary transaksi asal`, `tipe transaksi asal`, `primary code no`, SUM(qty) AS qty, SUM(amount) AS amount
+FROM  tbltrans_purchase_closing_item_detail
+WHERE (`tipe item detail` = @TipeItemDetail)
+GROUP BY `primary transaksi`, `primary transaksi asal`, `tipe transaksi asal`, `primary code no`
+HAVING (`primary transaksi` = @PrimaryClosing) AND (`tipe transaksi asal` = @TipeTransaksiAsal)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="tipe item detail" DataSourceName="tbltrans_purchase_closing_item_detail" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe item detail" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryClosing" ColumnName="primary transaksi" DataSourceName="tbltrans_purchase_closing_item_detail" DataTypeServer="double(21,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryClosing" Precision="21" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary closing" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeTransaksiAsal" ColumnName="tipe transaksi asal" DataSourceName="tbltrans_purchase_closing_item_detail" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeTransaksiAsal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe transaksi asal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary closing" DataSetColumn="primary closing" />
+              <Mapping SourceColumn="primary transaksi asal" DataSetColumn="primary transaksi asal" />
+              <Mapping SourceColumn="tipe transaksi asal" DataSetColumn="tipe transaksi asal" />
+              <Mapping SourceColumn="primary code no" DataSetColumn="primary code no" />
+              <Mapping SourceColumn="qty" DataSetColumn="qty" />
+              <Mapping SourceColumn="amount" DataSetColumn="amount" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable4TableAdapter" GeneratorDataComponentClassName="DataTable4TableAdapter" Name="DataTable4" UserDataComponentName="DataTable4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_salesreturn.`No Transaksi` AS `SR Number`, tbltrans_salesinvoice.`No Transaksi`, tbltrans_salesreturn.`Primary Stock In Sales Return`, 
+                  tbltrans_salesinvoice.`Tanggal Transaksi` AS `Invoice Date`
+FROM     tbltrans_salesreturn INNER JOIN
+                  tbltrans_salesinvoice ON tbltrans_salesreturn.`primary invoice` = tbltrans_salesinvoice.`Primary`
+WHERE  (tbltrans_salesreturn.`Tipe SR` = @TipeSR) AND (tbltrans_salesreturn.`Tanggal Transaksi` &lt;= @TanggalSampai) AND 
+                  (tbltrans_salesreturn.`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db1.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="core_db1.tbltrans_salesreturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="core_db1.tbltrans_salesreturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="SR Number" DataSetColumn="SR Number" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Primary Stock In Sales Return" DataSetColumn="Primary Stock In Sales Return" />
+              <Mapping SourceColumn="Invoice Date" DataSetColumn="Invoice Date" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchase_closing_item_detail1TableAdapter" GeneratorDataComponentClassName="tbltrans_purchase_closing_item_detail1TableAdapter" Name="tbltrans_purchase_closing_item_detail1" UserDataComponentName="tbltrans_purchase_closing_item_detail1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT derivedtbl_1.`primary transaksi asal` AS `Primary Stock In Sales Return`, derivedtbl_1.`primary code no` AS `Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description, 
+            product_sub_brand_view.`Primary Brand`, tblmaster_product_group.`Group Code` AS Brand, derivedtbl_1.qty AS Quantity, derivedtbl_1.amount AS Cost, tblmaster_product.`Decimal`, tblmaster_master_unit.`Unit Code`
+FROM  (SELECT `primary transaksi` AS `primary closing`, `primary transaksi asal`, `tipe transaksi asal`, `primary code no`, SUM(qty) AS qty, SUM(amount) AS amount
+            FROM   tbltrans_purchase_closing_item_detail
+            WHERE (`tipe item detail` = @TipeItemDetail)
+            GROUP BY `primary transaksi`, `primary transaksi asal`, `tipe transaksi asal`, `primary code no`
+            HAVING (`primary transaksi` = @PrimaryClosing) AND (`tipe transaksi asal` = @TipeTransaksiAsal)) derivedtbl_1 INNER JOIN
+            tblmaster_product ON derivedtbl_1.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+            tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+            product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+            tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` INNER JOIN
+            tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryClosing" ColumnName="" DataSourceName="" DataTypeServer="double(21,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryClosing" Precision="21" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeTransaksiAsal" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeTransaksiAsal" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Stock In Sales Return" DataSetColumn="Primary Stock In Sales Return" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Brand" DataSetColumn="Brand" />
+              <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
+              <Mapping SourceColumn="Cost" DataSetColumn="Cost" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable7TableAdapter" GeneratorDataComponentClassName="DataTable7TableAdapter" Name="DataTable7" UserDataComponentName="DataTable7TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltransaksi_stockinout.`Primary` AS `Primary Stock In SR`, tbltrans_salesreturn.`Invoice No Quick`, tbltrans_salesreturn.`Invoice Date Quick`, tbltrans_salesreturn.`No Transaksi` AS `SR Number`
+FROM  tbltransaksi_stockinout INNER JOIN
+            tbltrans_salesreturn ON tbltransaksi_stockinout.`Primary` = tbltrans_salesreturn.`Primary Stock In Sales Return`
+WHERE (tbltransaksi_stockinout.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltransaksi_stockinout.`Tanggal Transaksi` &gt;= @TanggalDari) AND (tbltrans_salesreturn.`Quick Sales Return` = 1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Stock In SR" DataSetColumn="Primary Stock In SR" />
+              <Mapping SourceColumn="Invoice No Quick" DataSetColumn="Invoice No Quick" />
+              <Mapping SourceColumn="Invoice Date Quick" DataSetColumn="Invoice Date Quick" />
+              <Mapping SourceColumn="SR Number" DataSetColumn="SR Number" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanSalesReturnList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanSalesReturnList" msprop:Generator_DataSetName="DseLaporanSalesReturnList">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="SR_x0020_No" msprop:Generator_UserColumnName="SR No" msprop:Generator_ColumnPropNameInRow="SR_No" msprop:Generator_ColumnVarNameInTable="columnSR_No" msprop:Generator_ColumnPropNameInTable="SR_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SR_x0020_Date" msprop:Generator_UserColumnName="SR Date" msprop:Generator_ColumnPropNameInRow="SR_Date" msprop:Generator_ColumnVarNameInTable="columnSR_Date" msprop:Generator_ColumnPropNameInTable="SR_DateColumn" type="xs:dateTime" />
+              <xs:element name="Invoice_x0020_No" msprop:Generator_UserColumnName="Invoice No" msprop:Generator_ColumnPropNameInRow="Invoice_No" msprop:Generator_ColumnVarNameInTable="columnInvoice_No" msprop:Generator_ColumnPropNameInTable="Invoice_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Code" msprop:Generator_UserColumnName="Customer Code" msprop:Generator_ColumnPropNameInRow="Customer_Code" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code" msprop:Generator_ColumnPropNameInTable="Customer_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Name" msprop:Generator_UserColumnName="Customer Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sub_x0020_Total" msprop:Generator_UserColumnName="Sub Total" msprop:Generator_ColumnPropNameInRow="Sub_Total" msprop:Generator_ColumnVarNameInTable="columnSub_Total" msprop:Generator_ColumnPropNameInTable="Sub_TotalColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Closing_x0020_Period" msprop:Generator_UserColumnName="Closing Period" msprop:Generator_ColumnVarNameInTable="columnClosing_Period" msprop:Generator_ColumnPropNameInRow="Closing_Period" msprop:Generator_ColumnPropNameInTable="Closing_PeriodColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Ending_x0020_Qty" msprop:Generator_UserColumnName="Ending Qty" msprop:Generator_ColumnVarNameInTable="columnEnding_Qty" msprop:Generator_ColumnPropNameInRow="Ending_Qty" msprop:Generator_ColumnPropNameInTable="Ending_QtyColumn" type="xs:double" />
+              <xs:element name="Ending_x0020_Amount" msprop:Generator_UserColumnName="Ending Amount" msprop:Generator_ColumnVarNameInTable="columnEnding_Amount" msprop:Generator_ColumnPropNameInRow="Ending_Amount" msprop:Generator_ColumnPropNameInTable="Ending_AmountColumn" type="xs:double" />
+              <xs:element name="Out_x0020_Qty" msprop:Generator_UserColumnName="Out Qty" msprop:Generator_ColumnVarNameInTable="columnOut_Qty" msprop:Generator_ColumnPropNameInRow="Out_Qty" msprop:Generator_ColumnPropNameInTable="Out_QtyColumn" type="xs:double" />
+              <xs:element name="Out_x0020_Amount" msprop:Generator_UserColumnName="Out Amount" msprop:Generator_ColumnVarNameInTable="columnOut_Amount" msprop:Generator_ColumnPropNameInRow="Out_Amount" msprop:Generator_ColumnPropNameInTable="Out_AmountColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchaseclosing_item8" msprop:Generator_UserTableName="tbltrans_purchaseclosing_item8" msprop:Generator_RowDeletedName="tbltrans_purchaseclosing_item8RowDeleted" msprop:Generator_RowChangedName="tbltrans_purchaseclosing_item8RowChanged" msprop:Generator_RowClassName="tbltrans_purchaseclosing_item8Row" msprop:Generator_RowChangingName="tbltrans_purchaseclosing_item8RowChanging" msprop:Generator_RowEvArgName="tbltrans_purchaseclosing_item8RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchaseclosing_item8RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchaseclosing_item8DataTable" msprop:Generator_TableVarName="tabletbltrans_purchaseclosing_item8" msprop:Generator_RowDeletingName="tbltrans_purchaseclosing_item8RowDeleting" msprop:Generator_TablePropName="tbltrans_purchaseclosing_item8">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Total_x0020_Qty_x0020_Retur" msprop:Generator_UserColumnName="Total Qty Retur" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty_Retur" msprop:Generator_ColumnPropNameInRow="Total_Qty_Retur" msprop:Generator_ColumnPropNameInTable="Total_Qty_ReturColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Closing_x0020_Period" msprop:Generator_UserColumnName="Closing Period" msprop:Generator_ColumnVarNameInTable="columnClosing_Period" msprop:Generator_ColumnPropNameInRow="Closing_Period" msprop:Generator_ColumnPropNameInTable="Closing_PeriodColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Price_x0020_At_x0020_Closing" msprop:Generator_UserColumnName="Price At Closing" msprop:Generator_ColumnVarNameInTable="columnPrice_At_Closing" msprop:Generator_ColumnPropNameInRow="Price_At_Closing" msprop:Generator_ColumnPropNameInTable="Price_At_ClosingColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable5" msprop:Generator_UserTableName="DataTable5" msprop:Generator_RowDeletedName="DataTable5RowDeleted" msprop:Generator_RowChangedName="DataTable5RowChanged" msprop:Generator_RowClassName="DataTable5Row" msprop:Generator_RowChangingName="DataTable5RowChanging" msprop:Generator_RowEvArgName="DataTable5RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable5RowChangeEventHandler" msprop:Generator_TableClassName="DataTable5DataTable" msprop:Generator_TableVarName="tableDataTable5" msprop:Generator_RowDeletingName="DataTable5RowDeleting" msprop:Generator_TablePropName="DataTable5">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" />
+              <xs:element name="Brand" msprop:Generator_UserColumnName="Brand" msprop:Generator_ColumnPropNameInRow="Brand" msprop:Generator_ColumnVarNameInTable="columnBrand" msprop:Generator_ColumnPropNameInTable="BrandColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable6" msprop:Generator_UserTableName="DataTable6" msprop:Generator_RowDeletedName="DataTable6RowDeleted" msprop:Generator_RowChangedName="DataTable6RowChanged" msprop:Generator_RowClassName="DataTable6Row" msprop:Generator_RowChangingName="DataTable6RowChanging" msprop:Generator_RowEvArgName="DataTable6RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable6RowChangeEventHandler" msprop:Generator_TableClassName="DataTable6DataTable" msprop:Generator_TableVarName="tableDataTable6" msprop:Generator_RowDeletingName="DataTable6RowDeleting" msprop:Generator_TablePropName="DataTable6">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Closing_x0020_Period" msprop:Generator_UserColumnName="Closing Period" msprop:Generator_ColumnPropNameInRow="Closing_Period" msprop:Generator_ColumnVarNameInTable="columnClosing_Period" msprop:Generator_ColumnPropNameInTable="Closing_PeriodColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Code_x0020_No" msprop:Generator_UserColumnName="Primary Code No" msprop:Generator_ColumnPropNameInRow="Primary_Code_No" msprop:Generator_ColumnVarNameInTable="columnPrimary_Code_No" msprop:Generator_ColumnPropNameInTable="Primary_Code_NoColumn" type="xs:double" />
+              <xs:element name="Qty_x0020_In_x0020_Adjust" msprop:Generator_UserColumnName="Qty In Adjust" msprop:Generator_ColumnPropNameInRow="Qty_In_Adjust" msprop:Generator_ColumnVarNameInTable="columnQty_In_Adjust" msprop:Generator_ColumnPropNameInTable="Qty_In_AdjustColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Price" msprop:Generator_UserColumnName="Unit Price" msprop:Generator_ColumnPropNameInRow="Unit_Price" msprop:Generator_ColumnVarNameInTable="columnUnit_Price" msprop:Generator_ColumnPropNameInTable="Unit_PriceColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Dokumen_x0020_Acuan" msprop:Generator_UserColumnName="Primary Dokumen Acuan" msprop:Generator_ColumnPropNameInRow="Primary_Dokumen_Acuan" msprop:Generator_ColumnVarNameInTable="columnPrimary_Dokumen_Acuan" msprop:Generator_ColumnPropNameInTable="Primary_Dokumen_AcuanColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable3" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_TablePropName="DataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_SR" msprop:Generator_UserColumnName="Primary SR" msprop:Generator_ColumnPropNameInRow="Primary_SR" msprop:Generator_ColumnVarNameInTable="columnPrimary_SR" msprop:Generator_ColumnPropNameInTable="Primary_SRColumn" type="xs:double" />
+              <xs:element name="Invoice_x0020_Number" msprop:Generator_UserColumnName="Invoice Number" msprop:Generator_ColumnPropNameInRow="Invoice_Number" msprop:Generator_ColumnVarNameInTable="columnInvoice_Number" msprop:Generator_ColumnPropNameInTable="Invoice_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Stock_x0020_In_x0020_Sales_x0020_Return" msprop:Generator_UserColumnName="Primary Stock In Sales Return" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInRow="Primary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInTable="Primary_Stock_In_Sales_ReturnColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchaseclosing_item9_1" msprop:Generator_UserTableName="tbltrans_purchaseclosing_item9_1" msprop:Generator_RowDeletedName="tbltrans_purchaseclosing_item9_1RowDeleted" msprop:Generator_RowChangedName="tbltrans_purchaseclosing_item9_1RowChanged" msprop:Generator_RowClassName="tbltrans_purchaseclosing_item9_1Row" msprop:Generator_RowChangingName="tbltrans_purchaseclosing_item9_1RowChanging" msprop:Generator_RowEvArgName="tbltrans_purchaseclosing_item9_1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchaseclosing_item9_1RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchaseclosing_item9_1DataTable" msprop:Generator_TableVarName="tabletbltrans_purchaseclosing_item9_1" msprop:Generator_RowDeletingName="tbltrans_purchaseclosing_item9_1RowDeleting" msprop:Generator_TablePropName="tbltrans_purchaseclosing_item9_1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SO_x0020_Number" msprop:Generator_UserColumnName="SO Number" msprop:Generator_ColumnPropNameInRow="SO_Number" msprop:Generator_ColumnVarNameInTable="columnSO_Number" msprop:Generator_ColumnPropNameInTable="SO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DO_x0020_Number" msprop:Generator_UserColumnName="DO Number" msprop:Generator_ColumnPropNameInRow="DO_Number" msprop:Generator_ColumnVarNameInTable="columnDO_Number" msprop:Generator_ColumnPropNameInTable="DO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SR_x0020_Number" msprop:Generator_UserColumnName="SR Number" msprop:Generator_ColumnPropNameInRow="SR_Number" msprop:Generator_ColumnVarNameInTable="columnSR_Number" msprop:Generator_ColumnPropNameInTable="SR_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer" msprop:Generator_UserColumnName="Customer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInTable="CustomerColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="203" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Return_x0020_Date" msprop:Generator_UserColumnName="Return Date" msprop:Generator_ColumnPropNameInRow="Return_Date" msprop:Generator_ColumnVarNameInTable="columnReturn_Date" msprop:Generator_ColumnPropNameInTable="Return_DateColumn" type="xs:dateTime" />
+              <xs:element name="Total_x0020_Qty" msprop:Generator_UserColumnName="Total Qty" msprop:Generator_ColumnPropNameInRow="Total_Qty" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty" msprop:Generator_ColumnPropNameInTable="Total_QtyColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Stock_x0020_In_x0020_Sales_x0020_Return" msprop:Generator_UserColumnName="Primary Stock In Sales Return" msprop:Generator_ColumnPropNameInRow="Primary_Stock_In_Sales_Return" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInTable="Primary_Stock_In_Sales_ReturnColumn" type="xs:double" />
+              <xs:element name="DO_x0020_Date" msprop:Generator_UserColumnName="DO Date" msprop:Generator_ColumnPropNameInRow="DO_Date" msprop:Generator_ColumnVarNameInTable="columnDO_Date" msprop:Generator_ColumnPropNameInTable="DO_DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Price" msprop:Generator_UserColumnName="Unit Price" msprop:Generator_ColumnPropNameInRow="Unit_Price" msprop:Generator_ColumnVarNameInTable="columnUnit_Price" msprop:Generator_ColumnPropNameInTable="Unit_PriceColumn" type="xs:long" />
+              <xs:element name="Total_x0020_Unit_x0020_Price" msprop:Generator_UserColumnName="Total Unit Price" msprop:Generator_ColumnPropNameInRow="Total_Unit_Price" msprop:Generator_ColumnVarNameInTable="columnTotal_Unit_Price" msprop:Generator_ColumnPropNameInTable="Total_Unit_PriceColumn" type="xs:long" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Brand" msprop:Generator_UserColumnName="Brand" msprop:Generator_ColumnPropNameInRow="Brand" msprop:Generator_ColumnVarNameInTable="columnBrand" msprop:Generator_ColumnPropNameInTable="BrandColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SR_RevInvoice" msprop:Generator_UserTableName="SR_RevInvoice" msprop:Generator_RowDeletedName="SR_RevInvoiceRowDeleted" msprop:Generator_RowChangedName="SR_RevInvoiceRowChanged" msprop:Generator_RowClassName="SR_RevInvoiceRow" msprop:Generator_RowChangingName="SR_RevInvoiceRowChanging" msprop:Generator_RowEvArgName="SR_RevInvoiceRowChangeEvent" msprop:Generator_RowEvHandlerName="SR_RevInvoiceRowChangeEventHandler" msprop:Generator_TableClassName="SR_RevInvoiceDataTable" msprop:Generator_TableVarName="tableSR_RevInvoice" msprop:Generator_RowDeletingName="SR_RevInvoiceRowDeleting" msprop:Generator_TablePropName="SR_RevInvoice">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SR_x0020_Number" msprop:Generator_UserColumnName="SR Number" msprop:Generator_ColumnVarNameInTable="columnSR_Number" msprop:Generator_ColumnPropNameInRow="SR_Number" msprop:Generator_ColumnPropNameInTable="SR_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Invoice_x0020_Number" msprop:Generator_UserColumnName="Invoice Number" msprop:Generator_ColumnVarNameInTable="columnInvoice_Number" msprop:Generator_ColumnPropNameInRow="Invoice_Number" msprop:Generator_ColumnPropNameInTable="Invoice_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cost" msprop:Generator_UserColumnName="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnPropNameInTable="CostColumn" type="xs:long" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Invoice_x0020_Date" msprop:Generator_UserColumnName="Invoice Date" msprop:Generator_ColumnVarNameInTable="columnInvoice_Date" msprop:Generator_ColumnPropNameInRow="Invoice_Date" msprop:Generator_ColumnPropNameInTable="Invoice_DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_product" msprop:Generator_UserTableName="tblmaster_product" msprop:Generator_RowDeletedName="tblmaster_productRowDeleted" msprop:Generator_RowChangedName="tblmaster_productRowChanged" msprop:Generator_RowClassName="tblmaster_productRow" msprop:Generator_RowChangingName="tblmaster_productRowChanging" msprop:Generator_RowEvArgName="tblmaster_productRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_productRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_productDataTable" msprop:Generator_TableVarName="tabletblmaster_product" msprop:Generator_RowDeletingName="tblmaster_productRowDeleting" msprop:Generator_TablePropName="tblmaster_product">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchase_closing_item_detail" msprop:Generator_UserTableName="tbltrans_purchase_closing_item_detail" msprop:Generator_RowDeletedName="tbltrans_purchase_closing_item_detailRowDeleted" msprop:Generator_RowChangedName="tbltrans_purchase_closing_item_detailRowChanged" msprop:Generator_RowClassName="tbltrans_purchase_closing_item_detailRow" msprop:Generator_RowChangingName="tbltrans_purchase_closing_item_detailRowChanging" msprop:Generator_RowEvArgName="tbltrans_purchase_closing_item_detailRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchase_closing_item_detailRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchase_closing_item_detailDataTable" msprop:Generator_TableVarName="tabletbltrans_purchase_closing_item_detail" msprop:Generator_RowDeletingName="tbltrans_purchase_closing_item_detailRowDeleting" msprop:Generator_TablePropName="tbltrans_purchase_closing_item_detail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_closing" msprop:Generator_UserColumnName="primary closing" msprop:Generator_ColumnVarNameInTable="columnprimary_closing" msprop:Generator_ColumnPropNameInRow="primary_closing" msprop:Generator_ColumnPropNameInTable="primary_closingColumn" type="xs:double" />
+              <xs:element name="primary_x0020_transaksi_x0020_asal" msprop:Generator_UserColumnName="primary transaksi asal" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi_asal" msprop:Generator_ColumnPropNameInRow="primary_transaksi_asal" msprop:Generator_ColumnPropNameInTable="primary_transaksi_asalColumn" type="xs:double" />
+              <xs:element name="tipe_x0020_transaksi_x0020_asal" msprop:Generator_UserColumnName="tipe transaksi asal" msprop:Generator_ColumnVarNameInTable="columntipe_transaksi_asal" msprop:Generator_ColumnPropNameInRow="tipe_transaksi_asal" msprop:Generator_ColumnPropNameInTable="tipe_transaksi_asalColumn" type="xs:int" />
+              <xs:element name="primary_x0020_code_x0020_no" msprop:Generator_UserColumnName="primary code no" msprop:Generator_ColumnVarNameInTable="columnprimary_code_no" msprop:Generator_ColumnPropNameInRow="primary_code_no" msprop:Generator_ColumnPropNameInTable="primary_code_noColumn" type="xs:double" />
+              <xs:element name="qty" msprop:Generator_UserColumnName="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnPropNameInTable="qtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="amount" msprop:Generator_UserColumnName="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable4" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_RowClassName="DataTable4Row" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_TablePropName="DataTable4">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SR_x0020_Number" msprop:Generator_UserColumnName="SR Number" msprop:Generator_ColumnVarNameInTable="columnSR_Number" msprop:Generator_ColumnPropNameInRow="SR_Number" msprop:Generator_ColumnPropNameInTable="SR_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Stock_x0020_In_x0020_Sales_x0020_Return" msprop:Generator_UserColumnName="Primary Stock In Sales Return" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInRow="Primary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInTable="Primary_Stock_In_Sales_ReturnColumn" type="xs:double" />
+              <xs:element name="Invoice_x0020_Date" msprop:Generator_UserColumnName="Invoice Date" msprop:Generator_ColumnVarNameInTable="columnInvoice_Date" msprop:Generator_ColumnPropNameInRow="Invoice_Date" msprop:Generator_ColumnPropNameInTable="Invoice_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchase_closing_item_detail1" msprop:Generator_UserTableName="tbltrans_purchase_closing_item_detail1" msprop:Generator_RowDeletedName="tbltrans_purchase_closing_item_detail1RowDeleted" msprop:Generator_RowChangedName="tbltrans_purchase_closing_item_detail1RowChanged" msprop:Generator_RowClassName="tbltrans_purchase_closing_item_detail1Row" msprop:Generator_RowChangingName="tbltrans_purchase_closing_item_detail1RowChanging" msprop:Generator_RowEvArgName="tbltrans_purchase_closing_item_detail1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchase_closing_item_detail1RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchase_closing_item_detail1DataTable" msprop:Generator_TableVarName="tabletbltrans_purchase_closing_item_detail1" msprop:Generator_RowDeletingName="tbltrans_purchase_closing_item_detail1RowDeleting" msprop:Generator_TablePropName="tbltrans_purchase_closing_item_detail1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Stock_x0020_In_x0020_Sales_x0020_Return" msprop:Generator_UserColumnName="Primary Stock In Sales Return" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInRow="Primary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInTable="Primary_Stock_In_Sales_ReturnColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Brand" msprop:Generator_UserColumnName="Brand" msprop:Generator_ColumnVarNameInTable="columnBrand" msprop:Generator_ColumnPropNameInRow="Brand" msprop:Generator_ColumnPropNameInTable="BrandColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Cost" msprop:Generator_UserColumnName="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnPropNameInTable="CostColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Invoice_x0020_Number" msprop:Generator_UserColumnName="Invoice Number" msprop:Generator_ColumnVarNameInTable="columnInvoice_Number" msprop:Generator_ColumnPropNameInRow="Invoice_Number" msprop:Generator_ColumnPropNameInTable="Invoice_NumberColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="SR_x0020_Number" msprop:Generator_UserColumnName="SR Number" msprop:Generator_ColumnVarNameInTable="columnSR_Number" msprop:Generator_ColumnPropNameInRow="SR_Number" msprop:Generator_ColumnPropNameInTable="SR_NumberColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Invoice_x0020_Date" msprop:Generator_UserColumnName="Invoice Date" msprop:Generator_ColumnVarNameInTable="columnInvoice_Date" msprop:Generator_ColumnPropNameInRow="Invoice_Date" msprop:Generator_ColumnPropNameInTable="Invoice_DateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable7" msprop:Generator_UserTableName="DataTable7" msprop:Generator_RowDeletedName="DataTable7RowDeleted" msprop:Generator_RowChangedName="DataTable7RowChanged" msprop:Generator_RowClassName="DataTable7Row" msprop:Generator_RowChangingName="DataTable7RowChanging" msprop:Generator_RowEvArgName="DataTable7RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable7RowChangeEventHandler" msprop:Generator_TableClassName="DataTable7DataTable" msprop:Generator_TableVarName="tableDataTable7" msprop:Generator_RowDeletingName="DataTable7RowDeleting" msprop:Generator_TablePropName="DataTable7">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Stock_x0020_In_x0020_SR" msprop:Generator_UserColumnName="Primary Stock In SR" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_In_SR" msprop:Generator_ColumnPropNameInRow="Primary_Stock_In_SR" msprop:Generator_ColumnPropNameInTable="Primary_Stock_In_SRColumn" type="xs:double" />
+              <xs:element name="Invoice_x0020_No_x0020_Quick" msprop:Generator_UserColumnName="Invoice No Quick" msprop:Generator_ColumnVarNameInTable="columnInvoice_No_Quick" msprop:Generator_ColumnPropNameInRow="Invoice_No_Quick" msprop:Generator_ColumnPropNameInTable="Invoice_No_QuickColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Invoice_x0020_Date_x0020_Quick" msprop:Generator_UserColumnName="Invoice Date Quick" msprop:Generator_ColumnVarNameInTable="columnInvoice_Date_Quick" msprop:Generator_ColumnPropNameInRow="Invoice_Date_Quick" msprop:Generator_ColumnPropNameInTable="Invoice_Date_QuickColumn" type="xs:dateTime" />
+              <xs:element name="SR_x0020_Number" msprop:Generator_UserColumnName="SR Number" msprop:Generator_ColumnVarNameInTable="columnSR_Number" msprop:Generator_ColumnPropNameInRow="SR_Number" msprop:Generator_ColumnPropNameInTable="SR_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

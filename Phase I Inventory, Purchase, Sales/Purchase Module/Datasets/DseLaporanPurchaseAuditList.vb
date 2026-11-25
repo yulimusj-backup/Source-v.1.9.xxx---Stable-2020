@@ -1,0 +1,2 @@
+﻿Partial Class DseLaporanPurchaseAuditList
+End Class

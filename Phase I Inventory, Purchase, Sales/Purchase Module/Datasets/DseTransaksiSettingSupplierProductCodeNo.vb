@@ -1,0 +1,2 @@
+﻿Partial Class DseTransaksiSettingSupplierProductCodeNo
+End Class

@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C47B13CE-B12C-4A63-8E58-425AA361798D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SMESS_Inventory.My.MyApplication</StartupObject>
+    <RootNamespace>SMESS_Inventory</RootNamespace>
+    <AssemblyName>SMESS Inventory</AssemblyName>
+    <MyType>WindowsForms</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SMESS Inventory.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SMESS Inventory.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=5.2.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\MySql.Data\5.2.5.0__c5687fc88969c44d\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="system.management, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Phase I Inventory, Purchase, Sales\SMESS\system.management.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Class\ClassHarddrive.vb" />
+    <Compile Include="Class\ClsDBVersion.vb" />
+    <Compile Include="Class\ClsLicense.vb" />
+    <Compile Include="Dataset\DseDBVersion.Designer.vb">
+      <DependentUpon>DseDBVersion.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Form\FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMain.Designer.vb">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMainSMESS.Designer.vb">
+      <DependentUpon>FrmMainSMESS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmMainSMESS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSplashScreen.Designer.vb">
+      <DependentUpon>FrmSplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmSplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiLicensing.Designer.vb">
+      <DependentUpon>FrmTransaksiLicensing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiLicensing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiStockInAdj.Designer.vb">
+      <DependentUpon>FrmTransaksiStockInAdj.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiStockInAdj.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form\FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmMain.resx">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmMainSMESS.resx">
+      <DependentUpon>FrmMainSMESS.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmSplashScreen.resx">
+      <DependentUpon>FrmSplashScreen.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiLicensing.resx">
+      <DependentUpon>FrmTransaksiLicensing.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiStockInAdj.resx">
+      <DependentUpon>FrmTransaksiStockInAdj.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Dataset\DseDBVersion.xsc">
+      <DependentUpon>DseDBVersion.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DseDBVersion.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseDBVersion.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset\DseDBVersion.xss">
+      <DependentUpon>DseDBVersion.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\SMESS Project\PT. Creative\CustomSMESS\WindowsApplication1\Custom SMESS.vbproj">
+      <Project>{051C5D37-A626-4803-8A8A-FB321512AAF6}</Project>
+      <Name>Custom SMESS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Phase I Inventory, Purchase, Sales\Core Module\Core Module.vbproj">
+      <Project>{F7AFB6D3-C463-4E71-811E-666E760D09FC}</Project>
+      <Name>Core Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Phase I Inventory, Purchase, Sales\E-mail Module\E-mail Module.vbproj">
+      <Project>{F0D3342B-BD83-4F3C-87AC-7EECC58F702D}</Project>
+      <Name>E-mail Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Phase I Inventory, Purchase, Sales\Inventory Module\Inventory Module.vbproj">
+      <Project>{69264E24-0555-4065-8FF8-B7E625E764A3}</Project>
+      <Name>Inventory Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess-cancel 16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess-delete 16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess-edit 16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess-find 16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess-new 16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess-ok 16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess-print 16.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

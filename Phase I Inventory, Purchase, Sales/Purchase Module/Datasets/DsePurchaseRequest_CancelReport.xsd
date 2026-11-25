@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DsePurchaseRequest_CancelReport" targetNamespace="http://tempuri.org/DsePurchaseRequest_CancelReport.xsd" xmlns:mstns="http://tempuri.org/DsePurchaseRequest_CancelReport.xsd" xmlns="http://tempuri.org/DsePurchaseRequest_CancelReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblCetak_HeaderTableAdapter" GeneratorDataComponentClassName="TblCetak_HeaderTableAdapter" Name="TblCetak_Header" UserDataComponentName="TblCetak_HeaderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_req_cancel.`primary`, tbltrans_purchase_req_cancel.`no transaksi` AS document_no, tbltrans_purchase_req_cancel.tanggal, 
+                         tbltrans_purchase_req_cancel.reason, tbltrans_purchase_req_cancel.remarks, tbltrans_purchase_req.`primary` AS primary_pr, 
+                         tbltrans_purchase_req.`no transaksi` AS pr_no, tblmaster_refparty.`primary` AS primary_refparty, tblmaster_refparty.code AS request_by, 
+                         tblmaster_refparty.`desc` AS `desc ref party`
+FROM            tbltrans_purchase_req_cancel INNER JOIN
+                         tbltrans_purchase_req ON tbltrans_purchase_req_cancel.`primary pr` = tbltrans_purchase_req.`primary` INNER JOIN
+                         tblmaster_refparty ON tbltrans_purchase_req.`primary ref party` = tblmaster_refparty.`primary`
+ORDER BY tbltrans_purchase_req_cancel.tanggal, document_no</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="document_no" DataSetColumn="document_no" />
+              <Mapping SourceColumn="tanggal" DataSetColumn="tanggal" />
+              <Mapping SourceColumn="reason" DataSetColumn="reason" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+              <Mapping SourceColumn="primary_pr" DataSetColumn="primary_pr" />
+              <Mapping SourceColumn="pr_no" DataSetColumn="pr_no" />
+              <Mapping SourceColumn="primary_refparty" DataSetColumn="primary_refparty" />
+              <Mapping SourceColumn="request_by" DataSetColumn="request_by" />
+              <Mapping SourceColumn="desc ref party" DataSetColumn="desc ref party" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_AllProduct" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_AllProduct" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_AllProduct">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_req_cancel.`primary`, tbltrans_purchase_req_cancel.`no transaksi` AS document_no, tbltrans_purchase_req_cancel.tanggal, 
+                         tbltrans_purchase_req_cancel.reason, tbltrans_purchase_req_cancel.remarks, tbltrans_purchase_req.`primary` AS primary_pr, 
+                         tbltrans_purchase_req.`no transaksi` AS pr_no, tblmaster_refparty.`primary` AS primary_refparty, tblmaster_refparty.code AS request_by, 
+                         tblmaster_refparty.`desc` AS `desc ref party`
+FROM            tbltrans_purchase_req_cancel INNER JOIN
+                         tbltrans_purchase_req ON tbltrans_purchase_req_cancel.`primary pr` = tbltrans_purchase_req.`primary` INNER JOIN
+                         tblmaster_refparty ON tbltrans_purchase_req.`primary ref party` = tblmaster_refparty.`primary` INNER JOIN
+                         tbltrans_purchase_req_cancel_item ON tbltrans_purchase_req_cancel.`primary` = tbltrans_purchase_req_cancel_item.`primary transaksi`
+WHERE        (tbltrans_purchase_req_cancel.tanggal &gt;= @StartDate) AND (tbltrans_purchase_req_cancel.tanggal &lt;= @EndDate) AND 
+                         (tbltrans_purchase_req_cancel_item.`primary code no` = @PrimaryCode)
+ORDER BY tbltrans_purchase_req_cancel.tanggal, document_no</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="tanggal" DataSourceName="smess_creative.tbltrans_purchase_req_cancel" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="tanggal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="tanggal" DataSourceName="smess_creative.tbltrans_purchase_req_cancel" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="tanggal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryCode" ColumnName="primary code no" DataSourceName="smess_creative.tbltrans_purchase_req_cancel_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryCode" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary code no" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_StartEndDate" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy_StartEndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_StartEndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_req_cancel.`primary`, tbltrans_purchase_req_cancel.`no transaksi` AS document_no, tbltrans_purchase_req_cancel.tanggal, 
+                         tbltrans_purchase_req_cancel.reason, tbltrans_purchase_req_cancel.remarks, tbltrans_purchase_req.`primary` AS primary_pr, 
+                         tbltrans_purchase_req.`no transaksi` AS pr_no, tblmaster_refparty.`primary` AS primary_refparty, tblmaster_refparty.code AS request_by, 
+                         tblmaster_refparty.`desc` AS `desc ref party`
+FROM            tbltrans_purchase_req_cancel INNER JOIN
+                         tbltrans_purchase_req ON tbltrans_purchase_req_cancel.`primary pr` = tbltrans_purchase_req.`primary` INNER JOIN
+                         tblmaster_refparty ON tbltrans_purchase_req.`primary ref party` = tblmaster_refparty.`primary`
+WHERE        (tbltrans_purchase_req_cancel.tanggal &gt;= @StartDate) AND (tbltrans_purchase_req_cancel.tanggal &lt;= @EndDate)
+ORDER BY tbltrans_purchase_req_cancel.tanggal, document_no</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="tanggal" DataSourceName="smess_creative.tbltrans_purchase_req_cancel" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="tanggal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="tanggal" DataSourceName="smess_creative.tbltrans_purchase_req_cancel" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="tanggal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblCetak_ItemTableAdapter" GeneratorDataComponentClassName="TblCetak_ItemTableAdapter" Name="TblCetak_Item" UserDataComponentName="TblCetak_ItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_req_cancel_item.`primary`, tbltrans_purchase_req_cancel_item.`primary transaksi`, tbltrans_purchase_req_cancel_item.`primary code no`, 
+                         tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, tbltrans_purchase_req_cancel_item.qty, 
+                         tbltrans_purchase_req_cancel_item.`primary unit`, tblmaster_master_unit.`Unit Code`, tbltrans_purchase_req_cancel_item.remarks
+FROM            tblmaster_product INNER JOIN
+                         tbltrans_purchase_req_cancel_item ON tblmaster_product.`Primary` = tbltrans_purchase_req_cancel_item.`primary code no` INNER JOIN
+                         tblmaster_master_unit ON tbltrans_purchase_req_cancel_item.`primary unit` = tblmaster_master_unit.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary transaksi" DataSetColumn="primary transaksi" />
+              <Mapping SourceColumn="primary code no" DataSetColumn="primary code no" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="qty" DataSetColumn="qty" />
+              <Mapping SourceColumn="primary unit" DataSetColumn="primary unit" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryMinAndMax" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryMinAndMax" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryMinAndMax">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_req_cancel_item.`primary`, tbltrans_purchase_req_cancel_item.`primary transaksi`, tbltrans_purchase_req_cancel_item.`primary code no`, 
+                         tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, tbltrans_purchase_req_cancel_item.qty, 
+                         tbltrans_purchase_req_cancel_item.`primary unit`, tblmaster_master_unit.`Unit Code`, tbltrans_purchase_req_cancel_item.remarks
+FROM            tblmaster_product INNER JOIN
+                         tbltrans_purchase_req_cancel_item ON tblmaster_product.`Primary` = tbltrans_purchase_req_cancel_item.`primary code no` INNER JOIN
+                         tblmaster_master_unit ON tbltrans_purchase_req_cancel_item.`primary unit` = tblmaster_master_unit.`Primary`
+WHERE        (tbltrans_purchase_req_cancel_item.`primary transaksi` &gt;= @PrimaryMin) AND (tbltrans_purchase_req_cancel_item.`primary transaksi` &lt;= @PrimaryMax)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryMin" ColumnName="primary transaksi" DataSourceName="smess_creative.tbltrans_purchase_req_cancel_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryMin" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryMax" ColumnName="primary transaksi" DataSourceName="smess_creative.tbltrans_purchase_req_cancel_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryMax" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DsePurchaseRequest_CancelReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DsePurchaseRequest_CancelReport" msprop:Generator_DataSetName="DsePurchaseRequest_CancelReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TblCetak_Header" msprop:Generator_UserTableName="TblCetak_Header" msprop:Generator_RowDeletedName="TblCetak_HeaderRowDeleted" msprop:Generator_RowChangedName="TblCetak_HeaderRowChanged" msprop:Generator_RowClassName="TblCetak_HeaderRow" msprop:Generator_RowChangingName="TblCetak_HeaderRowChanging" msprop:Generator_RowEvArgName="TblCetak_HeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetak_HeaderRowChangeEventHandler" msprop:Generator_TableClassName="TblCetak_HeaderDataTable" msprop:Generator_TableVarName="tableTblCetak_Header" msprop:Generator_RowDeletingName="TblCetak_HeaderRowDeleting" msprop:Generator_TablePropName="TblCetak_Header">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="document_no" msprop:Generator_UserColumnName="document_no" msprop:Generator_ColumnPropNameInRow="document_no" msprop:Generator_ColumnVarNameInTable="columndocument_no" msprop:Generator_ColumnPropNameInTable="document_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tanggal" msprop:Generator_UserColumnName="tanggal" msprop:Generator_ColumnPropNameInRow="tanggal" msprop:Generator_ColumnVarNameInTable="columntanggal" msprop:Generator_ColumnPropNameInTable="tanggalColumn" type="xs:dateTime" />
+              <xs:element name="reason" msprop:Generator_UserColumnName="reason" msprop:Generator_ColumnPropNameInRow="reason" msprop:Generator_ColumnVarNameInTable="columnreason" msprop:Generator_ColumnPropNameInTable="reasonColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_pr" msprop:Generator_UserColumnName="primary_pr" msprop:Generator_ColumnPropNameInRow="primary_pr" msprop:Generator_ColumnVarNameInTable="columnprimary_pr" msprop:Generator_ColumnPropNameInTable="primary_prColumn" type="xs:double" />
+              <xs:element name="pr_no" msprop:Generator_UserColumnName="pr_no" msprop:Generator_ColumnPropNameInRow="pr_no" msprop:Generator_ColumnVarNameInTable="columnpr_no" msprop:Generator_ColumnPropNameInTable="pr_noColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_refparty" msprop:Generator_UserColumnName="primary_refparty" msprop:Generator_ColumnPropNameInRow="primary_refparty" msprop:Generator_ColumnVarNameInTable="columnprimary_refparty" msprop:Generator_ColumnPropNameInTable="primary_refpartyColumn" type="xs:double" />
+              <xs:element name="request_by" msprop:Generator_UserColumnName="request_by" msprop:Generator_ColumnPropNameInRow="request_by" msprop:Generator_ColumnVarNameInTable="columnrequest_by" msprop:Generator_ColumnPropNameInTable="request_byColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="desc_x0020_ref_x0020_party" msprop:Generator_UserColumnName="desc ref party" msprop:Generator_ColumnVarNameInTable="columndesc_ref_party" msprop:Generator_ColumnPropNameInRow="desc_ref_party" msprop:Generator_ColumnPropNameInTable="desc_ref_partyColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblCetak_Item" msprop:Generator_UserTableName="TblCetak_Item" msprop:Generator_RowDeletedName="TblCetak_ItemRowDeleted" msprop:Generator_RowChangedName="TblCetak_ItemRowChanged" msprop:Generator_RowClassName="TblCetak_ItemRow" msprop:Generator_RowChangingName="TblCetak_ItemRowChanging" msprop:Generator_RowEvArgName="TblCetak_ItemRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetak_ItemRowChangeEventHandler" msprop:Generator_TableClassName="TblCetak_ItemDataTable" msprop:Generator_TableVarName="tableTblCetak_Item" msprop:Generator_RowDeletingName="TblCetak_ItemRowDeleting" msprop:Generator_TablePropName="TblCetak_Item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_transaksi" msprop:Generator_UserColumnName="primary transaksi" msprop:Generator_ColumnPropNameInRow="primary_transaksi" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi" msprop:Generator_ColumnPropNameInTable="primary_transaksiColumn" type="xs:double" />
+              <xs:element name="primary_x0020_code_x0020_no" msprop:Generator_UserColumnName="primary code no" msprop:Generator_ColumnPropNameInRow="primary_code_no" msprop:Generator_ColumnVarNameInTable="columnprimary_code_no" msprop:Generator_ColumnPropNameInTable="primary_code_noColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="qty" msprop:Generator_UserColumnName="qty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInTable="qtyColumn" type="xs:decimal" />
+              <xs:element name="primary_x0020_unit" msprop:Generator_UserColumnName="primary unit" msprop:Generator_ColumnPropNameInRow="primary_unit" msprop:Generator_ColumnVarNameInTable="columnprimary_unit" msprop:Generator_ColumnPropNameInTable="primary_unitColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblHeader" msprop:Generator_UserTableName="TblHeader" msprop:Generator_RowDeletedName="TblHeaderRowDeleted" msprop:Generator_RowChangedName="TblHeaderRowChanged" msprop:Generator_RowClassName="TblHeaderRow" msprop:Generator_RowChangingName="TblHeaderRowChanging" msprop:Generator_RowEvArgName="TblHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="TblHeaderRowChangeEventHandler" msprop:Generator_TableClassName="TblHeaderDataTable" msprop:Generator_TableVarName="tableTblHeader" msprop:Generator_RowDeletingName="TblHeaderRowDeleting" msprop:Generator_TablePropName="TblHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Reason" msprop:Generator_UserColumnName="Reason" msprop:Generator_ColumnPropNameInRow="Reason" msprop:Generator_ColumnVarNameInTable="columnReason" msprop:Generator_ColumnPropNameInTable="ReasonColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Primary_x0020_PR" msprop:Generator_UserColumnName="Primary PR" msprop:Generator_ColumnPropNameInRow="Primary_PR" msprop:Generator_ColumnVarNameInTable="columnPrimary_PR" msprop:Generator_ColumnPropNameInTable="Primary_PRColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="PR_x0020_No" msprop:Generator_UserColumnName="PR No" msprop:Generator_ColumnPropNameInRow="PR_No" msprop:Generator_ColumnVarNameInTable="columnPR_No" msprop:Generator_ColumnPropNameInTable="PR_NoColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Primary_x0020_RefParty" msprop:Generator_UserColumnName="Primary RefParty" msprop:Generator_ColumnPropNameInRow="Primary_RefParty" msprop:Generator_ColumnVarNameInTable="columnPrimary_RefParty" msprop:Generator_ColumnPropNameInTable="Primary_RefPartyColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Request_x0020_By" msprop:Generator_UserColumnName="Request By" msprop:Generator_ColumnPropNameInRow="Request_By" msprop:Generator_ColumnVarNameInTable="columnRequest_By" msprop:Generator_ColumnPropNameInTable="Request_ByColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblItem" msprop:Generator_UserTableName="TblItem" msprop:Generator_RowDeletedName="TblItemRowDeleted" msprop:Generator_RowChangedName="TblItemRowChanged" msprop:Generator_RowClassName="TblItemRow" msprop:Generator_RowChangingName="TblItemRowChanging" msprop:Generator_RowEvArgName="TblItemRowChangeEvent" msprop:Generator_RowEvHandlerName="TblItemRowChangeEventHandler" msprop:Generator_TableClassName="TblItemDataTable" msprop:Generator_TableVarName="tableTblItem" msprop:Generator_RowDeletingName="TblItemRowDeleting" msprop:Generator_TablePropName="TblItem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

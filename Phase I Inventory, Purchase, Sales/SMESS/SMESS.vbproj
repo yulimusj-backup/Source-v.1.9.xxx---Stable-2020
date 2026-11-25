@@ -1,0 +1,915 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BCD576E2-0F80-4EE6-BEB7-2C638B641B75}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SMESS.My.MyApplication</StartupObject>
+    <RootNamespace>SMESS</RootNamespace>
+    <AssemblyName>SMESS</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>desktop icon 3.fw.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SMESS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SMESS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\File ZIP\net-20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=5.2.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\MySql.Data\5.2.5.0__c5687fc88969c44d\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="system.management, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\system.management.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Class\ClassHarddrive.vb" />
+    <Compile Include="Class\ClsAutoUpdate.vb" />
+    <Compile Include="Class\ClsCompressFile.vb" />
+    <Compile Include="Class\ClsEncryptFile.vb" />
+    <Compile Include="Class\ClsLicense.vb" />
+    <Compile Include="Class\ClsUpdateDatebase.vb" />
+    <Compile Include="Class\ClsUpdateProgram.vb" />
+    <Compile Include="Class\ClsVersionControl.vb" />
+    <Compile Include="Dataset\DseAutoUpdate.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseAutoUpdate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DseSettingAP_AR_LedgerAcces.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseSettingAP_AR_LedgerAcces.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmAutoUpdate.Designer.vb">
+      <DependentUpon>FrmAutoUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmAutoUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmAutoUpdate_Check.Designer.vb">
+      <DependentUpon>FrmAutoUpdate_Check.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmAutoUpdate_Check.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmDownload.Designer.vb">
+      <DependentUpon>FrmDownload.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmDownload.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmDownload3.Designer.vb">
+      <DependentUpon>FrmDownload3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmDownload3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMain.Designer.vb">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMainSMESS.Designer.vb">
+      <DependentUpon>FrmMainSMESS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmMainSMESS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMainSMESS_Partial_Reminder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmPersonalSetting.Designer.vb">
+      <DependentUpon>FrmPersonalSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmPersonalSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSettingAP_AR.Designer.vb">
+      <DependentUpon>FrmSettingAP_AR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmSettingAP_AR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSettingAP_AR_ledger_access.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSettingAP_AR_LocationAccess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSettingAP_AR_partial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSettingAP_AR_partialdelivery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSettingAP_AR_ProductionSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSettingAP_AR_setting_pajak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSettingUpdate.Designer.vb">
+      <DependentUpon>FrmSettingUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmSettingUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSplashScreen.Designer.vb">
+      <DependentUpon>FrmSplashScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmSplashScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiLicensing.Designer.vb">
+      <DependentUpon>FrmTransaksiLicensing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiLicensing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiLicensing2.Designer.vb">
+      <DependentUpon>FrmTransaksiLicensing2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiLicensing2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmUpdateExpiryLicense.Designer.vb">
+      <DependentUpon>FrmUpdateExpiryLicense.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmUpdateExpiryLicense.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmVersionControl.Designer.vb">
+      <DependentUpon>FrmVersionControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmVersionControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\LoginForm1.Designer.vb">
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\LoginForm1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ModGlobalVariable.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Settings.vb" />
+    <Compile Include="Tools\DseTools.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTools.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\DseTools.vb">
+      <DependentUpon>DseTools.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\FrmTools_MonthlyClosing.Designer.vb">
+      <DependentUpon>FrmTools_MonthlyClosing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\FrmTools_MonthlyClosing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\FrmTools_MonthlyClosing_T1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\FrmTools_MonthlyClosing_T2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\FrmTools_MonthlyClosing_T3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\FrmTools_MonthlyClosing_T4.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\DseUpdatePayroll.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseUpdatePayroll.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdatePOB.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseUpdatePOB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdate_ChangeToLocationContr.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseUpdate_ChangeToLocationContr.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdate_CheckData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseUpdate_CheckData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdate_ClearTable.Designer.vb" />
+    <Compile Include="Update\DseUpdate_Other.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseUpdate_Other.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdate_RepairKartuAPAR.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseUpdate_RepairKartuAPAR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdate_v160.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseUpdate_v160.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdate_v170.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseUpdate_v170.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdate_v180.Designer.vb">
+      <DependentUpon>DseUpdate_v180.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Update\DseUpdate_v180.vb">
+      <DependentUpon>DseUpdate_v180.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Update\DseUpdate_v2018.Designer.vb">
+      <DependentUpon>DseUpdate_v2018.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Update\FrmRepairAOP.Designer.vb">
+      <DependentUpon>FrmRepairAOP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Update\FrmRepairAOP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate.Designer.vb">
+      <DependentUpon>FrmUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Update\FrmUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_ChangeToLocationControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_CheckData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_CheckData_ItemDO.Designer.vb">
+      <DependentUpon>FrmUpdate_CheckData_ItemDO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_CheckData_ItemDO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_ChkInv.Designer.vb">
+      <DependentUpon>FrmUpdate_ChkInv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_ChkInv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_ClearTabel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_ClearTabel_new.Designer.vb">
+      <DependentUpon>FrmUpdate_ClearTabel_new.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_ClearTabel_new.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_RepairAPAR.Designer.vb">
+      <DependentUpon>FrmUpdate_RepairAPAR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_RepairAPAR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_v160.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_v170.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_v180.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_v180_UpdateProsesBundling.Designer.vb">
+      <DependentUpon>FrmUpdate_v180_UpdateProsesBundling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_v180_UpdateProsesBundling.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_v2018.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update\FrmUpdate_vOther.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form\FrmAutoUpdate.resx">
+      <DependentUpon>FrmAutoUpdate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmAutoUpdate_Check.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmAutoUpdate_Check.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmDownload.resx">
+      <DependentUpon>FrmDownload.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmDownload3.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmDownload3.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLogin.resx">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmMain.resx">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmMainSMESS.resx">
+      <DependentUpon>FrmMainSMESS.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmPersonalSetting.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmPersonalSetting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmSettingAP_AR.resx">
+      <DependentUpon>FrmSettingAP_AR.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmSettingUpdate.resx">
+      <DependentUpon>FrmSettingUpdate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmSplashScreen.resx">
+      <DependentUpon>FrmSplashScreen.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiLicensing.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiLicensing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiLicensing2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiLicensing2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmUpdateExpiryLicense.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUpdateExpiryLicense.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmVersionControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmVersionControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\LoginForm1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginForm1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\FrmTools_MonthlyClosing.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTools_MonthlyClosing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update\FrmRepairAOP.resx">
+      <DependentUpon>FrmRepairAOP.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update\FrmUpdate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUpdate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update\FrmUpdate_CheckData_ItemDO.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUpdate_CheckData_ItemDO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update\FrmUpdate_ChkInv.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUpdate_ChkInv.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update\FrmUpdate_ClearTabel_new.resx">
+      <DependentUpon>FrmUpdate_ClearTabel_new.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update\FrmUpdate_RepairAPAR.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUpdate_RepairAPAR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update\FrmUpdate_v180_UpdateProsesBundling.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUpdate_v180_UpdateProsesBundling.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login form solid %282%29.png" />
+    <None Include="Update\DseUpdatePOB.xsc">
+      <DependentUpon>DseUpdatePOB.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdatePOB.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdatePOB.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdatePOB.xss">
+      <DependentUpon>DseUpdatePOB.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_v160.xsc">
+      <DependentUpon>DseUpdate_v160.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_v160.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdate_v160.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdate_v160.xss">
+      <DependentUpon>DseUpdate_v160.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Custom\Creative\CustomSMESS\WindowsApplication1\Custom SMESS.vbproj">
+      <Project>{051C5D37-A626-4803-8A8A-FB321512AAF6}</Project>
+      <Name>Custom SMESS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LAN Update\LAN Update.vbproj">
+      <Project>{B9CEAAF9-FF8F-40E9-83DA-45FBC31827F4}</Project>
+      <Name>LAN Update</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Phase II Accounting\Accounting Module.vbproj">
+      <Project>{56634451-5849-4F88-A0D3-43A48A67943D}</Project>
+      <Name>Accounting Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Phase IV HR\HR.vbproj">
+      <Project>{CA18E8B0-D42C-4A64-8A92-7BC9810292D5}</Project>
+      <Name>HR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Phase Va Client Update Module\Client Update Module.vbproj">
+      <Project>{DACADE41-2DAE-4ECC-B28C-E42B78407E51}</Project>
+      <Name>Client Update Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core Module\Core Module.vbproj">
+      <Project>{F7AFB6D3-C463-4E71-811E-666E760D09FC}</Project>
+      <Name>Core Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\E-mail Module\E-mail Module.vbproj">
+      <Project>{F0D3342B-BD83-4F3C-87AC-7EECC58F702D}</Project>
+      <Name>E-mail Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Inventory Module\Inventory Module.vbproj">
+      <Project>{69264E24-0555-4065-8FF8-B7E625E764A3}</Project>
+      <Name>Inventory Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Purchase Module\Purchase Module.vbproj">
+      <Project>{F4E624AE-B79B-47A0-BEA7-A7DB5BB3278E}</Project>
+      <Name>Purchase Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sales Module\Sales Module.vbproj">
+      <Project>{48EBF45E-3461-4679-AA37-C148BD20BE39}</Project>
+      <Name>Sales Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\arrow down.png" />
+    <None Include="Update\DseUpdate_Other.xsc">
+      <DependentUpon>DseUpdate_Other.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_Other.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdate_Other.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdate_Other.xss">
+      <DependentUpon>DseUpdate_Other.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Accounting Master.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accounting.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accounting_collection letter.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accounting_reminder.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accounting_transaction locking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow down 2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow down 3.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow down border 2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow down border 3.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow left 2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow left 3.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow left border 2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow left border 3.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow right 2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow right 3.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow right border 2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow right border 3.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow up 2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow up border 2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arow up border 3.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow border.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow down 1.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow down border 1.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow down border.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow down.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow left border 1.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow left border.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow left.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow left1.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow right 1.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow right border 1.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow right border.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow right.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow up 1.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow up border 1.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow up border.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow up.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow2.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\border biru.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\border putih.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer master.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HRD master.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HRD.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hrd_quick attendance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hrd_quick salary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory master.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_bundling.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory_location transfer.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading_icon_8_sec.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading_icon_8_sec2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading_icon_8_sec-a.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Main Master.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\others master.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\product master.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase_historical sales.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase_monthly closing.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\purchase_quick purchase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reminder.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sales.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sales_check stock.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sales_inventory booking.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sales_quick invoice.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess favicon.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess logo.fw.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splash_icon gif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="desktop icon 3.fw.ico" />
+    <None Include="Dataset\DseAutoUpdate.xsc">
+      <DependentUpon>DseAutoUpdate.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DseAutoUpdate.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>DseAutoUpdate.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Dataset\DseAutoUpdate.xss">
+      <DependentUpon>DseAutoUpdate.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DseSettingAP_AR_LedgerAcces.xsc">
+      <DependentUpon>DseSettingAP_AR_LedgerAcces.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DseSettingAP_AR_LedgerAcces.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseSettingAP_AR_LedgerAcces.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset\DseSettingAP_AR_LedgerAcces.xss">
+      <DependentUpon>DseSettingAP_AR_LedgerAcces.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\desktop icon 3.fw.ico" />
+    <None Include="Tools\DseTools.xsc">
+      <DependentUpon>DseTools.xsd</DependentUpon>
+    </None>
+    <None Include="Tools\DseTools.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTools.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Tools\DseTools.xss">
+      <DependentUpon>DseTools.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdatePayroll.xsc">
+      <DependentUpon>DseUpdatePayroll.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdatePayroll.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdatePayroll.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Update\DseUpdatePayroll.xss">
+      <DependentUpon>DseUpdatePayroll.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_ChangeToLocationContr.xsc">
+      <DependentUpon>DseUpdate_ChangeToLocationContr.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_ChangeToLocationContr.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdate_ChangeToLocationContr.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdate_ChangeToLocationContr.xss">
+      <DependentUpon>DseUpdate_ChangeToLocationContr.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_CheckData.xsc">
+      <DependentUpon>DseUpdate_CheckData.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_CheckData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdate_CheckData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdate_CheckData.xss">
+      <DependentUpon>DseUpdate_CheckData.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_ClearTable.xsc">
+      <DependentUpon>DseUpdate_ClearTable.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_ClearTable.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Update\DseUpdate_ClearTable.xss">
+      <DependentUpon>DseUpdate_ClearTable.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_RepairKartuAPAR.xsc">
+      <DependentUpon>DseUpdate_RepairKartuAPAR.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_RepairKartuAPAR.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdate_RepairKartuAPAR.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdate_RepairKartuAPAR.xss">
+      <DependentUpon>DseUpdate_RepairKartuAPAR.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_v170.xsc">
+      <DependentUpon>DseUpdate_v170.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_v170.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdate_v170.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdate_v170.xss">
+      <DependentUpon>DseUpdate_v170.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_v180.xsc">
+      <DependentUpon>DseUpdate_v180.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_v180.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdate_v180.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdate_v180.xss">
+      <DependentUpon>DseUpdate_v180.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_v2018.xsc">
+      <DependentUpon>DseUpdate_v2018.xsd</DependentUpon>
+    </None>
+    <None Include="Update\DseUpdate_v2018.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseUpdate_v2018.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Update\DseUpdate_v2018.xss">
+      <DependentUpon>DseUpdate_v2018.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

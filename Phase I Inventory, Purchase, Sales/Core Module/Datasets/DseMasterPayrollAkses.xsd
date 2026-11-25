@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseMasterPayrollAkses" targetNamespace="http://tempuri.org/DseMasterPayrollAkses.xsd" xmlns:mstns="http://tempuri.org/DseMasterPayrollAkses.xsd" xmlns="http://tempuri.org/DseMasterPayrollAkses.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Core_DbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="Core_DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Core_Module.My.MySettings.GlobalReference.Default.Core_DbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula`, tblmaster_payroll_access_item_user.`Primary User`
+FROM            tblmaster_payroll_access_item_salaryformula INNER JOIN
+                         tblmaster_payroll_access_item_user ON tblmaster_payroll_access_item_salaryformula.`Primary Master` = tblmaster_payroll_access_item_user.`Primary Master`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Salary Formula" DataSetColumn="Primary Salary Formula" />
+              <Mapping SourceColumn="Primary User" DataSetColumn="Primary User" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_payroll_access_view0TableAdapter" GeneratorDataComponentClassName="tblmaster_payroll_access_view0TableAdapter" Name="tblmaster_payroll_access_view0" UserDataComponentName="tblmaster_payroll_access_view0TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Salary Formula`, `Primary User`
+FROM            tblmaster_payroll_access_view0</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Salary Formula" DataSetColumn="Primary Salary Formula" />
+              <Mapping SourceColumn="Primary User" DataSetColumn="Primary User" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="ScalarQuery_GetJmlByPrimarySalaryFormulaNUser" Modifier="Public" Name="ScalarQuery_GetJmlByPrimarySalaryFormulaNUser" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetJmlByPrimarySalaryFormulaNUser">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary User`) AS Jml
+FROM            tblmaster_payroll_access_view0
+WHERE        (`Primary Salary Formula` = @PrimarySalaryFormula) AND (`Primary User` = @PrimaryUser)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalaryFormula" ColumnName="Primary Salary Formula" DataSourceName="tblmaster_payroll_access_view0" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalaryFormula" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary Formula" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryUser" ColumnName="Primary User" DataSourceName="tblmaster_payroll_access_view0" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryUser" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary User" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_payroll_access_item_salaryformulaTableAdapter" GeneratorDataComponentClassName="tblmaster_payroll_access_item_salaryformulaTableAdapter" Name="tblmaster_payroll_access_item_salaryformula" UserDataComponentName="tblmaster_payroll_access_item_salaryformulaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_salary_formula" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula`, tblmaster_salary_formula.code
+FROM            tblmaster_payroll_access_item_salaryformula INNER JOIN
+                         tblmaster_salary_formula ON tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula` = tblmaster_salary_formula.`primary`
+WHERE        (tblmaster_payroll_access_item_salaryformula.`Primary Master` &lt;&gt; @PrimaryMaster)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryMaster" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryMaster" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Salary Formula" DataSetColumn="Primary Salary Formula" />
+              <Mapping SourceColumn="code" DataSetColumn="code" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_salary_formula" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryMaster" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryMaster" GeneratorSourceName="FillBy_PrimaryMaster" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryMaster" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryMaster" UserSourceName="FillBy_PrimaryMaster">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula`, tblmaster_salary_formula.code
+FROM            tblmaster_payroll_access_item_salaryformula INNER JOIN
+                         tblmaster_salary_formula ON tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula` = tblmaster_salary_formula.`primary`
+WHERE        (tblmaster_payroll_access_item_salaryformula.`Primary Master` = @PrimaryMaster)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryMaster" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryMaster" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_salary_formula" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_UserCode" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_UserCode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_UserCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula`, tblmaster_salary_formula.code
+FROM            tblmaster_payroll_access_item_salaryformula INNER JOIN
+                         tblmaster_salary_formula ON tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula` = tblmaster_salary_formula.`primary` INNER JOIN
+                         tblmaster_payroll_access_item_user ON 
+                         tblmaster_payroll_access_item_salaryformula.`Primary Master` = tblmaster_payroll_access_item_user.`Primary Master` INNER JOIN
+                         tbluser ON tblmaster_payroll_access_item_user.`Primary User` = tbluser.`Primary`
+WHERE        (tbluser.`Kode User` = @UserCode) AND (tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula` = @PrimarySalaryFormula)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="UserCode" ColumnName="Kode User" DataSourceName="tbluser" DataTypeServer="varchar(255)(255)" DbType="String" Direction="Input" ParameterName="@UserCode" Precision="0" ProviderType="VarChar" Scale="0" Size="255" SourceColumn="Kode User" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalaryFormula" ColumnName="Primary Salary Formula" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalaryFormula" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary Formula" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_payroll_accessTableAdapter" GeneratorDataComponentClassName="tblmaster_payroll_accessTableAdapter" Name="tblmaster_payroll_access" UserDataComponentName="tblmaster_payroll_accessTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tblmaster_payroll_access
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tblmaster_payroll_access
+                         (Code, Description, Remarks, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`)
+VALUES        (@Code, @Description, @Remarks, @Created_By, @Created_Date, @Modified_By, @Modified_Date, @Timestamp)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Code" ColumnName="Code" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Description" ColumnName="Description" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Created_By" ColumnName="Created By" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Created_Date" ColumnName="Created Date" DataSourceName="tblmaster_payroll_access" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_By" ColumnName="Modified By" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_Date" ColumnName="Modified Date" DataSourceName="tblmaster_payroll_access" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Timestamp" ColumnName="Timestamp" DataSourceName="tblmaster_payroll_access" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, Code, Description, Remarks, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`
+FROM            tblmaster_payroll_access</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_payroll_access
+SET                Code = @Code, Description = @Description, Remarks = @Remarks, `Modified By` = @Modified_By, `Modified Date` = @Modified_Date, 
+                         `Timestamp` = @Timestamp
+WHERE        (`Primary` = @Original_Primary) AND (`Timestamp` = @Original_Timestamp)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Code" ColumnName="Code" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Description" ColumnName="Description" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_By" ColumnName="Modified By" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_Date" ColumnName="Modified Date" DataSourceName="tblmaster_payroll_access" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Timestamp" ColumnName="Timestamp" DataSourceName="tblmaster_payroll_access" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Original_Timestamp" ColumnName="Timestamp" DataSourceName="tblmaster_payroll_access" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Original_Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_Primary" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_Primary" GeneratorSourceName="FillBy_Primary" GetMethodModifier="Public" GetMethodName="GetDataBy_Primary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_Primary" UserSourceName="FillBy_Primary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, Code, Description, Remarks, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`
+FROM            tblmaster_payroll_access
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetCode" Modifier="Public" Name="ScalarQuery_GetCode" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(Code, '') AS Code
+FROM            tblmaster_payroll_access
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetCreatedBy" Modifier="Public" Name="ScalarQuery_GetCreatedBy" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetCreatedBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Created By`, '') AS `Created By`
+FROM            tblmaster_payroll_access
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetDescription" Modifier="Public" Name="ScalarQuery_GetDescription" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetDescription">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(Description, '') AS Description
+FROM            tblmaster_payroll_access
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCode" Modifier="Public" Name="ScalarQuery_GetJmlByCode" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetJmlByCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Jml
+FROM            tblmaster_payroll_access
+WHERE        (Code = @Code)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Code" ColumnName="Code" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access" DbObjectType="Table" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="ScalarQuery_GetPrimary" Modifier="Public" Name="ScalarQuery_GetPrimary" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_GetPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`
+FROM            tblmaster_payroll_access
+WHERE        (Code = @Code)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Code" ColumnName="Code" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetTimestamp" Modifier="Public" Name="ScalarQuery_GetTimestamp" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_GetTimestamp">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Timestamp`
+FROM            tblmaster_payroll_access
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_payroll_access_item_salaryformula1TableAdapter" GeneratorDataComponentClassName="tblmaster_payroll_access_item_salaryformula1TableAdapter" Name="tblmaster_payroll_access_item_salaryformula1" UserDataComponentName="tblmaster_payroll_access_item_salaryformula1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access_item_salaryformula" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tblmaster_payroll_access_item_salaryformula
+WHERE        (`Primary Master` = @Original_Primary_Master)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_Master" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_Master" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tblmaster_payroll_access_item_salaryformula
+                         (`Primary Master`, `Primary Salary Formula`)
+VALUES        (@Primary_Master, @Primary_Salary_Formula)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Master" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Master" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Salary_Formula" ColumnName="Primary Salary Formula" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Salary_Formula" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary Formula" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Master`, `Primary Salary Formula`
+FROM            tblmaster_payroll_access_item_salaryformula</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_payroll_access_item_salaryformula
+SET                `Primary Master` = @Primary_Master, `Primary Salary Formula` = @Primary_Salary_Formula
+WHERE        (`Primary` = @Original_Primary) AND (`Primary Master` = @Original_Primary_Master) AND (`Primary Salary Formula` = @Original_Primary_Salary_Formula)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Master" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Master" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Salary_Formula" ColumnName="Primary Salary Formula" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Salary_Formula" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary Formula" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_Master" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_Master" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_Salary_Formula" ColumnName="Primary Salary Formula" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_Salary_Formula" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary Formula" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Master" DataSetColumn="Primary Master" />
+              <Mapping SourceColumn="Primary Salary Formula" DataSetColumn="Primary Salary Formula" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access_item_salaryformula" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryMaster" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryMaster" GeneratorSourceName="FillBy_PrimaryMaster" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryMaster" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryMaster" UserSourceName="FillBy_PrimaryMaster">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Master`, `Primary Salary Formula`
+FROM            tblmaster_payroll_access_item_salaryformula
+WHERE        (`Primary Master` = @PrimaryMaster)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryMaster" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_salaryformula" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryMaster" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_payroll_access_item_userTableAdapter" GeneratorDataComponentClassName="tblmaster_payroll_access_item_userTableAdapter" Name="tblmaster_payroll_access_item_user" UserDataComponentName="tblmaster_payroll_access_item_userTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access_item_user" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tblmaster_payroll_access_item_user
+WHERE        (`Primary Master` = @Original_Primary_Master)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_Master" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_Master" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tblmaster_payroll_access_item_user
+                         (`Primary Master`, `Primary User`)
+VALUES        (@Primary_Master, @Primary_User)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Master" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Master" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_User" ColumnName="Primary User" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_User" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary User" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Master`, `Primary User`
+FROM            tblmaster_payroll_access_item_user</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_payroll_access_item_user
+SET                `Primary Master` = @Primary_Master, `Primary User` = @Primary_User
+WHERE        (`Primary` = @Original_Primary) AND (`Primary Master` = @Original_Primary_Master) AND (`Primary User` = @Original_Primary_User)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Master" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Master" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_User" ColumnName="Primary User" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_User" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary User" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_Master" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_Master" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_User" ColumnName="Primary User" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_User" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary User" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Master" DataSetColumn="Primary Master" />
+              <Mapping SourceColumn="Primary User" DataSetColumn="Primary User" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access_item_user" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryMaster" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryMaster" GeneratorSourceName="FillBy_PrimaryMaster" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryMaster" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryMaster" UserSourceName="FillBy_PrimaryMaster">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Master`, `Primary User`
+FROM            tblmaster_payroll_access_item_user
+WHERE        (`Primary Master` = @PrimaryMaster)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryMaster" ColumnName="Primary Master" DataSourceName="tblmaster_payroll_access_item_user" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryMaster" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Master" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbluserTableAdapter" GeneratorDataComponentClassName="tbluserTableAdapter" Name="tbluser" UserDataComponentName="tbluserTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tbluser" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, CONCAT(`Kode User`, '-', `Nama User`) AS KodeNamaUser
+FROM            tbluser
+ORDER BY KodeNamaUser</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="KodeNamaUser" DataSetColumn="KodeNamaUser" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_salary_formula1TableAdapter" GeneratorDataComponentClassName="tblmaster_salary_formula1TableAdapter" Name="tblmaster_salary_formula1" UserDataComponentName="tblmaster_salary_formula1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_salary_formula" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_salary_formula` WHERE ((`primary` = @Original_primary))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, CONCAT(code, '-', `desc`) AS CodeDesc
+FROM            tblmaster_salary_formula
+ORDER BY CodeDesc</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_salary_formula` WHERE ((`primary` = @Original_primary))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="CodeDesc" DataSetColumn="CodeDesc" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_payroll_access1TableAdapter" GeneratorDataComponentClassName="tblmaster_payroll_access1TableAdapter" Name="tblmaster_payroll_access1" UserDataComponentName="tblmaster_payroll_access1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_payroll_access` WHERE ((`Primary` = @Original_Primary) AND (`Code` = @Original_Code) AND (`Description` = @Original_Description) AND (`Remarks` = @Original_Remarks))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, Code, Description, Remarks
+FROM            tblmaster_payroll_access</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_payroll_access` SET `Code` = @Code, `Description` = @Description, `Remarks` = @Remarks WHERE ((`Primary` = @Original_Primary) AND (`Code` = @Original_Code) AND (`Description` = @Original_Description) AND (`Remarks` = @Original_Remarks))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_CodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_CodeLIKE" GeneratorSourceName="FillBy_CodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_CodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_CodeLIKE" UserSourceName="FillBy_CodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, Code, Description, Remarks
+FROM            tblmaster_payroll_access
+WHERE        (Code LIKE @Code)
+ORDER BY Code, Description</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Code" ColumnName="Code" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_DescriptionLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_DescriptionLIKE" GeneratorSourceName="FillBy_DescriptionLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_DescriptionLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_DescriptionLIKE" UserSourceName="FillBy_DescriptionLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, Code, Description, Remarks
+FROM            tblmaster_payroll_access
+WHERE        (Description LIKE @Description)
+ORDER BY Code, Description</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Description" ColumnName="Description" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Description" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="tblmaster_payroll_access" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_RemarksLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_RemarksLIKE" GeneratorSourceName="FillBy_RemarksLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_RemarksLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_RemarksLIKE" UserSourceName="FillBy_RemarksLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, Code, Description, Remarks
+FROM            tblmaster_payroll_access
+WHERE        (Remarks LIKE @Remarks)
+ORDER BY Code, Description</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetJmlByCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Jml
+FROM            tblmaster_payroll_access
+WHERE        (Code LIKE @Code)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Code" ColumnName="Code" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByDesciptionLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByDesciptionLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetJmlByDesciptionLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Jml
+FROM            tblmaster_payroll_access
+WHERE        (Description LIKE @Desc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Desc" ColumnName="Description" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Desc" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="ScalarQuery_GetJmlByRemarksLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByRemarksLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetJmlByRemarksLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Jml
+FROM            tblmaster_payroll_access
+WHERE        (Remarks LIKE @Remarks)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="tblmaster_payroll_access" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseMasterPayrollAkses" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseMasterPayrollAkses" msprop:Generator_DataSetName="DseMasterPayrollAkses">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Salary_x0020_Formula" msprop:Generator_UserColumnName="Primary Salary Formula" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary_Formula" msprop:Generator_ColumnPropNameInRow="Primary_Salary_Formula" msprop:Generator_ColumnPropNameInTable="Primary_Salary_FormulaColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_User" msprop:Generator_UserColumnName="Primary User" msprop:Generator_ColumnVarNameInTable="columnPrimary_User" msprop:Generator_ColumnPropNameInRow="Primary_User" msprop:Generator_ColumnPropNameInTable="Primary_UserColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_payroll_access_view0" msprop:Generator_UserTableName="tblmaster_payroll_access_view0" msprop:Generator_RowDeletedName="tblmaster_payroll_access_view0RowDeleted" msprop:Generator_RowChangedName="tblmaster_payroll_access_view0RowChanged" msprop:Generator_RowClassName="tblmaster_payroll_access_view0Row" msprop:Generator_RowChangingName="tblmaster_payroll_access_view0RowChanging" msprop:Generator_RowEvArgName="tblmaster_payroll_access_view0RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_payroll_access_view0RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_payroll_access_view0DataTable" msprop:Generator_TableVarName="tabletblmaster_payroll_access_view0" msprop:Generator_RowDeletingName="tblmaster_payroll_access_view0RowDeleting" msprop:Generator_TablePropName="tblmaster_payroll_access_view0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Salary_x0020_Formula" msprop:Generator_UserColumnName="Primary Salary Formula" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary_Formula" msprop:Generator_ColumnPropNameInRow="Primary_Salary_Formula" msprop:Generator_ColumnPropNameInTable="Primary_Salary_FormulaColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_User" msprop:Generator_UserColumnName="Primary User" msprop:Generator_ColumnVarNameInTable="columnPrimary_User" msprop:Generator_ColumnPropNameInRow="Primary_User" msprop:Generator_ColumnPropNameInTable="Primary_UserColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_payroll_access_item_salaryformula" msprop:Generator_UserTableName="tblmaster_payroll_access_item_salaryformula" msprop:Generator_RowDeletedName="tblmaster_payroll_access_item_salaryformulaRowDeleted" msprop:Generator_RowChangedName="tblmaster_payroll_access_item_salaryformulaRowChanged" msprop:Generator_RowClassName="tblmaster_payroll_access_item_salaryformulaRow" msprop:Generator_RowChangingName="tblmaster_payroll_access_item_salaryformulaRowChanging" msprop:Generator_RowEvArgName="tblmaster_payroll_access_item_salaryformulaRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_payroll_access_item_salaryformulaRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_payroll_access_item_salaryformulaDataTable" msprop:Generator_TableVarName="tabletblmaster_payroll_access_item_salaryformula" msprop:Generator_RowDeletingName="tblmaster_payroll_access_item_salaryformulaRowDeleting" msprop:Generator_TablePropName="tblmaster_payroll_access_item_salaryformula">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Salary_x0020_Formula" msprop:Generator_UserColumnName="Primary Salary Formula" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary_Formula" msprop:Generator_ColumnPropNameInRow="Primary_Salary_Formula" msprop:Generator_ColumnPropNameInTable="Primary_Salary_FormulaColumn" type="xs:double" />
+              <xs:element name="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInTable="codeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_payroll_access" msprop:Generator_UserTableName="tblmaster_payroll_access" msprop:Generator_RowDeletedName="tblmaster_payroll_accessRowDeleted" msprop:Generator_RowChangedName="tblmaster_payroll_accessRowChanged" msprop:Generator_RowClassName="tblmaster_payroll_accessRow" msprop:Generator_RowChangingName="tblmaster_payroll_accessRowChanging" msprop:Generator_RowEvArgName="tblmaster_payroll_accessRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_payroll_accessRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_payroll_accessDataTable" msprop:Generator_TableVarName="tabletblmaster_payroll_access" msprop:Generator_RowDeletingName="tblmaster_payroll_accessRowDeleting" msprop:Generator_TablePropName="tblmaster_payroll_access">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInTable="CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_payroll_access_item_salaryformula1" msprop:Generator_UserTableName="tblmaster_payroll_access_item_salaryformula1" msprop:Generator_RowDeletedName="tblmaster_payroll_access_item_salaryformula1RowDeleted" msprop:Generator_RowChangedName="tblmaster_payroll_access_item_salaryformula1RowChanged" msprop:Generator_RowClassName="tblmaster_payroll_access_item_salaryformula1Row" msprop:Generator_RowChangingName="tblmaster_payroll_access_item_salaryformula1RowChanging" msprop:Generator_RowEvArgName="tblmaster_payroll_access_item_salaryformula1RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_payroll_access_item_salaryformula1RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_payroll_access_item_salaryformula1DataTable" msprop:Generator_TableVarName="tabletblmaster_payroll_access_item_salaryformula1" msprop:Generator_RowDeletingName="tblmaster_payroll_access_item_salaryformula1RowDeleting" msprop:Generator_TablePropName="tblmaster_payroll_access_item_salaryformula1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Master" msprop:Generator_UserColumnName="Primary Master" msprop:Generator_ColumnPropNameInRow="Primary_Master" msprop:Generator_ColumnVarNameInTable="columnPrimary_Master" msprop:Generator_ColumnPropNameInTable="Primary_MasterColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Salary_x0020_Formula" msprop:Generator_UserColumnName="Primary Salary Formula" msprop:Generator_ColumnPropNameInRow="Primary_Salary_Formula" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary_Formula" msprop:Generator_ColumnPropNameInTable="Primary_Salary_FormulaColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_payroll_access_item_user" msprop:Generator_UserTableName="tblmaster_payroll_access_item_user" msprop:Generator_RowDeletedName="tblmaster_payroll_access_item_userRowDeleted" msprop:Generator_RowChangedName="tblmaster_payroll_access_item_userRowChanged" msprop:Generator_RowClassName="tblmaster_payroll_access_item_userRow" msprop:Generator_RowChangingName="tblmaster_payroll_access_item_userRowChanging" msprop:Generator_RowEvArgName="tblmaster_payroll_access_item_userRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_payroll_access_item_userRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_payroll_access_item_userDataTable" msprop:Generator_TableVarName="tabletblmaster_payroll_access_item_user" msprop:Generator_RowDeletingName="tblmaster_payroll_access_item_userRowDeleting" msprop:Generator_TablePropName="tblmaster_payroll_access_item_user">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Master" msprop:Generator_UserColumnName="Primary Master" msprop:Generator_ColumnPropNameInRow="Primary_Master" msprop:Generator_ColumnVarNameInTable="columnPrimary_Master" msprop:Generator_ColumnPropNameInTable="Primary_MasterColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_User" msprop:Generator_UserColumnName="Primary User" msprop:Generator_ColumnPropNameInRow="Primary_User" msprop:Generator_ColumnVarNameInTable="columnPrimary_User" msprop:Generator_ColumnPropNameInTable="Primary_UserColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbluser" msprop:Generator_UserTableName="tbluser" msprop:Generator_RowDeletedName="tbluserRowDeleted" msprop:Generator_RowChangedName="tbluserRowChanged" msprop:Generator_RowClassName="tbluserRow" msprop:Generator_RowChangingName="tbluserRowChanging" msprop:Generator_RowEvArgName="tbluserRowChangeEvent" msprop:Generator_RowEvHandlerName="tbluserRowChangeEventHandler" msprop:Generator_TableClassName="tbluserDataTable" msprop:Generator_TableVarName="tabletbluser" msprop:Generator_RowDeletingName="tbluserRowDeleting" msprop:Generator_TablePropName="tbluser">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="KodeNamaUser" msprop:Generator_UserColumnName="KodeNamaUser" msprop:Generator_ColumnPropNameInRow="KodeNamaUser" msprop:Generator_ColumnVarNameInTable="columnKodeNamaUser" msprop:Generator_ColumnPropNameInTable="KodeNamaUserColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="511" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_salary_formula1" msprop:Generator_UserTableName="tblmaster_salary_formula1" msprop:Generator_RowDeletedName="tblmaster_salary_formula1RowDeleted" msprop:Generator_RowChangedName="tblmaster_salary_formula1RowChanged" msprop:Generator_RowClassName="tblmaster_salary_formula1Row" msprop:Generator_RowChangingName="tblmaster_salary_formula1RowChanging" msprop:Generator_RowEvArgName="tblmaster_salary_formula1RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_salary_formula1RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_salary_formula1DataTable" msprop:Generator_TableVarName="tabletblmaster_salary_formula1" msprop:Generator_RowDeletingName="tblmaster_salary_formula1RowDeleting" msprop:Generator_TablePropName="tblmaster_salary_formula1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="CodeDesc" msprop:Generator_UserColumnName="CodeDesc" msprop:Generator_ColumnPropNameInRow="CodeDesc" msprop:Generator_ColumnVarNameInTable="columnCodeDesc" msprop:Generator_ColumnPropNameInTable="CodeDescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="501" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_payroll_access1" msprop:Generator_UserTableName="tblmaster_payroll_access1" msprop:Generator_RowDeletedName="tblmaster_payroll_access1RowDeleted" msprop:Generator_RowChangedName="tblmaster_payroll_access1RowChanged" msprop:Generator_RowClassName="tblmaster_payroll_access1Row" msprop:Generator_RowChangingName="tblmaster_payroll_access1RowChanging" msprop:Generator_RowEvArgName="tblmaster_payroll_access1RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_payroll_access1RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_payroll_access1DataTable" msprop:Generator_TableVarName="tabletblmaster_payroll_access1" msprop:Generator_RowDeletingName="tblmaster_payroll_access1RowDeleting" msprop:Generator_TablePropName="tblmaster_payroll_access1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInTable="CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_payroll_access" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_payroll_access_item_salaryformula1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_payroll_access_item_salaryformula1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_payroll_access_item_user_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_payroll_access_item_user" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_payroll_access1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_payroll_access1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

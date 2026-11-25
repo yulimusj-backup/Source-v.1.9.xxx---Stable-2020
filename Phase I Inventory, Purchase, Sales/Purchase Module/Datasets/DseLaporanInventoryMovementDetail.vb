@@ -1,0 +1,3 @@
+﻿Partial Class DseLaporanInventoryMovementDetail
+
+End Class

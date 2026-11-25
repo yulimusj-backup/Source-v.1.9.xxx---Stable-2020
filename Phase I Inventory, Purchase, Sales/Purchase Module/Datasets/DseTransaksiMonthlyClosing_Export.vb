@@ -1,0 +1,2 @@
+﻿Partial Class DseTransaksiMonthlyClosing_Export
+End Class

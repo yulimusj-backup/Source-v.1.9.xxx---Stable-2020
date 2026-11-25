@@ -1,0 +1,3 @@
+﻿Partial Class DseTransaksiStockCard2_CheckProductQtyMonthlyClosing
+
+End Class

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dseLaporanStockDetail" targetNamespace="http://tempuri.org/dseLaporanStockDetail.xsd" xmlns:mstns="http://tempuri.org/dseLaporanStockDetail.xsd" xmlns="http://tempuri.org/dseLaporanStockDetail.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Sales_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="stock_detail_view2TableAdapter" GeneratorDataComponentClassName="stock_detail_view2TableAdapter" Name="stock_detail_view2" UserDataComponentName="stock_detail_view2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.stock_detail_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Category Code`, `Category Description`, `Product Code`, `Product Description`, SUM(Qty) AS `Total Qty`, SUM(`Qty Secondary` * Qty) AS `Total Secondary`, 
+                         `Primary Unit`, `Primary Secondary Unit`
+FROM            stock_detail_view
+GROUP BY `Category Code`, `Category Description`, `Product Code`, `Product Description`, `Primary Unit`, `Primary Secondary Unit`
+ORDER BY `Category Code`, `Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Category Description" DataSetColumn="Category Description" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Product Description" DataSetColumn="Product Description" />
+              <Mapping SourceColumn="Total Qty" DataSetColumn="Total Qty" />
+              <Mapping SourceColumn="Total Secondary" DataSetColumn="Total Secondary" />
+              <Mapping SourceColumn="Primary Unit" DataSetColumn="Primary Unit" />
+              <Mapping SourceColumn="Primary Secondary Unit" DataSetColumn="Primary Secondary Unit" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_master_unitTableAdapter" GeneratorDataComponentClassName="tblmaster_master_unitTableAdapter" Name="tblmaster_master_unit" UserDataComponentName="tblmaster_master_unitTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_master_unit" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Unit Code`, Description
+FROM            tblmaster_master_unit</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_master_unit1TableAdapter" GeneratorDataComponentClassName="tblmaster_master_unit1TableAdapter" Name="tblmaster_master_unit1" UserDataComponentName="tblmaster_master_unit1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_master_unit" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Unit Code`, Description
+FROM            tblmaster_master_unit</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="stock_detail_viewTableAdapter" GeneratorDataComponentClassName="stock_detail_viewTableAdapter" Name="stock_detail_view" UserDataComponentName="stock_detail_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        stock_detail_view.`Product Code`, stock_detail_view.`Product Description` AS Description, stock_detail_view.Qty, '' AS Quantity, tblmaster_master_unit.`Unit Code`, 
+                         stock_detail_view.`Qty Secondary`, stock_detail_view.`Lot No`, stock_detail_view.`Expiry Date`, stock_detail_view.`Primary Storage Area`, 
+                         IFNULL(stock_detail_view.Location, 'No Location') AS Location, stock_detail_view.`Primary Unit`, stock_detail_view.`Primary Master Unit`, 
+                         stock_detail_view.`Primary Secondary Unit`, '' AS `Secondary Unit`, stock_detail_view.`Decimal`
+FROM            stock_detail_view INNER JOIN
+                         tblmaster_master_unit ON stock_detail_view.`Primary Unit` = tblmaster_master_unit.`Primary`
+ORDER BY stock_detail_view.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Quantity" DataSetColumn="Quantity" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Qty Secondary" DataSetColumn="Qty Secondary" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+              <Mapping SourceColumn="Expiry Date" DataSetColumn="Expiry Date" />
+              <Mapping SourceColumn="Primary Storage Area" DataSetColumn="Primary Storage Area" />
+              <Mapping SourceColumn="Location" DataSetColumn="Location" />
+              <Mapping SourceColumn="Primary Unit" DataSetColumn="Primary Unit" />
+              <Mapping SourceColumn="Primary Master Unit" DataSetColumn="Primary Master Unit" />
+              <Mapping SourceColumn="Primary Secondary Unit" DataSetColumn="Primary Secondary Unit" />
+              <Mapping SourceColumn="Secondary Unit" DataSetColumn="Secondary Unit" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        stock_detail_view.`Product Code`, stock_detail_view.`Product Description` AS Description, stock_detail_view.Qty, '' AS Quantity, tblmaster_master_unit.`Unit Code`, 
+                         stock_detail_view.`Qty Secondary`, stock_detail_view.`Lot No`, stock_detail_view.`Expiry Date`, stock_detail_view.`Primary Storage Area`, 
+                         IFNULL(stock_detail_view.Location, 'No Location') AS Location, stock_detail_view.`Primary Unit`, stock_detail_view.`Primary Master Unit`, 
+                         stock_detail_view.`Primary Secondary Unit`, '' AS `Secondary Unit`, stock_detail_view.`Decimal`
+FROM            stock_detail_view INNER JOIN
+                         tblmaster_master_unit ON stock_detail_view.`Primary Unit` = tblmaster_master_unit.`Primary`
+WHERE        (stock_detail_view.`Product Code` = @CodeNo)
+ORDER BY stock_detail_view.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CodeNo" ColumnName="Product Code" DataSourceName="core_db.stock_detail_view" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@CodeNo" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Product Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dseLaporanStockDetail" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dseLaporanStockDetail" msprop:Generator_DataSetName="dseLaporanStockDetail">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="stock_detail_view2" msprop:Generator_UserTableName="stock_detail_view2" msprop:Generator_RowDeletedName="stock_detail_view2RowDeleted" msprop:Generator_RowChangedName="stock_detail_view2RowChanged" msprop:Generator_RowClassName="stock_detail_view2Row" msprop:Generator_RowChangingName="stock_detail_view2RowChanging" msprop:Generator_RowEvArgName="stock_detail_view2RowChangeEvent" msprop:Generator_RowEvHandlerName="stock_detail_view2RowChangeEventHandler" msprop:Generator_TableClassName="stock_detail_view2DataTable" msprop:Generator_TableVarName="tablestock_detail_view2" msprop:Generator_RowDeletingName="stock_detail_view2RowDeleting" msprop:Generator_TablePropName="stock_detail_view2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category_x0020_Description" msprop:Generator_UserColumnName="Category Description" msprop:Generator_ColumnVarNameInTable="columnCategory_Description" msprop:Generator_ColumnPropNameInRow="Category_Description" msprop:Generator_ColumnPropNameInTable="Category_DescriptionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Description" msprop:Generator_UserColumnName="Product Description" msprop:Generator_ColumnVarNameInTable="columnProduct_Description" msprop:Generator_ColumnPropNameInRow="Product_Description" msprop:Generator_ColumnPropNameInTable="Product_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_x0020_Qty" msprop:Generator_UserColumnName="Total Qty" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty" msprop:Generator_ColumnPropNameInRow="Total_Qty" msprop:Generator_ColumnPropNameInTable="Total_QtyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Total_x0020_Secondary" msprop:Generator_UserColumnName="Total Secondary" msprop:Generator_ColumnVarNameInTable="columnTotal_Secondary" msprop:Generator_ColumnPropNameInRow="Total_Secondary" msprop:Generator_ColumnPropNameInTable="Total_SecondaryColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Unit" msprop:Generator_UserColumnName="Primary Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit" msprop:Generator_ColumnPropNameInRow="Primary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_UnitColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Secondary_x0020_Unit" msprop:Generator_UserColumnName="Primary Secondary Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Secondary_Unit" msprop:Generator_ColumnPropNameInRow="Primary_Secondary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_Secondary_UnitColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_master_unit" msprop:Generator_UserTableName="tblmaster_master_unit" msprop:Generator_RowDeletedName="tblmaster_master_unitRowDeleted" msprop:Generator_RowChangedName="tblmaster_master_unitRowChanged" msprop:Generator_RowClassName="tblmaster_master_unitRow" msprop:Generator_RowChangingName="tblmaster_master_unitRowChanging" msprop:Generator_RowEvArgName="tblmaster_master_unitRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_master_unitRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_master_unitDataTable" msprop:Generator_TableVarName="tabletblmaster_master_unit" msprop:Generator_RowDeletingName="tblmaster_master_unitRowDeleting" msprop:Generator_TablePropName="tblmaster_master_unit">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_master_unit1" msprop:Generator_UserTableName="tblmaster_master_unit1" msprop:Generator_RowDeletedName="tblmaster_master_unit1RowDeleted" msprop:Generator_RowChangedName="tblmaster_master_unit1RowChanged" msprop:Generator_RowClassName="tblmaster_master_unit1Row" msprop:Generator_RowChangingName="tblmaster_master_unit1RowChanging" msprop:Generator_RowEvArgName="tblmaster_master_unit1RowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_master_unit1RowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_master_unit1DataTable" msprop:Generator_TableVarName="tabletblmaster_master_unit1" msprop:Generator_RowDeletingName="tblmaster_master_unit1RowDeleting" msprop:Generator_TablePropName="tblmaster_master_unit1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="stock_detail_view" msprop:Generator_UserTableName="stock_detail_view" msprop:Generator_RowDeletedName="stock_detail_viewRowDeleted" msprop:Generator_RowChangedName="stock_detail_viewRowChanged" msprop:Generator_RowClassName="stock_detail_viewRow" msprop:Generator_RowChangingName="stock_detail_viewRowChanging" msprop:Generator_RowEvArgName="stock_detail_viewRowChangeEvent" msprop:Generator_RowEvHandlerName="stock_detail_viewRowChangeEventHandler" msprop:Generator_TableClassName="stock_detail_viewDataTable" msprop:Generator_TableVarName="tablestock_detail_view" msprop:Generator_RowDeletingName="stock_detail_viewRowDeleting" msprop:Generator_TablePropName="stock_detail_view">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" />
+              <xs:element name="Quantity" msprop:Generator_UserColumnName="Quantity" msprop:Generator_ColumnPropNameInRow="Quantity" msprop:Generator_ColumnVarNameInTable="columnQuantity" msprop:Generator_ColumnPropNameInTable="QuantityColumn" type="xs:string" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Qty_x0020_Secondary" msprop:Generator_UserColumnName="Qty Secondary" msprop:Generator_ColumnPropNameInRow="Qty_Secondary" msprop:Generator_ColumnVarNameInTable="columnQty_Secondary" msprop:Generator_ColumnPropNameInTable="Qty_SecondaryColumn" type="xs:decimal" />
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Storage_x0020_Area" msprop:Generator_UserColumnName="Primary Storage Area" msprop:Generator_ColumnPropNameInRow="Primary_Storage_Area" msprop:Generator_ColumnVarNameInTable="columnPrimary_Storage_Area" msprop:Generator_ColumnPropNameInTable="Primary_Storage_AreaColumn" type="xs:double" />
+              <xs:element name="Location" msprop:Generator_UserColumnName="Location" msprop:Generator_ColumnPropNameInRow="Location" msprop:Generator_ColumnVarNameInTable="columnLocation" msprop:Generator_ColumnPropNameInTable="LocationColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Unit" msprop:Generator_UserColumnName="Primary Unit" msprop:Generator_ColumnPropNameInRow="Primary_Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_UnitColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Master_x0020_Unit" msprop:Generator_UserColumnName="Primary Master Unit" msprop:Generator_ColumnPropNameInRow="Primary_Master_Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Master_Unit" msprop:Generator_ColumnPropNameInTable="Primary_Master_UnitColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Secondary_x0020_Unit" msprop:Generator_UserColumnName="Primary Secondary Unit" msprop:Generator_ColumnPropNameInRow="Primary_Secondary_Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Secondary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_Secondary_UnitColumn" type="xs:double" />
+              <xs:element name="Secondary_x0020_Unit" msprop:Generator_UserColumnName="Secondary Unit" msprop:Generator_ColumnPropNameInRow="Secondary_Unit" msprop:Generator_ColumnVarNameInTable="columnSecondary_Unit" msprop:Generator_ColumnPropNameInTable="Secondary_UnitColumn" type="xs:string" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLapAsset_DepresiasiPerPeriod" targetNamespace="http://tempuri.org/DseLapAsset_DepresiasiPerPeriod.xsd" xmlns:mstns="http://tempuri.org/DseLapAsset_DepresiasiPerPeriod.xsd" xmlns="http://tempuri.org/DseLapAsset_DepresiasiPerPeriod.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AccModule.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblAssetTableAdapter" GeneratorDataComponentClassName="TblAssetTableAdapter" Name="TblAsset" UserDataComponentName="TblAssetTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_asset_group.`Primary` AS `Primary Group`, tblmaster_asset_group.`Group Code`, tblmaster_asset_group.Description AS `Group Desc`, 
+                         tblmaster_asset.`Primary`, tblmaster_asset.`Asset Code`, tblmaster_asset.`Status Asset`, tblmaster_asset.Description, tblmaster_asset.`Primary Group Asset Code`, 
+                         tblmaster_asset.Qty, tblmaster_asset.`Primary Unit`, tblmaster_asset.Remarks, tblmaster_asset.`Acquisition Type`, tblmaster_asset.`Acquisition Finish`, 
+                         tblmaster_asset.`Depreciate This Asset`, tblmaster_asset.`Depreciation Method`, tblmaster_asset.`Depreciation Life`, tblmaster_asset.`Acquired Value`, 
+                         tblmaster_asset.`Salvage Value`, tblmaster_asset.`Book Value`, tblmaster_asset.`Start Depreciate On`, tblmaster_asset.Frequency, 
+                         tblmaster_asset.`Depreciate On`, tblmaster_asset.`Primary Akun On Process`, tblmaster_asset.`Primary Akun Asset`, 
+                         tblmaster_asset.`Primary Akun Depreciation Asset`, tblmaster_asset.`Primary Akun Accum Depreciation`, tblmaster_asset.`Primary Akun Dispossal Income`, 
+                         tblmaster_asset.`Primary Akun Gain Loss Dispossal`, tblmaster_asset.`Primary Jounal Set Finish`, tblmaster_asset.`Tanggal Set Finish`, 
+                         tblmaster_asset.`Created By`, tblmaster_asset.`Created Date`, tblmaster_asset.`Modified By`, tblmaster_asset.`Modified Date`, tblmaster_asset.`Timestamp`
+FROM            tblmaster_asset INNER JOIN
+                         tblmaster_asset_group ON tblmaster_asset.`Primary Group Asset Code` = tblmaster_asset_group.`Primary`
+ORDER BY tblmaster_asset_group.`Group Code`, tblmaster_asset.`Asset Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="Group Code" DataSetColumn="Group Code" />
+              <Mapping SourceColumn="Group Desc" DataSetColumn="Group Desc" />
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Asset Code" DataSetColumn="Asset Code" />
+              <Mapping SourceColumn="Status Asset" DataSetColumn="Status Asset" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Group Asset Code" DataSetColumn="Primary Group Asset Code" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Primary Unit" DataSetColumn="Primary Unit" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Acquisition Type" DataSetColumn="Acquisition Type" />
+              <Mapping SourceColumn="Acquisition Finish" DataSetColumn="Acquisition Finish" />
+              <Mapping SourceColumn="Depreciate This Asset" DataSetColumn="Depreciate This Asset" />
+              <Mapping SourceColumn="Depreciation Method" DataSetColumn="Depreciation Method" />
+              <Mapping SourceColumn="Depreciation Life" DataSetColumn="Depreciation Life" />
+              <Mapping SourceColumn="Acquired Value" DataSetColumn="Acquired Value" />
+              <Mapping SourceColumn="Salvage Value" DataSetColumn="Salvage Value" />
+              <Mapping SourceColumn="Book Value" DataSetColumn="Book Value" />
+              <Mapping SourceColumn="Start Depreciate On" DataSetColumn="Start Depreciate On" />
+              <Mapping SourceColumn="Frequency" DataSetColumn="Frequency" />
+              <Mapping SourceColumn="Depreciate On" DataSetColumn="Depreciate On" />
+              <Mapping SourceColumn="Primary Akun On Process" DataSetColumn="Primary Akun On Process" />
+              <Mapping SourceColumn="Primary Akun Asset" DataSetColumn="Primary Akun Asset" />
+              <Mapping SourceColumn="Primary Akun Depreciation Asset" DataSetColumn="Primary Akun Depreciation Asset" />
+              <Mapping SourceColumn="Primary Akun Accum Depreciation" DataSetColumn="Primary Akun Accum Depreciation" />
+              <Mapping SourceColumn="Primary Akun Dispossal Income" DataSetColumn="Primary Akun Dispossal Income" />
+              <Mapping SourceColumn="Primary Akun Gain Loss Dispossal" DataSetColumn="Primary Akun Gain Loss Dispossal" />
+              <Mapping SourceColumn="Primary Jounal Set Finish" DataSetColumn="Primary Jounal Set Finish" />
+              <Mapping SourceColumn="Tanggal Set Finish" DataSetColumn="Tanggal Set Finish" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblDisposalTableAdapter" GeneratorDataComponentClassName="TblDisposalTableAdapter" Name="TblDisposal" UserDataComponentName="TblDisposalTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_jurnal.`Primary` AS `Primary Jurnal`, tbltrans_jurnal.`Ref Number` AS `Document No`, tbltrans_jurnal.`Date`, 
+                         tbltrans_jurnal_item_disposal.`disposed asset amount` - tbltrans_jurnal_item_disposal.`disposed accum dep amount` AS `Disposed Value`, 
+                         tbltrans_jurnal_item_disposal.`disposed qty` AS `Disposed Qty`, tbltrans_jurnal.`Tipe Journal`, tbltrans_jurnal.`Tipe Jurnal 2`, tbltrans_jurnal.`Primary Asset`, 
+                         tbltrans_jurnal_item_disposal.`tipe disposal`
+FROM            tbltrans_jurnal INNER JOIN
+                         tbltrans_jurnal_item_disposal ON tbltrans_jurnal.`Primary` = tbltrans_jurnal_item_disposal.`primary jurnal`
+WHERE        (tbltrans_jurnal.`Tipe Jurnal 2` = @TipeJurnal2) AND (tbltrans_jurnal.`Tipe Journal` = @TipeJurnal)
+ORDER BY tbltrans_jurnal.`Date`, `Document No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeJurnal2" ColumnName="Tipe Jurnal 2" DataSourceName="core_db.tbltrans_jurnal" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@TipeJurnal2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Jurnal 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeJurnal" ColumnName="Tipe Journal" DataSourceName="core_db.tbltrans_jurnal" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@TipeJurnal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Journal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Jurnal" DataSetColumn="Primary Jurnal" />
+              <Mapping SourceColumn="Document No" DataSetColumn="Document No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Disposed Value" DataSetColumn="Disposed Value" />
+              <Mapping SourceColumn="Disposed Qty" DataSetColumn="Disposed Qty" />
+              <Mapping SourceColumn="Tipe Journal" DataSetColumn="Tipe Journal" />
+              <Mapping SourceColumn="Tipe Jurnal 2" DataSetColumn="Tipe Jurnal 2" />
+              <Mapping SourceColumn="Primary Asset" DataSetColumn="Primary Asset" />
+              <Mapping SourceColumn="tipe disposal" DataSetColumn="tipe disposal" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblRev_MaterialUsageTableAdapter" GeneratorDataComponentClassName="TblRev_MaterialUsageTableAdapter" Name="TblRev_MaterialUsage" UserDataComponentName="TblRev_MaterialUsageTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltransaksi_stockinout" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tbltransaksi_stockinout` WHERE ((`Primary` = @Original_Primary) AND (`No Transaksi` = @Original_Document_No) AND (`Tanggal Transaksi` = @Original_Date) AND (`Material Usage Amount` = @Original_Revaluation_Value) AND (`Tipe Transaksi` = @Original_Tipe_Transaksi) AND (`Primary Asset` = @Original_Primary_Asset) AND (`In Out Adjust` = @Original_In_Out_Adjust))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Document_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Document No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Revaluation_Value" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Revaluation Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tipe_Transaksi" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Asset" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Asset" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_In_Out_Adjust" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="In Out Adjust" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `No Transaksi` AS `Document No`, `Tanggal Transaksi` AS `Date`, `Material Usage Amount` AS `Revaluation Value`, `Tipe Transaksi`, `Primary Asset`, 
+                         `In Out Adjust`
+FROM            tbltransaksi_stockinout
+WHERE        (`In Out Adjust` = @TipeMaterialUsageRev)
+ORDER BY `Date`, `Document No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeMaterialUsageRev" ColumnName="In Out Adjust" DataSourceName="core_db.tbltransaksi_stockinout" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@TipeMaterialUsageRev" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="In Out Adjust" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tbltransaksi_stockinout` SET `No Transaksi` = @Document_No, `Tanggal Transaksi` = @Date, `Material Usage Amount` = @Revaluation_Value, `Tipe Transaksi` = @Tipe_Transaksi, `Primary Asset` = @Primary_Asset, `In Out Adjust` = @In_Out_Adjust WHERE ((`Primary` = @Original_Primary) AND (`No Transaksi` = @Original_Document_No) AND (`Tanggal Transaksi` = @Original_Date) AND (`Material Usage Amount` = @Original_Revaluation_Value) AND (`Tipe Transaksi` = @Original_Tipe_Transaksi) AND (`Primary Asset` = @Original_Primary_Asset) AND (`In Out Adjust` = @Original_In_Out_Adjust))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Document_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Document No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Revaluation_Value" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Revaluation Value" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Tipe_Transaksi" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Asset" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Asset" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@In_Out_Adjust" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="In Out Adjust" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Document_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Document No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Revaluation_Value" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Revaluation Value" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tipe_Transaksi" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Asset" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Asset" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_In_Out_Adjust" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="In Out Adjust" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Document No" DataSetColumn="Document No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Revaluation Value" DataSetColumn="Revaluation Value" />
+              <Mapping SourceColumn="Tipe Transaksi" DataSetColumn="Tipe Transaksi" />
+              <Mapping SourceColumn="Primary Asset" DataSetColumn="Primary Asset" />
+              <Mapping SourceColumn="In Out Adjust" DataSetColumn="In Out Adjust" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblRev_OtherTableAdapter" GeneratorDataComponentClassName="TblRev_OtherTableAdapter" Name="TblRev_Other" UserDataComponentName="TblRev_OtherTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_jurnal" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tbltrans_jurnal` WHERE ((`Primary` = @Original_Primary_Jurnal) AND (`Ref Number` = @Original_Document_No) AND (`Date` = @Original_Date) AND (`Amount original` = @Original_Revaluation_Amount) AND (`Tipe Journal` = @Original_Tipe_Journal) AND (`Tipe Jurnal 2` = @Original_Tipe_Jurnal_2) AND (`Primary Asset` = @Original_Primary_Asset) AND (`Type InOut` = @Original_Type_InOut))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Jurnal" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Jurnal" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Document_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Document No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Revaluation_Amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Revaluation Amount" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tipe_Journal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Journal" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tipe_Jurnal_2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Jurnal 2" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Asset" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Asset" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Type_InOut" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type InOut" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary` AS `Primary Jurnal`, `Ref Number` AS `Document No`, `Date`, `Amount original` AS `Revaluation Amount`, `Tipe Journal`, `Tipe Jurnal 2`, `Primary Asset`, 
+                         `Type InOut`
+FROM            tbltrans_jurnal
+WHERE        (`Tipe Journal` = @TipeJurnalRevOther) AND (`Tipe Jurnal 2` = @TipeJurnal2RevOther)
+ORDER BY `Date`, `Document No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeJurnalRevOther" ColumnName="Tipe Journal" DataSourceName="core_db.tbltrans_jurnal" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@TipeJurnalRevOther" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Journal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeJurnal2RevOther" ColumnName="Tipe Jurnal 2" DataSourceName="core_db.tbltrans_jurnal" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@TipeJurnal2RevOther" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Jurnal 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tbltrans_jurnal` SET `Ref Number` = @Document_No, `Date` = @Date, `Amount original` = @Revaluation_Amount, `Tipe Journal` = @Tipe_Journal, `Tipe Jurnal 2` = @Tipe_Jurnal_2, `Primary Asset` = @Primary_Asset, `Type InOut` = @Type_InOut WHERE ((`Primary` = @Original_Primary_Jurnal) AND (`Ref Number` = @Original_Document_No) AND (`Date` = @Original_Date) AND (`Amount original` = @Original_Revaluation_Amount) AND (`Tipe Journal` = @Original_Tipe_Journal) AND (`Tipe Jurnal 2` = @Original_Tipe_Jurnal_2) AND (`Primary Asset` = @Original_Primary_Asset) AND (`Type InOut` = @Original_Type_InOut))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Document_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Document No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Revaluation_Amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Revaluation Amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Tipe_Journal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Journal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Tipe_Jurnal_2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Jurnal 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Asset" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Asset" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Type_InOut" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type InOut" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Jurnal" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Jurnal" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Document_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Document No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Revaluation_Amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="Revaluation Amount" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tipe_Journal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Journal" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tipe_Jurnal_2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Jurnal 2" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Asset" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Asset" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Type_InOut" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type InOut" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Jurnal" DataSetColumn="Primary Jurnal" />
+              <Mapping SourceColumn="Document No" DataSetColumn="Document No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Revaluation Amount" DataSetColumn="Revaluation Amount" />
+              <Mapping SourceColumn="Tipe Journal" DataSetColumn="Tipe Journal" />
+              <Mapping SourceColumn="Tipe Jurnal 2" DataSetColumn="Tipe Jurnal 2" />
+              <Mapping SourceColumn="Primary Asset" DataSetColumn="Primary Asset" />
+              <Mapping SourceColumn="Type InOut" DataSetColumn="Type InOut" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblDepresiasiTableAdapter" GeneratorDataComponentClassName="TblDepresiasiTableAdapter1" Name="TblDepresiasi" UserDataComponentName="TblDepresiasiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_jurnal.`Primary` AS `Primary Jurnal`, tbltrans_jurnal.`Ref Number` AS `Document No`, tbltrans_jurnal.`Date`, 
+                         tbltrans_jurnal_item_depresiasi_aset.`Depreciated Value`, tbltrans_jurnal_item_depresiasi_aset.`primary asset`
+FROM            tbltrans_jurnal INNER JOIN
+                         tbltrans_jurnal_item_depresiasi_aset ON tbltrans_jurnal.`Primary` = tbltrans_jurnal_item_depresiasi_aset.`primary jurnal`
+WHERE        (tbltrans_jurnal.`Tipe Journal` = @TipeJurnal) AND (tbltrans_jurnal.`Tipe Jurnal 2` = @TipeJurnal2)
+ORDER BY tbltrans_jurnal.`Date`, `Document No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeJurnal" ColumnName="Tipe Journal" DataSourceName="core_db.tbltrans_jurnal" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@TipeJurnal" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Journal" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeJurnal2" ColumnName="Tipe Jurnal 2" DataSourceName="core_db.tbltrans_jurnal" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@TipeJurnal2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Jurnal 2" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Jurnal" DataSetColumn="Primary Jurnal" />
+              <Mapping SourceColumn="Document No" DataSetColumn="Document No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Depreciated Value" DataSetColumn="Depreciated Value" />
+              <Mapping SourceColumn="primary asset" DataSetColumn="primary asset" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLapAsset_DepresiasiPerPeriod" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLapAsset_DepresiasiPerPeriod" msprop:Generator_DataSetName="DseLapAsset_DepresiasiPerPeriod">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TblLaporan" msprop:Generator_UserTableName="TblLaporan" msprop:Generator_RowDeletedName="TblLaporanRowDeleted" msprop:Generator_RowChangedName="TblLaporanRowChanged" msprop:Generator_RowClassName="TblLaporanRow" msprop:Generator_RowChangingName="TblLaporanRowChanging" msprop:Generator_RowEvArgName="TblLaporanRowChangeEvent" msprop:Generator_RowEvHandlerName="TblLaporanRowChangeEventHandler" msprop:Generator_TableClassName="TblLaporanDataTable" msprop:Generator_TableVarName="tableTblLaporan" msprop:Generator_RowDeletingName="TblLaporanRowDeleting" msprop:Generator_TablePropName="TblLaporan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Asset" msprop:Generator_UserColumnName="Primary Asset" msprop:Generator_ColumnPropNameInRow="Primary_Asset" msprop:Generator_ColumnVarNameInTable="columnPrimary_Asset" msprop:Generator_ColumnPropNameInTable="Primary_AssetColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Asset_x0020_Code" msprop:Generator_UserColumnName="Asset Code" msprop:Generator_ColumnPropNameInRow="Asset_Code" msprop:Generator_ColumnVarNameInTable="columnAsset_Code" msprop:Generator_ColumnPropNameInTable="Asset_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Asset_x0020_Desc" msprop:Generator_UserColumnName="Asset Desc" msprop:Generator_ColumnPropNameInRow="Asset_Desc" msprop:Generator_ColumnVarNameInTable="columnAsset_Desc" msprop:Generator_ColumnPropNameInTable="Asset_DescColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Primary_x0020_Asset_x0020_Group" msprop:Generator_UserColumnName="Primary Asset Group" msprop:Generator_ColumnPropNameInRow="Primary_Asset_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Asset_Group" msprop:Generator_ColumnPropNameInTable="Primary_Asset_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Group_x0020_Code" msprop:Generator_UserColumnName="Group Code" msprop:Generator_ColumnPropNameInRow="Group_Code" msprop:Generator_ColumnVarNameInTable="columnGroup_Code" msprop:Generator_ColumnPropNameInTable="Group_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Group_x0020_Desc" msprop:Generator_UserColumnName="Group Desc" msprop:Generator_ColumnPropNameInRow="Group_Desc" msprop:Generator_ColumnVarNameInTable="columnGroup_Desc" msprop:Generator_ColumnPropNameInTable="Group_DescColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_UserColumnName="Unit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInTable="UnitColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Acquisition_x0020_Value" msprop:Generator_UserColumnName="Acquisition Value" msprop:Generator_ColumnPropNameInRow="Acquisition_Value" msprop:Generator_ColumnVarNameInTable="columnAcquisition_Value" msprop:Generator_ColumnPropNameInTable="Acquisition_ValueColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Acquisition_x0020_Date" msprop:Generator_UserColumnName="Acquisition Date" msprop:Generator_ColumnPropNameInRow="Acquisition_Date" msprop:Generator_ColumnVarNameInTable="columnAcquisition_Date" msprop:Generator_ColumnPropNameInTable="Acquisition_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Accumalated_x0020_Depreciation" msprop:Generator_UserColumnName="Accumalated Depreciation" msprop:Generator_ColumnPropNameInRow="Accumalated_Depreciation" msprop:Generator_ColumnVarNameInTable="columnAccumalated_Depreciation" msprop:Generator_ColumnPropNameInTable="Accumalated_DepreciationColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Depreciation" msprop:Generator_UserColumnName="Depreciation" msprop:Generator_ColumnPropNameInRow="Depreciation" msprop:Generator_ColumnVarNameInTable="columnDepreciation" msprop:Generator_ColumnPropNameInTable="DepreciationColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Revaluation" msprop:Generator_UserColumnName="Revaluation" msprop:Generator_ColumnPropNameInRow="Revaluation" msprop:Generator_ColumnVarNameInTable="columnRevaluation" msprop:Generator_ColumnPropNameInTable="RevaluationColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Disposal" msprop:Generator_UserColumnName="Disposal" msprop:Generator_ColumnPropNameInRow="Disposal" msprop:Generator_ColumnVarNameInTable="columnDisposal" msprop:Generator_ColumnPropNameInTable="DisposalColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Remaining_x0020_Book_x0020_Value" msprop:Generator_UserColumnName="Remaining Book Value" msprop:Generator_ColumnPropNameInRow="Remaining_Book_Value" msprop:Generator_ColumnVarNameInTable="columnRemaining_Book_Value" msprop:Generator_ColumnPropNameInTable="Remaining_Book_ValueColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblAsset" msprop:Generator_UserTableName="TblAsset" msprop:Generator_RowDeletedName="TblAssetRowDeleted" msprop:Generator_RowChangedName="TblAssetRowChanged" msprop:Generator_RowClassName="TblAssetRow" msprop:Generator_RowChangingName="TblAssetRowChanging" msprop:Generator_RowEvArgName="TblAssetRowChangeEvent" msprop:Generator_RowEvHandlerName="TblAssetRowChangeEventHandler" msprop:Generator_TableClassName="TblAssetDataTable" msprop:Generator_TableVarName="tableTblAsset" msprop:Generator_RowDeletingName="TblAssetRowDeleting" msprop:Generator_TablePropName="TblAsset">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" />
+              <xs:element name="Group_x0020_Code" msprop:Generator_UserColumnName="Group Code" msprop:Generator_ColumnPropNameInRow="Group_Code" msprop:Generator_ColumnVarNameInTable="columnGroup_Code" msprop:Generator_ColumnPropNameInTable="Group_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Group_x0020_Desc" msprop:Generator_UserColumnName="Group Desc" msprop:Generator_ColumnPropNameInRow="Group_Desc" msprop:Generator_ColumnVarNameInTable="columnGroup_Desc" msprop:Generator_ColumnPropNameInTable="Group_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Asset_x0020_Code" msprop:Generator_UserColumnName="Asset Code" msprop:Generator_ColumnPropNameInRow="Asset_Code" msprop:Generator_ColumnVarNameInTable="columnAsset_Code" msprop:Generator_ColumnPropNameInTable="Asset_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Status_x0020_Asset" msprop:Generator_UserColumnName="Status Asset" msprop:Generator_ColumnPropNameInRow="Status_Asset" msprop:Generator_ColumnVarNameInTable="columnStatus_Asset" msprop:Generator_ColumnPropNameInTable="Status_AssetColumn" type="xs:int" />
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Group_x0020_Asset_x0020_Code" msprop:Generator_UserColumnName="Primary Group Asset Code" msprop:Generator_ColumnPropNameInRow="Primary_Group_Asset_Code" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group_Asset_Code" msprop:Generator_ColumnPropNameInTable="Primary_Group_Asset_CodeColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Unit" msprop:Generator_UserColumnName="Primary Unit" msprop:Generator_ColumnPropNameInRow="Primary_Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_UnitColumn" type="xs:double" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Acquisition_x0020_Type" msprop:Generator_UserColumnName="Acquisition Type" msprop:Generator_ColumnPropNameInRow="Acquisition_Type" msprop:Generator_ColumnVarNameInTable="columnAcquisition_Type" msprop:Generator_ColumnPropNameInTable="Acquisition_TypeColumn" type="xs:int" />
+              <xs:element name="Acquisition_x0020_Finish" msprop:Generator_UserColumnName="Acquisition Finish" msprop:Generator_ColumnPropNameInRow="Acquisition_Finish" msprop:Generator_ColumnVarNameInTable="columnAcquisition_Finish" msprop:Generator_ColumnPropNameInTable="Acquisition_FinishColumn" type="xs:int" />
+              <xs:element name="Depreciate_x0020_This_x0020_Asset" msprop:Generator_UserColumnName="Depreciate This Asset" msprop:Generator_ColumnPropNameInRow="Depreciate_This_Asset" msprop:Generator_ColumnVarNameInTable="columnDepreciate_This_Asset" msprop:Generator_ColumnPropNameInTable="Depreciate_This_AssetColumn" type="xs:int" />
+              <xs:element name="Depreciation_x0020_Method" msprop:Generator_UserColumnName="Depreciation Method" msprop:Generator_ColumnPropNameInRow="Depreciation_Method" msprop:Generator_ColumnVarNameInTable="columnDepreciation_Method" msprop:Generator_ColumnPropNameInTable="Depreciation_MethodColumn" type="xs:int" />
+              <xs:element name="Depreciation_x0020_Life" msprop:Generator_UserColumnName="Depreciation Life" msprop:Generator_ColumnPropNameInRow="Depreciation_Life" msprop:Generator_ColumnVarNameInTable="columnDepreciation_Life" msprop:Generator_ColumnPropNameInTable="Depreciation_LifeColumn" type="xs:decimal" />
+              <xs:element name="Acquired_x0020_Value" msprop:Generator_UserColumnName="Acquired Value" msprop:Generator_ColumnPropNameInRow="Acquired_Value" msprop:Generator_ColumnVarNameInTable="columnAcquired_Value" msprop:Generator_ColumnPropNameInTable="Acquired_ValueColumn" type="xs:decimal" />
+              <xs:element name="Salvage_x0020_Value" msprop:Generator_UserColumnName="Salvage Value" msprop:Generator_ColumnPropNameInRow="Salvage_Value" msprop:Generator_ColumnVarNameInTable="columnSalvage_Value" msprop:Generator_ColumnPropNameInTable="Salvage_ValueColumn" type="xs:decimal" />
+              <xs:element name="Book_x0020_Value" msprop:Generator_UserColumnName="Book Value" msprop:Generator_ColumnPropNameInRow="Book_Value" msprop:Generator_ColumnVarNameInTable="columnBook_Value" msprop:Generator_ColumnPropNameInTable="Book_ValueColumn" type="xs:decimal" />
+              <xs:element name="Start_x0020_Depreciate_x0020_On" msprop:Generator_UserColumnName="Start Depreciate On" msprop:Generator_ColumnPropNameInRow="Start_Depreciate_On" msprop:Generator_ColumnVarNameInTable="columnStart_Depreciate_On" msprop:Generator_ColumnPropNameInTable="Start_Depreciate_OnColumn" type="xs:dateTime" />
+              <xs:element name="Frequency" msprop:Generator_UserColumnName="Frequency" msprop:Generator_ColumnPropNameInRow="Frequency" msprop:Generator_ColumnVarNameInTable="columnFrequency" msprop:Generator_ColumnPropNameInTable="FrequencyColumn" type="xs:int" />
+              <xs:element name="Depreciate_x0020_On" msprop:Generator_UserColumnName="Depreciate On" msprop:Generator_ColumnPropNameInRow="Depreciate_On" msprop:Generator_ColumnVarNameInTable="columnDepreciate_On" msprop:Generator_ColumnPropNameInTable="Depreciate_OnColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Akun_x0020_On_x0020_Process" msprop:Generator_UserColumnName="Primary Akun On Process" msprop:Generator_ColumnPropNameInRow="Primary_Akun_On_Process" msprop:Generator_ColumnVarNameInTable="columnPrimary_Akun_On_Process" msprop:Generator_ColumnPropNameInTable="Primary_Akun_On_ProcessColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Akun_x0020_Asset" msprop:Generator_UserColumnName="Primary Akun Asset" msprop:Generator_ColumnPropNameInRow="Primary_Akun_Asset" msprop:Generator_ColumnVarNameInTable="columnPrimary_Akun_Asset" msprop:Generator_ColumnPropNameInTable="Primary_Akun_AssetColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Akun_x0020_Depreciation_x0020_Asset" msprop:Generator_UserColumnName="Primary Akun Depreciation Asset" msprop:Generator_ColumnPropNameInRow="Primary_Akun_Depreciation_Asset" msprop:Generator_ColumnVarNameInTable="columnPrimary_Akun_Depreciation_Asset" msprop:Generator_ColumnPropNameInTable="Primary_Akun_Depreciation_AssetColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Akun_x0020_Accum_x0020_Depreciation" msprop:Generator_UserColumnName="Primary Akun Accum Depreciation" msprop:Generator_ColumnPropNameInRow="Primary_Akun_Accum_Depreciation" msprop:Generator_ColumnVarNameInTable="columnPrimary_Akun_Accum_Depreciation" msprop:Generator_ColumnPropNameInTable="Primary_Akun_Accum_DepreciationColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Akun_x0020_Dispossal_x0020_Income" msprop:Generator_UserColumnName="Primary Akun Dispossal Income" msprop:Generator_ColumnPropNameInRow="Primary_Akun_Dispossal_Income" msprop:Generator_ColumnVarNameInTable="columnPrimary_Akun_Dispossal_Income" msprop:Generator_ColumnPropNameInTable="Primary_Akun_Dispossal_IncomeColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Akun_x0020_Gain_x0020_Loss_x0020_Dispossal" msprop:Generator_UserColumnName="Primary Akun Gain Loss Dispossal" msprop:Generator_ColumnPropNameInRow="Primary_Akun_Gain_Loss_Dispossal" msprop:Generator_ColumnVarNameInTable="columnPrimary_Akun_Gain_Loss_Dispossal" msprop:Generator_ColumnPropNameInTable="Primary_Akun_Gain_Loss_DispossalColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Jounal_x0020_Set_x0020_Finish" msprop:Generator_UserColumnName="Primary Jounal Set Finish" msprop:Generator_ColumnPropNameInRow="Primary_Jounal_Set_Finish" msprop:Generator_ColumnVarNameInTable="columnPrimary_Jounal_Set_Finish" msprop:Generator_ColumnPropNameInTable="Primary_Jounal_Set_FinishColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Set_x0020_Finish" msprop:Generator_UserColumnName="Tanggal Set Finish" msprop:Generator_ColumnPropNameInRow="Tanggal_Set_Finish" msprop:Generator_ColumnVarNameInTable="columnTanggal_Set_Finish" msprop:Generator_ColumnPropNameInTable="Tanggal_Set_FinishColumn" type="xs:dateTime" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblDisposal" msprop:Generator_UserTableName="TblDisposal" msprop:Generator_RowDeletedName="TblDisposalRowDeleted" msprop:Generator_RowChangedName="TblDisposalRowChanged" msprop:Generator_RowClassName="TblDisposalRow" msprop:Generator_RowChangingName="TblDisposalRowChanging" msprop:Generator_RowEvArgName="TblDisposalRowChangeEvent" msprop:Generator_RowEvHandlerName="TblDisposalRowChangeEventHandler" msprop:Generator_TableClassName="TblDisposalDataTable" msprop:Generator_TableVarName="tableTblDisposal" msprop:Generator_RowDeletingName="TblDisposalRowDeleting" msprop:Generator_TablePropName="TblDisposal">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Jurnal" msprop:Generator_UserColumnName="Primary Jurnal" msprop:Generator_ColumnVarNameInTable="columnPrimary_Jurnal" msprop:Generator_ColumnPropNameInRow="Primary_Jurnal" msprop:Generator_ColumnPropNameInTable="Primary_JurnalColumn" type="xs:double" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Disposed_x0020_Value" msprop:Generator_UserColumnName="Disposed Value" msprop:Generator_ColumnVarNameInTable="columnDisposed_Value" msprop:Generator_ColumnPropNameInRow="Disposed_Value" msprop:Generator_ColumnPropNameInTable="Disposed_ValueColumn" type="xs:decimal" />
+              <xs:element name="Disposed_x0020_Qty" msprop:Generator_UserColumnName="Disposed Qty" msprop:Generator_ColumnVarNameInTable="columnDisposed_Qty" msprop:Generator_ColumnPropNameInRow="Disposed_Qty" msprop:Generator_ColumnPropNameInTable="Disposed_QtyColumn" type="xs:decimal" />
+              <xs:element name="Tipe_x0020_Journal" msprop:Generator_UserColumnName="Tipe Journal" msprop:Generator_ColumnVarNameInTable="columnTipe_Journal" msprop:Generator_ColumnPropNameInRow="Tipe_Journal" msprop:Generator_ColumnPropNameInTable="Tipe_JournalColumn" type="xs:int" />
+              <xs:element name="Tipe_x0020_Jurnal_x0020_2" msprop:Generator_UserColumnName="Tipe Jurnal 2" msprop:Generator_ColumnVarNameInTable="columnTipe_Jurnal_2" msprop:Generator_ColumnPropNameInRow="Tipe_Jurnal_2" msprop:Generator_ColumnPropNameInTable="Tipe_Jurnal_2Column" type="xs:int" />
+              <xs:element name="Primary_x0020_Asset" msprop:Generator_UserColumnName="Primary Asset" msprop:Generator_ColumnVarNameInTable="columnPrimary_Asset" msprop:Generator_ColumnPropNameInRow="Primary_Asset" msprop:Generator_ColumnPropNameInTable="Primary_AssetColumn" type="xs:double" />
+              <xs:element name="tipe_x0020_disposal" msprop:Generator_UserColumnName="tipe disposal" msprop:Generator_ColumnPropNameInRow="tipe_disposal" msprop:Generator_ColumnVarNameInTable="columntipe_disposal" msprop:Generator_ColumnPropNameInTable="tipe_disposalColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblRev_MaterialUsage" msprop:Generator_UserTableName="TblRev_MaterialUsage" msprop:Generator_RowDeletedName="TblRev_MaterialUsageRowDeleted" msprop:Generator_RowChangedName="TblRev_MaterialUsageRowChanged" msprop:Generator_RowClassName="TblRev_MaterialUsageRow" msprop:Generator_RowChangingName="TblRev_MaterialUsageRowChanging" msprop:Generator_RowEvArgName="TblRev_MaterialUsageRowChangeEvent" msprop:Generator_RowEvHandlerName="TblRev_MaterialUsageRowChangeEventHandler" msprop:Generator_TableClassName="TblRev_MaterialUsageDataTable" msprop:Generator_TableVarName="tableTblRev_MaterialUsage" msprop:Generator_RowDeletingName="TblRev_MaterialUsageRowDeleting" msprop:Generator_TablePropName="TblRev_MaterialUsage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Revaluation_x0020_Value" msprop:Generator_UserColumnName="Revaluation Value" msprop:Generator_ColumnVarNameInTable="columnRevaluation_Value" msprop:Generator_ColumnPropNameInRow="Revaluation_Value" msprop:Generator_ColumnPropNameInTable="Revaluation_ValueColumn" type="xs:decimal" />
+              <xs:element name="Tipe_x0020_Transaksi" msprop:Generator_UserColumnName="Tipe Transaksi" msprop:Generator_ColumnVarNameInTable="columnTipe_Transaksi" msprop:Generator_ColumnPropNameInRow="Tipe_Transaksi" msprop:Generator_ColumnPropNameInTable="Tipe_TransaksiColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Asset" msprop:Generator_UserColumnName="Primary Asset" msprop:Generator_ColumnVarNameInTable="columnPrimary_Asset" msprop:Generator_ColumnPropNameInRow="Primary_Asset" msprop:Generator_ColumnPropNameInTable="Primary_AssetColumn" type="xs:double" />
+              <xs:element name="In_x0020_Out_x0020_Adjust" msprop:Generator_UserColumnName="In Out Adjust" msprop:Generator_ColumnVarNameInTable="columnIn_Out_Adjust" msprop:Generator_ColumnPropNameInRow="In_Out_Adjust" msprop:Generator_ColumnPropNameInTable="In_Out_AdjustColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblRev_Other" msprop:Generator_UserTableName="TblRev_Other" msprop:Generator_RowDeletedName="TblRev_OtherRowDeleted" msprop:Generator_RowChangedName="TblRev_OtherRowChanged" msprop:Generator_RowClassName="TblRev_OtherRow" msprop:Generator_RowChangingName="TblRev_OtherRowChanging" msprop:Generator_RowEvArgName="TblRev_OtherRowChangeEvent" msprop:Generator_RowEvHandlerName="TblRev_OtherRowChangeEventHandler" msprop:Generator_TableClassName="TblRev_OtherDataTable" msprop:Generator_TableVarName="tableTblRev_Other" msprop:Generator_RowDeletingName="TblRev_OtherRowDeleting" msprop:Generator_TablePropName="TblRev_Other">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Jurnal" msprop:Generator_UserColumnName="Primary Jurnal" msprop:Generator_ColumnVarNameInTable="columnPrimary_Jurnal" msprop:Generator_ColumnPropNameInRow="Primary_Jurnal" msprop:Generator_ColumnPropNameInTable="Primary_JurnalColumn" type="xs:double" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Revaluation_x0020_Amount" msprop:Generator_UserColumnName="Revaluation Amount" msprop:Generator_ColumnVarNameInTable="columnRevaluation_Amount" msprop:Generator_ColumnPropNameInRow="Revaluation_Amount" msprop:Generator_ColumnPropNameInTable="Revaluation_AmountColumn" type="xs:decimal" />
+              <xs:element name="Tipe_x0020_Journal" msprop:Generator_UserColumnName="Tipe Journal" msprop:Generator_ColumnVarNameInTable="columnTipe_Journal" msprop:Generator_ColumnPropNameInRow="Tipe_Journal" msprop:Generator_ColumnPropNameInTable="Tipe_JournalColumn" type="xs:int" />
+              <xs:element name="Tipe_x0020_Jurnal_x0020_2" msprop:Generator_UserColumnName="Tipe Jurnal 2" msprop:Generator_ColumnVarNameInTable="columnTipe_Jurnal_2" msprop:Generator_ColumnPropNameInRow="Tipe_Jurnal_2" msprop:Generator_ColumnPropNameInTable="Tipe_Jurnal_2Column" type="xs:int" />
+              <xs:element name="Primary_x0020_Asset" msprop:Generator_UserColumnName="Primary Asset" msprop:Generator_ColumnVarNameInTable="columnPrimary_Asset" msprop:Generator_ColumnPropNameInRow="Primary_Asset" msprop:Generator_ColumnPropNameInTable="Primary_AssetColumn" type="xs:double" />
+              <xs:element name="Type_x0020_InOut" msprop:Generator_UserColumnName="Type InOut" msprop:Generator_ColumnPropNameInRow="Type_InOut" msprop:Generator_ColumnVarNameInTable="columnType_InOut" msprop:Generator_ColumnPropNameInTable="Type_InOutColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblDepresiasi" msprop:Generator_UserTableName="TblDepresiasi" msprop:Generator_RowDeletedName="_TblDepresiasiRowDeleted" msprop:Generator_RowChangedName="_TblDepresiasiRowChanged" msprop:Generator_RowClassName="_TblDepresiasiRow" msprop:Generator_RowChangingName="_TblDepresiasiRowChanging" msprop:Generator_RowEvArgName="_TblDepresiasiRowChangeEvent" msprop:Generator_RowEvHandlerName="_TblDepresiasiRowChangeEventHandler" msprop:Generator_TableClassName="_TblDepresiasiDataTable" msprop:Generator_TableVarName="_tableTblDepresiasi" msprop:Generator_RowDeletingName="_TblDepresiasiRowDeleting" msprop:Generator_TablePropName="_TblDepresiasi">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Jurnal" msprop:Generator_UserColumnName="Primary Jurnal" msprop:Generator_ColumnVarNameInTable="columnPrimary_Jurnal" msprop:Generator_ColumnPropNameInRow="Primary_Jurnal" msprop:Generator_ColumnPropNameInTable="Primary_JurnalColumn" type="xs:double" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Depreciated_x0020_Value" msprop:Generator_UserColumnName="Depreciated Value" msprop:Generator_ColumnVarNameInTable="columnDepreciated_Value" msprop:Generator_ColumnPropNameInRow="Depreciated_Value" msprop:Generator_ColumnPropNameInTable="Depreciated_ValueColumn" type="xs:decimal" />
+              <xs:element name="primary_x0020_asset" msprop:Generator_UserColumnName="primary asset" msprop:Generator_ColumnVarNameInTable="columnprimary_asset" msprop:Generator_ColumnPropNameInRow="primary_asset" msprop:Generator_ColumnPropNameInTable="primary_assetColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TblDisposal" />
+      <xs:field xpath="mstns:Primary_x0020_Jurnal" />
+    </xs:unique>
+    <xs:unique name="TblRev_Other_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TblRev_Other" />
+      <xs:field xpath="mstns:Primary_x0020_Jurnal" />
+    </xs:unique>
+    <xs:unique name="TblDepresiasi_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TblDepresiasi" />
+      <xs:field xpath="mstns:Primary_x0020_Jurnal" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,2 @@
+﻿Partial Class DseTransaksiStockInSalesReturn_Balance
+End Class

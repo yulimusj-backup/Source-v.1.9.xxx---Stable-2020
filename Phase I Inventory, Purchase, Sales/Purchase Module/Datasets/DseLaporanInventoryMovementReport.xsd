@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanInventoryMovementReport" targetNamespace="http://tempuri.org/DseLaporanInventoryMovementReport.xsd" xmlns:mstns="http://tempuri.org/DseLaporanInventoryMovementReport.xsd" xmlns="http://tempuri.org/DseLaporanInventoryMovementReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_product_group" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_closing.`Closing Period`, tbltrans_purchase_closing_item.`Primary Product`, tblmaster_product.`Product Code`, 
+                         tblmaster_product.Description, tbltrans_purchase_closing_item.`Primary Unit`, tblmaster_master_unit.`Unit Code`, 
+                         tbltrans_purchase_closing_item.`Begin Qty`, tbltrans_purchase_closing_item.`Begin Amount`, tbltrans_purchase_closing_item.`In Qty`, 
+                         tbltrans_purchase_closing_item.`In Amount`, tbltrans_purchase_closing_item.`Out Qty`, tbltrans_purchase_closing_item.`Out Amount`, 
+                         tbltrans_purchase_closing_item.`Ending Qty`, tbltrans_purchase_closing_item.`Ending Amount`, product_sub_brand_view.`Primary Brand`, 
+                         tblmaster_product_group.`Group Code` AS `Brand Code`, tblmaster_product_group.Description AS `Brand Desc`, tblmaster_category.`Category Code`, 
+                         tblmaster_category.Description AS `Deskripsi Kategori`
+FROM            tbltrans_purchase_closing INNER JOIN
+                         tbltrans_purchase_closing_item ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_purchase_closing_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tbltrans_purchase_closing_item.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                         tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary`
+ORDER BY `Brand Code`, tblmaster_category.`Category Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Closing Period" DataSetColumn="Closing Period" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Unit" DataSetColumn="Primary Unit" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Begin Qty" DataSetColumn="Begin Qty" />
+              <Mapping SourceColumn="Begin Amount" DataSetColumn="Begin Amount" />
+              <Mapping SourceColumn="In Qty" DataSetColumn="In Qty" />
+              <Mapping SourceColumn="In Amount" DataSetColumn="In Amount" />
+              <Mapping SourceColumn="Out Qty" DataSetColumn="Out Qty" />
+              <Mapping SourceColumn="Out Amount" DataSetColumn="Out Amount" />
+              <Mapping SourceColumn="Ending Qty" DataSetColumn="Ending Qty" />
+              <Mapping SourceColumn="Ending Amount" DataSetColumn="Ending Amount" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Deskripsi Kategori" DataSetColumn="Deskripsi Kategori" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="laporan_inventory_movement_purchase_view1TableAdapter" GeneratorDataComponentClassName="laporan_inventory_movement_purchase_view1TableAdapter" Name="laporan_inventory_movement_purchase_view1" UserDataComponentName="laporan_inventory_movement_purchase_view1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_inventory_movement_purchase_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Brand Code`, `Ending Amount`, `Closing Period`
+FROM            laporan_inventory_movement_purchase_view
+GROUP BY `Brand Code`, `Ending Amount`, `Closing Period`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Ending Amount" DataSetColumn="Ending Amount" />
+              <Mapping SourceColumn="Closing Period" DataSetColumn="Closing Period" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        SUM(tbltrans_purchase_closing_item.`Begin Amount`) AS `Begin Amount`, SUM(tbltrans_purchase_closing_item.`In Amount`) AS `In Amount`, 
+                         SUM(tbltrans_purchase_closing_item.`Out Amount`) AS `Out Amount`, SUM(tbltrans_purchase_closing_item.`Ending Amount`) AS `Ending Amount`
+FROM            tbltrans_purchase_closing INNER JOIN
+                         tbltrans_purchase_closing_item ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item.`Primary Transaksi`
+WHERE        (tbltrans_purchase_closing.`Closing Period` = @Closing)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Closing" ColumnName="Closing Period" DataSourceName="tbltrans_purchase_closing" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Closing" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Begin Amount" DataSetColumn="Begin Amount" />
+              <Mapping SourceColumn="In Amount" DataSetColumn="In Amount" />
+              <Mapping SourceColumn="Out Amount" DataSetColumn="Out Amount" />
+              <Mapping SourceColumn="Ending Amount" DataSetColumn="Ending Amount" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="laporan_inventory_movement_purchase_view2TableAdapter" GeneratorDataComponentClassName="laporan_inventory_movement_purchase_view2TableAdapter" Name="laporan_inventory_movement_purchase_view2" UserDataComponentName="laporan_inventory_movement_purchase_view2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db1.laporan_inventory_movement_purchase_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Brand Code`, `Brand Desc`, SUM(`Begin Amount`) AS `Begin Amount`, SUM(`In Amount`) AS `In Amount`, SUM(`Out Amount`) AS `Out Amount`, SUM(`Ending Amount`) 
+                         AS `Ending Amount`
+FROM            laporan_inventory_movement_purchase_view
+WHERE        (`Primary Brand` = @PrimaryBrand) AND (`Closing Period` = @ClosingPeriod) AND (Type = @Goods)
+GROUP BY `Brand Code`, `Brand Desc`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db1.laporan_inventory_movement_purchase_view" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="Closing Period" DataSourceName="core_db1.laporan_inventory_movement_purchase_view" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Goods" ColumnName="Type" DataSourceName="core_db1.laporan_inventory_movement_purchase_view" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Goods" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+              <Mapping SourceColumn="Begin Amount" DataSetColumn="Begin Amount" />
+              <Mapping SourceColumn="In Amount" DataSetColumn="In Amount" />
+              <Mapping SourceColumn="Out Amount" DataSetColumn="Out Amount" />
+              <Mapping SourceColumn="Ending Amount" DataSetColumn="Ending Amount" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="laporan_inventory_movement_purchase_viewTableAdapter" GeneratorDataComponentClassName="laporan_inventory_movement_purchase_viewTableAdapter" Name="laporan_inventory_movement_purchase_view" UserDataComponentName="laporan_inventory_movement_purchase_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db1.laporan_inventory_movement_purchase_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Product`, `Product Code`, Description, `Primary Unit`, `Unit Code`, `Begin Qty`, `Begin Amount`, `In Qty`, `In Amount`, `Out Qty`, `Out Amount`, `Ending Qty`, 
+                         `Ending Amount`, `Category Code`, `Deskripsi Kategori`, `Brand Code`, `Brand Desc`, `Decimal`
+FROM            laporan_inventory_movement_purchase_view
+WHERE        (`Primary Brand` = @PrimaryBrand) AND (`Closing Period` = @ClosingPeriod) AND (Type = @Goods)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db1.laporan_inventory_movement_purchase_view" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="Closing Period" DataSourceName="core_db1.laporan_inventory_movement_purchase_view" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Goods" ColumnName="Type" DataSourceName="core_db1.laporan_inventory_movement_purchase_view" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Goods" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Unit" DataSetColumn="Primary Unit" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Begin Qty" DataSetColumn="Begin Qty" />
+              <Mapping SourceColumn="Begin Amount" DataSetColumn="Begin Amount" />
+              <Mapping SourceColumn="In Qty" DataSetColumn="In Qty" />
+              <Mapping SourceColumn="In Amount" DataSetColumn="In Amount" />
+              <Mapping SourceColumn="Out Qty" DataSetColumn="Out Qty" />
+              <Mapping SourceColumn="Out Amount" DataSetColumn="Out Amount" />
+              <Mapping SourceColumn="Ending Qty" DataSetColumn="Ending Qty" />
+              <Mapping SourceColumn="Ending Amount" DataSetColumn="Ending Amount" />
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Deskripsi Kategori" DataSetColumn="Deskripsi Kategori" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchase_closing_item_detailTableAdapter" GeneratorDataComponentClassName="tbltrans_purchase_closing_item_detailTableAdapter" Name="tbltrans_purchase_closing_item_detail" UserDataComponentName="tbltrans_purchase_closing_item_detailTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_purchase_closing_item_detail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, 
+                         tbltrans_purchase_closing_item_detail.`tipe item detail`
+FROM            tbltrans_purchase_closing INNER JOIN
+                         tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+WHERE        (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="Closing Period" DataSourceName="tbltrans_purchase_closing" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="tipe item detail" DataSourceName="tbltrans_purchase_closing_item_detail" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe item detail" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary code no" DataSetColumn="primary code no" />
+              <Mapping SourceColumn="amount" DataSetColumn="amount" />
+              <Mapping SourceColumn="tipe item detail" DataSetColumn="tipe item detail" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchase_closing_item_detail1TableAdapter" GeneratorDataComponentClassName="tbltrans_purchase_closing_item_detail1TableAdapter" Name="tbltrans_purchase_closing_item_detail1" UserDataComponentName="tbltrans_purchase_closing_item_detail1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db1.tblmaster_product_group" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT SUM(derivedtbl_1.amount) AS Amount, tblmaster_product_group.`Group Code` AS `Brand Code`, tblmaster_product_group.Description AS `Brand Desc`
+FROM     (SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, 
+                                    tbltrans_purchase_closing_item_detail.`tipe item detail`
+                  FROM      tbltrans_purchase_closing INNER JOIN
+                                    tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+                  WHERE   (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)) 
+                  derivedtbl_1 INNER JOIN
+                  tblmaster_product ON derivedtbl_1.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                  tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary`
+WHERE  (tblmaster_product.Type = 0)
+GROUP BY tblmaster_product_group.`Group Code`, tblmaster_product_group.Description</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_Account" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_Account" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_Account">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT SUM(derivedtbl_1.amount) AS Amount, tblmaster_akun.`Account Code` AS `Brand Code`, tblmaster_akun.Description AS `Brand Desc`
+FROM  (SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, tbltrans_purchase_closing_item_detail.`tipe item detail`
+            FROM   tbltrans_purchase_closing INNER JOIN
+                        tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+            WHERE (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)) derivedtbl_1 INNER JOIN
+            tblmaster_product ON derivedtbl_1.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+            tblmaster_akun ON tblmaster_product.`Primary Inventory Account` = tblmaster_akun.`Primary`
+WHERE (tblmaster_product.Type = 0)
+GROUP BY tblmaster_akun.`Account Code`, tblmaster_akun.Description
+ORDER BY `Brand Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db1.tblmaster_product_group" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryBrand" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_PrimaryBrand" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryBrand">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT SUM(derivedtbl_1.amount) AS Amount, tblmaster_product_group.`Group Code` AS `Brand Code`, tblmaster_product_group.Description AS `Brand Desc`
+FROM     (SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, 
+                                    tbltrans_purchase_closing_item_detail.`tipe item detail`
+                  FROM      tbltrans_purchase_closing INNER JOIN
+                                    tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+                  WHERE   (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)) 
+                  derivedtbl_1 INNER JOIN
+                  tblmaster_product ON derivedtbl_1.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                  tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary`
+WHERE  (product_sub_brand_view.`Primary Brand` = @PrimaryBrand) AND (tblmaster_product.Type = 0)
+GROUP BY tblmaster_product_group.`Group Code`, tblmaster_product_group.Description</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db1.product_sub_brand_view" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_akun" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryBrang_GroupByAccount" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryBrang_GroupByAccount" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="FillBy_PrimaryBrang_GroupByAccount">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT SUM(derivedtbl_1.amount) AS Amount, tblmaster_akun.`Account Code` AS `Brand Code`, tblmaster_akun.Description AS `Brand Desc`
+FROM  (SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, tbltrans_purchase_closing_item_detail.`tipe item detail`
+            FROM   tbltrans_purchase_closing INNER JOIN
+                        tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+            WHERE (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)) derivedtbl_1 INNER JOIN
+            tblmaster_product ON derivedtbl_1.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+            tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+            product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+            tblmaster_akun ON tblmaster_product.`Primary Inventory Account` = tblmaster_akun.`Primary`
+WHERE (product_sub_brand_view.`Primary Brand` = @PrimaryBrand) AND (tblmaster_product.Type = 0)
+GROUP BY tblmaster_akun.`Account Code`, tblmaster_akun.Description
+ORDER BY `Brand Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db.product_sub_brand_view" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchase_closing_item_detail2TableAdapter" GeneratorDataComponentClassName="tbltrans_purchase_closing_item_detail2TableAdapter" Name="tbltrans_purchase_closing_item_detail2" UserDataComponentName="tbltrans_purchase_closing_item_detail2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_purchase_closing_item_detail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, tbltrans_purchase_closing_item_detail.`tipe item detail`, 
+                         tbltrans_purchase_closing_item_detail.qty
+FROM            tbltrans_purchase_closing INNER JOIN
+                         tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+WHERE        (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="Closing Period" DataSourceName="tbltrans_purchase_closing" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="tipe item detail" DataSourceName="tbltrans_purchase_closing_item_detail" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe item detail" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary code no" DataSetColumn="primary code no" />
+              <Mapping SourceColumn="amount" DataSetColumn="amount" />
+              <Mapping SourceColumn="tipe item detail" DataSetColumn="tipe item detail" />
+              <Mapping SourceColumn="qty" DataSetColumn="qty" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TBL_AccountTableAdapter" GeneratorDataComponentClassName="TBL_AccountTableAdapter" Name="TBL_Account" UserDataComponentName="TBL_AccountTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_akun.`Account Code`, tblmaster_akun.Description, tblmaster_product.`Primary` AS `Primary Product`
+FROM            tblmaster_product INNER JOIN
+                         tblmaster_akun ON tblmaster_product.`Primary Inventory Account` = tblmaster_akun.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Account Code" DataSetColumn="Account Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchase_closing_item_detail3TableAdapter" GeneratorDataComponentClassName="tbltrans_purchase_closing_item_detail3TableAdapter" Name="tbltrans_purchase_closing_item_detail3" UserDataComponentName="tbltrans_purchase_closing_item_detail3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, tbltrans_purchase_closing_item_detail.`tipe item detail`, tbltrans_purchase_closing_item_detail.qty FROM tbltrans_purchase_closing INNER JOIN tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi` WHERE (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT SUM(derivedtbl_1.amount) AS Amount, tblmaster_product_group.`Group Code` AS `Brand Code`, tblmaster_product_group.Description AS `Brand Desc`, 
+                  derivedtbl_1.`primary code no`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Primary Unit`, 
+                  tblmaster_master_unit.`Unit Code`, tblmaster_category.`Category Code`, tblmaster_category.Description AS `Deskripsi Kategori`, tblmaster_product.`Decimal`, 
+                  SUM(derivedtbl_1.qty) AS Qty
+FROM     (SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, 
+                                    tbltrans_purchase_closing_item_detail.`tipe item detail`, tbltrans_purchase_closing_item_detail.qty
+                  FROM      tbltrans_purchase_closing INNER JOIN
+                                    tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+                  WHERE   (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)) 
+                  derivedtbl_1 INNER JOIN
+                  tblmaster_product ON derivedtbl_1.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                  tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary`
+WHERE  (tblmaster_product.Type = 0)
+GROUP BY tblmaster_product_group.`Group Code`, tblmaster_product_group.Description, derivedtbl_1.`primary code no`, tblmaster_product.`Product Code`, 
+                  tblmaster_product.Description, tblmaster_product.`Primary Unit`, tblmaster_master_unit.`Unit Code`, tblmaster_category.`Category Code`, 
+                  tblmaster_category.Description, tblmaster_product.`Decimal`
+ORDER BY `Brand Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+              <Mapping SourceColumn="primary code no" DataSetColumn="primary code no" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Unit" DataSetColumn="Primary Unit" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Deskripsi Kategori" DataSetColumn="Deskripsi Kategori" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, tbltrans_purchase_closing_item_detail.`tipe item detail`, tbltrans_purchase_closing_item_detail.qty FROM tbltrans_purchase_closing INNER JOIN tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi` WHERE (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryBrand" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_PrimaryBrand" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryBrand">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT SUM(derivedtbl_1.amount) AS Amount, tblmaster_product_group.`Group Code` AS `Brand Code`, tblmaster_product_group.Description AS `Brand Desc`, 
+                  derivedtbl_1.`primary code no`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Primary Unit`, 
+                  tblmaster_master_unit.`Unit Code`, tblmaster_category.`Category Code`, tblmaster_category.Description AS `Deskripsi Kategori`, tblmaster_product.`Decimal`, 
+                  SUM(derivedtbl_1.qty) AS Qty
+FROM     (SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, 
+                                    tbltrans_purchase_closing_item_detail.`tipe item detail`, tbltrans_purchase_closing_item_detail.qty
+                  FROM      tbltrans_purchase_closing INNER JOIN
+                                    tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+                  WHERE   (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)) 
+                  derivedtbl_1 INNER JOIN
+                  tblmaster_product ON derivedtbl_1.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                  tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary`
+WHERE  (product_sub_brand_view.`Primary Brand` = @PrimaryBrand) AND (tblmaster_product.Type = 0)
+GROUP BY tblmaster_product_group.`Group Code`, tblmaster_product_group.Description, derivedtbl_1.`primary code no`, tblmaster_product.`Product Code`, 
+                  tblmaster_product.Description, tblmaster_product.`Primary Unit`, tblmaster_master_unit.`Unit Code`, tblmaster_category.`Category Code`, 
+                  tblmaster_category.Description, tblmaster_product.`Decimal`
+ORDER BY `Brand Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db1.product_sub_brand_view" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, tbltrans_purchase_closing_item_detail.`tipe item detail`, tbltrans_purchase_closing_item_detail.qty FROM tbltrans_purchase_closing INNER JOIN tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi` WHERE (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT SUM(derivedtbl_1.amount) AS Amount, tblmaster_product_group.`Group Code` AS `Brand Code`, tblmaster_product_group.Description AS `Brand Desc`, 
+                  derivedtbl_1.`primary code no`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Primary Unit`, 
+                  tblmaster_master_unit.`Unit Code`, tblmaster_category.`Category Code`, tblmaster_category.Description AS `Deskripsi Kategori`, tblmaster_product.`Decimal`, 
+                  SUM(derivedtbl_1.qty) AS Qty
+FROM     (SELECT tbltrans_purchase_closing_item_detail.`primary code no`, tbltrans_purchase_closing_item_detail.amount, 
+                                    tbltrans_purchase_closing_item_detail.`tipe item detail`, tbltrans_purchase_closing_item_detail.qty
+                  FROM      tbltrans_purchase_closing INNER JOIN
+                                    tbltrans_purchase_closing_item_detail ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item_detail.`primary transaksi`
+                  WHERE   (tbltrans_purchase_closing.`Closing Period` = @ClosingPeriod) AND (tbltrans_purchase_closing_item_detail.`tipe item detail` = @TipeItemDetail)) 
+                  derivedtbl_1 INNER JOIN
+                  tblmaster_product ON derivedtbl_1.`primary code no` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                  tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary`
+WHERE  (product_sub_brand_view.`Primary Brand` = @PrimaryBrand)
+GROUP BY tblmaster_product_group.`Group Code`, tblmaster_product_group.Description, derivedtbl_1.`primary code no`, tblmaster_product.`Product Code`, 
+                  tblmaster_product.Description, tblmaster_product.`Primary Unit`, tblmaster_master_unit.`Unit Code`, tblmaster_category.`Category Code`, 
+                  tblmaster_category.Description, tblmaster_product.`Decimal`
+ORDER BY `Brand Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db1.product_sub_brand_view" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ClosingPeriod" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ClosingPeriod" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeItemDetail" ColumnName="" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeItemDetail" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+              <Mapping SourceColumn="primary code no" DataSetColumn="primary code no" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Primary Unit" DataSetColumn="Primary Unit" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Deskripsi Kategori" DataSetColumn="Deskripsi Kategori" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanInventoryMovementReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanInventoryMovementReport" msprop:Generator_DataSetName="DseLaporanInventoryMovementReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Closing_x0020_Period" msprop:Generator_UserColumnName="Closing Period" msprop:Generator_ColumnPropNameInRow="Closing_Period" msprop:Generator_ColumnVarNameInTable="columnClosing_Period" msprop:Generator_ColumnPropNameInTable="Closing_PeriodColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Unit" msprop:Generator_UserColumnName="Primary Unit" msprop:Generator_ColumnPropNameInRow="Primary_Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_UnitColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Begin_x0020_Qty" msprop:Generator_UserColumnName="Begin Qty" msprop:Generator_ColumnPropNameInRow="Begin_Qty" msprop:Generator_ColumnVarNameInTable="columnBegin_Qty" msprop:Generator_ColumnPropNameInTable="Begin_QtyColumn" type="xs:double" />
+              <xs:element name="Begin_x0020_Amount" msprop:Generator_UserColumnName="Begin Amount" msprop:Generator_ColumnPropNameInRow="Begin_Amount" msprop:Generator_ColumnVarNameInTable="columnBegin_Amount" msprop:Generator_ColumnPropNameInTable="Begin_AmountColumn" type="xs:double" />
+              <xs:element name="In_x0020_Qty" msprop:Generator_UserColumnName="In Qty" msprop:Generator_ColumnPropNameInRow="In_Qty" msprop:Generator_ColumnVarNameInTable="columnIn_Qty" msprop:Generator_ColumnPropNameInTable="In_QtyColumn" type="xs:double" />
+              <xs:element name="In_x0020_Amount" msprop:Generator_UserColumnName="In Amount" msprop:Generator_ColumnPropNameInRow="In_Amount" msprop:Generator_ColumnVarNameInTable="columnIn_Amount" msprop:Generator_ColumnPropNameInTable="In_AmountColumn" type="xs:double" />
+              <xs:element name="Out_x0020_Qty" msprop:Generator_UserColumnName="Out Qty" msprop:Generator_ColumnPropNameInRow="Out_Qty" msprop:Generator_ColumnVarNameInTable="columnOut_Qty" msprop:Generator_ColumnPropNameInTable="Out_QtyColumn" type="xs:double" />
+              <xs:element name="Out_x0020_Amount" msprop:Generator_UserColumnName="Out Amount" msprop:Generator_ColumnPropNameInRow="Out_Amount" msprop:Generator_ColumnVarNameInTable="columnOut_Amount" msprop:Generator_ColumnPropNameInTable="Out_AmountColumn" type="xs:double" />
+              <xs:element name="Ending_x0020_Qty" msprop:Generator_UserColumnName="Ending Qty" msprop:Generator_ColumnPropNameInRow="Ending_Qty" msprop:Generator_ColumnVarNameInTable="columnEnding_Qty" msprop:Generator_ColumnPropNameInTable="Ending_QtyColumn" type="xs:double" />
+              <xs:element name="Ending_x0020_Amount" msprop:Generator_UserColumnName="Ending Amount" msprop:Generator_ColumnPropNameInRow="Ending_Amount" msprop:Generator_ColumnVarNameInTable="columnEnding_Amount" msprop:Generator_ColumnPropNameInTable="Ending_AmountColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deskripsi_x0020_Kategori" msprop:Generator_UserColumnName="Deskripsi Kategori" msprop:Generator_ColumnPropNameInRow="Deskripsi_Kategori" msprop:Generator_ColumnVarNameInTable="columnDeskripsi_Kategori" msprop:Generator_ColumnPropNameInTable="Deskripsi_KategoriColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laporan_inventory_movement_purchase_view1" msprop:Generator_UserTableName="laporan_inventory_movement_purchase_view1" msprop:Generator_RowDeletedName="laporan_inventory_movement_purchase_view1RowDeleted" msprop:Generator_RowChangedName="laporan_inventory_movement_purchase_view1RowChanged" msprop:Generator_RowClassName="laporan_inventory_movement_purchase_view1Row" msprop:Generator_RowChangingName="laporan_inventory_movement_purchase_view1RowChanging" msprop:Generator_RowEvArgName="laporan_inventory_movement_purchase_view1RowChangeEvent" msprop:Generator_RowEvHandlerName="laporan_inventory_movement_purchase_view1RowChangeEventHandler" msprop:Generator_TableClassName="laporan_inventory_movement_purchase_view1DataTable" msprop:Generator_TableVarName="tablelaporan_inventory_movement_purchase_view1" msprop:Generator_RowDeletingName="laporan_inventory_movement_purchase_view1RowDeleting" msprop:Generator_TablePropName="laporan_inventory_movement_purchase_view1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ending_x0020_Amount" msprop:Generator_UserColumnName="Ending Amount" msprop:Generator_ColumnPropNameInRow="Ending_Amount" msprop:Generator_ColumnVarNameInTable="columnEnding_Amount" msprop:Generator_ColumnPropNameInTable="Ending_AmountColumn" type="xs:double" />
+              <xs:element name="Closing_x0020_Period" msprop:Generator_UserColumnName="Closing Period" msprop:Generator_ColumnPropNameInRow="Closing_Period" msprop:Generator_ColumnVarNameInTable="columnClosing_Period" msprop:Generator_ColumnPropNameInTable="Closing_PeriodColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Begin_x0020_Amount" msprop:Generator_UserColumnName="Begin Amount" msprop:Generator_ColumnPropNameInRow="Begin_Amount" msprop:Generator_ColumnVarNameInTable="columnBegin_Amount" msprop:Generator_ColumnPropNameInTable="Begin_AmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="In_x0020_Amount" msprop:Generator_UserColumnName="In Amount" msprop:Generator_ColumnPropNameInRow="In_Amount" msprop:Generator_ColumnVarNameInTable="columnIn_Amount" msprop:Generator_ColumnPropNameInTable="In_AmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Out_x0020_Amount" msprop:Generator_UserColumnName="Out Amount" msprop:Generator_ColumnPropNameInRow="Out_Amount" msprop:Generator_ColumnVarNameInTable="columnOut_Amount" msprop:Generator_ColumnPropNameInTable="Out_AmountColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Ending_x0020_Amount" msprop:Generator_UserColumnName="Ending Amount" msprop:Generator_ColumnPropNameInRow="Ending_Amount" msprop:Generator_ColumnVarNameInTable="columnEnding_Amount" msprop:Generator_ColumnPropNameInTable="Ending_AmountColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laporan_inventory_movement_purchase_view2" msprop:Generator_UserTableName="laporan_inventory_movement_purchase_view2" msprop:Generator_RowDeletedName="laporan_inventory_movement_purchase_view2RowDeleted" msprop:Generator_RowChangedName="laporan_inventory_movement_purchase_view2RowChanged" msprop:Generator_RowClassName="laporan_inventory_movement_purchase_view2Row" msprop:Generator_RowChangingName="laporan_inventory_movement_purchase_view2RowChanging" msprop:Generator_RowEvArgName="laporan_inventory_movement_purchase_view2RowChangeEvent" msprop:Generator_RowEvHandlerName="laporan_inventory_movement_purchase_view2RowChangeEventHandler" msprop:Generator_TableClassName="laporan_inventory_movement_purchase_view2DataTable" msprop:Generator_TableVarName="tablelaporan_inventory_movement_purchase_view2" msprop:Generator_RowDeletingName="laporan_inventory_movement_purchase_view2RowDeleting" msprop:Generator_TablePropName="laporan_inventory_movement_purchase_view2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Begin_x0020_Amount" msprop:Generator_UserColumnName="Begin Amount" msprop:Generator_ColumnVarNameInTable="columnBegin_Amount" msprop:Generator_ColumnPropNameInRow="Begin_Amount" msprop:Generator_ColumnPropNameInTable="Begin_AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="In_x0020_Amount" msprop:Generator_UserColumnName="In Amount" msprop:Generator_ColumnVarNameInTable="columnIn_Amount" msprop:Generator_ColumnPropNameInRow="In_Amount" msprop:Generator_ColumnPropNameInTable="In_AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Out_x0020_Amount" msprop:Generator_UserColumnName="Out Amount" msprop:Generator_ColumnVarNameInTable="columnOut_Amount" msprop:Generator_ColumnPropNameInRow="Out_Amount" msprop:Generator_ColumnPropNameInTable="Out_AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Ending_x0020_Amount" msprop:Generator_UserColumnName="Ending Amount" msprop:Generator_ColumnVarNameInTable="columnEnding_Amount" msprop:Generator_ColumnPropNameInRow="Ending_Amount" msprop:Generator_ColumnPropNameInTable="Ending_AmountColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laporan_inventory_movement_purchase_view" msprop:Generator_UserTableName="laporan_inventory_movement_purchase_view" msprop:Generator_RowDeletedName="laporan_inventory_movement_purchase_viewRowDeleted" msprop:Generator_RowChangedName="laporan_inventory_movement_purchase_viewRowChanged" msprop:Generator_RowClassName="laporan_inventory_movement_purchase_viewRow" msprop:Generator_RowChangingName="laporan_inventory_movement_purchase_viewRowChanging" msprop:Generator_RowEvArgName="laporan_inventory_movement_purchase_viewRowChangeEvent" msprop:Generator_RowEvHandlerName="laporan_inventory_movement_purchase_viewRowChangeEventHandler" msprop:Generator_TableClassName="laporan_inventory_movement_purchase_viewDataTable" msprop:Generator_TableVarName="tablelaporan_inventory_movement_purchase_view" msprop:Generator_RowDeletingName="laporan_inventory_movement_purchase_viewRowDeleting" msprop:Generator_TablePropName="laporan_inventory_movement_purchase_view">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Unit" msprop:Generator_UserColumnName="Primary Unit" msprop:Generator_ColumnPropNameInRow="Primary_Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_UnitColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Begin_x0020_Qty" msprop:Generator_UserColumnName="Begin Qty" msprop:Generator_ColumnPropNameInRow="Begin_Qty" msprop:Generator_ColumnVarNameInTable="columnBegin_Qty" msprop:Generator_ColumnPropNameInTable="Begin_QtyColumn" type="xs:decimal" />
+              <xs:element name="Begin_x0020_Amount" msprop:Generator_UserColumnName="Begin Amount" msprop:Generator_ColumnPropNameInRow="Begin_Amount" msprop:Generator_ColumnVarNameInTable="columnBegin_Amount" msprop:Generator_ColumnPropNameInTable="Begin_AmountColumn" type="xs:decimal" />
+              <xs:element name="In_x0020_Qty" msprop:Generator_UserColumnName="In Qty" msprop:Generator_ColumnPropNameInRow="In_Qty" msprop:Generator_ColumnVarNameInTable="columnIn_Qty" msprop:Generator_ColumnPropNameInTable="In_QtyColumn" type="xs:decimal" />
+              <xs:element name="In_x0020_Amount" msprop:Generator_UserColumnName="In Amount" msprop:Generator_ColumnPropNameInRow="In_Amount" msprop:Generator_ColumnVarNameInTable="columnIn_Amount" msprop:Generator_ColumnPropNameInTable="In_AmountColumn" type="xs:decimal" />
+              <xs:element name="Out_x0020_Qty" msprop:Generator_UserColumnName="Out Qty" msprop:Generator_ColumnPropNameInRow="Out_Qty" msprop:Generator_ColumnVarNameInTable="columnOut_Qty" msprop:Generator_ColumnPropNameInTable="Out_QtyColumn" type="xs:decimal" />
+              <xs:element name="Out_x0020_Amount" msprop:Generator_UserColumnName="Out Amount" msprop:Generator_ColumnPropNameInRow="Out_Amount" msprop:Generator_ColumnVarNameInTable="columnOut_Amount" msprop:Generator_ColumnPropNameInTable="Out_AmountColumn" type="xs:decimal" />
+              <xs:element name="Ending_x0020_Qty" msprop:Generator_UserColumnName="Ending Qty" msprop:Generator_ColumnPropNameInRow="Ending_Qty" msprop:Generator_ColumnVarNameInTable="columnEnding_Qty" msprop:Generator_ColumnPropNameInTable="Ending_QtyColumn" type="xs:decimal" />
+              <xs:element name="Ending_x0020_Amount" msprop:Generator_UserColumnName="Ending Amount" msprop:Generator_ColumnPropNameInRow="Ending_Amount" msprop:Generator_ColumnVarNameInTable="columnEnding_Amount" msprop:Generator_ColumnPropNameInTable="Ending_AmountColumn" type="xs:decimal" />
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deskripsi_x0020_Kategori" msprop:Generator_UserColumnName="Deskripsi Kategori" msprop:Generator_ColumnPropNameInRow="Deskripsi_Kategori" msprop:Generator_ColumnVarNameInTable="columnDeskripsi_Kategori" msprop:Generator_ColumnPropNameInTable="Deskripsi_KategoriColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchase_closing_item_detail" msprop:Generator_UserTableName="tbltrans_purchase_closing_item_detail" msprop:Generator_RowDeletedName="tbltrans_purchase_closing_item_detailRowDeleted" msprop:Generator_RowChangedName="tbltrans_purchase_closing_item_detailRowChanged" msprop:Generator_RowClassName="tbltrans_purchase_closing_item_detailRow" msprop:Generator_RowChangingName="tbltrans_purchase_closing_item_detailRowChanging" msprop:Generator_RowEvArgName="tbltrans_purchase_closing_item_detailRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchase_closing_item_detailRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchase_closing_item_detailDataTable" msprop:Generator_TableVarName="tabletbltrans_purchase_closing_item_detail" msprop:Generator_RowDeletingName="tbltrans_purchase_closing_item_detailRowDeleting" msprop:Generator_TablePropName="tbltrans_purchase_closing_item_detail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_code_x0020_no" msprop:Generator_UserColumnName="primary code no" msprop:Generator_ColumnVarNameInTable="columnprimary_code_no" msprop:Generator_ColumnPropNameInRow="primary_code_no" msprop:Generator_ColumnPropNameInTable="primary_code_noColumn" type="xs:double" />
+              <xs:element name="amount" msprop:Generator_UserColumnName="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" type="xs:decimal" />
+              <xs:element name="tipe_x0020_item_x0020_detail" msprop:Generator_UserColumnName="tipe item detail" msprop:Generator_ColumnVarNameInTable="columntipe_item_detail" msprop:Generator_ColumnPropNameInRow="tipe_item_detail" msprop:Generator_ColumnPropNameInTable="tipe_item_detailColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchase_closing_item_detail1" msprop:Generator_UserTableName="tbltrans_purchase_closing_item_detail1" msprop:Generator_RowDeletedName="tbltrans_purchase_closing_item_detail1RowDeleted" msprop:Generator_RowChangedName="tbltrans_purchase_closing_item_detail1RowChanged" msprop:Generator_RowClassName="tbltrans_purchase_closing_item_detail1Row" msprop:Generator_RowChangingName="tbltrans_purchase_closing_item_detail1RowChanging" msprop:Generator_RowEvArgName="tbltrans_purchase_closing_item_detail1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchase_closing_item_detail1RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchase_closing_item_detail1DataTable" msprop:Generator_TableVarName="tabletbltrans_purchase_closing_item_detail1" msprop:Generator_RowDeletingName="tbltrans_purchase_closing_item_detail1RowDeleting" msprop:Generator_TablePropName="tbltrans_purchase_closing_item_detail1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchase_closing_item_detail2" msprop:Generator_UserTableName="tbltrans_purchase_closing_item_detail2" msprop:Generator_RowDeletedName="tbltrans_purchase_closing_item_detail2RowDeleted" msprop:Generator_RowChangedName="tbltrans_purchase_closing_item_detail2RowChanged" msprop:Generator_RowClassName="tbltrans_purchase_closing_item_detail2Row" msprop:Generator_RowChangingName="tbltrans_purchase_closing_item_detail2RowChanging" msprop:Generator_RowEvArgName="tbltrans_purchase_closing_item_detail2RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchase_closing_item_detail2RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchase_closing_item_detail2DataTable" msprop:Generator_TableVarName="tabletbltrans_purchase_closing_item_detail2" msprop:Generator_RowDeletingName="tbltrans_purchase_closing_item_detail2RowDeleting" msprop:Generator_TablePropName="tbltrans_purchase_closing_item_detail2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_code_x0020_no" msprop:Generator_UserColumnName="primary code no" msprop:Generator_ColumnPropNameInRow="primary_code_no" msprop:Generator_ColumnVarNameInTable="columnprimary_code_no" msprop:Generator_ColumnPropNameInTable="primary_code_noColumn" type="xs:double" />
+              <xs:element name="amount" msprop:Generator_UserColumnName="amount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInTable="amountColumn" type="xs:decimal" />
+              <xs:element name="tipe_x0020_item_x0020_detail" msprop:Generator_UserColumnName="tipe item detail" msprop:Generator_ColumnPropNameInRow="tipe_item_detail" msprop:Generator_ColumnVarNameInTable="columntipe_item_detail" msprop:Generator_ColumnPropNameInTable="tipe_item_detailColumn" type="xs:int" />
+              <xs:element name="qty" msprop:Generator_UserColumnName="qty" msprop:Generator_ColumnPropNameInRow="qty" msprop:Generator_ColumnVarNameInTable="columnqty" msprop:Generator_ColumnPropNameInTable="qtyColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TBL_Account" msprop:Generator_UserTableName="TBL_Account" msprop:Generator_RowDeletedName="TBL_AccountRowDeleted" msprop:Generator_RowChangedName="TBL_AccountRowChanged" msprop:Generator_RowClassName="TBL_AccountRow" msprop:Generator_RowChangingName="TBL_AccountRowChanging" msprop:Generator_RowEvArgName="TBL_AccountRowChangeEvent" msprop:Generator_RowEvHandlerName="TBL_AccountRowChangeEventHandler" msprop:Generator_TableClassName="TBL_AccountDataTable" msprop:Generator_TableVarName="tableTBL_Account" msprop:Generator_RowDeletingName="TBL_AccountRowDeleting" msprop:Generator_TablePropName="TBL_Account">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Account_x0020_Code" msprop:Generator_UserColumnName="Account Code" msprop:Generator_ColumnPropNameInRow="Account_Code" msprop:Generator_ColumnVarNameInTable="columnAccount_Code" msprop:Generator_ColumnPropNameInTable="Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchase_closing_item_detail3" msprop:Generator_UserTableName="tbltrans_purchase_closing_item_detail3" msprop:Generator_RowDeletedName="tbltrans_purchase_closing_item_detail3RowDeleted" msprop:Generator_RowChangedName="tbltrans_purchase_closing_item_detail3RowChanged" msprop:Generator_RowClassName="tbltrans_purchase_closing_item_detail3Row" msprop:Generator_RowChangingName="tbltrans_purchase_closing_item_detail3RowChanging" msprop:Generator_RowEvArgName="tbltrans_purchase_closing_item_detail3RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchase_closing_item_detail3RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchase_closing_item_detail3DataTable" msprop:Generator_TableVarName="tabletbltrans_purchase_closing_item_detail3" msprop:Generator_RowDeletingName="tbltrans_purchase_closing_item_detail3RowDeleting" msprop:Generator_TablePropName="tbltrans_purchase_closing_item_detail3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_code_x0020_no" msprop:Generator_UserColumnName="primary code no" msprop:Generator_ColumnVarNameInTable="columnprimary_code_no" msprop:Generator_ColumnPropNameInRow="primary_code_no" msprop:Generator_ColumnPropNameInTable="primary_code_noColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Unit" msprop:Generator_UserColumnName="Primary Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit" msprop:Generator_ColumnPropNameInRow="Primary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_UnitColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deskripsi_x0020_Kategori" msprop:Generator_UserColumnName="Deskripsi Kategori" msprop:Generator_ColumnVarNameInTable="columnDeskripsi_Kategori" msprop:Generator_ColumnPropNameInRow="Deskripsi_Kategori" msprop:Generator_ColumnPropNameInTable="Deskripsi_KategoriColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable3" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_TablePropName="DataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_code_x0020_no" msprop:Generator_UserColumnName="primary code no" msprop:Generator_ColumnPropNameInRow="primary_code_no" msprop:Generator_ColumnVarNameInTable="columnprimary_code_no" msprop:Generator_ColumnPropNameInTable="primary_code_noColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Unit" msprop:Generator_UserColumnName="Primary Unit" msprop:Generator_ColumnPropNameInRow="Primary_Unit" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit" msprop:Generator_ColumnPropNameInTable="Primary_UnitColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deskripsi_x0020_Kategori" msprop:Generator_UserColumnName="Deskripsi Kategori" msprop:Generator_ColumnPropNameInRow="Deskripsi_Kategori" msprop:Generator_ColumnVarNameInTable="columnDeskripsi_Kategori" msprop:Generator_ColumnPropNameInTable="Deskripsi_KategoriColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

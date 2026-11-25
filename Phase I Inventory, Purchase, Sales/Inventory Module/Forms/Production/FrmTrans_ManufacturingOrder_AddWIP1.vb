@@ -1,0 +1,3 @@
+Public Class FrmTrans_ManufacturingOrder_AddWIP1
+
+End Class

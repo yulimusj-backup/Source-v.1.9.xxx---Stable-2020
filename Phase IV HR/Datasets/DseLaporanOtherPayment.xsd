@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanOtherPayment" targetNamespace="http://tempuri.org/DseLaporanOtherPayment.xsd" xmlns:mstns="http://tempuri.org/DseLaporanOtherPayment.xsd" xmlns="http://tempuri.org/DseLaporanOtherPayment.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Core_DbConnectionString" IsAppSettingsProperty="True" Modifier="Assembly" Name="Core_DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HR.MySettings.GlobalReference.Default.Core_DbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Public" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HR.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblLaporanOtherSalaryOverrideTableAdapter" GeneratorDataComponentClassName="TblLaporanOtherSalaryOverrideTableAdapter" Name="TblLaporanOtherSalaryOverride" UserDataComponentName="TblLaporanOtherSalaryOverrideTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_override_amount.`Primary`, tbltrans_salary_override_amount.`Document No`, tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`, 
+                         tblmaster_karyawan.NIK, tblmaster_salary_formula_salarycomponent.Description, tbltrans_salary_override_amount.tipe, tbltrans_salary_override_amount.`Date`, 
+                         tbltrans_salary_override_amount_item.`Override Amount`, tblmaster_karyawan.`Primary` AS `Primary Employee`, tblmaster_karyawan.`primary departemen`, 
+                         tblmaster_karyawan.`primary position`, tblmaster_salary_formula_salarycomponent.Identifier AS `Identifier formula`
+FROM            tblmaster_salary_formula_salarycomponent RIGHT OUTER JOIN
+                         tbltrans_salary_override_amount ON tblmaster_salary_formula_salarycomponent.Identifier = tbltrans_salary_override_amount.`Identifier Formula` LEFT OUTER JOIN
+                         tblmaster_karyawan RIGHT OUTER JOIN
+                         tbltrans_salary_override_amount_item ON tblmaster_karyawan.`Primary` = tbltrans_salary_override_amount_item.`Primary Employee` ON 
+                         tbltrans_salary_override_amount.`Primary` = tbltrans_salary_override_amount_item.`Primary Transaksi`
+ORDER BY tbltrans_salary_override_amount.`Document No`, tblmaster_karyawan.`Full Name`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Document No" DataSetColumn="Document No" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="NIK" DataSetColumn="NIK" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="tipe" DataSetColumn="tipe" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Override Amount" DataSetColumn="Override Amount" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="primary position" DataSetColumn="primary position" />
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Identifier formula" DataSetColumn="Identifier formula" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TglDariSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TglDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary_override_amount.`Primary`, tbltrans_salary_override_amount.`Document No`, tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`, 
+                         tblmaster_karyawan.NIK, tblmaster_salary_formula_salarycomponent.Description, tbltrans_salary_override_amount.tipe, tbltrans_salary_override_amount.`Date`, 
+                         tbltrans_salary_override_amount_item.`Override Amount`, tblmaster_karyawan.`Primary` AS `Primary Employee`, tblmaster_karyawan.`primary departemen`, 
+                         tblmaster_karyawan.`primary position`, tblmaster_salary_formula_salarycomponent.Identifier AS `Identifier formula`
+FROM            tblmaster_salary_formula_salarycomponent RIGHT OUTER JOIN
+                         tbltrans_salary_override_amount ON tblmaster_salary_formula_salarycomponent.Identifier = tbltrans_salary_override_amount.`Identifier Formula` LEFT OUTER JOIN
+                         tblmaster_karyawan RIGHT OUTER JOIN
+                         tbltrans_salary_override_amount_item ON tblmaster_karyawan.`Primary` = tbltrans_salary_override_amount_item.`Primary Employee` ON 
+                         tbltrans_salary_override_amount.`Primary` = tbltrans_salary_override_amount_item.`Primary Transaksi`
+WHERE        (tbltrans_salary_override_amount.tipe = @tipe) AND (tbltrans_salary_override_amount.`Date` &gt;= @Dari) AND (tbltrans_salary_override_amount.`Date` &lt;= @Sampai)
+ORDER BY tbltrans_salary_override_amount.`Document No`, tblmaster_karyawan.`Full Name`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tipe" ColumnName="tipe" DataSourceName="smess_cmsi.tbltrans_salary_override_amount" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@tipe" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Dari" ColumnName="Date" DataSourceName="smess_cmsi.tbltrans_salary_override_amount" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Dari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Sampai" ColumnName="Date" DataSourceName="smess_cmsi.tbltrans_salary_override_amount" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Sampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanOtherPayment" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanOtherPayment" msprop:Generator_DataSetName="DseLaporanOtherPayment">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbl_Document" msprop:Generator_UserTableName="tbl_Document" msprop:Generator_RowDeletedName="tbl_DocumentRowDeleted" msprop:Generator_RowChangedName="tbl_DocumentRowChanged" msprop:Generator_RowClassName="tbl_DocumentRow" msprop:Generator_RowChangingName="tbl_DocumentRowChanging" msprop:Generator_RowEvArgName="tbl_DocumentRowChangeEvent" msprop:Generator_RowEvHandlerName="tbl_DocumentRowChangeEventHandler" msprop:Generator_TableClassName="tbl_DocumentDataTable" msprop:Generator_TableVarName="tabletbl_Document" msprop:Generator_RowDeletingName="tbl_DocumentRowDeleting" msprop:Generator_TablePropName="tbl_Document">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="No_Doc" msprop:Generator_UserColumnName="No_Doc" msprop:Generator_ColumnVarNameInTable="columnNo_Doc" msprop:Generator_ColumnPropNameInRow="No_Doc" msprop:Generator_ColumnPropNameInTable="No_DocColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblLaporanOtherSalaryOverride" msprop:Generator_UserTableName="TblLaporanOtherSalaryOverride" msprop:Generator_RowDeletedName="TblLaporanOtherSalaryOverrideRowDeleted" msprop:Generator_RowChangedName="TblLaporanOtherSalaryOverrideRowChanged" msprop:Generator_RowClassName="TblLaporanOtherSalaryOverrideRow" msprop:Generator_RowChangingName="TblLaporanOtherSalaryOverrideRowChanging" msprop:Generator_RowEvArgName="TblLaporanOtherSalaryOverrideRowChangeEvent" msprop:Generator_RowEvHandlerName="TblLaporanOtherSalaryOverrideRowChangeEventHandler" msprop:Generator_TableClassName="TblLaporanOtherSalaryOverrideDataTable" msprop:Generator_TableVarName="tableTblLaporanOtherSalaryOverride" msprop:Generator_RowDeletingName="TblLaporanOtherSalaryOverrideRowDeleting" msprop:Generator_TablePropName="TblLaporanOtherSalaryOverride">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInTable="CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIK" msprop:Generator_UserColumnName="NIK" msprop:Generator_ColumnPropNameInRow="NIK" msprop:Generator_ColumnVarNameInTable="columnNIK" msprop:Generator_ColumnPropNameInTable="NIKColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipe" msprop:Generator_UserColumnName="tipe" msprop:Generator_ColumnPropNameInRow="tipe" msprop:Generator_ColumnVarNameInTable="columntipe" msprop:Generator_ColumnPropNameInTable="tipeColumn" type="xs:int" />
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Override_x0020_Amount" msprop:Generator_UserColumnName="Override Amount" msprop:Generator_ColumnPropNameInRow="Override_Amount" msprop:Generator_ColumnVarNameInTable="columnOverride_Amount" msprop:Generator_ColumnPropNameInTable="Override_AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="primary_x0020_position" msprop:Generator_UserColumnName="primary position" msprop:Generator_ColumnPropNameInRow="primary_position" msprop:Generator_ColumnVarNameInTable="columnprimary_position" msprop:Generator_ColumnPropNameInTable="primary_positionColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Identifier_x0020_formula" msprop:Generator_UserColumnName="Identifier formula" msprop:Generator_ColumnPropNameInRow="Identifier_formula" msprop:Generator_ColumnVarNameInTable="columnIdentifier_formula" msprop:Generator_ColumnPropNameInTable="Identifier_formulaColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblCetak" msprop:Generator_UserTableName="TblCetak" msprop:Generator_RowDeletedName="TblCetakRowDeleted" msprop:Generator_RowChangedName="TblCetakRowChanged" msprop:Generator_RowClassName="TblCetakRow" msprop:Generator_RowChangingName="TblCetakRowChanging" msprop:Generator_RowEvArgName="TblCetakRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetakRowChangeEventHandler" msprop:Generator_TableClassName="TblCetakDataTable" msprop:Generator_TableVarName="tableTblCetak" msprop:Generator_RowDeletingName="TblCetakRowDeleting" msprop:Generator_TablePropName="TblCetak">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Document_x0020_No" msprop:Generator_UserColumnName="Document No" msprop:Generator_ColumnPropNameInRow="Document_No" msprop:Generator_ColumnVarNameInTable="columnDocument_No" msprop:Generator_ColumnPropNameInTable="Document_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInTable="CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIK" msprop:Generator_UserColumnName="NIK" msprop:Generator_ColumnPropNameInRow="NIK" msprop:Generator_ColumnVarNameInTable="columnNIK" msprop:Generator_ColumnPropNameInTable="NIKColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipe" msprop:Generator_UserColumnName="tipe" msprop:Generator_ColumnPropNameInRow="tipe" msprop:Generator_ColumnVarNameInTable="columntipe" msprop:Generator_ColumnPropNameInTable="tipeColumn" type="xs:int" />
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Override_x0020_Amount" msprop:Generator_UserColumnName="Override Amount" msprop:Generator_ColumnPropNameInRow="Override_Amount" msprop:Generator_ColumnVarNameInTable="columnOverride_Amount" msprop:Generator_ColumnPropNameInTable="Override_AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Group_" msprop:Generator_UserColumnName="Group_" msprop:Generator_ColumnVarNameInTable="columnGroup_" msprop:Generator_ColumnPropNameInRow="Group_" msprop:Generator_ColumnPropNameInTable="Group_Column" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

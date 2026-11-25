@@ -1,0 +1,2 @@
+﻿Partial Class DseMasterKompetensi_Product
+End Class

@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTrans_Export_eSPT" targetNamespace="http://tempuri.org/DseTrans_Export_eSPT.xsd" xmlns:mstns="http://tempuri.org/DseTrans_Export_eSPT.xsd" xmlns="http://tempuri.org/DseTrans_Export_eSPT.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HR.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_monthlyTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_monthlyTableAdapter" Name="tbltrans_salary_monthly" UserDataComponentName="tbltrans_salary_monthlyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_salary.`Primary`, tbltrans_salary.`No Transaksi`, tbltrans_salary.`Tanggal Transaksi`, tbltrans_salary.`A NPWP`, tbltrans_salary.`A Nama`, tbltrans_salary.`Gross Salary`, tbltrans_salary.`Income Tax`, 
+                  CONCAT(tblmaster_karyawan.`First Name`, ' ', tblmaster_karyawan.`Middle Name`, ' ', tblmaster_karyawan.`Last Name`) AS `Employee Name`, tbltrans_salary.`Primary Salary Formula`, tbltrans_salary.`A Kode Negara Domisili`, 
+                  tbltrans_salary.`21 Pesangon`, tbltrans_salary.`21 Tunj PPH FInal Pesangon`, tbltrans_salary.`21 PPH Final Pesangon`, tbltrans_salary.`Prefix Bukti Potong PPH Final Pesangon`, tbltrans_salary.`No Bukti Potong PPH Final`, 
+                  tbltrans_salary.`Tarif Pesangon`, tbltrans_salary.`A NIK`, tbltrans_salary.`A Alamat1`, tbltrans_salary.`A Alamat2`, tbltrans_salary.`NPWP Pemotong`, tbltrans_salary.`Nama Pemotong`, tblmaster_karyawan.`first tax period`, 
+                  tbltrans_salary.`End Date`, tbltrans_salary.`Penghasilan Bruto`, tbltrans_salary.Tax, tbltrans_salary.`Primary Employee`
+FROM     tbltrans_salary INNER JOIN
+                  tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="A NPWP" DataSetColumn="A NPWP" />
+              <Mapping SourceColumn="A Nama" DataSetColumn="A Nama" />
+              <Mapping SourceColumn="Gross Salary" DataSetColumn="Gross Salary" />
+              <Mapping SourceColumn="Income Tax" DataSetColumn="Income Tax" />
+              <Mapping SourceColumn="Employee Name" DataSetColumn="Employee Name" />
+              <Mapping SourceColumn="Primary Salary Formula" DataSetColumn="Primary Salary Formula" />
+              <Mapping SourceColumn="A Kode Negara Domisili" DataSetColumn="A Kode Negara Domisili" />
+              <Mapping SourceColumn="21 Pesangon" DataSetColumn="21 Pesangon" />
+              <Mapping SourceColumn="21 Tunj PPH FInal Pesangon" DataSetColumn="21 Tunj PPH FInal Pesangon" />
+              <Mapping SourceColumn="21 PPH Final Pesangon" DataSetColumn="21 PPH Final Pesangon" />
+              <Mapping SourceColumn="Prefix Bukti Potong PPH Final Pesangon" DataSetColumn="Prefix Bukti Potong PPH Final Pesangon" />
+              <Mapping SourceColumn="No Bukti Potong PPH Final" DataSetColumn="No Bukti Potong PPH Final" />
+              <Mapping SourceColumn="Tarif Pesangon" DataSetColumn="Tarif Pesangon" />
+              <Mapping SourceColumn="A NIK" DataSetColumn="A NIK" />
+              <Mapping SourceColumn="A Alamat1" DataSetColumn="A Alamat1" />
+              <Mapping SourceColumn="A Alamat2" DataSetColumn="A Alamat2" />
+              <Mapping SourceColumn="NPWP Pemotong" DataSetColumn="NPWP Pemotong" />
+              <Mapping SourceColumn="Nama Pemotong" DataSetColumn="Nama Pemotong" />
+              <Mapping SourceColumn="first tax period" DataSetColumn="first tax period" />
+              <Mapping SourceColumn="End Date" DataSetColumn="End Date" />
+              <Mapping SourceColumn="Penghasilan Bruto" DataSetColumn="Penghasilan Bruto" />
+              <Mapping SourceColumn="Tax" DataSetColumn="Tax" />
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalLaporan" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TanggalLaporan" GeneratorSourceName="FillBy_TanggalLaporan" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalLaporan">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_salary.`Primary`, tbltrans_salary.`No Transaksi`, tbltrans_salary.`Tanggal Transaksi`, tbltrans_salary.`A NPWP`, tbltrans_salary.`A Nama`, tbltrans_salary.`Gross Salary`, tbltrans_salary.`Income Tax`, 
+                  CONCAT(tblmaster_karyawan.`First Name`, ' ', tblmaster_karyawan.`Middle Name`, ' ', tblmaster_karyawan.`Last Name`) AS `Employee Name`, tbltrans_salary.`Primary Salary Formula`, tbltrans_salary.`A Kode Negara Domisili`, 
+                  tbltrans_salary.`21 Pesangon`, tbltrans_salary.`21 Tunj PPH FInal Pesangon`, tbltrans_salary.`21 PPH Final Pesangon`, tbltrans_salary.`Prefix Bukti Potong PPH Final Pesangon`, tbltrans_salary.`No Bukti Potong PPH Final`, 
+                  tbltrans_salary.`Tarif Pesangon`, tbltrans_salary.`A NIK`, tbltrans_salary.`A Alamat1`, tbltrans_salary.`A Alamat2`, tbltrans_salary.`NPWP Pemotong`, tbltrans_salary.`Nama Pemotong`, tbltrans_salary.`08PenghasilanBruto`, 
+                  tbltrans_salary.`08 Penghasilan Bruto Rutin`, tblmaster_karyawan.`first tax period`, tbltrans_salary.`End Date`, tbltrans_salary.`Penghasilan Bruto`, tbltrans_salary.Tax, tbltrans_salary.`Primary Employee`
+FROM     tbltrans_salary INNER JOIN
+                  tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE  (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+ORDER BY tbltrans_salary.`A Nama`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cmsi.tbltrans_salary" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetNoTrans_ByNoBuktiPotongPesangon" Modifier="Public" Name="ScalarQuery_GetNoTrans_ByNoBuktiPotongPesangon" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetNoTrans_ByNoBuktiPotongPesangon">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `No Transaksi`
+FROM     tbltrans_salary
+WHERE  (`Prefix Bukti Potong PPH Final Pesangon` = @PrefixBuktiPotong) AND (`No Bukti Potong PPH Final` = @NoBuktiPotong)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrefixBuktiPotong" ColumnName="Prefix Bukti Potong PPH Final Pesangon" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@PrefixBuktiPotong" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Prefix Bukti Potong PPH Final Pesangon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoBuktiPotong" ColumnName="No Bukti Potong PPH Final" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@NoBuktiPotong" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="No Bukti Potong PPH Final" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cmsi.tbltrans_salary" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetNoTrans_ByNoFormA1" Modifier="Public" Name="ScalarQuery_GetNoTrans_ByNoFormA1" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetNoTrans_ByNoFormA1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `No Transaksi`
+FROM     tbltrans_salary
+WHERE  (NoForm1721A1 = @NoForm1721A1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoForm1721A1" ColumnName="NoForm1721A1" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@NoForm1721A1" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="NoForm1721A1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cmsi.tbltrans_salary" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetNoTrans_ByUrutanFormA1" Modifier="Public" Name="ScalarQuery_GetNoTrans_ByUrutanFormA1" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetNoTrans_ByUrutanFormA1">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `No Transaksi`
+FROM     tbltrans_salary
+WHERE  (UrutanForm1721A1 = @UrutanForm1721A1) AND (`Tanggal Transaksi` &lt;= @TglSampai) AND (`Tanggal Transaksi` &gt;= @TglDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="UrutanForm1721A1" ColumnName="UrutanForm1721A1" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="int(18)" DbType="Int32" Direction="Input" ParameterName="@UrutanForm1721A1" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="UrutanForm1721A1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_har.tbltrans_salary" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimarySalary" Modifier="Public" Name="ScalarQuery_GetPrimarySalary" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_GetPrimarySalary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `Primary`
+FROM     tbltrans_salary
+WHERE  (`Prefix Bukti Potong PPH Final Pesangon` = @PrefixBuktiPotong) AND (`No Bukti Potong PPH Final` = @UrutanBuktiPotong) AND (`Primary` &lt;&gt; @PrimaryAcuan)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrefixBuktiPotong" ColumnName="Prefix Bukti Potong PPH Final Pesangon" DataSourceName="smess_har.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@PrefixBuktiPotong" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Prefix Bukti Potong PPH Final Pesangon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="UrutanBuktiPotong" ColumnName="No Bukti Potong PPH Final" DataSourceName="smess_har.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@UrutanBuktiPotong" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="No Bukti Potong PPH Final" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryAcuan" ColumnName="Primary" DataSourceName="smess_har.tbltrans_salary" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryAcuan" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetUrutanBuktiPotongMax" Modifier="Public" Name="ScalarQuery_GetUrutanBuktiPotongMax" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_GetUrutanBuktiPotongMax">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT MAX(`No Bukti Potong PPH Final`) AS Expr1
+FROM     tbltrans_salary
+WHERE  (`Tanggal Transaksi` &lt;= @TglSampai) AND (`Tanggal Transaksi` &gt;= @TglDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_har.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_har.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy6" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltrans_salary
+SET          `No Bukti Potong PPH Final` = @NoBuktiPotong, `Prefix Bukti Potong PPH Final Pesangon` = @PrefixBuktiPotong
+WHERE  (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoBuktiPotong" ColumnName="No Bukti Potong PPH Final" DataSourceName="smess_har.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@NoBuktiPotong" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="No Bukti Potong PPH Final" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrefixBuktiPotong" ColumnName="Prefix Bukti Potong PPH Final Pesangon" DataSourceName="smess_har.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@PrefixBuktiPotong" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Prefix Bukti Potong PPH Final Pesangon" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="smess_har.tbltrans_salary" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_ExportStatus" Modifier="Public" Name="UpdateQuery_ExportStatus" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy7" UserSourceName="UpdateQuery_ExportStatus">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltrans_salary
+SET          `Export Status` = @ExportStatus
+WHERE  (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ExportStatus" ColumnName="Export Status" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@ExportStatus" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Export Status" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery1" Modifier="Public" Name="UpdateQuery1" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy8" UserSourceName="UpdateQuery1">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltrans_salary
+SET          NoForm1721A1 = @No1721A1, UrutanForm1721A1 = @Urutan1721A1
+WHERE  (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="No1721A1" ColumnName="NoForm1721A1" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@No1721A1" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="NoForm1721A1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan1721A1" ColumnName="UrutanForm1721A1" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="int(18)" DbType="Int32" Direction="Input" ParameterName="@Urutan1721A1" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="UrutanForm1721A1" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="smess_cmsi.tbltrans_salary" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TblPayrollAccessTableAdapter" GeneratorDataComponentClassName="TblPayrollAccessTableAdapter" Name="TblPayrollAccess" UserDataComponentName="TblPayrollAccessTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula`, tbluser.`Kode User`
+FROM            tblmaster_payroll_access_item_salaryformula INNER JOIN
+                         tblmaster_payroll_access_item_user ON 
+                         tblmaster_payroll_access_item_salaryformula.`Primary Master` = tblmaster_payroll_access_item_user.`Primary Master` INNER JOIN
+                         tbluser ON tblmaster_payroll_access_item_user.`Primary User` = tbluser.`Primary`
+ORDER BY tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Salary Formula" DataSetColumn="Primary Salary Formula" />
+              <Mapping SourceColumn="Kode User" DataSetColumn="Kode User" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_KodeUser" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_KodeUser" GeneratorSourceName="FillBy_KodeUser" GetMethodModifier="Public" GetMethodName="GetDataBy_KodeUser" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_KodeUser" UserSourceName="FillBy_KodeUser">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula`, tbluser.`Kode User`
+FROM            tblmaster_payroll_access_item_salaryformula INNER JOIN
+                         tblmaster_payroll_access_item_user ON 
+                         tblmaster_payroll_access_item_salaryformula.`Primary Master` = tblmaster_payroll_access_item_user.`Primary Master` INNER JOIN
+                         tbluser ON tblmaster_payroll_access_item_user.`Primary User` = tbluser.`Primary`
+WHERE        (tbluser.`Kode User` = @KodeUser)
+ORDER BY tblmaster_payroll_access_item_salaryformula.`Primary Salary Formula`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="KodeUser" ColumnName="Kode User" DataSourceName="core_db.tbluser" DataTypeServer="varchar(255)(255)" DbType="String" Direction="Input" ParameterName="@KodeUser" Precision="0" ProviderType="VarChar" Scale="0" Size="255" SourceColumn="Kode User" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_yearlyTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_yearlyTableAdapter" Name="tbltrans_salary_yearly" UserDataComponentName="tbltrans_salary_yearlyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_salary.`Primary`, tbltrans_salary.`No Transaksi`, tbltrans_salary.`Tanggal Transaksi`, tbltrans_salary.`A NPWP`, tbltrans_salary.`A Nama`, tbltrans_salary.`Gross Salary`, tbltrans_salary.`Income Tax`, 
+                  tbltrans_salary.`Primary Salary Formula`, tbltrans_salary.NoForm1721A1, tbltrans_salary.`A NIK`, tbltrans_salary.`A Nama Jabatan`, CONCAT(tbltrans_salary.`A Alamat1`, ' ', tbltrans_salary.`A Alamat2`) AS Alamat, 
+                  tbltrans_salary.`A Jenis Kelamin`, tbltrans_salary.`C NPWP`, tbltrans_salary.`C Nama`, tbltrans_salary.`A Kode Negara Domisili`, tbltrans_salary.`01Gaji`, tbltrans_salary.`02TunjanganPPh`, tbltrans_salary.`03TunjanganLainnya`, 
+                  tbltrans_salary.`04Honorarium`, tbltrans_salary.`05PremiAsuransi`, tbltrans_salary.`06Natura`, tbltrans_salary.`07Tantiem`, tbltrans_salary.`08PenghasilanBruto`, tbltrans_salary.`09BiayaJabatan`, tbltrans_salary.`10IuranPensiun`, 
+                  tbltrans_salary.`11JumlahPengurangan`, tbltrans_salary.`12JumlahPenghasilanNetto`, tbltrans_salary.`13JumlahPenghasilanMasaPjkSblmnya`, tbltrans_salary.`14JumlahPenghasilanNettoUtkPPh`, tbltrans_salary.`15PTKP`, 
+                  tbltrans_salary.`16PKPSetahun`, tbltrans_salary.`17PPh21`, tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya`, tbltrans_salary.`19PPhTerhutang`, tbltrans_salary.`20PPhPs21DanPPhPs26YgTelahDipotongNLunas`, 
+                  tbltrans_salary.`A Status NPWP`, tbltrans_salary.`Period Start`, tbltrans_salary.`Period End`, tbltrans_salary.`Primary Employee`, tbltrans_salary.`Export Status`, tbltrans_salary.UrutanForm1721A1, 
+                  tbltrans_salary.`13JumlahPenghasilanMasaPjkSblmnya1`, tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya1`, tblmaster_karyawan.Code AS `Employee Code`
+FROM     tbltrans_salary INNER JOIN
+                  tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="A NPWP" DataSetColumn="A NPWP" />
+              <Mapping SourceColumn="A Nama" DataSetColumn="A Nama" />
+              <Mapping SourceColumn="Gross Salary" DataSetColumn="Gross Salary" />
+              <Mapping SourceColumn="Income Tax" DataSetColumn="Income Tax" />
+              <Mapping SourceColumn="Primary Salary Formula" DataSetColumn="Primary Salary Formula" />
+              <Mapping SourceColumn="NoForm1721A1" DataSetColumn="NoForm1721A1" />
+              <Mapping SourceColumn="A NIK" DataSetColumn="A NIK" />
+              <Mapping SourceColumn="A Nama Jabatan" DataSetColumn="A Nama Jabatan" />
+              <Mapping SourceColumn="Alamat" DataSetColumn="Alamat" />
+              <Mapping SourceColumn="A Jenis Kelamin" DataSetColumn="A Jenis Kelamin" />
+              <Mapping SourceColumn="C NPWP" DataSetColumn="C NPWP" />
+              <Mapping SourceColumn="C Nama" DataSetColumn="C Nama" />
+              <Mapping SourceColumn="A Kode Negara Domisili" DataSetColumn="A Kode Negara Domisili" />
+              <Mapping SourceColumn="01Gaji" DataSetColumn="01Gaji" />
+              <Mapping SourceColumn="02TunjanganPPh" DataSetColumn="02TunjanganPPh" />
+              <Mapping SourceColumn="03TunjanganLainnya" DataSetColumn="03TunjanganLainnya" />
+              <Mapping SourceColumn="04Honorarium" DataSetColumn="04Honorarium" />
+              <Mapping SourceColumn="05PremiAsuransi" DataSetColumn="05PremiAsuransi" />
+              <Mapping SourceColumn="06Natura" DataSetColumn="06Natura" />
+              <Mapping SourceColumn="07Tantiem" DataSetColumn="07Tantiem" />
+              <Mapping SourceColumn="08PenghasilanBruto" DataSetColumn="08PenghasilanBruto" />
+              <Mapping SourceColumn="09BiayaJabatan" DataSetColumn="09BiayaJabatan" />
+              <Mapping SourceColumn="10IuranPensiun" DataSetColumn="10IuranPensiun" />
+              <Mapping SourceColumn="11JumlahPengurangan" DataSetColumn="11JumlahPengurangan" />
+              <Mapping SourceColumn="12JumlahPenghasilanNetto" DataSetColumn="12JumlahPenghasilanNetto" />
+              <Mapping SourceColumn="13JumlahPenghasilanMasaPjkSblmnya" DataSetColumn="13JumlahPenghasilanMasaPjkSblmnya" />
+              <Mapping SourceColumn="14JumlahPenghasilanNettoUtkPPh" DataSetColumn="14JumlahPenghasilanNettoUtkPPh" />
+              <Mapping SourceColumn="15PTKP" DataSetColumn="15PTKP" />
+              <Mapping SourceColumn="16PKPSetahun" DataSetColumn="16PKPSetahun" />
+              <Mapping SourceColumn="17PPh21" DataSetColumn="17PPh21" />
+              <Mapping SourceColumn="18PPh21YgTelahDipotongMasaPjkSblmnya" DataSetColumn="18PPh21YgTelahDipotongMasaPjkSblmnya" />
+              <Mapping SourceColumn="19PPhTerhutang" DataSetColumn="19PPhTerhutang" />
+              <Mapping SourceColumn="20PPhPs21DanPPhPs26YgTelahDipotongNLunas" DataSetColumn="20PPhPs21DanPPhPs26YgTelahDipotongNLunas" />
+              <Mapping SourceColumn="A Status NPWP" DataSetColumn="A Status NPWP" />
+              <Mapping SourceColumn="Period Start" DataSetColumn="Period Start" />
+              <Mapping SourceColumn="Period End" DataSetColumn="Period End" />
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Export Status" DataSetColumn="Export Status" />
+              <Mapping SourceColumn="UrutanForm1721A1" DataSetColumn="UrutanForm1721A1" />
+              <Mapping SourceColumn="13JumlahPenghasilanMasaPjkSblmnya1" DataSetColumn="13JumlahPenghasilanMasaPjkSblmnya1" />
+              <Mapping SourceColumn="18PPh21YgTelahDipotongMasaPjkSblmnya1" DataSetColumn="18PPh21YgTelahDipotongMasaPjkSblmnya1" />
+              <Mapping SourceColumn="Employee Code" DataSetColumn="Employee Code" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ResignOnly" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_ResignOnly" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_ResignOnly">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_salary.`01Gaji`, tbltrans_salary.`02TunjanganPPh`, tbltrans_salary.`03TunjanganLainnya`, tbltrans_salary.`04Honorarium`, tbltrans_salary.`05PremiAsuransi`, tbltrans_salary.`06Natura`, tbltrans_salary.`07Tantiem`, 
+                  tbltrans_salary.`08PenghasilanBruto`, tbltrans_salary.`09BiayaJabatan`, tbltrans_salary.`10IuranPensiun`, tbltrans_salary.`11JumlahPengurangan`, tbltrans_salary.`12JumlahPenghasilanNetto`, 
+                  tbltrans_salary.`13JumlahPenghasilanMasaPjkSblmnya`, tbltrans_salary.`14JumlahPenghasilanNettoUtkPPh`, tbltrans_salary.`15PTKP`, tbltrans_salary.`16PKPSetahun`, tbltrans_salary.`17PPh21`, 
+                  tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya`, tbltrans_salary.`19PPhTerhutang`, tbltrans_salary.`20PPhPs21DanPPhPs26YgTelahDipotongNLunas`, tbltrans_salary.`A Jenis Kelamin`, 
+                  tbltrans_salary.`A Kode Negara Domisili`, tbltrans_salary.`A NIK`, tbltrans_salary.`A NPWP`, tbltrans_salary.`A Nama`, tbltrans_salary.`A Nama Jabatan`, tbltrans_salary.`A Status NPWP`, CONCAT(tbltrans_salary.`A Alamat1`, ' ', 
+                  tbltrans_salary.`A Alamat2`) AS Alamat, tbltrans_salary.`C NPWP`, tbltrans_salary.`C Nama`, tbltrans_salary.`Export Status`, tbltrans_salary.`Gross Salary`, tbltrans_salary.`Income Tax`, tbltrans_salary.`No Transaksi`, 
+                  tbltrans_salary.NoForm1721A1, tbltrans_salary.`Period End`, tbltrans_salary.`Period Start`, tbltrans_salary.`Primary`, tbltrans_salary.`Primary Employee`, tbltrans_salary.`Primary Salary Formula`, tbltrans_salary.`Tanggal Transaksi`, 
+                  tbltrans_salary.UrutanForm1721A1, tbltrans_salary.`13JumlahPenghasilanMasaPjkSblmnya1`, tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya1`, tblmaster_karyawan.Code AS `Employee Code`
+FROM     tbltrans_salary INNER JOIN
+                  tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE  (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate) AND (tbltrans_salary.`Is Resign` = 1)
+ORDER BY tbltrans_salary.`Tanggal Transaksi`, tbltrans_salary.NoForm1721A1</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalLaporan" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TanggalLaporan" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_TanggalLaporan">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_salary.`01Gaji`, tbltrans_salary.`02TunjanganPPh`, tbltrans_salary.`03TunjanganLainnya`, tbltrans_salary.`04Honorarium`, tbltrans_salary.`05PremiAsuransi`, tbltrans_salary.`06Natura`, tbltrans_salary.`07Tantiem`, 
+                  tbltrans_salary.`08PenghasilanBruto`, tbltrans_salary.`09BiayaJabatan`, tbltrans_salary.`10IuranPensiun`, tbltrans_salary.`11JumlahPengurangan`, tbltrans_salary.`12JumlahPenghasilanNetto`, 
+                  tbltrans_salary.`13JumlahPenghasilanMasaPjkSblmnya`, tbltrans_salary.`14JumlahPenghasilanNettoUtkPPh`, tbltrans_salary.`15PTKP`, tbltrans_salary.`16PKPSetahun`, tbltrans_salary.`17PPh21`, 
+                  tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya`, tbltrans_salary.`19PPhTerhutang`, tbltrans_salary.`20PPhPs21DanPPhPs26YgTelahDipotongNLunas`, tbltrans_salary.`A Jenis Kelamin`, 
+                  tbltrans_salary.`A Kode Negara Domisili`, tbltrans_salary.`A NIK`, tbltrans_salary.`A NPWP`, tbltrans_salary.`A Nama`, tbltrans_salary.`A Nama Jabatan`, tbltrans_salary.`A Status NPWP`, CONCAT(tbltrans_salary.`A Alamat1`, ' ', 
+                  tbltrans_salary.`A Alamat2`) AS Alamat, tbltrans_salary.`C NPWP`, tbltrans_salary.`C Nama`, tbltrans_salary.`Export Status`, tbltrans_salary.`Gross Salary`, tbltrans_salary.`Income Tax`, tbltrans_salary.`No Transaksi`, 
+                  tbltrans_salary.NoForm1721A1, tbltrans_salary.`Period End`, tbltrans_salary.`Period Start`, tbltrans_salary.`Primary`, tbltrans_salary.`Primary Employee`, tbltrans_salary.`Primary Salary Formula`, tbltrans_salary.`Tanggal Transaksi`, 
+                  tbltrans_salary.UrutanForm1721A1, tbltrans_salary.`13JumlahPenghasilanMasaPjkSblmnya1`, tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya1`, tblmaster_karyawan.Code AS `Employee Code`
+FROM     tbltrans_salary INNER JOIN
+                  tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE  (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+ORDER BY tbltrans_salary.`Tanggal Transaksi`, tbltrans_salary.NoForm1721A1</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_monthly1TableAdapter" GeneratorDataComponentClassName="tbltrans_salary_monthly1TableAdapter" Name="tbltrans_salary_monthly1" UserDataComponentName="tbltrans_salary_monthly1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_salary.`Primary Employee`, tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`, SUM(tbltrans_salary.`Penghasilan Bruto`) AS `Penghasilan Bruto`, SUM(tbltrans_salary.`Income Tax`) AS `Income Tax`, 
+                  SUM(tbltrans_salary.`21 PPH Final Pesangon`) AS `21 PPH Final Pesangon`, SUM(tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya1`) AS `18PPh21YgTelahDipotongMasaPjkSblmnya1`
+FROM     tbltrans_salary INNER JOIN
+                  tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE  (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`, tbltrans_salary.`Primary Employee`
+ORDER BY tbltrans_salary.`Primary Employee`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="Penghasilan Bruto" DataSetColumn="Penghasilan Bruto" />
+              <Mapping SourceColumn="Income Tax" DataSetColumn="Income Tax" />
+              <Mapping SourceColumn="21 PPH Final Pesangon" DataSetColumn="21 PPH Final Pesangon" />
+              <Mapping SourceColumn="18PPh21YgTelahDipotongMasaPjkSblmnya1" DataSetColumn="18PPh21YgTelahDipotongMasaPjkSblmnya1" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_salary_formulaTableAdapter" GeneratorDataComponentClassName="tblmaster_salary_formulaTableAdapter" Name="tblmaster_salary_formula" UserDataComponentName="tblmaster_salary_formulaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cls.tblmaster_salary_formula" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `primary`, code, `desc`
+FROM     tblmaster_salary_formula</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="code" DataSetColumn="code" />
+              <Mapping SourceColumn="desc" DataSetColumn="desc" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_monthly2TableAdapter" GeneratorDataComponentClassName="tbltrans_salary_monthly2TableAdapter" Name="tbltrans_salary_monthly2" UserDataComponentName="tbltrans_salary_monthly2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cls.tbltrans_salary" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT SUM(`Penghasilan Bruto`) AS `Penghasilan Bruto`, SUM(`Income Tax`) AS `Income Tax`, SUM(`21 PPH Final Pesangon`) AS `21 PPH Final Pesangon`, SUM(`18PPh21YgTelahDipotongMasaPjkSblmnya1`) 
+                  AS `18PPh21YgTelahDipotongMasaPjkSblmnya1`, `Tanggal Transaksi`
+FROM     tbltrans_salary
+WHERE  (`Tanggal Transaksi` &lt;= @EndDate) AND (`Tanggal Transaksi` &gt;= @StartDate) AND (`Primary Employee` = @primary_employee)
+GROUP BY `Tanggal Transaksi`
+ORDER BY `Tanggal Transaksi`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_employee" ColumnName="Primary Employee" DataSourceName="smess_cls.tbltrans_salary" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_employee" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Employee" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Penghasilan Bruto" DataSetColumn="Penghasilan Bruto" />
+              <Mapping SourceColumn="Income Tax" DataSetColumn="Income Tax" />
+              <Mapping SourceColumn="21 PPH Final Pesangon" DataSetColumn="21 PPH Final Pesangon" />
+              <Mapping SourceColumn="18PPh21YgTelahDipotongMasaPjkSblmnya1" DataSetColumn="18PPh21YgTelahDipotongMasaPjkSblmnya1" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTrans_Export_eSPT" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTrans_Export_eSPT" msprop:Generator_DataSetName="DseTrans_Export_eSPT">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbltrans_salary_monthly" msprop:Generator_UserTableName="tbltrans_salary_monthly" msprop:Generator_RowDeletedName="tbltrans_salary_monthlyRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_monthlyRowChanged" msprop:Generator_RowClassName="tbltrans_salary_monthlyRow" msprop:Generator_RowChangingName="tbltrans_salary_monthlyRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_monthlyRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_monthlyRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_monthlyDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_monthly" msprop:Generator_RowDeletingName="tbltrans_salary_monthlyRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_monthly">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="A_x0020_NPWP" msprop:Generator_UserColumnName="A NPWP" msprop:Generator_ColumnPropNameInRow="A_NPWP" msprop:Generator_ColumnVarNameInTable="columnA_NPWP" msprop:Generator_ColumnPropNameInTable="A_NPWPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_Nama" msprop:Generator_UserColumnName="A Nama" msprop:Generator_ColumnPropNameInRow="A_Nama" msprop:Generator_ColumnVarNameInTable="columnA_Nama" msprop:Generator_ColumnPropNameInTable="A_NamaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gross_x0020_Salary" msprop:Generator_UserColumnName="Gross Salary" msprop:Generator_ColumnPropNameInRow="Gross_Salary" msprop:Generator_ColumnVarNameInTable="columnGross_Salary" msprop:Generator_ColumnPropNameInTable="Gross_SalaryColumn" type="xs:decimal" />
+              <xs:element name="Income_x0020_Tax" msprop:Generator_UserColumnName="Income Tax" msprop:Generator_ColumnPropNameInRow="Income_Tax" msprop:Generator_ColumnVarNameInTable="columnIncome_Tax" msprop:Generator_ColumnPropNameInTable="Income_TaxColumn" type="xs:decimal" />
+              <xs:element name="Pembetulan" msprop:Generator_UserColumnName="Pembetulan" msprop:Generator_ColumnPropNameInRow="Pembetulan" msprop:Generator_ColumnVarNameInTable="columnPembetulan" msprop:Generator_ColumnPropNameInTable="PembetulanColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Kode_x0020_Pajak" msprop:Generator_UserColumnName="Kode Pajak" msprop:Generator_ColumnPropNameInRow="Kode_Pajak" msprop:Generator_ColumnVarNameInTable="columnKode_Pajak" msprop:Generator_ColumnPropNameInTable="Kode_PajakColumn" type="xs:string" default="21-100-01" minOccurs="0" />
+              <xs:element name="Employee_x0020_Name" msprop:Generator_UserColumnName="Employee Name" msprop:Generator_ColumnPropNameInRow="Employee_Name" msprop:Generator_ColumnVarNameInTable="columnEmployee_Name" msprop:Generator_ColumnPropNameInTable="Employee_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Masa_x0020_Pajak" msprop:Generator_UserColumnName="Masa Pajak" msprop:Generator_ColumnPropNameInRow="Masa_Pajak" msprop:Generator_ColumnVarNameInTable="columnMasa_Pajak" msprop:Generator_ColumnPropNameInTable="Masa_PajakColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Tahun_x0020_Pajak" msprop:Generator_UserColumnName="Tahun Pajak" msprop:Generator_ColumnPropNameInRow="Tahun_Pajak" msprop:Generator_ColumnVarNameInTable="columnTahun_Pajak" msprop:Generator_ColumnPropNameInTable="Tahun_PajakColumn" type="xs:double" default="1950" minOccurs="0" />
+              <xs:element name="Primary_x0020_Salary_x0020_Formula" msprop:Generator_UserColumnName="Primary Salary Formula" msprop:Generator_ColumnPropNameInRow="Primary_Salary_Formula" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary_Formula" msprop:Generator_ColumnPropNameInTable="Primary_Salary_FormulaColumn" type="xs:double" />
+              <xs:element name="A_x0020_Kode_x0020_Negara_x0020_Domisili" msprop:Generator_UserColumnName="A Kode Negara Domisili" msprop:Generator_ColumnVarNameInTable="columnA_Kode_Negara_Domisili" msprop:Generator_ColumnPropNameInRow="A_Kode_Negara_Domisili" msprop:Generator_ColumnPropNameInTable="A_Kode_Negara_DomisiliColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="_x0032_1_x0020_Pesangon" msprop:Generator_UserColumnName="21 Pesangon" msprop:Generator_ColumnVarNameInTable="column21_Pesangon" msprop:Generator_ColumnPropNameInRow="_21_Pesangon" msprop:Generator_ColumnPropNameInTable="_21_PesangonColumn" type="xs:decimal" />
+              <xs:element name="_x0032_1_x0020_Tunj_x0020_PPH_x0020_FInal_x0020_Pesangon" msprop:Generator_UserColumnName="21 Tunj PPH FInal Pesangon" msprop:Generator_ColumnVarNameInTable="column21_Tunj_PPH_FInal_Pesangon" msprop:Generator_ColumnPropNameInRow="_21_Tunj_PPH_FInal_Pesangon" msprop:Generator_ColumnPropNameInTable="_21_Tunj_PPH_FInal_PesangonColumn" type="xs:decimal" />
+              <xs:element name="_x0032_1_x0020_PPH_x0020_Final_x0020_Pesangon" msprop:Generator_UserColumnName="21 PPH Final Pesangon" msprop:Generator_ColumnVarNameInTable="column21_PPH_Final_Pesangon" msprop:Generator_ColumnPropNameInRow="_21_PPH_Final_Pesangon" msprop:Generator_ColumnPropNameInTable="_21_PPH_Final_PesangonColumn" type="xs:decimal" />
+              <xs:element name="Prefix_x0020_Bukti_x0020_Potong_x0020_PPH_x0020_Final_x0020_Pesangon" msprop:Generator_UserColumnName="Prefix Bukti Potong PPH Final Pesangon" msprop:Generator_ColumnVarNameInTable="columnPrefix_Bukti_Potong_PPH_Final_Pesangon" msprop:Generator_ColumnPropNameInRow="Prefix_Bukti_Potong_PPH_Final_Pesangon" msprop:Generator_ColumnPropNameInTable="Prefix_Bukti_Potong_PPH_Final_PesangonColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_Bukti_x0020_Potong_x0020_PPH_x0020_Final" msprop:Generator_UserColumnName="No Bukti Potong PPH Final" msprop:Generator_ColumnVarNameInTable="columnNo_Bukti_Potong_PPH_Final" msprop:Generator_ColumnPropNameInRow="No_Bukti_Potong_PPH_Final" msprop:Generator_ColumnPropNameInTable="No_Bukti_Potong_PPH_FinalColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tarif_x0020_Pesangon" msprop:Generator_UserColumnName="Tarif Pesangon" msprop:Generator_ColumnVarNameInTable="columnTarif_Pesangon" msprop:Generator_ColumnPropNameInRow="Tarif_Pesangon" msprop:Generator_ColumnPropNameInTable="Tarif_PesangonColumn" type="xs:decimal" />
+              <xs:element name="A_x0020_NIK" msprop:Generator_UserColumnName="A NIK" msprop:Generator_ColumnVarNameInTable="columnA_NIK" msprop:Generator_ColumnPropNameInRow="A_NIK" msprop:Generator_ColumnPropNameInTable="A_NIKColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_Alamat1" msprop:Generator_UserColumnName="A Alamat1" msprop:Generator_ColumnVarNameInTable="columnA_Alamat1" msprop:Generator_ColumnPropNameInRow="A_Alamat1" msprop:Generator_ColumnPropNameInTable="A_Alamat1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_Alamat2" msprop:Generator_UserColumnName="A Alamat2" msprop:Generator_ColumnVarNameInTable="columnA_Alamat2" msprop:Generator_ColumnPropNameInRow="A_Alamat2" msprop:Generator_ColumnPropNameInTable="A_Alamat2Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NPWP_x0020_Pemotong" msprop:Generator_UserColumnName="NPWP Pemotong" msprop:Generator_ColumnVarNameInTable="columnNPWP_Pemotong" msprop:Generator_ColumnPropNameInRow="NPWP_Pemotong" msprop:Generator_ColumnPropNameInTable="NPWP_PemotongColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nama_x0020_Pemotong" msprop:Generator_UserColumnName="Nama Pemotong" msprop:Generator_ColumnVarNameInTable="columnNama_Pemotong" msprop:Generator_ColumnPropNameInRow="Nama_Pemotong" msprop:Generator_ColumnPropNameInTable="Nama_PemotongColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="first_x0020_tax_x0020_period" msprop:Generator_UserColumnName="first tax period" msprop:Generator_ColumnPropNameInRow="first_tax_period" msprop:Generator_ColumnVarNameInTable="columnfirst_tax_period" msprop:Generator_ColumnPropNameInTable="first_tax_periodColumn" type="xs:dateTime" />
+              <xs:element name="End_x0020_Date" msprop:Generator_UserColumnName="End Date" msprop:Generator_ColumnPropNameInRow="End_Date" msprop:Generator_ColumnVarNameInTable="columnEnd_Date" msprop:Generator_ColumnPropNameInTable="End_DateColumn" type="xs:dateTime" />
+              <xs:element name="Penghasilan_x0020_Bruto" msprop:Generator_UserColumnName="Penghasilan Bruto" msprop:Generator_ColumnVarNameInTable="columnPenghasilan_Bruto" msprop:Generator_ColumnPropNameInRow="Penghasilan_Bruto" msprop:Generator_ColumnPropNameInTable="Penghasilan_BrutoColumn" type="xs:decimal" />
+              <xs:element name="Tax" msprop:Generator_UserColumnName="Tax" msprop:Generator_ColumnPropNameInRow="Tax" msprop:Generator_ColumnVarNameInTable="columnTax" msprop:Generator_ColumnPropNameInTable="TaxColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblMsgBox" msprop:Generator_UserTableName="TblMsgBox" msprop:Generator_RowDeletedName="TblMsgBoxRowDeleted" msprop:Generator_RowChangedName="TblMsgBoxRowChanged" msprop:Generator_RowClassName="TblMsgBoxRow" msprop:Generator_RowChangingName="TblMsgBoxRowChanging" msprop:Generator_RowEvArgName="TblMsgBoxRowChangeEvent" msprop:Generator_RowEvHandlerName="TblMsgBoxRowChangeEventHandler" msprop:Generator_TableClassName="TblMsgBoxDataTable" msprop:Generator_TableVarName="tableTblMsgBox" msprop:Generator_RowDeletingName="TblMsgBoxRowDeleting" msprop:Generator_TablePropName="TblMsgBox">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Employee_x0020_Name" msprop:Generator_UserColumnName="Employee Name" msprop:Generator_ColumnPropNameInRow="Employee_Name" msprop:Generator_ColumnVarNameInTable="columnEmployee_Name" msprop:Generator_ColumnPropNameInTable="Employee_NameColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Primary_x0020_Salary" msprop:Generator_UserColumnName="Primary Salary" msprop:Generator_ColumnPropNameInRow="Primary_Salary" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary" msprop:Generator_ColumnPropNameInTable="Primary_SalaryColumn" type="xs:double" default="-1" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblPayrollAccess" msprop:Generator_UserTableName="TblPayrollAccess" msprop:Generator_RowDeletedName="TblPayrollAccessRowDeleted" msprop:Generator_RowChangedName="TblPayrollAccessRowChanged" msprop:Generator_RowClassName="TblPayrollAccessRow" msprop:Generator_RowChangingName="TblPayrollAccessRowChanging" msprop:Generator_RowEvArgName="TblPayrollAccessRowChangeEvent" msprop:Generator_RowEvHandlerName="TblPayrollAccessRowChangeEventHandler" msprop:Generator_TableClassName="TblPayrollAccessDataTable" msprop:Generator_TableVarName="tableTblPayrollAccess" msprop:Generator_RowDeletingName="TblPayrollAccessRowDeleting" msprop:Generator_TablePropName="TblPayrollAccess">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Salary_x0020_Formula" msprop:Generator_UserColumnName="Primary Salary Formula" msprop:Generator_ColumnPropNameInRow="Primary_Salary_Formula" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary_Formula" msprop:Generator_ColumnPropNameInTable="Primary_Salary_FormulaColumn" type="xs:double" />
+              <xs:element name="Kode_x0020_User" msprop:Generator_UserColumnName="Kode User" msprop:Generator_ColumnPropNameInRow="Kode_User" msprop:Generator_ColumnVarNameInTable="columnKode_User" msprop:Generator_ColumnPropNameInTable="Kode_UserColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_yearly" msprop:Generator_UserTableName="tbltrans_salary_yearly" msprop:Generator_RowDeletedName="tbltrans_salary_yearlyRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_yearlyRowChanged" msprop:Generator_RowClassName="tbltrans_salary_yearlyRow" msprop:Generator_RowChangingName="tbltrans_salary_yearlyRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_yearlyRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_yearlyRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_yearlyDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_yearly" msprop:Generator_RowDeletingName="tbltrans_salary_yearlyRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_yearly">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="A_x0020_NPWP" msprop:Generator_UserColumnName="A NPWP" msprop:Generator_ColumnVarNameInTable="columnA_NPWP" msprop:Generator_ColumnPropNameInRow="A_NPWP" msprop:Generator_ColumnPropNameInTable="A_NPWPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_Nama" msprop:Generator_UserColumnName="A Nama" msprop:Generator_ColumnVarNameInTable="columnA_Nama" msprop:Generator_ColumnPropNameInRow="A_Nama" msprop:Generator_ColumnPropNameInTable="A_NamaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Gross_x0020_Salary" msprop:Generator_UserColumnName="Gross Salary" msprop:Generator_ColumnVarNameInTable="columnGross_Salary" msprop:Generator_ColumnPropNameInRow="Gross_Salary" msprop:Generator_ColumnPropNameInTable="Gross_SalaryColumn" type="xs:decimal" />
+              <xs:element name="Income_x0020_Tax" msprop:Generator_UserColumnName="Income Tax" msprop:Generator_ColumnVarNameInTable="columnIncome_Tax" msprop:Generator_ColumnPropNameInRow="Income_Tax" msprop:Generator_ColumnPropNameInTable="Income_TaxColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Salary_x0020_Formula" msprop:Generator_UserColumnName="Primary Salary Formula" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary_Formula" msprop:Generator_ColumnPropNameInRow="Primary_Salary_Formula" msprop:Generator_ColumnPropNameInTable="Primary_Salary_FormulaColumn" type="xs:double" />
+              <xs:element name="NoForm1721A1" msprop:Generator_UserColumnName="NoForm1721A1" msprop:Generator_ColumnVarNameInTable="columnNoForm1721A1" msprop:Generator_ColumnPropNameInRow="NoForm1721A1" msprop:Generator_ColumnPropNameInTable="NoForm1721A1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_NIK" msprop:Generator_UserColumnName="A NIK" msprop:Generator_ColumnVarNameInTable="columnA_NIK" msprop:Generator_ColumnPropNameInRow="A_NIK" msprop:Generator_ColumnPropNameInTable="A_NIKColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_Nama_x0020_Jabatan" msprop:Generator_UserColumnName="A Nama Jabatan" msprop:Generator_ColumnVarNameInTable="columnA_Nama_Jabatan" msprop:Generator_ColumnPropNameInRow="A_Nama_Jabatan" msprop:Generator_ColumnPropNameInTable="A_Nama_JabatanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Alamat" msprop:Generator_UserColumnName="Alamat" msprop:Generator_ColumnVarNameInTable="columnAlamat" msprop:Generator_ColumnPropNameInRow="Alamat" msprop:Generator_ColumnPropNameInTable="AlamatColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="501" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_Jenis_x0020_Kelamin" msprop:Generator_UserColumnName="A Jenis Kelamin" msprop:Generator_ColumnVarNameInTable="columnA_Jenis_Kelamin" msprop:Generator_ColumnPropNameInRow="A_Jenis_Kelamin" msprop:Generator_ColumnPropNameInTable="A_Jenis_KelaminColumn" type="xs:int" />
+              <xs:element name="C_x0020_NPWP" msprop:Generator_UserColumnName="C NPWP" msprop:Generator_ColumnVarNameInTable="columnC_NPWP" msprop:Generator_ColumnPropNameInRow="C_NPWP" msprop:Generator_ColumnPropNameInTable="C_NPWPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="C_x0020_Nama" msprop:Generator_UserColumnName="C Nama" msprop:Generator_ColumnVarNameInTable="columnC_Nama" msprop:Generator_ColumnPropNameInRow="C_Nama" msprop:Generator_ColumnPropNameInTable="C_NamaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_Kode_x0020_Negara_x0020_Domisili" msprop:Generator_UserColumnName="A Kode Negara Domisili" msprop:Generator_ColumnVarNameInTable="columnA_Kode_Negara_Domisili" msprop:Generator_ColumnPropNameInRow="A_Kode_Negara_Domisili" msprop:Generator_ColumnPropNameInTable="A_Kode_Negara_DomisiliColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="_x0030_1Gaji" msprop:Generator_UserColumnName="01Gaji" msprop:Generator_ColumnVarNameInTable="column01Gaji" msprop:Generator_ColumnPropNameInRow="_01Gaji" msprop:Generator_ColumnPropNameInTable="_01GajiColumn" type="xs:decimal" />
+              <xs:element name="_x0030_2TunjanganPPh" msprop:Generator_UserColumnName="02TunjanganPPh" msprop:Generator_ColumnVarNameInTable="column02TunjanganPPh" msprop:Generator_ColumnPropNameInRow="_02TunjanganPPh" msprop:Generator_ColumnPropNameInTable="_02TunjanganPPhColumn" type="xs:decimal" />
+              <xs:element name="_x0030_3TunjanganLainnya" msprop:Generator_UserColumnName="03TunjanganLainnya" msprop:Generator_ColumnVarNameInTable="column03TunjanganLainnya" msprop:Generator_ColumnPropNameInRow="_03TunjanganLainnya" msprop:Generator_ColumnPropNameInTable="_03TunjanganLainnyaColumn" type="xs:decimal" />
+              <xs:element name="_x0030_4Honorarium" msprop:Generator_UserColumnName="04Honorarium" msprop:Generator_ColumnVarNameInTable="column04Honorarium" msprop:Generator_ColumnPropNameInRow="_04Honorarium" msprop:Generator_ColumnPropNameInTable="_04HonorariumColumn" type="xs:decimal" />
+              <xs:element name="_x0030_5PremiAsuransi" msprop:Generator_UserColumnName="05PremiAsuransi" msprop:Generator_ColumnVarNameInTable="column05PremiAsuransi" msprop:Generator_ColumnPropNameInRow="_05PremiAsuransi" msprop:Generator_ColumnPropNameInTable="_05PremiAsuransiColumn" type="xs:decimal" />
+              <xs:element name="_x0030_6Natura" msprop:Generator_UserColumnName="06Natura" msprop:Generator_ColumnVarNameInTable="column06Natura" msprop:Generator_ColumnPropNameInRow="_06Natura" msprop:Generator_ColumnPropNameInTable="_06NaturaColumn" type="xs:decimal" />
+              <xs:element name="_x0030_7Tantiem" msprop:Generator_UserColumnName="07Tantiem" msprop:Generator_ColumnVarNameInTable="column07Tantiem" msprop:Generator_ColumnPropNameInRow="_07Tantiem" msprop:Generator_ColumnPropNameInTable="_07TantiemColumn" type="xs:decimal" />
+              <xs:element name="_x0030_8PenghasilanBruto" msprop:Generator_UserColumnName="08PenghasilanBruto" msprop:Generator_ColumnVarNameInTable="column08PenghasilanBruto" msprop:Generator_ColumnPropNameInRow="_08PenghasilanBruto" msprop:Generator_ColumnPropNameInTable="_08PenghasilanBrutoColumn" type="xs:decimal" />
+              <xs:element name="_x0030_9BiayaJabatan" msprop:Generator_UserColumnName="09BiayaJabatan" msprop:Generator_ColumnVarNameInTable="column09BiayaJabatan" msprop:Generator_ColumnPropNameInRow="_09BiayaJabatan" msprop:Generator_ColumnPropNameInTable="_09BiayaJabatanColumn" type="xs:decimal" />
+              <xs:element name="_x0031_0IuranPensiun" msprop:Generator_UserColumnName="10IuranPensiun" msprop:Generator_ColumnVarNameInTable="column10IuranPensiun" msprop:Generator_ColumnPropNameInRow="_10IuranPensiun" msprop:Generator_ColumnPropNameInTable="_10IuranPensiunColumn" type="xs:decimal" />
+              <xs:element name="_x0031_1JumlahPengurangan" msprop:Generator_UserColumnName="11JumlahPengurangan" msprop:Generator_ColumnVarNameInTable="column11JumlahPengurangan" msprop:Generator_ColumnPropNameInRow="_11JumlahPengurangan" msprop:Generator_ColumnPropNameInTable="_11JumlahPenguranganColumn" type="xs:decimal" />
+              <xs:element name="_x0031_2JumlahPenghasilanNetto" msprop:Generator_UserColumnName="12JumlahPenghasilanNetto" msprop:Generator_ColumnVarNameInTable="column12JumlahPenghasilanNetto" msprop:Generator_ColumnPropNameInRow="_12JumlahPenghasilanNetto" msprop:Generator_ColumnPropNameInTable="_12JumlahPenghasilanNettoColumn" type="xs:decimal" />
+              <xs:element name="_x0031_3JumlahPenghasilanMasaPjkSblmnya" msprop:Generator_UserColumnName="13JumlahPenghasilanMasaPjkSblmnya" msprop:Generator_ColumnVarNameInTable="column13JumlahPenghasilanMasaPjkSblmnya" msprop:Generator_ColumnPropNameInRow="_13JumlahPenghasilanMasaPjkSblmnya" msprop:Generator_ColumnPropNameInTable="_13JumlahPenghasilanMasaPjkSblmnyaColumn" type="xs:decimal" />
+              <xs:element name="_x0031_4JumlahPenghasilanNettoUtkPPh" msprop:Generator_UserColumnName="14JumlahPenghasilanNettoUtkPPh" msprop:Generator_ColumnVarNameInTable="column14JumlahPenghasilanNettoUtkPPh" msprop:Generator_ColumnPropNameInRow="_14JumlahPenghasilanNettoUtkPPh" msprop:Generator_ColumnPropNameInTable="_14JumlahPenghasilanNettoUtkPPhColumn" type="xs:decimal" />
+              <xs:element name="_x0031_5PTKP" msprop:Generator_UserColumnName="15PTKP" msprop:Generator_ColumnVarNameInTable="column15PTKP" msprop:Generator_ColumnPropNameInRow="_15PTKP" msprop:Generator_ColumnPropNameInTable="_15PTKPColumn" type="xs:decimal" />
+              <xs:element name="_x0031_6PKPSetahun" msprop:Generator_UserColumnName="16PKPSetahun" msprop:Generator_ColumnVarNameInTable="column16PKPSetahun" msprop:Generator_ColumnPropNameInRow="_16PKPSetahun" msprop:Generator_ColumnPropNameInTable="_16PKPSetahunColumn" type="xs:decimal" />
+              <xs:element name="_x0031_7PPh21" msprop:Generator_UserColumnName="17PPh21" msprop:Generator_ColumnVarNameInTable="column17PPh21" msprop:Generator_ColumnPropNameInRow="_17PPh21" msprop:Generator_ColumnPropNameInTable="_17PPh21Column" type="xs:decimal" />
+              <xs:element name="_x0031_8PPh21YgTelahDipotongMasaPjkSblmnya" msprop:Generator_UserColumnName="18PPh21YgTelahDipotongMasaPjkSblmnya" msprop:Generator_ColumnVarNameInTable="column18PPh21YgTelahDipotongMasaPjkSblmnya" msprop:Generator_ColumnPropNameInRow="_18PPh21YgTelahDipotongMasaPjkSblmnya" msprop:Generator_ColumnPropNameInTable="_18PPh21YgTelahDipotongMasaPjkSblmnyaColumn" type="xs:decimal" />
+              <xs:element name="_x0031_9PPhTerhutang" msprop:Generator_UserColumnName="19PPhTerhutang" msprop:Generator_ColumnVarNameInTable="column19PPhTerhutang" msprop:Generator_ColumnPropNameInRow="_19PPhTerhutang" msprop:Generator_ColumnPropNameInTable="_19PPhTerhutangColumn" type="xs:decimal" />
+              <xs:element name="_x0032_0PPhPs21DanPPhPs26YgTelahDipotongNLunas" msprop:Generator_UserColumnName="20PPhPs21DanPPhPs26YgTelahDipotongNLunas" msprop:Generator_ColumnVarNameInTable="column20PPhPs21DanPPhPs26YgTelahDipotongNLunas" msprop:Generator_ColumnPropNameInRow="_20PPhPs21DanPPhPs26YgTelahDipotongNLunas" msprop:Generator_ColumnPropNameInTable="_20PPhPs21DanPPhPs26YgTelahDipotongNLunasColumn" type="xs:decimal" />
+              <xs:element name="A_x0020_Status_x0020_NPWP" msprop:Generator_UserColumnName="A Status NPWP" msprop:Generator_ColumnPropNameInRow="A_Status_NPWP" msprop:Generator_ColumnVarNameInTable="columnA_Status_NPWP" msprop:Generator_ColumnPropNameInTable="A_Status_NPWPColumn" type="xs:int" />
+              <xs:element name="Masa_x0020_Pajak" msprop:Generator_UserColumnName="Masa Pajak" msprop:Generator_ColumnVarNameInTable="columnMasa_Pajak" msprop:Generator_ColumnPropNameInRow="Masa_Pajak" msprop:Generator_ColumnPropNameInTable="Masa_PajakColumn" type="xs:int" default="12" minOccurs="0" />
+              <xs:element name="Pembetulan" msprop:Generator_UserColumnName="Pembetulan" msprop:Generator_ColumnVarNameInTable="columnPembetulan" msprop:Generator_ColumnPropNameInRow="Pembetulan" msprop:Generator_ColumnPropNameInTable="PembetulanColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Masa_x0020_Perolehan_x0020_Awal" msprop:Generator_UserColumnName="Masa Perolehan Awal" msprop:Generator_ColumnVarNameInTable="columnMasa_Perolehan_Awal" msprop:Generator_ColumnPropNameInRow="Masa_Perolehan_Awal" msprop:Generator_ColumnPropNameInTable="Masa_Perolehan_AwalColumn" type="xs:int" default="1" minOccurs="0" />
+              <xs:element name="Masa_x0020_Perolehan_x0020_Akhir" msprop:Generator_UserColumnName="Masa Perolehan Akhir" msprop:Generator_ColumnVarNameInTable="columnMasa_Perolehan_Akhir" msprop:Generator_ColumnPropNameInRow="Masa_Perolehan_Akhir" msprop:Generator_ColumnPropNameInTable="Masa_Perolehan_AkhirColumn" type="xs:int" default="12" minOccurs="0" />
+              <xs:element name="Kode_x0020_Pajak" msprop:Generator_UserColumnName="Kode Pajak" msprop:Generator_ColumnVarNameInTable="columnKode_Pajak" msprop:Generator_ColumnPropNameInRow="Kode_Pajak" msprop:Generator_ColumnPropNameInTable="Kode_PajakColumn" type="xs:string" default="21-100-01" minOccurs="0" />
+              <xs:element name="Status_x0020_Pindah" msprop:Generator_UserColumnName="Status Pindah" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Status_Pindah" msprop:Generator_ColumnPropNameInTable="Status_PindahColumn" msprop:Generator_ColumnVarNameInTable="columnStatus_Pindah" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Period_x0020_Start" msprop:Generator_UserColumnName="Period Start" msprop:Generator_ColumnPropNameInRow="Period_Start" msprop:Generator_ColumnVarNameInTable="columnPeriod_Start" msprop:Generator_ColumnPropNameInTable="Period_StartColumn" type="xs:int" />
+              <xs:element name="Period_x0020_End" msprop:Generator_UserColumnName="Period End" msprop:Generator_ColumnPropNameInRow="Period_End" msprop:Generator_ColumnVarNameInTable="columnPeriod_End" msprop:Generator_ColumnPropNameInTable="Period_EndColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="Export_x0020_Status" msprop:Generator_UserColumnName="Export Status" msprop:Generator_ColumnPropNameInRow="Export_Status" msprop:Generator_ColumnVarNameInTable="columnExport_Status" msprop:Generator_ColumnPropNameInTable="Export_StatusColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UrutanForm1721A1" msprop:Generator_UserColumnName="UrutanForm1721A1" msprop:Generator_ColumnPropNameInRow="UrutanForm1721A1" msprop:Generator_ColumnVarNameInTable="columnUrutanForm1721A1" msprop:Generator_ColumnPropNameInTable="UrutanForm1721A1Column" type="xs:int" />
+              <xs:element name="_x0031_3JumlahPenghasilanMasaPjkSblmnya1" msprop:Generator_UserColumnName="13JumlahPenghasilanMasaPjkSblmnya1" msprop:Generator_ColumnVarNameInTable="column13JumlahPenghasilanMasaPjkSblmnya1" msprop:Generator_ColumnPropNameInRow="_13JumlahPenghasilanMasaPjkSblmnya1" msprop:Generator_ColumnPropNameInTable="_13JumlahPenghasilanMasaPjkSblmnya1Column" type="xs:decimal" />
+              <xs:element name="_x0031_8PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_UserColumnName="18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnVarNameInTable="column18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnPropNameInRow="_18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnPropNameInTable="_18PPh21YgTelahDipotongMasaPjkSblmnya1Column" type="xs:decimal" />
+              <xs:element name="Employee_x0020_Code" msprop:Generator_UserColumnName="Employee Code" msprop:Generator_ColumnPropNameInRow="Employee_Code" msprop:Generator_ColumnVarNameInTable="columnEmployee_Code" msprop:Generator_ColumnPropNameInTable="Employee_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_monthly1" msprop:Generator_UserTableName="tbltrans_salary_monthly1" msprop:Generator_RowDeletedName="tbltrans_salary_monthly1RowDeleted" msprop:Generator_TableClassName="tbltrans_salary_monthly1DataTable" msprop:Generator_RowChangedName="tbltrans_salary_monthly1RowChanged" msprop:Generator_RowClassName="tbltrans_salary_monthly1Row" msprop:Generator_RowChangingName="tbltrans_salary_monthly1RowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_monthly1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_monthly1RowChangeEventHandler" msprop:Generator_TablePropName="tbltrans_salary_monthly1" msprop:Generator_TableVarName="tabletbltrans_salary_monthly1" msprop:Generator_RowDeletingName="tbltrans_salary_monthly1RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInTable="CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Penghasilan_x0020_Bruto" msprop:Generator_UserColumnName="Penghasilan Bruto" msprop:Generator_ColumnPropNameInRow="Penghasilan_Bruto" msprop:Generator_ColumnVarNameInTable="columnPenghasilan_Bruto" msprop:Generator_ColumnPropNameInTable="Penghasilan_BrutoColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Income_x0020_Tax" msprop:Generator_UserColumnName="Income Tax" msprop:Generator_ColumnPropNameInRow="Income_Tax" msprop:Generator_ColumnVarNameInTable="columnIncome_Tax" msprop:Generator_ColumnPropNameInTable="Income_TaxColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="_x0032_1_x0020_PPH_x0020_Final_x0020_Pesangon" msprop:Generator_UserColumnName="21 PPH Final Pesangon" msprop:Generator_ColumnPropNameInRow="_21_PPH_Final_Pesangon" msprop:Generator_ColumnVarNameInTable="column21_PPH_Final_Pesangon" msprop:Generator_ColumnPropNameInTable="_21_PPH_Final_PesangonColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="_x0031_8PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_UserColumnName="18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnPropNameInRow="_18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnVarNameInTable="column18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnPropNameInTable="_18PPh21YgTelahDipotongMasaPjkSblmnya1Column" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_salary_formula" msprop:Generator_UserTableName="tblmaster_salary_formula" msprop:Generator_RowDeletedName="tblmaster_salary_formulaRowDeleted" msprop:Generator_TableClassName="tblmaster_salary_formulaDataTable" msprop:Generator_RowChangedName="tblmaster_salary_formulaRowChanged" msprop:Generator_RowClassName="tblmaster_salary_formulaRow" msprop:Generator_RowChangingName="tblmaster_salary_formulaRowChanging" msprop:Generator_RowEvArgName="tblmaster_salary_formulaRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_salary_formulaRowChangeEventHandler" msprop:Generator_TablePropName="tblmaster_salary_formula" msprop:Generator_TableVarName="tabletblmaster_salary_formula" msprop:Generator_RowDeletingName="tblmaster_salary_formulaRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInTable="codeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="desc" msprop:Generator_UserColumnName="desc" msprop:Generator_ColumnPropNameInRow="desc" msprop:Generator_ColumnVarNameInTable="columndesc" msprop:Generator_ColumnPropNameInTable="descColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_monthly2" msprop:Generator_UserTableName="tbltrans_salary_monthly2" msprop:Generator_RowDeletedName="tbltrans_salary_monthly2RowDeleted" msprop:Generator_TableClassName="tbltrans_salary_monthly2DataTable" msprop:Generator_RowChangedName="tbltrans_salary_monthly2RowChanged" msprop:Generator_RowClassName="tbltrans_salary_monthly2Row" msprop:Generator_RowChangingName="tbltrans_salary_monthly2RowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_monthly2RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_monthly2RowChangeEventHandler" msprop:Generator_TablePropName="tbltrans_salary_monthly2" msprop:Generator_TableVarName="tabletbltrans_salary_monthly2" msprop:Generator_RowDeletingName="tbltrans_salary_monthly2RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Penghasilan_x0020_Bruto" msprop:Generator_UserColumnName="Penghasilan Bruto" msprop:Generator_ColumnPropNameInRow="Penghasilan_Bruto" msprop:Generator_ColumnVarNameInTable="columnPenghasilan_Bruto" msprop:Generator_ColumnPropNameInTable="Penghasilan_BrutoColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Income_x0020_Tax" msprop:Generator_UserColumnName="Income Tax" msprop:Generator_ColumnPropNameInRow="Income_Tax" msprop:Generator_ColumnVarNameInTable="columnIncome_Tax" msprop:Generator_ColumnPropNameInTable="Income_TaxColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="_x0032_1_x0020_PPH_x0020_Final_x0020_Pesangon" msprop:Generator_UserColumnName="21 PPH Final Pesangon" msprop:Generator_ColumnPropNameInRow="_21_PPH_Final_Pesangon" msprop:Generator_ColumnVarNameInTable="column21_PPH_Final_Pesangon" msprop:Generator_ColumnPropNameInTable="_21_PPH_Final_PesangonColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="_x0031_8PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_UserColumnName="18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnPropNameInRow="_18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnVarNameInTable="column18PPh21YgTelahDipotongMasaPjkSblmnya1" msprop:Generator_ColumnPropNameInTable="_18PPh21YgTelahDipotongMasaPjkSblmnya1Column" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_salary_monthly" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_salary_yearly_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_salary_yearly" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_salary_formula_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_salary_formula" />
+      <xs:field xpath="mstns:primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

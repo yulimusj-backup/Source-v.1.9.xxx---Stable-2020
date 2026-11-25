@@ -1,0 +1,3 @@
+Public Class FrmTransaksiJournal_Sales
+
+End Class

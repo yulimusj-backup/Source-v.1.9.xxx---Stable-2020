@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTransaksiPO_SetOrderBalance" targetNamespace="http://tempuri.org/DseTransaksiPO_SetOrderBalance.xsd" xmlns:mstns="http://tempuri.org/DseTransaksiPO_SetOrderBalance.xsd" xmlns="http://tempuri.org/DseTransaksiPO_SetOrderBalance.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        authorized_po_view.`Primary` AS `Primary PO`, authorized_po_view.`Primary Supplier`, tbltrans_po_item_view0.`Primary Product`, 
+                         tblmaster_product.`Product Code`, authorized_po_view.`No Transaksi` AS `PO Number`, 
+                         tbltrans_po_item_view0.Qty + IFNULL(SUM(orderbalance_report_return_item_view.`Total Qty`), 0) 
+                         - IFNULL(SUM(orderbalance_report_goods_in_transit_view1.`Total Qty`), 0) - IFNULL(SUM(orderbalance_report_grnitem_view.`Total Qty`), 0) 
+                         - IFNULL(SUM(orderbalance_report_item_poc_view.`Total Qty`), 0) AS OrderBalance
+FROM            authorized_po_view INNER JOIN
+                         tbltrans_po_item_view0 ON authorized_po_view.`Primary` = tbltrans_po_item_view0.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_po_item_view0.`Primary Product` = tblmaster_product.`Primary` LEFT OUTER JOIN
+                         orderbalance_report_goods_in_transit_view1 ON authorized_po_view.`Primary` = orderbalance_report_goods_in_transit_view1.`Primary PO` AND 
+                         tbltrans_po_item_view0.`Primary Product` = orderbalance_report_goods_in_transit_view1.`Primary Product` LEFT OUTER JOIN
+                         orderbalance_report_return_item_view ON authorized_po_view.`Primary` = orderbalance_report_return_item_view.`Primary PO` AND 
+                         tbltrans_po_item_view0.`Primary Product` = orderbalance_report_return_item_view.`Primary Product` LEFT OUTER JOIN
+                         orderbalance_report_grnitem_view ON tbltrans_po_item_view0.`Primary Product` = orderbalance_report_grnitem_view.`Primary Product` AND 
+                         authorized_po_view.`Primary` = orderbalance_report_grnitem_view.`Primary PO` LEFT OUTER JOIN
+                         orderbalance_report_item_poc_view ON tbltrans_po_item_view0.`Primary Product` = orderbalance_report_item_poc_view.`Primary Product` AND 
+                         authorized_po_view.`Primary` = orderbalance_report_item_poc_view.`Primary PO`
+GROUP BY authorized_po_view.`Primary`, authorized_po_view.`Primary Supplier`, tbltrans_po_item_view0.`Primary Product`, tblmaster_product.`Product Code`, 
+                         authorized_po_view.`No Transaksi`, orderbalance_report_goods_in_transit_view1.`Total Qty`, authorized_po_view.`Tanggal Transaksi`
+ORDER BY authorized_po_view.`Tanggal Transaksi`, `PO Number`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="PO Number" DataSetColumn="PO Number" />
+              <Mapping SourceColumn="OrderBalance" DataSetColumn="OrderBalance" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_po_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_po_itemTableAdapter" Name="tbltrans_po_item" UserDataComponentName="tbltrans_po_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_po_item.`Primary Transaksi` AS `Primary PO`, tbltrans_po_item.`Primary Product`, SUM(tbltrans_po_item.Qty) AS Qty, SUM(tbltrans_po_item.`Qty Multi`) AS `Qty Multi`, tblmaster_product.`Decimal`
+FROM     tbltrans_po_item INNER JOIN
+                  tblmaster_product ON tbltrans_po_item.`Primary Product` = tblmaster_product.`Primary`
+GROUP BY tbltrans_po_item.`Primary Transaksi`, tbltrans_po_item.`Primary Product`, tblmaster_product.`Decimal`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Qty Multi" DataSetColumn="Qty Multi" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryPO" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryPO" GeneratorSourceName="FillBy_PrimaryPO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryPO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_po_item.`Primary Transaksi` AS `Primary PO`, tbltrans_po_item.`Primary Product`, SUM(tbltrans_po_item.Qty) AS Qty, SUM(tbltrans_po_item.`Qty Multi`) AS `Qty Multi`, tblmaster_product.`Decimal`
+FROM     tbltrans_po_item INNER JOIN
+                  tblmaster_product ON tbltrans_po_item.`Primary Product` = tblmaster_product.`Primary`
+GROUP BY tbltrans_po_item.`Primary Transaksi`, tbltrans_po_item.`Primary Product`, tblmaster_product.`Decimal`
+HAVING (tbltrans_po_item.`Primary Transaksi` = @PrimaryPO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary Transaksi" DataSourceName="smess_lmb.tbltrans_po_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary PO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery" Modifier="Public" Name="UpdateQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltrans_po
+SET     JmlAcuan = @JmlAcuan
+WHERE (`Primary` = @PrimaryPO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="JmlAcuan" ColumnName="JmlAcuan" DataSourceName="core_db.tbltrans_po" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@JmlAcuan" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="JmlAcuan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary" DataSourceName="core_db.tbltrans_po" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_setGIT" Modifier="Public" Name="UpdateQuery_setGIT" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery_setGIT">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_po_item
+SET                GIT = @GIT, `GIT Multi` = @GIT_Multi
+WHERE        (`Primary Transaksi` = @PrimaryPO) AND (`Primary Product` = @PrimaryProduct)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="GIT" ColumnName="GIT" DataSourceName="core_db.tbltrans_po_item" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@GIT" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="GIT" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="GIT_Multi" ColumnName="GIT Multi" DataSourceName="core_db.tbltrans_po_item" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@GIT_Multi" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="GIT Multi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary Transaksi" DataSourceName="core_db.tbltrans_po_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="core_db.tbltrans_po_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_SetPOB" Modifier="Public" Name="UpdateQuery_SetPOB" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQuery_SetPOB">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_po_item
+SET                POB = @POB, `POB Multi` = @POB_Multi
+WHERE        (`Primary Transaksi` = @PrimaryPO) AND (`Primary Product` = @PrimaryProduct)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="POB" ColumnName="POB" DataSourceName="core_db.tbltrans_po_item" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@POB" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="POB" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="POB_Multi" ColumnName="POB Multi" DataSourceName="core_db.tbltrans_po_item" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@POB_Multi" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="POB Multi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary Transaksi" DataSourceName="core_db.tbltrans_po_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="core_db.tbltrans_po_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_poc_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_poc_itemTableAdapter" Name="tbltrans_poc_item" UserDataComponentName="tbltrans_poc_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_poc.`Primary PO`, tbltrans_poc_item.`Primary Product`, SUM(tbltrans_poc_item.`Total Qty`) AS Qty, SUM(tbltrans_poc_item.`Total Qty Multi`) AS `Qty Multi`
+FROM            tbltrans_poc_item INNER JOIN
+                         tbltrans_poc ON tbltrans_poc_item.`Primary Transaksi` = tbltrans_poc.`Primary`
+GROUP BY tbltrans_poc.`Primary PO`, tbltrans_poc_item.`Primary Product`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Qty Multi" DataSetColumn="Qty Multi" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryPO" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryPO" GeneratorSourceName="FillBy_PrimaryPO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryPO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_poc.`Primary PO`, tbltrans_poc_item.`Primary Product`, SUM(tbltrans_poc_item.`Total Qty`) AS Qty, SUM(tbltrans_poc_item.`Total Qty Multi`) AS `Qty Multi`
+FROM            tbltrans_poc_item INNER JOIN
+                         tbltrans_poc ON tbltrans_poc_item.`Primary Transaksi` = tbltrans_poc.`Primary`
+GROUP BY tbltrans_poc.`Primary PO`, tbltrans_poc_item.`Primary Product`
+HAVING        (tbltrans_poc.`Primary PO` = @rimaryPO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="rimaryPO" ColumnName="Primary PO" DataSourceName="core_db.tbltrans_poc" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@rimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary PO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_grn_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_grn_itemTableAdapter" Name="tbltrans_grn_item" UserDataComponentName="tbltrans_grn_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_grn_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary PO`, `Primary Product`, SUM(`Total Qty`) AS Qty, SUM(`Total Qty Multi`) AS `Qty Multi`
+FROM            tbltrans_grn_item
+GROUP BY `Primary PO`, `Primary Product`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Qty Multi" DataSetColumn="Qty Multi" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_grn_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryPO" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryPO" GeneratorSourceName="FillBy_PrimaryPO" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryPO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryPO" UserSourceName="FillBy_PrimaryPO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary PO`, `Primary Product`, SUM(`Total Qty`) AS Qty, SUM(`Total Qty Multi`) AS `Qty Multi`
+FROM            tbltrans_grn_item
+GROUP BY `Primary PO`, `Primary Product`
+HAVING        (`Primary PO` = @PrimaryPO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary PO" DataSourceName="core_db.tbltrans_grn_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary PO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_packinglist_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_packinglist_itemTableAdapter" Name="tbltrans_packinglist_item" UserDataComponentName="tbltrans_packinglist_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_packinglist_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_packinglist_item.`Primary PO`, tbltrans_packinglist_item.`Primary Product`, SUM(tbltrans_packinglist_item.`Total Qty`) AS `Total Qty`, SUM(tbltrans_packinglist_item.`Total Qty Multi`) AS `Qty Multi`
+FROM            tbltrans_packinglist_item INNER JOIN
+                         tbltrans_packinglist_tbltrans_stockinout_view ON tbltrans_packinglist_item.`Primary Transaksi` = tbltrans_packinglist_tbltrans_stockinout_view.`Primary GIT`
+WHERE        (tbltrans_packinglist_tbltrans_stockinout_view.`Primary Stock In` = - 1)
+GROUP BY tbltrans_packinglist_item.`Primary Product`, tbltrans_packinglist_item.`Primary PO`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Total Qty" DataSetColumn="Total Qty" />
+              <Mapping SourceColumn="Qty Multi" DataSetColumn="Qty Multi" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_packinglist_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryPO" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryPO" GeneratorSourceName="FillBy_PrimaryPO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryPO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_packinglist_item.`Primary PO`, tbltrans_packinglist_item.`Primary Product`, SUM(tbltrans_packinglist_item.`Total Qty`) AS `Total Qty`, SUM(tbltrans_packinglist_item.`Total Qty Multi`) AS `Qty Multi`
+FROM            tbltrans_packinglist_item INNER JOIN
+                             (SELECT        tbltrans_packinglist.`Primary` AS `Primary GIT`, IFNULL(tbltransaksi_stockinout.`Primary`, - 1) AS `Primary Stock In`
+                               FROM            tbltrans_packinglist LEFT OUTER JOIN
+                                                         tbltransaksi_stockinout ON tbltrans_packinglist.`Primary` = tbltransaksi_stockinout.`Primary GIT`) derivedtbl_1 ON 
+                         tbltrans_packinglist_item.`Primary Transaksi` = derivedtbl_1.`Primary GIT`
+WHERE        (derivedtbl_1.`Primary Stock In` = - 1)
+GROUP BY tbltrans_packinglist_item.`Primary Product`, tbltrans_packinglist_item.`Primary PO`
+HAVING        (tbltrans_packinglist_item.`Primary PO` = @PrimaryPO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary PO" DataSourceName="core_db.tbltrans_packinglist_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary PO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_creative.tbltrans_packinglist_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryPO2" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryPO2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_PrimaryPO2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tpi.`Primary PO`, tpi.`Primary Product`, SUM(tpi.`Total Qty`) AS `Total Qty`, SUM(tpi.`Total Qty Multi`) AS `Qty Multi`
+FROM     tbltrans_packinglist_item tpi INNER JOIN
+                  tbltrans_packinglist tpl ON tpi.`Primary Transaksi` = tpl.`Primary` LEFT OUTER JOIN
+                  tbltransaksi_stockinout tso ON tpl.`Primary` = tso.`Primary GIT`
+WHERE  (tso.`Primary` IS NULL OR
+                  tso.`Primary` = - 1) AND (tpi.`Primary PO` = @PrimaryPO)
+GROUP BY tpi.`Primary Product`, tpi.`Primary PO`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary PO" DataSourceName="smess_creative.tbltrans_packinglist_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary PO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_packinglistTableAdapter" GeneratorDataComponentClassName="tbltrans_packinglistTableAdapter" Name="tbltrans_packinglist" UserDataComponentName="tbltrans_packinglistTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_packinglist" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_packinglist.`Primary` AS `Primary GIT`, IFNULL(tbltransaksi_stockinout.`Primary`, - 1) AS `Primary Stock In`
+FROM            tbltrans_packinglist LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON tbltrans_packinglist.`Primary` = tbltransaksi_stockinout.`Primary GIT`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary GIT" DataSetColumn="Primary GIT" />
+              <Mapping SourceColumn="Primary Stock In" DataSetColumn="Primary Stock In" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_purchasereturn_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_purchasereturn_itemTableAdapter" Name="tbltrans_purchasereturn_item" UserDataComponentName="tbltrans_purchasereturn_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_purchasereturn_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_purchasereturn_item.`Primary PO`, tbltrans_purchasereturn_item.`Primary Product`, SUM(tbltrans_purchasereturn_item.`Total Qty`) AS Qty, SUM(tbltrans_purchasereturn_item.`Total Qty Multi`) 
+                         AS `Qty Multi`
+FROM            tbltrans_purchasereturn_item INNER JOIN
+                         tbltrans_purchasereturn ON tbltrans_purchasereturn_item.`Primary Transaksi` = tbltrans_purchasereturn.`Primary`
+GROUP BY tbltrans_purchasereturn_item.`Primary PO`, tbltrans_purchasereturn_item.`Primary Product`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Qty Multi" DataSetColumn="Qty Multi" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_purchasereturn_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryPO" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryPO" GeneratorSourceName="FillBy_PrimaryPO" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryPO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryPO" UserSourceName="FillBy_PrimaryPO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchasereturn_item.`Primary PO`, tbltrans_purchasereturn_item.`Primary Product`, SUM(tbltrans_purchasereturn_item.`Total Qty`) AS Qty, SUM(tbltrans_purchasereturn_item.`Total Qty Multi`) 
+                         AS `Qty Multi`
+FROM            tbltrans_purchasereturn_item INNER JOIN
+                         tbltrans_purchasereturn ON tbltrans_purchasereturn_item.`Primary Transaksi` = tbltrans_purchasereturn.`Primary`
+GROUP BY tbltrans_purchasereturn_item.`Primary PO`, tbltrans_purchasereturn_item.`Primary Product`
+HAVING        (tbltrans_purchasereturn_item.`Primary PO` = @PrimaryPO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary PO" DataSourceName="core_db.tbltrans_purchasereturn_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary PO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTransaksiPO_SetOrderBalance" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTransaksiPO_SetOrderBalance" msprop:Generator_DataSetName="DseTransaksiPO_SetOrderBalance">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_x0020_Number" msprop:Generator_UserColumnName="PO Number" msprop:Generator_ColumnVarNameInTable="columnPO_Number" msprop:Generator_ColumnPropNameInRow="PO_Number" msprop:Generator_ColumnPropNameInTable="PO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderBalance" msprop:Generator_UserColumnName="OrderBalance" msprop:Generator_ColumnVarNameInTable="columnOrderBalance" msprop:Generator_ColumnPropNameInRow="OrderBalance" msprop:Generator_ColumnPropNameInTable="OrderBalanceColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_po_item" msprop:Generator_UserTableName="tbltrans_po_item" msprop:Generator_RowDeletedName="tbltrans_po_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_po_itemRowChanged" msprop:Generator_RowClassName="tbltrans_po_itemRow" msprop:Generator_RowChangingName="tbltrans_po_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_po_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_po_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_po_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_po_item" msprop:Generator_RowDeletingName="tbltrans_po_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_po_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Qty_x0020_Multi" msprop:Generator_UserColumnName="Qty Multi" msprop:Generator_ColumnVarNameInTable="columnQty_Multi" msprop:Generator_ColumnPropNameInRow="Qty_Multi" msprop:Generator_ColumnPropNameInTable="Qty_MultiColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_poc_item" msprop:Generator_UserTableName="tbltrans_poc_item" msprop:Generator_RowDeletedName="tbltrans_poc_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_poc_itemRowChanged" msprop:Generator_RowClassName="tbltrans_poc_itemRow" msprop:Generator_RowChangingName="tbltrans_poc_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_poc_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_poc_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_poc_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_poc_item" msprop:Generator_RowDeletingName="tbltrans_poc_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_poc_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Qty_x0020_Multi" msprop:Generator_UserColumnName="Qty Multi" msprop:Generator_ColumnPropNameInRow="Qty_Multi" msprop:Generator_ColumnVarNameInTable="columnQty_Multi" msprop:Generator_ColumnPropNameInTable="Qty_MultiColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_grn_item" msprop:Generator_UserTableName="tbltrans_grn_item" msprop:Generator_RowDeletedName="tbltrans_grn_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_grn_itemRowChanged" msprop:Generator_RowClassName="tbltrans_grn_itemRow" msprop:Generator_RowChangingName="tbltrans_grn_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_grn_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_grn_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_grn_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_grn_item" msprop:Generator_RowDeletingName="tbltrans_grn_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_grn_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Qty_x0020_Multi" msprop:Generator_UserColumnName="Qty Multi" msprop:Generator_ColumnPropNameInRow="Qty_Multi" msprop:Generator_ColumnVarNameInTable="columnQty_Multi" msprop:Generator_ColumnPropNameInTable="Qty_MultiColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_packinglist_item" msprop:Generator_UserTableName="tbltrans_packinglist_item" msprop:Generator_RowDeletedName="tbltrans_packinglist_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_packinglist_itemRowChanged" msprop:Generator_RowClassName="tbltrans_packinglist_itemRow" msprop:Generator_RowChangingName="tbltrans_packinglist_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_packinglist_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_packinglist_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_packinglist_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_packinglist_item" msprop:Generator_RowDeletingName="tbltrans_packinglist_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_packinglist_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Total_x0020_Qty" msprop:Generator_UserColumnName="Total Qty" msprop:Generator_ColumnPropNameInRow="Total_Qty" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty" msprop:Generator_ColumnPropNameInTable="Total_QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Qty_x0020_Multi" msprop:Generator_UserColumnName="Qty Multi" msprop:Generator_ColumnPropNameInRow="Qty_Multi" msprop:Generator_ColumnVarNameInTable="columnQty_Multi" msprop:Generator_ColumnPropNameInTable="Qty_MultiColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_packinglist" msprop:Generator_UserTableName="tbltrans_packinglist" msprop:Generator_RowDeletedName="tbltrans_packinglistRowDeleted" msprop:Generator_RowChangedName="tbltrans_packinglistRowChanged" msprop:Generator_RowClassName="tbltrans_packinglistRow" msprop:Generator_RowChangingName="tbltrans_packinglistRowChanging" msprop:Generator_RowEvArgName="tbltrans_packinglistRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_packinglistRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_packinglistDataTable" msprop:Generator_TableVarName="tabletbltrans_packinglist" msprop:Generator_RowDeletingName="tbltrans_packinglistRowDeleting" msprop:Generator_TablePropName="tbltrans_packinglist">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_GIT" msprop:Generator_UserColumnName="Primary GIT" msprop:Generator_ColumnPropNameInRow="Primary_GIT" msprop:Generator_ColumnVarNameInTable="columnPrimary_GIT" msprop:Generator_ColumnPropNameInTable="Primary_GITColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Stock_x0020_In" msprop:Generator_UserColumnName="Primary Stock In" msprop:Generator_ColumnPropNameInRow="Primary_Stock_In" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_In" msprop:Generator_ColumnPropNameInTable="Primary_Stock_InColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_purchasereturn_item" msprop:Generator_UserTableName="tbltrans_purchasereturn_item" msprop:Generator_RowDeletedName="tbltrans_purchasereturn_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_purchasereturn_itemRowChanged" msprop:Generator_RowClassName="tbltrans_purchasereturn_itemRow" msprop:Generator_RowChangingName="tbltrans_purchasereturn_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_purchasereturn_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_purchasereturn_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_purchasereturn_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_purchasereturn_item" msprop:Generator_RowDeletingName="tbltrans_purchasereturn_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_purchasereturn_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Qty_x0020_Multi" msprop:Generator_UserColumnName="Qty Multi" msprop:Generator_ColumnPropNameInRow="Qty_Multi" msprop:Generator_ColumnVarNameInTable="columnQty_Multi" msprop:Generator_ColumnPropNameInTable="Qty_MultiColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Primary_x0020_PO" />
+    </xs:unique>
+    <xs:unique name="tbltrans_packinglist_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_packinglist" />
+      <xs:field xpath="mstns:Primary_x0020_GIT" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

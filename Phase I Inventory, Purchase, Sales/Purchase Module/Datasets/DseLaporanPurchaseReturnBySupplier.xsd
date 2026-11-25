@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanPurchaseReturnBySupplier" targetNamespace="http://tempuri.org/DseLaporanPurchaseReturnBySupplier.xsd" xmlns:mstns="http://tempuri.org/DseLaporanPurchaseReturnBySupplier.xsd" xmlns="http://tempuri.org/DseLaporanPurchaseReturnBySupplier.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_aopr.`Primary Supplier`, tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, tbltrans_aopr.`No Transaksi` AS `AOPR No`, 
+                         tbltrans_aopr.`Tanggal Transaksi` AS `Date`, tbltrans_po.`No Transaksi` AS `PO Number`, 
+                         ROUND(tbltrans_aopr.`Sub Total` * tbltrans_aopr.`Exchange Rate To IDR`, 0) AS `Purchase Return`, tbltrans_aopr.`Tax Amount` AS VAT, 
+                         ROUND(tbltrans_aopr.Total * tbltrans_aopr.`Exchange Rate To IDR`, 0) AS Total
+FROM            tbltrans_aopr INNER JOIN
+                         tbltrans_aopr_item ON tbltrans_aopr.`Primary` = tbltrans_aopr_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_supplier ON tbltrans_aopr.`Primary` = tblmaster_supplier.`Primary` INNER JOIN
+                         tbltrans_po ON tbltrans_aopr_item.`Primary PO` = tbltrans_po.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="AOPR No" DataSetColumn="AOPR No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="PO Number" DataSetColumn="PO Number" />
+              <Mapping SourceColumn="Purchase Return" DataSetColumn="Purchase Return" />
+              <Mapping SourceColumn="VAT" DataSetColumn="VAT" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TglDariSampai" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TglDariSampai" GeneratorSourceName="FillBy_TglDariSampai" GetMethodModifier="Public" GetMethodName="GetDataBy_TglDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_TglDariSampai" UserSourceName="FillBy_TglDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_aopr.`Primary Supplier`, tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, tbltrans_aopr.`No Transaksi` AS `AOPR No`, 
+                         tbltrans_aopr.`Tanggal Transaksi` AS `Date`, tbltrans_po.`No Transaksi` AS `PO Number`, 
+                         ROUND(tbltrans_aopr.`Sub Total` * tbltrans_aopr.`Exchange Rate To IDR`, 0) AS `Purchase Return`, tbltrans_aopr.`Tax Amount` AS VAT, 
+                         ROUND(tbltrans_aopr.Total * tbltrans_aopr.`Exchange Rate To IDR`, 0) AS Total
+FROM            tbltrans_aopr INNER JOIN
+                         tbltrans_aopr_item ON tbltrans_aopr.`Primary` = tbltrans_aopr_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_supplier ON tbltrans_aopr.`Primary` = tblmaster_supplier.`Primary` INNER JOIN
+                         tbltrans_po ON tbltrans_aopr_item.`Primary PO` = tbltrans_po.`Primary`
+WHERE        (tbltrans_aopr.`Tanggal Transaksi` &gt;= @TglDari) AND (tbltrans_aopr.`Tanggal Transaksi` &lt;= @TglSampai)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_aopr" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_aopr" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanPurchaseReturnBySupplier" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanPurchaseReturnBySupplier" msprop:Generator_DataSetName="DseLaporanPurchaseReturnBySupplier">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AOPR_x0020_No" msprop:Generator_UserColumnName="AOPR No" msprop:Generator_ColumnPropNameInRow="AOPR_No" msprop:Generator_ColumnVarNameInTable="columnAOPR_No" msprop:Generator_ColumnPropNameInTable="AOPR_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="PO_x0020_Number" msprop:Generator_UserColumnName="PO Number" msprop:Generator_ColumnPropNameInRow="PO_Number" msprop:Generator_ColumnVarNameInTable="columnPO_Number" msprop:Generator_ColumnPropNameInTable="PO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Purchase_x0020_Return" msprop:Generator_UserColumnName="Purchase Return" msprop:Generator_ColumnPropNameInRow="Purchase_Return" msprop:Generator_ColumnVarNameInTable="columnPurchase_Return" msprop:Generator_ColumnPropNameInTable="Purchase_ReturnColumn" type="xs:double" />
+              <xs:element name="VAT" msprop:Generator_UserColumnName="VAT" msprop:Generator_ColumnPropNameInRow="VAT" msprop:Generator_ColumnVarNameInTable="columnVAT" msprop:Generator_ColumnPropNameInTable="VATColumn" type="xs:double" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

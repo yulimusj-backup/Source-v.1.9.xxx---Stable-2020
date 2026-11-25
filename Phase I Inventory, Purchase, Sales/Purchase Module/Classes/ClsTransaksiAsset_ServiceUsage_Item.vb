@@ -1,0 +1,3 @@
+Public Class ClsTransaksiAsset_ServiceUsage_Item
+
+End Class

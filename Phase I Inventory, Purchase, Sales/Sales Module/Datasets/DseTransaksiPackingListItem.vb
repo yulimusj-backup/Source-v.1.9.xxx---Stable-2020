@@ -1,0 +1,2 @@
+﻿Partial Class DseTransaksiPackingListItem
+End Class

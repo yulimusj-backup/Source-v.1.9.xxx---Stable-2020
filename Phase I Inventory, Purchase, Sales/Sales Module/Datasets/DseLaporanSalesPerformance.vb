@@ -1,0 +1,2 @@
+﻿Partial Class DseLaporanSalesPerformance
+End Class

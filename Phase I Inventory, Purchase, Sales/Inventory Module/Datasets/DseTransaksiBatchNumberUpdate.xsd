@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTransaksiBatchNumberUpdate" targetNamespace="http://tempuri.org/DseTransaksiBatchNumberUpdate.xsd" xmlns:mstns="http://tempuri.org/DseTransaksiBatchNumberUpdate.xsd" xmlns="http://tempuri.org/DseTransaksiBatchNumberUpdate.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_productTableAdapter" GeneratorDataComponentClassName="tblmaster_productTableAdapter" Name="tblmaster_product" UserDataComponentName="tblmaster_productTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Batch No Controlled`, `Expiry Date Controlled`
+FROM            tblmaster_product</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Batch No Controlled" DataSetColumn="Batch No Controlled" />
+              <Mapping SourceColumn="Expiry Date Controlled" DataSetColumn="Expiry Date Controlled" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlBatchNumberControlled" Modifier="Public" Name="ScalarQuery_GetJmlBatchNumberControlled" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetJmlBatchNumberControlled">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(DISTINCT `Primary`) AS Expr1
+FROM            tblmaster_product
+WHERE        (`Batch No Controlled` = 0) OR
+                         (`Expiry Date Controlled` = 1)</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltransaksi_stockinout_itemTableAdapter" GeneratorDataComponentClassName="tbltransaksi_stockinout_itemTableAdapter" Name="tbltransaksi_stockinout_item" UserDataComponentName="tbltransaksi_stockinout_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltransaksi_stockinout_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Product`, `Batch No`
+FROM            tbltransaksi_stockinout_item</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Batch No" DataSetColumn="Batch No" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatch" Modifier="Public" Name="UpdateQuery_UpdateBatch" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="UpdateQuery_UpdateBatch">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltransaksi_stockinout_item
+SET                `Batch No` = @NewBatch
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @OldBatch)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewBatch" ColumnName="Batch No" DataSourceName="tbltransaksi_stockinout_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@NewBatch" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltransaksi_stockinout_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="OldBatch" ColumnName="Batch No" DataSourceName="tbltransaksi_stockinout_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@OldBatch" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatch_BundlingIn" Modifier="Public" Name="UpdateQuery_UpdateBatch_BundlingIn" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery_UpdateBatch_BundlingIn">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltransaksi_stockbundling_item_before
+SET                `Batch No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Batch No" DataSourceName="tbltransaksi_stockbundling_item_before" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltransaksi_stockbundling_item_before" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Batch No" DataSourceName="tbltransaksi_stockbundling_item_before" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatch_BundlingOut" Modifier="Public" Name="UpdateQuery_UpdateBatch_BundlingOut" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery_UpdateBatch_BundlingOut">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltransaksi_stockbundling_item_after
+SET                `Batch No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Batch No" DataSourceName="tbltransaksi_stockbundling_item_after" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltransaksi_stockbundling_item_after" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Batch No" DataSourceName="tbltransaksi_stockbundling_item_after" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchBookingInv" Modifier="Public" Name="UpdateQuery_UpdateBatchBookingInv" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="UpdateQuery_UpdateBatchBookingInv">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_booking_invitem
+SET                `Batch No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Batch No" DataSourceName="tbltrans_booking_invitem" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_booking_invitem" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Batch No" DataSourceName="tbltrans_booking_invitem" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchDO" Modifier="Public" Name="UpdateQuery_UpdateBatchDO" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="UpdateQuery_UpdateBatchDO">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_do_item
+SET                `Batch No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="BatchNew" ColumnName="Batch No" DataSourceName="tbltrans_do_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_do_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="BatchOld" ColumnName="Batch No" DataSourceName="tbltrans_do_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchGRN" Modifier="Public" Name="UpdateQuery_UpdateBatchGRN" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="UpdateQuery_UpdateBatchGRN">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_grn_item
+SET                `Batch No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="BatchNew" ColumnName="Batch No" DataSourceName="tbltrans_grn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_grn_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="BatchOld" ColumnName="Batch No" DataSourceName="tbltrans_grn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchInvoice" Modifier="Public" Name="UpdateQuery_UpdateBatchInvoice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy6" UserSourceName="UpdateQuery_UpdateBatchInvoice">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_salesinvoice_item
+SET                `Batch Number` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch Number` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Batch Number" DataSourceName="tbltrans_salesinvoice_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Batch Number" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_salesinvoice_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Batch Number" DataSourceName="tbltrans_salesinvoice_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Batch Number" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchInvoiceObselete" Modifier="Public" Name="UpdateQuery_UpdateBatchInvoiceObselete" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy7" UserSourceName="UpdateQuery_UpdateBatchInvoiceObselete">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_salesinvoiceobselete_item
+SET                `Batch Number` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch Number` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Batch Number" DataSourceName="tbltrans_salesinvoiceobselete_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Batch Number" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_salesinvoiceobselete_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Batch Number" DataSourceName="tbltrans_salesinvoiceobselete_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Batch Number" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchProductQty" Modifier="Public" Name="UpdateQuery_UpdateBatchProductQty" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy8" UserSourceName="UpdateQuery_UpdateBatchProductQty">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_productqty
+SET                `Lot No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Lot No` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Lot No" DataSourceName="tblmaster_productqty" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Lot No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Lot No" DataSourceName="tblmaster_productqty" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Lot No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchPurchaseReturn" Modifier="Public" Name="UpdateQuery_UpdateBatchPurchaseReturn" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy9" UserSourceName="UpdateQuery_UpdateBatchPurchaseReturn">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_purchasereturn_item
+SET                `Batch No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchOld)
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Batch No" DataSourceName="tbltrans_purchasereturn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_purchasereturn_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Batch No" DataSourceName="tbltrans_purchasereturn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchSalesReturn" Modifier="Public" Name="UpdateQuery_UpdateBatchSalesReturn" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy10" UserSourceName="UpdateQuery_UpdateBatchSalesReturn">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_salesreturn_item
+SET                `Batch No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Batch No" DataSourceName="tbltrans_salesreturn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_salesreturn_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Batch No" DataSourceName="tbltrans_salesreturn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateBatchStockTransfer" Modifier="Public" Name="UpdateQuery_UpdateBatchStockTransfer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy11" UserSourceName="UpdateQuery_UpdateBatchStockTransfer">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltransaksi_stocktransfer_item
+SET                `Batch No` = @BatchNew
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchOld)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNew" ColumnName="Batch No" DataSourceName="tbltransaksi_stocktransfer_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNew" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltransaksi_stocktransfer_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchOld" ColumnName="Batch No" DataSourceName="tbltransaksi_stocktransfer_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchOld" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiry_ObseleteInvoice" Modifier="Public" Name="UpdateQuery_UpdateExpiry_ObseleteInvoice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy12" UserSourceName="UpdateQuery_UpdateExpiry_ObseleteInvoice">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_salesinvoiceobselete_item
+SET                Expiry = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch Number` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry" DataSourceName="tbltrans_salesinvoiceobselete_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_salesinvoiceobselete_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch Number" DataSourceName="tbltrans_salesinvoiceobselete_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Batch Number" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiry_PurchaseReturn" Modifier="Public" Name="UpdateQuery_UpdateExpiry_PurchaseReturn" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy13" UserSourceName="UpdateQuery_UpdateExpiry_PurchaseReturn">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_purchasereturn_item
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltrans_purchasereturn_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_purchasereturn_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltrans_purchasereturn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryBookingInv" Modifier="Public" Name="UpdateQuery_UpdateExpiryBookingInv" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy14" UserSourceName="UpdateQuery_UpdateExpiryBookingInv">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_booking_invitem
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltrans_booking_invitem" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_booking_invitem" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltrans_booking_invitem" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryBundlingIn" Modifier="Public" Name="UpdateQuery_UpdateExpiryBundlingIn" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy15" UserSourceName="UpdateQuery_UpdateExpiryBundlingIn">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltransaksi_stockbundling_item_before
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltransaksi_stockbundling_item_before" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltransaksi_stockbundling_item_before" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltransaksi_stockbundling_item_before" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryBundlingOut" Modifier="Public" Name="UpdateQuery_UpdateExpiryBundlingOut" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy16" UserSourceName="UpdateQuery_UpdateExpiryBundlingOut">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltransaksi_stockbundling_item_after
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltransaksi_stockbundling_item_after" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltransaksi_stockbundling_item_after" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltransaksi_stockbundling_item_after" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryDO" Modifier="Public" Name="UpdateQuery_UpdateExpiryDO" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy17" UserSourceName="UpdateQuery_UpdateExpiryDO">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_do_item
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltrans_do_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_do_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltrans_do_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryGRN" Modifier="Public" Name="UpdateQuery_UpdateExpiryGRN" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy18" UserSourceName="UpdateQuery_UpdateExpiryGRN">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_grn_item
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltrans_grn_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_grn_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltrans_grn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryInvoice" Modifier="Public" Name="UpdateQuery_UpdateExpiryInvoice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy19" UserSourceName="UpdateQuery_UpdateExpiryInvoice">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_salesinvoice_item
+SET                Expiry = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch Number` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry" DataSourceName="tbltrans_salesinvoice_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_salesinvoice_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch Number" DataSourceName="tbltrans_salesinvoice_item" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="Batch Number" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryProductQty" Modifier="Public" Name="UpdateQuery_UpdateExpiryProductQty" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy20" UserSourceName="UpdateQuery_UpdateExpiryProductQty">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_productqty
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Lot No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tblmaster_productqty" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Lot No" DataSourceName="tblmaster_productqty" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Lot No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpirySalesReturnItem" Modifier="Public" Name="UpdateQuery_UpdateExpirySalesReturnItem" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy21" UserSourceName="UpdateQuery_UpdateExpirySalesReturnItem">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_salesreturn_item
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltrans_salesreturn_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltrans_salesreturn_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltrans_salesreturn_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryStockInOut" Modifier="Public" Name="UpdateQuery_UpdateExpiryStockInOut" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy22" UserSourceName="UpdateQuery_UpdateExpiryStockInOut">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltransaksi_stockinout_item
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltransaksi_stockinout_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltransaksi_stockinout_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltransaksi_stockinout_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_UpdateExpiryStockTransfer" Modifier="Public" Name="UpdateQuery_UpdateExpiryStockTransfer" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy23" UserSourceName="UpdateQuery_UpdateExpiryStockTransfer">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltransaksi_stocktransfer_item
+SET                `Expiry Date` = @NewExpiry
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Batch No` = @BatchNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NewExpiry" ColumnName="Expiry Date" DataSourceName="tbltransaksi_stocktransfer_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@NewExpiry" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="tbltransaksi_stocktransfer_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BatchNo" ColumnName="Batch No" DataSourceName="tbltransaksi_stocktransfer_item" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@BatchNo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Batch No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_productqtyTableAdapter" GeneratorDataComponentClassName="tblmaster_productqtyTableAdapter" Name="tblmaster_productqty" UserDataComponentName="tblmaster_productqtyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb.tblmaster_productqty" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary Product`, Qty, `Lot No`, `Primary Storage Area`
+FROM            tblmaster_productqty
+WHERE        (`Primary Product` = @primary_product) AND (`Lot No` = @lot_no)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_product" ColumnName="Primary Product" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_product" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="lot_no" ColumnName="Lot No" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@lot_no" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Lot No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+              <Mapping SourceColumn="Primary Storage Area" DataSetColumn="Primary Storage Area" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tblmaster_productqty
+WHERE        (`Primary Product` = @primary_product) AND (`Lot No` = @batch_no) AND (`Primary Storage Area` = @primary_location)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_product" ColumnName="Primary Product" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_product" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="batch_no" ColumnName="Lot No" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@batch_no" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Lot No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_location" ColumnName="Primary Storage Area" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_location" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Storage Area" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetLoginCount" Modifier="Public" Name="ScalarQuery_GetLoginCount" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetLoginCount">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(*), 0) AS Jml
+FROM            tbltrans_monitor
+WHERE        (`user name` &lt;&gt; @username)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="username" ColumnName="user name" DataSourceName="smess_lmb.tbltrans_monitor" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@username" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="user name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_Batch" Modifier="Public" Name="UpdateQuery_Batch" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery_Batch">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_productqty
+SET                `Lot No` = @destination_batch
+WHERE        (`Primary Product` = @primary_product) AND (`Primary Storage Area` = @primary_location) AND (`Lot No` = @old_batch)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="destination_batch" ColumnName="Lot No" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@destination_batch" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Lot No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_product" ColumnName="Primary Product" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_product" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_location" ColumnName="Primary Storage Area" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_location" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Storage Area" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="old_batch" ColumnName="Lot No" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@old_batch" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Lot No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_Qty" Modifier="Public" Name="UpdateQuery_Qty" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="UpdateQuery_Qty">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tblmaster_productqty
+SET                Qty = @new_qty
+WHERE        (`Primary Product` = @primary_product) AND (`Lot No` = @batch) AND (`Primary Storage Area` = @primary_location)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="new_qty" ColumnName="Qty" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@new_qty" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Qty" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_product" ColumnName="Primary Product" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_product" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="batch" ColumnName="Lot No" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@batch" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Lot No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_location" ColumnName="Primary Storage Area" DataSourceName="smess_lmb.tblmaster_productqty" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_location" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Storage Area" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTransaksiBatchNumberUpdate" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTransaksiBatchNumberUpdate" msprop:Generator_DataSetName="DseTransaksiBatchNumberUpdate">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblmaster_product" msprop:Generator_UserTableName="tblmaster_product" msprop:Generator_RowDeletedName="tblmaster_productRowDeleted" msprop:Generator_RowChangedName="tblmaster_productRowChanged" msprop:Generator_RowClassName="tblmaster_productRow" msprop:Generator_RowChangingName="tblmaster_productRowChanging" msprop:Generator_RowEvArgName="tblmaster_productRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_productRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_productDataTable" msprop:Generator_TableVarName="tabletblmaster_product" msprop:Generator_RowDeletingName="tblmaster_productRowDeleting" msprop:Generator_TablePropName="tblmaster_product">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Batch_x0020_No_x0020_Controlled" msprop:Generator_UserColumnName="Batch No Controlled" msprop:Generator_ColumnPropNameInRow="Batch_No_Controlled" msprop:Generator_ColumnVarNameInTable="columnBatch_No_Controlled" msprop:Generator_ColumnPropNameInTable="Batch_No_ControlledColumn" type="xs:byte" />
+              <xs:element name="Expiry_x0020_Date_x0020_Controlled" msprop:Generator_UserColumnName="Expiry Date Controlled" msprop:Generator_ColumnPropNameInRow="Expiry_Date_Controlled" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date_Controlled" msprop:Generator_ColumnPropNameInTable="Expiry_Date_ControlledColumn" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltransaksi_stockinout_item" msprop:Generator_UserTableName="tbltransaksi_stockinout_item" msprop:Generator_RowDeletedName="tbltransaksi_stockinout_itemRowDeleted" msprop:Generator_RowChangedName="tbltransaksi_stockinout_itemRowChanged" msprop:Generator_RowClassName="tbltransaksi_stockinout_itemRow" msprop:Generator_RowChangingName="tbltransaksi_stockinout_itemRowChanging" msprop:Generator_RowEvArgName="tbltransaksi_stockinout_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltransaksi_stockinout_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltransaksi_stockinout_itemDataTable" msprop:Generator_TableVarName="tabletbltransaksi_stockinout_item" msprop:Generator_RowDeletingName="tbltransaksi_stockinout_itemRowDeleting" msprop:Generator_TablePropName="tbltransaksi_stockinout_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Batch_x0020_No" msprop:Generator_UserColumnName="Batch No" msprop:Generator_ColumnVarNameInTable="columnBatch_No" msprop:Generator_ColumnPropNameInRow="Batch_No" msprop:Generator_ColumnPropNameInTable="Batch_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_productqty" msprop:Generator_UserTableName="tblmaster_productqty" msprop:Generator_RowDeletedName="tblmaster_productqtyRowDeleted" msprop:Generator_RowChangedName="tblmaster_productqtyRowChanged" msprop:Generator_RowClassName="tblmaster_productqtyRow" msprop:Generator_RowChangingName="tblmaster_productqtyRowChanging" msprop:Generator_RowEvArgName="tblmaster_productqtyRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_productqtyRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_productqtyDataTable" msprop:Generator_TableVarName="tabletblmaster_productqty" msprop:Generator_RowDeletingName="tblmaster_productqtyRowDeleting" msprop:Generator_TablePropName="tblmaster_productqty">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" />
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Storage_x0020_Area" msprop:Generator_UserColumnName="Primary Storage Area" msprop:Generator_ColumnPropNameInRow="Primary_Storage_Area" msprop:Generator_ColumnVarNameInTable="columnPrimary_Storage_Area" msprop:Generator_ColumnPropNameInTable="Primary_Storage_AreaColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

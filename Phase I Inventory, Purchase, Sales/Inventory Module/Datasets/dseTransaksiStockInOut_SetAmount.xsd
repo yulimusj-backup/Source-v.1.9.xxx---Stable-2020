@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dseTransaksiStockInOut_SetAmount" targetNamespace="http://tempuri.org/dseTransaksiStockInOut_SetAmount.xsd" xmlns:mstns="http://tempuri.org/dseTransaksiStockInOut_SetAmount.xsd" xmlns="http://tempuri.org/dseTransaksiStockInOut_SetAmount.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="reset_non_kayu_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="reset_non_kayu_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.reset_non_kayu_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockinout_item.`Primary Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltransaksi_stockinout.`Tanggal Transaksi`, tbltransaksi_stockinout_item.`Primary Product`, 
+                         tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, tbltransaksi_stockinout_item.Qty, tbltransaksi_stockinout_item.`Primary Units`, tblmaster_master_unit.`Unit Code`, 
+                         tbltransaksi_stockinout_item.Amount, tbltransaksi_stockinout_item.`Primary`, tbltransaksi_stockinout_item.`Unit Price`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltransaksi_stockinout_item ON tbltransaksi_stockinout.`Primary` = tbltransaksi_stockinout_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltransaksi_stockinout_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tbltransaksi_stockinout_item.`Primary Units` = tblmaster_master_unit.`Primary`
+WHERE        (tbltransaksi_stockinout.`begining balance` = 1)</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Transaksi" DataSetColumn="Primary Transaksi" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Primary Units" DataSetColumn="Primary Units" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Unit Price" DataSetColumn="Unit Price" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_primary_prod" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_primary_prod" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_primary_prod">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockinout_item.`Primary Transaksi`, tbltransaksi_stockinout.`No Transaksi`, tbltransaksi_stockinout.`Tanggal Transaksi`, tbltransaksi_stockinout_item.`Primary Product`, 
+                         tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, tbltransaksi_stockinout_item.Qty, tbltransaksi_stockinout_item.`Primary Units`, tblmaster_master_unit.`Unit Code`, 
+                         tbltransaksi_stockinout_item.Amount, tbltransaksi_stockinout_item.`Primary`, tbltransaksi_stockinout_item.`Unit Price`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tbltransaksi_stockinout_item ON tbltransaksi_stockinout.`Primary` = tbltransaksi_stockinout_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltransaksi_stockinout_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tbltransaksi_stockinout_item.`Primary Units` = tblmaster_master_unit.`Primary`
+WHERE        (tbltransaksi_stockinout.`begining balance` = 1) AND (tbltransaksi_stockinout_item.`Primary Product` = @primary_prod)
+ORDER BY tbltransaksi_stockinout.`Tanggal Transaksi`, tbltransaksi_stockinout.`No Transaksi`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_prod" ColumnName="Primary Product" DataSourceName="smess_abt.tbltransaksi_stockinout_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_prod" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_SetAmount" Modifier="Public" Name="UpdateQuery_SetAmount" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery_SetAmount">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE tbltransaksi_stockinout_item
+SET          Amount = @amount, `Unit Price` = @unit_price
+WHERE  (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="amount" ColumnName="Amount" DataSourceName="smess_abt.tbltransaksi_stockinout_item" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@amount" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="unit_price" ColumnName="Unit Price" DataSourceName="smess_abt.tbltransaksi_stockinout_item" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@unit_price" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Unit Price" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="smess_abt.tbltransaksi_stockinout_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT derivedtbl_1.`Primary Product`, derivedtbl_1.`Product Code`, derivedtbl_1.Description, derivedtbl_1.`Decimal`, derivedtbl_1.Qty, derivedtbl_1.`Primary Units`, derivedtbl_1.`Unit Code`, derivedtbl_1.Amount, derivedtbl_1.`Primary Category`, 
+                  tblmaster_category.`Category Code`, tblmaster_category.Description AS `Category Desc`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Group Code` AS `Sub Brand Code`, 
+                  tblmaster_product_group.Description AS `Sub Brand Desc`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Group Code` AS `Brand Code`, 
+                  tblmaster_product_group_1.Description AS `Brand Desc`, tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tblmaster_product_group_2.`Group Code`, tblmaster_product_group_2.Description AS `Group Desc`
+FROM     (SELECT tbltransaksi_stockinout_item.`Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, SUM(tbltransaksi_stockinout_item.Qty) AS Qty, 
+                                    tbltransaksi_stockinout_item.`Primary Units`, tblmaster_master_unit.`Unit Code`, SUM(tbltransaksi_stockinout_item.Amount) AS Amount, tblmaster_product.`Primary Category`
+                  FROM      tbltransaksi_stockinout INNER JOIN
+                                    tbltransaksi_stockinout_item ON tbltransaksi_stockinout.`Primary` = tbltransaksi_stockinout_item.`Primary Transaksi` INNER JOIN
+                                    tblmaster_product ON tbltransaksi_stockinout_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                                    tblmaster_master_unit ON tbltransaksi_stockinout_item.`Primary Units` = tblmaster_master_unit.`Primary`
+                  WHERE   (tbltransaksi_stockinout.`begining balance` = 1)
+                  GROUP BY tbltransaksi_stockinout_item.`Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description, tblmaster_product.`Decimal`, tbltransaksi_stockinout_item.`Primary Units`, tblmaster_master_unit.`Unit Code`, 
+                                    tblmaster_product.`Primary Category`) derivedtbl_1 INNER JOIN
+                  tblmaster_category ON derivedtbl_1.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                  tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                  tblmaster_product_group tblmaster_product_group_2 ON tblmaster_product_group_1.`Parent Group Primary` = tblmaster_product_group_2.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Primary Units" DataSetColumn="Primary Units" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Category Code" DataSetColumn="Category Code" />
+              <Mapping SourceColumn="Category Desc" DataSetColumn="Category Desc" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Sub Brand Code" DataSetColumn="Sub Brand Code" />
+              <Mapping SourceColumn="Sub Brand Desc" DataSetColumn="Sub Brand Desc" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Brand Code" DataSetColumn="Brand Code" />
+              <Mapping SourceColumn="Brand Desc" DataSetColumn="Brand Desc" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="Group Code" DataSetColumn="Group Code" />
+              <Mapping SourceColumn="Group Desc" DataSetColumn="Group Desc" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_aopTableAdapter" GeneratorDataComponentClassName="tbltrans_aopTableAdapter" Name="tbltrans_aop" UserDataComponentName="tbltrans_aopTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_abt.tbltrans_aop" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT tbltrans_aop.`Primary` AS `Primary AOP`, tbltrans_aop.`Quick Purchase`
+FROM     tbltrans_aop_item INNER JOIN
+                  tbltrans_aop ON tbltrans_aop_item.`Primary Transaksi` = tbltrans_aop.`Primary` INNER JOIN
+                  tbltrans_grn ON tbltrans_aop_item.`Primary GRN` = tbltrans_grn.`Primary`
+WHERE  (tbltrans_grn.`Primary Stock In Purchase` = @primary_stockIn_purchase)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_stockIn_purchase" ColumnName="Primary Stock In Purchase" DataSourceName="smess_abt.tbltrans_grn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_stockIn_purchase" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Stock In Purchase" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary AOP" DataSetColumn="Primary AOP" />
+              <Mapping SourceColumn="Quick Purchase" DataSetColumn="Quick Purchase" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dseTransaksiStockInOut_SetAmount" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dseTransaksiStockInOut_SetAmount" msprop:Generator_DataSetName="dseTransaksiStockInOut_SetAmount">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Units" msprop:Generator_UserColumnName="Primary Units" msprop:Generator_ColumnVarNameInTable="columnPrimary_Units" msprop:Generator_ColumnPropNameInRow="Primary_Units" msprop:Generator_ColumnPropNameInTable="Primary_UnitsColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" />
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Price" msprop:Generator_UserColumnName="Unit Price" msprop:Generator_ColumnVarNameInTable="columnUnit_Price" msprop:Generator_ColumnPropNameInRow="Unit_Price" msprop:Generator_ColumnPropNameInTable="Unit_PriceColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Primary_x0020_Units" msprop:Generator_UserColumnName="Primary Units" msprop:Generator_ColumnPropNameInRow="Primary_Units" msprop:Generator_ColumnVarNameInTable="columnPrimary_Units" msprop:Generator_ColumnPropNameInTable="Primary_UnitsColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Category_x0020_Code" msprop:Generator_UserColumnName="Category Code" msprop:Generator_ColumnPropNameInRow="Category_Code" msprop:Generator_ColumnVarNameInTable="columnCategory_Code" msprop:Generator_ColumnPropNameInTable="Category_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Category_x0020_Desc" msprop:Generator_UserColumnName="Category Desc" msprop:Generator_ColumnPropNameInRow="Category_Desc" msprop:Generator_ColumnVarNameInTable="columnCategory_Desc" msprop:Generator_ColumnPropNameInTable="Category_DescColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Sub_x0020_Brand_x0020_Code" msprop:Generator_UserColumnName="Sub Brand Code" msprop:Generator_ColumnPropNameInRow="Sub_Brand_Code" msprop:Generator_ColumnVarNameInTable="columnSub_Brand_Code" msprop:Generator_ColumnPropNameInTable="Sub_Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sub_x0020_Brand_x0020_Desc" msprop:Generator_UserColumnName="Sub Brand Desc" msprop:Generator_ColumnPropNameInRow="Sub_Brand_Desc" msprop:Generator_ColumnVarNameInTable="columnSub_Brand_Desc" msprop:Generator_ColumnPropNameInTable="Sub_Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Brand_x0020_Code" msprop:Generator_UserColumnName="Brand Code" msprop:Generator_ColumnPropNameInRow="Brand_Code" msprop:Generator_ColumnVarNameInTable="columnBrand_Code" msprop:Generator_ColumnPropNameInTable="Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Brand_x0020_Desc" msprop:Generator_UserColumnName="Brand Desc" msprop:Generator_ColumnPropNameInRow="Brand_Desc" msprop:Generator_ColumnVarNameInTable="columnBrand_Desc" msprop:Generator_ColumnPropNameInTable="Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Group_x0020_Code" msprop:Generator_UserColumnName="Group Code" msprop:Generator_ColumnPropNameInRow="Group_Code" msprop:Generator_ColumnVarNameInTable="columnGroup_Code" msprop:Generator_ColumnPropNameInTable="Group_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Group_x0020_Desc" msprop:Generator_UserColumnName="Group Desc" msprop:Generator_ColumnPropNameInRow="Group_Desc" msprop:Generator_ColumnVarNameInTable="columnGroup_Desc" msprop:Generator_ColumnPropNameInTable="Group_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Price" msprop:Generator_UserColumnName="Unit Price" msprop:Generator_ColumnVarNameInTable="columnUnit_Price" msprop:Generator_ColumnPropNameInRow="Unit_Price" msprop:Generator_ColumnPropNameInTable="Unit_PriceColumn" type="xs:decimal" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_aop" msprop:Generator_UserTableName="tbltrans_aop" msprop:Generator_RowDeletedName="tbltrans_aopRowDeleted" msprop:Generator_TableClassName="tbltrans_aopDataTable" msprop:Generator_RowChangedName="tbltrans_aopRowChanged" msprop:Generator_RowClassName="tbltrans_aopRow" msprop:Generator_RowChangingName="tbltrans_aopRowChanging" msprop:Generator_RowEvArgName="tbltrans_aopRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_aopRowChangeEventHandler" msprop:Generator_TablePropName="tbltrans_aop" msprop:Generator_TableVarName="tabletbltrans_aop" msprop:Generator_RowDeletingName="tbltrans_aopRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_AOP" msprop:Generator_UserColumnName="Primary AOP" msprop:Generator_ColumnPropNameInRow="Primary_AOP" msprop:Generator_ColumnVarNameInTable="columnPrimary_AOP" msprop:Generator_ColumnPropNameInTable="Primary_AOPColumn" type="xs:double" />
+              <xs:element name="Quick_x0020_Purchase" msprop:Generator_UserColumnName="Quick Purchase" msprop:Generator_ColumnPropNameInRow="Quick_Purchase" msprop:Generator_ColumnVarNameInTable="columnQuick_Purchase" msprop:Generator_ColumnPropNameInTable="Quick_PurchaseColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_aop" />
+      <xs:field xpath="mstns:Primary_x0020_AOP" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

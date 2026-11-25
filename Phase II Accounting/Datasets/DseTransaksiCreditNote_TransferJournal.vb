@@ -1,0 +1,2 @@
+﻿Partial Class DseTransaksiCreditNote_TransferJournal
+End Class

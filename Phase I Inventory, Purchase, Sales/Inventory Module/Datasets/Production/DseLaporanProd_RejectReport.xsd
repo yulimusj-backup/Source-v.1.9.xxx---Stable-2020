@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanProd_RejectReport" targetNamespace="http://tempuri.org/DseLaporanProd_RejectReport.xsd" xmlns:mstns="http://tempuri.org/DseLaporanProd_RejectReport.xsd" xmlns="http://tempuri.org/DseLaporanProd_RejectReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_GroupByProduct" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill_GroupByProduct" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill_GroupByProduct">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockbundling.`Primary` AS `Primary Bundling`, tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Tanggal Bundling`, tbltransaksi_stockbundling_item_reject.`primary product` AS `Primary Product`,
+                          tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Desc`, tblmaster_product.`Decimal`, tbltransaksi_stockbundling_item_reject.`primary reject` AS `Primary Reject`, 
+                         tblmaster_reject.`Reject Code`, tblmaster_reject.Description AS `Reject Desc`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, 
+                         tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltransaksi_stockbundling.`primary process` AS `Primary Process`, 
+                         tblmaster_proses.Code AS `Process Code`, tblmaster_proses.`Desc` AS `Process Desc`, SUM(tbltransaksi_stockbundling_item_reject.qty) AS `Reject Qty`, tbltrans_mo_item_wo.`Primary MO`, 
+                         tbltrans_mo.`MO Number`
+FROM            tbltransaksi_stockbundling INNER JOIN
+                         tbltransaksi_stockbundling_item_reject ON tbltransaksi_stockbundling.`Primary` = tbltransaksi_stockbundling_item_reject.`primary bundling` INNER JOIN
+                         tblmaster_reject ON tbltransaksi_stockbundling_item_reject.`primary reject` = tblmaster_reject.`Primary` INNER JOIN
+                         tblmaster_product ON tbltransaksi_stockbundling_item_reject.`primary product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                         tblmaster_proses ON tbltransaksi_stockbundling.`primary process` = tblmaster_proses.`Primary` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltransaksi_stockbundling.`identifier wo` = tbltrans_mo_item_wo.Identifier INNER JOIN
+                         tbltrans_mo ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo.`Primary`
+WHERE        (tbltransaksi_stockbundling.`Tanggal Transaksi` &gt;= @from_bundling) AND (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @to_bundling)
+GROUP BY tbltransaksi_stockbundling_item_reject.`primary product`, tbltransaksi_stockbundling_item_reject.`primary reject`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="from_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@from_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="to_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@to_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Bundling" DataSetColumn="Primary Bundling" />
+              <Mapping SourceColumn="Tanggal Bundling" DataSetColumn="Tanggal Bundling" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Product Desc" DataSetColumn="Product Desc" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Primary Reject" DataSetColumn="Primary Reject" />
+              <Mapping SourceColumn="Reject Code" DataSetColumn="Reject Code" />
+              <Mapping SourceColumn="Reject Desc" DataSetColumn="Reject Desc" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="Primary Process" DataSetColumn="Primary Process" />
+              <Mapping SourceColumn="Process Code" DataSetColumn="Process Code" />
+              <Mapping SourceColumn="Process Desc" DataSetColumn="Process Desc" />
+              <Mapping SourceColumn="Reject Qty" DataSetColumn="Reject Qty" />
+              <Mapping SourceColumn="Primary MO" DataSetColumn="Primary MO" />
+              <Mapping SourceColumn="MO Number" DataSetColumn="MO Number" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_GroupByProcess" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill_GroupByProcess" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="Fill_GroupByProcess">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockbundling.`Primary` AS `Primary Bundling`, tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Tanggal Bundling`, tbltransaksi_stockbundling_item_reject.`primary product` AS `Primary Product`,
+                          tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Desc`, tblmaster_product.`Decimal`, tbltransaksi_stockbundling_item_reject.`primary reject` AS `Primary Reject`, 
+                         tblmaster_reject.`Reject Code`, tblmaster_reject.Description AS `Reject Desc`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, 
+                         tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltransaksi_stockbundling.`primary process` AS `Primary Process`, 
+                         tblmaster_proses.Code AS `Process Code`, tblmaster_proses.`Desc` AS `Process Desc`, SUM(tbltransaksi_stockbundling_item_reject.qty) AS `Reject Qty`, tbltrans_mo_item_wo.`Primary MO`, 
+                         tbltrans_mo.`MO Number`
+FROM            tbltransaksi_stockbundling INNER JOIN
+                         tbltransaksi_stockbundling_item_reject ON tbltransaksi_stockbundling.`Primary` = tbltransaksi_stockbundling_item_reject.`primary bundling` INNER JOIN
+                         tblmaster_reject ON tbltransaksi_stockbundling_item_reject.`primary reject` = tblmaster_reject.`Primary` INNER JOIN
+                         tblmaster_product ON tbltransaksi_stockbundling_item_reject.`primary product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                         tblmaster_proses ON tbltransaksi_stockbundling.`primary process` = tblmaster_proses.`Primary` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltransaksi_stockbundling.`identifier wo` = tbltrans_mo_item_wo.Identifier INNER JOIN
+                         tbltrans_mo ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo.`Primary`
+WHERE        (tbltransaksi_stockbundling.`Tanggal Transaksi` &gt;= @from_bundling) AND (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @to_bundling)
+GROUP BY tbltransaksi_stockbundling_item_reject.`primary reject`, tbltransaksi_stockbundling.`primary process`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="from_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@from_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="to_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@to_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill_GroupByProductProcess" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill_GroupByProductProcess" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="Fill_GroupByProductProcess">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockbundling.`Primary` AS `Primary Bundling`, tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Tanggal Bundling`, tbltransaksi_stockbundling_item_reject.`primary product` AS `Primary Product`,
+                          tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Desc`, tblmaster_product.`Decimal`, tbltransaksi_stockbundling_item_reject.`primary reject` AS `Primary Reject`, 
+                         tblmaster_reject.`Reject Code`, tblmaster_reject.Description AS `Reject Desc`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, 
+                         tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltransaksi_stockbundling.`primary process` AS `Primary Process`, 
+                         tblmaster_proses.Code AS `Process Code`, tblmaster_proses.`Desc` AS `Process Desc`, SUM(tbltransaksi_stockbundling_item_reject.qty) AS `Reject Qty`, tbltrans_mo_item_wo.`Primary MO`, 
+                         tbltrans_mo.`MO Number`
+FROM            tbltransaksi_stockbundling INNER JOIN
+                         tbltransaksi_stockbundling_item_reject ON tbltransaksi_stockbundling.`Primary` = tbltransaksi_stockbundling_item_reject.`primary bundling` INNER JOIN
+                         tblmaster_reject ON tbltransaksi_stockbundling_item_reject.`primary reject` = tblmaster_reject.`Primary` INNER JOIN
+                         tblmaster_product ON tbltransaksi_stockbundling_item_reject.`primary product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                         tblmaster_proses ON tbltransaksi_stockbundling.`primary process` = tblmaster_proses.`Primary` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltransaksi_stockbundling.`identifier wo` = tbltrans_mo_item_wo.Identifier INNER JOIN
+                         tbltrans_mo ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo.`Primary`
+WHERE        (tbltransaksi_stockbundling.`Tanggal Transaksi` &gt;= @from_bundling) AND (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @to_bundling)
+GROUP BY tbltransaksi_stockbundling_item_reject.`primary product`, tbltransaksi_stockbundling.`primary process`, tbltransaksi_stockbundling_item_reject.`primary reject`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="from_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@from_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="to_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@to_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanProd_RejectReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanProd_RejectReport" msprop:Generator_DataSetName="DseLaporanProd_RejectReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Bundling" msprop:Generator_UserColumnName="Primary Bundling" msprop:Generator_ColumnPropNameInRow="Primary_Bundling" msprop:Generator_ColumnVarNameInTable="columnPrimary_Bundling" msprop:Generator_ColumnPropNameInTable="Primary_BundlingColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Bundling" msprop:Generator_UserColumnName="Tanggal Bundling" msprop:Generator_ColumnPropNameInRow="Tanggal_Bundling" msprop:Generator_ColumnVarNameInTable="columnTanggal_Bundling" msprop:Generator_ColumnPropNameInTable="Tanggal_BundlingColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Desc" msprop:Generator_UserColumnName="Product Desc" msprop:Generator_ColumnPropNameInRow="Product_Desc" msprop:Generator_ColumnVarNameInTable="columnProduct_Desc" msprop:Generator_ColumnPropNameInTable="Product_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Reject" msprop:Generator_UserColumnName="Primary Reject" msprop:Generator_ColumnPropNameInRow="Primary_Reject" msprop:Generator_ColumnVarNameInTable="columnPrimary_Reject" msprop:Generator_ColumnPropNameInTable="Primary_RejectColumn" type="xs:double" />
+              <xs:element name="Reject_x0020_Code" msprop:Generator_UserColumnName="Reject Code" msprop:Generator_ColumnPropNameInRow="Reject_Code" msprop:Generator_ColumnVarNameInTable="columnReject_Code" msprop:Generator_ColumnPropNameInTable="Reject_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reject_x0020_Desc" msprop:Generator_UserColumnName="Reject Desc" msprop:Generator_ColumnPropNameInRow="Reject_Desc" msprop:Generator_ColumnVarNameInTable="columnReject_Desc" msprop:Generator_ColumnPropNameInTable="Reject_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Process" msprop:Generator_UserColumnName="Primary Process" msprop:Generator_ColumnPropNameInRow="Primary_Process" msprop:Generator_ColumnVarNameInTable="columnPrimary_Process" msprop:Generator_ColumnPropNameInTable="Primary_ProcessColumn" type="xs:double" />
+              <xs:element name="Process_x0020_Code" msprop:Generator_UserColumnName="Process Code" msprop:Generator_ColumnPropNameInRow="Process_Code" msprop:Generator_ColumnVarNameInTable="columnProcess_Code" msprop:Generator_ColumnPropNameInTable="Process_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Process_x0020_Desc" msprop:Generator_UserColumnName="Process Desc" msprop:Generator_ColumnPropNameInRow="Process_Desc" msprop:Generator_ColumnVarNameInTable="columnProcess_Desc" msprop:Generator_ColumnPropNameInTable="Process_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reject_x0020_Qty" msprop:Generator_UserColumnName="Reject Qty" msprop:Generator_ColumnPropNameInRow="Reject_Qty" msprop:Generator_ColumnVarNameInTable="columnReject_Qty" msprop:Generator_ColumnPropNameInTable="Reject_QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Primary_x0020_MO" msprop:Generator_UserColumnName="Primary MO" msprop:Generator_ColumnVarNameInTable="columnPrimary_MO" msprop:Generator_ColumnPropNameInRow="Primary_MO" msprop:Generator_ColumnPropNameInTable="Primary_MOColumn" type="xs:double" />
+              <xs:element name="MO_x0020_Number" msprop:Generator_UserColumnName="MO Number" msprop:Generator_ColumnVarNameInTable="columnMO_Number" msprop:Generator_ColumnPropNameInRow="MO_Number" msprop:Generator_ColumnPropNameInTable="MO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Print" msprop:Generator_UserTableName="Print" msprop:Generator_RowDeletedName="PrintRowDeleted" msprop:Generator_RowChangedName="PrintRowChanged" msprop:Generator_RowClassName="PrintRow" msprop:Generator_RowChangingName="PrintRowChanging" msprop:Generator_RowEvArgName="PrintRowChangeEvent" msprop:Generator_RowEvHandlerName="PrintRowChangeEventHandler" msprop:Generator_TableClassName="PrintDataTable" msprop:Generator_TableVarName="tablePrint" msprop:Generator_RowDeletingName="PrintRowDeleting" msprop:Generator_TablePropName="Print">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Desc" msprop:Generator_UserColumnName="Desc" msprop:Generator_ColumnVarNameInTable="columnDesc" msprop:Generator_ColumnPropNameInRow="Desc" msprop:Generator_ColumnPropNameInTable="DescColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Reject_x0020_Code_x0020_1" msprop:Generator_UserColumnName="Reject Code 1" msprop:Generator_ColumnVarNameInTable="columnReject_Code_1" msprop:Generator_ColumnPropNameInRow="Reject_Code_1" msprop:Generator_ColumnPropNameInTable="Reject_Code_1Column" type="xs:string" default="-" minOccurs="0" />
+              <xs:element name="Reject_x0020_Qty_x0020_1" msprop:Generator_UserColumnName="Reject Qty 1" msprop:Generator_ColumnVarNameInTable="columnReject_Qty_1" msprop:Generator_ColumnPropNameInRow="Reject_Qty_1" msprop:Generator_ColumnPropNameInTable="Reject_Qty_1Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Reject_x0020_Code_x0020_2" msprop:Generator_UserColumnName="Reject Code 2" msprop:Generator_ColumnVarNameInTable="columnReject_Code_2" msprop:Generator_ColumnPropNameInRow="Reject_Code_2" msprop:Generator_ColumnPropNameInTable="Reject_Code_2Column" type="xs:string" default="-" minOccurs="0" />
+              <xs:element name="Reject_x0020_Qty_x0020_2" msprop:Generator_UserColumnName="Reject Qty 2" msprop:Generator_ColumnVarNameInTable="columnReject_Qty_2" msprop:Generator_ColumnPropNameInRow="Reject_Qty_2" msprop:Generator_ColumnPropNameInTable="Reject_Qty_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Reject_x0020_Code_x0020_3" msprop:Generator_UserColumnName="Reject Code 3" msprop:Generator_ColumnVarNameInTable="columnReject_Code_3" msprop:Generator_ColumnPropNameInRow="Reject_Code_3" msprop:Generator_ColumnPropNameInTable="Reject_Code_3Column" type="xs:string" default="-" minOccurs="0" />
+              <xs:element name="Reject_x0020_Qty_x0020_3" msprop:Generator_UserColumnName="Reject Qty 3" msprop:Generator_ColumnVarNameInTable="columnReject_Qty_3" msprop:Generator_ColumnPropNameInRow="Reject_Qty_3" msprop:Generator_ColumnPropNameInTable="Reject_Qty_3Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Reject_x0020_Code_x0020_4" msprop:Generator_UserColumnName="Reject Code 4" msprop:Generator_ColumnVarNameInTable="columnReject_Code_4" msprop:Generator_ColumnPropNameInRow="Reject_Code_4" msprop:Generator_ColumnPropNameInTable="Reject_Code_4Column" type="xs:string" default="-" minOccurs="0" />
+              <xs:element name="Reject_x0020_Qty_x0020_4" msprop:Generator_UserColumnName="Reject Qty 4" msprop:Generator_ColumnVarNameInTable="columnReject_Qty_4" msprop:Generator_ColumnPropNameInRow="Reject_Qty_4" msprop:Generator_ColumnPropNameInTable="Reject_Qty_4Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Reject_x0020_Code_x0020_5" msprop:Generator_UserColumnName="Reject Code 5" msprop:Generator_ColumnVarNameInTable="columnReject_Code_5" msprop:Generator_ColumnPropNameInRow="Reject_Code_5" msprop:Generator_ColumnPropNameInTable="Reject_Code_5Column" type="xs:string" default="-" minOccurs="0" />
+              <xs:element name="Reject_x0020_Qty_x0020_5" msprop:Generator_UserColumnName="Reject Qty 5" msprop:Generator_ColumnVarNameInTable="columnReject_Qty_5" msprop:Generator_ColumnPropNameInRow="Reject_Qty_5" msprop:Generator_ColumnPropNameInTable="Reject_Qty_5Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Others_x0020_Qty" msprop:Generator_UserColumnName="Others Qty" msprop:Generator_ColumnVarNameInTable="columnOthers_Qty" msprop:Generator_ColumnPropNameInRow="Others_Qty" msprop:Generator_ColumnPropNameInTable="Others_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="Code_x0020_II" msprop:Generator_UserColumnName="Code II" msprop:Generator_ColumnPropNameInRow="Code_II" msprop:Generator_ColumnVarNameInTable="columnCode_II" msprop:Generator_ColumnPropNameInTable="Code_IIColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Desc_x0020_II" msprop:Generator_UserColumnName="Desc II" msprop:Generator_ColumnPropNameInRow="Desc_II" msprop:Generator_ColumnVarNameInTable="columnDesc_II" msprop:Generator_ColumnPropNameInTable="Desc_IIColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Top_x0020_N" msprop:Generator_UserTableName="Top N" msprop:Generator_RowDeletedName="Top_NRowDeleted" msprop:Generator_RowChangedName="Top_NRowChanged" msprop:Generator_RowClassName="Top_NRow" msprop:Generator_RowChangingName="Top_NRowChanging" msprop:Generator_RowEvArgName="Top_NRowChangeEvent" msprop:Generator_RowEvHandlerName="Top_NRowChangeEventHandler" msprop:Generator_TableClassName="Top_NDataTable" msprop:Generator_TableVarName="tableTop_N" msprop:Generator_RowDeletingName="Top_NRowDeleting" msprop:Generator_TablePropName="Top_N">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Reject_x0020_Code" msprop:Generator_UserColumnName="Reject Code" msprop:Generator_ColumnVarNameInTable="columnReject_Code" msprop:Generator_ColumnPropNameInRow="Reject_Code" msprop:Generator_ColumnPropNameInTable="Reject_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Reject_x0020_Qty" msprop:Generator_UserColumnName="Reject Qty" msprop:Generator_ColumnVarNameInTable="columnReject_Qty" msprop:Generator_ColumnPropNameInRow="Reject_Qty" msprop:Generator_ColumnPropNameInTable="Reject_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

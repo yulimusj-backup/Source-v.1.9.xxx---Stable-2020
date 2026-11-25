@@ -1,0 +1,2 @@
+﻿Partial Class DseTransaksiMonthlyClosing2
+End Class

@@ -1,0 +1,1288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTransMO_WorkShift_Allocate" targetNamespace="http://tempuri.org/DseTransMO_WorkShift_Allocate.xsd" xmlns:mstns="http://tempuri.org/DseTransMO_WorkShift_Allocate.xsd" xmlns="http://tempuri.org/DseTransMO_WorkShift_Allocate.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Core_DbConnectionString" IsAppSettingsProperty="True" Modifier="Assembly" Name="Core_DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.MySettings.GlobalReference.Default.Core_DbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_mo_workshift_allocateTableAdapter" GeneratorDataComponentClassName="tbltrans_mo_workshift_allocateTableAdapter" Name="tbltrans_mo_workshift_allocate" UserDataComponentName="tbltrans_mo_workshift_allocateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo_workshift_allocate.`primary`, tbltrans_mo_workshift_allocate.`date`, tbltrans_mo_workshift_allocate.`primary work unit`, 
+                         tbltrans_mo_workshift_allocate.`primary workshift`, tbltrans_mo_workshift_allocate.`created by`, tbltrans_mo_workshift_allocate.`created date`, 
+                         tblmaster_workunit.`work unit code`, tblmaster_workunit.description, tblmaster_workshift.code AS `work shift code`, 
+                         tblmaster_workshift.description AS `work shift desc`
+FROM            tbltrans_mo_workshift_allocate INNER JOIN
+                         tblmaster_workunit ON tbltrans_mo_workshift_allocate.`primary work unit` = tblmaster_workunit.`primary` INNER JOIN
+                         tblmaster_workshift ON tbltrans_mo_workshift_allocate.`primary workshift` = tblmaster_workshift.`primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="primary work unit" DataSetColumn="primary work unit" />
+              <Mapping SourceColumn="primary workshift" DataSetColumn="primary workshift" />
+              <Mapping SourceColumn="created by" DataSetColumn="created by" />
+              <Mapping SourceColumn="created date" DataSetColumn="created date" />
+              <Mapping SourceColumn="work unit code" DataSetColumn="work unit code" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+              <Mapping SourceColumn="work shift code" DataSetColumn="work shift code" />
+              <Mapping SourceColumn="work shift desc" DataSetColumn="work shift desc" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TgldariDanTglSampai" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TgldariDanTglSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TgldariDanTglSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo_workshift_allocate.`primary`, tbltrans_mo_workshift_allocate.`date`, tbltrans_mo_workshift_allocate.`primary work unit`, tbltrans_mo_workshift_allocate.`primary workshift`, 
+                         tbltrans_mo_workshift_allocate.`created by`, tbltrans_mo_workshift_allocate.`created date`, tblmaster_workunit.`work unit code`, tblmaster_workunit.description, tblmaster_workshift.code AS `work shift code`, 
+                         tblmaster_workshift.description AS `work shift desc`
+FROM            tbltrans_mo_workshift_allocate INNER JOIN
+                         tblmaster_workunit ON tbltrans_mo_workshift_allocate.`primary work unit` = tblmaster_workunit.`primary` INNER JOIN
+                         tblmaster_workshift ON tbltrans_mo_workshift_allocate.`primary workshift` = tblmaster_workshift.`primary`
+WHERE        (tbltrans_mo_workshift_allocate.`date` &gt;= @Tgldari) AND (tbltrans_mo_workshift_allocate.`date` &lt;= @TglSampai) AND (tblmaster_workshift.`tipe workshif` = @tipe_ws)
+ORDER BY tblmaster_workunit.`work unit code`, tbltrans_mo_workshift_allocate.`date`, `work shift code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tgldari" ColumnName="date" DataSourceName="smess_produksi.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Tgldari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="date" DataSourceName="smess_produksi.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tipe_ws" ColumnName="tipe workshif" DataSourceName="smess_produksi.tblmaster_workshift" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@tipe_ws" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workshif" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_getjmlin_bundling" Modifier="Public" Name="ScalarQuery_getjmlin_bundling" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_getjmlin_bundling">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`Primary`) AS jml
+FROM            tbltransaksi_stockbundling
+WHERE        (`primary work unit` = @primary_wu) AND (`start time actual` &gt;= @start) AND (`start time actual` &lt;= @startend)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_wu" ColumnName="primary work unit" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_wu" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="start" ColumnName="start time actual" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@start" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="startend" ColumnName="start time actual" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@startend" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_getjmlinspl" Modifier="Public" Name="ScalarQuery_getjmlinspl" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_getjmlinspl">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`primary`) AS jml_
+FROM            tbltrans_spl_item_log
+WHERE        (`date` = @tgl) AND (`primary wokunit` = @primary_wu) AND (`primary workshift` = @primary_ws)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tgl" ColumnName="date" DataSourceName="smess_production.tbltrans_spl_item_log" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@tgl" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_wu" ColumnName="primary wokunit" DataSourceName="smess_production.tbltrans_spl_item_log" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_wu" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary wokunit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_ws" ColumnName="primary workshift" DataSourceName="smess_production.tbltrans_spl_item_log" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_ws" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workunitTableAdapter" GeneratorDataComponentClassName="tblmaster_workunitTableAdapter" Name="tblmaster_workunit" UserDataComponentName="tblmaster_workunitTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tblmaster_workunit" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `primary`, `primary work unit group`, `work unit code`, description
+FROM            tblmaster_workunit
+WHERE        (active = 1)
+ORDER BY `work unit code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary work unit group" DataSetColumn="primary work unit group" />
+              <Mapping SourceColumn="work unit code" DataSetColumn="work unit code" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tblmaster_workunit" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_primarywug" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_primarywug" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_primarywug">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary work unit group`, `work unit code`, description
+FROM            tblmaster_workunit
+WHERE        (active = 1) AND (`primary work unit group` = @primarywug)
+ORDER BY `work unit code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primarywug" ColumnName="primary work unit group" DataSourceName="smess_production.tblmaster_workunit" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primarywug" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit group" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workshiftTableAdapter" GeneratorDataComponentClassName="tblmaster_workshiftTableAdapter" Name="tblmaster_workshift" UserDataComponentName="tblmaster_workshiftTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tblmaster_workshift" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `primary`, code, description
+FROM            tblmaster_workshift
+WHERE        (`tipe workshif` = @tipe_ws)
+ORDER BY code</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tipe_ws" ColumnName="tipe workshif" DataSourceName="smess_produksi.tblmaster_workshift" DataTypeServer="int(1)" DbType="Int32" Direction="Input" ParameterName="@tipe_ws" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workshif" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="code" DataSetColumn="code" />
+              <Mapping SourceColumn="description" DataSetColumn="description" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_mo_workshift_allocate1TableAdapter" GeneratorDataComponentClassName="tbltrans_mo_workshift_allocate1TableAdapter" Name="tbltrans_mo_workshift_allocate1" UserDataComponentName="tbltrans_mo_workshift_allocate1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tbltrans_mo_workshift_allocate" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM tbltrans_mo_workshift_allocate
+WHERE        (`primary` = @Original_primary) AND (`date` = @Original_date) AND (`primary work unit` = @Original_primary_work_unit) AND 
+                         (`primary workshift` = @Original_primary_workshift) AND (`created by` = @Original_created_by) AND (`created date` = @Original_created_date)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary" ColumnName="primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_date" ColumnName="date" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_work_unit" ColumnName="primary work unit" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_work_unit" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_workshift" ColumnName="primary workshift" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_workshift" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_created_by" ColumnName="created by" DataSourceName="" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Original_created_by" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="created by" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_created_date" ColumnName="created date" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Original_created_date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="created date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO tbltrans_mo_workshift_allocate
+                         (`date`, `primary work unit`, `primary workshift`, `created by`, `created date`)
+VALUES        (@date, @primary_work_unit, @primary_workshift, @created_by, @created_date)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="date" ColumnName="date" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_work_unit" ColumnName="primary work unit" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_work_unit" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_workshift" ColumnName="primary workshift" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_workshift" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="created_by" ColumnName="created by" DataSourceName="" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@created_by" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="created by" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="created_date" ColumnName="created date" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@created_date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="created date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `primary`, `date`, `primary work unit`, `primary workshift`, `created by`, `created date`
+FROM            tbltrans_mo_workshift_allocate</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_mo_workshift_allocate
+SET                `date` = @date, `primary work unit` = @primary_work_unit, `primary workshift` = @primary_workshift, `created by` = @created_by, 
+                         `created date` = @created_date
+WHERE        (`primary` = @Original_primary) AND (`date` = @Original_date) AND (`primary work unit` = @Original_primary_work_unit) AND 
+                         (`primary workshift` = @Original_primary_workshift) AND (`created by` = @Original_created_by) AND (`created date` = @Original_created_date)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="date" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_work_unit" ColumnName="primary work unit" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_work_unit" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_workshift" ColumnName="primary workshift" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_workshift" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="created_by" ColumnName="created by" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@created_by" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="created by" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="created_date" ColumnName="created date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@created_date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="created date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary" ColumnName="primary" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_date" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_work_unit" ColumnName="primary work unit" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_work_unit" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_workshift" ColumnName="primary workshift" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_workshift" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_created_by" ColumnName="created by" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@Original_created_by" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="created by" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_created_date" ColumnName="created date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Original_created_date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="created date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="primary work unit" DataSetColumn="primary work unit" />
+              <Mapping SourceColumn="primary workshift" DataSetColumn="primary workshift" />
+              <Mapping SourceColumn="created by" DataSetColumn="created by" />
+              <Mapping SourceColumn="created date" DataSetColumn="created date" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="DeleteQuery_Allocate" Modifier="Public" Name="DeleteQuery_Allocate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery_Allocate">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tbltrans_mo_workshift_allocate
+WHERE        (`date` &gt;= @tgldari) AND (`date` &lt;= @tglsampai) AND (`primary work unit` = @Original_primary_work_unit) AND (`primary workshift` = @Original_primaryworkshift)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tgldari" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@tgldari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tglsampai" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@tglsampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_work_unit" ColumnName="primary work unit" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_work_unit" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primaryworkshift" ColumnName="primary workshift" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primaryworkshift" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="DeleteQuery_allocatepertgl" Modifier="Public" Name="DeleteQuery_allocatepertgl" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="DeleteQuery_allocatepertgl">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tbltrans_mo_workshift_allocate
+WHERE        (`date` = @tgl) AND (`primary work unit` = @Original_primary_work_unit) AND (`primary workshift` = @Original_primaryworkshift)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tgl" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@tgl" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primary_work_unit" ColumnName="primary work unit" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primary_work_unit" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_primaryworkshift" ColumnName="primary workshift" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_primaryworkshift" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tbltrans_mo_workshift_allocate" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_allocateby_dateandwu" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_allocateby_dateandwu" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="FillBy_allocateby_dateandwu">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `date`, `primary work unit`, `primary workshift`, `created by`, `created date`
+FROM            tbltrans_mo_workshift_allocate
+WHERE        (`date` = @tgl) AND (`primary work unit` = @primary_wu)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tgl" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@tgl" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_wu" ColumnName="primary work unit" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_wu" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tbltrans_mo_workshift_allocate" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_primarywu_anddate" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_primarywu_anddate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="FillBy_primarywu_anddate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `date`, `primary work unit`, `primary workshift`, `created by`, `created date`
+FROM            tbltrans_mo_workshift_allocate
+WHERE        (`date` = @tgl) AND (`primary work unit` = @primary_wu)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tgl" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@tgl" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_wu" ColumnName="primary work unit" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_wu" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="InsertQuery_Allocate" Modifier="Public" Name="InsertQuery_Allocate" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="InsertQuery_Allocate">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tbltrans_mo_workshift_allocate
+                         (`date`, `primary work unit`, `primary workshift`, `created by`, `created date`)
+VALUES        (@date, @primarywu, @primaryws, @createdby, @createddate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="date" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primarywu" ColumnName="primary work unit" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primarywu" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primaryws" ColumnName="primary workshift" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primaryws" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="createdby" ColumnName="created by" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="varchar(250)(250)" DbType="String" Direction="Input" ParameterName="@createdby" Precision="0" ProviderType="VarChar" Scale="0" Size="250" SourceColumn="created by" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="createddate" ColumnName="created date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@createddate" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="created date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_getjmlby_tgldanwu" Modifier="Public" Name="ScalarQuery_getjmlby_tgldanwu" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_getjmlby_tgldanwu">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(`primary`) AS Jml_ws
+FROM            tbltrans_mo_workshift_allocate
+WHERE        (`primary work unit` = @primarywu) AND (`date` = @tgl)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primarywu" ColumnName="primary work unit" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primarywu" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="tgl" ColumnName="date" DataSourceName="smess_production.tbltrans_mo_workshift_allocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@tgl" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workshift_itemTableAdapter" GeneratorDataComponentClassName="tblmaster_workshift_itemTableAdapter" Name="tblmaster_workshift_item" UserDataComponentName="tblmaster_workshift_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tblmaster_workshift_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `smess_production`.`tblmaster_workshift_item` WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`day of week` = @Original_day_of_week) AND (`tipe workdays` = @Original_tipe_workdays) AND (`tipe overtime` = @Original_tipe_overtime) AND (`schedule in` = @Original_schedule_in) AND (`schedule out` = @Original_schedule_out) AND (`remarks` = @Original_remarks) AND (`duratioin` = @Original_duratioin) AND (`schedule break out` = @Original_schedule_break_out) AND (`schedule break in` = @Original_schedule_break_in) AND (`break duration` = @Original_break_duration))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_day_of_week" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="day of week" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_workdays" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workdays" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_duratioin" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duratioin" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `smess_production`.`tblmaster_workshift_item` (`primary transaksi`, `day of week`, `tipe workdays`, `tipe overtime`, `schedule in`, `schedule out`, `remarks`, `duratioin`, `schedule break out`, `schedule break in`, `break duration`) VALUES (@primary_transaksi, @day_of_week, @tipe_workdays, @tipe_overtime, @schedule_in, @schedule_out, @remarks, @duratioin, @schedule_break_out, @schedule_break_in, @break_duration)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@day_of_week" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="day of week" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_workdays" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workdays" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@duratioin" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duratioin" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, `day of week`, `tipe workdays`, `tipe overtime`, `schedule in`, `schedule out`, remarks, duratioin, `schedule break out`, 
+                         `schedule break in`, `break duration`
+FROM            tblmaster_workshift_item</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `smess_production`.`tblmaster_workshift_item` SET `primary transaksi` = @primary_transaksi, `day of week` = @day_of_week, `tipe workdays` = @tipe_workdays, `tipe overtime` = @tipe_overtime, `schedule in` = @schedule_in, `schedule out` = @schedule_out, `remarks` = @remarks, `duratioin` = @duratioin, `schedule break out` = @schedule_break_out, `schedule break in` = @schedule_break_in, `break duration` = @break_duration WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`day of week` = @Original_day_of_week) AND (`tipe workdays` = @Original_tipe_workdays) AND (`tipe overtime` = @Original_tipe_overtime) AND (`schedule in` = @Original_schedule_in) AND (`schedule out` = @Original_schedule_out) AND (`remarks` = @Original_remarks) AND (`duratioin` = @Original_duratioin) AND (`schedule break out` = @Original_schedule_break_out) AND (`schedule break in` = @Original_schedule_break_in) AND (`break duration` = @Original_break_duration))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@day_of_week" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="day of week" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_workdays" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workdays" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@duratioin" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duratioin" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_day_of_week" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="day of week" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_workdays" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workdays" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_duratioin" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duratioin" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary transaksi" DataSetColumn="primary transaksi" />
+              <Mapping SourceColumn="day of week" DataSetColumn="day of week" />
+              <Mapping SourceColumn="tipe workdays" DataSetColumn="tipe workdays" />
+              <Mapping SourceColumn="tipe overtime" DataSetColumn="tipe overtime" />
+              <Mapping SourceColumn="schedule in" DataSetColumn="schedule in" />
+              <Mapping SourceColumn="schedule out" DataSetColumn="schedule out" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+              <Mapping SourceColumn="duratioin" DataSetColumn="duratioin" />
+              <Mapping SourceColumn="schedule break out" DataSetColumn="schedule break out" />
+              <Mapping SourceColumn="schedule break in" DataSetColumn="schedule break in" />
+              <Mapping SourceColumn="break duration" DataSetColumn="break duration" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tblmaster_workshift_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_primaryws" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_primaryws" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_primaryws">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, `day of week`, `tipe workdays`, `tipe overtime`, `schedule in`, `schedule out`, remarks, duratioin, `schedule break out`, 
+                         `schedule break in`, `break duration`
+FROM            tblmaster_workshift_item
+WHERE        (`primary transaksi` = @primaryws)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primaryws" ColumnName="primary transaksi" DataSourceName="smess_production.tblmaster_workshift_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primaryws" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_spl_item_logTableAdapter" GeneratorDataComponentClassName="tbltrans_spl_item_logTableAdapter" Name="tbltrans_spl_item_log" UserDataComponentName="tbltrans_spl_item_logTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tbltrans_spl_item_log" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `smess_production`.`tbltrans_spl_item_log` WHERE ((`primary` = @Original_primary) AND (`primary spl` = @Original_primary_spl) AND (`date` = @Original_date) AND (`primary wokunit` = @Original_primary_wokunit) AND (`primary workshift` = @Original_primary_workshift) AND (`is early ot` = @Original_is_early_ot) AND (`early ot duration` = @Original_early_ot_duration) AND (`early delay duration` = @Original_early_delay_duration) AND (`early break duration` = @Original_early_break_duration) AND ((@IsNull_delay_before_early_break = 1 AND `delay before early break` IS NULL) OR (`delay before early break` = @Original_delay_before_early_break)) AND (`is ot` = @Original_is_ot) AND (`ot duration` = @Original_ot_duration) AND (`delay duration` = @Original_delay_duration) AND (`break` = @Original_break) AND ((@IsNull_delay_before_break = 1 AND `delay before break` IS NULL) OR (`delay before break` = @Original_delay_before_break)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_spl" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary spl" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_wokunit" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary wokunit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_workshift" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_is_early_ot" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="is early ot" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_early_ot_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early ot duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_early_delay_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early delay duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_early_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early break duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_delay_before_early_break" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="delay before early break" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_delay_before_early_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay before early break" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_is_ot" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="is ot" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_ot_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ot duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_delay_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_delay_before_break" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="delay before break" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_delay_before_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay before break" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `smess_production`.`tbltrans_spl_item_log` (`primary spl`, `date`, `primary wokunit`, `primary workshift`, `is early ot`, `early ot duration`, `early delay duration`, `early break duration`, `delay before early break`, `is ot`, `ot duration`, `delay duration`, `break`, `delay before break`) VALUES (@primary_spl, @date, @primary_wokunit, @primary_workshift, @is_early_ot, @early_ot_duration, @early_delay_duration, @early_break_duration, @delay_before_early_break, @is_ot, @ot_duration, @delay_duration, @break, @delay_before_break)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_spl" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary spl" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_wokunit" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary wokunit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_workshift" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@is_early_ot" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="is early ot" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@early_ot_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early ot duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@early_delay_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early delay duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@early_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early break duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@delay_before_early_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay before early break" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@is_ot" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="is ot" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@ot_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ot duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@delay_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@delay_before_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay before break" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary spl`, `date`, `primary wokunit`, `primary workshift`, `is early ot`, `early ot duration`, `early delay duration`, `early break duration`, 
+                         `delay before early break`, `is ot`, `ot duration`, `delay duration`, break, `delay before break`
+FROM            tbltrans_spl_item_log</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `smess_production`.`tbltrans_spl_item_log` SET `primary spl` = @primary_spl, `date` = @date, `primary wokunit` = @primary_wokunit, `primary workshift` = @primary_workshift, `is early ot` = @is_early_ot, `early ot duration` = @early_ot_duration, `early delay duration` = @early_delay_duration, `early break duration` = @early_break_duration, `delay before early break` = @delay_before_early_break, `is ot` = @is_ot, `ot duration` = @ot_duration, `delay duration` = @delay_duration, `break` = @break, `delay before break` = @delay_before_break WHERE ((`primary` = @Original_primary) AND (`primary spl` = @Original_primary_spl) AND (`date` = @Original_date) AND (`primary wokunit` = @Original_primary_wokunit) AND (`primary workshift` = @Original_primary_workshift) AND (`is early ot` = @Original_is_early_ot) AND (`early ot duration` = @Original_early_ot_duration) AND (`early delay duration` = @Original_early_delay_duration) AND (`early break duration` = @Original_early_break_duration) AND ((@IsNull_delay_before_early_break = 1 AND `delay before early break` IS NULL) OR (`delay before early break` = @Original_delay_before_early_break)) AND (`is ot` = @Original_is_ot) AND (`ot duration` = @Original_ot_duration) AND (`delay duration` = @Original_delay_duration) AND (`break` = @Original_break) AND ((@IsNull_delay_before_break = 1 AND `delay before break` IS NULL) OR (`delay before break` = @Original_delay_before_break)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_spl" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary spl" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_wokunit" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary wokunit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_workshift" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@is_early_ot" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="is early ot" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@early_ot_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early ot duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@early_delay_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early delay duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@early_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early break duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@delay_before_early_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay before early break" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@is_ot" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="is ot" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@ot_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ot duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@delay_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@delay_before_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay before break" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_spl" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary spl" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_wokunit" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary wokunit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_workshift" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_is_early_ot" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="is early ot" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_early_ot_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early ot duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_early_delay_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early delay duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_early_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="early break duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_delay_before_early_break" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="delay before early break" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_delay_before_early_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay before early break" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_is_ot" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="is ot" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_ot_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="ot duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_delay_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_delay_before_break" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="delay before break" SourceColumnNullMapping="True" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_delay_before_break" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="delay before break" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary spl" DataSetColumn="primary spl" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="primary wokunit" DataSetColumn="primary wokunit" />
+              <Mapping SourceColumn="primary workshift" DataSetColumn="primary workshift" />
+              <Mapping SourceColumn="is early ot" DataSetColumn="is early ot" />
+              <Mapping SourceColumn="early ot duration" DataSetColumn="early ot duration" />
+              <Mapping SourceColumn="early delay duration" DataSetColumn="early delay duration" />
+              <Mapping SourceColumn="early break duration" DataSetColumn="early break duration" />
+              <Mapping SourceColumn="delay before early break" DataSetColumn="delay before early break" />
+              <Mapping SourceColumn="is ot" DataSetColumn="is ot" />
+              <Mapping SourceColumn="ot duration" DataSetColumn="ot duration" />
+              <Mapping SourceColumn="delay duration" DataSetColumn="delay duration" />
+              <Mapping SourceColumn="break" DataSetColumn="break" />
+              <Mapping SourceColumn="delay before break" DataSetColumn="delay before break" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltransaksi_stockbundlingTableAdapter" GeneratorDataComponentClassName="tbltransaksi_stockbundlingTableAdapter" Name="tbltransaksi_stockbundling" UserDataComponentName="tbltransaksi_stockbundlingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tbltransaksi_stockbundling" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `smess_production`.`tbltransaksi_stockbundling` WHERE ((`Primary` = @Original_Primary) AND (`No Transaksi` = @Original_No_Transaksi) AND (`Urutan` = @Original_Urutan) AND (`Tanggal Transaksi` = @Original_Tanggal_Transaksi) AND (`Remarks` = @Original_Remarks) AND (`Created By` = @Original_Created_By) AND (`Created Date` = @Original_Created_Date) AND (`Modified By` = @Original_Modified_By) AND (`Modified Date` = @Original_Modified_Date) AND (`Timestamp` = @Original_Timestamp) AND (`Tipe Bundling` = @Original_Tipe_Bundling) AND (`primary work unit` = @Original_primary_work_unit) AND (`primary process` = @Original_primary_process) AND (`start time planned` = @Original_start_time_planned) AND (`end time planned` = @Original_end_time_planned) AND (`setup time planned` = @Original_setup_time_planned) AND (`work hour planned` = @Original_work_hour_planned) AND (`prod. index planned` = @p2) AND (`start time actual` = @Original_start_time_actual) AND (`end time actual` = @Original_end_time_actual) AND (`setup time actual` = @Original_setup_time_actual) AND (`work hour actual` = @Original_work_hour_actual) AND (`down time actual` = @Original_down_time_actual) AND (`prod. index actual` = @p4) AND (`total produce` = @Original_total_produce) AND (`total good` = @Original_total_good) AND (`total reject` = @Original_total_reject) AND (`good percentage` = @Original_good_percentage) AND (`primary workshift` = @Original_primary_workshift) AND (`identifier wo` = @Original_identifier_wo))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tipe_Bundling" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Bundling" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_work_unit" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_process" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary process" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_start_time_planned" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_end_time_planned" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_setup_time_planned" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="setup time planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_work_hour_planned" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="work hour planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="prod. index planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_start_time_actual" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_end_time_actual" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_setup_time_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="setup time actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_work_hour_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="work hour actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_down_time_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="down time actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="prod. index actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_total_produce" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total produce" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_total_good" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total good" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_total_reject" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total reject" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_good_percentage" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="good percentage" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_workshift" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_identifier_wo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier wo" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `smess_production`.`tbltransaksi_stockbundling` (`No Transaksi`, `Urutan`, `Tanggal Transaksi`, `Remarks`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`, `Tipe Bundling`, `primary work unit`, `primary process`, `start time planned`, `end time planned`, `setup time planned`, `work hour planned`, `prod. index planned`, `start time actual`, `end time actual`, `setup time actual`, `work hour actual`, `down time actual`, `prod. index actual`, `total produce`, `total good`, `total reject`, `good percentage`, `primary workshift`, `identifier wo`) VALUES (@No_Transaksi, @Urutan, @Tanggal_Transaksi, @Remarks, @Created_By, @Created_Date, @Modified_By, @Modified_Date, @Timestamp, @Tipe_Bundling, @primary_work_unit, @primary_process, @start_time_planned, @end_time_planned, @setup_time_planned, @work_hour_planned, @p1, @start_time_actual, @end_time_actual, @setup_time_actual, @work_hour_actual, @down_time_actual, @p3, @total_produce, @total_good, @total_reject, @good_percentage, @primary_workshift, @identifier_wo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Tipe_Bundling" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_work_unit" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_process" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary process" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@start_time_planned" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@end_time_planned" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@setup_time_planned" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="setup time planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@work_hour_planned" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="work hour planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="prod. index planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@start_time_actual" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@end_time_actual" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@setup_time_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="setup time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@work_hour_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="work hour actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@down_time_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="down time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="prod. index actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@total_produce" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total produce" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@total_good" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total good" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@total_reject" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total reject" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@good_percentage" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="good percentage" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_workshift" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@identifier_wo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier wo" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `No Transaksi`, Urutan, `Tanggal Transaksi`, Remarks, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`, `Tipe Bundling`, 
+                         `primary work unit`, `primary process`, `start time planned`, `end time planned`, `setup time planned`, `work hour planned`, `prod. index planned`, `start time actual`, 
+                         `end time actual`, `setup time actual`, `work hour actual`, `down time actual`, `prod. index actual`, `total produce`, `total good`, `total reject`, `good percentage`, 
+                         `primary workshift`, `identifier wo`
+FROM            tbltransaksi_stockbundling</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `smess_production`.`tbltransaksi_stockbundling` SET `No Transaksi` = @No_Transaksi, `Urutan` = @Urutan, `Tanggal Transaksi` = @Tanggal_Transaksi, `Remarks` = @Remarks, `Created By` = @Created_By, `Created Date` = @Created_Date, `Modified By` = @Modified_By, `Modified Date` = @Modified_Date, `Timestamp` = @Timestamp, `Tipe Bundling` = @Tipe_Bundling, `primary work unit` = @primary_work_unit, `primary process` = @primary_process, `start time planned` = @start_time_planned, `end time planned` = @end_time_planned, `setup time planned` = @setup_time_planned, `work hour planned` = @work_hour_planned, `prod. index planned` = @p1, `start time actual` = @start_time_actual, `end time actual` = @end_time_actual, `setup time actual` = @setup_time_actual, `work hour actual` = @work_hour_actual, `down time actual` = @down_time_actual, `prod. index actual` = @p3, `total produce` = @total_produce, `total good` = @total_good, `total reject` = @total_reject, `good percentage` = @good_percentage, `primary workshift` = @primary_workshift, `identifier wo` = @identifier_wo WHERE ((`Primary` = @Original_Primary) AND (`No Transaksi` = @Original_No_Transaksi) AND (`Urutan` = @Original_Urutan) AND (`Tanggal Transaksi` = @Original_Tanggal_Transaksi) AND (`Remarks` = @Original_Remarks) AND (`Created By` = @Original_Created_By) AND (`Created Date` = @Original_Created_Date) AND (`Modified By` = @Original_Modified_By) AND (`Modified Date` = @Original_Modified_Date) AND (`Timestamp` = @Original_Timestamp) AND (`Tipe Bundling` = @Original_Tipe_Bundling) AND (`primary work unit` = @Original_primary_work_unit) AND (`primary process` = @Original_primary_process) AND (`start time planned` = @Original_start_time_planned) AND (`end time planned` = @Original_end_time_planned) AND (`setup time planned` = @Original_setup_time_planned) AND (`work hour planned` = @Original_work_hour_planned) AND (`prod. index planned` = @p2) AND (`start time actual` = @Original_start_time_actual) AND (`end time actual` = @Original_end_time_actual) AND (`setup time actual` = @Original_setup_time_actual) AND (`work hour actual` = @Original_work_hour_actual) AND (`down time actual` = @Original_down_time_actual) AND (`prod. index actual` = @p4) AND (`total produce` = @Original_total_produce) AND (`total good` = @Original_total_good) AND (`total reject` = @Original_total_reject) AND (`good percentage` = @Original_good_percentage) AND (`primary workshift` = @Original_primary_workshift) AND (`identifier wo` = @Original_identifier_wo))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Tipe_Bundling" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_work_unit" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_process" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary process" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@start_time_planned" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@end_time_planned" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@setup_time_planned" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="setup time planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@work_hour_planned" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="work hour planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@p1" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="prod. index planned" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@start_time_actual" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@end_time_actual" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@setup_time_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="setup time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@work_hour_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="work hour actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@down_time_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="down time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@p3" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="prod. index actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@total_produce" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total produce" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@total_good" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total good" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@total_reject" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total reject" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@good_percentage" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="good percentage" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_workshift" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@identifier_wo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier wo" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Tipe_Bundling" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Bundling" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_work_unit" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary work unit" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_process" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary process" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_start_time_planned" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_end_time_planned" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_setup_time_planned" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="setup time planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_work_hour_planned" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="work hour planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@p2" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="prod. index planned" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_start_time_actual" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_end_time_actual" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_setup_time_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="setup time actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_work_hour_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="work hour actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_down_time_actual" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="down time actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@p4" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="prod. index actual" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_total_produce" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total produce" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_total_good" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total good" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_total_reject" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="total reject" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_good_percentage" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="good percentage" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_workshift" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary workshift" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_identifier_wo" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier wo" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+              <Mapping SourceColumn="Tipe Bundling" DataSetColumn="Tipe Bundling" />
+              <Mapping SourceColumn="primary work unit" DataSetColumn="primary work unit" />
+              <Mapping SourceColumn="primary process" DataSetColumn="primary process" />
+              <Mapping SourceColumn="start time planned" DataSetColumn="start time planned" />
+              <Mapping SourceColumn="end time planned" DataSetColumn="end time planned" />
+              <Mapping SourceColumn="setup time planned" DataSetColumn="setup time planned" />
+              <Mapping SourceColumn="work hour planned" DataSetColumn="work hour planned" />
+              <Mapping SourceColumn="prod. index planned" DataSetColumn="prod_ index planned" />
+              <Mapping SourceColumn="start time actual" DataSetColumn="start time actual" />
+              <Mapping SourceColumn="end time actual" DataSetColumn="end time actual" />
+              <Mapping SourceColumn="setup time actual" DataSetColumn="setup time actual" />
+              <Mapping SourceColumn="work hour actual" DataSetColumn="work hour actual" />
+              <Mapping SourceColumn="down time actual" DataSetColumn="down time actual" />
+              <Mapping SourceColumn="prod. index actual" DataSetColumn="prod_ index actual" />
+              <Mapping SourceColumn="total produce" DataSetColumn="total produce" />
+              <Mapping SourceColumn="total good" DataSetColumn="total good" />
+              <Mapping SourceColumn="total reject" DataSetColumn="total reject" />
+              <Mapping SourceColumn="good percentage" DataSetColumn="good percentage" />
+              <Mapping SourceColumn="primary workshift" DataSetColumn="primary workshift" />
+              <Mapping SourceColumn="identifier wo" DataSetColumn="identifier wo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb_lite.tbltransaksi_stockbundling" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_startendactual" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_startendactual" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_startendactual">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `No Transaksi`, Urutan, `Tanggal Transaksi`, Remarks, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`, `Tipe Bundling`, 
+                         `primary work unit`, `primary process`, `start time planned`, `end time planned`, `setup time planned`, `work hour planned`, `prod. index planned`, `start time actual`, 
+                         `end time actual`, `setup time actual`, `work hour actual`, `down time actual`, `prod. index actual`, `total produce`, `total good`, `total reject`, `good percentage`, 
+                         `primary workshift`, `identifier wo`
+FROM            tbltransaksi_stockbundling
+WHERE        (`start time actual` &lt;= @start) AND (`end time actual` &gt;= @end)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="start" ColumnName="start time actual" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@start" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="end" ColumnName="end time actual" DataSourceName="smess_production.tbltransaksi_stockbundling" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@end" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="end time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJml" Modifier="Public" Name="ScalarQuery_GetJml" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetJml">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT COUNT(`Primary`) AS Jml
+FROM     tbltransaksi_stockbundling
+WHERE  (`Tipe Bundling` = @TipeBundling) AND (`start time actual` &lt;= @TglSampai) AND (`start time actual` &gt;= @TglDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeBundling" ColumnName="Tipe Bundling" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeBundling" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Bundling" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="start time actual" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="start time actual" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="start time actual" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTransMO_WorkShift_Allocate" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTransMO_WorkShift_Allocate" msprop:Generator_DataSetName="DseTransMO_WorkShift_Allocate">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbltrans_mo_workshift_allocate" msprop:Generator_UserTableName="tbltrans_mo_workshift_allocate" msprop:Generator_RowDeletedName="tbltrans_mo_workshift_allocateRowDeleted" msprop:Generator_RowChangedName="tbltrans_mo_workshift_allocateRowChanged" msprop:Generator_RowClassName="tbltrans_mo_workshift_allocateRow" msprop:Generator_RowChangingName="tbltrans_mo_workshift_allocateRowChanging" msprop:Generator_RowEvArgName="tbltrans_mo_workshift_allocateRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_mo_workshift_allocateRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_mo_workshift_allocateDataTable" msprop:Generator_TableVarName="tabletbltrans_mo_workshift_allocate" msprop:Generator_RowDeletingName="tbltrans_mo_workshift_allocateRowDeleting" msprop:Generator_TablePropName="tbltrans_mo_workshift_allocate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" />
+              <xs:element name="primary_x0020_work_x0020_unit" msprop:Generator_UserColumnName="primary work unit" msprop:Generator_ColumnVarNameInTable="columnprimary_work_unit" msprop:Generator_ColumnPropNameInRow="primary_work_unit" msprop:Generator_ColumnPropNameInTable="primary_work_unitColumn" type="xs:double" />
+              <xs:element name="primary_x0020_workshift" msprop:Generator_UserColumnName="primary workshift" msprop:Generator_ColumnVarNameInTable="columnprimary_workshift" msprop:Generator_ColumnPropNameInRow="primary_workshift" msprop:Generator_ColumnPropNameInTable="primary_workshiftColumn" type="xs:double" />
+              <xs:element name="created_x0020_by" msprop:Generator_UserColumnName="created by" msprop:Generator_ColumnVarNameInTable="columncreated_by" msprop:Generator_ColumnPropNameInRow="created_by" msprop:Generator_ColumnPropNameInTable="created_byColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="created_x0020_date" msprop:Generator_UserColumnName="created date" msprop:Generator_ColumnVarNameInTable="columncreated_date" msprop:Generator_ColumnPropNameInRow="created_date" msprop:Generator_ColumnPropNameInTable="created_dateColumn" type="xs:dateTime" />
+              <xs:element name="work_x0020_unit_x0020_code" msprop:Generator_UserColumnName="work unit code" msprop:Generator_ColumnVarNameInTable="columnwork_unit_code" msprop:Generator_ColumnPropNameInRow="work_unit_code" msprop:Generator_ColumnPropNameInTable="work_unit_codeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="work_x0020_shift_x0020_code" msprop:Generator_UserColumnName="work shift code" msprop:Generator_ColumnVarNameInTable="columnwork_shift_code" msprop:Generator_ColumnPropNameInRow="work_shift_code" msprop:Generator_ColumnPropNameInTable="work_shift_codeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="work_x0020_shift_x0020_desc" msprop:Generator_UserColumnName="work shift desc" msprop:Generator_ColumnVarNameInTable="columnwork_shift_desc" msprop:Generator_ColumnPropNameInRow="work_shift_desc" msprop:Generator_ColumnPropNameInTable="work_shift_descColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workunit" msprop:Generator_UserTableName="tblmaster_workunit" msprop:Generator_RowDeletedName="tblmaster_workunitRowDeleted" msprop:Generator_RowChangedName="tblmaster_workunitRowChanged" msprop:Generator_RowClassName="tblmaster_workunitRow" msprop:Generator_RowChangingName="tblmaster_workunitRowChanging" msprop:Generator_RowEvArgName="tblmaster_workunitRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workunitRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workunitDataTable" msprop:Generator_TableVarName="tabletblmaster_workunit" msprop:Generator_RowDeletingName="tblmaster_workunitRowDeleting" msprop:Generator_TablePropName="tblmaster_workunit">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_work_x0020_unit_x0020_group" msprop:Generator_UserColumnName="primary work unit group" msprop:Generator_ColumnVarNameInTable="columnprimary_work_unit_group" msprop:Generator_ColumnPropNameInRow="primary_work_unit_group" msprop:Generator_ColumnPropNameInTable="primary_work_unit_groupColumn" type="xs:double" />
+              <xs:element name="work_x0020_unit_x0020_code" msprop:Generator_UserColumnName="work unit code" msprop:Generator_ColumnVarNameInTable="columnwork_unit_code" msprop:Generator_ColumnPropNameInRow="work_unit_code" msprop:Generator_ColumnPropNameInTable="work_unit_codeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workshift" msprop:Generator_UserTableName="tblmaster_workshift" msprop:Generator_RowDeletedName="tblmaster_workshiftRowDeleted" msprop:Generator_RowChangedName="tblmaster_workshiftRowChanged" msprop:Generator_RowClassName="tblmaster_workshiftRow" msprop:Generator_RowChangingName="tblmaster_workshiftRowChanging" msprop:Generator_RowEvArgName="tblmaster_workshiftRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workshiftRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workshiftDataTable" msprop:Generator_TableVarName="tabletblmaster_workshift" msprop:Generator_RowDeletingName="tblmaster_workshiftRowDeleting" msprop:Generator_TablePropName="tblmaster_workshift">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="code" msprop:Generator_UserColumnName="code" msprop:Generator_ColumnPropNameInRow="code" msprop:Generator_ColumnVarNameInTable="columncode" msprop:Generator_ColumnPropNameInTable="codeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="description" msprop:Generator_UserColumnName="description" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInTable="descriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblinsertDB" msprop:Generator_UserTableName="tblinsertDB" msprop:Generator_RowDeletedName="tblinsertDBRowDeleted" msprop:Generator_RowChangedName="tblinsertDBRowChanged" msprop:Generator_RowClassName="tblinsertDBRow" msprop:Generator_RowChangingName="tblinsertDBRowChanging" msprop:Generator_RowEvArgName="tblinsertDBRowChangeEvent" msprop:Generator_RowEvHandlerName="tblinsertDBRowChangeEventHandler" msprop:Generator_TableClassName="tblinsertDBDataTable" msprop:Generator_TableVarName="tabletblinsertDB" msprop:Generator_RowDeletingName="tblinsertDBRowDeleting" msprop:Generator_TablePropName="tblinsertDB">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="primary_x0020_work_x0020_shift" msprop:Generator_UserColumnName="primary work shift" msprop:Generator_ColumnVarNameInTable="columnprimary_work_shift" msprop:Generator_ColumnPropNameInRow="primary_work_shift" msprop:Generator_ColumnPropNameInTable="primary_work_shiftColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="primary_x0020_work_x0020_unit" msprop:Generator_UserColumnName="primary work unit" msprop:Generator_ColumnVarNameInTable="columnprimary_work_unit" msprop:Generator_ColumnPropNameInRow="primary_work_unit" msprop:Generator_ColumnPropNameInTable="primary_work_unitColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="work_x0020_unit_x0020_code" msprop:Generator_UserColumnName="work unit code" msprop:Generator_ColumnVarNameInTable="columnwork_unit_code" msprop:Generator_ColumnPropNameInRow="work_unit_code" msprop:Generator_ColumnPropNameInTable="work_unit_codeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="work_x0020_unit_x0020_desc" msprop:Generator_UserColumnName="work unit desc" msprop:Generator_ColumnVarNameInTable="columnwork_unit_desc" msprop:Generator_ColumnPropNameInRow="work_unit_desc" msprop:Generator_ColumnPropNameInTable="work_unit_descColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="work_x0020_shift_x0020_code" msprop:Generator_UserColumnName="work shift code" msprop:Generator_ColumnVarNameInTable="columnwork_shift_code" msprop:Generator_ColumnPropNameInRow="work_shift_code" msprop:Generator_ColumnPropNameInTable="work_shift_codeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="work_x0020_shift_x0020_desc" msprop:Generator_UserColumnName="work shift desc" msprop:Generator_ColumnVarNameInTable="columnwork_shift_desc" msprop:Generator_ColumnPropNameInRow="work_shift_desc" msprop:Generator_ColumnPropNameInTable="work_shift_descColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="tgl_x0020_dari" msprop:Generator_UserColumnName="tgl dari" msprop:Generator_ColumnVarNameInTable="columntgl_dari" msprop:Generator_ColumnPropNameInRow="tgl_dari" msprop:Generator_ColumnPropNameInTable="tgl_dariColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+              <xs:element name="tgl_x0020_sampai" msprop:Generator_UserColumnName="tgl sampai" msprop:Generator_ColumnVarNameInTable="columntgl_sampai" msprop:Generator_ColumnPropNameInRow="tgl_sampai" msprop:Generator_ColumnPropNameInTable="tgl_sampaiColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_mo_workshift_allocate1" msprop:Generator_UserTableName="tbltrans_mo_workshift_allocate1" msprop:Generator_RowDeletedName="tbltrans_mo_workshift_allocate1RowDeleted" msprop:Generator_RowChangedName="tbltrans_mo_workshift_allocate1RowChanged" msprop:Generator_RowClassName="tbltrans_mo_workshift_allocate1Row" msprop:Generator_RowChangingName="tbltrans_mo_workshift_allocate1RowChanging" msprop:Generator_RowEvArgName="tbltrans_mo_workshift_allocate1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_mo_workshift_allocate1RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_mo_workshift_allocate1DataTable" msprop:Generator_TableVarName="tabletbltrans_mo_workshift_allocate1" msprop:Generator_RowDeletingName="tbltrans_mo_workshift_allocate1RowDeleting" msprop:Generator_TablePropName="tbltrans_mo_workshift_allocate1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" />
+              <xs:element name="primary_x0020_work_x0020_unit" msprop:Generator_UserColumnName="primary work unit" msprop:Generator_ColumnVarNameInTable="columnprimary_work_unit" msprop:Generator_ColumnPropNameInRow="primary_work_unit" msprop:Generator_ColumnPropNameInTable="primary_work_unitColumn" type="xs:double" />
+              <xs:element name="primary_x0020_workshift" msprop:Generator_UserColumnName="primary workshift" msprop:Generator_ColumnVarNameInTable="columnprimary_workshift" msprop:Generator_ColumnPropNameInRow="primary_workshift" msprop:Generator_ColumnPropNameInTable="primary_workshiftColumn" type="xs:double" />
+              <xs:element name="created_x0020_by" msprop:Generator_UserColumnName="created by" msprop:Generator_ColumnVarNameInTable="columncreated_by" msprop:Generator_ColumnPropNameInRow="created_by" msprop:Generator_ColumnPropNameInTable="created_byColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="created_x0020_date" msprop:Generator_UserColumnName="created date" msprop:Generator_ColumnVarNameInTable="columncreated_date" msprop:Generator_ColumnPropNameInRow="created_date" msprop:Generator_ColumnPropNameInTable="created_dateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workshift_item" msprop:Generator_UserTableName="tblmaster_workshift_item" msprop:Generator_RowDeletedName="tblmaster_workshift_itemRowDeleted" msprop:Generator_RowChangedName="tblmaster_workshift_itemRowChanged" msprop:Generator_RowClassName="tblmaster_workshift_itemRow" msprop:Generator_RowChangingName="tblmaster_workshift_itemRowChanging" msprop:Generator_RowEvArgName="tblmaster_workshift_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workshift_itemRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workshift_itemDataTable" msprop:Generator_TableVarName="tabletblmaster_workshift_item" msprop:Generator_RowDeletingName="tblmaster_workshift_itemRowDeleting" msprop:Generator_TablePropName="tblmaster_workshift_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_transaksi" msprop:Generator_UserColumnName="primary transaksi" msprop:Generator_ColumnPropNameInRow="primary_transaksi" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi" msprop:Generator_ColumnPropNameInTable="primary_transaksiColumn" type="xs:double" />
+              <xs:element name="day_x0020_of_x0020_week" msprop:Generator_UserColumnName="day of week" msprop:Generator_ColumnPropNameInRow="day_of_week" msprop:Generator_ColumnVarNameInTable="columnday_of_week" msprop:Generator_ColumnPropNameInTable="day_of_weekColumn" type="xs:int" />
+              <xs:element name="tipe_x0020_workdays" msprop:Generator_UserColumnName="tipe workdays" msprop:Generator_ColumnPropNameInRow="tipe_workdays" msprop:Generator_ColumnVarNameInTable="columntipe_workdays" msprop:Generator_ColumnPropNameInTable="tipe_workdaysColumn" type="xs:int" />
+              <xs:element name="tipe_x0020_overtime" msprop:Generator_UserColumnName="tipe overtime" msprop:Generator_ColumnPropNameInRow="tipe_overtime" msprop:Generator_ColumnVarNameInTable="columntipe_overtime" msprop:Generator_ColumnPropNameInTable="tipe_overtimeColumn" type="xs:int" />
+              <xs:element name="schedule_x0020_in" msprop:Generator_UserColumnName="schedule in" msprop:Generator_ColumnPropNameInRow="schedule_in" msprop:Generator_ColumnVarNameInTable="columnschedule_in" msprop:Generator_ColumnPropNameInTable="schedule_inColumn" type="xs:double" />
+              <xs:element name="schedule_x0020_out" msprop:Generator_UserColumnName="schedule out" msprop:Generator_ColumnPropNameInRow="schedule_out" msprop:Generator_ColumnVarNameInTable="columnschedule_out" msprop:Generator_ColumnPropNameInTable="schedule_outColumn" type="xs:double" />
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="duratioin" msprop:Generator_UserColumnName="duratioin" msprop:Generator_ColumnPropNameInRow="duratioin" msprop:Generator_ColumnVarNameInTable="columnduratioin" msprop:Generator_ColumnPropNameInTable="duratioinColumn" type="xs:int" />
+              <xs:element name="schedule_x0020_break_x0020_out" msprop:Generator_UserColumnName="schedule break out" msprop:Generator_ColumnPropNameInRow="schedule_break_out" msprop:Generator_ColumnVarNameInTable="columnschedule_break_out" msprop:Generator_ColumnPropNameInTable="schedule_break_outColumn" type="xs:double" />
+              <xs:element name="schedule_x0020_break_x0020_in" msprop:Generator_UserColumnName="schedule break in" msprop:Generator_ColumnPropNameInRow="schedule_break_in" msprop:Generator_ColumnVarNameInTable="columnschedule_break_in" msprop:Generator_ColumnPropNameInTable="schedule_break_inColumn" type="xs:double" />
+              <xs:element name="break_x0020_duration" msprop:Generator_UserColumnName="break duration" msprop:Generator_ColumnPropNameInRow="break_duration" msprop:Generator_ColumnVarNameInTable="columnbreak_duration" msprop:Generator_ColumnPropNameInTable="break_durationColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_spl_item_log" msprop:Generator_UserTableName="tbltrans_spl_item_log" msprop:Generator_RowDeletedName="tbltrans_spl_item_logRowDeleted" msprop:Generator_RowChangedName="tbltrans_spl_item_logRowChanged" msprop:Generator_RowClassName="tbltrans_spl_item_logRow" msprop:Generator_RowChangingName="tbltrans_spl_item_logRowChanging" msprop:Generator_RowEvArgName="tbltrans_spl_item_logRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_spl_item_logRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_spl_item_logDataTable" msprop:Generator_TableVarName="tabletbltrans_spl_item_log" msprop:Generator_RowDeletingName="tbltrans_spl_item_logRowDeleting" msprop:Generator_TablePropName="tbltrans_spl_item_log">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_spl" msprop:Generator_UserColumnName="primary spl" msprop:Generator_ColumnVarNameInTable="columnprimary_spl" msprop:Generator_ColumnPropNameInRow="primary_spl" msprop:Generator_ColumnPropNameInTable="primary_splColumn" type="xs:double" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" />
+              <xs:element name="primary_x0020_wokunit" msprop:Generator_UserColumnName="primary wokunit" msprop:Generator_ColumnVarNameInTable="columnprimary_wokunit" msprop:Generator_ColumnPropNameInRow="primary_wokunit" msprop:Generator_ColumnPropNameInTable="primary_wokunitColumn" type="xs:double" />
+              <xs:element name="primary_x0020_workshift" msprop:Generator_UserColumnName="primary workshift" msprop:Generator_ColumnVarNameInTable="columnprimary_workshift" msprop:Generator_ColumnPropNameInRow="primary_workshift" msprop:Generator_ColumnPropNameInTable="primary_workshiftColumn" type="xs:double" />
+              <xs:element name="is_x0020_early_x0020_ot" msprop:Generator_UserColumnName="is early ot" msprop:Generator_ColumnVarNameInTable="columnis_early_ot" msprop:Generator_ColumnPropNameInRow="is_early_ot" msprop:Generator_ColumnPropNameInTable="is_early_otColumn" type="xs:int" />
+              <xs:element name="early_x0020_ot_x0020_duration" msprop:Generator_UserColumnName="early ot duration" msprop:Generator_ColumnVarNameInTable="columnearly_ot_duration" msprop:Generator_ColumnPropNameInRow="early_ot_duration" msprop:Generator_ColumnPropNameInTable="early_ot_durationColumn" type="xs:double" />
+              <xs:element name="early_x0020_delay_x0020_duration" msprop:Generator_UserColumnName="early delay duration" msprop:Generator_ColumnVarNameInTable="columnearly_delay_duration" msprop:Generator_ColumnPropNameInRow="early_delay_duration" msprop:Generator_ColumnPropNameInTable="early_delay_durationColumn" type="xs:double" />
+              <xs:element name="early_x0020_break_x0020_duration" msprop:Generator_UserColumnName="early break duration" msprop:Generator_ColumnVarNameInTable="columnearly_break_duration" msprop:Generator_ColumnPropNameInRow="early_break_duration" msprop:Generator_ColumnPropNameInTable="early_break_durationColumn" type="xs:double" />
+              <xs:element name="delay_x0020_before_x0020_early_x0020_break" msprop:Generator_UserColumnName="delay before early break" msprop:Generator_ColumnVarNameInTable="columndelay_before_early_break" msprop:Generator_ColumnPropNameInRow="delay_before_early_break" msprop:Generator_ColumnPropNameInTable="delay_before_early_breakColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="is_x0020_ot" msprop:Generator_UserColumnName="is ot" msprop:Generator_ColumnVarNameInTable="columnis_ot" msprop:Generator_ColumnPropNameInRow="is_ot" msprop:Generator_ColumnPropNameInTable="is_otColumn" type="xs:int" />
+              <xs:element name="ot_x0020_duration" msprop:Generator_UserColumnName="ot duration" msprop:Generator_ColumnVarNameInTable="columnot_duration" msprop:Generator_ColumnPropNameInRow="ot_duration" msprop:Generator_ColumnPropNameInTable="ot_durationColumn" type="xs:double" />
+              <xs:element name="delay_x0020_duration" msprop:Generator_UserColumnName="delay duration" msprop:Generator_ColumnVarNameInTable="columndelay_duration" msprop:Generator_ColumnPropNameInRow="delay_duration" msprop:Generator_ColumnPropNameInTable="delay_durationColumn" type="xs:double" />
+              <xs:element name="break" msprop:Generator_UserColumnName="break" msprop:Generator_ColumnVarNameInTable="columnbreak" msprop:Generator_ColumnPropNameInRow="break" msprop:Generator_ColumnPropNameInTable="breakColumn" type="xs:double" />
+              <xs:element name="delay_x0020_before_x0020_break" msprop:Generator_UserColumnName="delay before break" msprop:Generator_ColumnVarNameInTable="columndelay_before_break" msprop:Generator_ColumnPropNameInRow="delay_before_break" msprop:Generator_ColumnPropNameInTable="delay_before_breakColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltransaksi_stockbundling" msprop:Generator_UserTableName="tbltransaksi_stockbundling" msprop:Generator_RowDeletedName="tbltransaksi_stockbundlingRowDeleted" msprop:Generator_RowChangedName="tbltransaksi_stockbundlingRowChanged" msprop:Generator_RowClassName="tbltransaksi_stockbundlingRow" msprop:Generator_RowChangingName="tbltransaksi_stockbundlingRowChanging" msprop:Generator_RowEvArgName="tbltransaksi_stockbundlingRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltransaksi_stockbundlingRowChangeEventHandler" msprop:Generator_TableClassName="tbltransaksi_stockbundlingDataTable" msprop:Generator_TableVarName="tabletbltransaksi_stockbundling" msprop:Generator_RowDeletingName="tbltransaksi_stockbundlingRowDeleting" msprop:Generator_TablePropName="tbltransaksi_stockbundling">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+              <xs:element name="Tipe_x0020_Bundling" msprop:Generator_UserColumnName="Tipe Bundling" msprop:Generator_ColumnVarNameInTable="columnTipe_Bundling" msprop:Generator_ColumnPropNameInRow="Tipe_Bundling" msprop:Generator_ColumnPropNameInTable="Tipe_BundlingColumn" type="xs:int" />
+              <xs:element name="primary_x0020_work_x0020_unit" msprop:Generator_UserColumnName="primary work unit" msprop:Generator_ColumnVarNameInTable="columnprimary_work_unit" msprop:Generator_ColumnPropNameInRow="primary_work_unit" msprop:Generator_ColumnPropNameInTable="primary_work_unitColumn" type="xs:double" />
+              <xs:element name="primary_x0020_process" msprop:Generator_UserColumnName="primary process" msprop:Generator_ColumnVarNameInTable="columnprimary_process" msprop:Generator_ColumnPropNameInRow="primary_process" msprop:Generator_ColumnPropNameInTable="primary_processColumn" type="xs:double" />
+              <xs:element name="start_x0020_time_x0020_planned" msprop:Generator_UserColumnName="start time planned" msprop:Generator_ColumnVarNameInTable="columnstart_time_planned" msprop:Generator_ColumnPropNameInRow="start_time_planned" msprop:Generator_ColumnPropNameInTable="start_time_plannedColumn" type="xs:dateTime" />
+              <xs:element name="end_x0020_time_x0020_planned" msprop:Generator_UserColumnName="end time planned" msprop:Generator_ColumnVarNameInTable="columnend_time_planned" msprop:Generator_ColumnPropNameInRow="end_time_planned" msprop:Generator_ColumnPropNameInTable="end_time_plannedColumn" type="xs:dateTime" />
+              <xs:element name="setup_x0020_time_x0020_planned" msprop:Generator_UserColumnName="setup time planned" msprop:Generator_ColumnVarNameInTable="columnsetup_time_planned" msprop:Generator_ColumnPropNameInRow="setup_time_planned" msprop:Generator_ColumnPropNameInTable="setup_time_plannedColumn" type="xs:double" />
+              <xs:element name="work_x0020_hour_x0020_planned" msprop:Generator_UserColumnName="work hour planned" msprop:Generator_ColumnVarNameInTable="columnwork_hour_planned" msprop:Generator_ColumnPropNameInRow="work_hour_planned" msprop:Generator_ColumnPropNameInTable="work_hour_plannedColumn" type="xs:double" />
+              <xs:element name="prod__x0020_index_x0020_planned" msdata:Caption="prod. index planned" msprop:Generator_UserColumnName="prod_ index planned" msprop:Generator_ColumnVarNameInTable="columnprod__index_planned" msprop:Generator_ColumnPropNameInRow="prod__index_planned" msprop:Generator_ColumnPropNameInTable="prod__index_plannedColumn" type="xs:double" />
+              <xs:element name="start_x0020_time_x0020_actual" msprop:Generator_UserColumnName="start time actual" msprop:Generator_ColumnVarNameInTable="columnstart_time_actual" msprop:Generator_ColumnPropNameInRow="start_time_actual" msprop:Generator_ColumnPropNameInTable="start_time_actualColumn" type="xs:dateTime" />
+              <xs:element name="end_x0020_time_x0020_actual" msprop:Generator_UserColumnName="end time actual" msprop:Generator_ColumnVarNameInTable="columnend_time_actual" msprop:Generator_ColumnPropNameInRow="end_time_actual" msprop:Generator_ColumnPropNameInTable="end_time_actualColumn" type="xs:dateTime" />
+              <xs:element name="setup_x0020_time_x0020_actual" msprop:Generator_UserColumnName="setup time actual" msprop:Generator_ColumnVarNameInTable="columnsetup_time_actual" msprop:Generator_ColumnPropNameInRow="setup_time_actual" msprop:Generator_ColumnPropNameInTable="setup_time_actualColumn" type="xs:double" />
+              <xs:element name="work_x0020_hour_x0020_actual" msprop:Generator_UserColumnName="work hour actual" msprop:Generator_ColumnVarNameInTable="columnwork_hour_actual" msprop:Generator_ColumnPropNameInRow="work_hour_actual" msprop:Generator_ColumnPropNameInTable="work_hour_actualColumn" type="xs:double" />
+              <xs:element name="down_x0020_time_x0020_actual" msprop:Generator_UserColumnName="down time actual" msprop:Generator_ColumnVarNameInTable="columndown_time_actual" msprop:Generator_ColumnPropNameInRow="down_time_actual" msprop:Generator_ColumnPropNameInTable="down_time_actualColumn" type="xs:double" />
+              <xs:element name="prod__x0020_index_x0020_actual" msdata:Caption="prod. index actual" msprop:Generator_UserColumnName="prod_ index actual" msprop:Generator_ColumnVarNameInTable="columnprod__index_actual" msprop:Generator_ColumnPropNameInRow="prod__index_actual" msprop:Generator_ColumnPropNameInTable="prod__index_actualColumn" type="xs:double" />
+              <xs:element name="total_x0020_produce" msprop:Generator_UserColumnName="total produce" msprop:Generator_ColumnVarNameInTable="columntotal_produce" msprop:Generator_ColumnPropNameInRow="total_produce" msprop:Generator_ColumnPropNameInTable="total_produceColumn" type="xs:decimal" />
+              <xs:element name="total_x0020_good" msprop:Generator_UserColumnName="total good" msprop:Generator_ColumnVarNameInTable="columntotal_good" msprop:Generator_ColumnPropNameInRow="total_good" msprop:Generator_ColumnPropNameInTable="total_goodColumn" type="xs:decimal" />
+              <xs:element name="total_x0020_reject" msprop:Generator_UserColumnName="total reject" msprop:Generator_ColumnVarNameInTable="columntotal_reject" msprop:Generator_ColumnPropNameInRow="total_reject" msprop:Generator_ColumnPropNameInTable="total_rejectColumn" type="xs:decimal" />
+              <xs:element name="good_x0020_percentage" msprop:Generator_UserColumnName="good percentage" msprop:Generator_ColumnVarNameInTable="columngood_percentage" msprop:Generator_ColumnPropNameInRow="good_percentage" msprop:Generator_ColumnPropNameInTable="good_percentageColumn" type="xs:decimal" />
+              <xs:element name="primary_x0020_workshift" msprop:Generator_UserColumnName="primary workshift" msprop:Generator_ColumnVarNameInTable="columnprimary_workshift" msprop:Generator_ColumnPropNameInRow="primary_workshift" msprop:Generator_ColumnPropNameInTable="primary_workshiftColumn" type="xs:double" />
+              <xs:element name="identifier_x0020_wo" msprop:Generator_UserColumnName="identifier wo" msprop:Generator_ColumnVarNameInTable="columnidentifier_wo" msprop:Generator_ColumnPropNameInRow="identifier_wo" msprop:Generator_ColumnPropNameInTable="identifier_woColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

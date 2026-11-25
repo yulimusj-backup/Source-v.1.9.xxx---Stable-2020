@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanSupplierList" targetNamespace="http://tempuri.org/DseLaporanSupplierList.xsd" xmlns:mstns="http://tempuri.org/DseLaporanSupplierList.xsd" xmlns="http://tempuri.org/DseLaporanSupplierList.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="Core_DbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="Core_DbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Core_Module.My.MySettings.GlobalReference.Default.Core_DbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_CetakSupplierListTableAdapter" GeneratorDataComponentClassName="tblmaster_CetakSupplierListTableAdapter" Name="tblmaster_CetakSupplierList" UserDataComponentName="tblmaster_CetakSupplierListTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, tblmaster_supplier_item_address.`Line 1`, tblmaster_supplier_item_address.`Line 2`, 
+                         tblmaster_supplier_item_address.`Line 3`, tblmaster_supplier_item_address.`Line 4`, tblmaster_supplier_item_address.`Line 5`, 
+                         tblmaster_supplier_item_address.`Phone No` AS Phone, tblmaster_supplier_item_address.`Fax No`, tblmaster_supplier.`NPWP No`, 
+                         tblmaster_supplier_itemcp.`Phone No`, tblmaster_supplier_item_bank.`Bank's Name`, tblmaster_supplier_item_bank.`Beneficiary Name`, 
+                         tblmaster_currency.`Currency Code`, tblmaster_supplier.`Foreign Supplier`
+FROM            tblmaster_supplier INNER JOIN
+                         tblmaster_supplier_item_address ON tblmaster_supplier.`Primary` = tblmaster_supplier_item_address.`Primary Supplier` INNER JOIN
+                         tblmaster_supplier_item_bank ON tblmaster_supplier.`Primary` = tblmaster_supplier_item_bank.`Primary Supplier` INNER JOIN
+                         tblmaster_supplier_itemcp ON tblmaster_supplier.`Primary` = tblmaster_supplier_itemcp.`Primary Supplier` INNER JOIN
+                         tblmaster_currency ON tblmaster_supplier_item_bank.`Primary Currency` = tblmaster_currency.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="Line 1" DataSetColumn="Line 1" />
+              <Mapping SourceColumn="Line 2" DataSetColumn="Line 2" />
+              <Mapping SourceColumn="Line 3" DataSetColumn="Line 3" />
+              <Mapping SourceColumn="Line 4" DataSetColumn="Line 4" />
+              <Mapping SourceColumn="Line 5" DataSetColumn="Line 5" />
+              <Mapping SourceColumn="Phone" DataSetColumn="Phone" />
+              <Mapping SourceColumn="Fax No" DataSetColumn="Fax No" />
+              <Mapping SourceColumn="NPWP No" DataSetColumn="NPWP No" />
+              <Mapping SourceColumn="Phone No" DataSetColumn="Phone No" />
+              <Mapping SourceColumn="Bank's Name" DataSetColumn="Bank's Name" />
+              <Mapping SourceColumn="Beneficiary Name" DataSetColumn="Beneficiary Name" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Foreign Supplier" DataSetColumn="Foreign Supplier" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_supplierTableAdapter" GeneratorDataComponentClassName="tblmaster_supplierTableAdapter" Name="tblmaster_supplier" UserDataComponentName="tblmaster_supplierTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_production.tblmaster_supplier" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `smess_production`.`tblmaster_supplier` WHERE ((`Primary` = @Original_Primary) AND (`Supplier Code` = @Original_Supplier_Code) AND (`Supplier Name` = @Original_Supplier_Name) AND (`NPWP No` = @Original_NPWP_No) AND (`Foreign Supplier` = @Original_Foreign_Supplier))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Supplier_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Supplier Code" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Supplier_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Supplier Name" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NPWP_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NPWP No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Original_Foreign_Supplier" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Foreign Supplier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Supplier Code`, `Supplier Name`, `NPWP No`, `Foreign Supplier`
+FROM            tblmaster_supplier
+ORDER BY `Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `smess_production`.`tblmaster_supplier` SET `Supplier Code` = @Supplier_Code, `Supplier Name` = @Supplier_Name, `NPWP No` = @NPWP_No, `Foreign Supplier` = @Foreign_Supplier WHERE ((`Primary` = @Original_Primary) AND (`Supplier Code` = @Original_Supplier_Code) AND (`Supplier Name` = @Original_Supplier_Name) AND (`NPWP No` = @Original_NPWP_No) AND (`Foreign Supplier` = @Original_Foreign_Supplier))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Supplier_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Supplier Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Supplier_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Supplier Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@NPWP_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NPWP No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Foreign_Supplier" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Foreign Supplier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Supplier_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Supplier Code" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Supplier_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Supplier Name" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_NPWP_No" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="NPWP No" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Original_Foreign_Supplier" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Foreign Supplier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="NPWP No" DataSetColumn="NPWP No" />
+              <Mapping SourceColumn="Foreign Supplier" DataSetColumn="Foreign Supplier" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_production.tblmaster_supplier" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByForeign" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillByForeign" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillByForeign">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Supplier Code`, `Supplier Name`, `NPWP No`, `Foreign Supplier`
+FROM            tblmaster_supplier
+WHERE        (`Foreign Supplier` = @Supplier1) OR
+                         (`Foreign Supplier` = @Supplier2)
+ORDER BY `Foreign Supplier`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Supplier1" ColumnName="Foreign Supplier" DataSourceName="smess_production.tblmaster_supplier" DataTypeServer="tinyint(4)" DbType="Object" Direction="Input" ParameterName="@Supplier1" Precision="0" ProviderType="Byte" Scale="0" Size="1024" SourceColumn="Foreign Supplier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Supplier2" ColumnName="Foreign Supplier" DataSourceName="smess_production.tblmaster_supplier" DataTypeServer="tinyint(4)" DbType="Object" Direction="Input" ParameterName="@Supplier2" Precision="0" ProviderType="Byte" Scale="0" Size="1024" SourceColumn="Foreign Supplier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblItem_AddressTableAdapter" GeneratorDataComponentClassName="tblItem_AddressTableAdapter" Name="tblItem_Address" UserDataComponentName="tblItem_AddressTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_production.tblmaster_supplier_item_address" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Supplier`, `Line 1`, `Line 2`, `Line 3`, `Line 4`, `Line 5`, `Phone No`, `Fax No`
+FROM            tblmaster_supplier_item_address
+ORDER BY `Primary Supplier`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Line 1" DataSetColumn="Line 1" />
+              <Mapping SourceColumn="Line 2" DataSetColumn="Line 2" />
+              <Mapping SourceColumn="Line 3" DataSetColumn="Line 3" />
+              <Mapping SourceColumn="Line 4" DataSetColumn="Line 4" />
+              <Mapping SourceColumn="Line 5" DataSetColumn="Line 5" />
+              <Mapping SourceColumn="Phone No" DataSetColumn="Phone No" />
+              <Mapping SourceColumn="Fax No" DataSetColumn="Fax No" />
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_production.tblmaster_supplier_item_address" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySupplier" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimarySupplier" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySupplier">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Supplier`, `Line 1`, `Line 2`, `Line 3`, `Line 4`, `Line 5`, `Phone No`, `Fax No`
+FROM            tblmaster_supplier_item_address
+GROUP BY 'Primary Supplier'
+ORDER BY `Primary Supplier`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblItem_CPTableAdapter" GeneratorDataComponentClassName="tblItem_CPTableAdapter" Name="tblItem_CP" UserDataComponentName="tblItem_CPTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_production.tblmaster_supplier_itemcp" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary` AS PrimaryItemCP, `Phone No`, `Primary Supplier`
+FROM            tblmaster_supplier_itemcp
+ORDER BY PrimaryItemCP</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PrimaryItemCP" DataSetColumn="PrimaryItemCP" />
+              <Mapping SourceColumn="Phone No" DataSetColumn="Phone No" />
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectName="smess_production.tblmaster_supplier_itemcp" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySupplier" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimarySupplier" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySupplier">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary` AS PrimaryItemCP, `Phone No`, `Primary Supplier`
+FROM            tblmaster_supplier_itemcp
+GROUP BY 'Primary Supplier'
+ORDER BY PrimaryItemCP</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblItem_BankTableAdapter" GeneratorDataComponentClassName="tblItem_BankTableAdapter" Name="tblItem_Bank" UserDataComponentName="tblItem_BankTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_supplier_item_bank.`Primary` AS PrimaryItemBank, tblmaster_supplier_item_bank.`Account No`, tblmaster_supplier_item_bank.`Bank's Name`, 
+                         tblmaster_supplier_item_bank.`Primary Supplier`, tblmaster_currency.`Currency Code`, tblmaster_supplier_item_bank.`Beneficiary Name`
+FROM            tblmaster_supplier_item_bank INNER JOIN
+                         tblmaster_currency ON tblmaster_supplier_item_bank.`Primary Currency` = tblmaster_currency.`Primary`
+ORDER BY PrimaryItemBank</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PrimaryItemBank" DataSetColumn="PrimaryItemBank" />
+              <Mapping SourceColumn="Account No" DataSetColumn="Account No" />
+              <Mapping SourceColumn="Bank's Name" DataSetColumn="Bank's Name" />
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Beneficiary Name" DataSetColumn="Beneficiary Name" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="Core_DbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySupplier" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimarySupplier" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySupplier">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_supplier_item_bank.`Primary` AS PrimaryItemBank, tblmaster_supplier_item_bank.`Account No`, tblmaster_supplier_item_bank.`Bank's Name`, 
+                         tblmaster_supplier_item_bank.`Primary Supplier`, tblmaster_currency.`Currency Code`, tblmaster_supplier_item_bank.`Beneficiary Name`
+FROM            tblmaster_supplier_item_bank INNER JOIN
+                         tblmaster_currency ON tblmaster_supplier_item_bank.`Primary Currency` = tblmaster_currency.`Primary`
+GROUP BY 'Primary Supplier'
+ORDER BY PrimaryItemBank</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanSupplierList" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanSupplierList" msprop:Generator_DataSetName="DseLaporanSupplierList">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblmaster_CetakSupplierList" msprop:Generator_UserTableName="tblmaster_CetakSupplierList" msprop:Generator_RowDeletedName="tblmaster_CetakSupplierListRowDeleted" msprop:Generator_RowChangedName="tblmaster_CetakSupplierListRowChanged" msprop:Generator_RowClassName="tblmaster_CetakSupplierListRow" msprop:Generator_RowChangingName="tblmaster_CetakSupplierListRowChanging" msprop:Generator_RowEvArgName="tblmaster_CetakSupplierListRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_CetakSupplierListRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_CetakSupplierListDataTable" msprop:Generator_TableVarName="tabletblmaster_CetakSupplierList" msprop:Generator_RowDeletingName="tblmaster_CetakSupplierListRowDeleting" msprop:Generator_TablePropName="tblmaster_CetakSupplierList">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_1" msprop:Generator_UserColumnName="Line 1" msprop:Generator_ColumnPropNameInRow="Line_1" msprop:Generator_ColumnVarNameInTable="columnLine_1" msprop:Generator_ColumnPropNameInTable="Line_1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_2" msprop:Generator_UserColumnName="Line 2" msprop:Generator_ColumnPropNameInRow="Line_2" msprop:Generator_ColumnVarNameInTable="columnLine_2" msprop:Generator_ColumnPropNameInTable="Line_2Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_3" msprop:Generator_UserColumnName="Line 3" msprop:Generator_ColumnPropNameInRow="Line_3" msprop:Generator_ColumnVarNameInTable="columnLine_3" msprop:Generator_ColumnPropNameInTable="Line_3Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_4" msprop:Generator_UserColumnName="Line 4" msprop:Generator_ColumnPropNameInRow="Line_4" msprop:Generator_ColumnVarNameInTable="columnLine_4" msprop:Generator_ColumnPropNameInTable="Line_4Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_5" msprop:Generator_UserColumnName="Line 5" msprop:Generator_ColumnPropNameInRow="Line_5" msprop:Generator_ColumnVarNameInTable="columnLine_5" msprop:Generator_ColumnPropNameInTable="Line_5Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_UserColumnName="Phone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInTable="PhoneColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fax_x0020_No" msprop:Generator_UserColumnName="Fax No" msprop:Generator_ColumnPropNameInRow="Fax_No" msprop:Generator_ColumnVarNameInTable="columnFax_No" msprop:Generator_ColumnPropNameInTable="Fax_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NPWP_x0020_No" msprop:Generator_UserColumnName="NPWP No" msprop:Generator_ColumnPropNameInRow="NPWP_No" msprop:Generator_ColumnVarNameInTable="columnNPWP_No" msprop:Generator_ColumnPropNameInTable="NPWP_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone_x0020_No" msprop:Generator_UserColumnName="Phone No" msprop:Generator_ColumnPropNameInRow="Phone_No" msprop:Generator_ColumnVarNameInTable="columnPhone_No" msprop:Generator_ColumnPropNameInTable="Phone_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bank_x0027_s_x0020_Name" msprop:Generator_UserColumnName="Bank's Name" msprop:Generator_ColumnPropNameInRow="_Bank_s_Name" msprop:Generator_ColumnVarNameInTable="_columnBank_s_Name" msprop:Generator_ColumnPropNameInTable="_Bank_s_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Beneficiary_x0020_Name" msprop:Generator_UserColumnName="Beneficiary Name" msprop:Generator_ColumnPropNameInRow="Beneficiary_Name" msprop:Generator_ColumnVarNameInTable="columnBeneficiary_Name" msprop:Generator_ColumnPropNameInTable="Beneficiary_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Foreign_x0020_Supplier" msprop:Generator_UserColumnName="Foreign Supplier" msprop:Generator_ColumnPropNameInRow="Foreign_Supplier" msprop:Generator_ColumnVarNameInTable="columnForeign_Supplier" msprop:Generator_ColumnPropNameInTable="Foreign_SupplierColumn" type="xs:byte" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_supplier" msprop:Generator_UserTableName="tblmaster_supplier" msprop:Generator_RowDeletedName="tblmaster_supplierRowDeleted" msprop:Generator_RowChangedName="tblmaster_supplierRowChanged" msprop:Generator_RowClassName="tblmaster_supplierRow" msprop:Generator_RowChangingName="tblmaster_supplierRowChanging" msprop:Generator_RowEvArgName="tblmaster_supplierRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_supplierRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_supplierDataTable" msprop:Generator_TableVarName="tabletblmaster_supplier" msprop:Generator_RowDeletingName="tblmaster_supplierRowDeleting" msprop:Generator_TablePropName="tblmaster_supplier">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NPWP_x0020_No" msprop:Generator_UserColumnName="NPWP No" msprop:Generator_ColumnVarNameInTable="columnNPWP_No" msprop:Generator_ColumnPropNameInRow="NPWP_No" msprop:Generator_ColumnPropNameInTable="NPWP_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Foreign_x0020_Supplier" msprop:Generator_UserColumnName="Foreign Supplier" msprop:Generator_ColumnVarNameInTable="columnForeign_Supplier" msprop:Generator_ColumnPropNameInRow="Foreign_Supplier" msprop:Generator_ColumnPropNameInTable="Foreign_SupplierColumn" type="xs:byte" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblItem_Address" msprop:Generator_UserTableName="tblItem_Address" msprop:Generator_RowDeletedName="tblItem_AddressRowDeleted" msprop:Generator_RowChangedName="tblItem_AddressRowChanged" msprop:Generator_RowClassName="tblItem_AddressRow" msprop:Generator_RowChangingName="tblItem_AddressRowChanging" msprop:Generator_RowEvArgName="tblItem_AddressRowChangeEvent" msprop:Generator_RowEvHandlerName="tblItem_AddressRowChangeEventHandler" msprop:Generator_TableClassName="tblItem_AddressDataTable" msprop:Generator_TableVarName="tabletblItem_Address" msprop:Generator_RowDeletingName="tblItem_AddressRowDeleting" msprop:Generator_TablePropName="tblItem_Address">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Line_x0020_1" msprop:Generator_UserColumnName="Line 1" msprop:Generator_ColumnVarNameInTable="columnLine_1" msprop:Generator_ColumnPropNameInRow="Line_1" msprop:Generator_ColumnPropNameInTable="Line_1Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_2" msprop:Generator_UserColumnName="Line 2" msprop:Generator_ColumnVarNameInTable="columnLine_2" msprop:Generator_ColumnPropNameInRow="Line_2" msprop:Generator_ColumnPropNameInTable="Line_2Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_3" msprop:Generator_UserColumnName="Line 3" msprop:Generator_ColumnVarNameInTable="columnLine_3" msprop:Generator_ColumnPropNameInRow="Line_3" msprop:Generator_ColumnPropNameInTable="Line_3Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_4" msprop:Generator_UserColumnName="Line 4" msprop:Generator_ColumnVarNameInTable="columnLine_4" msprop:Generator_ColumnPropNameInRow="Line_4" msprop:Generator_ColumnPropNameInTable="Line_4Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Line_x0020_5" msprop:Generator_UserColumnName="Line 5" msprop:Generator_ColumnVarNameInTable="columnLine_5" msprop:Generator_ColumnPropNameInRow="Line_5" msprop:Generator_ColumnPropNameInTable="Line_5Column">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone_x0020_No" msprop:Generator_UserColumnName="Phone No" msprop:Generator_ColumnVarNameInTable="columnPhone_No" msprop:Generator_ColumnPropNameInRow="Phone_No" msprop:Generator_ColumnPropNameInTable="Phone_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fax_x0020_No" msprop:Generator_UserColumnName="Fax No" msprop:Generator_ColumnVarNameInTable="columnFax_No" msprop:Generator_ColumnPropNameInRow="Fax_No" msprop:Generator_ColumnPropNameInTable="Fax_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblItem_CP" msprop:Generator_UserTableName="tblItem_CP" msprop:Generator_RowDeletedName="tblItem_CPRowDeleted" msprop:Generator_RowChangedName="tblItem_CPRowChanged" msprop:Generator_RowClassName="tblItem_CPRow" msprop:Generator_RowChangingName="tblItem_CPRowChanging" msprop:Generator_RowEvArgName="tblItem_CPRowChangeEvent" msprop:Generator_RowEvHandlerName="tblItem_CPRowChangeEventHandler" msprop:Generator_TableClassName="tblItem_CPDataTable" msprop:Generator_TableVarName="tabletblItem_CP" msprop:Generator_RowDeletingName="tblItem_CPRowDeleting" msprop:Generator_TablePropName="tblItem_CP">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PrimaryItemCP" msprop:Generator_UserColumnName="PrimaryItemCP" msprop:Generator_ColumnVarNameInTable="columnPrimaryItemCP" msprop:Generator_ColumnPropNameInRow="PrimaryItemCP" msprop:Generator_ColumnPropNameInTable="PrimaryItemCPColumn" type="xs:double" />
+              <xs:element name="Phone_x0020_No" msprop:Generator_UserColumnName="Phone No" msprop:Generator_ColumnVarNameInTable="columnPhone_No" msprop:Generator_ColumnPropNameInRow="Phone_No" msprop:Generator_ColumnPropNameInTable="Phone_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblItem_Bank" msprop:Generator_UserTableName="tblItem_Bank" msprop:Generator_RowDeletedName="tblItem_BankRowDeleted" msprop:Generator_RowChangedName="tblItem_BankRowChanged" msprop:Generator_RowClassName="tblItem_BankRow" msprop:Generator_RowChangingName="tblItem_BankRowChanging" msprop:Generator_RowEvArgName="tblItem_BankRowChangeEvent" msprop:Generator_RowEvHandlerName="tblItem_BankRowChangeEventHandler" msprop:Generator_TableClassName="tblItem_BankDataTable" msprop:Generator_TableVarName="tabletblItem_Bank" msprop:Generator_RowDeletingName="tblItem_BankRowDeleting" msprop:Generator_TablePropName="tblItem_Bank">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PrimaryItemBank" msprop:Generator_UserColumnName="PrimaryItemBank" msprop:Generator_ColumnVarNameInTable="columnPrimaryItemBank" msprop:Generator_ColumnPropNameInRow="PrimaryItemBank" msprop:Generator_ColumnPropNameInTable="PrimaryItemBankColumn" type="xs:double" />
+              <xs:element name="Account_x0020_No" msprop:Generator_UserColumnName="Account No" msprop:Generator_ColumnVarNameInTable="columnAccount_No" msprop:Generator_ColumnPropNameInRow="Account_No" msprop:Generator_ColumnPropNameInTable="Account_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bank_x0027_s_x0020_Name" msprop:Generator_UserColumnName="Bank's Name" msprop:Generator_ColumnVarNameInTable="_columnBank_s_Name" msprop:Generator_ColumnPropNameInRow="_Bank_s_Name" msprop:Generator_ColumnPropNameInTable="_Bank_s_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Beneficiary_x0020_Name" msprop:Generator_UserColumnName="Beneficiary Name" msprop:Generator_ColumnPropNameInRow="Beneficiary_Name" msprop:Generator_ColumnVarNameInTable="columnBeneficiary_Name" msprop:Generator_ColumnPropNameInTable="Beneficiary_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_cetak" msprop:Generator_UserTableName="tbl_cetak" msprop:Generator_RowDeletedName="tbl_cetakRowDeleted" msprop:Generator_RowChangedName="tbl_cetakRowChanged" msprop:Generator_RowClassName="tbl_cetakRow" msprop:Generator_RowChangingName="tbl_cetakRowChanging" msprop:Generator_RowEvArgName="tbl_cetakRowChangeEvent" msprop:Generator_RowEvHandlerName="tbl_cetakRowChangeEventHandler" msprop:Generator_TableClassName="tbl_cetakDataTable" msprop:Generator_TableVarName="tabletbl_cetak" msprop:Generator_RowDeletingName="tbl_cetakRowDeleting" msprop:Generator_TablePropName="tbl_cetak">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PrimarySupplier" msprop:Generator_UserColumnName="PrimarySupplier" msprop:Generator_ColumnVarNameInTable="columnPrimarySupplier" msprop:Generator_ColumnPropNameInRow="PrimarySupplier" msprop:Generator_ColumnPropNameInTable="PrimarySupplierColumn" type="xs:double" default="-1" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn" default="">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_UserColumnName="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="NPWP" msprop:Generator_UserColumnName="NPWP" msprop:Generator_ColumnVarNameInTable="columnNPWP" msprop:Generator_ColumnPropNameInRow="NPWP" msprop:Generator_ColumnPropNameInTable="NPWPColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Contact" msprop:Generator_UserColumnName="Contact" msprop:Generator_ColumnVarNameInTable="columnContact" msprop:Generator_ColumnPropNameInRow="Contact" msprop:Generator_ColumnPropNameInTable="ContactColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Bank_x0020_Account" msprop:Generator_UserColumnName="Bank Account" msprop:Generator_ColumnVarNameInTable="columnBank_Account" msprop:Generator_ColumnPropNameInRow="Bank_Account" msprop:Generator_ColumnPropNameInTable="Bank_AccountColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Bank_x0020_Name" msprop:Generator_UserColumnName="Bank Name" msprop:Generator_ColumnVarNameInTable="columnBank_Name" msprop:Generator_ColumnPropNameInRow="Bank_Name" msprop:Generator_ColumnPropNameInTable="Bank_NameColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Beneficiary_x0020_Name" msprop:Generator_UserColumnName="Beneficiary Name" msprop:Generator_ColumnVarNameInTable="columnBeneficiary_Name" msprop:Generator_ColumnPropNameInRow="Beneficiary_Name" msprop:Generator_ColumnPropNameInTable="Beneficiary_NameColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Curr" msprop:Generator_UserColumnName="Curr" msprop:Generator_ColumnVarNameInTable="columnCurr" msprop:Generator_ColumnPropNameInRow="Curr" msprop:Generator_ColumnPropNameInTable="CurrColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Supplier_x0020_Group" msprop:Generator_UserColumnName="Supplier Group" msprop:Generator_ColumnPropNameInRow="Supplier_Group" msprop:Generator_ColumnVarNameInTable="columnSupplier_Group" msprop:Generator_ColumnPropNameInTable="Supplier_GroupColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Count" msprop:Generator_UserColumnName="Count" msprop:Generator_ColumnVarNameInTable="columnCount" msprop:Generator_ColumnPropNameInRow="Count" msprop:Generator_ColumnPropNameInTable="CountColumn" type="xs:int" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_supplier" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblItem_CP_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblItem_CP" />
+      <xs:field xpath="mstns:PrimaryItemCP" />
+    </xs:unique>
+    <xs:unique name="tblItem_Bank_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblItem_Bank" />
+      <xs:field xpath="mstns:PrimaryItemBank" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

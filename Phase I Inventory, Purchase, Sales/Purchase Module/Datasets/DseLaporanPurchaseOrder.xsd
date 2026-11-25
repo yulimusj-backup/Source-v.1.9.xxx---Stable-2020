@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanPurchaseOrder" targetNamespace="http://tempuri.org/DseLaporanPurchaseOrder.xsd" xmlns:mstns="http://tempuri.org/DseLaporanPurchaseOrder.xsd" xmlns="http://tempuri.org/DseLaporanPurchaseOrder.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        authorized_po_view.`No Transaksi` AS `Po No`, authorized_po_view.`Tanggal Transaksi` AS `PO Date`, tblmaster_supplier.`Supplier Code`, 
+                         tblmaster_supplier.`Supplier Name`, tblmaster_currency.`Currency Code`, tblmaster_currency.Description AS `Currency Desc`, 
+                         authorized_po_view.`Sub Total` AS `Total PO`, IFNULL(SUM(tbltrans_aop_item.Amount), 0) AS `Aop Amount`, IFNULL(SUM(tbltrans_aopr_item.Amount), 0) 
+                         AS `AOPR Amount`, IFNULL(SUM(authorized_poc_view01.`Sub Total`), 0) AS `POC Amount`, 
+                         IFNULL(laporan_po_recapitulation_view1.`Amount Return On AOP`, 0) AS `Amount Return On AOP`
+FROM            tblmaster_supplier INNER JOIN
+                         authorized_po_view ON tblmaster_supplier.`Primary` = authorized_po_view.`Primary Supplier` INNER JOIN
+                         tblmaster_currency ON authorized_po_view.`Primary Currency` = tblmaster_currency.`Primary` LEFT OUTER JOIN
+                         laporan_po_recapitulation_view1 ON authorized_po_view.`Primary` = laporan_po_recapitulation_view1.`Primary PO` LEFT OUTER JOIN
+                         authorized_poc_view01 ON authorized_po_view.`Primary` = authorized_poc_view01.`Primary PO` LEFT OUTER JOIN
+                         tbltrans_aopr_item ON authorized_po_view.`Primary` = tbltrans_aopr_item.`Primary PO` LEFT OUTER JOIN
+                         tbltrans_aop_item ON authorized_po_view.`Primary` = tbltrans_aop_item.`Primary PO`
+GROUP BY authorized_po_view.`No Transaksi`, authorized_po_view.`Tanggal Transaksi`, tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, 
+                         tblmaster_currency.`Currency Code`, tblmaster_currency.Description, authorized_po_view.`Sub Total`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Po No" DataSetColumn="Po No" />
+              <Mapping SourceColumn="PO Date" DataSetColumn="PO Date" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Currency Desc" DataSetColumn="Currency Desc" />
+              <Mapping SourceColumn="Aop Amount" DataSetColumn="Aop Amount" />
+              <Mapping SourceColumn="AOPR Amount" DataSetColumn="AOPR Amount" />
+              <Mapping SourceColumn="Total PO" DataSetColumn="Total PO" />
+              <Mapping SourceColumn="POC Amount" DataSetColumn="POC Amount" />
+              <Mapping SourceColumn="Amount Return On AOP" DataSetColumn="Amount Return On AOP" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="authorized_po_viewTableAdapter" GeneratorDataComponentClassName="authorized_po_viewTableAdapter" Name="authorized_po_view" UserDataComponentName="authorized_po_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.authorized_po_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        authorized_po_view.`Primary` AS `Primary PO`, IFNULL(tbltrans_aop.`Primary`, - 1) AS `Primary AOP`
+FROM            tbltrans_aop INNER JOIN
+                         tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi` RIGHT OUTER JOIN
+                         authorized_po_view ON tbltrans_aop_item.`Primary` = authorized_po_view.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Primary AOP" DataSetColumn="Primary AOP" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_po_recapitulation_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        laporan_po_recapitulation_view0.`Primary PO`, IFNULL(SUM(tbltrans_purchasereturn_item.Amount), 0) AS `Amount Return On AOP`
+FROM            laporan_po_recapitulation_view0 INNER JOIN
+                         tbltrans_purchasereturn_item ON laporan_po_recapitulation_view0.`Primary PO` = tbltrans_purchasereturn_item.`Primary PO` INNER JOIN
+                         tbltrans_aop_item_purchasereturn ON laporan_po_recapitulation_view0.`Primary AOP` = tbltrans_aop_item_purchasereturn.`Primary AOP` AND 
+                         tbltrans_purchasereturn_item.`Primary Transaksi` = tbltrans_aop_item_purchasereturn.`Primary PR`
+WHERE        (laporan_po_recapitulation_view0.`Primary AOP` &gt; - 1)
+GROUP BY laporan_po_recapitulation_view0.`Primary PO`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Amount Return On AOP" DataSetColumn="Amount Return On AOP" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="laporan_po_recapitulation_view2TableAdapter" GeneratorDataComponentClassName="laporan_po_recapitulation_view2TableAdapter" Name="laporan_po_recapitulation_view2" UserDataComponentName="laporan_po_recapitulation_view2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_po_recapitulation_view2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Po No`, `PO Date`, `Supplier Code`, `Supplier Name`, `Currency Code`, `Currency Desc`, `Total PO`, `Aop Amount` - `Amount Return On AOP` AS `AOP Amount`,
+                          `AOPR Amount`, `POC Amount`
+FROM            laporan_po_recapitulation_view2</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Po No" DataSetColumn="Po No" />
+              <Mapping SourceColumn="PO Date" DataSetColumn="PO Date" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Currency Desc" DataSetColumn="Currency Desc" />
+              <Mapping SourceColumn="Total PO" DataSetColumn="Total PO" />
+              <Mapping SourceColumn="AOP Amount" DataSetColumn="AOP Amount" />
+              <Mapping SourceColumn="AOPR Amount" DataSetColumn="AOPR Amount" />
+              <Mapping SourceColumn="POC Amount" DataSetColumn="POC Amount" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_po_recapitulation_view2" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_tglDariSampai" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_tglDariSampai" GeneratorSourceName="FillBy_tglDariSampai" GetMethodModifier="Public" GetMethodName="GetDataBy_tglDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_tglDariSampai" UserSourceName="FillBy_tglDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Po No`, `PO Date`, `Supplier Code`, `Supplier Name`, `Currency Code`, `Currency Desc`, `Total PO`, `Aop Amount` - `Amount Return On AOP` AS `AOP Amount`,
+                          `AOPR Amount`, `POC Amount`
+FROM            laporan_po_recapitulation_view2
+WHERE        (`PO Date` &gt;= @TglDari) AND (`PO Date` &lt;= @TglSampai)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="PO Date" DataSourceName="core_db.laporan_po_recapitulation_view2" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="PO Date" DataSourceName="core_db.laporan_po_recapitulation_view2" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_aop_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_aop_itemTableAdapter" Name="tbltrans_aop_item" UserDataComponentName="tbltrans_aop_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_aop_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary PO`, SUM(`Total Qty` * `At Price`) AS Expr1
+FROM            tbltrans_aop_item
+GROUP BY `Primary PO`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable4TableAdapter" GeneratorDataComponentClassName="DataTable4TableAdapter" Name="DataTable4" UserDataComponentName="DataTable4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT tbltrans_aop_item.`Primary PO`, tbltrans_aop.`No Transaksi` AS AOPNumber
+FROM            tbltrans_aop INNER JOIN
+                         tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="AOPNumber" DataSetColumn="AOPNumber" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_pocTableAdapter" GeneratorDataComponentClassName="tbltrans_pocTableAdapter" Name="tbltrans_poc" UserDataComponentName="tbltrans_pocTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_poc" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT `Primary PO`, `No Transaksi` as POC
+FROM            tbltrans_poc</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="POC" DataSetColumn="POC" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3aTableAdapter" GeneratorDataComponentClassName="DataTable3aTableAdapter" Name="DataTable3a" UserDataComponentName="DataTable3aTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_po.`Primary`, tbltrans_po.`No Transaksi` AS PO_Number, CONCAT(tblmaster_supplier.`Supplier Code`, '-', tblmaster_supplier.`Supplier Name`) AS Supplier, 
+                         tbltrans_po.`Sub Total` AS Total, tblmaster_currency.`Currency Code`, tbltrans_po.`Tanggal Transaksi`, IFNULL(derivedtbl_1.Expr1, 0) AS ActualPurchase
+FROM            tbltrans_po INNER JOIN
+                         tblmaster_supplier ON tbltrans_po.`Primary Supplier` = tblmaster_supplier.`Primary` INNER JOIN
+                         tblmaster_currency ON tbltrans_po.`Primary Currency` = tblmaster_currency.`Primary` LEFT OUTER JOIN
+                             (SELECT        `Primary PO`, SUM(`Total Qty` * `At Price`) AS Expr1
+                               FROM            tbltrans_aop_item
+                               GROUP BY `Primary PO`) derivedtbl_1 ON tbltrans_po.`Primary` = derivedtbl_1.`Primary PO`
+WHERE        (tbltrans_po.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_po.`Tanggal Transaksi` &gt;= @TanggalDari)
+ORDER BY tbltrans_po.`Tanggal Transaksi`, PO_Number</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="PO_Number" DataSetColumn="PO_Number" />
+              <Mapping SourceColumn="Supplier" DataSetColumn="Supplier" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total1" />
+              <Mapping SourceColumn="ActualPurchase" DataSetColumn="ActualPurchase1" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable5TableAdapter" GeneratorDataComponentClassName="DataTable5TableAdapter" Name="DataTable5" UserDataComponentName="DataTable5TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT tbltrans_purchasereturn_item.`Primary PO`, tbltrans_purchasereturn.`No Transaksi` AS AOPR
+FROM            tbltrans_purchasereturn INNER JOIN
+                         tbltrans_purchasereturn_item ON tbltrans_purchasereturn.`Primary` = tbltrans_purchasereturn_item.`Primary Transaksi`
+ORDER BY AOPR</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="AOPR" DataSetColumn="AOPR" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_po.`Primary`, tbltrans_po.`No Transaksi` AS PO_Number, CONCAT(tblmaster_supplier.`Supplier Code`, '-', tblmaster_supplier.`Supplier Name`) AS Supplier, 
+                         tbltrans_po.`Sub Total` AS Total, tblmaster_currency.`Currency Code`, tbltrans_po.`Tanggal Transaksi`, IFNULL(derivedtbl_1.Expr1, 0) AS ActualPurchase
+FROM            tbltrans_po INNER JOIN
+                         tblmaster_supplier ON tbltrans_po.`Primary Supplier` = tblmaster_supplier.`Primary` INNER JOIN
+                         tblmaster_currency ON tbltrans_po.`Primary Currency` = tblmaster_currency.`Primary` LEFT OUTER JOIN
+                             (SELECT        `Primary PO`, SUM(`Total Qty` * `At Price`) AS Expr1
+                               FROM            tbltrans_aop_item
+                               GROUP BY `Primary PO`) derivedtbl_1 ON tbltrans_po.`Primary` = derivedtbl_1.`Primary PO`
+WHERE        (tbltrans_po.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_po.`Tanggal Transaksi` &gt;= @TanggalDari)
+ORDER BY tbltrans_po.`Tanggal Transaksi`, PO_Number</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="PO_Number" DataSetColumn="PO_Number" />
+              <Mapping SourceColumn="Supplier" DataSetColumn="Supplier" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="ActualPurchase" DataSetColumn="ActualPurchase" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanPurchaseOrder" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanPurchaseOrder" msprop:Generator_DataSetName="DseLaporanPurchaseOrder">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Po_x0020_No" msprop:Generator_UserColumnName="Po No" msprop:Generator_ColumnVarNameInTable="columnPo_No" msprop:Generator_ColumnPropNameInRow="Po_No" msprop:Generator_ColumnPropNameInTable="Po_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_x0020_Date" msprop:Generator_UserColumnName="PO Date" msprop:Generator_ColumnVarNameInTable="columnPO_Date" msprop:Generator_ColumnPropNameInRow="PO_Date" msprop:Generator_ColumnPropNameInTable="PO_DateColumn" type="xs:dateTime" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Currency_x0020_Desc" msprop:Generator_UserColumnName="Currency Desc" msprop:Generator_ColumnVarNameInTable="columnCurrency_Desc" msprop:Generator_ColumnPropNameInRow="Currency_Desc" msprop:Generator_ColumnPropNameInTable="Currency_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aop_x0020_Amount" msprop:Generator_UserColumnName="Aop Amount" msprop:Generator_ColumnVarNameInTable="columnAop_Amount" msprop:Generator_ColumnPropNameInRow="Aop_Amount" msprop:Generator_ColumnPropNameInTable="Aop_AmountColumn" type="xs:double" />
+              <xs:element name="AOPR_x0020_Amount" msprop:Generator_UserColumnName="AOPR Amount" msprop:Generator_ColumnVarNameInTable="columnAOPR_Amount" msprop:Generator_ColumnPropNameInRow="AOPR_Amount" msprop:Generator_ColumnPropNameInTable="AOPR_AmountColumn" type="xs:double" />
+              <xs:element name="Total_x0020_PO" msprop:Generator_UserColumnName="Total PO" msprop:Generator_ColumnVarNameInTable="columnTotal_PO" msprop:Generator_ColumnPropNameInRow="Total_PO" msprop:Generator_ColumnPropNameInTable="Total_POColumn" type="xs:double" />
+              <xs:element name="POC_x0020_Amount" msprop:Generator_UserColumnName="POC Amount" msprop:Generator_ColumnVarNameInTable="columnPOC_Amount" msprop:Generator_ColumnPropNameInRow="POC_Amount" msprop:Generator_ColumnPropNameInTable="POC_AmountColumn" type="xs:double" />
+              <xs:element name="Amount_x0020_Return_x0020_On_x0020_AOP" msprop:Generator_UserColumnName="Amount Return On AOP" msprop:Generator_ColumnVarNameInTable="columnAmount_Return_On_AOP" msprop:Generator_ColumnPropNameInRow="Amount_Return_On_AOP" msprop:Generator_ColumnPropNameInTable="Amount_Return_On_AOPColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="authorized_po_view" msprop:Generator_UserTableName="authorized_po_view" msprop:Generator_RowDeletedName="authorized_po_viewRowDeleted" msprop:Generator_RowChangedName="authorized_po_viewRowChanged" msprop:Generator_RowClassName="authorized_po_viewRow" msprop:Generator_RowChangingName="authorized_po_viewRowChanging" msprop:Generator_RowEvArgName="authorized_po_viewRowChangeEvent" msprop:Generator_RowEvHandlerName="authorized_po_viewRowChangeEventHandler" msprop:Generator_TableClassName="authorized_po_viewDataTable" msprop:Generator_TableVarName="tableauthorized_po_view" msprop:Generator_RowDeletingName="authorized_po_viewRowDeleting" msprop:Generator_TablePropName="authorized_po_view">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_AOP" msprop:Generator_UserColumnName="Primary AOP" msprop:Generator_ColumnVarNameInTable="columnPrimary_AOP" msprop:Generator_ColumnPropNameInRow="Primary_AOP" msprop:Generator_ColumnPropNameInTable="Primary_AOPColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Amount_x0020_Return_x0020_On_x0020_AOP" msprop:Generator_UserColumnName="Amount Return On AOP" msprop:Generator_ColumnVarNameInTable="columnAmount_Return_On_AOP" msprop:Generator_ColumnPropNameInRow="Amount_Return_On_AOP" msprop:Generator_ColumnPropNameInTable="Amount_Return_On_AOPColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laporan_po_recapitulation_view2" msprop:Generator_UserTableName="laporan_po_recapitulation_view2" msprop:Generator_RowDeletedName="laporan_po_recapitulation_view2RowDeleted" msprop:Generator_RowChangedName="laporan_po_recapitulation_view2RowChanged" msprop:Generator_RowClassName="laporan_po_recapitulation_view2Row" msprop:Generator_RowChangingName="laporan_po_recapitulation_view2RowChanging" msprop:Generator_RowEvArgName="laporan_po_recapitulation_view2RowChangeEvent" msprop:Generator_RowEvHandlerName="laporan_po_recapitulation_view2RowChangeEventHandler" msprop:Generator_TableClassName="laporan_po_recapitulation_view2DataTable" msprop:Generator_TableVarName="tablelaporan_po_recapitulation_view2" msprop:Generator_RowDeletingName="laporan_po_recapitulation_view2RowDeleting" msprop:Generator_TablePropName="laporan_po_recapitulation_view2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Po_x0020_No" msprop:Generator_UserColumnName="Po No" msprop:Generator_ColumnVarNameInTable="columnPo_No" msprop:Generator_ColumnPropNameInRow="Po_No" msprop:Generator_ColumnPropNameInTable="Po_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_x0020_Date" msprop:Generator_UserColumnName="PO Date" msprop:Generator_ColumnVarNameInTable="columnPO_Date" msprop:Generator_ColumnPropNameInRow="PO_Date" msprop:Generator_ColumnPropNameInTable="PO_DateColumn" type="xs:dateTime" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Currency_x0020_Desc" msprop:Generator_UserColumnName="Currency Desc" msprop:Generator_ColumnVarNameInTable="columnCurrency_Desc" msprop:Generator_ColumnPropNameInRow="Currency_Desc" msprop:Generator_ColumnPropNameInTable="Currency_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_x0020_PO" msprop:Generator_UserColumnName="Total PO" msprop:Generator_ColumnVarNameInTable="columnTotal_PO" msprop:Generator_ColumnPropNameInRow="Total_PO" msprop:Generator_ColumnPropNameInTable="Total_POColumn" type="xs:double" />
+              <xs:element name="AOP_x0020_Amount" msprop:Generator_UserColumnName="AOP Amount" msprop:Generator_ColumnVarNameInTable="columnAOP_Amount" msprop:Generator_ColumnPropNameInRow="AOP_Amount" msprop:Generator_ColumnPropNameInTable="AOP_AmountColumn" type="xs:double" />
+              <xs:element name="AOPR_x0020_Amount" msprop:Generator_UserColumnName="AOPR Amount" msprop:Generator_ColumnVarNameInTable="columnAOPR_Amount" msprop:Generator_ColumnPropNameInRow="AOPR_Amount" msprop:Generator_ColumnPropNameInTable="AOPR_AmountColumn" type="xs:double" />
+              <xs:element name="POC_x0020_Amount" msprop:Generator_UserColumnName="POC Amount" msprop:Generator_ColumnVarNameInTable="columnPOC_Amount" msprop:Generator_ColumnPropNameInRow="POC_Amount" msprop:Generator_ColumnPropNameInTable="POC_AmountColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblTotAL" msprop:Generator_UserTableName="TblTotAL" msprop:Generator_RowDeletedName="TblTotALRowDeleted" msprop:Generator_RowChangedName="TblTotALRowChanged" msprop:Generator_RowClassName="TblTotALRow" msprop:Generator_RowChangingName="TblTotALRowChanging" msprop:Generator_RowEvArgName="TblTotALRowChangeEvent" msprop:Generator_RowEvHandlerName="TblTotALRowChangeEventHandler" msprop:Generator_TableClassName="TblTotALDataTable" msprop:Generator_TableVarName="tableTblTotAL" msprop:Generator_RowDeletingName="TblTotALRowDeleting" msprop:Generator_TablePropName="TblTotAL">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_x0020_AOP" msprop:Generator_UserColumnName="Total AOP" msprop:Generator_ColumnVarNameInTable="columnTotal_AOP" msprop:Generator_ColumnPropNameInRow="Total_AOP" msprop:Generator_ColumnPropNameInTable="Total_AOPColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_PR" msprop:Generator_UserColumnName="Total PR" msprop:Generator_ColumnVarNameInTable="columnTotal_PR" msprop:Generator_ColumnPropNameInRow="Total_PR" msprop:Generator_ColumnPropNameInTable="Total_PRColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="TotalPOC" msprop:Generator_UserColumnName="TotalPOC" msprop:Generator_ColumnVarNameInTable="columnTotalPOC" msprop:Generator_ColumnPropNameInRow="TotalPOC" msprop:Generator_ColumnPropNameInTable="TotalPOCColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Amount" msprop:Generator_UserColumnName="Total Amount" msprop:Generator_ColumnVarNameInTable="columnTotal_Amount" msprop:Generator_ColumnPropNameInRow="Total_Amount" msprop:Generator_ColumnPropNameInTable="Total_AmountColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Actual_x0020_Purchase" msprop:Generator_UserColumnName="Actual Purchase" msprop:Generator_ColumnVarNameInTable="columnActual_Purchase" msprop:Generator_ColumnPropNameInRow="Actual_Purchase" msprop:Generator_ColumnPropNameInTable="Actual_PurchaseColumn" type="xs:double" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_aop_item" msprop:Generator_UserTableName="tbltrans_aop_item" msprop:Generator_RowDeletedName="tbltrans_aop_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_aop_itemRowChanged" msprop:Generator_RowClassName="tbltrans_aop_itemRow" msprop:Generator_RowChangingName="tbltrans_aop_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_aop_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_aop_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_aop_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_aop_item" msprop:Generator_RowDeletingName="tbltrans_aop_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_aop_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Expr1" msprop:Generator_UserColumnName="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable4" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_RowClassName="DataTable4Row" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_TablePropName="DataTable4">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="AOPNumber" msprop:Generator_UserColumnName="AOPNumber" msprop:Generator_ColumnVarNameInTable="columnAOPNumber" msprop:Generator_ColumnPropNameInRow="AOPNumber" msprop:Generator_ColumnPropNameInTable="AOPNumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_poc" msprop:Generator_UserTableName="tbltrans_poc" msprop:Generator_RowDeletedName="tbltrans_pocRowDeleted" msprop:Generator_RowChangedName="tbltrans_pocRowChanged" msprop:Generator_RowClassName="tbltrans_pocRow" msprop:Generator_RowChangingName="tbltrans_pocRowChanging" msprop:Generator_RowEvArgName="tbltrans_pocRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_pocRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_pocDataTable" msprop:Generator_TableVarName="tabletbltrans_poc" msprop:Generator_RowDeletingName="tbltrans_pocRowDeleting" msprop:Generator_TablePropName="tbltrans_poc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="POC" msprop:Generator_UserColumnName="POC" msprop:Generator_ColumnVarNameInTable="columnPOC" msprop:Generator_ColumnPropNameInRow="POC" msprop:Generator_ColumnPropNameInTable="POCColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable3a" msprop:Generator_UserTableName="DataTable3a" msprop:Generator_RowDeletedName="DataTable3aRowDeleted" msprop:Generator_RowChangedName="DataTable3aRowChanged" msprop:Generator_RowClassName="DataTable3aRow" msprop:Generator_RowChangingName="DataTable3aRowChanging" msprop:Generator_RowEvArgName="DataTable3aRowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3aRowChangeEventHandler" msprop:Generator_TableClassName="DataTable3aDataTable" msprop:Generator_TableVarName="tableDataTable3a" msprop:Generator_RowDeletingName="DataTable3aRowDeleting" msprop:Generator_TablePropName="DataTable3a">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="PO_Number" msprop:Generator_UserColumnName="PO_Number" msprop:Generator_ColumnPropNameInRow="PO_Number" msprop:Generator_ColumnVarNameInTable="columnPO_Number" msprop:Generator_ColumnPropNameInTable="PO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier" msprop:Generator_UserColumnName="Supplier" msprop:Generator_ColumnPropNameInRow="Supplier" msprop:Generator_ColumnVarNameInTable="columnSupplier" msprop:Generator_ColumnPropNameInTable="SupplierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="201" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:double" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="ActualPurchase" msprop:Generator_UserColumnName="ActualPurchase" msprop:Generator_ColumnPropNameInRow="ActualPurchase" msprop:Generator_ColumnVarNameInTable="columnActualPurchase" msprop:Generator_ColumnPropNameInTable="ActualPurchaseColumn" type="xs:double" />
+              <xs:element name="POC" msprop:Generator_UserColumnName="POC" msprop:Generator_ColumnVarNameInTable="columnPOC" msprop:Generator_ColumnPropNameInRow="POC" msprop:Generator_ColumnPropNameInTable="POCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="AOP" msprop:Generator_UserColumnName="AOP" msprop:Generator_ColumnVarNameInTable="columnAOP" msprop:Generator_ColumnPropNameInRow="AOP" msprop:Generator_ColumnPropNameInTable="AOPColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="AOPR" msprop:Generator_UserColumnName="AOPR" msprop:Generator_ColumnVarNameInTable="columnAOPR" msprop:Generator_ColumnPropNameInRow="AOPR" msprop:Generator_ColumnPropNameInTable="AOPRColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Total1" msdata:Caption="Total" msprop:Generator_UserColumnName="Total1" msprop:Generator_ColumnVarNameInTable="columnTotal1" msprop:Generator_ColumnPropNameInRow="Total1" msprop:Generator_ColumnPropNameInTable="Total1Column" type="xs:decimal" />
+              <xs:element name="ActualPurchase1" msdata:Caption="ActualPurchase" msprop:Generator_UserColumnName="ActualPurchase1" msprop:Generator_ColumnVarNameInTable="columnActualPurchase1" msprop:Generator_ColumnPropNameInRow="ActualPurchase1" msprop:Generator_ColumnPropNameInTable="ActualPurchase1Column" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable5" msprop:Generator_UserTableName="DataTable5" msprop:Generator_RowDeletedName="DataTable5RowDeleted" msprop:Generator_RowChangedName="DataTable5RowChanged" msprop:Generator_RowClassName="DataTable5Row" msprop:Generator_RowChangingName="DataTable5RowChanging" msprop:Generator_RowEvArgName="DataTable5RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable5RowChangeEventHandler" msprop:Generator_TableClassName="DataTable5DataTable" msprop:Generator_TableVarName="tableDataTable5" msprop:Generator_RowDeletingName="DataTable5RowDeleting" msprop:Generator_TablePropName="DataTable5">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="AOPR" msprop:Generator_UserColumnName="AOPR" msprop:Generator_ColumnPropNameInRow="AOPR" msprop:Generator_ColumnVarNameInTable="columnAOPR" msprop:Generator_ColumnPropNameInTable="AOPRColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable3" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_TablePropName="DataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="PO_Number" msprop:Generator_UserColumnName="PO_Number" msprop:Generator_ColumnVarNameInTable="columnPO_Number" msprop:Generator_ColumnPropNameInRow="PO_Number" msprop:Generator_ColumnPropNameInTable="PO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier" msprop:Generator_UserColumnName="Supplier" msprop:Generator_ColumnVarNameInTable="columnSupplier" msprop:Generator_ColumnPropNameInRow="Supplier" msprop:Generator_ColumnPropNameInTable="SupplierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="201" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="ActualPurchase" msprop:Generator_UserColumnName="ActualPurchase" msprop:Generator_ColumnVarNameInTable="columnActualPurchase" msprop:Generator_ColumnPropNameInRow="ActualPurchase" msprop:Generator_ColumnPropNameInTable="ActualPurchaseColumn" type="xs:decimal" />
+              <xs:element name="POC" msprop:Generator_UserColumnName="POC" msprop:Generator_ColumnVarNameInTable="columnPOC" msprop:Generator_ColumnPropNameInRow="POC" msprop:Generator_ColumnPropNameInTable="POCColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="AOP" msprop:Generator_UserColumnName="AOP" msprop:Generator_ColumnVarNameInTable="columnAOP" msprop:Generator_ColumnPropNameInRow="AOP" msprop:Generator_ColumnPropNameInTable="AOPColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="AOPR" msprop:Generator_UserColumnName="AOPR" msprop:Generator_ColumnVarNameInTable="columnAOPR" msprop:Generator_ColumnPropNameInRow="AOPR" msprop:Generator_ColumnPropNameInTable="AOPRColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:authorized_po_view" />
+      <xs:field xpath="mstns:Primary_x0020_PO" />
+    </xs:unique>
+    <xs:unique name="DataTable2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable2" />
+      <xs:field xpath="mstns:Primary_x0020_PO" />
+    </xs:unique>
+    <xs:unique name="tbltrans_poc_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:tbltrans_poc" />
+      <xs:field xpath="mstns:POC" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

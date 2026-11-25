@@ -1,0 +1,2 @@
+﻿Partial Class DseLaporanInternalPurchaseOrderByBrand
+End Class

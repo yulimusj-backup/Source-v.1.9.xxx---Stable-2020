@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanPurchasebySupplier" targetNamespace="http://tempuri.org/DseLaporanPurchasebySupplier.xsd" xmlns:mstns="http://tempuri.org/DseLaporanPurchasebySupplier.xsd" xmlns="http://tempuri.org/DseLaporanPurchasebySupplier.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_aop.`No Transaksi` AS `AOP No`, tbltrans_aop.`Tanggal Transaksi` AS `Date`, ROUND(tbltrans_aop.`Sub Total` * tbltrans_aop.`Tax Exchange Rate`, 
+                         0) AS `Purchase IDR`, tbltrans_aop.`Tax Amount`, tbltrans_aop.`Duty Stamp`, ROUND(tbltrans_aop.`Sub Total` * tbltrans_aop.`Tax Exchange Rate`, 0) 
+                         + tbltrans_aop.`Duty Stamp` + tbltrans_aop.`Tax Amount` AS `Total Purchase IDR`, tbltrans_aop.`Primary Supplier`, tblmaster_supplier.`Supplier Code`, 
+                         tblmaster_supplier.`Supplier Name`, IFNULL(SUM(tbltrans_aop_item.`At Price` * tbltrans_aop_item.`Total Qty`), 0) AS `At Price`, 
+                         tbltrans_aop.`Primary` AS `Primary AOP`
+FROM            tbltrans_aop INNER JOIN
+                         tblmaster_supplier ON tbltrans_aop.`Primary Supplier` = tblmaster_supplier.`Primary` LEFT OUTER JOIN
+                         tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi`
+GROUP BY tbltrans_aop.`No Transaksi`, tbltrans_aop.`Tanggal Transaksi`, ROUND(tbltrans_aop.`Sub Total` * tbltrans_aop.`Tax Exchange Rate`, 0), 
+                         tbltrans_aop.`Tax Amount`, tbltrans_aop.`Duty Stamp`, ROUND(tbltrans_aop.`Sub Total` * tbltrans_aop.`Tax Exchange Rate`, 0) 
+                         + tbltrans_aop.`Duty Stamp` + tbltrans_aop.`Tax Amount`, tbltrans_aop.`Primary Supplier`, tblmaster_supplier.`Supplier Code`, 
+                         tblmaster_supplier.`Supplier Name`, tbltrans_aop.`Primary`
+ORDER BY `Date`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AOP No" DataSetColumn="AOP No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Purchase IDR" DataSetColumn="Purchase IDR" />
+              <Mapping SourceColumn="Tax Amount" DataSetColumn="Tax Amount" />
+              <Mapping SourceColumn="Duty Stamp" DataSetColumn="Duty Stamp" />
+              <Mapping SourceColumn="Total Purchase IDR" DataSetColumn="Total Purchase IDR" />
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="At Price" DataSetColumn="At Price" />
+              <Mapping SourceColumn="Primary AOP" DataSetColumn="Primary AOP" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi`, tbltrans_aop.`Sub Total`, SUM(tbltrans_aop_item.`At Price`) AS `At Price`, 
+                         tblmaster_supplier.`Foreign Supplier`
+FROM            tbltrans_aop INNER JOIN
+                         tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_supplier ON tbltrans_aop.`Primary Supplier` = tblmaster_supplier.`Primary`
+GROUP BY tbltrans_aop.`Primary`, tbltrans_aop.`Sub Total`, tbltrans_aop.`No Transaksi`, tblmaster_supplier.`Foreign Supplier`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Sub Total" DataSetColumn="Sub Total" />
+              <Mapping SourceColumn="At Price" DataSetColumn="At Price" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Foreign Supplier" DataSetColumn="Foreign Supplier" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_aopTableAdapter" GeneratorDataComponentClassName="tbltrans_aopTableAdapter" Name="tbltrans_aop" UserDataComponentName="tbltrans_aopTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_aop" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi` AS `AOP Number`, tbltrans_aop.Lokal, SUM(tbltrans_aop_item.`At Price` * tbltrans_aop_item.`Total Qty`) 
+                         AS `Total Unit Price`, tbltrans_aop.`Tax Exchange Rate` * tbltrans_aop.`Sub Total Before DP` AS SubTotalAOP
+FROM            tbltrans_aop INNER JOIN
+                         tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi`
+GROUP BY tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi`, tbltrans_aop.Lokal, tbltrans_aop.`Sub Total Before DP`, tbltrans_aop.`Tax Exchange Rate`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="AOP Number" DataSetColumn="AOP Number" />
+              <Mapping SourceColumn="Lokal" DataSetColumn="Lokal" />
+              <Mapping SourceColumn="Total Unit Price" DataSetColumn="Total Unit Price" />
+              <Mapping SourceColumn="SubTotalAOP" DataSetColumn="SubTotalAOP" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="SELECT tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi` AS `AOP Number`, tbltrans_aop.Lokal, SUM(tbltrans_aop_item.`At Price` * tbltrans_aop_item.`Total Qty`) AS `Total Unit Price`, tbltrans_aop.`Tax Exchange Rate` * tbltrans_aop.`Sub Total Before DP` AS SubTotalAOP FROM tbltrans_aop INNER JOIN tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi` GROUP BY tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi`, tbltrans_aop.Lokal, tbltrans_aop.`Sub Total Before DP`, tbltrans_aop.`Tax Exchange Rate`" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        derivedtbl_1.`Primary`, derivedtbl_1.`AOP Number`, derivedtbl_1.Lokal, derivedtbl_1.`Total Unit Price`, derivedtbl_1.SubTotalAOP, 
+                         IFNULL(SUM(ROUND(tbltrans_aop_itemcost.Cost * tbltrans_aop_itemcost.Kurs, 0)), 0) AS Cost
+FROM            (SELECT        tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi` AS `AOP Number`, tbltrans_aop.Lokal, 
+                                                    SUM(tbltrans_aop_item.`At Price` * tbltrans_aop_item.`Total Qty`) AS `Total Unit Price`, 
+                                                    tbltrans_aop.`Tax Exchange Rate` * tbltrans_aop.`Sub Total Before DP` AS SubTotalAOP
+                          FROM            tbltrans_aop INNER JOIN
+                                                    tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi`
+                          GROUP BY tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi`, tbltrans_aop.Lokal, tbltrans_aop.`Sub Total Before DP`, tbltrans_aop.`Tax Exchange Rate`) 
+                         derivedtbl_1 LEFT OUTER JOIN
+                         tbltrans_aop_itemcost ON derivedtbl_1.`Primary` = tbltrans_aop_itemcost.`Primary AOP`
+GROUP BY derivedtbl_1.`Primary`, derivedtbl_1.`AOP Number`, derivedtbl_1.Lokal, derivedtbl_1.`Total Unit Price`, derivedtbl_1.SubTotalAOP</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="AOP Number" DataSetColumn="AOP Number" />
+              <Mapping SourceColumn="Lokal" DataSetColumn="Lokal" />
+              <Mapping SourceColumn="Total Unit Price" DataSetColumn="Total Unit Price" />
+              <Mapping SourceColumn="SubTotalAOP" DataSetColumn="SubTotalAOP" />
+              <Mapping SourceColumn="Cost" DataSetColumn="Cost" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable4TableAdapter" GeneratorDataComponentClassName="DataTable4TableAdapter" Name="DataTable4" UserDataComponentName="DataTable4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="SELECT derivedtbl_1_1.`Primary`, derivedtbl_1_1.`AOP Number`, derivedtbl_1_1.Lokal, derivedtbl_1_1.`Total Unit Price`, derivedtbl_1_1.SubTotalAOP, IFNULL(SUM(ROUND(tbltrans_aop_itemcost.Cost * tbltrans_aop_itemcost.Kurs, 0)), 0) AS Cost FROM (SELECT tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi` AS `AOP Number`, tbltrans_aop.Lokal, SUM(tbltrans_aop_item.`At Price` * tbltrans_aop_item.`Total Qty`) AS `Total Unit Price`, tbltrans_aop.`Tax Exchange Rate` * tbltrans_aop.`Sub Total Before DP` AS SubTotalAOP FROM tbltrans_aop INNER JOIN tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi` GROUP BY tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi`, tbltrans_aop.Lokal, tbltrans_aop.`Sub Total Before DP`, tbltrans_aop.`Tax Exchange Rate`) derivedtbl_1_1 LEFT OUTER JOIN tbltrans_aop_itemcost ON derivedtbl_1_1.`Primary` = tbltrans_aop_itemcost.`Primary AOP` GROUP BY derivedtbl_1_1.`Primary`, derivedtbl_1_1.`AOP Number`, derivedtbl_1_1.Lokal, derivedtbl_1_1.`Total Unit Price`, derivedtbl_1_1.SubTotalAOP" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `AOP Number`, Lokal, `Total Unit Price`, SubTotalAOP, Cost, `Total Unit Price` - SubTotalAOP - Cost AS Selisih
+FROM            (SELECT        derivedtbl_1_1.`Primary`, derivedtbl_1_1.`AOP Number`, derivedtbl_1_1.Lokal, derivedtbl_1_1.`Total Unit Price`, derivedtbl_1_1.SubTotalAOP, 
+                                                    IFNULL(SUM(ROUND(tbltrans_aop_itemcost.Cost * tbltrans_aop_itemcost.Kurs, 0)), 0) AS Cost
+                          FROM            (SELECT        tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi` AS `AOP Number`, tbltrans_aop.Lokal, 
+                                                                              SUM(tbltrans_aop_item.`At Price` * tbltrans_aop_item.`Total Qty`) AS `Total Unit Price`, 
+                                                                              tbltrans_aop.`Tax Exchange Rate` * tbltrans_aop.`Sub Total Before DP` AS SubTotalAOP
+                                                    FROM            tbltrans_aop INNER JOIN
+                                                                              tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi`
+                                                    GROUP BY tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi`, tbltrans_aop.Lokal, tbltrans_aop.`Sub Total Before DP`, 
+                                                                              tbltrans_aop.`Tax Exchange Rate`) derivedtbl_1_1 LEFT OUTER JOIN
+                                                    tbltrans_aop_itemcost ON derivedtbl_1_1.`Primary` = tbltrans_aop_itemcost.`Primary AOP`
+                          GROUP BY derivedtbl_1_1.`Primary`, derivedtbl_1_1.`AOP Number`, derivedtbl_1_1.Lokal, derivedtbl_1_1.`Total Unit Price`, derivedtbl_1_1.SubTotalAOP) 
+                         derivedtbl_1</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="AOP Number" DataSetColumn="AOP Number" />
+              <Mapping SourceColumn="Lokal" DataSetColumn="Lokal" />
+              <Mapping SourceColumn="Total Unit Price" DataSetColumn="Total Unit Price" />
+              <Mapping SourceColumn="SubTotalAOP" DataSetColumn="SubTotalAOP" />
+              <Mapping SourceColumn="Cost" DataSetColumn="Cost" />
+              <Mapping SourceColumn="Selisih" DataSetColumn="Selisih" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="SELECT derivedtbl_1_1.`Primary`, derivedtbl_1_1.`AOP Number`, derivedtbl_1_1.Lokal, derivedtbl_1_1.`Total Unit Price`, derivedtbl_1_1.SubTotalAOP, IFNULL(SUM(ROUND(tbltrans_aop_itemcost.Cost * tbltrans_aop_itemcost.Kurs, 0)), 0) AS Cost FROM (SELECT tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi` AS `AOP Number`, tbltrans_aop.Lokal, SUM(tbltrans_aop_item.`At Price` * tbltrans_aop_item.`Total Qty`) AS `Total Unit Price`, tbltrans_aop.`Tax Exchange Rate` * tbltrans_aop.`Sub Total Before DP` AS SubTotalAOP FROM tbltrans_aop INNER JOIN tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi` GROUP BY tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi`, tbltrans_aop.Lokal, tbltrans_aop.`Sub Total Before DP`, tbltrans_aop.`Tax Exchange Rate`) derivedtbl_1_1 LEFT OUTER JOIN tbltrans_aop_itemcost ON derivedtbl_1_1.`Primary` = tbltrans_aop_itemcost.`Primary AOP` GROUP BY derivedtbl_1_1.`Primary`, derivedtbl_1_1.`AOP Number`, derivedtbl_1_1.Lokal, derivedtbl_1_1.`Total Unit Price`, derivedtbl_1_1.SubTotalAOP" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `AOP Number`, Lokal, `Total Unit Price`, SubTotalAOP, Cost, `Total Unit Price` - SubTotalAOP - Cost AS Selisih
+FROM            (SELECT        derivedtbl_1_1.`Primary`, derivedtbl_1_1.`AOP Number`, derivedtbl_1_1.Lokal, derivedtbl_1_1.`Total Unit Price`, derivedtbl_1_1.SubTotalAOP, 
+                                                    IFNULL(SUM(ROUND(tbltrans_aop_itemcost.Cost * tbltrans_aop_itemcost.Kurs, 0)), 0) AS Cost
+                          FROM            (SELECT        tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi` AS `AOP Number`, tbltrans_aop.Lokal, 
+                                                                              SUM(tbltrans_aop_item.`At Price` * tbltrans_aop_item.`Total Qty`) AS `Total Unit Price`, 
+                                                                              tbltrans_aop.`Tax Exchange Rate` * tbltrans_aop.`Sub Total Before DP` AS SubTotalAOP
+                                                    FROM            tbltrans_aop INNER JOIN
+                                                                              tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi`
+                                                    GROUP BY tbltrans_aop.`Primary`, tbltrans_aop.`No Transaksi`, tbltrans_aop.Lokal, tbltrans_aop.`Sub Total Before DP`, 
+                                                                              tbltrans_aop.`Tax Exchange Rate`) derivedtbl_1_1 LEFT OUTER JOIN
+                                                    tbltrans_aop_itemcost ON derivedtbl_1_1.`Primary` = tbltrans_aop_itemcost.`Primary AOP`
+                          GROUP BY derivedtbl_1_1.`Primary`, derivedtbl_1_1.`AOP Number`, derivedtbl_1_1.Lokal, derivedtbl_1_1.`Total Unit Price`, derivedtbl_1_1.SubTotalAOP) 
+                         derivedtbl_1
+WHERE        (`Total Unit Price` - SubTotalAOP - Cost &gt; 12)</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="purchase_by_supplier_report_view0TableAdapter" GeneratorDataComponentClassName="purchase_by_supplier_report_view0TableAdapter" Name="purchase_by_supplier_report_view0" UserDataComponentName="purchase_by_supplier_report_view0TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.purchase_by_supplier_report_view" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        purchase_by_supplier_report_view.`AOP No`, purchase_by_supplier_report_view.`Date`, purchase_by_supplier_report_view.`Purchase IDR`, 
+                         purchase_by_supplier_report_view.`Tax Amount`, purchase_by_supplier_report_view.`Duty Stamp`, 
+                         purchase_by_supplier_report_view.`Total Purchase IDR`, purchase_by_supplier_report_view.`Primary Supplier`, 
+                         purchase_by_supplier_report_view.`Supplier Code`, purchase_by_supplier_report_view.`Supplier Name`, purchase_by_supplier_report_view.`At Price`, 
+                         IFNULL(SUM(ROUND(tbltrans_aop_itemcost.Kurs * tbltrans_aop_itemcost.Cost, 0)), 0) AS `Total Cost`, 
+                         purchase_by_supplier_report_view.`Primary AOP`
+FROM            purchase_by_supplier_report_view LEFT OUTER JOIN
+                         tbltrans_aop_itemcost ON purchase_by_supplier_report_view.`Primary AOP` = tbltrans_aop_itemcost.`Primary AOP`
+GROUP BY purchase_by_supplier_report_view.`AOP No`, purchase_by_supplier_report_view.`Date`, purchase_by_supplier_report_view.`Purchase IDR`, 
+                         purchase_by_supplier_report_view.`Tax Amount`, purchase_by_supplier_report_view.`Duty Stamp`, 
+                         purchase_by_supplier_report_view.`Total Purchase IDR`, purchase_by_supplier_report_view.`Primary Supplier`, 
+                         purchase_by_supplier_report_view.`Supplier Code`, purchase_by_supplier_report_view.`Supplier Name`, purchase_by_supplier_report_view.`At Price`, 
+                         purchase_by_supplier_report_view.`Primary AOP`
+ORDER BY `Total Cost` DESC</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AOP No" DataSetColumn="AOP No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Purchase IDR" DataSetColumn="Purchase IDR" />
+              <Mapping SourceColumn="Tax Amount" DataSetColumn="Tax Amount" />
+              <Mapping SourceColumn="Duty Stamp" DataSetColumn="Duty Stamp" />
+              <Mapping SourceColumn="Total Purchase IDR" DataSetColumn="Total Purchase IDR" />
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="At Price" DataSetColumn="At Price" />
+              <Mapping SourceColumn="Total Cost" DataSetColumn="Total Cost" />
+              <Mapping SourceColumn="Primary AOP" DataSetColumn="Primary AOP" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="purchase_by_supplier_report_viewTableAdapter" GeneratorDataComponentClassName="purchase_by_supplier_report_viewTableAdapter" Name="purchase_by_supplier_report_view" UserDataComponentName="purchase_by_supplier_report_viewTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT purchase_by_supplier_report_view1.`AOP No`, purchase_by_supplier_report_view1.`Date`, purchase_by_supplier_report_view1.`Purchase IDR`, purchase_by_supplier_report_view1.`Tax Amount`, 
+                  purchase_by_supplier_report_view1.`Duty Stamp`, purchase_by_supplier_report_view1.`Total Purchase IDR`, purchase_by_supplier_report_view1.`Primary Supplier`, purchase_by_supplier_report_view1.`Supplier Code`, 
+                  purchase_by_supplier_report_view1.`Supplier Name`, purchase_by_supplier_report_view1.`At Price`, purchase_by_supplier_report_view1.`Total Cost`, tbltrans_aop.`Down Payment`, IFNULL(SUM(tbltrans_aop_item.`At Amount`), 0) 
+                  AS `At Amount Total`, tbltrans_aop.`Primary`
+FROM     purchase_by_supplier_report_view1 INNER JOIN
+                  tbltrans_aop ON purchase_by_supplier_report_view1.`AOP No` = tbltrans_aop.`No Transaksi` LEFT OUTER JOIN
+                  tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi`
+GROUP BY purchase_by_supplier_report_view1.`AOP No`, tbltrans_aop.`Primary`
+ORDER BY purchase_by_supplier_report_view1.`AOP No`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="AOP No" DataSetColumn="AOP No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="Purchase IDR" DataSetColumn="Purchase IDR" />
+              <Mapping SourceColumn="Tax Amount" DataSetColumn="Tax Amount" />
+              <Mapping SourceColumn="Duty Stamp" DataSetColumn="Duty Stamp" />
+              <Mapping SourceColumn="Total Purchase IDR" DataSetColumn="Total Purchase IDR" />
+              <Mapping SourceColumn="At Price" DataSetColumn="At Price" />
+              <Mapping SourceColumn="Total Cost" DataSetColumn="Total Cost" />
+              <Mapping SourceColumn="At Amount Total" DataSetColumn="At Amount Total" />
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.purchase_by_supplier_report_view1" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT purchase_by_supplier_report_view1.`AOP No`, purchase_by_supplier_report_view1.`Date`, purchase_by_supplier_report_view1.`Purchase IDR`, purchase_by_supplier_report_view1.`Tax Amount`, 
+                  purchase_by_supplier_report_view1.`Duty Stamp`, purchase_by_supplier_report_view1.`Total Purchase IDR`, purchase_by_supplier_report_view1.`Primary Supplier`, purchase_by_supplier_report_view1.`Supplier Code`, 
+                  purchase_by_supplier_report_view1.`Supplier Name`, purchase_by_supplier_report_view1.`At Price`, purchase_by_supplier_report_view1.`Total Cost`, tbltrans_aop.`Down Payment`, IFNULL(SUM(tbltrans_aop_item.`At Amount`), 0) 
+                  AS `At Amount Total`, tbltrans_aop.`Primary`
+FROM     purchase_by_supplier_report_view1 INNER JOIN
+                  tbltrans_aop ON purchase_by_supplier_report_view1.`AOP No` = tbltrans_aop.`No Transaksi` LEFT OUTER JOIN
+                  tbltrans_aop_item ON tbltrans_aop.`Primary` = tbltrans_aop_item.`Primary Transaksi`
+WHERE  (purchase_by_supplier_report_view1.`Date` &lt;= @TanggalSampai) AND (purchase_by_supplier_report_view1.`Date` &gt;= @TanggalDari)
+GROUP BY purchase_by_supplier_report_view1.`AOP No`, tbltrans_aop.`Primary`
+ORDER BY purchase_by_supplier_report_view1.`AOP No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Date" DataSourceName="smess_abt_fitri.purchase_by_supplier_report_view1" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Date" DataSourceName="smess_abt_fitri.purchase_by_supplier_report_view1" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_aop1TableAdapter" GeneratorDataComponentClassName="tbltrans_aop1TableAdapter" Name="tbltrans_aop1" UserDataComponentName="tbltrans_aop1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltrans_aop" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `No Transaksi`, `Supplier Invoice No`
+FROM            tbltrans_aop
+WHERE        (`Tanggal Transaksi` &gt;= @TanggalMinimum)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalMinimum" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_aop" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalMinimum" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Supplier Invoice No" DataSetColumn="Supplier Invoice No" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanPurchasebySupplier" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanPurchasebySupplier" msprop:Generator_DataSetName="DseLaporanPurchasebySupplier">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AOP_x0020_No" msprop:Generator_UserColumnName="AOP No" msprop:Generator_ColumnPropNameInRow="AOP_No" msprop:Generator_ColumnVarNameInTable="columnAOP_No" msprop:Generator_ColumnPropNameInTable="AOP_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Purchase_x0020_IDR" msprop:Generator_UserColumnName="Purchase IDR" msprop:Generator_ColumnPropNameInRow="Purchase_IDR" msprop:Generator_ColumnVarNameInTable="columnPurchase_IDR" msprop:Generator_ColumnPropNameInTable="Purchase_IDRColumn" type="xs:double" />
+              <xs:element name="Tax_x0020_Amount" msprop:Generator_UserColumnName="Tax Amount" msprop:Generator_ColumnPropNameInRow="Tax_Amount" msprop:Generator_ColumnVarNameInTable="columnTax_Amount" msprop:Generator_ColumnPropNameInTable="Tax_AmountColumn" type="xs:double" />
+              <xs:element name="Duty_x0020_Stamp" msprop:Generator_UserColumnName="Duty Stamp" msprop:Generator_ColumnPropNameInRow="Duty_Stamp" msprop:Generator_ColumnVarNameInTable="columnDuty_Stamp" msprop:Generator_ColumnPropNameInTable="Duty_StampColumn" type="xs:double" />
+              <xs:element name="Total_x0020_Purchase_x0020_IDR" msprop:Generator_UserColumnName="Total Purchase IDR" msprop:Generator_ColumnPropNameInRow="Total_Purchase_IDR" msprop:Generator_ColumnVarNameInTable="columnTotal_Purchase_IDR" msprop:Generator_ColumnPropNameInTable="Total_Purchase_IDRColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="At_x0020_Price" msprop:Generator_UserColumnName="At Price" msprop:Generator_ColumnVarNameInTable="columnAt_Price" msprop:Generator_ColumnPropNameInRow="At_Price" msprop:Generator_ColumnPropNameInTable="At_PriceColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_AOP" msprop:Generator_UserColumnName="Primary AOP" msprop:Generator_ColumnVarNameInTable="columnPrimary_AOP" msprop:Generator_ColumnPropNameInRow="Primary_AOP" msprop:Generator_ColumnPropNameInTable="Primary_AOPColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Sub_x0020_Total" msprop:Generator_UserColumnName="Sub Total" msprop:Generator_ColumnPropNameInRow="Sub_Total" msprop:Generator_ColumnVarNameInTable="columnSub_Total" msprop:Generator_ColumnPropNameInTable="Sub_TotalColumn" type="xs:double" />
+              <xs:element name="At_x0020_Price" msprop:Generator_UserColumnName="At Price" msprop:Generator_ColumnPropNameInRow="At_Price" msprop:Generator_ColumnVarNameInTable="columnAt_Price" msprop:Generator_ColumnPropNameInTable="At_PriceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Foreign_x0020_Supplier" msprop:Generator_UserColumnName="Foreign Supplier" msprop:Generator_ColumnPropNameInRow="Foreign_Supplier" msprop:Generator_ColumnVarNameInTable="columnForeign_Supplier" msprop:Generator_ColumnPropNameInTable="Foreign_SupplierColumn" type="xs:byte" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_aop" msprop:Generator_UserTableName="tbltrans_aop" msprop:Generator_RowDeletedName="tbltrans_aopRowDeleted" msprop:Generator_RowChangedName="tbltrans_aopRowChanged" msprop:Generator_RowClassName="tbltrans_aopRow" msprop:Generator_RowChangingName="tbltrans_aopRowChanging" msprop:Generator_RowEvArgName="tbltrans_aopRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_aopRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_aopDataTable" msprop:Generator_TableVarName="tabletbltrans_aop" msprop:Generator_RowDeletingName="tbltrans_aopRowDeleting" msprop:Generator_TablePropName="tbltrans_aop">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="AOP_x0020_Number" msprop:Generator_UserColumnName="AOP Number" msprop:Generator_ColumnPropNameInRow="AOP_Number" msprop:Generator_ColumnVarNameInTable="columnAOP_Number" msprop:Generator_ColumnPropNameInTable="AOP_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Lokal" msprop:Generator_UserColumnName="Lokal" msprop:Generator_ColumnPropNameInRow="Lokal" msprop:Generator_ColumnVarNameInTable="columnLokal" msprop:Generator_ColumnPropNameInTable="LokalColumn" type="xs:boolean" />
+              <xs:element name="Total_x0020_Unit_x0020_Price" msprop:Generator_UserColumnName="Total Unit Price" msprop:Generator_ColumnPropNameInRow="Total_Unit_Price" msprop:Generator_ColumnVarNameInTable="columnTotal_Unit_Price" msprop:Generator_ColumnPropNameInTable="Total_Unit_PriceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="SubTotalAOP" msprop:Generator_UserColumnName="SubTotalAOP" msprop:Generator_ColumnPropNameInRow="SubTotalAOP" msprop:Generator_ColumnVarNameInTable="columnSubTotalAOP" msprop:Generator_ColumnPropNameInTable="SubTotalAOPColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable3" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_TablePropName="DataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="AOP_x0020_Number" msprop:Generator_UserColumnName="AOP Number" msprop:Generator_ColumnPropNameInRow="AOP_Number" msprop:Generator_ColumnVarNameInTable="columnAOP_Number" msprop:Generator_ColumnPropNameInTable="AOP_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Lokal" msprop:Generator_UserColumnName="Lokal" msprop:Generator_ColumnPropNameInRow="Lokal" msprop:Generator_ColumnVarNameInTable="columnLokal" msprop:Generator_ColumnPropNameInTable="LokalColumn" type="xs:boolean" />
+              <xs:element name="Total_x0020_Unit_x0020_Price" msprop:Generator_UserColumnName="Total Unit Price" msprop:Generator_ColumnPropNameInRow="Total_Unit_Price" msprop:Generator_ColumnVarNameInTable="columnTotal_Unit_Price" msprop:Generator_ColumnPropNameInTable="Total_Unit_PriceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="SubTotalAOP" msprop:Generator_UserColumnName="SubTotalAOP" msprop:Generator_ColumnPropNameInRow="SubTotalAOP" msprop:Generator_ColumnVarNameInTable="columnSubTotalAOP" msprop:Generator_ColumnPropNameInTable="SubTotalAOPColumn" type="xs:double" />
+              <xs:element name="Cost" msprop:Generator_UserColumnName="Cost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInTable="CostColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable4" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_RowClassName="DataTable4Row" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_TablePropName="DataTable4">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="AOP_x0020_Number" msprop:Generator_UserColumnName="AOP Number" msprop:Generator_ColumnPropNameInRow="AOP_Number" msprop:Generator_ColumnVarNameInTable="columnAOP_Number" msprop:Generator_ColumnPropNameInTable="AOP_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Lokal" msprop:Generator_UserColumnName="Lokal" msprop:Generator_ColumnPropNameInRow="Lokal" msprop:Generator_ColumnVarNameInTable="columnLokal" msprop:Generator_ColumnPropNameInTable="LokalColumn" type="xs:boolean" />
+              <xs:element name="Total_x0020_Unit_x0020_Price" msprop:Generator_UserColumnName="Total Unit Price" msprop:Generator_ColumnPropNameInRow="Total_Unit_Price" msprop:Generator_ColumnVarNameInTable="columnTotal_Unit_Price" msprop:Generator_ColumnPropNameInTable="Total_Unit_PriceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="SubTotalAOP" msprop:Generator_UserColumnName="SubTotalAOP" msprop:Generator_ColumnPropNameInRow="SubTotalAOP" msprop:Generator_ColumnVarNameInTable="columnSubTotalAOP" msprop:Generator_ColumnPropNameInTable="SubTotalAOPColumn" type="xs:double" />
+              <xs:element name="Cost" msprop:Generator_UserColumnName="Cost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInTable="CostColumn" type="xs:double" />
+              <xs:element name="Selisih" msprop:Generator_UserColumnName="Selisih" msprop:Generator_ColumnPropNameInRow="Selisih" msprop:Generator_ColumnVarNameInTable="columnSelisih" msprop:Generator_ColumnPropNameInTable="SelisihColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="purchase_by_supplier_report_view0" msprop:Generator_UserTableName="purchase_by_supplier_report_view0" msprop:Generator_RowDeletedName="purchase_by_supplier_report_view0RowDeleted" msprop:Generator_RowChangedName="purchase_by_supplier_report_view0RowChanged" msprop:Generator_RowClassName="purchase_by_supplier_report_view0Row" msprop:Generator_RowChangingName="purchase_by_supplier_report_view0RowChanging" msprop:Generator_RowEvArgName="purchase_by_supplier_report_view0RowChangeEvent" msprop:Generator_RowEvHandlerName="purchase_by_supplier_report_view0RowChangeEventHandler" msprop:Generator_TableClassName="purchase_by_supplier_report_view0DataTable" msprop:Generator_TableVarName="tablepurchase_by_supplier_report_view0" msprop:Generator_RowDeletingName="purchase_by_supplier_report_view0RowDeleting" msprop:Generator_TablePropName="purchase_by_supplier_report_view0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AOP_x0020_No" msprop:Generator_UserColumnName="AOP No" msprop:Generator_ColumnVarNameInTable="columnAOP_No" msprop:Generator_ColumnPropNameInRow="AOP_No" msprop:Generator_ColumnPropNameInTable="AOP_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Purchase_x0020_IDR" msprop:Generator_UserColumnName="Purchase IDR" msprop:Generator_ColumnVarNameInTable="columnPurchase_IDR" msprop:Generator_ColumnPropNameInRow="Purchase_IDR" msprop:Generator_ColumnPropNameInTable="Purchase_IDRColumn" type="xs:double" />
+              <xs:element name="Tax_x0020_Amount" msprop:Generator_UserColumnName="Tax Amount" msprop:Generator_ColumnVarNameInTable="columnTax_Amount" msprop:Generator_ColumnPropNameInRow="Tax_Amount" msprop:Generator_ColumnPropNameInTable="Tax_AmountColumn" type="xs:double" />
+              <xs:element name="Duty_x0020_Stamp" msprop:Generator_UserColumnName="Duty Stamp" msprop:Generator_ColumnVarNameInTable="columnDuty_Stamp" msprop:Generator_ColumnPropNameInRow="Duty_Stamp" msprop:Generator_ColumnPropNameInTable="Duty_StampColumn" type="xs:double" />
+              <xs:element name="Total_x0020_Purchase_x0020_IDR" msprop:Generator_UserColumnName="Total Purchase IDR" msprop:Generator_ColumnVarNameInTable="columnTotal_Purchase_IDR" msprop:Generator_ColumnPropNameInRow="Total_Purchase_IDR" msprop:Generator_ColumnPropNameInTable="Total_Purchase_IDRColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="At_x0020_Price" msprop:Generator_UserColumnName="At Price" msprop:Generator_ColumnVarNameInTable="columnAt_Price" msprop:Generator_ColumnPropNameInRow="At_Price" msprop:Generator_ColumnPropNameInTable="At_PriceColumn" type="xs:double" />
+              <xs:element name="Total_x0020_Cost" msprop:Generator_UserColumnName="Total Cost" msprop:Generator_ColumnVarNameInTable="columnTotal_Cost" msprop:Generator_ColumnPropNameInRow="Total_Cost" msprop:Generator_ColumnPropNameInTable="Total_CostColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_AOP" msprop:Generator_UserColumnName="Primary AOP" msprop:Generator_ColumnVarNameInTable="columnPrimary_AOP" msprop:Generator_ColumnPropNameInRow="Primary_AOP" msprop:Generator_ColumnPropNameInTable="Primary_AOPColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="purchase_by_supplier_report_view" msprop:Generator_UserTableName="purchase_by_supplier_report_view" msprop:Generator_RowDeletedName="purchase_by_supplier_report_viewRowDeleted" msprop:Generator_RowChangedName="purchase_by_supplier_report_viewRowChanged" msprop:Generator_RowClassName="purchase_by_supplier_report_viewRow" msprop:Generator_RowChangingName="purchase_by_supplier_report_viewRowChanging" msprop:Generator_RowEvArgName="purchase_by_supplier_report_viewRowChangeEvent" msprop:Generator_RowEvHandlerName="purchase_by_supplier_report_viewRowChangeEventHandler" msprop:Generator_TableClassName="purchase_by_supplier_report_viewDataTable" msprop:Generator_TableVarName="tablepurchase_by_supplier_report_view" msprop:Generator_RowDeletingName="purchase_by_supplier_report_viewRowDeleting" msprop:Generator_TablePropName="purchase_by_supplier_report_view">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AOP_x0020_No" msprop:Generator_UserColumnName="AOP No" msprop:Generator_ColumnVarNameInTable="columnAOP_No" msprop:Generator_ColumnPropNameInRow="AOP_No" msprop:Generator_ColumnPropNameInTable="AOP_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Selisih" msprop:Generator_UserColumnName="Selisih" msprop:Generator_ColumnVarNameInTable="columnSelisih" msprop:Generator_ColumnPropNameInRow="Selisih" msprop:Generator_ColumnPropNameInTable="SelisihColumn" type="xs:long" minOccurs="0" />
+              <xs:element name="Purchase_x0020_IDR" msprop:Generator_UserColumnName="Purchase IDR" msprop:Generator_ColumnPropNameInRow="Purchase_IDR" msprop:Generator_ColumnVarNameInTable="columnPurchase_IDR" msprop:Generator_ColumnPropNameInTable="Purchase_IDRColumn" type="xs:decimal" />
+              <xs:element name="Tax_x0020_Amount" msprop:Generator_UserColumnName="Tax Amount" msprop:Generator_ColumnPropNameInRow="Tax_Amount" msprop:Generator_ColumnVarNameInTable="columnTax_Amount" msprop:Generator_ColumnPropNameInTable="Tax_AmountColumn" type="xs:decimal" />
+              <xs:element name="Duty_x0020_Stamp" msprop:Generator_UserColumnName="Duty Stamp" msprop:Generator_ColumnPropNameInRow="Duty_Stamp" msprop:Generator_ColumnVarNameInTable="columnDuty_Stamp" msprop:Generator_ColumnPropNameInTable="Duty_StampColumn" type="xs:decimal" />
+              <xs:element name="Total_x0020_Purchase_x0020_IDR" msprop:Generator_UserColumnName="Total Purchase IDR" msprop:Generator_ColumnPropNameInRow="Total_Purchase_IDR" msprop:Generator_ColumnVarNameInTable="columnTotal_Purchase_IDR" msprop:Generator_ColumnPropNameInTable="Total_Purchase_IDRColumn" type="xs:decimal" />
+              <xs:element name="At_x0020_Price" msprop:Generator_UserColumnName="At Price" msprop:Generator_ColumnPropNameInRow="At_Price" msprop:Generator_ColumnVarNameInTable="columnAt_Price" msprop:Generator_ColumnPropNameInTable="At_PriceColumn" type="xs:decimal" />
+              <xs:element name="Total_x0020_Cost" msprop:Generator_UserColumnName="Total Cost" msprop:Generator_ColumnPropNameInRow="Total_Cost" msprop:Generator_ColumnVarNameInTable="columnTotal_Cost" msprop:Generator_ColumnPropNameInTable="Total_CostColumn" type="xs:decimal" />
+              <xs:element name="Down_x0020_Payment" msprop:Generator_UserColumnName="Down Payment" msprop:Generator_ColumnPropNameInRow="_Down_Payment" msprop:Generator_ColumnVarNameInTable="_columnDown_Payment" msprop:Generator_ColumnPropNameInTable="_Down_PaymentColumn" type="xs:decimal" />
+              <xs:element name="At_x0020_Amount_x0020_Total" msprop:Generator_UserColumnName="At Amount Total" msprop:Generator_ColumnPropNameInRow="At_Amount_Total" msprop:Generator_ColumnVarNameInTable="columnAt_Amount_Total" msprop:Generator_ColumnPropNameInTable="At_Amount_TotalColumn" type="xs:decimal" />
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_aop1" msprop:Generator_UserTableName="tbltrans_aop1" msprop:Generator_RowDeletedName="tbltrans_aop1RowDeleted" msprop:Generator_RowChangedName="tbltrans_aop1RowChanged" msprop:Generator_RowClassName="tbltrans_aop1Row" msprop:Generator_RowChangingName="tbltrans_aop1RowChanging" msprop:Generator_RowEvArgName="tbltrans_aop1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_aop1RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_aop1DataTable" msprop:Generator_TableVarName="tabletbltrans_aop1" msprop:Generator_RowDeletingName="tbltrans_aop1RowDeleting" msprop:Generator_TablePropName="tbltrans_aop1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Invoice_x0020_No" msprop:Generator_UserColumnName="Supplier Invoice No" msprop:Generator_ColumnPropNameInRow="Supplier_Invoice_No" msprop:Generator_ColumnVarNameInTable="columnSupplier_Invoice_No" msprop:Generator_ColumnPropNameInTable="Supplier_Invoice_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Primary_x0020_AOP" />
+    </xs:unique>
+    <xs:unique name="DataTable2_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable2" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_aop_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_aop" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_aop1_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:tbltrans_aop1" />
+      <xs:field xpath="mstns:No_x0020_Transaksi" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,1301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanSalaryStaff_IGI" targetNamespace="http://tempuri.org/DseLaporanSalaryStaff_IGI.xsd" xmlns:mstns="http://tempuri.org/DseLaporanSalaryStaff_IGI.xsd" xmlns="http://tempuri.org/DseLaporanSalaryStaff_IGI.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HR.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataHeaderTableAdapter" GeneratorDataComponentClassName="DataHeaderTableAdapter" Name="DataHeader" UserDataComponentName="DataHeaderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_salary.`Primary`, tbltrans_salary.`No Transaksi`, tbltrans_salary.`Tanggal Transaksi`, tbltrans_salary.`Start Date`, tbltrans_salary.`End Date`, 
+                         tbltrans_salary.`Primary Employee`, tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`, tblmaster_karyawan.`First Name`, 
+                         tblmaster_karyawan.`Middle Name`, tblmaster_karyawan.`Last Name`, tbltrans_salary.`Loan Installment`, tblmaster_karyawan.`npwp category`, 
+                         tbltrans_salary.`15PTKP`, tbltrans_salary.`Other Deduction`, tbltrans_salary.`Salary Received`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+ORDER BY tbltrans_salary.`Tanggal Transaksi`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Start Date" DataSetColumn="Start Date" />
+              <Mapping SourceColumn="End Date" DataSetColumn="End Date" />
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="First Name" DataSetColumn="First Name" />
+              <Mapping SourceColumn="Middle Name" DataSetColumn="Middle Name" />
+              <Mapping SourceColumn="Last Name" DataSetColumn="Last Name" />
+              <Mapping SourceColumn="Loan Installment" DataSetColumn="Loan Installment" />
+              <Mapping SourceColumn="npwp category" DataSetColumn="npwp category" />
+              <Mapping SourceColumn="15PTKP" DataSetColumn="15PTKP" />
+              <Mapping SourceColumn="Other Deduction" DataSetColumn="Other Deduction" />
+              <Mapping SourceColumn="Salary Received" DataSetColumn="Salary Received" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_BuatQuick" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_BuatQuick" GeneratorSourceName="FillBy_BuatQuick" GetMethodModifier="Public" GetMethodName="GetDataBy_BuatQuick" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_BuatQuick" UserSourceName="FillBy_BuatQuick">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary.`Primary`, tbltrans_salary.`No Transaksi`, tbltrans_salary.`Tanggal Transaksi`, tbltrans_salary.`Start Date`, tbltrans_salary.`End Date`, 
+                         tbltrans_salary.`Primary Employee`, tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`, tblmaster_karyawan.`First Name`, 
+                         tblmaster_karyawan.`Middle Name`, tblmaster_karyawan.`Last Name`, tbltrans_salary.`Loan Installment`, tblmaster_karyawan.`npwp category`, 
+                         tbltrans_salary.`15PTKP`, tbltrans_salary.`Other Deduction`, tbltrans_salary.`Salary Received`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary` INNER JOIN
+                             (SELECT DISTINCT tblmaster_salary_formula_component_detailemployee.`Primary Karyawan`, tblmasterpayrollaccess_view.`Primary User`
+                               FROM            tblmasterpayrollaccess_view INNER JOIN
+                                                         tblmaster_salary_formula_component_detailemployee ON 
+                                                         tblmasterpayrollaccess_view.`Primary Salary Formula` = tblmaster_salary_formula_component_detailemployee.`Primary Transaksi`
+                               WHERE        (tblmasterpayrollaccess_view.`Primary User` = @PrimaryUser)) derivedtbl_1 ON 
+                         tbltrans_salary.`Primary Employee` = derivedtbl_1.`Primary Karyawan`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+ORDER BY tblmaster_karyawan.`Full Name`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryUser" ColumnName="" DataSourceName="" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryUser" Precision="18" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanpaPayrollAkses" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TanpaPayrollAkses" GeneratorSourceName="FillBy_TanpaPayrollAkses" GetMethodModifier="Public" GetMethodName="GetDataBy_TanpaPayrollAkses" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_TanpaPayrollAkses" UserSourceName="FillBy_TanpaPayrollAkses">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary.`Primary`, tbltrans_salary.`No Transaksi`, tbltrans_salary.`Tanggal Transaksi`, tbltrans_salary.`Start Date`, tbltrans_salary.`End Date`, 
+                         tbltrans_salary.`Primary Employee`, tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`, tblmaster_karyawan.`First Name`, 
+                         tblmaster_karyawan.`Middle Name`, tblmaster_karyawan.`Last Name`, tbltrans_salary.`Loan Installment`, tblmaster_karyawan.`npwp category`, 
+                         tbltrans_salary.`15PTKP`, tbltrans_salary.`Other Deduction`, tbltrans_salary.`Salary Received`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+ORDER BY tblmaster_karyawan.`Full Name`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="ScalarQuery_GetMAXEndDate" Modifier="Public" Name="ScalarQuery_GetMAXEndDate" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetMAXEndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        MAX(tbltrans_salary.`End Date`) AS `Min End Date`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary` INNER JOIN
+                             (SELECT DISTINCT tblmaster_salary_formula_component_detailemployee.`Primary Karyawan`, tblmasterpayrollaccess_view.`Primary User`
+                               FROM            tblmasterpayrollaccess_view INNER JOIN
+                                                         tblmaster_salary_formula_component_detailemployee ON 
+                                                         tblmasterpayrollaccess_view.`Primary Salary Formula` = tblmaster_salary_formula_component_detailemployee.`Primary Transaksi`
+                               WHERE        (tblmasterpayrollaccess_view.`Primary User` = @PrimaryUser)) derivedtbl_1 ON 
+                         tbltrans_salary.`Primary Employee` = derivedtbl_1.`Primary Karyawan`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryUser" ColumnName="" DataSourceName="" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryUser" Precision="18" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="ScalarQuery_GetMINStartDate" Modifier="Public" Name="ScalarQuery_GetMINStartDate" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetMINStartDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        MIN(tbltrans_salary.`Start Date`) AS `Min Start Date`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary` INNER JOIN
+                             (SELECT DISTINCT tblmaster_salary_formula_component_detailemployee.`Primary Karyawan`, tblmasterpayrollaccess_view.`Primary User`
+                               FROM            tblmasterpayrollaccess_view INNER JOIN
+                                                         tblmaster_salary_formula_component_detailemployee ON 
+                                                         tblmasterpayrollaccess_view.`Primary Salary Formula` = tblmaster_salary_formula_component_detailemployee.`Primary Transaksi`
+                               WHERE        (tblmasterpayrollaccess_view.`Primary User` = @PrimaryUser)) derivedtbl_1 ON 
+                         tbltrans_salary.`Primary Employee` = derivedtbl_1.`Primary Karyawan`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryUser" ColumnName="" DataSourceName="" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryUser" Precision="18" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_item_QuickTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_item_QuickTableAdapter" Name="tbltrans_salary_item_Quick" UserDataComponentName="tbltrans_salary_item_QuickTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary Slip Desc`, SUM(Amount) AS Amount, `Primary Transaksi`
+FROM            tbltrans_salary_item
+GROUP BY `Primary Slip Desc`, `Primary Transaksi`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Slip Desc" DataSetColumn="Primary Slip Desc" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Primary Transaksi" DataSetColumn="Primary Transaksi" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_BuatQuick" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_BuatQuick" GeneratorSourceName="FillBy_BuatQuick" GetMethodModifier="Public" GetMethodName="GetDataBy_BuatQuick" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_BuatQuick" UserSourceName="FillBy_BuatQuick">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary Slip Desc`, SUM(Amount) AS Amount, `Primary Transaksi`
+FROM            tbltrans_salary_item
+WHERE        (`Primary Transaksi` &gt;= @PrimaryTransaksi) AND (Amount &lt;&gt; 0)
+GROUP BY `Primary Slip Desc`, `Primary Transaksi`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryTransaksi" ColumnName="Primary Transaksi" DataSourceName="" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryTransaksi" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TBLHitung_hari_TransportTableAdapter" GeneratorDataComponentClassName="TBLHitung_hari_TransportTableAdapter" Name="TBLHitung_hari_Transport" UserDataComponentName="TBLHitung_hari_TransportTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_attendance.`primary karyawan`, tbltrans_attendance_item.`date`
+FROM            tbltrans_attendance_item INNER JOIN
+                         tbltrans_attendance ON tbltrans_attendance_item.`primary transaksi` = tbltrans_attendance.`primary`
+WHERE        (tbltrans_attendance_item.`date` &lt;= @LastDateYearly) AND (tbltrans_attendance_item.`date` &gt;= @FirstDateYearly) AND 
+                         (tbltrans_attendance_item.`presence status` = 0)
+GROUP BY tbltrans_attendance.`primary karyawan`, tbltrans_attendance_item.`date`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="LastDateYearly" ColumnName="date" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@LastDateYearly" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="FirstDateYearly" ColumnName="date" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@FirstDateYearly" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary karyawan" DataSetColumn="primary karyawan" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Tbl_Overtime_BuatParamUntukSumTableAdapter" GeneratorDataComponentClassName="Tbl_Overtime_BuatParamUntukSumTableAdapter" Name="Tbl_Overtime_BuatParamUntukSum" UserDataComponentName="Tbl_Overtime_BuatParamUntukSumTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_attendance_item.`tipe overtime`, SUM(tbltrans_attendance_item.`ot duration` + tbltrans_attendance_item.`early ot duration`) / 60 AS `OT Duration`, 
+                         tbltrans_attendance_item.`date` AS `Tanggal Attendance`, tbltrans_attendance.`primary karyawan`, SUM(tbltrans_attendance_item.`actual work duration`) 
+                         / 60 AS `Actual Work Duration`
+FROM            tbltrans_attendance_item INNER JOIN
+                         tbltrans_attendance ON tbltrans_attendance_item.`primary transaksi` = tbltrans_attendance.`primary`
+WHERE        (tbltrans_attendance_item.`date` &lt;= @EndDate) AND (tbltrans_attendance_item.`date` &gt;= @StartDate) AND (tbltrans_attendance_item.`ot duration` &lt;&gt; 0) AND 
+                         (tbltrans_attendance_item.`tipe overtime` &lt;&gt; 0) AND (tbltrans_attendance_item.`actual work duration` &lt;&gt; 0)
+GROUP BY tbltrans_attendance_item.`date`, tbltrans_attendance_item.`tipe overtime`, tbltrans_attendance.`primary karyawan`, tbltrans_attendance_item.`actual work duration`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="date" DataSourceName="core_db.tbltrans_attendance_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Attendance" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="date" DataSourceName="core_db.tbltrans_attendance_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Attendance" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="tipe overtime" DataSetColumn="tipe overtime" />
+              <Mapping SourceColumn="OT Duration" DataSetColumn="OT Duration" />
+              <Mapping SourceColumn="Tanggal Attendance" DataSetColumn="Tanggal Attendance" />
+              <Mapping SourceColumn="primary karyawan" DataSetColumn="primary karyawan" />
+              <Mapping SourceColumn="Actual Work Duration" DataSetColumn="Actual Work Duration" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_item_otherdeduction_QuickTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_item_otherdeduction_QuickTableAdapter" Name="tbltrans_salary_item_otherdeduction_Quick" UserDataComponentName="tbltrans_salary_item_otherdeduction_QuickTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_item_otherdeduction" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary Slip Desc`, SUM(Amount) AS Amount, `Primary Transaksi`
+FROM            tbltrans_salary_item_otherdeduction
+GROUP BY `Primary Slip Desc`, `Primary Transaksi`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Slip Desc" DataSetColumn="Primary Slip Desc" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Primary Transaksi" DataSetColumn="Primary Transaksi" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_item_otherdeduction" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_BuatQuick" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_BuatQuick" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_BuatQuick">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary Slip Desc`, SUM(Amount) AS Amount, `Primary Transaksi`
+FROM            tbltrans_salary_item_otherdeduction
+WHERE        (`Primary Transaksi` &gt;= @PrimaryTransaksi) AND (Amount &lt;&gt; 0)
+GROUP BY `Primary Slip Desc`, `Primary Transaksi`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryTransaksi" ColumnName="Primary Transaksi" DataSourceName="" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryTransaksi" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_employee_d_igiTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_employee_d_igiTableAdapter" Name="tbltrans_salary_employee_d_igi" UserDataComponentName="tbltrans_salary_employee_d_igiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_employee_d_igi" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tbltrans_salary_employee_d_igi` WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`identifier` = @Original_identifier) AND (`primary akun payment` = @Original_primary_akun_payment) AND (`amount` = @Original_amount) AND (`remarks` = @Original_remarks))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_akun_payment" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary akun payment" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="amount" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `tbltrans_salary_employee_d_igi` (`primary transaksi`, `identifier`, `primary akun payment`, `amount`, `remarks`) VALUES (@primary_transaksi, @identifier, @primary_akun_payment, @amount, @remarks)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_akun_payment" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary akun payment" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, identifier, `primary akun payment`, amount, remarks
+FROM            tbltrans_salary_employee_d_igi</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tbltrans_salary_employee_d_igi` SET `primary transaksi` = @primary_transaksi, `identifier` = @identifier, `primary akun payment` = @primary_akun_payment, `amount` = @amount, `remarks` = @remarks WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`identifier` = @Original_identifier) AND (`primary akun payment` = @Original_primary_akun_payment) AND (`amount` = @Original_amount) AND (`remarks` = @Original_remarks))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_akun_payment" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary akun payment" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="identifier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_akun_payment" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary akun payment" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_amount" Precision="0" ProviderType="NewDecimal" Scale="0" Size="0" SourceColumn="amount" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary transaksi" DataSetColumn="primary transaksi" />
+              <Mapping SourceColumn="identifier" DataSetColumn="identifier" />
+              <Mapping SourceColumn="primary akun payment" DataSetColumn="primary akun payment" />
+              <Mapping SourceColumn="amount" DataSetColumn="amount" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_employee_d_igi" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySalaryMAX" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_PrimarySalaryMAX" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySalaryMAX">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, identifier, `primary akun payment`, amount, remarks
+FROM            tbltrans_salary_employee_d_igi
+WHERE        (`primary transaksi` &gt;= @PrimarySalary)
+ORDER BY `primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalary" ColumnName="primary transaksi" DataSourceName="core_db.tbltrans_salary_employee_d_igi" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TBLHitung_Medical_ClaimTableAdapter" GeneratorDataComponentClassName="TBLHitung_Medical_ClaimTableAdapter" Name="TBLHitung_Medical_Claim" UserDataComponentName="TBLHitung_Medical_ClaimTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_salary_item.`Primary Slip Desc`, SUM(tbltrans_salary_item.Amount) AS Amount, tbltrans_salary.`Primary Employee`, 
+                         tbltrans_salary.`Tanggal Transaksi`
+FROM            tbltrans_salary_item INNER JOIN
+                         tbltrans_salary ON tbltrans_salary_item.`Primary Transaksi` = tbltrans_salary.`Primary`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+GROUP BY tbltrans_salary_item.`Primary Slip Desc`, tbltrans_salary.`Primary Employee`, tbltrans_salary.`Tanggal Transaksi`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Slip Desc" DataSetColumn="Primary Slip Desc" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workshift_itemTableAdapter" GeneratorDataComponentClassName="tblmaster_workshift_itemTableAdapter" Name="tblmaster_workshift_item" UserDataComponentName="tblmaster_workshift_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_workshift_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_workshift_item` WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`day of week` = @Original_day_of_week) AND (`tipe workdays` = @Original_tipe_workdays) AND (`tipe overtime` = @Original_tipe_overtime) AND (`schedule in` = @Original_schedule_in) AND (`schedule out` = @Original_schedule_out) AND (`remarks` = @Original_remarks) AND (`duratioin` = @Original_duratioin) AND (`schedule break out` = @Original_schedule_break_out) AND (`schedule break in` = @Original_schedule_break_in) AND (`break duration` = @Original_break_duration))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_day_of_week" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="day of week" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_workdays" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workdays" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_duratioin" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duratioin" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `tblmaster_workshift_item` (`primary transaksi`, `day of week`, `tipe workdays`, `tipe overtime`, `schedule in`, `schedule out`, `remarks`, `duratioin`, `schedule break out`, `schedule break in`, `break duration`) VALUES (@primary_transaksi, @day_of_week, @tipe_workdays, @tipe_overtime, @schedule_in, @schedule_out, @remarks, @duratioin, @schedule_break_out, @schedule_break_in, @break_duration)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@day_of_week" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="day of week" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_workdays" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workdays" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@duratioin" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duratioin" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, `day of week`, `tipe workdays`, `tipe overtime`, `schedule in`, `schedule out`, remarks, duratioin, `schedule break out`, 
+                         `schedule break in`, `break duration`
+FROM            tblmaster_workshift_item
+ORDER BY `primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_workshift_item` SET `primary transaksi` = @primary_transaksi, `day of week` = @day_of_week, `tipe workdays` = @tipe_workdays, `tipe overtime` = @tipe_overtime, `schedule in` = @schedule_in, `schedule out` = @schedule_out, `remarks` = @remarks, `duratioin` = @duratioin, `schedule break out` = @schedule_break_out, `schedule break in` = @schedule_break_in, `break duration` = @break_duration WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`day of week` = @Original_day_of_week) AND (`tipe workdays` = @Original_tipe_workdays) AND (`tipe overtime` = @Original_tipe_overtime) AND (`schedule in` = @Original_schedule_in) AND (`schedule out` = @Original_schedule_out) AND (`remarks` = @Original_remarks) AND (`duratioin` = @Original_duratioin) AND (`schedule break out` = @Original_schedule_break_out) AND (`schedule break in` = @Original_schedule_break_in) AND (`break duration` = @Original_break_duration))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@day_of_week" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="day of week" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_workdays" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workdays" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@duratioin" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duratioin" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_day_of_week" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="day of week" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_workdays" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe workdays" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_duratioin" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duratioin" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary transaksi" DataSetColumn="primary transaksi" />
+              <Mapping SourceColumn="day of week" DataSetColumn="day of week" />
+              <Mapping SourceColumn="tipe workdays" DataSetColumn="tipe workdays" />
+              <Mapping SourceColumn="tipe overtime" DataSetColumn="tipe overtime" />
+              <Mapping SourceColumn="schedule in" DataSetColumn="schedule in" />
+              <Mapping SourceColumn="schedule out" DataSetColumn="schedule out" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+              <Mapping SourceColumn="duratioin" DataSetColumn="duratioin" />
+              <Mapping SourceColumn="schedule break out" DataSetColumn="schedule break out" />
+              <Mapping SourceColumn="schedule break in" DataSetColumn="schedule break in" />
+              <Mapping SourceColumn="break duration" DataSetColumn="break duration" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_workshift_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryWorkshift" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryWorkshift" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryWorkshift">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, `day of week`, `tipe workdays`, `tipe overtime`, `schedule in`, `schedule out`, remarks, duratioin, `schedule break out`, 
+                         `schedule break in`, `break duration`
+FROM            tblmaster_workshift_item
+WHERE        (`primary transaksi` = @PrimaryWorkshift)
+ORDER BY `primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryWorkshift" ColumnName="primary transaksi" DataSourceName="core_db.tblmaster_workshift_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryWorkshift" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workshift_itemholidayTableAdapter" GeneratorDataComponentClassName="tblmaster_workshift_itemholidayTableAdapter" Name="tblmaster_workshift_itemholiday" UserDataComponentName="tblmaster_workshift_itemholidayTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_workshift_itemholiday" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_workshift_itemholiday` WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`date` = @Original_date) AND (`holiday description` = @Original_holiday_description) AND (`primary leave` = @Original_primary_leave) AND (`tipe overtime` = @Original_tipe_overtime) AND (`remarks` = @Original_remarks) AND (`duration` = @Original_duration) AND (`sch in` = @Original_sch_in) AND (`sch out` = @Original_sch_out) AND (`schedule break out` = @Original_schedule_break_out) AND (`schedule break in` = @Original_schedule_break_in) AND (`break duration` = @Original_break_duration))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_holiday_description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="holiday description" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_leave" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary leave" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_duration" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_sch_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="sch in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_sch_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="sch out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `tblmaster_workshift_itemholiday` (`primary transaksi`, `date`, `holiday description`, `primary leave`, `tipe overtime`, `remarks`, `duration`, `sch in`, `sch out`, `schedule break out`, `schedule break in`, `break duration`) VALUES (@primary_transaksi, @date, @holiday_description, @primary_leave, @tipe_overtime, @remarks, @duration, @sch_in, @sch_out, @schedule_break_out, @schedule_break_in, @break_duration)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@holiday_description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="holiday description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_leave" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary leave" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@duration" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@sch_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="sch in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@sch_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="sch out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, `date`, `holiday description`, `primary leave`, `tipe overtime`, remarks, duration, `sch in`, `sch out`, `schedule break out`, 
+                         `schedule break in`, `break duration`
+FROM            tblmaster_workshift_itemholiday</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_workshift_itemholiday` SET `primary transaksi` = @primary_transaksi, `date` = @date, `holiday description` = @holiday_description, `primary leave` = @primary_leave, `tipe overtime` = @tipe_overtime, `remarks` = @remarks, `duration` = @duration, `sch in` = @sch_in, `sch out` = @sch_out, `schedule break out` = @schedule_break_out, `schedule break in` = @schedule_break_in, `break duration` = @break_duration WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`date` = @Original_date) AND (`holiday description` = @Original_holiday_description) AND (`primary leave` = @Original_primary_leave) AND (`tipe overtime` = @Original_tipe_overtime) AND (`remarks` = @Original_remarks) AND (`duration` = @Original_duration) AND (`sch in` = @Original_sch_in) AND (`sch out` = @Original_sch_out) AND (`schedule break out` = @Original_schedule_break_out) AND (`schedule break in` = @Original_schedule_break_in) AND (`break duration` = @Original_break_duration))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@holiday_description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="holiday description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_leave" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary leave" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@duration" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@sch_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="sch in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@sch_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="sch out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_holiday_description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="holiday description" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_leave" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary leave" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_tipe_overtime" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="tipe overtime" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_duration" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_sch_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="sch in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_sch_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="sch out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_out" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break out" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_schedule_break_in" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="schedule break in" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_break_duration" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="break duration" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary transaksi" DataSetColumn="primary transaksi" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="holiday description" DataSetColumn="holiday description" />
+              <Mapping SourceColumn="primary leave" DataSetColumn="primary leave" />
+              <Mapping SourceColumn="tipe overtime" DataSetColumn="tipe overtime" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+              <Mapping SourceColumn="duration" DataSetColumn="duration" />
+              <Mapping SourceColumn="sch in" DataSetColumn="sch in" />
+              <Mapping SourceColumn="sch out" DataSetColumn="sch out" />
+              <Mapping SourceColumn="schedule break out" DataSetColumn="schedule break out" />
+              <Mapping SourceColumn="schedule break in" DataSetColumn="schedule break in" />
+              <Mapping SourceColumn="break duration" DataSetColumn="break duration" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_workshift_itemholiday" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryWorkshift" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryWorkshift" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryWorkshift">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, `date`, `holiday description`, `primary leave`, `tipe overtime`, remarks, duration, `sch in`, `sch out`, `schedule break out`, 
+                         `schedule break in`, `break duration`
+FROM            tblmaster_workshift_itemholiday
+WHERE        (`primary transaksi` = @PrimaryWorkshift)
+ORDER BY `primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryWorkshift" ColumnName="primary transaksi" DataSourceName="core_db.tblmaster_workshift_itemholiday" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryWorkshift" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salary_laporanincometax_igiTableAdapter" GeneratorDataComponentClassName="tbltrans_salary_laporanincometax_igiTableAdapter" Name="tbltrans_salary_laporanincometax_igi" UserDataComponentName="tbltrans_salary_laporanincometax_igiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_laporanincometax_igi" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>DELETE FROM tbltrans_salary_laporanincometax_igi
+WHERE        (`Primary` = @Original_Primary) AND (`Primary Employee` = @Original_Primary_Employee) AND 
+                         (`Tanggal Transaksi Salary` = @Original_Tanggal_Transaksi_Salary) AND (Amount = @Original_Amount)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="double(18,3)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="18" ProviderType="Double" Scale="3" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_Employee" ColumnName="Primary Employee" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_Employee" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Employee" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Tanggal_Transaksi_Salary" ColumnName="Tanggal Transaksi Salary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Original_Tanggal_Transaksi_Salary" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi Salary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Amount" ColumnName="Amount" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@Original_Amount" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>INSERT INTO tbltrans_salary_laporanincometax_igi
+                         (`Primary Employee`, `Tanggal Transaksi Salary`, Amount)
+VALUES        (@Primary_Employee, @Tanggal_Transaksi_Salary, @Amount)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Employee" ColumnName="Primary Employee" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Employee" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Employee" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tanggal_Transaksi_Salary" ColumnName="Tanggal Transaksi Salary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Tanggal_Transaksi_Salary" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi Salary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Amount" ColumnName="Amount" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@Amount" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Employee`, `Tanggal Transaksi Salary`, Amount
+FROM            tbltrans_salary_laporanincometax_igi
+ORDER BY `Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_salary_laporanincometax_igi
+SET                `Primary Employee` = @Primary_Employee, `Tanggal Transaksi Salary` = @Tanggal_Transaksi_Salary, Amount = @Amount
+WHERE        (`Primary` = @Original_Primary) AND (`Primary Employee` = @Original_Primary_Employee) AND 
+                         (`Tanggal Transaksi Salary` = @Original_Tanggal_Transaksi_Salary) AND (Amount = @Original_Amount)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Employee" ColumnName="Primary Employee" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Employee" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Employee" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tanggal_Transaksi_Salary" ColumnName="Tanggal Transaksi Salary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Tanggal_Transaksi_Salary" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi Salary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Amount" ColumnName="Amount" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@Amount" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="double(18,3)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="18" ProviderType="Double" Scale="3" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_Employee" ColumnName="Primary Employee" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_Employee" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Employee" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Tanggal_Transaksi_Salary" ColumnName="Tanggal Transaksi Salary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Original_Tanggal_Transaksi_Salary" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi Salary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Amount" ColumnName="Amount" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@Original_Amount" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Tanggal Transaksi Salary" DataSetColumn="Tanggal Transaksi Salary" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salary_laporanincometax_igi" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_Tanggal" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy_Tanggal" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_Tanggal">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Employee`, `Tanggal Transaksi Salary`, Amount
+FROM            tbltrans_salary_laporanincometax_igi
+WHERE        (`Tanggal Transaksi Salary` &lt;= @EndDate) AND (`Tanggal Transaksi Salary` &gt;= @StartDate)
+ORDER BY `Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi Salary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi Salary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi Salary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi Salary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="UpdateQuery_TanggalDanPrimaryEmployee" Modifier="Public" Name="UpdateQuery_TanggalDanPrimaryEmployee" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="UpdateQuery_TanggalDanPrimaryEmployee">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>UPDATE       tbltrans_salary_laporanincometax_igi
+SET                Amount = @Amount
+WHERE        (`Primary Employee` = @Original_Primary_Employee) AND (`Tanggal Transaksi Salary` = @Original_Tanggal_Transaksi_Salary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Amount" ColumnName="Amount" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@Amount" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary_Employee" ColumnName="Primary Employee" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary_Employee" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Employee" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Tanggal_Transaksi_Salary" ColumnName="Tanggal Transaksi Salary" DataSourceName="core_db.tbltrans_salary_laporanincometax_igi" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Original_Tanggal_Transaksi_Salary" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi Salary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Tbl_Overtime_Round_IGITableAdapter" GeneratorDataComponentClassName="Tbl_Overtime_Round_IGITableAdapter" Name="Tbl_Overtime_Round_IGI" UserDataComponentName="Tbl_Overtime_Round_IGITableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_salary.`Primary` AS `Primary Salary`, tbltrans_salary.`No Transaksi`, tblmaster_salary_formula_salarycomponent.`Primary Slip Desc`, 
+                         tblmaster_salary_formula_salarycomponent_variable.`Rounding Unit`, tblmaster_salary_formula_salarycomponent_variable.`Rounding Type`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_salary_formula_salarycomponent ON 
+                         tbltrans_salary.`Primary Salary Formula` = tblmaster_salary_formula_salarycomponent.`Primary Transaksi` INNER JOIN
+                         tblmaster_salary_formula_salarycomponent_variable ON 
+                         tblmaster_salary_formula_salarycomponent.Identifier = tblmaster_salary_formula_salarycomponent_variable.`Identifier Salary Component`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate) AND 
+                         (tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 19 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 20 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 21 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 22 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 23) AND (tblmaster_salary_formula_salarycomponent_variable.`Primary Parameter` = 116)
+ORDER BY `Primary Salary`, tblmaster_salary_formula_salarycomponent.`Primary Slip Desc`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Salary" DataSetColumn="Primary Salary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Primary Slip Desc" DataSetColumn="Primary Slip Desc" />
+              <Mapping SourceColumn="Rounding Unit" DataSetColumn="Rounding Unit" />
+              <Mapping SourceColumn="Rounding Type" DataSetColumn="Rounding Type" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_BuatQuickSalary" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_BuatQuickSalary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_BuatQuickSalary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_salary.`Primary` AS `Primary Salary`, tbltrans_salary.`No Transaksi`, tblmaster_salary_formula_salarycomponent.`Primary Slip Desc`, 
+                         tblmaster_salary_formula_salarycomponent_variable.`Rounding Unit`, tblmaster_salary_formula_salarycomponent_variable.`Rounding Type`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_salary_formula_salarycomponent ON 
+                         tbltrans_salary.`Primary Salary Formula` = tblmaster_salary_formula_salarycomponent.`Primary Transaksi` INNER JOIN
+                         tblmaster_salary_formula_salarycomponent_variable ON 
+                         tblmaster_salary_formula_salarycomponent.Identifier = tblmaster_salary_formula_salarycomponent_variable.`Identifier Salary Component`
+WHERE        (tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 19 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 20 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 21 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 22 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 23) AND (tblmaster_salary_formula_salarycomponent_variable.`Primary Parameter` = 116) AND 
+                         (tbltrans_salary.`Primary` &gt;= @PrimarySalary)
+ORDER BY `Primary Salary`, tblmaster_salary_formula_salarycomponent.`Primary Slip Desc`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalary" ColumnName="Primary" DataSourceName="core_db.tbltrans_salary" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySalary" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimarySalary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_PrimarySalary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_salary.`Primary` AS `Primary Salary`, tbltrans_salary.`No Transaksi`, tblmaster_salary_formula_salarycomponent.`Primary Slip Desc`, 
+                         tblmaster_salary_formula_salarycomponent_variable.`Rounding Unit`, tblmaster_salary_formula_salarycomponent_variable.`Rounding Type`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_salary_formula_salarycomponent ON 
+                         tbltrans_salary.`Primary Salary Formula` = tblmaster_salary_formula_salarycomponent.`Primary Transaksi` INNER JOIN
+                         tblmaster_salary_formula_salarycomponent_variable ON 
+                         tblmaster_salary_formula_salarycomponent.Identifier = tblmaster_salary_formula_salarycomponent_variable.`Identifier Salary Component`
+WHERE        (tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 19 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 20 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 21 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 22 OR
+                         tblmaster_salary_formula_salarycomponent.`Primary Slip Desc` = 23) AND (tblmaster_salary_formula_salarycomponent_variable.`Primary Parameter` = 116) AND 
+                         (tbltrans_salary.`Primary` = @PrimarySalary)
+ORDER BY `Primary Salary`, tblmaster_salary_formula_salarycomponent.`Primary Slip Desc`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalary" ColumnName="Primary" DataSourceName="core_db.tbltrans_salary" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalary" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Salary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanSalaryStaff_IGI" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanSalaryStaff_IGI" msprop:Generator_DataSetName="DseLaporanSalaryStaff_IGI">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TblCetakSalary" msprop:Generator_UserTableName="TblCetakSalary" msprop:Generator_RowDeletedName="TblCetakSalaryRowDeleted" msprop:Generator_RowChangedName="TblCetakSalaryRowChanged" msprop:Generator_RowClassName="TblCetakSalaryRow" msprop:Generator_RowChangingName="TblCetakSalaryRowChanging" msprop:Generator_RowEvArgName="TblCetakSalaryRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetakSalaryRowChangeEventHandler" msprop:Generator_TableClassName="TblCetakSalaryDataTable" msprop:Generator_TableVarName="tableTblCetakSalary" msprop:Generator_RowDeletingName="TblCetakSalaryRowDeleting" msprop:Generator_TablePropName="TblCetakSalary">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No" msprop:Generator_UserColumnName="No" msprop:Generator_ColumnPropNameInRow="No" msprop:Generator_ColumnVarNameInTable="columnNo" msprop:Generator_ColumnPropNameInTable="NoColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_ColumnPropNameInTable="NamaColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Basic" msprop:Generator_UserColumnName="Basic" msprop:Generator_ColumnPropNameInRow="Basic" msprop:Generator_ColumnVarNameInTable="columnBasic" msprop:Generator_ColumnPropNameInTable="BasicColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="PlusMinus" msprop:Generator_UserColumnName="PlusMinus" msprop:Generator_ColumnPropNameInRow="PlusMinus" msprop:Generator_ColumnVarNameInTable="columnPlusMinus" msprop:Generator_ColumnPropNameInTable="PlusMinusColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Trans_x0020_Add" msprop:Generator_UserColumnName="Trans Add" msprop:Generator_ColumnVarNameInTable="columnTrans_Add" msprop:Generator_ColumnPropNameInRow="Trans_Add" msprop:Generator_ColumnPropNameInTable="Trans_AddColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Trans_x0020_Day" msprop:Generator_UserColumnName="Trans Day" msprop:Generator_ColumnVarNameInTable="columnTrans_Day" msprop:Generator_ColumnPropNameInRow="Trans_Day" msprop:Generator_ColumnPropNameInTable="Trans_DayColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Trans_x0020_Amount" msprop:Generator_UserColumnName="Trans Amount" msprop:Generator_ColumnVarNameInTable="columnTrans_Amount" msprop:Generator_ColumnPropNameInRow="Trans_Amount" msprop:Generator_ColumnPropNameInTable="Trans_AmountColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Jamsos_x0020_2_x0020_persen" msprop:Generator_UserColumnName="Jamsos 2 persen" msprop:Generator_ColumnVarNameInTable="columnJamsos_2_persen" msprop:Generator_ColumnPropNameInRow="Jamsos_2_persen" msprop:Generator_ColumnPropNameInTable="Jamsos_2_persenColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Tarif" msprop:Generator_UserColumnName="Tarif" msprop:Generator_ColumnVarNameInTable="columnTarif" msprop:Generator_ColumnPropNameInRow="Tarif" msprop:Generator_ColumnPropNameInTable="TarifColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_wd_x0020_hours" msprop:Generator_UserColumnName="Over wd hours" msprop:Generator_ColumnVarNameInTable="columnOver_wd_hours" msprop:Generator_ColumnPropNameInRow="Over_wd_hours" msprop:Generator_ColumnPropNameInTable="Over_wd_hoursColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_wd_x0020_amount" msprop:Generator_UserColumnName="Over wd amount" msprop:Generator_ColumnVarNameInTable="columnOver_wd_amount" msprop:Generator_ColumnPropNameInRow="Over_wd_amount" msprop:Generator_ColumnPropNameInTable="Over_wd_amountColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_wd_x0020_hours_x0020_2" msprop:Generator_UserColumnName="Over wd hours 2" msprop:Generator_ColumnVarNameInTable="columnOver_wd_hours_2" msprop:Generator_ColumnPropNameInRow="Over_wd_hours_2" msprop:Generator_ColumnPropNameInTable="Over_wd_hours_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_wd_x0020_amount_x0020_2" msprop:Generator_UserColumnName="Over wd amount 2" msprop:Generator_ColumnVarNameInTable="columnOver_wd_amount_2" msprop:Generator_ColumnPropNameInRow="Over_wd_amount_2" msprop:Generator_ColumnPropNameInTable="Over_wd_amount_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_total" msprop:Generator_UserColumnName="Over total" msprop:Generator_ColumnVarNameInTable="columnOver_total" msprop:Generator_ColumnPropNameInRow="Over_total" msprop:Generator_ColumnPropNameInTable="Over_totalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_hours" msprop:Generator_UserColumnName="Over hol hours" msprop:Generator_ColumnVarNameInTable="columnOver_hol_hours" msprop:Generator_ColumnPropNameInRow="Over_hol_hours" msprop:Generator_ColumnPropNameInTable="Over_hol_hoursColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_amount" msprop:Generator_UserColumnName="Over hol amount" msprop:Generator_ColumnVarNameInTable="columnOver_hol_amount" msprop:Generator_ColumnPropNameInRow="Over_hol_amount" msprop:Generator_ColumnPropNameInTable="Over_hol_amountColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_hours_x0020_2" msprop:Generator_UserColumnName="Over hol hours 2" msprop:Generator_ColumnVarNameInTable="columnOver_hol_hours_2" msprop:Generator_ColumnPropNameInRow="Over_hol_hours_2" msprop:Generator_ColumnPropNameInTable="Over_hol_hours_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_amount_x0020_2" msprop:Generator_UserColumnName="Over hol amount 2" msprop:Generator_ColumnVarNameInTable="columnOver_hol_amount_2" msprop:Generator_ColumnPropNameInRow="Over_hol_amount_2" msprop:Generator_ColumnPropNameInTable="Over_hol_amount_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_total" msprop:Generator_UserColumnName="Over hol total" msprop:Generator_ColumnVarNameInTable="columnOver_hol_total" msprop:Generator_ColumnPropNameInRow="Over_hol_total" msprop:Generator_ColumnPropNameInTable="Over_hol_totalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Overtime" msprop:Generator_UserColumnName="Total Overtime" msprop:Generator_ColumnVarNameInTable="columnTotal_Overtime" msprop:Generator_ColumnPropNameInRow="Total_Overtime" msprop:Generator_ColumnPropNameInTable="Total_OvertimeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Salary" msprop:Generator_UserColumnName="Salary" msprop:Generator_ColumnVarNameInTable="columnSalary" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Jamsos_x0020_JPK" msprop:Generator_UserColumnName="Medical Jamsos JPK" msprop:Generator_ColumnVarNameInTable="columnMedical_Jamsos_JPK" msprop:Generator_ColumnPropNameInRow="Medical_Jamsos_JPK" msprop:Generator_ColumnPropNameInTable="Medical_Jamsos_JPKColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Claim" msprop:Generator_UserColumnName="Medical Claim" msprop:Generator_ColumnVarNameInTable="columnMedical_Claim" msprop:Generator_ColumnPropNameInRow="Medical_Claim" msprop:Generator_ColumnPropNameInTable="Medical_ClaimColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Total" msprop:Generator_UserColumnName="Medical Total" msprop:Generator_ColumnVarNameInTable="columnMedical_Total" msprop:Generator_ColumnPropNameInRow="Medical_Total" msprop:Generator_ColumnPropNameInTable="Medical_TotalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Allow_x0020_Child" msprop:Generator_UserColumnName="Allow Child" msprop:Generator_ColumnVarNameInTable="columnAllow_Child" msprop:Generator_ColumnPropNameInRow="Allow_Child" msprop:Generator_ColumnPropNameInTable="Allow_ChildColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Allow_x0020_Tunj_x0020_Lainnya" msprop:Generator_UserColumnName="Allow Tunj Lainnya" msprop:Generator_ColumnVarNameInTable="columnAllow_Tunj_Lainnya" msprop:Generator_ColumnPropNameInRow="Allow_Tunj_Lainnya" msprop:Generator_ColumnPropNameInTable="Allow_Tunj_LainnyaColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Other_x0020_Income_x0020_WO_x0020_Medical" msprop:Generator_UserColumnName="Total Other Income WO Medical" msprop:Generator_ColumnVarNameInTable="columnTotal_Other_Income_WO_Medical" msprop:Generator_ColumnPropNameInRow="Total_Other_Income_WO_Medical" msprop:Generator_ColumnPropNameInTable="Total_Other_Income_WO_MedicalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Other_x0020_Income" msprop:Generator_UserColumnName="Total Other Income" msprop:Generator_ColumnVarNameInTable="columnTotal_Other_Income" msprop:Generator_ColumnPropNameInRow="Total_Other_Income" msprop:Generator_ColumnPropNameInTable="Total_Other_IncomeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Income" msprop:Generator_UserColumnName="Total Income" msprop:Generator_ColumnVarNameInTable="columnTotal_Income" msprop:Generator_ColumnPropNameInRow="Total_Income" msprop:Generator_ColumnPropNameInTable="Total_IncomeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Paid_x0020_To_x0020_JPK" msprop:Generator_UserColumnName="Paid To JPK" msprop:Generator_ColumnVarNameInTable="columnPaid_To_JPK" msprop:Generator_ColumnPropNameInRow="Paid_To_JPK" msprop:Generator_ColumnPropNameInTable="Paid_To_JPKColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Loan" msprop:Generator_UserColumnName="Loan" msprop:Generator_ColumnVarNameInTable="columnLoan" msprop:Generator_ColumnPropNameInRow="Loan" msprop:Generator_ColumnPropNameInTable="LoanColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Others" msprop:Generator_UserColumnName="Others" msprop:Generator_ColumnVarNameInTable="columnOthers" msprop:Generator_ColumnPropNameInRow="Others" msprop:Generator_ColumnPropNameInTable="OthersColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Koperasi" msprop:Generator_UserColumnName="Koperasi" msprop:Generator_ColumnVarNameInTable="columnKoperasi" msprop:Generator_ColumnPropNameInRow="Koperasi" msprop:Generator_ColumnPropNameInTable="KoperasiColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Nett_x0020_Income" msprop:Generator_UserColumnName="Nett Income" msprop:Generator_ColumnVarNameInTable="columnNett_Income" msprop:Generator_ColumnPropNameInRow="Nett_Income" msprop:Generator_ColumnPropNameInTable="Nett_IncomeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Transfer_x0020_Mandiri" msprop:Generator_UserColumnName="Transfer Mandiri" msprop:Generator_ColumnVarNameInTable="columnTransfer_Mandiri" msprop:Generator_ColumnPropNameInRow="Transfer_Mandiri" msprop:Generator_ColumnPropNameInTable="Transfer_MandiriColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Transfer_x0020_BCA" msprop:Generator_UserColumnName="Transfer BCA" msprop:Generator_ColumnVarNameInTable="columnTransfer_BCA" msprop:Generator_ColumnPropNameInRow="Transfer_BCA" msprop:Generator_ColumnPropNameInTable="Transfer_BCAColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Cash" msprop:Generator_UserColumnName="Cash" msprop:Generator_ColumnVarNameInTable="columnCash" msprop:Generator_ColumnPropNameInRow="Cash" msprop:Generator_ColumnPropNameInTable="CashColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Remain" msprop:Generator_UserColumnName="Medical Remain" msprop:Generator_ColumnVarNameInTable="columnMedical_Remain" msprop:Generator_ColumnPropNameInRow="Medical_Remain" msprop:Generator_ColumnPropNameInTable="Medical_RemainColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Other_x0020_Income_x0020_Incentive" msprop:Generator_UserColumnName="Other Income Incentive" msprop:Generator_ColumnVarNameInTable="columnOther_Income_Incentive" msprop:Generator_ColumnPropNameInRow="Other_Income_Incentive" msprop:Generator_ColumnPropNameInTable="Other_Income_IncentiveColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Other_x0020_Income_x0020_THR_x0020_Bonus" msprop:Generator_UserColumnName="Other Income THR Bonus" msprop:Generator_ColumnVarNameInTable="columnOther_Income_THR_Bonus" msprop:Generator_ColumnPropNameInRow="Other_Income_THR_Bonus" msprop:Generator_ColumnPropNameInTable="Other_Income_THR_BonusColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Other_x0020_Income_x0020_Others" msprop:Generator_UserColumnName="Other Income Others" msprop:Generator_ColumnVarNameInTable="columnOther_Income_Others" msprop:Generator_ColumnPropNameInRow="Other_Income_Others" msprop:Generator_ColumnPropNameInTable="Other_Income_OthersColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Primary_x0020_Salary" msprop:Generator_UserColumnName="Primary Salary" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary" msprop:Generator_ColumnPropNameInRow="Primary_Salary" msprop:Generator_ColumnPropNameInTable="Primary_SalaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Medical_x0020_Martial_x0020_Status" msprop:Generator_UserColumnName="Medical Martial Status" msprop:Generator_ColumnVarNameInTable="columnMedical_Martial_Status" msprop:Generator_ColumnPropNameInRow="Medical_Martial_Status" msprop:Generator_ColumnPropNameInTable="Medical_Martial_StatusColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Medical_x0020_Jamsos_x0020_Rate" msprop:Generator_UserColumnName="Medical Jamsos Rate" msprop:Generator_ColumnVarNameInTable="columnMedical_Jamsos_Rate" msprop:Generator_ColumnPropNameInRow="Medical_Jamsos_Rate" msprop:Generator_ColumnPropNameInTable="Medical_Jamsos_RateColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataHeader" msprop:Generator_UserTableName="DataHeader" msprop:Generator_RowDeletedName="DataHeaderRowDeleted" msprop:Generator_RowChangedName="DataHeaderRowChanged" msprop:Generator_RowClassName="DataHeaderRow" msprop:Generator_RowChangingName="DataHeaderRowChanging" msprop:Generator_RowEvArgName="DataHeaderRowChangeEvent" msprop:Generator_RowEvHandlerName="DataHeaderRowChangeEventHandler" msprop:Generator_TableClassName="DataHeaderDataTable" msprop:Generator_TableVarName="tableDataHeader" msprop:Generator_RowDeletingName="DataHeaderRowDeleting" msprop:Generator_TablePropName="DataHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Start_x0020_Date" msprop:Generator_UserColumnName="Start Date" msprop:Generator_ColumnVarNameInTable="columnStart_Date" msprop:Generator_ColumnPropNameInRow="Start_Date" msprop:Generator_ColumnPropNameInTable="Start_DateColumn" type="xs:dateTime" />
+              <xs:element name="End_x0020_Date" msprop:Generator_UserColumnName="End Date" msprop:Generator_ColumnVarNameInTable="columnEnd_Date" msprop:Generator_ColumnPropNameInRow="End_Date" msprop:Generator_ColumnPropNameInTable="End_DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="First_x0020_Name" msprop:Generator_UserColumnName="First Name" msprop:Generator_ColumnVarNameInTable="columnFirst_Name" msprop:Generator_ColumnPropNameInRow="First_Name" msprop:Generator_ColumnPropNameInTable="First_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Middle_x0020_Name" msprop:Generator_UserColumnName="Middle Name" msprop:Generator_ColumnVarNameInTable="columnMiddle_Name" msprop:Generator_ColumnPropNameInRow="Middle_Name" msprop:Generator_ColumnPropNameInTable="Middle_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Last_x0020_Name" msprop:Generator_UserColumnName="Last Name" msprop:Generator_ColumnVarNameInTable="columnLast_Name" msprop:Generator_ColumnPropNameInRow="Last_Name" msprop:Generator_ColumnPropNameInTable="Last_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Loan_x0020_Installment" msprop:Generator_UserColumnName="Loan Installment" msprop:Generator_ColumnVarNameInTable="columnLoan_Installment" msprop:Generator_ColumnPropNameInRow="Loan_Installment" msprop:Generator_ColumnPropNameInTable="Loan_InstallmentColumn" type="xs:decimal" />
+              <xs:element name="npwp_x0020_category" msprop:Generator_UserColumnName="npwp category" msprop:Generator_ColumnPropNameInRow="npwp_category" msprop:Generator_ColumnVarNameInTable="columnnpwp_category" msprop:Generator_ColumnPropNameInTable="npwp_categoryColumn" type="xs:int" />
+              <xs:element name="_x0031_5PTKP" msprop:Generator_UserColumnName="15PTKP" msprop:Generator_ColumnPropNameInRow="_15PTKP" msprop:Generator_ColumnVarNameInTable="column15PTKP" msprop:Generator_ColumnPropNameInTable="_15PTKPColumn" type="xs:decimal" />
+              <xs:element name="Other_x0020_Deduction" msprop:Generator_UserColumnName="Other Deduction" msprop:Generator_ColumnVarNameInTable="columnOther_Deduction" msprop:Generator_ColumnPropNameInRow="Other_Deduction" msprop:Generator_ColumnPropNameInTable="Other_DeductionColumn" type="xs:decimal" />
+              <xs:element name="Salary_x0020_Received" msprop:Generator_UserColumnName="Salary Received" msprop:Generator_ColumnVarNameInTable="columnSalary_Received" msprop:Generator_ColumnPropNameInRow="Salary_Received" msprop:Generator_ColumnPropNameInTable="Salary_ReceivedColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_item_Quick" msprop:Generator_UserTableName="tbltrans_salary_item_Quick" msprop:Generator_RowDeletedName="tbltrans_salary_item_QuickRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_item_QuickRowChanged" msprop:Generator_RowClassName="tbltrans_salary_item_QuickRow" msprop:Generator_RowChangingName="tbltrans_salary_item_QuickRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_item_QuickRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_item_QuickRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_item_QuickDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_item_Quick" msprop:Generator_RowDeletingName="tbltrans_salary_item_QuickRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_item_Quick">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Slip_x0020_Desc" msprop:Generator_UserColumnName="Primary Slip Desc" msprop:Generator_ColumnVarNameInTable="columnPrimary_Slip_Desc" msprop:Generator_ColumnPropNameInRow="Primary_Slip_Desc" msprop:Generator_ColumnPropNameInTable="Primary_Slip_DescColumn" type="xs:double" />
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TBLHitung_hari_Transport" msprop:Generator_UserTableName="TBLHitung_hari_Transport" msprop:Generator_RowDeletedName="TBLHitung_hari_TransportRowDeleted" msprop:Generator_RowChangedName="TBLHitung_hari_TransportRowChanged" msprop:Generator_RowClassName="TBLHitung_hari_TransportRow" msprop:Generator_RowChangingName="TBLHitung_hari_TransportRowChanging" msprop:Generator_RowEvArgName="TBLHitung_hari_TransportRowChangeEvent" msprop:Generator_RowEvHandlerName="TBLHitung_hari_TransportRowChangeEventHandler" msprop:Generator_TableClassName="TBLHitung_hari_TransportDataTable" msprop:Generator_TableVarName="tableTBLHitung_hari_Transport" msprop:Generator_RowDeletingName="TBLHitung_hari_TransportRowDeleting" msprop:Generator_TablePropName="TBLHitung_hari_Transport">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_karyawan" msprop:Generator_UserColumnName="primary karyawan" msprop:Generator_ColumnVarNameInTable="columnprimary_karyawan" msprop:Generator_ColumnPropNameInRow="primary_karyawan" msprop:Generator_ColumnPropNameInTable="primary_karyawanColumn" type="xs:double" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tbl_Overtime_BuatParamUntukSum" msprop:Generator_UserTableName="Tbl_Overtime_BuatParamUntukSum" msprop:Generator_RowDeletedName="Tbl_Overtime_BuatParamUntukSumRowDeleted" msprop:Generator_RowChangedName="Tbl_Overtime_BuatParamUntukSumRowChanged" msprop:Generator_RowClassName="Tbl_Overtime_BuatParamUntukSumRow" msprop:Generator_RowChangingName="Tbl_Overtime_BuatParamUntukSumRowChanging" msprop:Generator_RowEvArgName="Tbl_Overtime_BuatParamUntukSumRowChangeEvent" msprop:Generator_RowEvHandlerName="Tbl_Overtime_BuatParamUntukSumRowChangeEventHandler" msprop:Generator_TableClassName="Tbl_Overtime_BuatParamUntukSumDataTable" msprop:Generator_TableVarName="tableTbl_Overtime_BuatParamUntukSum" msprop:Generator_RowDeletingName="Tbl_Overtime_BuatParamUntukSumRowDeleting" msprop:Generator_TablePropName="Tbl_Overtime_BuatParamUntukSum">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tipe_x0020_overtime" msprop:Generator_UserColumnName="tipe overtime" msprop:Generator_ColumnVarNameInTable="columntipe_overtime" msprop:Generator_ColumnPropNameInRow="tipe_overtime" msprop:Generator_ColumnPropNameInTable="tipe_overtimeColumn" type="xs:int" />
+              <xs:element name="OT_x0020_Duration" msprop:Generator_UserColumnName="OT Duration" msprop:Generator_ColumnVarNameInTable="columnOT_Duration" msprop:Generator_ColumnPropNameInRow="OT_Duration" msprop:Generator_ColumnPropNameInTable="OT_DurationColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Tanggal_x0020_Attendance" msprop:Generator_UserColumnName="Tanggal Attendance" msprop:Generator_ColumnVarNameInTable="columnTanggal_Attendance" msprop:Generator_ColumnPropNameInRow="Tanggal_Attendance" msprop:Generator_ColumnPropNameInTable="Tanggal_AttendanceColumn" type="xs:dateTime" />
+              <xs:element name="primary_x0020_karyawan" msprop:Generator_UserColumnName="primary karyawan" msprop:Generator_ColumnVarNameInTable="columnprimary_karyawan" msprop:Generator_ColumnPropNameInRow="primary_karyawan" msprop:Generator_ColumnPropNameInTable="primary_karyawanColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Salary" msprop:Generator_UserColumnName="Primary Salary" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary" msprop:Generator_ColumnPropNameInRow="Primary_Salary" msprop:Generator_ColumnPropNameInTable="Primary_SalaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="OT_x0020_Weekday_x0020_1" msprop:Generator_UserColumnName="OT Weekday 1" msprop:Generator_ColumnVarNameInTable="columnOT_Weekday_1" msprop:Generator_ColumnPropNameInRow="OT_Weekday_1" msprop:Generator_ColumnPropNameInTable="OT_Weekday_1Column" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="OT_x0020_Weekday_x0020_2" msprop:Generator_UserColumnName="OT Weekday 2" msprop:Generator_ColumnVarNameInTable="columnOT_Weekday_2" msprop:Generator_ColumnPropNameInRow="OT_Weekday_2" msprop:Generator_ColumnPropNameInTable="OT_Weekday_2Column" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="OT_x0020_Weekend_x0020_1" msprop:Generator_UserColumnName="OT Weekend 1" msprop:Generator_ColumnVarNameInTable="columnOT_Weekend_1" msprop:Generator_ColumnPropNameInRow="OT_Weekend_1" msprop:Generator_ColumnPropNameInTable="OT_Weekend_1Column" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="OT_x0020_Weekend_x0020_2" msprop:Generator_UserColumnName="OT Weekend 2" msprop:Generator_ColumnVarNameInTable="columnOT_Weekend_2" msprop:Generator_ColumnPropNameInRow="OT_Weekend_2" msprop:Generator_ColumnPropNameInTable="OT_Weekend_2Column" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="OT_x0020_Weekend_x0020_3" msprop:Generator_UserColumnName="OT Weekend 3" msprop:Generator_ColumnVarNameInTable="columnOT_Weekend_3" msprop:Generator_ColumnPropNameInRow="OT_Weekend_3" msprop:Generator_ColumnPropNameInTable="OT_Weekend_3Column" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Actual_x0020_Work_x0020_Duration" msprop:Generator_UserColumnName="Actual Work Duration" msprop:Generator_ColumnPropNameInRow="Actual_Work_Duration" msprop:Generator_ColumnVarNameInTable="columnActual_Work_Duration" msprop:Generator_ColumnPropNameInTable="Actual_Work_DurationColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_item_otherdeduction_Quick" msprop:Generator_UserTableName="tbltrans_salary_item_otherdeduction_Quick" msprop:Generator_RowDeletedName="tbltrans_salary_item_otherdeduction_QuickRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_item_otherdeduction_QuickRowChanged" msprop:Generator_RowClassName="tbltrans_salary_item_otherdeduction_QuickRow" msprop:Generator_RowChangingName="tbltrans_salary_item_otherdeduction_QuickRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_item_otherdeduction_QuickRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_item_otherdeduction_QuickRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_item_otherdeduction_QuickDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_item_otherdeduction_Quick" msprop:Generator_RowDeletingName="tbltrans_salary_item_otherdeduction_QuickRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_item_otherdeduction_Quick">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Slip_x0020_Desc" msprop:Generator_UserColumnName="Primary Slip Desc" msprop:Generator_ColumnVarNameInTable="columnPrimary_Slip_Desc" msprop:Generator_ColumnPropNameInRow="Primary_Slip_Desc" msprop:Generator_ColumnPropNameInTable="Primary_Slip_DescColumn" type="xs:double" />
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Primary_x0020_Transaksi" msprop:Generator_UserColumnName="Primary Transaksi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi" msprop:Generator_ColumnPropNameInTable="Primary_TransaksiColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_employee_d_igi" msprop:Generator_UserTableName="tbltrans_salary_employee_d_igi" msprop:Generator_RowDeletedName="tbltrans_salary_employee_d_igiRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_employee_d_igiRowChanged" msprop:Generator_RowClassName="tbltrans_salary_employee_d_igiRow" msprop:Generator_RowChangingName="tbltrans_salary_employee_d_igiRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_employee_d_igiRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_employee_d_igiRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_employee_d_igiDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_employee_d_igi" msprop:Generator_RowDeletingName="tbltrans_salary_employee_d_igiRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_employee_d_igi">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_transaksi" msprop:Generator_UserColumnName="primary transaksi" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi" msprop:Generator_ColumnPropNameInRow="primary_transaksi" msprop:Generator_ColumnPropNameInTable="primary_transaksiColumn" type="xs:double" />
+              <xs:element name="identifier" msprop:Generator_UserColumnName="identifier" msprop:Generator_ColumnVarNameInTable="columnidentifier" msprop:Generator_ColumnPropNameInRow="identifier" msprop:Generator_ColumnPropNameInTable="identifierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_akun_x0020_payment" msprop:Generator_UserColumnName="primary akun payment" msprop:Generator_ColumnVarNameInTable="columnprimary_akun_payment" msprop:Generator_ColumnPropNameInRow="primary_akun_payment" msprop:Generator_ColumnPropNameInTable="primary_akun_paymentColumn" type="xs:double" />
+              <xs:element name="amount" msprop:Generator_UserColumnName="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" type="xs:decimal" />
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TblCetakSalaryTax" msprop:Generator_UserTableName="TblCetakSalaryTax" msprop:Generator_RowDeletedName="TblCetakSalaryTaxRowDeleted" msprop:Generator_RowChangedName="TblCetakSalaryTaxRowChanged" msprop:Generator_RowClassName="TblCetakSalaryTaxRow" msprop:Generator_RowChangingName="TblCetakSalaryTaxRowChanging" msprop:Generator_RowEvArgName="TblCetakSalaryTaxRowChangeEvent" msprop:Generator_RowEvHandlerName="TblCetakSalaryTaxRowChangeEventHandler" msprop:Generator_TableClassName="TblCetakSalaryTaxDataTable" msprop:Generator_TableVarName="tableTblCetakSalaryTax" msprop:Generator_RowDeletingName="TblCetakSalaryTaxRowDeleting" msprop:Generator_TablePropName="TblCetakSalaryTax">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No" msprop:Generator_UserColumnName="No" msprop:Generator_ColumnPropNameInRow="No" msprop:Generator_ColumnVarNameInTable="columnNo" msprop:Generator_ColumnPropNameInTable="NoColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Nama" msprop:Generator_UserColumnName="Nama" msprop:Generator_ColumnPropNameInRow="Nama" msprop:Generator_ColumnVarNameInTable="columnNama" msprop:Generator_ColumnPropNameInTable="NamaColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Basic" msprop:Generator_UserColumnName="Basic" msprop:Generator_ColumnPropNameInRow="Basic" msprop:Generator_ColumnVarNameInTable="columnBasic" msprop:Generator_ColumnPropNameInTable="BasicColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="PlusMinus" msprop:Generator_UserColumnName="PlusMinus" msprop:Generator_ColumnPropNameInRow="PlusMinus" msprop:Generator_ColumnVarNameInTable="columnPlusMinus" msprop:Generator_ColumnPropNameInTable="PlusMinusColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Trans_x0020_Add" msprop:Generator_UserColumnName="Trans Add" msprop:Generator_ColumnPropNameInRow="Trans_Add" msprop:Generator_ColumnVarNameInTable="columnTrans_Add" msprop:Generator_ColumnPropNameInTable="Trans_AddColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Trans_x0020_Day" msprop:Generator_UserColumnName="Trans Day" msprop:Generator_ColumnPropNameInRow="Trans_Day" msprop:Generator_ColumnVarNameInTable="columnTrans_Day" msprop:Generator_ColumnPropNameInTable="Trans_DayColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Trans_x0020_Amount" msprop:Generator_UserColumnName="Trans Amount" msprop:Generator_ColumnPropNameInRow="Trans_Amount" msprop:Generator_ColumnVarNameInTable="columnTrans_Amount" msprop:Generator_ColumnPropNameInTable="Trans_AmountColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Jamsos_x0020_2_x0020_persen" msprop:Generator_UserColumnName="Jamsos 2 persen" msprop:Generator_ColumnPropNameInRow="Jamsos_2_persen" msprop:Generator_ColumnVarNameInTable="columnJamsos_2_persen" msprop:Generator_ColumnPropNameInTable="Jamsos_2_persenColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Tarif" msprop:Generator_UserColumnName="Tarif" msprop:Generator_ColumnPropNameInRow="Tarif" msprop:Generator_ColumnVarNameInTable="columnTarif" msprop:Generator_ColumnPropNameInTable="TarifColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_wd_x0020_hours" msprop:Generator_UserColumnName="Over wd hours" msprop:Generator_ColumnPropNameInRow="Over_wd_hours" msprop:Generator_ColumnVarNameInTable="columnOver_wd_hours" msprop:Generator_ColumnPropNameInTable="Over_wd_hoursColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_wd_x0020_amount" msprop:Generator_UserColumnName="Over wd amount" msprop:Generator_ColumnPropNameInRow="Over_wd_amount" msprop:Generator_ColumnVarNameInTable="columnOver_wd_amount" msprop:Generator_ColumnPropNameInTable="Over_wd_amountColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_wd_x0020_hours_x0020_2" msprop:Generator_UserColumnName="Over wd hours 2" msprop:Generator_ColumnPropNameInRow="Over_wd_hours_2" msprop:Generator_ColumnVarNameInTable="columnOver_wd_hours_2" msprop:Generator_ColumnPropNameInTable="Over_wd_hours_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_wd_x0020_amount_x0020_2" msprop:Generator_UserColumnName="Over wd amount 2" msprop:Generator_ColumnPropNameInRow="Over_wd_amount_2" msprop:Generator_ColumnVarNameInTable="columnOver_wd_amount_2" msprop:Generator_ColumnPropNameInTable="Over_wd_amount_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_total" msprop:Generator_UserColumnName="Over total" msprop:Generator_ColumnPropNameInRow="Over_total" msprop:Generator_ColumnVarNameInTable="columnOver_total" msprop:Generator_ColumnPropNameInTable="Over_totalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_hours" msprop:Generator_UserColumnName="Over hol hours" msprop:Generator_ColumnPropNameInRow="Over_hol_hours" msprop:Generator_ColumnVarNameInTable="columnOver_hol_hours" msprop:Generator_ColumnPropNameInTable="Over_hol_hoursColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_amount" msprop:Generator_UserColumnName="Over hol amount" msprop:Generator_ColumnPropNameInRow="Over_hol_amount" msprop:Generator_ColumnVarNameInTable="columnOver_hol_amount" msprop:Generator_ColumnPropNameInTable="Over_hol_amountColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_hours_x0020_2" msprop:Generator_UserColumnName="Over hol hours 2" msprop:Generator_ColumnPropNameInRow="Over_hol_hours_2" msprop:Generator_ColumnVarNameInTable="columnOver_hol_hours_2" msprop:Generator_ColumnPropNameInTable="Over_hol_hours_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_amount_x0020_2" msprop:Generator_UserColumnName="Over hol amount 2" msprop:Generator_ColumnPropNameInRow="Over_hol_amount_2" msprop:Generator_ColumnVarNameInTable="columnOver_hol_amount_2" msprop:Generator_ColumnPropNameInTable="Over_hol_amount_2Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Over_x0020_hol_x0020_total" msprop:Generator_UserColumnName="Over hol total" msprop:Generator_ColumnPropNameInRow="Over_hol_total" msprop:Generator_ColumnVarNameInTable="columnOver_hol_total" msprop:Generator_ColumnPropNameInTable="Over_hol_totalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Overtime" msprop:Generator_UserColumnName="Total Overtime" msprop:Generator_ColumnPropNameInRow="Total_Overtime" msprop:Generator_ColumnVarNameInTable="columnTotal_Overtime" msprop:Generator_ColumnPropNameInTable="Total_OvertimeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Salary" msprop:Generator_UserColumnName="Salary" msprop:Generator_ColumnPropNameInRow="Salary" msprop:Generator_ColumnVarNameInTable="columnSalary" msprop:Generator_ColumnPropNameInTable="SalaryColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Martial_x0020_Status" msprop:Generator_UserColumnName="Medical Martial Status" msprop:Generator_ColumnPropNameInRow="Medical_Martial_Status" msprop:Generator_ColumnVarNameInTable="columnMedical_Martial_Status" msprop:Generator_ColumnPropNameInTable="Medical_Martial_StatusColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Jamsos_x0020_Rate" msprop:Generator_UserColumnName="Medical Jamsos Rate" msprop:Generator_ColumnPropNameInRow="Medical_Jamsos_Rate" msprop:Generator_ColumnVarNameInTable="columnMedical_Jamsos_Rate" msprop:Generator_ColumnPropNameInTable="Medical_Jamsos_RateColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Jamsos_x0020_JPK" msprop:Generator_UserColumnName="Medical Jamsos JPK" msprop:Generator_ColumnPropNameInRow="Medical_Jamsos_JPK" msprop:Generator_ColumnVarNameInTable="columnMedical_Jamsos_JPK" msprop:Generator_ColumnPropNameInTable="Medical_Jamsos_JPKColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Claim" msprop:Generator_UserColumnName="Medical Claim" msprop:Generator_ColumnPropNameInRow="Medical_Claim" msprop:Generator_ColumnVarNameInTable="columnMedical_Claim" msprop:Generator_ColumnPropNameInTable="Medical_ClaimColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Medical_x0020_Total" msprop:Generator_UserColumnName="Medical Total" msprop:Generator_ColumnPropNameInRow="Medical_Total" msprop:Generator_ColumnVarNameInTable="columnMedical_Total" msprop:Generator_ColumnPropNameInTable="Medical_TotalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Allow_x0020_Child" msprop:Generator_UserColumnName="Allow Child" msprop:Generator_ColumnPropNameInRow="Allow_Child" msprop:Generator_ColumnVarNameInTable="columnAllow_Child" msprop:Generator_ColumnPropNameInTable="Allow_ChildColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Allow_x0020_Tunj_x0020_Lainnya" msprop:Generator_UserColumnName="Allow Tunj Lainnya" msprop:Generator_ColumnPropNameInRow="Allow_Tunj_Lainnya" msprop:Generator_ColumnVarNameInTable="columnAllow_Tunj_Lainnya" msprop:Generator_ColumnPropNameInTable="Allow_Tunj_LainnyaColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Other_x0020_Income_x0020_WO_x0020_Medical" msprop:Generator_UserColumnName="Total Other Income WO Medical" msprop:Generator_ColumnPropNameInRow="Total_Other_Income_WO_Medical" msprop:Generator_ColumnVarNameInTable="columnTotal_Other_Income_WO_Medical" msprop:Generator_ColumnPropNameInTable="Total_Other_Income_WO_MedicalColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Other_x0020_Income" msprop:Generator_UserColumnName="Total Other Income" msprop:Generator_ColumnPropNameInRow="Total_Other_Income" msprop:Generator_ColumnVarNameInTable="columnTotal_Other_Income" msprop:Generator_ColumnPropNameInTable="Total_Other_IncomeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Income" msprop:Generator_UserColumnName="Total Income" msprop:Generator_ColumnPropNameInRow="Total_Income" msprop:Generator_ColumnVarNameInTable="columnTotal_Income" msprop:Generator_ColumnPropNameInTable="Total_IncomeColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Other_x0020_Income_x0020_Incentive" msprop:Generator_UserColumnName="Other Income Incentive" msprop:Generator_ColumnPropNameInRow="Other_Income_Incentive" msprop:Generator_ColumnVarNameInTable="columnOther_Income_Incentive" msprop:Generator_ColumnPropNameInTable="Other_Income_IncentiveColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Other_x0020_Income_x0020_THR_x0020_Bonus" msprop:Generator_UserColumnName="Other Income THR Bonus" msprop:Generator_ColumnPropNameInRow="Other_Income_THR_Bonus" msprop:Generator_ColumnVarNameInTable="columnOther_Income_THR_Bonus" msprop:Generator_ColumnPropNameInTable="Other_Income_THR_BonusColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Other_x0020_Income_x0020_Others" msprop:Generator_UserColumnName="Other Income Others" msprop:Generator_ColumnPropNameInRow="Other_Income_Others" msprop:Generator_ColumnVarNameInTable="columnOther_Income_Others" msprop:Generator_ColumnPropNameInTable="Other_Income_OthersColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Jamstek_x0020_6" msprop:Generator_UserColumnName="Jamstek 6" msprop:Generator_ColumnPropNameInRow="Jamstek_6" msprop:Generator_ColumnVarNameInTable="columnJamstek_6" msprop:Generator_ColumnPropNameInTable="Jamstek_6Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Jamstek_x0020_3" msprop:Generator_UserColumnName="Jamstek 3" msprop:Generator_ColumnPropNameInRow="Jamstek_3" msprop:Generator_ColumnVarNameInTable="columnJamstek_3" msprop:Generator_ColumnPropNameInTable="Jamstek_3Column" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_Income_x0020_Bruto" msprop:Generator_UserColumnName="Total Income Bruto" msprop:Generator_ColumnPropNameInRow="Total_Income_Bruto" msprop:Generator_ColumnVarNameInTable="columnTotal_Income_Bruto" msprop:Generator_ColumnPropNameInTable="Total_Income_BrutoColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Biaya_x0020_Jabatan_x0020_Tdk_x0020_Teratur" msprop:Generator_UserColumnName="Biaya Jabatan Tdk Teratur" msprop:Generator_ColumnPropNameInRow="Biaya_Jabatan_Tdk_Teratur" msprop:Generator_ColumnVarNameInTable="columnBiaya_Jabatan_Tdk_Teratur" msprop:Generator_ColumnPropNameInTable="Biaya_Jabatan_Tdk_TeraturColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Biaya_x0020_Jabatan_x0020_Teratur" msprop:Generator_UserColumnName="Biaya Jabatan Teratur" msprop:Generator_ColumnPropNameInRow="Biaya_Jabatan_Teratur" msprop:Generator_ColumnVarNameInTable="columnBiaya_Jabatan_Teratur" msprop:Generator_ColumnPropNameInTable="Biaya_Jabatan_TeraturColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Biaya_x0020_Jabatan_x0020_SPT" msprop:Generator_UserColumnName="Biaya Jabatan SPT" msprop:Generator_ColumnPropNameInRow="Biaya_Jabatan_SPT" msprop:Generator_ColumnVarNameInTable="columnBiaya_Jabatan_SPT" msprop:Generator_ColumnPropNameInTable="Biaya_Jabatan_SPTColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Jumlah_x0020_Pengurangan" msprop:Generator_UserColumnName="Jumlah Pengurangan" msprop:Generator_ColumnPropNameInRow="Jumlah_Pengurangan" msprop:Generator_ColumnVarNameInTable="columnJumlah_Pengurangan" msprop:Generator_ColumnPropNameInTable="Jumlah_PenguranganColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Pdp_x0020_Netto_x0020_All" msprop:Generator_UserColumnName="Pdp Netto All" msprop:Generator_ColumnPropNameInRow="Pdp_Netto_All" msprop:Generator_ColumnVarNameInTable="columnPdp_Netto_All" msprop:Generator_ColumnPropNameInTable="Pdp_Netto_AllColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="P_x0020_Netto_x0020_Teratur_x0020_Teratur" msprop:Generator_UserColumnName="P Netto Teratur Teratur" msprop:Generator_ColumnPropNameInRow="P_Netto_Teratur_Teratur" msprop:Generator_ColumnVarNameInTable="columnP_Netto_Teratur_Teratur" msprop:Generator_ColumnPropNameInTable="P_Netto_Teratur_TeraturColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="P_x0020_Netto_x0020_Teratur_x0020_Disetahunkan" msprop:Generator_UserColumnName="P Netto Teratur Disetahunkan" msprop:Generator_ColumnPropNameInRow="P_Netto_Teratur_Disetahunkan" msprop:Generator_ColumnVarNameInTable="columnP_Netto_Teratur_Disetahunkan" msprop:Generator_ColumnPropNameInTable="P_Netto_Teratur_DisetahunkanColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="P_x0020_Netto_x0020_Tdk_x0020_Teratur" msprop:Generator_UserColumnName="P Netto Tdk Teratur" msprop:Generator_ColumnPropNameInRow="P_Netto_Tdk_Teratur" msprop:Generator_ColumnVarNameInTable="columnP_Netto_Tdk_Teratur" msprop:Generator_ColumnPropNameInTable="P_Netto_Tdk_TeraturColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Total_x0020_P_x0020_Netto" msprop:Generator_UserColumnName="Total P Netto" msprop:Generator_ColumnPropNameInRow="Total_P_Netto" msprop:Generator_ColumnVarNameInTable="columnTotal_P_Netto" msprop:Generator_ColumnPropNameInTable="Total_P_NettoColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="PTKP_x0020_Amount" msprop:Generator_UserColumnName="PTKP Amount" msprop:Generator_ColumnPropNameInRow="PTKP_Amount" msprop:Generator_ColumnVarNameInTable="columnPTKP_Amount" msprop:Generator_ColumnPropNameInTable="PTKP_AmountColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="PKP_x0020_P_x0020_Kena_x0020_Pajak" msprop:Generator_UserColumnName="PKP P Kena Pajak" msprop:Generator_ColumnPropNameInRow="PKP_P_Kena_Pajak" msprop:Generator_ColumnVarNameInTable="columnPKP_P_Kena_Pajak" msprop:Generator_ColumnPropNameInTable="PKP_P_Kena_PajakColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="PPh_x0020_21_x0020_Tarif" msprop:Generator_UserColumnName="PPh 21 Tarif" msprop:Generator_ColumnPropNameInRow="PPh_21_Tarif" msprop:Generator_ColumnVarNameInTable="columnPPh_21_Tarif" msprop:Generator_ColumnPropNameInTable="PPh_21_TarifColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="PPh_x0020_21_x0020_Dibulatkan" msprop:Generator_UserColumnName="PPh 21 Dibulatkan" msprop:Generator_ColumnPropNameInRow="PPh_21_Dibulatkan" msprop:Generator_ColumnVarNameInTable="columnPPh_21_Dibulatkan" msprop:Generator_ColumnPropNameInTable="PPh_21_DibulatkanColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="PPh_x0020_21_x0020_Perbulan" msprop:Generator_UserColumnName="PPh 21 Perbulan" msprop:Generator_ColumnPropNameInRow="PPh_21_Perbulan" msprop:Generator_ColumnVarNameInTable="columnPPh_21_Perbulan" msprop:Generator_ColumnPropNameInTable="PPh_21_PerbulanColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Tanggal_x0020_Transaksi_x0020_Salary" msprop:Generator_UserColumnName="Tanggal Transaksi Salary" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi_Salary" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi_Salary" msprop:Generator_ColumnPropNameInTable="Tanggal_Transaksi_SalaryColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+              <xs:element name="Primary_x0020_Salary" msprop:Generator_UserColumnName="Primary Salary" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary" msprop:Generator_ColumnPropNameInRow="Primary_Salary" msprop:Generator_ColumnPropNameInTable="Primary_SalaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="PTKP_x0020_Family_1" msprop:Generator_UserColumnName="PTKP Family_1" msprop:Generator_ColumnPropNameInRow="PTKP_Family_1" msprop:Generator_ColumnVarNameInTable="columnPTKP_Family_1" msprop:Generator_ColumnPropNameInTable="PTKP_Family_1Column" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TBLHitung_Medical_Claim" msprop:Generator_UserTableName="TBLHitung_Medical_Claim" msprop:Generator_RowDeletedName="TBLHitung_Medical_ClaimRowDeleted" msprop:Generator_RowChangedName="TBLHitung_Medical_ClaimRowChanged" msprop:Generator_RowClassName="TBLHitung_Medical_ClaimRow" msprop:Generator_RowChangingName="TBLHitung_Medical_ClaimRowChanging" msprop:Generator_RowEvArgName="TBLHitung_Medical_ClaimRowChangeEvent" msprop:Generator_RowEvHandlerName="TBLHitung_Medical_ClaimRowChangeEventHandler" msprop:Generator_TableClassName="TBLHitung_Medical_ClaimDataTable" msprop:Generator_TableVarName="tableTBLHitung_Medical_Claim" msprop:Generator_RowDeletingName="TBLHitung_Medical_ClaimRowDeleting" msprop:Generator_TablePropName="TBLHitung_Medical_Claim">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Slip_x0020_Desc" msprop:Generator_UserColumnName="Primary Slip Desc" msprop:Generator_ColumnPropNameInRow="Primary_Slip_Desc" msprop:Generator_ColumnVarNameInTable="columnPrimary_Slip_Desc" msprop:Generator_ColumnPropNameInTable="Primary_Slip_DescColumn" type="xs:double" />
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workshift_item" msprop:Generator_UserTableName="tblmaster_workshift_item" msprop:Generator_RowDeletedName="tblmaster_workshift_itemRowDeleted" msprop:Generator_RowChangedName="tblmaster_workshift_itemRowChanged" msprop:Generator_RowClassName="tblmaster_workshift_itemRow" msprop:Generator_RowChangingName="tblmaster_workshift_itemRowChanging" msprop:Generator_RowEvArgName="tblmaster_workshift_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workshift_itemRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workshift_itemDataTable" msprop:Generator_TableVarName="tabletblmaster_workshift_item" msprop:Generator_RowDeletingName="tblmaster_workshift_itemRowDeleting" msprop:Generator_TablePropName="tblmaster_workshift_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_transaksi" msprop:Generator_UserColumnName="primary transaksi" msprop:Generator_ColumnPropNameInRow="primary_transaksi" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi" msprop:Generator_ColumnPropNameInTable="primary_transaksiColumn" type="xs:double" />
+              <xs:element name="day_x0020_of_x0020_week" msprop:Generator_UserColumnName="day of week" msprop:Generator_ColumnPropNameInRow="day_of_week" msprop:Generator_ColumnVarNameInTable="columnday_of_week" msprop:Generator_ColumnPropNameInTable="day_of_weekColumn" type="xs:int" />
+              <xs:element name="tipe_x0020_workdays" msprop:Generator_UserColumnName="tipe workdays" msprop:Generator_ColumnPropNameInRow="tipe_workdays" msprop:Generator_ColumnVarNameInTable="columntipe_workdays" msprop:Generator_ColumnPropNameInTable="tipe_workdaysColumn" type="xs:int" />
+              <xs:element name="tipe_x0020_overtime" msprop:Generator_UserColumnName="tipe overtime" msprop:Generator_ColumnPropNameInRow="tipe_overtime" msprop:Generator_ColumnVarNameInTable="columntipe_overtime" msprop:Generator_ColumnPropNameInTable="tipe_overtimeColumn" type="xs:int" />
+              <xs:element name="schedule_x0020_in" msprop:Generator_UserColumnName="schedule in" msprop:Generator_ColumnPropNameInRow="schedule_in" msprop:Generator_ColumnVarNameInTable="columnschedule_in" msprop:Generator_ColumnPropNameInTable="schedule_inColumn" type="xs:double" />
+              <xs:element name="schedule_x0020_out" msprop:Generator_UserColumnName="schedule out" msprop:Generator_ColumnPropNameInRow="schedule_out" msprop:Generator_ColumnVarNameInTable="columnschedule_out" msprop:Generator_ColumnPropNameInTable="schedule_outColumn" type="xs:double" />
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="duratioin" msprop:Generator_UserColumnName="duratioin" msprop:Generator_ColumnPropNameInRow="duratioin" msprop:Generator_ColumnVarNameInTable="columnduratioin" msprop:Generator_ColumnPropNameInTable="duratioinColumn" type="xs:int" />
+              <xs:element name="schedule_x0020_break_x0020_out" msprop:Generator_UserColumnName="schedule break out" msprop:Generator_ColumnPropNameInRow="schedule_break_out" msprop:Generator_ColumnVarNameInTable="columnschedule_break_out" msprop:Generator_ColumnPropNameInTable="schedule_break_outColumn" type="xs:double" />
+              <xs:element name="schedule_x0020_break_x0020_in" msprop:Generator_UserColumnName="schedule break in" msprop:Generator_ColumnPropNameInRow="schedule_break_in" msprop:Generator_ColumnVarNameInTable="columnschedule_break_in" msprop:Generator_ColumnPropNameInTable="schedule_break_inColumn" type="xs:double" />
+              <xs:element name="break_x0020_duration" msprop:Generator_UserColumnName="break duration" msprop:Generator_ColumnPropNameInRow="break_duration" msprop:Generator_ColumnVarNameInTable="columnbreak_duration" msprop:Generator_ColumnPropNameInTable="break_durationColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workshift_itemholiday" msprop:Generator_UserTableName="tblmaster_workshift_itemholiday" msprop:Generator_RowDeletedName="tblmaster_workshift_itemholidayRowDeleted" msprop:Generator_RowChangedName="tblmaster_workshift_itemholidayRowChanged" msprop:Generator_RowClassName="tblmaster_workshift_itemholidayRow" msprop:Generator_RowChangingName="tblmaster_workshift_itemholidayRowChanging" msprop:Generator_RowEvArgName="tblmaster_workshift_itemholidayRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workshift_itemholidayRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workshift_itemholidayDataTable" msprop:Generator_TableVarName="tabletblmaster_workshift_itemholiday" msprop:Generator_RowDeletingName="tblmaster_workshift_itemholidayRowDeleting" msprop:Generator_TablePropName="tblmaster_workshift_itemholiday">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_transaksi" msprop:Generator_UserColumnName="primary transaksi" msprop:Generator_ColumnPropNameInRow="primary_transaksi" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi" msprop:Generator_ColumnPropNameInTable="primary_transaksiColumn" type="xs:double" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" />
+              <xs:element name="holiday_x0020_description" msprop:Generator_UserColumnName="holiday description" msprop:Generator_ColumnPropNameInRow="holiday_description" msprop:Generator_ColumnVarNameInTable="columnholiday_description" msprop:Generator_ColumnPropNameInTable="holiday_descriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_leave" msprop:Generator_UserColumnName="primary leave" msprop:Generator_ColumnPropNameInRow="primary_leave" msprop:Generator_ColumnVarNameInTable="columnprimary_leave" msprop:Generator_ColumnPropNameInTable="primary_leaveColumn" type="xs:double" />
+              <xs:element name="tipe_x0020_overtime" msprop:Generator_UserColumnName="tipe overtime" msprop:Generator_ColumnPropNameInRow="tipe_overtime" msprop:Generator_ColumnVarNameInTable="columntipe_overtime" msprop:Generator_ColumnPropNameInTable="tipe_overtimeColumn" type="xs:int" />
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="duration" msprop:Generator_UserColumnName="duration" msprop:Generator_ColumnPropNameInRow="duration" msprop:Generator_ColumnVarNameInTable="columnduration" msprop:Generator_ColumnPropNameInTable="durationColumn" type="xs:int" />
+              <xs:element name="sch_x0020_in" msprop:Generator_UserColumnName="sch in" msprop:Generator_ColumnPropNameInRow="sch_in" msprop:Generator_ColumnVarNameInTable="columnsch_in" msprop:Generator_ColumnPropNameInTable="sch_inColumn" type="xs:double" />
+              <xs:element name="sch_x0020_out" msprop:Generator_UserColumnName="sch out" msprop:Generator_ColumnPropNameInRow="sch_out" msprop:Generator_ColumnVarNameInTable="columnsch_out" msprop:Generator_ColumnPropNameInTable="sch_outColumn" type="xs:double" />
+              <xs:element name="schedule_x0020_break_x0020_out" msprop:Generator_UserColumnName="schedule break out" msprop:Generator_ColumnPropNameInRow="schedule_break_out" msprop:Generator_ColumnVarNameInTable="columnschedule_break_out" msprop:Generator_ColumnPropNameInTable="schedule_break_outColumn" type="xs:double" />
+              <xs:element name="schedule_x0020_break_x0020_in" msprop:Generator_UserColumnName="schedule break in" msprop:Generator_ColumnPropNameInRow="schedule_break_in" msprop:Generator_ColumnVarNameInTable="columnschedule_break_in" msprop:Generator_ColumnPropNameInTable="schedule_break_inColumn" type="xs:double" />
+              <xs:element name="break_x0020_duration" msprop:Generator_UserColumnName="break duration" msprop:Generator_ColumnPropNameInRow="break_duration" msprop:Generator_ColumnVarNameInTable="columnbreak_duration" msprop:Generator_ColumnPropNameInTable="break_durationColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salary_laporanincometax_igi" msprop:Generator_UserTableName="tbltrans_salary_laporanincometax_igi" msprop:Generator_RowDeletedName="tbltrans_salary_laporanincometax_igiRowDeleted" msprop:Generator_RowChangedName="tbltrans_salary_laporanincometax_igiRowChanged" msprop:Generator_RowClassName="tbltrans_salary_laporanincometax_igiRow" msprop:Generator_RowChangingName="tbltrans_salary_laporanincometax_igiRowChanging" msprop:Generator_RowEvArgName="tbltrans_salary_laporanincometax_igiRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salary_laporanincometax_igiRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salary_laporanincometax_igiDataTable" msprop:Generator_TableVarName="tabletbltrans_salary_laporanincometax_igi" msprop:Generator_RowDeletingName="tbltrans_salary_laporanincometax_igiRowDeleting" msprop:Generator_TablePropName="tbltrans_salary_laporanincometax_igi">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Transaksi_x0020_Salary" msprop:Generator_UserColumnName="Tanggal Transaksi Salary" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi_Salary" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi_Salary" msprop:Generator_ColumnPropNameInTable="Tanggal_Transaksi_SalaryColumn" type="xs:dateTime" />
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Tbl_Overtime_Round_IGI" msprop:Generator_UserTableName="Tbl_Overtime_Round_IGI" msprop:Generator_RowDeletedName="Tbl_Overtime_Round_IGIRowDeleted" msprop:Generator_RowChangedName="Tbl_Overtime_Round_IGIRowChanged" msprop:Generator_RowClassName="Tbl_Overtime_Round_IGIRow" msprop:Generator_RowChangingName="Tbl_Overtime_Round_IGIRowChanging" msprop:Generator_RowEvArgName="Tbl_Overtime_Round_IGIRowChangeEvent" msprop:Generator_RowEvHandlerName="Tbl_Overtime_Round_IGIRowChangeEventHandler" msprop:Generator_TableClassName="Tbl_Overtime_Round_IGIDataTable" msprop:Generator_TableVarName="tableTbl_Overtime_Round_IGI" msprop:Generator_RowDeletingName="Tbl_Overtime_Round_IGIRowDeleting" msprop:Generator_TablePropName="Tbl_Overtime_Round_IGI">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Salary" msprop:Generator_UserColumnName="Primary Salary" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary" msprop:Generator_ColumnPropNameInRow="Primary_Salary" msprop:Generator_ColumnPropNameInTable="Primary_SalaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Slip_x0020_Desc" msprop:Generator_UserColumnName="Primary Slip Desc" msprop:Generator_ColumnVarNameInTable="columnPrimary_Slip_Desc" msprop:Generator_ColumnPropNameInRow="Primary_Slip_Desc" msprop:Generator_ColumnPropNameInTable="Primary_Slip_DescColumn" type="xs:double" />
+              <xs:element name="Rounding_x0020_Unit" msprop:Generator_UserColumnName="Rounding Unit" msprop:Generator_ColumnVarNameInTable="columnRounding_Unit" msprop:Generator_ColumnPropNameInRow="Rounding_Unit" msprop:Generator_ColumnPropNameInTable="Rounding_UnitColumn" type="xs:decimal" />
+              <xs:element name="Rounding_x0020_Type" msprop:Generator_UserColumnName="Rounding Type" msprop:Generator_ColumnVarNameInTable="columnRounding_Type" msprop:Generator_ColumnPropNameInRow="Rounding_Type" msprop:Generator_ColumnPropNameInTable="Rounding_TypeColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataHeader" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_salary_employee_d_igi_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_salary_employee_d_igi" />
+      <xs:field xpath="mstns:primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_workshift_item_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_workshift_item" />
+      <xs:field xpath="mstns:primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_workshift_itemholiday_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_workshift_itemholiday" />
+      <xs:field xpath="mstns:primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_salary_laporanincometax_igi_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_salary_laporanincometax_igi" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

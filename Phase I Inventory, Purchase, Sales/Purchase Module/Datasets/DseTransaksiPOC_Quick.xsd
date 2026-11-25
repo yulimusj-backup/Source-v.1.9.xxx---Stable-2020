@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTransaksiPOC_Quick" targetNamespace="http://tempuri.org/DseTransaksiPOC_Quick.xsd" xmlns:mstns="http://tempuri.org/DseTransaksiPOC_Quick.xsd" xmlns="http://tempuri.org/DseTransaksiPOC_Quick.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Purchase_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_po_item.`Primary Transaksi` AS `Primary PO`, tbltrans_po_item.`Primary Product`, tbltrans_po_item.`Unit Price`, tbltrans_po_item.Discount, tbltrans_po_item.`Nett Price`, tbltrans_po_item.`Use Secondary`, 
+                 tbltrans_po.`No Transaksi` AS `PO No`, tbltrans_po.`Tanggal Transaksi` AS `PO Date`, tblmaster_currency.`Currency Code`, tblmaster_currency.Description AS `Currency Description`, 
+                 tblmaster_master_unit.`Unit Code` AS `Unit Code Default`, tblmaster_master_unit.Description AS `Unit Desc Default`, tblmaster_currency.`Default Precision`, tblmaster_product.`Decimal` AS `Decimal Product`, 
+                 tbltrans_po.`Primary Supplier`, tbltrans_po_item.`Primary IPO`, tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, tbltrans_po.`Payment Term`, tbltrans_po_item.`POB Multi`, 
+                 tbltrans_po_item.`Tolerance Down`, tbltrans_po_item.`Tolerance Up`, tbltrans_po_item.`Primary Unit Multi`, tbltrans_po_item.`Primary Units` AS `Primary Unit Default`, IFNULL(tblmaster_master_unit_1.`Unit Code`, '') 
+                 AS `Unit Code`, IFNULL(tblmaster_master_unit_1.Description, '') AS `Unit Description`, tbltrans_po_item.Qty AS `Total Qty Default`, tbltrans_po_item.`Ratio Default`, tbltrans_po_item.`Ratio Reference`, 
+                 tbltrans_po_item.Amount, tbltrans_po_item.`Disc Amount`, tbltrans_po.`Created By`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, 
+                 tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Primary` AS `Primary Group`, tblmaster_product_item_multiunit.`Default Precision` AS `Decimal Multi`, 
+                 tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Description`
+FROM    tbltrans_po_item INNER JOIN
+                 tbltrans_po ON tbltrans_po_item.`Primary Transaksi` = tbltrans_po.`Primary` INNER JOIN
+                 tblmaster_currency ON tbltrans_po.`Primary Currency` = tblmaster_currency.`Primary` INNER JOIN
+                 tblmaster_master_unit ON tbltrans_po_item.`Primary Units` = tblmaster_master_unit.`Primary` INNER JOIN
+                 tblmaster_product ON tbltrans_po_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                 tblmaster_supplier ON tbltrans_po.`Primary Supplier` = tblmaster_supplier.`Primary` INNER JOIN
+                 tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                 tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                 tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` LEFT OUTER JOIN
+                 tblmaster_product_item_multiunit ON tblmaster_product.`Primary` = tblmaster_product_item_multiunit.`Primary Product` AND 
+                 tbltrans_po_item.`Primary Unit Multi` = tblmaster_product_item_multiunit.`Primary Unit` LEFT OUTER JOIN
+                 tblmaster_master_unit tblmaster_master_unit_1 ON tbltrans_po_item.`Primary Unit Multi` = tblmaster_master_unit_1.`Primary`
+ORDER BY `PO Date`, `PO No`, tblmaster_supplier.`Supplier Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary PO" DataSetColumn="Primary PO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Unit Price" DataSetColumn="Unit Price" />
+              <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
+              <Mapping SourceColumn="Nett Price" DataSetColumn="Nett Price" />
+              <Mapping SourceColumn="Use Secondary" DataSetColumn="Use Secondary" />
+              <Mapping SourceColumn="PO No" DataSetColumn="PO No" />
+              <Mapping SourceColumn="PO Date" DataSetColumn="PO Date" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Currency Description" DataSetColumn="Currency Description" />
+              <Mapping SourceColumn="Unit Code Default" DataSetColumn="Unit Code Default" />
+              <Mapping SourceColumn="Unit Desc Default" DataSetColumn="Unit Desc Default" />
+              <Mapping SourceColumn="Default Precision" DataSetColumn="Default Precision" />
+              <Mapping SourceColumn="Decimal Product" DataSetColumn="Decimal Product" />
+              <Mapping SourceColumn="Primary Supplier" DataSetColumn="Primary Supplier" />
+              <Mapping SourceColumn="Primary IPO" DataSetColumn="Primary IPO" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+              <Mapping SourceColumn="Payment Term" DataSetColumn="Payment Term" />
+              <Mapping SourceColumn="POB Multi" DataSetColumn="POB Multi" />
+              <Mapping SourceColumn="Tolerance Down" DataSetColumn="Tolerance Down" />
+              <Mapping SourceColumn="Tolerance Up" DataSetColumn="Tolerance Up" />
+              <Mapping SourceColumn="Primary Unit Multi" DataSetColumn="Primary Unit Multi" />
+              <Mapping SourceColumn="Primary Unit Default" DataSetColumn="Primary Unit Default" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Unit Description" DataSetColumn="Unit Description" />
+              <Mapping SourceColumn="Total Qty Default" DataSetColumn="Total Qty Default" />
+              <Mapping SourceColumn="Ratio Default" DataSetColumn="Ratio Default" />
+              <Mapping SourceColumn="Ratio Reference" DataSetColumn="Ratio Reference" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Disc Amount" DataSetColumn="Disc Amount" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="Decimal Multi" DataSetColumn="Decimal Multi" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Product Description" DataSetColumn="Product Description" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_All" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_All" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_All">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_po_item.`Primary Transaksi` AS `Primary PO`, tbltrans_po_item.`Primary Product`, tbltrans_po_item.`Unit Price`, tbltrans_po_item.Discount, tbltrans_po_item.`Nett Price`, tbltrans_po_item.`Use Secondary`, 
+                 tbltrans_po.`No Transaksi` AS `PO No`, tbltrans_po.`Tanggal Transaksi` AS `PO Date`, tblmaster_currency.`Currency Code`, tblmaster_currency.Description AS `Currency Description`, 
+                 tblmaster_master_unit.`Unit Code` AS `Unit Code Default`, tblmaster_master_unit.Description AS `Unit Desc Default`, tblmaster_currency.`Default Precision`, tblmaster_product.`Decimal` AS `Decimal Product`, 
+                 tbltrans_po.`Primary Supplier`, tbltrans_po_item.`Primary IPO`, tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, tbltrans_po.`Payment Term`, tbltrans_po_item.`POB Multi`, 
+                 tbltrans_po_item.`Tolerance Down`, tbltrans_po_item.`Tolerance Up`, tbltrans_po_item.`Primary Unit Multi`, tbltrans_po_item.`Primary Units` AS `Primary Unit Default`, IFNULL(tblmaster_master_unit_1.`Unit Code`, '') 
+                 AS `Unit Code`, IFNULL(tblmaster_master_unit_1.Description, '') AS `Unit Description`, tbltrans_po_item.Qty AS `Total Qty Default`, tbltrans_po_item.`Ratio Default`, tbltrans_po_item.`Ratio Reference`, 
+                 tbltrans_po_item.Amount, tbltrans_po_item.`Disc Amount`, tbltrans_po.`Created By`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, 
+                 tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Primary` AS `Primary Group`, IFNULL(tblmaster_product_item_multiunit.`Default Precision`, 
+                 tblmaster_product.`Decimal`) AS `Decimal Multi`, tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Description`
+FROM    tbltrans_po_item INNER JOIN
+                 tbltrans_po ON tbltrans_po_item.`Primary Transaksi` = tbltrans_po.`Primary` INNER JOIN
+                 tblmaster_currency ON tbltrans_po.`Primary Currency` = tblmaster_currency.`Primary` INNER JOIN
+                 tblmaster_master_unit ON tbltrans_po_item.`Primary Units` = tblmaster_master_unit.`Primary` INNER JOIN
+                 tblmaster_product ON tbltrans_po_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                 tblmaster_supplier ON tbltrans_po.`Primary Supplier` = tblmaster_supplier.`Primary` INNER JOIN
+                 tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                 tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                 tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` LEFT OUTER JOIN
+                 tblmaster_product_item_multiunit ON tblmaster_product.`Primary` = tblmaster_product_item_multiunit.`Primary Product` AND 
+                 tbltrans_po_item.`Primary Unit Multi` = tblmaster_product_item_multiunit.`Primary Unit` LEFT OUTER JOIN
+                 tblmaster_master_unit tblmaster_master_unit_1 ON tbltrans_po_item.`Primary Unit Multi` = tblmaster_master_unit_1.`Primary`
+WHERE (tbltrans_po.`Tanggal Transaksi` &gt;= @TglDari) AND (tbltrans_po.`Tanggal Transaksi` &lt;= @TglSampai) AND (tbltrans_po_item.`POB Multi` - tbltrans_po_item.`Tolerance Down` &gt; 0)
+ORDER BY `PO Date`, `PO No`, tblmaster_supplier.`Supplier Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt.tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt.tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_All_UpTolerance" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_All_UpTolerance" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_All_UpTolerance">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_po_item.`Primary Transaksi` AS `Primary PO`, tbltrans_po_item.`Primary Product`, tbltrans_po_item.`Unit Price`, tbltrans_po_item.Discount, tbltrans_po_item.`Nett Price`, tbltrans_po_item.`Use Secondary`, 
+                  tbltrans_po.`No Transaksi` AS `PO No`, tbltrans_po.`Tanggal Transaksi` AS `PO Date`, tblmaster_currency.`Currency Code`, tblmaster_currency.Description AS `Currency Description`, 
+                  tblmaster_master_unit.`Unit Code` AS `Unit Code Default`, tblmaster_master_unit.Description AS `Unit Desc Default`, tblmaster_currency.`Default Precision`, tblmaster_product.`Decimal` AS `Decimal Product`, 
+                  tbltrans_po.`Primary Supplier`, tbltrans_po_item.`Primary IPO`, tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, tbltrans_po.`Payment Term`, tbltrans_po_item.`POB Multi`, tbltrans_po_item.`Tolerance Down`, 
+                  tbltrans_po_item.`Tolerance Up`, tbltrans_po_item.`Primary Unit Multi`, tbltrans_po_item.`Primary Units` AS `Primary Unit Default`, IFNULL(tblmaster_master_unit_1.`Unit Code`, '') AS `Unit Code`, 
+                  IFNULL(tblmaster_master_unit_1.Description, '') AS `Unit Description`, tbltrans_po_item.Qty AS `Total Qty Default`, tbltrans_po_item.`Ratio Default`, tbltrans_po_item.`Ratio Reference`, tbltrans_po_item.Amount, 
+                  tbltrans_po_item.`Disc Amount`, tbltrans_po.`Created By`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, 
+                  tblmaster_product_group_1.`Primary` AS `Primary Group`, IFNULL(tblmaster_product_item_multiunit.`Default Precision`, tblmaster_product.`Decimal`) AS `Decimal Multi`, tblmaster_product.`Product Code`, 
+                  tblmaster_product.Description AS `Product Description`
+FROM     tbltrans_po_item INNER JOIN
+                  tbltrans_po ON tbltrans_po_item.`Primary Transaksi` = tbltrans_po.`Primary` INNER JOIN
+                  tblmaster_currency ON tbltrans_po.`Primary Currency` = tblmaster_currency.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tbltrans_po_item.`Primary Units` = tblmaster_master_unit.`Primary` INNER JOIN
+                  tblmaster_product ON tbltrans_po_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_supplier ON tbltrans_po.`Primary Supplier` = tblmaster_supplier.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                  tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` LEFT OUTER JOIN
+                  tblmaster_product_item_multiunit ON tblmaster_product.`Primary` = tblmaster_product_item_multiunit.`Primary Product` AND tbltrans_po_item.`Primary Unit Multi` = tblmaster_product_item_multiunit.`Primary Unit` LEFT OUTER JOIN
+                  tblmaster_master_unit tblmaster_master_unit_1 ON tbltrans_po_item.`Primary Unit Multi` = tblmaster_master_unit_1.`Primary`
+WHERE  (tbltrans_po.`Tanggal Transaksi` &gt;= @TglDari) AND (tbltrans_po.`Tanggal Transaksi` &lt;= @TglSampai) AND (tbltrans_po_item.`POB Multi` &gt; 0)
+ORDER BY `PO Date`, `PO No`, tblmaster_supplier.`Supplier Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt.tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt.tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryPO" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryPO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="FillBy_PrimaryPO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_po_item.`Primary Transaksi` AS `Primary PO`, tbltrans_po_item.`Primary Product`, tbltrans_po_item.`Unit Price`, tbltrans_po_item.Discount, tbltrans_po_item.`Nett Price`, tbltrans_po_item.`Use Secondary`, 
+                 tbltrans_po.`No Transaksi` AS `PO No`, tbltrans_po.`Tanggal Transaksi` AS `PO Date`, tblmaster_currency.`Currency Code`, tblmaster_currency.Description AS `Currency Description`, 
+                 tblmaster_master_unit.`Unit Code` AS `Unit Code Default`, tblmaster_master_unit.Description AS `Unit Desc Default`, tblmaster_currency.`Default Precision`, tblmaster_product.`Decimal` AS `Decimal Product`, 
+                 tbltrans_po.`Primary Supplier`, tbltrans_po_item.`Primary IPO`, tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, tbltrans_po.`Payment Term`, tbltrans_po_item.`POB Multi`, 
+                 tbltrans_po_item.`Tolerance Down`, tbltrans_po_item.`Tolerance Up`, tbltrans_po_item.`Primary Unit Multi`, tbltrans_po_item.`Primary Units` AS `Primary Unit Default`, IFNULL(tblmaster_master_unit_1.`Unit Code`, '') 
+                 AS `Unit Code`, IFNULL(tblmaster_master_unit_1.Description, '') AS `Unit Description`, tbltrans_po_item.Qty AS `Total Qty Default`, tbltrans_po_item.`Ratio Default`, tbltrans_po_item.`Ratio Reference`, 
+                 tbltrans_po_item.Amount, tbltrans_po_item.`Disc Amount`, tbltrans_po.`Created By`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, 
+                 tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Primary` AS `Primary Group`, IFNULL(tblmaster_product_item_multiunit.`Default Precision`, 
+                 tblmaster_product.`Decimal`) AS `Decimal Multi`, tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Description`
+FROM    tbltrans_po_item INNER JOIN
+                 tbltrans_po ON tbltrans_po_item.`Primary Transaksi` = tbltrans_po.`Primary` INNER JOIN
+                 tblmaster_currency ON tbltrans_po.`Primary Currency` = tblmaster_currency.`Primary` INNER JOIN
+                 tblmaster_master_unit ON tbltrans_po_item.`Primary Units` = tblmaster_master_unit.`Primary` INNER JOIN
+                 tblmaster_product ON tbltrans_po_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                 tblmaster_supplier ON tbltrans_po.`Primary Supplier` = tblmaster_supplier.`Primary` INNER JOIN
+                 tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                 tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                 tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` LEFT OUTER JOIN
+                 tblmaster_product_item_multiunit ON tblmaster_product.`Primary` = tblmaster_product_item_multiunit.`Primary Product` AND 
+                 tbltrans_po_item.`Primary Unit Multi` = tblmaster_product_item_multiunit.`Primary Unit` LEFT OUTER JOIN
+                 tblmaster_master_unit tblmaster_master_unit_1 ON tbltrans_po_item.`Primary Unit Multi` = tblmaster_master_unit_1.`Primary`
+WHERE (tbltrans_po.`Tanggal Transaksi` &gt;= @TglDari) AND (tbltrans_po.`Tanggal Transaksi` &lt;= @TglSampai) AND (tbltrans_po_item.`POB Multi` - tbltrans_po_item.`Tolerance Down` &gt; 0) AND 
+                 (tbltrans_po_item.`Primary Transaksi` = @PrimaryPO)
+ORDER BY `PO Date`, `PO No`, tblmaster_supplier.`Supplier Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt.tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt.tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary Transaksi" DataSourceName="smess_abt.tbltrans_po_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary PO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryPO_UpTolerance" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryPO_UpTolerance" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="FillBy_PrimaryPO_UpTolerance">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_po_item.`Primary Transaksi` AS `Primary PO`, tbltrans_po_item.`Primary Product`, tbltrans_po_item.`Unit Price`, tbltrans_po_item.Discount, tbltrans_po_item.`Nett Price`, tbltrans_po_item.`Use Secondary`, 
+                  tbltrans_po.`No Transaksi` AS `PO No`, tbltrans_po.`Tanggal Transaksi` AS `PO Date`, tblmaster_currency.`Currency Code`, tblmaster_currency.Description AS `Currency Description`, 
+                  tblmaster_master_unit.`Unit Code` AS `Unit Code Default`, tblmaster_master_unit.Description AS `Unit Desc Default`, tblmaster_currency.`Default Precision`, tblmaster_product.`Decimal` AS `Decimal Product`, 
+                  tbltrans_po.`Primary Supplier`, tbltrans_po_item.`Primary IPO`, tblmaster_supplier.`Supplier Code`, tblmaster_supplier.`Supplier Name`, tbltrans_po.`Payment Term`, tbltrans_po_item.`POB Multi`, tbltrans_po_item.`Tolerance Down`, 
+                  tbltrans_po_item.`Tolerance Up`, tbltrans_po_item.`Primary Unit Multi`, tbltrans_po_item.`Primary Units` AS `Primary Unit Default`, IFNULL(tblmaster_master_unit_1.`Unit Code`, '') AS `Unit Code`, 
+                  IFNULL(tblmaster_master_unit_1.Description, '') AS `Unit Description`, tbltrans_po_item.Qty AS `Total Qty Default`, tbltrans_po_item.`Ratio Default`, tbltrans_po_item.`Ratio Reference`, tbltrans_po_item.Amount, 
+                  tbltrans_po_item.`Disc Amount`, tbltrans_po.`Created By`, tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, 
+                  tblmaster_product_group_1.`Primary` AS `Primary Group`, IFNULL(tblmaster_product_item_multiunit.`Default Precision`, tblmaster_product.`Decimal`) AS `Decimal Multi`, tblmaster_product.`Product Code`, 
+                  tblmaster_product.Description AS `Product Description`
+FROM     tbltrans_po_item INNER JOIN
+                  tbltrans_po ON tbltrans_po_item.`Primary Transaksi` = tbltrans_po.`Primary` INNER JOIN
+                  tblmaster_currency ON tbltrans_po.`Primary Currency` = tblmaster_currency.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tbltrans_po_item.`Primary Units` = tblmaster_master_unit.`Primary` INNER JOIN
+                  tblmaster_product ON tbltrans_po_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                  tblmaster_supplier ON tbltrans_po.`Primary Supplier` = tblmaster_supplier.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                  tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` LEFT OUTER JOIN
+                  tblmaster_product_item_multiunit ON tblmaster_product.`Primary` = tblmaster_product_item_multiunit.`Primary Product` AND tbltrans_po_item.`Primary Unit Multi` = tblmaster_product_item_multiunit.`Primary Unit` LEFT OUTER JOIN
+                  tblmaster_master_unit tblmaster_master_unit_1 ON tbltrans_po_item.`Primary Unit Multi` = tblmaster_master_unit_1.`Primary`
+WHERE  (tbltrans_po.`Tanggal Transaksi` &gt;= @TglDari) AND (tbltrans_po.`Tanggal Transaksi` &lt;= @TglSampai) AND (tbltrans_po_item.`Primary Transaksi` = @PrimaryPO) AND (tbltrans_po_item.`POB Multi` &gt; 0)
+ORDER BY `PO Date`, `PO No`, tblmaster_supplier.`Supplier Code`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt.tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt.tbltrans_po" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="PO Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryPO" ColumnName="Primary Transaksi" DataSourceName="smess_abt.tbltrans_po_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryPO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary PO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTransaksiPOC_Quick" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTransaksiPOC_Quick" msprop:Generator_DataSetName="DseTransaksiPOC_Quick">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_PO" msprop:Generator_UserColumnName="Primary PO" msprop:Generator_ColumnPropNameInRow="Primary_PO" msprop:Generator_ColumnVarNameInTable="columnPrimary_PO" msprop:Generator_ColumnPropNameInTable="Primary_POColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Price" msprop:Generator_UserColumnName="Unit Price" msprop:Generator_ColumnPropNameInRow="Unit_Price" msprop:Generator_ColumnVarNameInTable="columnUnit_Price" msprop:Generator_ColumnPropNameInTable="Unit_PriceColumn" type="xs:decimal" />
+              <xs:element name="Discount" msprop:Generator_UserColumnName="Discount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" type="xs:double" />
+              <xs:element name="Nett_x0020_Price" msprop:Generator_UserColumnName="Nett Price" msprop:Generator_ColumnPropNameInRow="Nett_Price" msprop:Generator_ColumnVarNameInTable="columnNett_Price" msprop:Generator_ColumnPropNameInTable="Nett_PriceColumn" type="xs:decimal" />
+              <xs:element name="Use_x0020_Secondary" msprop:Generator_UserColumnName="Use Secondary" msprop:Generator_ColumnPropNameInRow="Use_Secondary" msprop:Generator_ColumnVarNameInTable="columnUse_Secondary" msprop:Generator_ColumnPropNameInTable="Use_SecondaryColumn" type="xs:boolean" />
+              <xs:element name="PO_x0020_No" msprop:Generator_UserColumnName="PO No" msprop:Generator_ColumnPropNameInRow="PO_No" msprop:Generator_ColumnVarNameInTable="columnPO_No" msprop:Generator_ColumnPropNameInTable="PO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PO_x0020_Date" msprop:Generator_UserColumnName="PO Date" msprop:Generator_ColumnPropNameInRow="PO_Date" msprop:Generator_ColumnVarNameInTable="columnPO_Date" msprop:Generator_ColumnPropNameInTable="PO_DateColumn" type="xs:dateTime" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Currency_x0020_Description" msprop:Generator_UserColumnName="Currency Description" msprop:Generator_ColumnPropNameInRow="Currency_Description" msprop:Generator_ColumnVarNameInTable="columnCurrency_Description" msprop:Generator_ColumnPropNameInTable="Currency_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code_x0020_Default" msprop:Generator_UserColumnName="Unit Code Default" msprop:Generator_ColumnPropNameInRow="Unit_Code_Default" msprop:Generator_ColumnVarNameInTable="columnUnit_Code_Default" msprop:Generator_ColumnPropNameInTable="Unit_Code_DefaultColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Desc_x0020_Default" msprop:Generator_UserColumnName="Unit Desc Default" msprop:Generator_ColumnPropNameInRow="Unit_Desc_Default" msprop:Generator_ColumnVarNameInTable="columnUnit_Desc_Default" msprop:Generator_ColumnPropNameInTable="Unit_Desc_DefaultColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Default_x0020_Precision" msprop:Generator_UserColumnName="Default Precision" msprop:Generator_ColumnPropNameInRow="Default_Precision" msprop:Generator_ColumnVarNameInTable="columnDefault_Precision" msprop:Generator_ColumnPropNameInTable="Default_PrecisionColumn" type="xs:int" />
+              <xs:element name="Decimal_x0020_Product" msprop:Generator_UserColumnName="Decimal Product" msprop:Generator_ColumnPropNameInRow="Decimal_Product" msprop:Generator_ColumnVarNameInTable="columnDecimal_Product" msprop:Generator_ColumnPropNameInTable="Decimal_ProductColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Supplier" msprop:Generator_UserColumnName="Primary Supplier" msprop:Generator_ColumnPropNameInRow="Primary_Supplier" msprop:Generator_ColumnVarNameInTable="columnPrimary_Supplier" msprop:Generator_ColumnPropNameInTable="Primary_SupplierColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_IPO" msprop:Generator_UserColumnName="Primary IPO" msprop:Generator_ColumnPropNameInRow="Primary_IPO" msprop:Generator_ColumnVarNameInTable="columnPrimary_IPO" msprop:Generator_ColumnPropNameInTable="Primary_IPOColumn" type="xs:double" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Payment_x0020_Term" msprop:Generator_UserColumnName="Payment Term" msprop:Generator_ColumnPropNameInRow="Payment_Term" msprop:Generator_ColumnVarNameInTable="columnPayment_Term" msprop:Generator_ColumnPropNameInTable="Payment_TermColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="POB_x0020_Multi" msprop:Generator_UserColumnName="POB Multi" msprop:Generator_ColumnPropNameInRow="POB_Multi" msprop:Generator_ColumnVarNameInTable="columnPOB_Multi" msprop:Generator_ColumnPropNameInTable="POB_MultiColumn" type="xs:decimal" />
+              <xs:element name="Tolerance_x0020_Down" msprop:Generator_UserColumnName="Tolerance Down" msprop:Generator_ColumnPropNameInRow="Tolerance_Down" msprop:Generator_ColumnVarNameInTable="columnTolerance_Down" msprop:Generator_ColumnPropNameInTable="Tolerance_DownColumn" type="xs:decimal" />
+              <xs:element name="Tolerance_x0020_Up" msprop:Generator_UserColumnName="Tolerance Up" msprop:Generator_ColumnPropNameInRow="Tolerance_Up" msprop:Generator_ColumnVarNameInTable="columnTolerance_Up" msprop:Generator_ColumnPropNameInTable="Tolerance_UpColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Unit_x0020_Multi" msprop:Generator_UserColumnName="Primary Unit Multi" msprop:Generator_ColumnPropNameInRow="Primary_Unit_Multi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit_Multi" msprop:Generator_ColumnPropNameInTable="Primary_Unit_MultiColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Unit_x0020_Default" msprop:Generator_UserColumnName="Primary Unit Default" msprop:Generator_ColumnPropNameInRow="Primary_Unit_Default" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit_Default" msprop:Generator_ColumnPropNameInTable="Primary_Unit_DefaultColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Description" msprop:Generator_UserColumnName="Unit Description" msprop:Generator_ColumnPropNameInRow="Unit_Description" msprop:Generator_ColumnVarNameInTable="columnUnit_Description" msprop:Generator_ColumnPropNameInTable="Unit_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_x0020_Qty_x0020_Default" msprop:Generator_UserColumnName="Total Qty Default" msprop:Generator_ColumnPropNameInRow="Total_Qty_Default" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty_Default" msprop:Generator_ColumnPropNameInTable="Total_Qty_DefaultColumn" type="xs:decimal" />
+              <xs:element name="Ratio_x0020_Default" msprop:Generator_UserColumnName="Ratio Default" msprop:Generator_ColumnPropNameInRow="Ratio_Default" msprop:Generator_ColumnVarNameInTable="columnRatio_Default" msprop:Generator_ColumnPropNameInTable="Ratio_DefaultColumn" type="xs:decimal" />
+              <xs:element name="Ratio_x0020_Reference" msprop:Generator_UserColumnName="Ratio Reference" msprop:Generator_ColumnPropNameInRow="Ratio_Reference" msprop:Generator_ColumnVarNameInTable="columnRatio_Reference" msprop:Generator_ColumnPropNameInTable="Ratio_ReferenceColumn" type="xs:decimal" />
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" />
+              <xs:element name="Disc_x0020_Amount" msprop:Generator_UserColumnName="Disc Amount" msprop:Generator_ColumnPropNameInRow="Disc_Amount" msprop:Generator_ColumnVarNameInTable="columnDisc_Amount" msprop:Generator_ColumnPropNameInTable="Disc_AmountColumn" type="xs:decimal" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" />
+              <xs:element name="Decimal_x0020_Multi" msprop:Generator_UserColumnName="Decimal Multi" msprop:Generator_ColumnPropNameInRow="Decimal_Multi" msprop:Generator_ColumnVarNameInTable="columnDecimal_Multi" msprop:Generator_ColumnPropNameInTable="Decimal_MultiColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Description" msprop:Generator_UserColumnName="Product Description" msprop:Generator_ColumnPropNameInRow="Product_Description" msprop:Generator_ColumnVarNameInTable="columnProduct_Description" msprop:Generator_ColumnPropNameInTable="Product_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanAkunProduct" targetNamespace="http://tempuri.org/DseLaporanAkunProduct.xsd" xmlns:mstns="http://tempuri.org/DseLaporanAkunProduct.xsd" xmlns="http://tempuri.org/DseLaporanAkunProduct.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AccModule.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tblmaster_product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT      tblmaster_product.`Primary`, tblmaster_product.`Product Code`, tblmaster_product.Description, IFNULL(tblmaster_akun.`Account Code`, '') 
+                        AS `Inventory Account Code`, IFNULL(tblmaster_akun.Description, '') AS `Inventory Account Desc`, IFNULL(tblmaster_akun_4.`Account Code`, '') 
+                        AS `Sales Account Code`, IFNULL(tblmaster_akun_4.Description, '') AS `Sales Account Desc`, IFNULL(tblmaster_akun_5.`Account Code`, '') 
+                        AS `Sales Return Code`, IFNULL(tblmaster_akun_5.Description, '') AS `Sales Return Desc`, IFNULL(tblmaster_akun_1.`Account Code`, '') 
+                        AS `Adjustment Account Code`, IFNULL(tblmaster_akun_1.Description, '') AS `Adjustment Account Desc`, IFNULL(tblmaster_akun_2.`Account Code`, '') 
+                        AS `Stock Taking Account Code`, IFNULL(tblmaster_akun_2.Description, '') AS `Stock Taking Account Desc`, IFNULL(tblmaster_akun_3.`Account Code`, 
+                        '') AS `COGS Account Code`, IFNULL(tblmaster_akun_3.Description, '') AS `COGS Account Desc`, tblmaster_product.Type
+FROM          tblmaster_product LEFT OUTER JOIN
+                        tblmaster_akun tblmaster_akun_5 ON tblmaster_product.`Primary Sales Return Account` = tblmaster_akun_5.`Primary` LEFT OUTER JOIN
+                        tblmaster_akun tblmaster_akun_4 ON tblmaster_product.`Primary Sales Account` = tblmaster_akun_4.`Primary` LEFT OUTER JOIN
+                        tblmaster_akun ON tblmaster_product.`Primary Inventory Account` = tblmaster_akun.`Primary` LEFT OUTER JOIN
+                        tblmaster_akun tblmaster_akun_2 ON tblmaster_product.`Primary Stock Taking Account` = tblmaster_akun_2.`Primary` LEFT OUTER JOIN
+                        tblmaster_akun tblmaster_akun_3 ON tblmaster_product.`Primary COGS Account` = tblmaster_akun_3.`Primary` LEFT OUTER JOIN
+                        tblmaster_akun tblmaster_akun_1 ON tblmaster_product.`Primary Adjustment Account` = tblmaster_akun_1.`Primary`
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Inventory Account Code" DataSetColumn="Inventory Account Code" />
+              <Mapping SourceColumn="Inventory Account Desc" DataSetColumn="Inventory Account Desc" />
+              <Mapping SourceColumn="Adjustment Account Code" DataSetColumn="Adjustment Account Code" />
+              <Mapping SourceColumn="Adjustment Account Desc" DataSetColumn="Adjustment Account Desc" />
+              <Mapping SourceColumn="Stock Taking Account Code" DataSetColumn="Stock Taking Account Code" />
+              <Mapping SourceColumn="Stock Taking Account Desc" DataSetColumn="Stock Taking Account Desc" />
+              <Mapping SourceColumn="COGS Account Code" DataSetColumn="COGS Account Code" />
+              <Mapping SourceColumn="COGS Account Desc" DataSetColumn="COGS Account Desc" />
+              <Mapping SourceColumn="Sales Account Code" DataSetColumn="Sales Account Code" />
+              <Mapping SourceColumn="Sales Account Desc" DataSetColumn="Sales Account Desc" />
+              <Mapping SourceColumn="Sales Return Code" DataSetColumn="Sales Return Code" />
+              <Mapping SourceColumn="Sales Return Desc" DataSetColumn="Sales Return Desc" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_GoodsType" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_GoodsType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_GoodsType">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT IFNULL(tblmaster_akun_1.`Account Code`, '') AS `Adjustment Account Code`, IFNULL(tblmaster_akun_1.Description, '') AS `Adjustment Account Desc`, IFNULL(tblmaster_akun_3.`Account Code`, '') AS `COGS Account Code`, IFNULL(tblmaster_akun_3.Description, '') AS `COGS Account Desc`, IFNULL(tblmaster_akun.`Account Code`, '') AS `Inventory Account Code`, IFNULL(tblmaster_akun.Description, '') AS `Inventory Account Desc`, IFNULL(tblmaster_akun_4.`Account Code`, '') AS `Sales Account Code`, IFNULL(tblmaster_akun_4.Description, '') AS `Sales Account Desc`, IFNULL(tblmaster_akun_5.`Account Code`, '') AS `Sales Return Code`, IFNULL(tblmaster_akun_5.Description, '') AS `Sales Return Desc`, IFNULL(tblmaster_akun_2.`Account Code`, '') AS `Stock Taking Account Code`, IFNULL(tblmaster_akun_2.Description, '') AS `Stock Taking Account Desc`, tblmaster_product.Description, tblmaster_product.`Primary`, tblmaster_product.`Product Code`, tblmaster_product.Type FROM tblmaster_product LEFT OUTER JOIN tblmaster_akun ON tblmaster_product.`Primary Inventory Account` = tblmaster_akun.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_4 ON tblmaster_product.`Primary Sales Account` = tblmaster_akun_4.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_5 ON tblmaster_product.`Primary Sales Return Account` = tblmaster_akun_5.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_2 ON tblmaster_product.`Primary Stock Taking Account` = tblmaster_akun_2.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_3 ON tblmaster_product.`Primary COGS Account` = tblmaster_akun_3.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_1 ON tblmaster_product.`Primary Adjustment Account` = tblmaster_akun_1.`Primary` WHERE (tblmaster_product.Type = 0) ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_ServiceType" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_ServiceType" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_ServiceType">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT IFNULL(tblmaster_akun_1.`Account Code`, '') AS `Adjustment Account Code`, IFNULL(tblmaster_akun_1.Description, '') AS `Adjustment Account Desc`, IFNULL(tblmaster_akun_3.`Account Code`, '') AS `COGS Account Code`, IFNULL(tblmaster_akun_3.Description, '') AS `COGS Account Desc`, IFNULL(tblmaster_akun.`Account Code`, '') AS `Inventory Account Code`, IFNULL(tblmaster_akun.Description, '') AS `Inventory Account Desc`, IFNULL(tblmaster_akun_4.`Account Code`, '') AS `Sales Account Code`, IFNULL(tblmaster_akun_4.Description, '') AS `Sales Account Desc`, IFNULL(tblmaster_akun_5.`Account Code`, '') AS `Sales Return Code`, IFNULL(tblmaster_akun_5.Description, '') AS `Sales Return Desc`, IFNULL(tblmaster_akun_2.`Account Code`, '') AS `Stock Taking Account Code`, IFNULL(tblmaster_akun_2.Description, '') AS `Stock Taking Account Desc`, tblmaster_product.Description, tblmaster_product.`Primary`, tblmaster_product.`Product Code`, tblmaster_product.Type FROM tblmaster_product LEFT OUTER JOIN tblmaster_akun ON tblmaster_product.`Primary Inventory Account` = tblmaster_akun.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_4 ON tblmaster_product.`Primary Sales Account` = tblmaster_akun_4.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_5 ON tblmaster_product.`Primary Sales Return Account` = tblmaster_akun_5.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_2 ON tblmaster_product.`Primary Stock Taking Account` = tblmaster_akun_2.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_3 ON tblmaster_product.`Primary COGS Account` = tblmaster_akun_3.`Primary` LEFT OUTER JOIN tblmaster_akun tblmaster_akun_1 ON tblmaster_product.`Primary Adjustment Account` = tblmaster_akun_1.`Primary` WHERE (tblmaster_product.Type = 1) ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanAkunProduct" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanAkunProduct" msprop:Generator_DataSetName="DseLaporanAkunProduct">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TablePropName="DataTable1" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Inventory_x0020_Account_x0020_Code" msprop:Generator_UserColumnName="Inventory Account Code" msprop:Generator_ColumnPropNameInRow="Inventory_Account_Code" msprop:Generator_ColumnVarNameInTable="columnInventory_Account_Code" msprop:Generator_ColumnPropNameInTable="Inventory_Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Inventory_x0020_Account_x0020_Desc" msprop:Generator_UserColumnName="Inventory Account Desc" msprop:Generator_ColumnPropNameInRow="Inventory_Account_Desc" msprop:Generator_ColumnVarNameInTable="columnInventory_Account_Desc" msprop:Generator_ColumnPropNameInTable="Inventory_Account_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Adjustment_x0020_Account_x0020_Code" msprop:Generator_UserColumnName="Adjustment Account Code" msprop:Generator_ColumnPropNameInRow="Adjustment_Account_Code" msprop:Generator_ColumnVarNameInTable="columnAdjustment_Account_Code" msprop:Generator_ColumnPropNameInTable="Adjustment_Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Adjustment_x0020_Account_x0020_Desc" msprop:Generator_UserColumnName="Adjustment Account Desc" msprop:Generator_ColumnPropNameInRow="Adjustment_Account_Desc" msprop:Generator_ColumnVarNameInTable="columnAdjustment_Account_Desc" msprop:Generator_ColumnPropNameInTable="Adjustment_Account_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Stock_x0020_Taking_x0020_Account_x0020_Code" msprop:Generator_UserColumnName="Stock Taking Account Code" msprop:Generator_ColumnPropNameInRow="Stock_Taking_Account_Code" msprop:Generator_ColumnVarNameInTable="columnStock_Taking_Account_Code" msprop:Generator_ColumnPropNameInTable="Stock_Taking_Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Stock_x0020_Taking_x0020_Account_x0020_Desc" msprop:Generator_UserColumnName="Stock Taking Account Desc" msprop:Generator_ColumnPropNameInRow="Stock_Taking_Account_Desc" msprop:Generator_ColumnVarNameInTable="columnStock_Taking_Account_Desc" msprop:Generator_ColumnPropNameInTable="Stock_Taking_Account_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COGS_x0020_Account_x0020_Code" msprop:Generator_UserColumnName="COGS Account Code" msprop:Generator_ColumnPropNameInRow="COGS_Account_Code" msprop:Generator_ColumnVarNameInTable="columnCOGS_Account_Code" msprop:Generator_ColumnPropNameInTable="COGS_Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COGS_x0020_Account_x0020_Desc" msprop:Generator_UserColumnName="COGS Account Desc" msprop:Generator_ColumnPropNameInRow="COGS_Account_Desc" msprop:Generator_ColumnVarNameInTable="columnCOGS_Account_Desc" msprop:Generator_ColumnPropNameInTable="COGS_Account_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sales_x0020_Account_x0020_Code" msprop:Generator_UserColumnName="Sales Account Code" msprop:Generator_ColumnPropNameInRow="Sales_Account_Code" msprop:Generator_ColumnVarNameInTable="columnSales_Account_Code" msprop:Generator_ColumnPropNameInTable="Sales_Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sales_x0020_Account_x0020_Desc" msprop:Generator_UserColumnName="Sales Account Desc" msprop:Generator_ColumnPropNameInRow="Sales_Account_Desc" msprop:Generator_ColumnVarNameInTable="columnSales_Account_Desc" msprop:Generator_ColumnPropNameInTable="Sales_Account_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sales_x0020_Return_x0020_Code" msprop:Generator_UserColumnName="Sales Return Code" msprop:Generator_ColumnPropNameInRow="Sales_Return_Code" msprop:Generator_ColumnVarNameInTable="columnSales_Return_Code" msprop:Generator_ColumnPropNameInTable="Sales_Return_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sales_x0020_Return_x0020_Desc" msprop:Generator_UserColumnName="Sales Return Desc" msprop:Generator_ColumnPropNameInRow="Sales_Return_Desc" msprop:Generator_ColumnVarNameInTable="columnSales_Return_Desc" msprop:Generator_ColumnPropNameInTable="Sales_Return_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Type" msprop:Generator_UserColumnName="Type" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInTable="TypeColumn" type="xs:int" />
+              <xs:element name="Account_x0020_1" msprop:Generator_UserColumnName="Account 1" msprop:Generator_ColumnPropNameInRow="Account_1" msprop:Generator_ColumnVarNameInTable="columnAccount_1" msprop:Generator_ColumnPropNameInTable="Account_1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="Account_x0020_2" msprop:Generator_UserColumnName="Account 2" msprop:Generator_ColumnPropNameInRow="Account_2" msprop:Generator_ColumnVarNameInTable="columnAccount_2" msprop:Generator_ColumnPropNameInTable="Account_2Column" type="xs:string" minOccurs="0" />
+              <xs:element name="Product_x0020_Code_x0020_1" msprop:Generator_UserColumnName="Product Code 1" msprop:Generator_ColumnPropNameInRow="Product_Code_1" msprop:Generator_ColumnVarNameInTable="columnProduct_Code_1" msprop:Generator_ColumnPropNameInTable="Product_Code_1Column" type="xs:string" minOccurs="0" />
+              <xs:element name="Product_x0020_Code_x0020_2" msprop:Generator_UserColumnName="Product Code 2" msprop:Generator_ColumnPropNameInRow="Product_Code_2" msprop:Generator_ColumnVarNameInTable="columnProduct_Code_2" msprop:Generator_ColumnPropNameInTable="Product_Code_2Column" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

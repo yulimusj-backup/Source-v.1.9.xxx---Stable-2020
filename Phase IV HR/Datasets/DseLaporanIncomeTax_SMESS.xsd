@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanIncomeTax_SMESS" targetNamespace="http://tempuri.org/DseLaporanIncomeTax_SMESS.xsd" xmlns:mstns="http://tempuri.org/DseLaporanIncomeTax_SMESS.xsd" xmlns="http://tempuri.org/DseLaporanIncomeTax_SMESS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HR.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_salary.`Primary Employee`, tblmaster_karyawan.Code AS `Employee Code`, tblmaster_karyawan.`Full Name` AS `Employee Name`, 
+                         tbltrans_salary.`A Status NPWP`, tbltrans_salary.`A NPWP`, tbltrans_salary.`01Gaji`, tbltrans_salary.`02TunjanganPPh`, tbltrans_salary.`03TunjanganLainnya`, 
+                         tbltrans_salary.`04Honorarium`, tbltrans_salary.`05PremiAsuransi`, tbltrans_salary.`06Natura`, tbltrans_salary.`07Tantiem`, tbltrans_salary.`08PenghasilanBruto`, 
+                         tbltrans_salary.`09BiayaJabatan`, tbltrans_salary.`10IuranPensiun`, tbltrans_salary.`11JumlahPengurangan`, tbltrans_salary.`12JumlahPenghasilanNetto`, 
+                         tbltrans_salary.`13JumlahPenghasilanMasaPjkSblmnya`, tbltrans_salary.`14JumlahPenghasilanNettoUtkPPh`, tbltrans_salary.`15PTKP`, 
+                         tbltrans_salary.`16PKPSetahun`, tbltrans_salary.`17PPh21`, tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya`, tbltrans_salary.`19PPhTerhutang`, 
+                         tbltrans_salary.`20PPhPs21DanPPhPs26YgTelahDipotongNLunas`, tblmaster_karyawan.`primary departemen`, tblmaster_departemen.`Dept Code`, 
+                         tblmaster_departemen.Description AS `Dept Desc`, tbltrans_salary.`No Transaksi`, tblmaster_karyawan.`primary position`, 
+                         tbltrans_salary.`Primary Salary Formula`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary` INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary`
+ORDER BY `Employee Name`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Employee" DataSetColumn="Primary Employee" />
+              <Mapping SourceColumn="Employee Code" DataSetColumn="Employee Code" />
+              <Mapping SourceColumn="Employee Name" DataSetColumn="Employee Name" />
+              <Mapping SourceColumn="A Status NPWP" DataSetColumn="A Status NPWP" />
+              <Mapping SourceColumn="A NPWP" DataSetColumn="A NPWP" />
+              <Mapping SourceColumn="01Gaji" DataSetColumn="01Gaji" />
+              <Mapping SourceColumn="02TunjanganPPh" DataSetColumn="02TunjanganPPh" />
+              <Mapping SourceColumn="03TunjanganLainnya" DataSetColumn="03TunjanganLainnya" />
+              <Mapping SourceColumn="04Honorarium" DataSetColumn="04Honorarium" />
+              <Mapping SourceColumn="05PremiAsuransi" DataSetColumn="05PremiAsuransi" />
+              <Mapping SourceColumn="06Natura" DataSetColumn="06Natura" />
+              <Mapping SourceColumn="07Tantiem" DataSetColumn="07Tantiem" />
+              <Mapping SourceColumn="08PenghasilanBruto" DataSetColumn="08PenghasilanBruto" />
+              <Mapping SourceColumn="09BiayaJabatan" DataSetColumn="09BiayaJabatan" />
+              <Mapping SourceColumn="10IuranPensiun" DataSetColumn="10IuranPensiun" />
+              <Mapping SourceColumn="11JumlahPengurangan" DataSetColumn="11JumlahPengurangan" />
+              <Mapping SourceColumn="12JumlahPenghasilanNetto" DataSetColumn="12JumlahPenghasilanNetto" />
+              <Mapping SourceColumn="13JumlahPenghasilanMasaPjkSblmnya" DataSetColumn="13JumlahPenghasilanMasaPjkSblmnya" />
+              <Mapping SourceColumn="14JumlahPenghasilanNettoUtkPPh" DataSetColumn="14JumlahPenghasilanNettoUtkPPh" />
+              <Mapping SourceColumn="15PTKP" DataSetColumn="15PTKP" />
+              <Mapping SourceColumn="16PKPSetahun" DataSetColumn="16PKPSetahun" />
+              <Mapping SourceColumn="17PPh21" DataSetColumn="17PPh21" />
+              <Mapping SourceColumn="18PPh21YgTelahDipotongMasaPjkSblmnya" DataSetColumn="18PPh21YgTelahDipotongMasaPjkSblmnya" />
+              <Mapping SourceColumn="19PPhTerhutang" DataSetColumn="19PPhTerhutang" />
+              <Mapping SourceColumn="20PPhPs21DanPPhPs26YgTelahDipotongNLunas" DataSetColumn="20PPhPs21DanPPhPs26YgTelahDipotongNLunas" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="Dept Code" DataSetColumn="Dept Code" />
+              <Mapping SourceColumn="Dept Desc" DataSetColumn="Dept Desc" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="primary position" DataSetColumn="primary position" />
+              <Mapping SourceColumn="Primary Salary Formula" DataSetColumn="Primary Salary Formula" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySalary" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimarySalary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimarySalary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salary.`Primary Employee`, tblmaster_karyawan.Code AS `Employee Code`, tblmaster_karyawan.`Full Name` AS `Employee Name`, 
+                         tbltrans_salary.`A Status NPWP`, tbltrans_salary.`A NPWP`, tbltrans_salary.`01Gaji`, tbltrans_salary.`02TunjanganPPh`, tbltrans_salary.`03TunjanganLainnya`, 
+                         tbltrans_salary.`04Honorarium`, tbltrans_salary.`05PremiAsuransi`, tbltrans_salary.`06Natura`, tbltrans_salary.`07Tantiem`, tbltrans_salary.`08PenghasilanBruto`, 
+                         tbltrans_salary.`09BiayaJabatan`, tbltrans_salary.`10IuranPensiun`, tbltrans_salary.`11JumlahPengurangan`, tbltrans_salary.`12JumlahPenghasilanNetto`, 
+                         tbltrans_salary.`13JumlahPenghasilanMasaPjkSblmnya`, tbltrans_salary.`14JumlahPenghasilanNettoUtkPPh`, tbltrans_salary.`15PTKP`, 
+                         tbltrans_salary.`16PKPSetahun`, tbltrans_salary.`17PPh21`, tbltrans_salary.`18PPh21YgTelahDipotongMasaPjkSblmnya`, tbltrans_salary.`19PPhTerhutang`, 
+                         tbltrans_salary.`20PPhPs21DanPPhPs26YgTelahDipotongNLunas`, tblmaster_karyawan.`primary departemen`, tblmaster_departemen.`Dept Code`, 
+                         tblmaster_departemen.Description AS `Dept Desc`, tbltrans_salary.`No Transaksi`, tblmaster_karyawan.`primary position`, 
+                         tbltrans_salary.`Primary Salary Formula`
+FROM            tbltrans_salary INNER JOIN
+                         tblmaster_karyawan ON tbltrans_salary.`Primary Employee` = tblmaster_karyawan.`Primary` INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary`
+WHERE        (tbltrans_salary.`Tanggal Transaksi` &lt;= @EndDate) AND (tbltrans_salary.`Tanggal Transaksi` &gt;= @StartDate)
+ORDER BY `Employee Name`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salary" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanIncomeTax_SMESS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanIncomeTax_SMESS" msprop:Generator_DataSetName="DseLaporanIncomeTax_SMESS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Employee" msprop:Generator_UserColumnName="Primary Employee" msprop:Generator_ColumnVarNameInTable="columnPrimary_Employee" msprop:Generator_ColumnPropNameInRow="Primary_Employee" msprop:Generator_ColumnPropNameInTable="Primary_EmployeeColumn" type="xs:double" />
+              <xs:element name="Employee_x0020_Code" msprop:Generator_UserColumnName="Employee Code" msprop:Generator_ColumnVarNameInTable="columnEmployee_Code" msprop:Generator_ColumnPropNameInRow="Employee_Code" msprop:Generator_ColumnPropNameInTable="Employee_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Employee_x0020_Name" msprop:Generator_UserColumnName="Employee Name" msprop:Generator_ColumnVarNameInTable="columnEmployee_Name" msprop:Generator_ColumnPropNameInRow="Employee_Name" msprop:Generator_ColumnPropNameInTable="Employee_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="A_x0020_Status_x0020_NPWP" msprop:Generator_UserColumnName="A Status NPWP" msprop:Generator_ColumnVarNameInTable="columnA_Status_NPWP" msprop:Generator_ColumnPropNameInRow="A_Status_NPWP" msprop:Generator_ColumnPropNameInTable="A_Status_NPWPColumn" type="xs:int" />
+              <xs:element name="A_x0020_NPWP" msprop:Generator_UserColumnName="A NPWP" msprop:Generator_ColumnVarNameInTable="columnA_NPWP" msprop:Generator_ColumnPropNameInRow="A_NPWP" msprop:Generator_ColumnPropNameInTable="A_NPWPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="_x0030_1Gaji" msprop:Generator_UserColumnName="01Gaji" msprop:Generator_ColumnVarNameInTable="column01Gaji" msprop:Generator_ColumnPropNameInRow="_01Gaji" msprop:Generator_ColumnPropNameInTable="_01GajiColumn" type="xs:decimal" />
+              <xs:element name="_x0030_2TunjanganPPh" msprop:Generator_UserColumnName="02TunjanganPPh" msprop:Generator_ColumnVarNameInTable="column02TunjanganPPh" msprop:Generator_ColumnPropNameInRow="_02TunjanganPPh" msprop:Generator_ColumnPropNameInTable="_02TunjanganPPhColumn" type="xs:decimal" />
+              <xs:element name="_x0030_3TunjanganLainnya" msprop:Generator_UserColumnName="03TunjanganLainnya" msprop:Generator_ColumnVarNameInTable="column03TunjanganLainnya" msprop:Generator_ColumnPropNameInRow="_03TunjanganLainnya" msprop:Generator_ColumnPropNameInTable="_03TunjanganLainnyaColumn" type="xs:decimal" />
+              <xs:element name="_x0030_4Honorarium" msprop:Generator_UserColumnName="04Honorarium" msprop:Generator_ColumnVarNameInTable="column04Honorarium" msprop:Generator_ColumnPropNameInRow="_04Honorarium" msprop:Generator_ColumnPropNameInTable="_04HonorariumColumn" type="xs:decimal" />
+              <xs:element name="_x0030_5PremiAsuransi" msprop:Generator_UserColumnName="05PremiAsuransi" msprop:Generator_ColumnVarNameInTable="column05PremiAsuransi" msprop:Generator_ColumnPropNameInRow="_05PremiAsuransi" msprop:Generator_ColumnPropNameInTable="_05PremiAsuransiColumn" type="xs:decimal" />
+              <xs:element name="_x0030_6Natura" msprop:Generator_UserColumnName="06Natura" msprop:Generator_ColumnVarNameInTable="column06Natura" msprop:Generator_ColumnPropNameInRow="_06Natura" msprop:Generator_ColumnPropNameInTable="_06NaturaColumn" type="xs:decimal" />
+              <xs:element name="_x0030_7Tantiem" msprop:Generator_UserColumnName="07Tantiem" msprop:Generator_ColumnVarNameInTable="column07Tantiem" msprop:Generator_ColumnPropNameInRow="_07Tantiem" msprop:Generator_ColumnPropNameInTable="_07TantiemColumn" type="xs:decimal" />
+              <xs:element name="_x0030_8PenghasilanBruto" msprop:Generator_UserColumnName="08PenghasilanBruto" msprop:Generator_ColumnVarNameInTable="column08PenghasilanBruto" msprop:Generator_ColumnPropNameInRow="_08PenghasilanBruto" msprop:Generator_ColumnPropNameInTable="_08PenghasilanBrutoColumn" type="xs:decimal" />
+              <xs:element name="_x0030_9BiayaJabatan" msprop:Generator_UserColumnName="09BiayaJabatan" msprop:Generator_ColumnVarNameInTable="column09BiayaJabatan" msprop:Generator_ColumnPropNameInRow="_09BiayaJabatan" msprop:Generator_ColumnPropNameInTable="_09BiayaJabatanColumn" type="xs:decimal" />
+              <xs:element name="_x0031_0IuranPensiun" msprop:Generator_UserColumnName="10IuranPensiun" msprop:Generator_ColumnVarNameInTable="column10IuranPensiun" msprop:Generator_ColumnPropNameInRow="_10IuranPensiun" msprop:Generator_ColumnPropNameInTable="_10IuranPensiunColumn" type="xs:decimal" />
+              <xs:element name="_x0031_1JumlahPengurangan" msprop:Generator_UserColumnName="11JumlahPengurangan" msprop:Generator_ColumnVarNameInTable="column11JumlahPengurangan" msprop:Generator_ColumnPropNameInRow="_11JumlahPengurangan" msprop:Generator_ColumnPropNameInTable="_11JumlahPenguranganColumn" type="xs:decimal" />
+              <xs:element name="_x0031_2JumlahPenghasilanNetto" msprop:Generator_UserColumnName="12JumlahPenghasilanNetto" msprop:Generator_ColumnVarNameInTable="column12JumlahPenghasilanNetto" msprop:Generator_ColumnPropNameInRow="_12JumlahPenghasilanNetto" msprop:Generator_ColumnPropNameInTable="_12JumlahPenghasilanNettoColumn" type="xs:decimal" />
+              <xs:element name="_x0031_3JumlahPenghasilanMasaPjkSblmnya" msprop:Generator_UserColumnName="13JumlahPenghasilanMasaPjkSblmnya" msprop:Generator_ColumnVarNameInTable="column13JumlahPenghasilanMasaPjkSblmnya" msprop:Generator_ColumnPropNameInRow="_13JumlahPenghasilanMasaPjkSblmnya" msprop:Generator_ColumnPropNameInTable="_13JumlahPenghasilanMasaPjkSblmnyaColumn" type="xs:decimal" />
+              <xs:element name="_x0031_4JumlahPenghasilanNettoUtkPPh" msprop:Generator_UserColumnName="14JumlahPenghasilanNettoUtkPPh" msprop:Generator_ColumnVarNameInTable="column14JumlahPenghasilanNettoUtkPPh" msprop:Generator_ColumnPropNameInRow="_14JumlahPenghasilanNettoUtkPPh" msprop:Generator_ColumnPropNameInTable="_14JumlahPenghasilanNettoUtkPPhColumn" type="xs:decimal" />
+              <xs:element name="_x0031_5PTKP" msprop:Generator_UserColumnName="15PTKP" msprop:Generator_ColumnVarNameInTable="column15PTKP" msprop:Generator_ColumnPropNameInRow="_15PTKP" msprop:Generator_ColumnPropNameInTable="_15PTKPColumn" type="xs:decimal" />
+              <xs:element name="_x0031_6PKPSetahun" msprop:Generator_UserColumnName="16PKPSetahun" msprop:Generator_ColumnVarNameInTable="column16PKPSetahun" msprop:Generator_ColumnPropNameInRow="_16PKPSetahun" msprop:Generator_ColumnPropNameInTable="_16PKPSetahunColumn" type="xs:decimal" />
+              <xs:element name="_x0031_7PPh21" msprop:Generator_UserColumnName="17PPh21" msprop:Generator_ColumnVarNameInTable="column17PPh21" msprop:Generator_ColumnPropNameInRow="_17PPh21" msprop:Generator_ColumnPropNameInTable="_17PPh21Column" type="xs:decimal" />
+              <xs:element name="_x0031_8PPh21YgTelahDipotongMasaPjkSblmnya" msprop:Generator_UserColumnName="18PPh21YgTelahDipotongMasaPjkSblmnya" msprop:Generator_ColumnVarNameInTable="column18PPh21YgTelahDipotongMasaPjkSblmnya" msprop:Generator_ColumnPropNameInRow="_18PPh21YgTelahDipotongMasaPjkSblmnya" msprop:Generator_ColumnPropNameInTable="_18PPh21YgTelahDipotongMasaPjkSblmnyaColumn" type="xs:decimal" />
+              <xs:element name="_x0031_9PPhTerhutang" msprop:Generator_UserColumnName="19PPhTerhutang" msprop:Generator_ColumnVarNameInTable="column19PPhTerhutang" msprop:Generator_ColumnPropNameInRow="_19PPhTerhutang" msprop:Generator_ColumnPropNameInTable="_19PPhTerhutangColumn" type="xs:decimal" />
+              <xs:element name="_x0032_0PPhPs21DanPPhPs26YgTelahDipotongNLunas" msprop:Generator_UserColumnName="20PPhPs21DanPPhPs26YgTelahDipotongNLunas" msprop:Generator_ColumnVarNameInTable="column20PPhPs21DanPPhPs26YgTelahDipotongNLunas" msprop:Generator_ColumnPropNameInRow="_20PPhPs21DanPPhPs26YgTelahDipotongNLunas" msprop:Generator_ColumnPropNameInTable="_20PPhPs21DanPPhPs26YgTelahDipotongNLunasColumn" type="xs:decimal" />
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="Dept_x0020_Code" msprop:Generator_UserColumnName="Dept Code" msprop:Generator_ColumnPropNameInRow="Dept_Code" msprop:Generator_ColumnVarNameInTable="columnDept_Code" msprop:Generator_ColumnPropNameInTable="Dept_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_x0020_Desc" msprop:Generator_UserColumnName="Dept Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_position" msprop:Generator_UserColumnName="primary position" msprop:Generator_ColumnPropNameInRow="primary_position" msprop:Generator_ColumnVarNameInTable="columnprimary_position" msprop:Generator_ColumnPropNameInTable="primary_positionColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Salary_x0020_Formula" msprop:Generator_UserColumnName="Primary Salary Formula" msprop:Generator_ColumnPropNameInRow="Primary_Salary_Formula" msprop:Generator_ColumnVarNameInTable="columnPrimary_Salary_Formula" msprop:Generator_ColumnPropNameInTable="Primary_Salary_FormulaColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

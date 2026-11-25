@@ -1,0 +1,4034 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F7AFB6D3-C463-4E71-811E-666E760D09FC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>Core_Module</RootNamespace>
+    <AssemblyName>Core Module</AssemblyName>
+    <MyType>Windows</MyType>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Core Module.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <Optimize>false</Optimize>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Core Module.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DebugType>Full</DebugType>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <WarningsAsErrors>
+    </WarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ciloci.Flee, Version=0.9.26.0, Culture=neutral, PublicKeyToken=c8526a021ef298ed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\Ciloci.Flee.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\File ZIP\net-20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=5.2.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\ClsIdentifier.vb" />
+    <Compile Include="Classes\ClsLogUser.vb" />
+    <Compile Include="Classes\ClsMasterCekBatasan.vb" />
+    <Compile Include="Classes\ClsMasterCommission.vb" />
+    <Compile Include="Classes\ClsMasterCommissionItem.vb" />
+    <Compile Include="Classes\ClsMasterCommission_Allocate.vb" />
+    <Compile Include="Classes\ClsMasterCommission_Type.vb" />
+    <Compile Include="Classes\ClsMasterCommission_Type_Item.vb" />
+    <Compile Include="Classes\ClsMasterCustomerReference.vb" />
+    <Compile Include="Classes\ClsMasterKaryawanTipe.vb" />
+    <Compile Include="Classes\ClsMasterMachineLine.vb" />
+    <Compile Include="Classes\ClsMasterProductionRate.vb" />
+    <Compile Include="Classes\ClsMasterProductionRate_Item.vb" />
+    <Compile Include="Classes\ClsMasterSetupTime.vb" />
+    <Compile Include="Classes\ClsMasterTaxAddInfoReference.vb" />
+    <Compile Include="Classes\ClsMasterTaxFacilityStampReference.vb" />
+    <Compile Include="Classes\ClsMasterTaxMeasurementReference.vb" />
+    <Compile Include="Classes\ClsMasterTaxProductReference.vb" />
+    <Compile Include="Classes\ClsMasterTaxProductReference_Item.vb" />
+    <Compile Include="Classes\ClsMasterWorkUnitGroup.vb" />
+    <Compile Include="Classes\ClsMaster_SettingNPWPNo.vb" />
+    <Compile Include="Classes\ClsMaster_SPL_EmployeeCustom.vb" />
+    <Compile Include="Classes\ClsMaster_SPL_EmployeeCustom_Item.vb" />
+    <Compile Include="Classes\ClsTransaksiBalanceDP.vb" />
+    <Compile Include="Classes\ClsTransaksiMonitor_Production.vb" />
+    <Compile Include="Classes\ClsTrans_CutOffDB_Core.vb" />
+    <Compile Include="Classes\ClsTrans_SettingNPWPNo.vb" />
+    <Compile Include="Classes\Clstrans_VersionControl.vb" />
+    <Compile Include="Classes\Custom\ClsABT.vb" />
+    <Compile Include="Datasets\Custom\DseABT.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseABT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\Dse Cek\DseCekKartuAPAR.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseCekKartuAPAR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseAntrian.Designer.vb" />
+    <Compile Include="Datasets\DseBalanceDP.Designer.vb" />
+    <Compile Include="Datasets\DseBarcodeInput.Designer.vb" />
+    <Compile Include="Datasets\DseCekSiklikBundling.Designer.vb" />
+    <Compile Include="Datasets\dseCustomer.Designer.vb">
+      <DependentUpon>dseCustomer.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\dseCustomer.vb">
+      <DependentUpon>dseCustomer.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseDBVersion.Designer.vb" />
+    <Compile Include="Datasets\DseEmailSettings.Designer.vb">
+      <DependentUpon>DseEmailSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseEmailSettings.vb">
+      <DependentUpon>DseEmailSettings.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanCustomerList.Designer.vb" />
+    <Compile Include="Datasets\DseLaporanOtorisasiTransaksi.Designer.vb" />
+    <Compile Include="Datasets\DseLaporanPembelian.Designer.vb">
+      <DependentUpon>DseLaporanPembelian.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanPembelian.vb">
+      <DependentUpon>DseLaporanPembelian.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanPenjualan.Designer.vb">
+      <DependentUpon>DseLaporanPenjualan.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanPenjualan.vb">
+      <DependentUpon>DseLaporanPenjualan.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSupplierList.Designer.vb">
+      <DependentUpon>DseLaporanSupplierList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSupplierList.vb">
+      <DependentUpon>DseLaporanSupplierList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLicence_Add.Designer.vb" />
+    <Compile Include="Datasets\DseLicenseManager_Update.Designer.vb" />
+    <Compile Include="Datasets\DseLicense_Input.Designer.vb" />
+    <Compile Include="Datasets\DseLicense_Manager.Designer.vb" />
+    <Compile Include="Datasets\DseMasterAkun.Designer.vb" />
+    <Compile Include="Datasets\DseMasterAkun_1.Designer.vb" />
+    <Compile Include="Datasets\DseMasterAsset.Designer.vb">
+      <DependentUpon>DseMasterAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterAsset.vb">
+      <DependentUpon>DseMasterAsset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterAssetGroup.Designer.vb" />
+    <Compile Include="Datasets\DseMasterBackUpDB.Designer.vb" />
+    <Compile Include="Datasets\dseMasterCategory.Designer.vb">
+      <DependentUpon>dseMasterCategory.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseMasterCekBatasan.Designer.vb" />
+    <Compile Include="Datasets\DseMasterColSize.Designer.vb" />
+    <Compile Include="Datasets\DseMasterCommission.Designer.vb">
+      <DependentUpon>DseMasterCommission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterCommission.vb">
+      <DependentUpon>DseMasterCommission.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterCommission_Allocate.Designer.vb" />
+    <Compile Include="Datasets\DseMasterCompanyData.Designer.vb" />
+    <Compile Include="Datasets\dseMasterCurrency.Designer.vb">
+      <DependentUpon>dseMasterCurrency.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterCurrency.vb">
+      <DependentUpon>dseMasterCurrency.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterCustomerGroup.Designer.vb" />
+    <Compile Include="Datasets\dseMasterCustomerMarketSegmentation.Designer.vb" />
+    <Compile Include="Datasets\dseMasterCustomerSalesArea.Designer.vb" />
+    <Compile Include="Datasets\dseMasterCustomerType.Designer.vb" />
+    <Compile Include="Datasets\DseMasterCustomer_Reference.Designer.vb" />
+    <Compile Include="Datasets\DseMasterCuti.Designer.vb">
+      <DependentUpon>DseMasterCuti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterCuti.vb">
+      <DependentUpon>DseMasterCuti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterCuti_SetBalance.Designer.vb">
+      <DependentUpon>DseMasterCuti_SetBalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterCuti_SetBalance.vb">
+      <DependentUpon>DseMasterCuti_SetBalance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterDept.Designer.vb">
+      <DependentUpon>dseMasterDept.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterDept.vb">
+      <DependentUpon>dseMasterDept.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterDownTime.Designer.vb">
+      <DependentUpon>DseMasterDownTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterDownTime.vb">
+      <DependentUpon>DseMasterDownTime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterJob.Designer.vb" />
+    <Compile Include="Datasets\DseMasterJobPosition.Designer.vb" />
+    <Compile Include="Datasets\DseMasterKaryawan.Designer.vb">
+      <DependentUpon>DseMasterKaryawan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterKaryawan.vb">
+      <DependentUpon>DseMasterKaryawan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterKaryawan1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMasterKaryawan1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterKaryawanTipe.Designer.vb" />
+    <Compile Include="Datasets\DseMasterKaryawan_Kompetensi_Upd.Designer.vb">
+      <DependentUpon>DseMasterKaryawan_Kompetensi_Upd.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseMasterKaryawan_Kompetensi_Upd.vb">
+      <DependentUpon>DseMasterKaryawan_Kompetensi_Upd.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterKompetensi.Designer.vb">
+      <DependentUpon>DseMasterKompetensi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterKompetensi.vb">
+      <DependentUpon>DseMasterKompetensi.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterKompetensi_Product.Designer.vb">
+      <DependentUpon>DseMasterKompetensi_Product.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterKompetensi_Product.vb">
+      <DependentUpon>DseMasterKompetensi_Product.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterListedSoftware.Designer.vb" />
+    <Compile Include="Datasets\DseMasterLocationPriority.Designer.vb">
+      <DependentUpon>DseMasterLocationPriority.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterLocationPriority.vb">
+      <DependentUpon>DseMasterLocationPriority.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterMachineData.Designer.vb" />
+    <Compile Include="Datasets\DseMasterMachineGroup.Designer.vb">
+      <DependentUpon>DseMasterMachineGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterMachineGroup.vb">
+      <DependentUpon>DseMasterMachineGroup.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterMachineLine.Designer.vb">
+      <DependentUpon>DseMasterMachineLine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterMachineLine.vb">
+      <DependentUpon>DseMasterMachineLine.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterNumbering.Designer.vb" />
+    <Compile Include="Datasets\DseMasterParameter.Designer.vb">
+      <DependentUpon>DseMasterParameter.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterParameter.vb">
+      <DependentUpon>DseMasterParameter.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseMasterParameterGaji.Designer.vb" />
+    <Compile Include="Datasets\DseMasterPayrollAccess.Designer.vb" />
+    <Compile Include="Datasets\DseMasterPayrollAkses.Designer.vb" />
+    <Compile Include="Datasets\DseMasterPriorityLevel1.Designer.vb" />
+    <Compile Include="Datasets\dseMasterProduct.Designer.vb">
+      <DependentUpon>dseMasterProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterProduct.vb">
+      <DependentUpon>dseMasterProduct.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProduct1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMasterProduct1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterProduct2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dseMasterProduct2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProductAccountGroup.Designer.vb">
+      <DependentUpon>DseMasterProductAccountGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProductAccountGroup.vb">
+      <DependentUpon>DseMasterProductAccountGroup.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterProductGroup.Designer.vb" />
+    <Compile Include="Datasets\DseMasterProductionRate.Designer.vb">
+      <DependentUpon>DseMasterProductionRate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProductionRate.vb">
+      <DependentUpon>DseMasterProductionRate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterProduct_BOM.Designer.vb">
+      <DependentUpon>dseMasterProduct_BOM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterProduct_BOM.vb">
+      <DependentUpon>dseMasterProduct_BOM.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProduct_BOM1.Designer.vb">
+      <DependentUpon>DseMasterProduct_BOM1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProduct_BOM1.vb">
+      <DependentUpon>DseMasterProduct_BOM1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProduct_ChangeControl.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMasterProduct_ChangeControl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProduct_EditPriceList.Designer.vb">
+      <DependentUpon>DseMasterProduct_EditPriceList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProduct_EditPriceList.vb">
+      <DependentUpon>DseMasterProduct_EditPriceList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterProduct_EditPriceList_GetPrice.Designer.vb" />
+    <Compile Include="Datasets\DseMasterProses.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMasterProses.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterRefParty.Designer.vb">
+      <DependentUpon>DseMasterRefParty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterRefParty.vb">
+      <DependentUpon>DseMasterRefParty.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterReject.Designer.vb">
+      <DependentUpon>DseMasterReject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterReject.vb">
+      <DependentUpon>DseMasterReject.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterSalaryFormula.Designer.vb">
+      <DependentUpon>DseMasterSalaryFormula.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterSalaryFormula.vb">
+      <DependentUpon>DseMasterSalaryFormula.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterSalaryFormula_Print.Designer.vb">
+      <DependentUpon>DseMasterSalaryFormula_Print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterSalaryFormula_Print.vb">
+      <DependentUpon>DseMasterSalaryFormula_Print.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterSalaryFormula_SlipDesc.Designer.vb" />
+    <Compile Include="Datasets\DseMasterSalesPerson.Designer.vb" />
+    <Compile Include="Datasets\DseMasterSalesPersonGroup.Designer.vb" />
+    <Compile Include="Datasets\DseMasterSetupTime.Designer.vb" />
+    <Compile Include="Datasets\DseMasterSQLReference.Designer.vb" />
+    <Compile Include="Datasets\dseMasterStorageArea.Designer.vb" />
+    <Compile Include="Datasets\dseMasterSupplier.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dseMasterSupplier.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterTaxAddInfoReference.Designer.vb">
+      <DependentUpon>DseMasterTaxAddInfoReference.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterTaxAddInfoReference.vb">
+      <DependentUpon>DseMasterTaxAddInfoReference.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterTaxFacilityStampReference.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMasterTaxFacilityStampReference.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterTaxMeasurementReference.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMasterTaxMeasurementReference.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterTaxProductReference.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMasterTaxProductReference.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterUnit.Designer.vb">
+      <DependentUpon>dseMasterUnit.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\dseMasterUnit.vb">
+      <DependentUpon>dseMasterUnit.xsd</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseMasterUnitCekTransaksi.Designer.vb" />
+    <Compile Include="Datasets\DseMasterUserGroup.Designer.vb">
+      <DependentUpon>DseMasterUserGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterUserGroup.vb">
+      <DependentUpon>DseMasterUserGroup.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseMasterWarehouse.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dseMasterWarehouse.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterWorkShift.Designer.vb">
+      <DependentUpon>DseMasterWorkShift.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterWorkShift.vb">
+      <DependentUpon>DseMasterWorkShift.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterWorkshift_Allocation.Designer.vb" />
+    <Compile Include="Datasets\DseMasterWorkUnit.Designer.vb">
+      <DependentUpon>DseMasterWorkUnit.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseMasterWorkUnit.vb">
+      <DependentUpon>DseMasterWorkUnit.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseMasterWorkUnitGroup.Designer.vb" />
+    <Compile Include="Datasets\DseMasterWorkUnit_addSetupTime.Designer.vb">
+      <DependentUpon>DseMasterWorkUnit_addSetupTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterWorkUnit_addSetupTime.vb">
+      <DependentUpon>DseMasterWorkUnit_addSetupTime.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMaster_SPL_EmployeeCustom.Designer.vb">
+      <DependentUpon>DseMaster_SPL_EmployeeCustom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMaster_SPL_EmployeeCustom.vb">
+      <DependentUpon>DseMaster_SPL_EmployeeCustom.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseProductListReport.Designer.vb" />
+    <Compile Include="Datasets\DseTransaksiAccClosing.Designer.vb" />
+    <Compile Include="Datasets\dseTransaksiCetakAmplop.Designer.vb" />
+    <Compile Include="Datasets\DseTransaksiCustom_Identifier.Designer.vb" />
+    <Compile Include="Datasets\DseTransaksiExpiryDateUpdate.Designer.vb">
+      <DependentUpon>DseTransaksiExpiryDateUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiExpiryDateUpdate.vb">
+      <DependentUpon>DseTransaksiExpiryDateUpdate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiJournal.Designer.vb">
+      <DependentUpon>DseTransaksiJournal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiJournal.vb">
+      <DependentUpon>DseTransaksiJournal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiMonitor.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiMonitor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiMonitor_Production.Designer.vb" />
+    <Compile Include="Datasets\DseTransaksiSetting.Designer.vb" />
+    <Compile Include="Datasets\DseTransaksiSettingUser.Designer.vb" />
+    <Compile Include="Datasets\DseTransaksiSetting_ProductGroup.Designer.vb" />
+    <Compile Include="Datasets\DseTransaksiStockInOut.Designer.vb">
+      <DependentUpon>DseTransaksiStockInOut.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiStockInOut.vb">
+      <DependentUpon>DseTransaksiStockInOut.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_CutOffDB_Core.Designer.vb" />
+    <Compile Include="Datasets\DseTrans_OtherDeduction.Designer.vb">
+      <DependentUpon>DseTrans_OtherDeduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_OtherDeduction.vb">
+      <DependentUpon>DseTrans_OtherDeduction.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_SettingNPWP.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_SettingNPWP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Version_Control.Designer.vb" />
+    <Compile Include="Datasets\DseUserLocationPrivilegeSetting.Designer.vb">
+      <DependentUpon>DseUserLocationPrivilegeSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseUserLocationPrivilegeSetting.vb">
+      <DependentUpon>DseUserLocationPrivilegeSetting.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dsFormat.Designer.vb" />
+    <Compile Include="Datasets\DSUser.Designer.vb">
+      <DependentUpon>DSUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DSUser.vb">
+      <DependentUpon>DSUser.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DSUser_TempPass.Designer.vb" />
+    <Compile Include="Forms\Frm Cek\FrmCekKartuAPAR.Designer.vb">
+      <DependentUpon>FrmCekKartuAPAR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Frm Cek\FrmCekKartuAPAR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterProduct2.Designer.vb">
+      <DependentUpon>frmCariMasterProduct2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterProduct2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCekSiklikBundling.Designer.vb">
+      <DependentUpon>FrmCekSiklikBundling.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCekSiklikBundling.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanCustomerList.Designer.vb">
+      <DependentUpon>FrmLaporanCustomerList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanCustomerList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanSupplierList.Designer.vb">
+      <DependentUpon>FrmLaporanSupplierList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanSupplierList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLaporanVAT2025_EditCustomer.Designer.vb">
+      <DependentUpon>frmLaporanVAT2025_EditCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLaporanVAT2025_EditCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLaporanVAT2025_EditSupplier.Designer.vb">
+      <DependentUpon>frmLaporanVAT2025_EditSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLaporanVAT2025_EditSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLicence_Add.Designer.vb">
+      <DependentUpon>FrmLicence_Add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLicence_Add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLicence_Input.Designer.vb">
+      <DependentUpon>FrmLicence_Input.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLicence_Input.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMassageCSV.Designer.vb">
+      <DependentUpon>FrmMassageCSV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMassageCSV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCommission_Allocate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCommission_Cari.Designer.vb">
+      <DependentUpon>FrmMasterCommission_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCommission_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCommission.Designer.vb">
+      <DependentUpon>FrmMasterCommission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCommission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCompanyData.Designer.vb">
+      <DependentUpon>FrmMasterCompanyData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCompanyData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCurrency2_CekDefPrec.Designer.vb">
+      <DependentUpon>FrmMasterCurrency2_CekDefPrec.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCurrency2_CekDefPrec.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomer.Designer.vb">
+      <DependentUpon>FrmMasterCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomer_Reference.Designer.vb">
+      <DependentUpon>FrmMasterCustomer_Reference.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomer_Reference.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomer_Reference_Cari.Designer.vb">
+      <DependentUpon>FrmMasterCustomer_Reference_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomer_Reference_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_Kompetensi_Upd.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan_Kompetensi_Upd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_Kompetensi_Upd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_Kompetensi_Upd_ImportOpt.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan_Kompetensi_Upd_ImportOpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_Kompetensi_Upd_ImportOpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_Kompetensi_Upd_Opt.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan_Kompetensi_Upd_Opt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_Kompetensi_Upd_Opt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_TipeKontrak.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan_TipeKontrak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_TipeKontrak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_TipeKontrak_Cari.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan_TipeKontrak_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_TipeKontrak_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineLine.Designer.vb">
+      <DependentUpon>FrmMasterMachineLine.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineLine.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineLine_Cari.Designer.vb">
+      <DependentUpon>FrmMasterMachineLine_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineLine_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct.Designer.vb">
+      <DependentUpon>frmMasterProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductionRate.Designer.vb">
+      <DependentUpon>FrmMasterProductionRate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductionRate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductionRate_Apply.Designer.vb">
+      <DependentUpon>FrmMasterProductionRate_Apply.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductionRate_Apply.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductionRate_Cari.Designer.vb">
+      <DependentUpon>FrmMasterProductionRate_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductionRate_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_BOM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_BOM1.Designer.vb">
+      <DependentUpon>frmMasterProduct_BOM1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_BOM1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_BOM1_AddRM.Designer.vb">
+      <DependentUpon>frmMasterProduct_BOM1_AddRM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_BOM1_AddRM.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_BOM1_SetQtyReference.Designer.vb">
+      <DependentUpon>frmMasterProduct_BOM1_SetQtyReference.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_BOM1_SetQtyReference.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_ChangeControl.Designer.vb">
+      <DependentUpon>frmMasterProduct_ChangeControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_ChangeControl.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_Verifikasi_Cek.Designer.vb">
+      <DependentUpon>frmMasterProduct_Verifikasi_Cek.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_Verifikasi_Cek.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSetupTime.Designer.vb">
+      <DependentUpon>FrmMasterSetupTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSetupTime.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSetupTime_Cari.Designer.vb">
+      <DependentUpon>FrmMasterSetupTime_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSetupTime_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxAddInfoReference.Designer.vb">
+      <DependentUpon>FrmMasterTaxAddInfoReference.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxAddInfoReference.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxAddInfoReference_Cari.Designer.vb">
+      <DependentUpon>FrmMasterTaxAddInfoReference_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxAddInfoReference_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxFacilityStampReference.Designer.vb">
+      <DependentUpon>FrmMasterTaxFacilityStampReference.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxFacilityStampReference.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxFacilityStampReference_Cari.Designer.vb">
+      <DependentUpon>FrmMasterTaxFacilityStampReference_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxFacilityStampReference_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxMeasurementReference.Designer.vb">
+      <DependentUpon>FrmMasterTaxMeasurementReference.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxMeasurementReference.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxMeasurementReference_Cari.Designer.vb">
+      <DependentUpon>FrmMasterTaxMeasurementReference_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxMeasurementReference_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxProductReference.Designer.vb">
+      <DependentUpon>FrmMasterTaxProductReference.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxProductReference.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxProductReference_Cari.Designer.vb">
+      <DependentUpon>FrmMasterTaxProductReference_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterTaxProductReference_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift_AdvanceSettings.Designer.vb">
+      <DependentUpon>FrmMasterWorkShift_AdvanceSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift_AdvanceSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnitGroup.Designer.vb">
+      <DependentUpon>FrmMasterWorkUnitGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnitGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnitGroup_Cari.Designer.vb">
+      <DependentUpon>FrmMasterWorkUnitGroup_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnitGroup_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit_AddSetupTime.Designer.vb">
+      <DependentUpon>FrmMasterWorkUnit_AddSetupTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit_AddSetupTime.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMaster_EditNPWPLama.Designer.vb">
+      <DependentUpon>FrmMaster_EditNPWPLama.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMaster_EditNPWPLama.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMaster_SPL_EmployeeCustom.Designer.vb">
+      <DependentUpon>FrmMaster_SPL_EmployeeCustom.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMaster_SPL_EmployeeCustom.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMaster_SPL_EmployeeCustom_Cari.Designer.vb">
+      <DependentUpon>FrmMaster_SPL_EmployeeCustom_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMaster_SPL_EmployeeCustom_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmOptionRate.Designer.vb">
+      <DependentUpon>FrmOptionRate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmOptionRate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSetting_QuickInputAdj.Designer.vb">
+      <DependentUpon>FrmSetting_QuickInputAdj.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSetting_QuickInputAdj.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiMonitor_Production.Designer.vb">
+      <DependentUpon>FrmTransaksiMonitor_Production.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiMonitor_Production.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiMonitor_Production_Notif.Designer.vb">
+      <DependentUpon>FrmTransaksiMonitor_Production_Notif.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiMonitor_Production_Notif.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiMonitor_Production_Request.Designer.vb">
+      <DependentUpon>FrmTransaksiMonitor_Production_Request.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiMonitor_Production_Request.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_CutOffDB_ExceptionQty.Designer.vb">
+      <DependentUpon>FrmTrans_CutOffDB_ExceptionQty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_CutOffDB_ExceptionQty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_PriceByMultiUnit.Designer.vb">
+      <DependentUpon>FrmTrans_PriceByMultiUnit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_PriceByMultiUnit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SettingNPWP.Designer.vb">
+      <DependentUpon>FrmTrans_SettingNPWP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SettingNPWP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SettingSalaryNPWP.Designer.vb">
+      <DependentUpon>FrmTrans_SettingSalaryNPWP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SettingSalaryNPWP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUpdate\Frm2021.Designer.vb">
+      <DependentUpon>Frm2021.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUpdate\Frm2021.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUserLocationPrivilegeSetting.Designer.vb">
+      <DependentUpon>FrmUserLocationPrivilegeSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUserLocationPrivilegeSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUserLocationPrivilegeSetting2.Designer.vb">
+      <DependentUpon>FrmUserLocationPrivilegeSetting2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUserLocationPrivilegeSetting2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\ApplicationEvents.vb" />
+    <Compile Include="Classes\ClsAntrian.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\ClsCekData.vb" />
+    <Compile Include="Classes\ClsCompressFile.vb" />
+    <Compile Include="Classes\ClsDBVersion.vb" />
+    <Compile Include="Classes\ClsEmailSettings.vb" />
+    <Compile Include="Classes\ClsEmailSettings_LogReport.vb" />
+    <Compile Include="Classes\ClsEncrypt.vb" />
+    <Compile Include="Classes\ClsHakAkses.vb" />
+    <Compile Include="Classes\ClsHakKhusus.vb" />
+    <Compile Include="Classes\ClsLicense.vb" />
+    <Compile Include="Classes\ClsMasterAkun1.vb" />
+    <Compile Include="Classes\ClsMasterAsset.vb" />
+    <Compile Include="Classes\ClsMasterAssetGroup.vb" />
+    <Compile Include="Classes\ClsMasterBackUpDB.vb">
+    </Compile>
+    <Compile Include="Classes\ClsMasterColSize.vb" />
+    <Compile Include="Classes\ClsMasterCompanyData.vb" />
+    <Compile Include="Classes\ClsMasterCuti.vb" />
+    <Compile Include="Classes\ClsMasterCuti_Item.vb" />
+    <Compile Include="Classes\ClsMasterDepartement.vb" />
+    <Compile Include="Classes\ClsEncryptFile.vb" />
+    <Compile Include="Classes\ClsMasterDownTime.vb" />
+    <Compile Include="Classes\ClsMasterJob.vb" />
+    <Compile Include="Classes\ClsMasterJobPosition.vb" />
+    <Compile Include="Classes\ClsMasterKaryawan.vb" />
+    <Compile Include="Classes\ClsMasterKaryawan_Item.vb" />
+    <Compile Include="Classes\ClsMasterKompetensi_Product.vb" />
+    <Compile Include="Classes\ClsMasterKompetensi_Product_Item.vb" />
+    <Compile Include="Classes\clsMasterListedSoftware.vb" />
+    <Compile Include="Classes\ClsMasterCategory.vb" />
+    <Compile Include="Classes\clsMasterCurrency.vb" />
+    <Compile Include="Classes\clsMasterCustomer.vb" />
+    <Compile Include="Classes\clsMasterCustomerGroup.vb" />
+    <Compile Include="Classes\clsMasterCustomerMarketSegmentation.vb" />
+    <Compile Include="Classes\clsMasterCustomerSalesArea.vb" />
+    <Compile Include="Classes\clsMasterCustomerType.vb" />
+    <Compile Include="Classes\ClsMasterLocationPriority.vb" />
+    <Compile Include="Classes\ClsMasterMachineData.vb" />
+    <Compile Include="Classes\ClsMasterMachineGroup.vb" />
+    <Compile Include="Classes\ClsMasterParameterGaji.vb" />
+    <Compile Include="Classes\ClsMasterPayrollAccess.vb" />
+    <Compile Include="Classes\ClsMasterPayrollAccess_Item.vb" />
+    <Compile Include="Classes\ClsMasterPriorityLevel.vb" />
+    <Compile Include="Classes\clsMasterProduct.vb" />
+    <Compile Include="Classes\ClsMasterProductAccountGroup.vb" />
+    <Compile Include="Classes\ClsMasterProductGroup.vb" />
+    <Compile Include="Classes\clsMasterProduct_PriceList.vb" />
+    <Compile Include="Classes\ClsMasterProduct_PriceList_GetPrice.vb" />
+    <Compile Include="Classes\ClsMasterProduct_Verifikasi.vb" />
+    <Compile Include="Classes\ClsMasterProses.vb" />
+    <Compile Include="Classes\ClsMasterRefParty.vb" />
+    <Compile Include="Classes\ClsMasterReject.vb" />
+    <Compile Include="Classes\ClsMasterSalaryFormula.vb" />
+    <Compile Include="Classes\ClsMasterSalaryFormula_item.vb" />
+    <Compile Include="Classes\ClsMasterSalaryFormula_SlipDesc.vb" />
+    <Compile Include="Classes\ClsMasterSalesPerson.vb" />
+    <Compile Include="Classes\ClsMasterSalesPersonGroup.vb" />
+    <Compile Include="Classes\clsMasterStorageArea.vb" />
+    <Compile Include="Classes\clsMasterSupplier.vb" />
+    <Compile Include="Classes\ClsMasterTipeOtorisasi.vb" />
+    <Compile Include="Classes\ClsMasterTransactionNumbering.vb" />
+    <Compile Include="Classes\ClsMasterUnit.vb" />
+    <Compile Include="Classes\ClsMasterUserGroup.vb" />
+    <Compile Include="Classes\ClsMasterUserGroupItem.vb" />
+    <Compile Include="Classes\clsMasterWarehouse.vb" />
+    <Compile Include="Classes\ClsMasterWorkShift.vb" />
+    <Compile Include="Classes\ClsMasterWorkshift_Allocate.vb" />
+    <Compile Include="Classes\ClsMasterWorkShift_Item.vb" />
+    <Compile Include="Classes\ClsMasterWorkUnit.vb" />
+    <Compile Include="Classes\ClsMasterWorkUnitItem.vb" />
+    <Compile Include="Classes\ClsMySQL.vb" />
+    <Compile Include="Classes\ClsMySQLReference.vb" />
+    <Compile Include="Classes\ClsTransaksiJournal1.vb" />
+    <Compile Include="Classes\ClsTransaksiMonitor.vb" />
+    <Compile Include="Classes\ClsTransaksiSetting.vb" />
+    <Compile Include="Classes\ClsTransaksiSetting_ProdGroup.vb" />
+    <Compile Include="Classes\clsTransaksiStockInOut1.vb" />
+    <Compile Include="Classes\ClsMasterKompetensi.vb" />
+    <Compile Include="Classes\ClsTransaksi_SMESSAutoUpdate.vb" />
+    <Compile Include="Classes\ClsTranskasiAccClosing.vb" />
+    <Compile Include="Classes\ClsTrans_OtherDeduction.vb" />
+    <Compile Include="Classes\ClsTrans_OtherDeduction_item.vb" />
+    <Compile Include="Classes\ClsUser.vb" />
+    <Compile Include="Classes\ClsUser_TempPass.vb" />
+    <Compile Include="Classes\ClsWhatToDoNext.vb" />
+    <Compile Include="Classes\ClsTransaksiSettingUser.vb" />
+    <Compile Include="Forms\FrmAddReplace.Designer.vb">
+      <DependentUpon>FrmAddReplace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddReplace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBackUpData.Designer.vb">
+      <DependentUpon>FrmBackUpData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmBackUpData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBackUpData1.Designer.vb">
+      <DependentUpon>FrmBackUpData1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmBackUpData1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBackUpData2.Designer.vb">
+      <DependentUpon>FrmBackUpData2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmBackUpData2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti_Item_Desc.Designer.vb">
+      <DependentUpon>FrmMasterCuti_Item_Desc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti_Item_Desc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti_Period.Designer.vb">
+      <DependentUpon>FrmMasterCuti_Period.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti_Period.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterLocationPriority.Designer.vb">
+      <DependentUpon>FrmMasterLocationPriority.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterLocationPriority.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterRefParty.Designer.vb">
+      <DependentUpon>FrmMasterRefParty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterRefParty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterRefParty_Cari.Designer.vb">
+      <DependentUpon>FrmMasterRefParty_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterRefParty_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit_Cari.Designer.vb">
+      <DependentUpon>FrmMasterWorkUnit_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDownTimeCari.Designer.vb">
+      <DependentUpon>FrmMasterDownTimeCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDownTimeCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineDataCari.Designer.vb">
+      <DependentUpon>FrmMasterMachineDataCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineDataCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineGroupCari.Designer.vb">
+      <DependentUpon>FrmMasterMachineGroupCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineGroupCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterRejectCari.Designer.vb">
+      <DependentUpon>FrmMasterRejectCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterRejectCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCetakMasterProduct_PriceList.Designer.vb">
+      <DependentUpon>FrmCetakMasterProduct_PriceList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCetakMasterProduct_PriceList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings.Designer.vb">
+      <DependentUpon>FrmEmailSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_Cari.Designer.vb">
+      <DependentUpon>FrmEmailSettings_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_LogReport.Designer.vb">
+      <DependentUpon>FrmEmailSettings_LogReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_LogReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_LogReport_Print.Designer.vb">
+      <DependentUpon>FrmEmailSettings_LogReport_Print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_LogReport_Print.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_LogReport_View.Designer.vb">
+      <DependentUpon>FrmEmailSettings_LogReport_View.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_LogReport_View.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_Test.Designer.vb">
+      <DependentUpon>FrmEmailSettings_Test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEmailSettings_Test.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterBackUpDB.Designer.vb">
+      <DependentUpon>FrmMasterBackUpDB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterBackUpDB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterBackUpDB_Cari.Designer.vb">
+      <DependentUpon>FrmMasterBackUpDB_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterBackUpDB_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomer_CekEmailCP.Designer.vb">
+      <DependentUpon>FrmMasterCustomer_CekEmailCP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomer_CekEmailCP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti.Designer.vb">
+      <DependentUpon>FrmMasterCuti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti_Balance.Designer.vb">
+      <DependentUpon>FrmMasterCuti_Balance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti_Balance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti_Cari.Designer.vb">
+      <DependentUpon>FrmMasterCuti_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCuti_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDownTime.Designer.vb">
+      <DependentUpon>FrmMasterDownTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDownTime.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawanCari.Designer.vb">
+      <DependentUpon>FrmMasterKaryawanCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawanCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_CekEmail.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan_CekEmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_CekEmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_Cetak1.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan_Cetak1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_Cetak1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_DetailNama.Designer.vb">
+      <DependentUpon>FrmMasterKaryawan_DetailNama.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKaryawan_DetailNama.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi.Designer.vb">
+      <DependentUpon>FrmMasterKompetensi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi_Cari.Designer.vb">
+      <DependentUpon>FrmMasterKompetensi_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi_Product.Designer.vb">
+      <DependentUpon>FrmMasterKompetensi_Product.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi_Product.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi_Product_Cari.Designer.vb">
+      <DependentUpon>FrmMasterKompetensi_Product_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi_Product_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi_Product_Item_Cari.Designer.vb">
+      <DependentUpon>FrmMasterKompetensi_Product_Item_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterKompetensi_Product_Item_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineData.Designer.vb">
+      <DependentUpon>FrmMasterMachineData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineGroup.Designer.vb">
+      <DependentUpon>FrmMasterMachineGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterMachineGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterPriorityLevel.Designer.vb">
+      <DependentUpon>FrmMasterPriorityLevel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterPriorityLevel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAkun_Cari2.Designer.vb">
+      <DependentUpon>FrmMasterAkun_Cari2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAkun_Cari2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAkun_Cari3.Designer.vb">
+      <DependentUpon>FrmMasterAkun_Cari3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAkun_Cari3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAsset.Designer.vb">
+      <DependentUpon>FrmMasterAsset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAsset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAssetCari.Designer.vb">
+      <DependentUpon>FrmMasterAssetCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAssetCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAssetGroup.Designer.vb">
+      <DependentUpon>FrmMasterAssetGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAssetGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAssetGroup_Cari.Designer.vb">
+      <DependentUpon>FrmMasterAssetGroup_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAssetGroup_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCurrency2.Designer.vb">
+      <DependentUpon>FrmMasterCurrency2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCurrency2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DialogPassword.Designer.vb">
+      <DependentUpon>DialogPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DialogPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAkun_Cari1.Designer.vb">
+      <DependentUpon>FrmMasterAkun_Cari1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAkun_Cari1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDefaultValues.Designer.vb">
+      <DependentUpon>FrmMasterDefaultValues.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDefaultValues.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDepartement.Designer.vb">
+      <DependentUpon>FrmMasterDepartement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDepartement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDepartementCari.Designer.vb">
+      <DependentUpon>FrmMasterDepartementCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterDepartementCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterJob.Designer.vb">
+      <DependentUpon>FrmMasterJob.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterJob.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterJobCari.Designer.vb">
+      <DependentUpon>FrmMasterJobCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterJobCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterJobPosition.Designer.vb">
+      <DependentUpon>FrmMasterJobPosition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterJobPosition.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterJobPosition_Cari.Designer.vb">
+      <DependentUpon>FrmMasterJobPosition_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterJobPosition_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterNumbering.Designer.vb">
+      <DependentUpon>FrmMasterNumbering.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterNumbering.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterHakAkses2.Designer.vb">
+      <DependentUpon>FrmCariMasterHakAkses2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterHakAkses2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmManajemenHakAkses2.Designer.vb">
+      <DependentUpon>FrmManajemenHakAkses2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmManajemenHakAkses2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterCustomerSegmentation.Designer.vb">
+      <DependentUpon>FrmCariMasterCustomerSegmentation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterCustomerSegmentation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariHakAkses.Designer.vb">
+      <DependentUpon>FrmCariHakAkses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariHakAkses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariHakKhusus.Designer.vb">
+      <DependentUpon>FrmCariHakKhusus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariHakKhusus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterCategory.Designer.vb">
+      <DependentUpon>frmCariMasterCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterCurrency.Designer.vb">
+      <DependentUpon>FrmCariMasterCurrency.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterCurrency.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterCustomer.Designer.vb">
+      <DependentUpon>FrmCariMasterCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterCustomer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterCustomerGroup.Designer.vb">
+      <DependentUpon>FrmCariMasterCustomerGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterCustomerGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterCustomerType.Designer.vb">
+      <DependentUpon>frmCariMasterCustomerType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterCustomerType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterWarehouse.Designer.vb">
+      <DependentUpon>frmCariMasterWarehouse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterWarehouse.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterProduct.Designer.vb">
+      <DependentUpon>frmCariMasterProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCariMasterProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterProductGroup.Designer.vb">
+      <DependentUpon>FrmCariMasterProductGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterProductGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterSalesArea.Designer.vb">
+      <DependentUpon>FrmCariMasterSalesArea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterSalesArea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterStorageArea.Designer.vb">
+      <DependentUpon>FrmCariMasterStorageArea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterStorageArea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterSupplier.Designer.vb">
+      <DependentUpon>FrmCariMasterSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterUnit.Designer.vb">
+      <DependentUpon>FrmCariMasterUnit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterUnit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterUser.designer.vb">
+      <DependentUpon>FrmCariMasterUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCariMasterUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCariTransaksiCetakAmplop.Designer.vb">
+      <DependentUpon>frmCariTransaksiCetakAmplop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCariTransaksiCetakAmplop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCetakAmplop.Designer.vb">
+      <DependentUpon>frmCetakAmplop.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCetakAmplop.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDetailAddress.Designer.vb">
+      <DependentUpon>FrmDetailAddress.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDetailAddress.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDetailAddressSupplier.Designer.vb">
+      <DependentUpon>FrmDetailAddressSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDetailAddressSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmGantiPassword.Designer.vb">
+      <DependentUpon>FrmGantiPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmGantiPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmManajemenHakKhusus.designer.vb">
+      <DependentUpon>FrmManajemenHakKhusus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmManajemenHakKhusus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterPayrollAccess.Designer.vb">
+      <DependentUpon>FrmMasterPayrollAccess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterPayrollAccess.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterPayrollAccessCari.Designer.vb">
+      <DependentUpon>FrmMasterPayrollAccessCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterPayrollAccessCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductAccountGroup.Designer.vb">
+      <DependentUpon>FrmMasterProductAccountGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductAccountGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductAccountGroup_Cari.Designer.vb">
+      <DependentUpon>FrmMasterProductAccountGroup_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductAccountGroup_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_PriceList.Designer.vb">
+      <DependentUpon>frmMasterProduct_PriceList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_PriceList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_Verifikasi.Designer.vb">
+      <DependentUpon>frmMasterProduct_Verifikasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterProduct_Verifikasi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProses.Designer.vb">
+      <DependentUpon>FrmMasterProses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProsesCari.Designer.vb">
+      <DependentUpon>FrmMasterProsesCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProsesCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterReject.designer.vb">
+      <DependentUpon>FrmMasterReject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterReject.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormulaParameter1_Cari.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormulaParameter1_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormulaParameter1_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Cari.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Component.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_Component.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Component.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Component1.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_Component1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Component1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Component2.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_Component2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Component2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Options.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_Options.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Options.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_OtherDeduction.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_OtherDeduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_OtherDeduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_OtherDeduction_Cari.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_OtherDeduction_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_OtherDeduction_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_OtherDeduction_ItemEmp.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_OtherDeduction_ItemEmp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_OtherDeduction_ItemEmp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Print.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_Print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_Print.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_SlipDesc_Cari.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_SlipDesc_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_SlipDesc_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesPerson.Designer.vb">
+      <DependentUpon>FrmMasterSalesPerson.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesPerson.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesPersonGroup.Designer.vb">
+      <DependentUpon>FrmMasterSalesPersonGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesPersonGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesPersonGroup_Cari.Designer.vb">
+      <DependentUpon>FrmMasterSalesPersonGroup_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesPersonGroup_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesPerson_Cari.Designer.vb">
+      <DependentUpon>FrmMasterSalesPerson_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesPerson_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_SlipDesc.Designer.vb">
+      <DependentUpon>FrmMasterSalaryFormula_SlipDesc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalaryFormula_SlipDesc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterStartUp.Designer.vb">
+      <DependentUpon>FrmMasterStartUp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterStartUp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterStorageArea.Designer.vb">
+      <DependentUpon>FrmMasterStorageArea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterStorageArea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterBrand.Designer.vb">
+      <DependentUpon>FrmMasterBrand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterBrand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMasterCategory.Designer.vb">
+      <DependentUpon>frmMasterCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMasterCategory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomerGroup.Designer.vb">
+      <DependentUpon>FrmMasterCustomerGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomerGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomerSegmentation.Designer.vb">
+      <DependentUpon>FrmMasterCustomerSegmentation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomerSegmentation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomerType.Designer.vb">
+      <DependentUpon>FrmMasterCustomerType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterCustomerType.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterGudang.Designer.vb">
+      <DependentUpon>FrmMasterGudang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterGudang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterHakAkses.Designer.vb">
+      <DependentUpon>FrmMasterHakAkses.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterHakAkses.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterHakKhusus.designer.vb">
+      <DependentUpon>FrmMasterHakKhusus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterHakKhusus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductGroup.Designer.vb">
+      <DependentUpon>FrmMasterProductGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesArea.Designer.vb">
+      <DependentUpon>FrmMasterSalesArea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSalesArea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSubBrand.Designer.vb">
+      <DependentUpon>FrmMasterSubBrand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSubBrand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSupplier.Designer.vb">
+      <DependentUpon>FrmMasterSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUnit.Designer.vb">
+      <DependentUpon>FrmMasterUnit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUnit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUser.designer.vb">
+      <DependentUpon>FrmMasterUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUser_Otorisasi.Designer.vb">
+      <DependentUpon>FrmMasterUser_Otorisasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUser_Otorisasi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUser_TempPass.Designer.vb">
+      <DependentUpon>FrmMasterUser_TempPass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUser_TempPass.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUser_TempPass_Cari.Designer.vb">
+      <DependentUpon>FrmMasterUser_TempPass_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterUser_TempPass_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift.Designer.vb">
+      <DependentUpon>FrmMasterWorkShift.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift_Allocate.Designer.vb">
+      <DependentUpon>FrmMasterWorkShift_Allocate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift_Allocate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift_Allocate_Data01.Designer.vb">
+      <DependentUpon>FrmMasterWorkShift_Allocate_Data01.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift_Allocate_Data01.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift_Cari.Designer.vb">
+      <DependentUpon>FrmMasterWorkShift_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkShift_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkshift_CopyData.Designer.vb">
+      <DependentUpon>FrmMasterWorkshift_CopyData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkshift_CopyData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit.Designer.vb">
+      <DependentUpon>FrmMasterWorkUnit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit_AddDialog.Designer.vb">
+      <DependentUpon>FrmMasterWorkUnit_AddDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit_AddDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit_Workshift.Designer.vb">
+      <DependentUpon>FrmMasterWorkUnit_Workshift.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterWorkUnit_Workshift.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductListReport.Designer.vb">
+      <DependentUpon>FrmMasterProductListReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductListReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductListReport_Print.Designer.vb">
+      <DependentUpon>FrmMasterProductListReport_Print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterProductListReport_Print.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmResetPassword.Designer.vb">
+      <DependentUpon>FrmResetPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmResetPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSettingMasterProductGroup.Designer.vb">
+      <DependentUpon>FrmSettingMasterProductGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSettingMasterProductGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_Balance.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_Balance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_Balance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiExpiryDateUpdate.Designer.vb">
+      <DependentUpon>FrmTransaksiExpiryDateUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiExpiryDateUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOtorisasiTransaksi.Designer.vb">
+      <DependentUpon>FrmLaporanOtorisasiTransaksi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOtorisasiTransaksi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiMonitor.Designer.vb">
+      <DependentUpon>FrmTransaksiMonitor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiMonitor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiProductDetailing.Designer.vb">
+      <DependentUpon>FrmTransaksiProductDetailing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiProductDetailing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ModCekData.vb" />
+    <Compile Include="Modules\ModGlobalVariable.vb" />
+    <Compile Include="Modules\ModHakAkses.vb" />
+    <Compile Include="Modules\ModHakKhusus.vb" />
+    <Compile Include="Modules\ModUser.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Report\CrpCetakSalaryFormula_EmployeeList.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakSalaryFormula_EmployeeList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpCetakSalaryFormula_Formula.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakSalaryFormula_Formula.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpCetakSalaryFormula_Parameter.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakSalaryFormula_Parameter.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpEmailSettings_LogReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpEmailSettings_LogReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLapMasterProduct_PriceList_General.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLapMasterProduct_PriceList_General.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLapMasterProduct_PriceList_Cust.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLapMasterProduct_PriceList_Cust.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLapMasterProduct_PriceList_GeneralAda%28Prototype%29.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLapMasterProduct_PriceList_GeneralAda%28Prototype%29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLapMasterProduct_PriceList_Group.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLapMasterProduct_PriceList_Group.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanCustomerList.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanCustomerList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanCustomerList_WithoutTaxAddress.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanCustomerList_WithoutTaxAddress.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanPenjualanRekap_1Level.vb">
+      <DependentUpon>CrpLaporanPenjualanRekap_1Level.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\crpCetakAmplop.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crpCetakAmplop.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\crpCetakAmplop2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crpCetakAmplop2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanPenjualanDetail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanPenjualanDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanPenjualanRekap.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanPenjualanRekap.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanPenjualanRekap_2PeriodCust.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanPenjualanRekap_2PeriodCust.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanSupplierList.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSupplierList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpMasterKaryawanCetak.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpMasterKaryawanCetak.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOtorisasiTransaksi.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOtorisasiTransaksi.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpProductListReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpProductListReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\Frm Cek\FrmCekKartuAPAR.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmCekKartuAPAR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddReplace.resx">
+      <DependentUpon>FrmAddReplace.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBackUpData.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmBackUpData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBackUpData1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmBackUpData1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBackUpData2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmBackUpData2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCariMasterProduct2.resx">
+      <DependentUpon>frmCariMasterProduct2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCekSiklikBundling.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmCekSiklikBundling.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanCustomerList.resx">
+      <DependentUpon>FrmLaporanCustomerList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanSupplierList.resx">
+      <DependentUpon>FrmLaporanSupplierList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLaporanVAT2025_EditCustomer.resx">
+      <DependentUpon>frmLaporanVAT2025_EditCustomer.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLaporanVAT2025_EditSupplier.resx">
+      <DependentUpon>frmLaporanVAT2025_EditSupplier.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLicence_Add.resx">
+      <DependentUpon>FrmLicence_Add.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLicence_Input.resx">
+      <DependentUpon>FrmLicence_Input.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMassageCSV.resx">
+      <DependentUpon>FrmMassageCSV.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCommission_Cari.resx">
+      <DependentUpon>FrmMasterCommission_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCommission.resx">
+      <DependentUpon>FrmMasterCommission.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCompanyData.resx">
+      <DependentUpon>FrmMasterCompanyData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCurrency2_CekDefPrec.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterCurrency2_CekDefPrec.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCustomer.resx">
+      <DependentUpon>FrmMasterCustomer.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCustomer_Reference.resx">
+      <DependentUpon>FrmMasterCustomer_Reference.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCustomer_Reference_Cari.resx">
+      <DependentUpon>FrmMasterCustomer_Reference_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCuti_Item_Desc.resx">
+      <DependentUpon>FrmMasterCuti_Item_Desc.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCuti_Period.resx">
+      <DependentUpon>FrmMasterCuti_Period.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan_Kompetensi_Upd.resx">
+      <DependentUpon>FrmMasterKaryawan_Kompetensi_Upd.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan_Kompetensi_Upd_ImportOpt.resx">
+      <DependentUpon>FrmMasterKaryawan_Kompetensi_Upd_ImportOpt.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan_Kompetensi_Upd_Opt.resx">
+      <DependentUpon>FrmMasterKaryawan_Kompetensi_Upd_Opt.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan_TipeKontrak.resx">
+      <DependentUpon>FrmMasterKaryawan_TipeKontrak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan_TipeKontrak_Cari.resx">
+      <DependentUpon>FrmMasterKaryawan_TipeKontrak_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterLocationPriority.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterLocationPriority.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterMachineLine.resx">
+      <DependentUpon>FrmMasterMachineLine.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterMachineLine_Cari.resx">
+      <DependentUpon>FrmMasterMachineLine_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterProduct.resx">
+      <DependentUpon>frmMasterProduct.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProductionRate.resx">
+      <DependentUpon>FrmMasterProductionRate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProductionRate_Apply.resx">
+      <DependentUpon>FrmMasterProductionRate_Apply.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProductionRate_Cari.resx">
+      <DependentUpon>FrmMasterProductionRate_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterProduct_BOM1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMasterProduct_BOM1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterProduct_BOM1_AddRM.resx">
+      <DependentUpon>frmMasterProduct_BOM1_AddRM.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterProduct_BOM1_SetQtyReference.resx">
+      <DependentUpon>frmMasterProduct_BOM1_SetQtyReference.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterProduct_ChangeControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMasterProduct_ChangeControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterProduct_Verifikasi_Cek.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMasterProduct_Verifikasi_Cek.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterRefParty.resx">
+      <DependentUpon>FrmMasterRefParty.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterRefParty_Cari.resx">
+      <DependentUpon>FrmMasterRefParty_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSetupTime.resx">
+      <DependentUpon>FrmMasterSetupTime.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSetupTime_Cari.resx">
+      <DependentUpon>FrmMasterSetupTime_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterTaxAddInfoReference.resx">
+      <DependentUpon>FrmMasterTaxAddInfoReference.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterTaxAddInfoReference_Cari.resx">
+      <DependentUpon>FrmMasterTaxAddInfoReference_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterTaxFacilityStampReference.resx">
+      <DependentUpon>FrmMasterTaxFacilityStampReference.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterTaxFacilityStampReference_Cari.resx">
+      <DependentUpon>FrmMasterTaxFacilityStampReference_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterTaxMeasurementReference.resx">
+      <DependentUpon>FrmMasterTaxMeasurementReference.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterTaxMeasurementReference_Cari.resx">
+      <DependentUpon>FrmMasterTaxMeasurementReference_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterTaxProductReference.resx">
+      <DependentUpon>FrmMasterTaxProductReference.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterTaxProductReference_Cari.resx">
+      <DependentUpon>FrmMasterTaxProductReference_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkShift_AdvanceSettings.resx">
+      <DependentUpon>FrmMasterWorkShift_AdvanceSettings.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkUnitGroup.resx">
+      <DependentUpon>FrmMasterWorkUnitGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkUnitGroup_Cari.resx">
+      <DependentUpon>FrmMasterWorkUnitGroup_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkUnit_AddSetupTime.resx">
+      <DependentUpon>FrmMasterWorkUnit_AddSetupTime.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkUnit_Cari.resx">
+      <DependentUpon>FrmMasterWorkUnit_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterDownTimeCari.resx">
+      <DependentUpon>FrmMasterDownTimeCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterMachineDataCari.resx">
+      <DependentUpon>FrmMasterMachineDataCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterMachineGroupCari.resx">
+      <DependentUpon>FrmMasterMachineGroupCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterRejectCari.resx">
+      <DependentUpon>FrmMasterRejectCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCetakMasterProduct_PriceList.resx">
+      <DependentUpon>FrmCetakMasterProduct_PriceList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEmailSettings.resx">
+      <DependentUpon>FrmEmailSettings.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEmailSettings_Cari.resx">
+      <DependentUpon>FrmEmailSettings_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEmailSettings_LogReport.resx">
+      <DependentUpon>FrmEmailSettings_LogReport.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEmailSettings_LogReport_Print.resx">
+      <DependentUpon>FrmEmailSettings_LogReport_Print.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEmailSettings_LogReport_View.resx">
+      <DependentUpon>FrmEmailSettings_LogReport_View.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEmailSettings_Test.resx">
+      <DependentUpon>FrmEmailSettings_Test.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterBackUpDB.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterBackUpDB.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterBackUpDB_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterBackUpDB_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCustomer_CekEmailCP.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterCustomer_CekEmailCP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCuti.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterCuti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCuti_Balance.resx">
+      <DependentUpon>FrmMasterCuti_Balance.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCuti_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterCuti_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterDownTime.resx">
+      <DependentUpon>FrmMasterDownTime.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterJobPosition_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterJobPosition_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan.resx">
+      <DependentUpon>FrmMasterKaryawan.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawanCari.resx">
+      <DependentUpon>FrmMasterKaryawanCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan_CekEmail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterKaryawan_CekEmail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan_Cetak1.resx">
+      <DependentUpon>FrmMasterKaryawan_Cetak1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKaryawan_DetailNama.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterKaryawan_DetailNama.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKompetensi.resx">
+      <DependentUpon>FrmMasterKompetensi.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKompetensi_Cari.resx">
+      <DependentUpon>FrmMasterKompetensi_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKompetensi_Product.resx">
+      <DependentUpon>FrmMasterKompetensi_Product.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKompetensi_Product_Cari.resx">
+      <DependentUpon>FrmMasterKompetensi_Product_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterKompetensi_Product_Item_Cari.resx">
+      <DependentUpon>FrmMasterKompetensi_Product_Item_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterMachineData.resx">
+      <DependentUpon>FrmMasterMachineData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterMachineGroup.resx">
+      <DependentUpon>FrmMasterMachineGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterPayrollAccessCari.resx">
+      <DependentUpon>FrmMasterPayrollAccessCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterPriorityLevel.resx">
+      <DependentUpon>FrmMasterPriorityLevel.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAkun_Cari2.resx">
+      <DependentUpon>FrmMasterAkun_Cari2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAkun_Cari3.resx">
+      <DependentUpon>FrmMasterAkun_Cari3.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAsset.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterAsset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAssetCari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterAssetCari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAssetGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterAssetGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAssetGroup_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterAssetGroup_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCurrency2.resx">
+      <DependentUpon>FrmMasterCurrency2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DialogPassword.resx">
+      <DependentUpon>DialogPassword.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAkun_Cari1.resx">
+      <DependentUpon>FrmMasterAkun_Cari1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterDefaultValues.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterDefaultValues.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterDepartement.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterDepartement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterDepartementCari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterDepartementCari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterJob.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterJob.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterJobCari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterJobCari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterJobPosition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterJobPosition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterNumbering.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterNumbering.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterHakAkses2.resx">
+      <DependentUpon>FrmCariMasterHakAkses2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmManajemenHakAkses2.resx">
+      <DependentUpon>FrmManajemenHakAkses2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterCustomerSegmentation.resx">
+      <DependentUpon>FrmCariMasterCustomerSegmentation.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariHakAkses.resx">
+      <DependentUpon>FrmCariHakAkses.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariHakKhusus.resx">
+      <DependentUpon>FrmCariHakKhusus.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCariMasterCategory.resx">
+      <DependentUpon>frmCariMasterCategory.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterCurrency.resx">
+      <DependentUpon>FrmCariMasterCurrency.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterCustomer.resx">
+      <DependentUpon>FrmCariMasterCustomer.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterCustomerGroup.resx">
+      <DependentUpon>FrmCariMasterCustomerGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCariMasterCustomerType.resx">
+      <DependentUpon>frmCariMasterCustomerType.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCariMasterProduct.resx">
+      <DependentUpon>frmCariMasterProduct.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterProductGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmCariMasterProductGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterSalesArea.resx">
+      <DependentUpon>FrmCariMasterSalesArea.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterStorageArea.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmCariMasterStorageArea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterSupplier.resx">
+      <DependentUpon>FrmCariMasterSupplier.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterUnit.resx">
+      <DependentUpon>FrmCariMasterUnit.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCariMasterUser.resx">
+      <DependentUpon>FrmCariMasterUser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCariMasterWarehouse.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCariMasterWarehouse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCariTransaksiCetakAmplop.resx">
+      <DependentUpon>frmCariTransaksiCetakAmplop.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCetakAmplop.resx">
+      <DependentUpon>frmCetakAmplop.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDetailAddress.resx">
+      <DependentUpon>FrmDetailAddress.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDetailAddressSupplier.resx">
+      <DependentUpon>FrmDetailAddressSupplier.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmGantiPassword.resx">
+      <DependentUpon>FrmGantiPassword.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmManajemenHakKhusus.resx">
+      <DependentUpon>FrmManajemenHakKhusus.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterPayrollAccess.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterPayrollAccess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProductAccountGroup.resx">
+      <DependentUpon>FrmMasterProductAccountGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProductAccountGroup_Cari.resx">
+      <DependentUpon>FrmMasterProductAccountGroup_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterProduct_PriceList.resx">
+      <DependentUpon>frmMasterProduct_PriceList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterProduct_Verifikasi.resx">
+      <DependentUpon>frmMasterProduct_Verifikasi.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProses.resx">
+      <DependentUpon>FrmMasterProses.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProsesCari.resx">
+      <DependentUpon>FrmMasterProsesCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterReject.resx">
+      <DependentUpon>FrmMasterReject.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterSalaryFormula.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormulaParameter1_Cari.resx">
+      <DependentUpon>FrmMasterSalaryFormulaParameter1_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_Cari.resx">
+      <DependentUpon>FrmMasterSalaryFormula_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_Component.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterSalaryFormula_Component.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_Component1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterSalaryFormula_Component1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_Component2.resx">
+      <DependentUpon>FrmMasterSalaryFormula_Component2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_Options.resx">
+      <DependentUpon>FrmMasterSalaryFormula_Options.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_OtherDeduction.resx">
+      <DependentUpon>FrmMasterSalaryFormula_OtherDeduction.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_OtherDeduction_Cari.resx">
+      <DependentUpon>FrmMasterSalaryFormula_OtherDeduction_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_OtherDeduction_ItemEmp.resx">
+      <DependentUpon>FrmMasterSalaryFormula_OtherDeduction_ItemEmp.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_Print.resx">
+      <DependentUpon>FrmMasterSalaryFormula_Print.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_SlipDesc_Cari.resx">
+      <DependentUpon>FrmMasterSalaryFormula_SlipDesc_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalesPerson.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterSalesPerson.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalesPersonGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterSalesPersonGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalesPersonGroup_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterSalesPersonGroup_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalesPerson_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterSalesPerson_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalaryFormula_SlipDesc.resx">
+      <DependentUpon>FrmMasterSalaryFormula_SlipDesc.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterStartUp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterStartUp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterStorageArea.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterStorageArea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterBrand.resx">
+      <DependentUpon>FrmMasterBrand.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMasterCategory.resx">
+      <DependentUpon>frmMasterCategory.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCustomerGroup.resx">
+      <DependentUpon>FrmMasterCustomerGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCustomerSegmentation.resx">
+      <DependentUpon>FrmMasterCustomerSegmentation.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterCustomerType.resx">
+      <DependentUpon>FrmMasterCustomerType.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterGudang.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterGudang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterHakAkses.resx">
+      <DependentUpon>FrmMasterHakAkses.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterHakKhusus.resx">
+      <DependentUpon>FrmMasterHakKhusus.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProductGroup.resx">
+      <DependentUpon>FrmMasterProductGroup.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSalesArea.resx">
+      <DependentUpon>FrmMasterSalesArea.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSubBrand.resx">
+      <DependentUpon>FrmMasterSubBrand.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSupplier.resx">
+      <DependentUpon>FrmMasterSupplier.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterUnit.resx">
+      <DependentUpon>FrmMasterUnit.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterUser.resx">
+      <DependentUpon>FrmMasterUser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterUser_Otorisasi.resx">
+      <DependentUpon>FrmMasterUser_Otorisasi.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterUser_TempPass.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterUser_TempPass.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterUser_TempPass_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterUser_TempPass_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkShift.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterWorkShift.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkShift_Allocate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMasterWorkShift_Allocate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkShift_Allocate_Data01.resx">
+      <DependentUpon>FrmMasterWorkShift_Allocate_Data01.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkShift_Cari.resx">
+      <DependentUpon>FrmMasterWorkShift_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkshift_CopyData.resx">
+      <DependentUpon>FrmMasterWorkshift_CopyData.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkUnit.resx">
+      <DependentUpon>FrmMasterWorkUnit.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkUnit_AddDialog.resx">
+      <DependentUpon>FrmMasterWorkUnit_AddDialog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterWorkUnit_Workshift.resx">
+      <DependentUpon>FrmMasterWorkUnit_Workshift.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProductListReport.resx">
+      <DependentUpon>FrmMasterProductListReport.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterProductListReport_Print.resx">
+      <DependentUpon>FrmMasterProductListReport_Print.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMaster_EditNPWPLama.resx">
+      <DependentUpon>FrmMaster_EditNPWPLama.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMaster_SPL_EmployeeCustom.resx">
+      <DependentUpon>FrmMaster_SPL_EmployeeCustom.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMaster_SPL_EmployeeCustom_Cari.resx">
+      <DependentUpon>FrmMaster_SPL_EmployeeCustom_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmOptionRate.resx">
+      <DependentUpon>FrmOptionRate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmResetPassword.resx">
+      <DependentUpon>FrmResetPassword.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSettingMasterProductGroup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmSettingMasterProductGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSetting_QuickInputAdj.resx">
+      <DependentUpon>FrmSetting_QuickInputAdj.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Pengajuan_Balance.resx">
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_Balance.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiExpiryDateUpdate.resx">
+      <DependentUpon>FrmTransaksiExpiryDateUpdate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanOtorisasiTransaksi.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanOtorisasiTransaksi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiMonitor.resx">
+      <DependentUpon>FrmTransaksiMonitor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiMonitor_Production.resx">
+      <DependentUpon>FrmTransaksiMonitor_Production.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiMonitor_Production_Notif.resx">
+      <DependentUpon>FrmTransaksiMonitor_Production_Notif.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiMonitor_Production_Request.resx">
+      <DependentUpon>FrmTransaksiMonitor_Production_Request.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiProductDetailing.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiProductDetailing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_CutOffDB_ExceptionQty.resx">
+      <DependentUpon>FrmTrans_CutOffDB_ExceptionQty.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_PriceByMultiUnit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_PriceByMultiUnit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SettingNPWP.resx">
+      <DependentUpon>FrmTrans_SettingNPWP.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SettingSalaryNPWP.resx">
+      <DependentUpon>FrmTrans_SettingSalaryNPWP.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUpdate\Frm2021.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Frm2021.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUserLocationPrivilegeSetting.resx">
+      <DependentUpon>FrmUserLocationPrivilegeSetting.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUserLocationPrivilegeSetting2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmUserLocationPrivilegeSetting2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakSalaryFormula_EmployeeList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakSalaryFormula_EmployeeList.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakSalaryFormula_Formula.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakSalaryFormula_Formula.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakSalaryFormula_Parameter.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakSalaryFormula_Parameter.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpEmailSettings_LogReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpEmailSettings_LogReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLapMasterProduct_PriceList_General.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLapMasterProduct_PriceList_General.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLapMasterProduct_PriceList_Cust.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLapMasterProduct_PriceList_Cust.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLapMasterProduct_PriceList_GeneralAda%28Prototype%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLapMasterProduct_PriceList_GeneralAda%28Prototype%29.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLapMasterProduct_PriceList_Group.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLapMasterProduct_PriceList_Group.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanCustomerList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanCustomerList.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanCustomerList_WithoutTaxAddress.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanCustomerList_WithoutTaxAddress.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanPenjualanRekap_1Level.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanPenjualanRekap_1Level.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\crpCetakAmplop.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpCetakAmplop.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\crpCetakAmplop2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpCetakAmplop2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanPenjualanDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanPenjualanDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanPenjualanRekap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanPenjualanRekap.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanPenjualanRekap_2PeriodCust.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanPenjualanRekap_2PeriodCust.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanSupplierList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSupplierList.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpMasterKaryawanCetak.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpMasterKaryawanCetak.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOtorisasiTransaksi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOtorisasiTransaksi.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpProductListReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpProductListReport.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Datasets\Custom\DseABT.xsc">
+      <DependentUpon>DseABT.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Custom\DseABT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseABT.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\Custom\DseABT.xss">
+      <DependentUpon>DseABT.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Dse Cek\DseCekKartuAPAR.xsc">
+      <DependentUpon>DseCekKartuAPAR.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\Dse Cek\DseCekKartuAPAR.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseCekKartuAPAR.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\Dse Cek\DseCekKartuAPAR.xss">
+      <DependentUpon>DseCekKartuAPAR.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseAntrian.xsc">
+      <DependentUpon>DseAntrian.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseAntrian.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseAntrian.xss">
+      <DependentUpon>DseAntrian.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseBalanceDP.xsc">
+      <DependentUpon>DseBalanceDP.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseBalanceDP.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseBalanceDP.xss">
+      <DependentUpon>DseBalanceDP.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseBarcodeInput.xsc">
+      <DependentUpon>DseBarcodeInput.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseBarcodeInput.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseBarcodeInput.xss">
+      <DependentUpon>DseBarcodeInput.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseCekSiklikBundling.xsc">
+      <DependentUpon>DseCekSiklikBundling.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseCekSiklikBundling.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseCekSiklikBundling.xss">
+      <DependentUpon>DseCekSiklikBundling.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseCustomer.xsc">
+      <DependentUpon>dseCustomer.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseCustomer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseCustomer.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseCustomer.xss">
+      <DependentUpon>dseCustomer.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseDBVersion.xsc">
+      <DependentUpon>DseDBVersion.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseDBVersion.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseDBVersion.xss">
+      <DependentUpon>DseDBVersion.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseEmailSettings.xsc">
+      <DependentUpon>DseEmailSettings.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseEmailSettings.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseEmailSettings.xss">
+      <DependentUpon>DseEmailSettings.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanCustomerList.xsc">
+      <DependentUpon>DseLaporanCustomerList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanCustomerList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanCustomerList.xss">
+      <DependentUpon>DseLaporanCustomerList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOtorisasiTransaksi.xsc">
+      <DependentUpon>DseLaporanOtorisasiTransaksi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOtorisasiTransaksi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanOtorisasiTransaksi.xss">
+      <DependentUpon>DseLaporanOtorisasiTransaksi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanPembelian.xsc">
+      <DependentUpon>DseLaporanPembelian.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanPembelian.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanPembelian.xss">
+      <DependentUpon>DseLaporanPembelian.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanPenjualan.xsc">
+      <DependentUpon>DseLaporanPenjualan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanPenjualan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanPenjualan.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanPenjualan.xss">
+      <DependentUpon>DseLaporanPenjualan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSupplierList.xsc">
+      <DependentUpon>DseLaporanSupplierList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSupplierList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanSupplierList.xss">
+      <DependentUpon>DseLaporanSupplierList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLicence_Add.xsc">
+      <DependentUpon>DseLicence_Add.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLicence_Add.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLicence_Add.xss">
+      <DependentUpon>DseLicence_Add.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLicenseManager_Update.xsc">
+      <DependentUpon>DseLicenseManager_Update.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLicenseManager_Update.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLicenseManager_Update.xss">
+      <DependentUpon>DseLicenseManager_Update.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLicense_Input.xsc">
+      <DependentUpon>DseLicense_Input.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLicense_Input.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLicense_Input.xss">
+      <DependentUpon>DseLicense_Input.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLicense_Manager.xsc">
+      <DependentUpon>DseLicense_Manager.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLicense_Manager.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLicense_Manager.xss">
+      <DependentUpon>DseLicense_Manager.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAkun.xsc">
+      <DependentUpon>DseMasterAkun.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAkun.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterAkun.xss">
+      <DependentUpon>DseMasterAkun.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAkun_1.xsc">
+      <DependentUpon>DseMasterAkun_1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAkun_1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterAkun_1.xss">
+      <DependentUpon>DseMasterAkun_1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAsset.xsc">
+      <DependentUpon>DseMasterAsset.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAsset.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterAsset.xss">
+      <DependentUpon>DseMasterAsset.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAssetGroup.xsc">
+      <DependentUpon>DseMasterAssetGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAssetGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterAssetGroup.xss">
+      <DependentUpon>DseMasterAssetGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterBackUpDB.xsc">
+      <DependentUpon>DseMasterBackUpDB.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterBackUpDB.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterBackUpDB.xss">
+      <DependentUpon>DseMasterBackUpDB.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCategory.xsc">
+      <DependentUpon>dseMasterCategory.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCategory.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseMasterCategory.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseMasterCategory.xss">
+      <DependentUpon>dseMasterCategory.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCekBatasan.xsc">
+      <DependentUpon>DseMasterCekBatasan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCekBatasan.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterCekBatasan.xss">
+      <DependentUpon>DseMasterCekBatasan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterColSize.xsc">
+      <DependentUpon>DseMasterColSize.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterColSize.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterColSize.xss">
+      <DependentUpon>DseMasterColSize.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCommission.xsc">
+      <DependentUpon>DseMasterCommission.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCommission.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterCommission.xss">
+      <DependentUpon>DseMasterCommission.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCommission_Allocate.xsc">
+      <DependentUpon>DseMasterCommission_Allocate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCommission_Allocate.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterCommission_Allocate.xss">
+      <DependentUpon>DseMasterCommission_Allocate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCompanyData.xsc">
+      <DependentUpon>DseMasterCompanyData.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCompanyData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterCompanyData.xss">
+      <DependentUpon>DseMasterCompanyData.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCurrency.xsc">
+      <DependentUpon>dseMasterCurrency.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCurrency.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterCurrency.xss">
+      <DependentUpon>dseMasterCurrency.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCustomerGroup.xsc">
+      <DependentUpon>dseMasterCustomerGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCustomerGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterCustomerGroup.xss">
+      <DependentUpon>dseMasterCustomerGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCustomerMarketSegmentation.xsc">
+      <DependentUpon>dseMasterCustomerMarketSegmentation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCustomerMarketSegmentation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterCustomerMarketSegmentation.xss">
+      <DependentUpon>dseMasterCustomerMarketSegmentation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCustomerSalesArea.xsc">
+      <DependentUpon>dseMasterCustomerSalesArea.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCustomerSalesArea.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterCustomerSalesArea.xss">
+      <DependentUpon>dseMasterCustomerSalesArea.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCustomerType.xsc">
+      <DependentUpon>dseMasterCustomerType.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterCustomerType.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterCustomerType.xss">
+      <DependentUpon>dseMasterCustomerType.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCustomer_Reference.xsc">
+      <DependentUpon>DseMasterCustomer_Reference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCustomer_Reference.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterCustomer_Reference.xss">
+      <DependentUpon>DseMasterCustomer_Reference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCuti.xsc">
+      <DependentUpon>DseMasterCuti.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCuti.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterCuti.xss">
+      <DependentUpon>DseMasterCuti.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCuti_SetBalance.xsc">
+      <DependentUpon>DseMasterCuti_SetBalance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterCuti_SetBalance.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterCuti_SetBalance.xss">
+      <DependentUpon>DseMasterCuti_SetBalance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterDept.xsc">
+      <DependentUpon>dseMasterDept.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterDept.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterDept.xss">
+      <DependentUpon>dseMasterDept.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterDownTime.xsc">
+      <DependentUpon>DseMasterDownTime.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterDownTime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterDownTime.xss">
+      <DependentUpon>DseMasterDownTime.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterJob.xsc">
+      <DependentUpon>DseMasterJob.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterJob.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterJob.xss">
+      <DependentUpon>DseMasterJob.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterJobPosition.xsc">
+      <DependentUpon>DseMasterJobPosition.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterJobPosition.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterJobPosition.xss">
+      <DependentUpon>DseMasterJobPosition.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan.xsc">
+      <DependentUpon>DseMasterKaryawan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan.xss">
+      <DependentUpon>DseMasterKaryawan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan1.xsc">
+      <DependentUpon>DseMasterKaryawan1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterKaryawan1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan1.xss">
+      <DependentUpon>DseMasterKaryawan1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKaryawanTipe.xsc">
+      <DependentUpon>DseMasterKaryawanTipe.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKaryawanTipe.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterKaryawanTipe.xss">
+      <DependentUpon>DseMasterKaryawanTipe.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan_Kompetensi_Upd.xsc">
+      <DependentUpon>DseMasterKaryawan_Kompetensi_Upd.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan_Kompetensi_Upd.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterKaryawan_Kompetensi_Upd.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterKaryawan_Kompetensi_Upd.xss">
+      <DependentUpon>DseMasterKaryawan_Kompetensi_Upd.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKompetensi.xsc">
+      <DependentUpon>DseMasterKompetensi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKompetensi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterKompetensi.xss">
+      <DependentUpon>DseMasterKompetensi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKompetensi_Product.xsc">
+      <DependentUpon>DseMasterKompetensi_Product.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterKompetensi_Product.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterKompetensi_Product.xss">
+      <DependentUpon>DseMasterKompetensi_Product.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterListedSoftware.xsc">
+      <DependentUpon>dseMasterListedSoftware.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterListedSoftware.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterListedSoftware.xss">
+      <DependentUpon>dseMasterListedSoftware.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterLocationPriority.xsc">
+      <DependentUpon>DseMasterLocationPriority.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterLocationPriority.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterLocationPriority.xss">
+      <DependentUpon>DseMasterLocationPriority.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterMachineData.xsc">
+      <DependentUpon>DseMasterMachineData.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterMachineData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterMachineData.xss">
+      <DependentUpon>DseMasterMachineData.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterMachineGroup.xsc">
+      <DependentUpon>DseMasterMachineGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterMachineGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterMachineGroup.xss">
+      <DependentUpon>DseMasterMachineGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterMachineLine.xsc">
+      <DependentUpon>DseMasterMachineLine.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterMachineLine.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterMachineLine.xss">
+      <DependentUpon>DseMasterMachineLine.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterNumbering.xsc">
+      <DependentUpon>DseMasterNumbering.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterNumbering.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterNumbering.xss">
+      <DependentUpon>DseMasterNumbering.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterParameter.xsc">
+      <DependentUpon>DseMasterParameter.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterParameter.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterParameter.xss">
+      <DependentUpon>DseMasterParameter.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterParameterGaji.xsc">
+      <DependentUpon>DseMasterParameterGaji.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterParameterGaji.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterParameterGaji.xss">
+      <DependentUpon>DseMasterParameterGaji.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterPayrollAccess.xsc">
+      <DependentUpon>DseMasterPayrollAccess.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterPayrollAccess.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterPayrollAccess.xss">
+      <DependentUpon>DseMasterPayrollAccess.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterPayrollAkses.xsc">
+      <DependentUpon>DseMasterPayrollAkses.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterPayrollAkses.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterPayrollAkses.xss">
+      <DependentUpon>DseMasterPayrollAkses.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterPriorityLevel1.xsc">
+      <DependentUpon>DseMasterPriorityLevel1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterPriorityLevel1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterPriorityLevel1.xss">
+      <DependentUpon>DseMasterPriorityLevel1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterProduct.xsc">
+      <DependentUpon>dseMasterProduct.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterProduct.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterProduct.xss">
+      <DependentUpon>dseMasterProduct.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct1.xsc">
+      <DependentUpon>DseMasterProduct1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterProduct1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMasterProduct1.xss">
+      <DependentUpon>DseMasterProduct1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterProduct2.xsc">
+      <DependentUpon>dseMasterProduct2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterProduct2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseMasterProduct2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterProduct2.xss">
+      <DependentUpon>dseMasterProduct2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProductAccountGroup.xsc">
+      <DependentUpon>DseMasterProductAccountGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProductAccountGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterProductAccountGroup.xss">
+      <DependentUpon>DseMasterProductAccountGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterProductGroup.xsc">
+      <DependentUpon>dseMasterProductGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterProductGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterProductGroup.xss">
+      <DependentUpon>dseMasterProductGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProductionRate.xsc">
+      <DependentUpon>DseMasterProductionRate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProductionRate.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterProductionRate.xss">
+      <DependentUpon>DseMasterProductionRate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterProduct_BOM.xsc">
+      <DependentUpon>dseMasterProduct_BOM.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterProduct_BOM.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterProduct_BOM.xss">
+      <DependentUpon>dseMasterProduct_BOM.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct_BOM1.xsc">
+      <DependentUpon>DseMasterProduct_BOM1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct_BOM1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterProduct_BOM1.xss">
+      <DependentUpon>DseMasterProduct_BOM1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct_ChangeControl.xsc">
+      <DependentUpon>DseMasterProduct_ChangeControl.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct_ChangeControl.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterProduct_ChangeControl.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMasterProduct_ChangeControl.xss">
+      <DependentUpon>DseMasterProduct_ChangeControl.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct_EditPriceList.xsc">
+      <DependentUpon>DseMasterProduct_EditPriceList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct_EditPriceList.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterProduct_EditPriceList.xss">
+      <DependentUpon>DseMasterProduct_EditPriceList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct_EditPriceList_GetPrice.xsc">
+      <DependentUpon>DseMasterProduct_EditPriceList_GetPrice.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProduct_EditPriceList_GetPrice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterProduct_EditPriceList_GetPrice.xss">
+      <DependentUpon>DseMasterProduct_EditPriceList_GetPrice.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProses.xsc">
+      <DependentUpon>DseMasterProses.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterProses.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterProses.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMasterProses.xss">
+      <DependentUpon>DseMasterProses.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterRefParty.xsc">
+      <DependentUpon>DseMasterRefParty.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterRefParty.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterRefParty.xss">
+      <DependentUpon>DseMasterRefParty.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterReject.xsc">
+      <DependentUpon>DseMasterReject.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterReject.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterReject.xss">
+      <DependentUpon>DseMasterReject.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula.xsc">
+      <DependentUpon>DseMasterSalaryFormula.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula.xss">
+      <DependentUpon>DseMasterSalaryFormula.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula_Print.xsc">
+      <DependentUpon>DseMasterSalaryFormula_Print.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula_Print.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula_Print.xss">
+      <DependentUpon>DseMasterSalaryFormula_Print.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula_SlipDesc.xsc">
+      <DependentUpon>DseMasterSalaryFormula_SlipDesc.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula_SlipDesc.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterSalaryFormula_SlipDesc.xss">
+      <DependentUpon>DseMasterSalaryFormula_SlipDesc.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalesPerson.xsc">
+      <DependentUpon>DseMasterSalesPerson.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalesPerson.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterSalesPerson.xss">
+      <DependentUpon>DseMasterSalesPerson.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalesPersonGroup.xsc">
+      <DependentUpon>DseMasterSalesPersonGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSalesPersonGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterSalesPersonGroup.xss">
+      <DependentUpon>DseMasterSalesPersonGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSetupTime.xsc">
+      <DependentUpon>DseMasterSetupTime.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSetupTime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterSetupTime.xss">
+      <DependentUpon>DseMasterSetupTime.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSQLReference.xsc">
+      <DependentUpon>DseMasterSQLReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSQLReference.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterSQLReference.xss">
+      <DependentUpon>DseMasterSQLReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterStorageArea.xsc">
+      <DependentUpon>dseMasterStorageArea.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterStorageArea.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseMasterStorageArea.xss">
+      <DependentUpon>dseMasterStorageArea.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterSupplier.xsc">
+      <DependentUpon>dseMasterSupplier.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterSupplier.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseMasterSupplier.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseMasterSupplier.xss">
+      <DependentUpon>dseMasterSupplier.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterTaxAddInfoReference.xsc">
+      <DependentUpon>DseMasterTaxAddInfoReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterTaxAddInfoReference.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterTaxAddInfoReference.xss">
+      <DependentUpon>DseMasterTaxAddInfoReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterTaxFacilityStampReference.xsc">
+      <DependentUpon>DseMasterTaxFacilityStampReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterTaxFacilityStampReference.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterTaxFacilityStampReference.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterTaxFacilityStampReference.xss">
+      <DependentUpon>DseMasterTaxFacilityStampReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterTaxMeasurementReference.xsc">
+      <DependentUpon>DseMasterTaxMeasurementReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterTaxMeasurementReference.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterTaxMeasurementReference.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterTaxMeasurementReference.xss">
+      <DependentUpon>DseMasterTaxMeasurementReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterTaxProductReference.xsc">
+      <DependentUpon>DseMasterTaxProductReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterTaxProductReference.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterTaxProductReference.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterTaxProductReference.xss">
+      <DependentUpon>DseMasterTaxProductReference.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterUnit.xsc">
+      <DependentUpon>dseMasterUnit.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterUnit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseMasterUnit.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseMasterUnit.xss">
+      <DependentUpon>dseMasterUnit.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterUnitCekTransaksi.xsc">
+      <DependentUpon>DseMasterUnitCekTransaksi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterUnitCekTransaksi.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterUnitCekTransaksi.xss">
+      <DependentUpon>DseMasterUnitCekTransaksi.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterUserGroup.xsc">
+      <DependentUpon>DseMasterUserGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterUserGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterUserGroup.xss">
+      <DependentUpon>DseMasterUserGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterWarehouse.xsc">
+      <DependentUpon>dseMasterWarehouse.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseMasterWarehouse.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseMasterWarehouse.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseMasterWarehouse.xss">
+      <DependentUpon>dseMasterWarehouse.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkShift.xsc">
+      <DependentUpon>DseMasterWorkShift.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkShift.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterWorkShift.xss">
+      <DependentUpon>DseMasterWorkShift.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkshift_Allocation.xsc">
+      <DependentUpon>DseMasterWorkshift_Allocation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkshift_Allocation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterWorkshift_Allocation.xss">
+      <DependentUpon>DseMasterWorkshift_Allocation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnit.xsc">
+      <DependentUpon>DseMasterWorkUnit.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnit.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterWorkUnit.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnit.xss">
+      <DependentUpon>DseMasterWorkUnit.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnitGroup.xsc">
+      <DependentUpon>DseMasterWorkUnitGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnitGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnitGroup.xss">
+      <DependentUpon>DseMasterWorkUnitGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnit_addSetupTime.xsc">
+      <DependentUpon>DseMasterWorkUnit_addSetupTime.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnit_addSetupTime.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMasterWorkUnit_addSetupTime.xss">
+      <DependentUpon>DseMasterWorkUnit_addSetupTime.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMaster_SPL_EmployeeCustom.xsc">
+      <DependentUpon>DseMaster_SPL_EmployeeCustom.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMaster_SPL_EmployeeCustom.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMaster_SPL_EmployeeCustom.xss">
+      <DependentUpon>DseMaster_SPL_EmployeeCustom.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseProductListReport.xsc">
+      <DependentUpon>DseProductListReport.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseProductListReport.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseProductListReport.xss">
+      <DependentUpon>DseProductListReport.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiAccClosing.xsc">
+      <DependentUpon>DseTransaksiAccClosing.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiAccClosing.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiAccClosing.xss">
+      <DependentUpon>DseTransaksiAccClosing.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseTransaksiCetakAmplop.xsc">
+      <DependentUpon>dseTransaksiCetakAmplop.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseTransaksiCetakAmplop.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseTransaksiCetakAmplop.xss">
+      <DependentUpon>dseTransaksiCetakAmplop.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiCustom_Identifier.xsc">
+      <DependentUpon>DseTransaksiCustom_Identifier.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiCustom_Identifier.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiCustom_Identifier.xss">
+      <DependentUpon>DseTransaksiCustom_Identifier.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiExpiryDateUpdate.xsc">
+      <DependentUpon>DseTransaksiExpiryDateUpdate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiExpiryDateUpdate.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiExpiryDateUpdate.xss">
+      <DependentUpon>DseTransaksiExpiryDateUpdate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiJournal.xsc">
+      <DependentUpon>DseTransaksiJournal.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiJournal.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiJournal.xss">
+      <DependentUpon>DseTransaksiJournal.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiMonitor.xsc">
+      <DependentUpon>DseTransaksiMonitor.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiMonitor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiMonitor.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiMonitor.xss">
+      <DependentUpon>DseTransaksiMonitor.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiMonitor_Production.xsc">
+      <DependentUpon>DseTransaksiMonitor_Production.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiMonitor_Production.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiMonitor_Production.xss">
+      <DependentUpon>DseTransaksiMonitor_Production.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSetting.xsc">
+      <DependentUpon>DseTransaksiSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSetting.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiSetting.xss">
+      <DependentUpon>DseTransaksiSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSettingUser.xsc">
+      <DependentUpon>DseTransaksiSettingUser.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSettingUser.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiSettingUser.xss">
+      <DependentUpon>DseTransaksiSettingUser.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSetting_ProductGroup.xsc">
+      <DependentUpon>DseTransaksiSetting_ProductGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSetting_ProductGroup.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiSetting_ProductGroup.xss">
+      <DependentUpon>DseTransaksiSetting_ProductGroup.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiStockInOut.xsc">
+      <DependentUpon>DseTransaksiStockInOut.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiStockInOut.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiStockInOut.xss">
+      <DependentUpon>DseTransaksiStockInOut.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_CutOffDB_Core.xsc">
+      <DependentUpon>DseTrans_CutOffDB_Core.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_CutOffDB_Core.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_CutOffDB_Core.xss">
+      <DependentUpon>DseTrans_CutOffDB_Core.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_OtherDeduction.xsc">
+      <DependentUpon>DseTrans_OtherDeduction.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_OtherDeduction.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_OtherDeduction.xss">
+      <DependentUpon>DseTrans_OtherDeduction.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SettingNPWP.xsc">
+      <DependentUpon>DseTrans_SettingNPWP.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SettingNPWP.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_SettingNPWP.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_SettingNPWP.xss">
+      <DependentUpon>DseTrans_SettingNPWP.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Version_Control.xsc">
+      <DependentUpon>DseTrans_Version_Control.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Version_Control.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_Version_Control.xss">
+      <DependentUpon>DseTrans_Version_Control.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseUserLocationPrivilegeSetting.xsc">
+      <DependentUpon>DseUserLocationPrivilegeSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseUserLocationPrivilegeSetting.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseUserLocationPrivilegeSetting.xss">
+      <DependentUpon>DseUserLocationPrivilegeSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsFormat.xsc">
+      <DependentUpon>dsFormat.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dsFormat.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dsFormat.xss">
+      <DependentUpon>dsFormat.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DSUser.xsc">
+      <DependentUpon>DSUser.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DSUser.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DSUser.xss">
+      <DependentUpon>DSUser.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DSUser_TempPass.xsc">
+      <DependentUpon>DSUser_TempPass.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DSUser_TempPass.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DSUser_TempPass.xss">
+      <DependentUpon>DSUser_TempPass.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Classic phone.wav" />
+    <None Include="Resources\Classy.wav" />
+    <None Include="Resources\arrow up.png" />
+    <None Include="Resources\arrow down.png" />
+    <Content Include="Resources\Constring.txt" />
+    <None Include="Resources\DeleteRed.png" />
+    <Content Include="Resources\Glossary.txt" />
+    <None Include="Resources\Ice_Cream.wav" />
+    <None Include="Resources\Magnifier2.png" />
+    <None Include="Resources\not available.jpeg" />
+    <None Include="Resources\HRD.fw.png" />
+    <None Include="Resources\no picture.fw.png" />
+    <Content Include="Resources\Password database.txt" />
+    <None Include="Resources\SMESS _ ABOUT US.pdf" />
+    <None Include="Resources\Standard.wav" />
+    <None Include="Resources\Yodel.wav" />
+    <None Include="SMESS _ ABOUT US.pdf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

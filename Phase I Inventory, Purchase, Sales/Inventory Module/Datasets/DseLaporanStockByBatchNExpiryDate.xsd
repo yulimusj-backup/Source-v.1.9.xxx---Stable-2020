@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanStockByBatchNExpiryDate" targetNamespace="http://tempuri.org/DseLaporanStockByBatchNExpiryDate.xsd" xmlns:mstns="http://tempuri.org/DseLaporanStockByBatchNExpiryDate.xsd" xmlns="http://tempuri.org/DseLaporanStockByBatchNExpiryDate.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_product_groupTableAdapter" GeneratorDataComponentClassName="tblmaster_product_groupTableAdapter" Name="tblmaster_product_group" UserDataComponentName="tblmaster_product_groupTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_product_group" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary` AS `Primary Sub Brand`, `Group Code` AS `Sub Brand Code`, Description AS `Sub Brand Desc`, `Parent Group Primary` AS `Primary Brand`
+FROM            tblmaster_product_group
+WHERE        (`Group Level` = 1)</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Sub Brand Code" DataSetColumn="Sub Brand Code" />
+              <Mapping SourceColumn="Sub Brand Desc" DataSetColumn="Sub Brand Desc" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_productqty.`Primary`, tblmaster_productqty.`Primary Product`, tblmaster_productqty.Qty, tblmaster_productqty.`Qty Secondary`, 
+                         tblmaster_productqty.`Lot No`, tblmaster_productqty.`Expiry Date`, tblmaster_productqty.`Primary Storage Area`, tblmaster_product.`Product Code`, 
+                         tblmaster_product.Description, tblmaster_master_unit.`Unit Code`, product_sub_brand_view.`Primary Brand`
+FROM            tblmaster_category INNER JOIN
+                         tblmaster_product ON tblmaster_category.`Primary` = tblmaster_product.`Primary Category` INNER JOIN
+                         product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                         tblmaster_productqty ON tblmaster_product.`Primary` = tblmaster_productqty.`Primary Product` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Qty Secondary" DataSetColumn="Qty Secondary" />
+              <Mapping SourceColumn="Lot No" DataSetColumn="Lot No" />
+              <Mapping SourceColumn="Expiry Date" DataSetColumn="Expiry Date" />
+              <Mapping SourceColumn="Primary Storage Area" DataSetColumn="Primary Storage Area" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="laporan_stockbybatchnexpirydate_view0TableAdapter" GeneratorDataComponentClassName="laporan_stockbybatchnexpirydate_view0TableAdapter" Name="laporan_stockbybatchnexpirydate_view0" UserDataComponentName="laporan_stockbybatchnexpirydate_view0TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_stockbybatchnexpirydate_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Product`, SUM(Qty) AS JmlQtyPerBatch, `Lot No` AS `Batch Number`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, 
+                         `Unit Code` AS Unit, `Primary Brand`
+FROM            laporan_stockbybatchnexpirydate_view0
+GROUP BY `Primary Product`, `Primary`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, `Unit Code`, `Primary Brand`, `Lot No`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Expiry Date" DataSetColumn="Expiry Date" />
+              <Mapping SourceColumn="Primary Storage Area" DataSetColumn="Primary Storage Area" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="JmlQtyPerBatch" DataSetColumn="JmlQtyPerBatch" />
+              <Mapping SourceColumn="Batch Number" DataSetColumn="Batch Number" />
+              <Mapping SourceColumn="Unit" DataSetColumn="Unit" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_stockbybatchnexpirydate_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryBrandNAfterDate" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryBrandNAfterDate" GeneratorSourceName="FillBy_PrimaryBrandNAfterDate" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryBrandNAfterDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryBrandNAfterDate" UserSourceName="FillBy_PrimaryBrandNAfterDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Product`, SUM(Qty) AS JmlQtyPerBatch, `Lot No` AS `Batch Number`, `Primary Storage Area`, `Product Code`, Description, 
+                         `Unit Code` AS Unit, `Primary Brand`, `Expiry Date`
+FROM            laporan_stockbybatchnexpirydate_view0
+WHERE        (`Primary Brand` = @PrimaryBrand) AND (`Expiry Date` &gt;= @AfterDate)
+GROUP BY `Primary Product`, `Primary`, `Primary Storage Area`, `Product Code`, Description, `Unit Code`, `Lot No`, `Primary Brand`, `Expiry Date`
+HAVING        (`Lot No` &lt;&gt; '')
+ORDER BY `Product Code`, `Batch Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="AfterDate" ColumnName="Expiry Date" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@AfterDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_stockbybatchnexpirydate_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryBrandNBeforeDate" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryBrandNBeforeDate" GeneratorSourceName="FillBy_PrimaryBrandNBeforeDate" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryBrandNBeforeDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryBrandNBeforeDate" UserSourceName="FillBy_PrimaryBrandNBeforeDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Product`, SUM(Qty) AS JmlQtyPerBatch, `Lot No` AS `Batch Number`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, 
+                         `Unit Code` AS Unit, `Primary Brand`
+FROM            laporan_stockbybatchnexpirydate_view0
+WHERE        (`Primary Brand` = @PrimaryBrand) AND (`Expiry Date` &lt;= @BeforeDate)
+GROUP BY `Primary Product`, `Primary`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, `Unit Code`, `Primary Brand`, `Lot No`
+HAVING        (`Lot No` &lt;&gt; '')
+ORDER BY `Product Code`, `Batch Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BeforeDate" ColumnName="Expiry Date" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@BeforeDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_stockbybatchnexpirydate_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryBrandNTglDariSampai" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryBrandNTglDariSampai" GeneratorSourceName="FillBy_PrimaryBrandNTglDariSampai" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryBrandNTglDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryBrandNTglDariSampai" UserSourceName="FillBy_PrimaryBrandNTglDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Product`, SUM(Qty) AS JmlQtyPerBatch, `Lot No` AS `Batch Number`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, 
+                         `Unit Code` AS Unit, `Primary Brand`
+FROM            laporan_stockbybatchnexpirydate_view0
+WHERE        (`Primary Brand` = @PrimaryBrand) AND (`Expiry Date` &gt;= @FromDate) AND (`Expiry Date` &lt;= @ThruDate)
+GROUP BY `Primary Product`, `Primary`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, `Unit Code`, `Primary Brand`, `Lot No`
+HAVING        (`Lot No` &lt;&gt; '')
+ORDER BY `Product Code`, `Batch Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="PrimaryBrand" ColumnName="Primary Brand" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryBrand" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Brand" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="FromDate" ColumnName="Expiry Date" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@FromDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ThruDate" ColumnName="Expiry Date" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ThruDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_stockbybatchnexpirydate_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryProductNAfterDate" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryProductNAfterDate" GeneratorSourceName="FillBy_PrimaryProductNAfterDate" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryProductNAfterDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryProductNAfterDate" UserSourceName="FillBy_PrimaryProductNAfterDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Product`, SUM(Qty) AS JmlQtyPerBatch, `Lot No` AS `Batch Number`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, 
+                         `Unit Code` AS Unit, `Primary Brand`
+FROM            laporan_stockbybatchnexpirydate_view0
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Expiry Date` &gt;= @AfterDate)
+GROUP BY `Primary Product`, `Primary`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, `Unit Code`, `Primary Brand`, `Lot No`
+HAVING        (`Lot No` &lt;&gt; '')
+ORDER BY `Product Code`, `Batch Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="AfterDate" ColumnName="Expiry Date" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@AfterDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_stockbybatchnexpirydate_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryProductNBeforeDate" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryProductNBeforeDate" GeneratorSourceName="FillBy_PrimaryProductNBeforeDate" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryProductNBeforeDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryProductNBeforeDate" UserSourceName="FillBy_PrimaryProductNBeforeDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Product`, SUM(Qty) AS JmlQtyPerBatch, `Lot No` AS `Batch Number`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, 
+                         `Unit Code` AS Unit, `Primary Brand`
+FROM            laporan_stockbybatchnexpirydate_view0
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Expiry Date` &lt;= @BeforeDate)
+GROUP BY `Primary Product`, `Primary`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, `Unit Code`, `Primary Brand`, `Lot No`
+HAVING        (`Lot No` &lt;&gt; '')
+ORDER BY `Product Code`, `Batch Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="BeforeDate" ColumnName="Expiry Date" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@BeforeDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.laporan_stockbybatchnexpirydate_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryProductNTglDariSampai" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryProductNTglDariSampai" GeneratorSourceName="FillBy_PrimaryProductNTglDariSampai" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryProductNTglDariSampai" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryProductNTglDariSampai" UserSourceName="FillBy_PrimaryProductNTglDariSampai">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Primary Product`, SUM(Qty) AS JmlQtyPerBatch, `Lot No` AS `Batch Number`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, 
+                         `Unit Code` AS Unit, `Primary Brand`
+FROM            laporan_stockbybatchnexpirydate_view0
+WHERE        (`Primary Product` = @PrimaryProduct) AND (`Expiry Date` &gt;= @FromDate) AND (`Expiry Date` &lt;= @ThruDate)
+GROUP BY `Primary Product`, `Primary`, `Expiry Date`, `Primary Storage Area`, `Product Code`, Description, `Unit Code`, `Primary Brand`, `Lot No`
+HAVING        (`Lot No` &lt;&gt; '')
+ORDER BY `Product Code`, `Batch Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryProduct" ColumnName="Primary Product" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryProduct" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Product" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="FromDate" ColumnName="Expiry Date" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@FromDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ThruDate" ColumnName="Expiry Date" DataSourceName="core_db.laporan_stockbybatchnexpirydate_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@ThruDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Expiry Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tblmaster_product_group" DbObjectType="Table" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="ScalarQuery_getBrandCodeByPrimaryProduct" Modifier="Public" Name="ScalarQuery_getBrandCodeByPrimaryProduct" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_getBrandCodeByPrimaryProduct">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_product_group.`Group Code`
+FROM            laporan_stockbybatchnexpirydate_view0 INNER JOIN
+                         tblmaster_product_group ON laporan_stockbybatchnexpirydate_view0.`Primary Brand` = tblmaster_product_group.`Primary`
+WHERE        (laporan_stockbybatchnexpirydate_view0.`Primary Product` = @Primary_Product)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Product" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="Object" Direction="Input" ParameterName="@Primary_Product" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanStockByBatchNExpiryDate" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanStockByBatchNExpiryDate" msprop:Generator_DataSetName="DseLaporanStockByBatchNExpiryDate">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblmaster_product_group" msprop:Generator_UserTableName="tblmaster_product_group" msprop:Generator_RowDeletedName="tblmaster_product_groupRowDeleted" msprop:Generator_RowChangedName="tblmaster_product_groupRowChanged" msprop:Generator_RowClassName="tblmaster_product_groupRow" msprop:Generator_RowChangingName="tblmaster_product_groupRowChanging" msprop:Generator_RowEvArgName="tblmaster_product_groupRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_product_groupRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_product_groupDataTable" msprop:Generator_TableVarName="tabletblmaster_product_group" msprop:Generator_RowDeletingName="tblmaster_product_groupRowDeleting" msprop:Generator_TablePropName="tblmaster_product_group">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" />
+              <xs:element name="Sub_x0020_Brand_x0020_Code" msprop:Generator_UserColumnName="Sub Brand Code" msprop:Generator_ColumnVarNameInTable="columnSub_Brand_Code" msprop:Generator_ColumnPropNameInRow="Sub_Brand_Code" msprop:Generator_ColumnPropNameInTable="Sub_Brand_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sub_x0020_Brand_x0020_Desc" msprop:Generator_UserColumnName="Sub Brand Desc" msprop:Generator_ColumnVarNameInTable="columnSub_Brand_Desc" msprop:Generator_ColumnPropNameInRow="Sub_Brand_Desc" msprop:Generator_ColumnPropNameInTable="Sub_Brand_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:double" />
+              <xs:element name="Qty_x0020_Secondary" msprop:Generator_UserColumnName="Qty Secondary" msprop:Generator_ColumnVarNameInTable="columnQty_Secondary" msprop:Generator_ColumnPropNameInRow="Qty_Secondary" msprop:Generator_ColumnPropNameInTable="Qty_SecondaryColumn" type="xs:double" />
+              <xs:element name="Lot_x0020_No" msprop:Generator_UserColumnName="Lot No" msprop:Generator_ColumnVarNameInTable="columnLot_No" msprop:Generator_ColumnPropNameInRow="Lot_No" msprop:Generator_ColumnPropNameInTable="Lot_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Storage_x0020_Area" msprop:Generator_UserColumnName="Primary Storage Area" msprop:Generator_ColumnVarNameInTable="columnPrimary_Storage_Area" msprop:Generator_ColumnPropNameInRow="Primary_Storage_Area" msprop:Generator_ColumnPropNameInTable="Primary_Storage_AreaColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="laporan_stockbybatchnexpirydate_view0" msprop:Generator_UserTableName="laporan_stockbybatchnexpirydate_view0" msprop:Generator_RowDeletedName="laporan_stockbybatchnexpirydate_view0RowDeleted" msprop:Generator_RowChangedName="laporan_stockbybatchnexpirydate_view0RowChanged" msprop:Generator_RowClassName="laporan_stockbybatchnexpirydate_view0Row" msprop:Generator_RowChangingName="laporan_stockbybatchnexpirydate_view0RowChanging" msprop:Generator_RowEvArgName="laporan_stockbybatchnexpirydate_view0RowChangeEvent" msprop:Generator_RowEvHandlerName="laporan_stockbybatchnexpirydate_view0RowChangeEventHandler" msprop:Generator_TableClassName="laporan_stockbybatchnexpirydate_view0DataTable" msprop:Generator_TableVarName="tablelaporan_stockbybatchnexpirydate_view0" msprop:Generator_RowDeletingName="laporan_stockbybatchnexpirydate_view0RowDeleting" msprop:Generator_TablePropName="laporan_stockbybatchnexpirydate_view0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Storage_x0020_Area" msprop:Generator_UserColumnName="Primary Storage Area" msprop:Generator_ColumnVarNameInTable="columnPrimary_Storage_Area" msprop:Generator_ColumnPropNameInRow="Primary_Storage_Area" msprop:Generator_ColumnPropNameInTable="Primary_Storage_AreaColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JmlQtyPerBatch" msprop:Generator_UserColumnName="JmlQtyPerBatch" msprop:Generator_ColumnPropNameInRow="JmlQtyPerBatch" msprop:Generator_ColumnVarNameInTable="columnJmlQtyPerBatch" msprop:Generator_ColumnPropNameInTable="JmlQtyPerBatchColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Batch_x0020_Number" msprop:Generator_UserColumnName="Batch Number" msprop:Generator_ColumnPropNameInRow="Batch_Number" msprop:Generator_ColumnVarNameInTable="columnBatch_Number" msprop:Generator_ColumnPropNameInTable="Batch_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit" msprop:Generator_UserColumnName="Unit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInTable="UnitColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_product_group" />
+      <xs:field xpath="mstns:Primary_x0020_Sub_x0020_Brand" />
+    </xs:unique>
+    <xs:unique name="DataTable1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="laporan_stockbybatchnexpirydate_view0_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:laporan_stockbybatchnexpirydate_view0" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

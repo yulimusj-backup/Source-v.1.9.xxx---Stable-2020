@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C127AD7-F113-442C-818A-D448D699D966}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SMESS_POS.My.MyApplication</StartupObject>
+    <RootNamespace>SMESS_POS</RootNamespace>
+    <AssemblyName>SMESS POS</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>Resources\smess desktop icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SMESS POS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SMESS POS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>SMESS POS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>SMESS POS.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=5.2.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Classes\ClsMast_Cabang.vb" />
+    <Compile Include="Classes\ClsMast_Cabang_Item.vb" />
+    <Compile Include="Classes\ClsMast_Diskon.vb" />
+    <Compile Include="Classes\ClsMast_Diskon_Item.vb" />
+    <Compile Include="Classes\ClsMast_Member.vb" />
+    <Compile Include="Classes\ClsMast_PaymentOption.vb" />
+    <Compile Include="Classes\ClsMast_PayoutDropCash.vb" />
+    <Compile Include="Classes\ClsMast_Session.vb" />
+    <Compile Include="Classes\ClsTrans_Data_Transfer.vb" />
+    <Compile Include="Classes\ClsTrans_POS.vb" />
+    <Compile Include="Classes\ClsTrans_POS_GeneralSetting.vb" />
+    <Compile Include="Classes\ClsTrans_POS_GeneralSetting_Item.vb" />
+    <Compile Include="Classes\ClsTrans_POS_Item.vb" />
+    <Compile Include="Classes\ClsTrans_POS_PayoutDropCash.vb" />
+    <Compile Include="Classes\ClsTrans_POS_Void.vb" />
+    <Compile Include="Classes\ClsTrans_Session.vb" />
+    <Compile Include="Classes\ClsTrans_Session_Item.vb" />
+    <Compile Include="Datasets\DseMast_Cabang.Designer.vb">
+      <DependentUpon>DseMast_Cabang.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseMast_Diskon.Designer.vb">
+      <DependentUpon>DseMast_Diskon.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseMast_Diskon.vb">
+      <DependentUpon>DseMast_Diskon.xsd</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseMast_Member.Designer.vb">
+      <DependentUpon>DseMast_Member.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseMast_Payment_Option.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMast_Payment_Option.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMast_PayoutDropCash.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMast_PayoutDropCash.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMast_Session.Designer.vb">
+      <DependentUpon>DseMast_Session.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiAntrian.Designer.vb">
+      <DependentUpon>DseTransaksiAntrian.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiAntrian.vb">
+      <DependentUpon>DseTransaksiAntrian.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\dseTrans_Data_Transfer.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dseTrans_Data_Transfer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseTrans_Data_Transfer.vb">
+      <DependentUpon>dseTrans_Data_Transfer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_POS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_POS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_POS.vb">
+      <DependentUpon>DseTrans_POS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_POS_Cetak.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_POS_Cetak.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_POS_Cetak.vb">
+      <DependentUpon>DseTrans_POS_Cetak.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_POS_GeneralSetting.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_POS_GeneralSetting.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_POS_PayoutDropCash.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_POS_PayoutDropCash.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_POS_PayoutDropCash.vb">
+      <DependentUpon>DseTrans_POS_PayoutDropCash.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_POS_Void.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_POS_Void.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Session.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_Session.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Session.vb">
+      <DependentUpon>DseTrans_Session.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_VoidQty1.Designer.vb">
+      <DependentUpon>FrmTrans_POS_VoidQty1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_VoidQty1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmA_CekRounding.Designer.vb">
+      <DependentUpon>FrmA_CekRounding.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmA_CekRounding.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmA_Cetak.Designer.vb">
+      <DependentUpon>FrmA_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmA_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLap_PayoutDropCash.Designer.vb">
+      <DependentUpon>FrmLap_PayoutDropCash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLap_PayoutDropCash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLap_SalesRecap.Designer.vb">
+      <DependentUpon>FrmLap_SalesRecap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLap_SalesRecap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLap_SalesSummary.Designer.vb">
+      <DependentUpon>FrmLap_SalesSummary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLap_SalesSummary.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMain.Designer.vb">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Cetak.Designer.vb">
+      <DependentUpon>FrmTrans_POS_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_ConfirmPassword.Designer.vb">
+      <DependentUpon>FrmTrans_POS_ConfirmPassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_ConfirmPassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Cabang.Designer.vb">
+      <DependentUpon>FrmMast_Cabang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Cabang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Cabang_Cari.Designer.vb">
+      <DependentUpon>FrmMast_Cabang_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Cabang_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Discount.Designer.vb">
+      <DependentUpon>FrmMast_Discount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Discount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Discount_Cari.Designer.vb">
+      <DependentUpon>FrmMast_Discount_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Discount_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Discount_Main.Designer.vb">
+      <DependentUpon>FrmMast_Discount_Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Discount_Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Member.Designer.vb">
+      <DependentUpon>FrmMast_Member.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Member.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Member_Cari.Designer.vb">
+      <DependentUpon>FrmMast_Member_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Member_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_PayOutDropCash.Designer.vb">
+      <DependentUpon>FrmMast_PayOutDropCash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_PayOutDropCash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_PayOutDropCash_Cari.Designer.vb">
+      <DependentUpon>FrmMast_PayOutDropCash_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_PayOutDropCash_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Session.Designer.vb">
+      <DependentUpon>FrmMast_Session.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Session.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Session_Cari.Designer.vb">
+      <DependentUpon>FrmMast_Session_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_Session_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_PaymentOption.Designer.vb">
+      <DependentUpon>FrmMast_PaymentOption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_PaymentOption.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMast_PaymentOption_Cari.Designer.vb">
+      <DependentUpon>FrmMast_PaymentOption_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMast_PaymentOption_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Data_Transfer.Designer.vb">
+      <DependentUpon>FrmTrans_Data_Transfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Data_Transfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Data_Transfer1.Designer.vb">
+      <DependentUpon>FrmTrans_Data_Transfer1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Data_Transfer1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS.Designer.vb">
+      <DependentUpon>FrmTrans_POS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Cari.Designer.vb">
+      <DependentUpon>FrmTrans_POS_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Load.Designer.vb">
+      <DependentUpon>FrmTrans_POS_Load.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Load.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Payment.Designer.vb">
+      <DependentUpon>FrmTrans_POS_Payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Payment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_PaymentDisbursment.Designer.vb">
+      <DependentUpon>FrmTrans_POS_PaymentDisbursment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_PaymentDisbursment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_PaymentDisbursment_Edit.Designer.vb">
+      <DependentUpon>FrmTrans_POS_PaymentDisbursment_Edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_PaymentDisbursment_Edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Payment_Input.Designer.vb">
+      <DependentUpon>FrmTrans_POS_Payment_Input.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Payment_Input.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_VoidQty.Designer.vb">
+      <DependentUpon>FrmTrans_POS_VoidQty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_VoidQty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Session_Cari.Designer.vb">
+      <DependentUpon>FrmTrans_Session_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Session_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Session.Designer.vb">
+      <DependentUpon>FrmTrans_Session.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Session.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Settings.Designer.vb">
+      <DependentUpon>FrmTrans_POS_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_PayoutDropCash_Input.Designer.vb">
+      <DependentUpon>FrmTrans_POS_PayoutDropCash_Input.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_POS_PayoutDropCash_Input.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Session_OpenClose.Designer.vb">
+      <DependentUpon>FrmTrans_Session_OpenClose.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Session_OpenClose.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Session_View.Designer.vb">
+      <DependentUpon>FrmTrans_Session_View.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Session_View.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ModCekData.vb" />
+    <Compile Include="Modules\ModGlobalVariable.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reports\BackUp_CrpCetakPOSSetengahLetter.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BackUp_CrpCetakPOSSetengahLetter.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Copy of CrpCetakPOSSetengahLetter.vb">
+      <DependentUpon>Copy of CrpCetakPOSSetengahLetter.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpCetakPOSSetengahLetter.vb">
+      <DependentUpon>CrpCetakPOSSetengahLetter.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanPayoutDropCashReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanPayoutDropCashReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesRecap.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesRecap.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesSummary_Detail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesSummary_Detail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesSummary_GroupBy.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesSummary_GroupBy.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrystalReport1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_VoidQty1.resx">
+      <DependentUpon>FrmTrans_POS_VoidQty1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmA_CekRounding.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmA_CekRounding.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmA_Cetak.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmA_Cetak.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLap_PayoutDropCash.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLap_PayoutDropCash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMain.resx">
+      <DependentUpon>FrmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_Cetak.resx">
+      <DependentUpon>FrmTrans_POS_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_ConfirmPassword.resx">
+      <DependentUpon>FrmTrans_POS_ConfirmPassword.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Cabang.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_Cabang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Cabang_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_Cabang_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Discount.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_Discount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Discount_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_Discount_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Discount_Main.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_Discount_Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Member.resx">
+      <DependentUpon>FrmMast_Member.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Member_Cari.resx">
+      <DependentUpon>FrmMast_Member_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_PayOutDropCash.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_PayOutDropCash.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_PayOutDropCash_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_PayOutDropCash_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Session.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_Session.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_Session_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_Session_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_PaymentOption.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_PaymentOption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMast_PaymentOption_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmMast_PaymentOption_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Data_Transfer.resx">
+      <DependentUpon>FrmTrans_Data_Transfer.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Data_Transfer1.resx">
+      <DependentUpon>FrmTrans_Data_Transfer1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_POS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_POS_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_Load.resx">
+      <DependentUpon>FrmTrans_POS_Load.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_Payment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_POS_Payment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_PaymentDisbursment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_POS_PaymentDisbursment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_PaymentDisbursment_Edit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_POS_PaymentDisbursment_Edit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_Payment_Input.resx">
+      <DependentUpon>FrmTrans_POS_Payment_Input.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_PayoutDropCash_Input.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_POS_PayoutDropCash_Input.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_Settings.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_POS_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_POS_VoidQty.resx">
+      <DependentUpon>FrmTrans_POS_VoidQty.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Session.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Session.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Session_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Session_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Session_OpenClose.resx">
+      <DependentUpon>FrmTrans_Session_OpenClose.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Session_View.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Session_View.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BackUp_CrpCetakPOSSetengahLetter.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BackUp_CrpCetakPOSSetengahLetter.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Copy of CrpCetakPOSSetengahLetter.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Copy of CrpCetakPOSSetengahLetter.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakPOSSetengahLetter.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakPOSSetengahLetter.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanPayoutDropCashReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanPayoutDropCashReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesRecap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesRecap.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesSummary_Detail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesSummary_Detail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesSummary_GroupBy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesSummary_GroupBy.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Datasets\DseMast_Cabang.xsc">
+      <DependentUpon>DseMast_Cabang.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_Cabang.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMast_Cabang.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMast_Cabang.xss">
+      <DependentUpon>DseMast_Cabang.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_Diskon.xsc">
+      <DependentUpon>DseMast_Diskon.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_Diskon.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMast_Diskon.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMast_Diskon.xss">
+      <DependentUpon>DseMast_Diskon.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_Member.xsc">
+      <DependentUpon>DseMast_Member.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_Member.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMast_Member.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMast_Member.xss">
+      <DependentUpon>DseMast_Member.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_Session.xsc">
+      <DependentUpon>DseMast_Session.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_Session.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMast_Session.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMast_Session.xss">
+      <DependentUpon>DseMast_Session.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiAntrian.xsc">
+      <DependentUpon>DseTransaksiAntrian.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiAntrian.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiAntrian.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiAntrian.xss">
+      <DependentUpon>DseTransaksiAntrian.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Up Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smess desktop icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Datasets\DseMast_Payment_Option.xsc">
+      <DependentUpon>DseMast_Payment_Option.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_Payment_Option.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMast_Payment_Option.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMast_Payment_Option.xss">
+      <DependentUpon>DseMast_Payment_Option.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_PayoutDropCash.xsc">
+      <DependentUpon>DseMast_PayoutDropCash.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMast_PayoutDropCash.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMast_PayoutDropCash.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMast_PayoutDropCash.xss">
+      <DependentUpon>DseMast_PayoutDropCash.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS.xsc">
+      <DependentUpon>DseTrans_POS.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_POS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_POS.xss">
+      <DependentUpon>DseTrans_POS.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS_GeneralSetting.xsc">
+      <DependentUpon>DseTrans_POS_GeneralSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS_GeneralSetting.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_POS_GeneralSetting.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_POS_GeneralSetting.xss">
+      <DependentUpon>DseTrans_POS_GeneralSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Session.xsc">
+      <DependentUpon>DseTrans_Session.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Session.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Session.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Session.xss">
+      <DependentUpon>DseTrans_Session.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\tools.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Datasets\DseTrans_POS_PayoutDropCash.xsc">
+      <DependentUpon>DseTrans_POS_PayoutDropCash.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS_PayoutDropCash.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_POS_PayoutDropCash.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_POS_PayoutDropCash.xss">
+      <DependentUpon>DseTrans_POS_PayoutDropCash.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Paid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Void.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Datasets\dseTrans_Data_Transfer.xsc">
+      <DependentUpon>dseTrans_Data_Transfer.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseTrans_Data_Transfer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseTrans_Data_Transfer.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseTrans_Data_Transfer.xss">
+      <DependentUpon>dseTrans_Data_Transfer.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS_Cetak.xsc">
+      <DependentUpon>DseTrans_POS_Cetak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS_Cetak.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_POS_Cetak.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_POS_Cetak.xss">
+      <DependentUpon>DseTrans_POS_Cetak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS_Void.xsc">
+      <DependentUpon>DseTrans_POS_Void.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_POS_Void.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_POS_Void.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_POS_Void.xss">
+      <DependentUpon>DseTrans_POS_Void.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Void-stamp.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Phase I Inventory, Purchase, Sales\Core Module\Core Module.vbproj">
+      <Project>{F7AFB6D3-C463-4E71-811E-666E760D09FC}</Project>
+      <Name>Core Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Phase I Inventory, Purchase, Sales\Sales Module\Sales Module.vbproj">
+      <Project>{48EBF45E-3461-4679-AA37-C148BD20BE39}</Project>
+      <Name>Sales Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Phase II Accounting Basic\Accounting Module\WindowsApplication1\Accounting Module.vbproj">
+      <Project>{56634451-5849-4F88-A0D3-43A48A67943D}</Project>
+      <Name>Accounting Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

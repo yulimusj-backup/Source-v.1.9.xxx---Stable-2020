@@ -1,0 +1,1074 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanProd_RawMaterialUsage" targetNamespace="http://tempuri.org/DseLaporanProd_RawMaterialUsage.xsd" xmlns:mstns="http://tempuri.org/DseLaporanProd_RawMaterialUsage.xsd" xmlns="http://tempuri.org/DseLaporanProd_RawMaterialUsage.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="reset_non_kayu_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="reset_non_kayu_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.reset_non_kayu_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Base on ProductTableAdapter" GeneratorDataComponentClassName="Base_on_ProductTableAdapter" Name="Base on Product" UserDataComponentName="Base on ProductTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo_item.`Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Desc`, tbltrans_mo_item_rm.`Primary Product Code RM` AS `Primary Product RM`, 
+                         tblmaster_product_1.`Product Code` AS `Product Code RM`, tblmaster_product_1.Description AS `Product Desc RM`, tblmaster_product_1.`Decimal` AS ```Decimal`` RM`, 
+                         tblmaster_product_1.`Primary Unit` AS `Primary Unit RM`, tblmaster_master_unit.`Unit Code` AS `Unit Code RM`, tbltrans_mo_item_rm.`Target Qty`, tbltrans_mo_item_rm.`Required Qty`, 
+                         tbltrans_mo_item_rm.`Allocated Qty`, tbltrans_mo_item_rm.`Additional Qty`, tbltrans_mo_item_rm.`Used Qty`, tbltrans_mo_item_rm.`GP Target`, tbltrans_mo_item_rm.`GP Actual`, tbltrans_mo_item.`Primary MO`, 
+                         tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, 
+                         tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltrans_mo_item_wo.Identifier AS `Identifier WO`, tbltrans_mo_item.Identifier AS `Identifier JO`, tbltrans_mo_item.`JO Number`, 
+                         tbltrans_mo_item_wo.`WO Number`, tbltrans_mo_item_wo.`Date` AS `WO Date`
+FROM            tbltrans_mo_item INNER JOIN
+                         tblmaster_product ON tbltrans_mo_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltrans_mo_item.Identifier = tbltrans_mo_item_wo.`Identifier JO` INNER JOIN
+                         tbltrans_mo_item_rm ON tbltrans_mo_item_wo.Identifier = tbltrans_mo_item_rm.`Identifier WO` INNER JOIN
+                         tblmaster_product tblmaster_product_1 ON tbltrans_mo_item_rm.`Primary Product Code RM` = tblmaster_product_1.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product_1.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                         tbltrans_mo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo.`Primary`
+WHERE        (tbltrans_mo.`Date` &gt;= @from_mo) AND (tbltrans_mo.`Date` &lt;= @to_mo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="from_mo" ColumnName="Date" DataSourceName="smess_production.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@from_mo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="to_mo" ColumnName="Date" DataSourceName="smess_production.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@to_mo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Product Desc" DataSetColumn="Product Desc" />
+              <Mapping SourceColumn="Primary Product RM" DataSetColumn="Primary Product RM" />
+              <Mapping SourceColumn="Product Code RM" DataSetColumn="Product Code RM" />
+              <Mapping SourceColumn="Product Desc RM" DataSetColumn="Product Desc RM" />
+              <Mapping SourceColumn="`Decimal` RM" DataSetColumn="`Decimal` RM" />
+              <Mapping SourceColumn="Primary Unit RM" DataSetColumn="Primary Unit RM" />
+              <Mapping SourceColumn="Unit Code RM" DataSetColumn="Unit Code RM" />
+              <Mapping SourceColumn="Target Qty" DataSetColumn="Target Qty" />
+              <Mapping SourceColumn="Required Qty" DataSetColumn="Required Qty" />
+              <Mapping SourceColumn="Allocated Qty" DataSetColumn="Allocated Qty" />
+              <Mapping SourceColumn="Additional Qty" DataSetColumn="Additional Qty" />
+              <Mapping SourceColumn="Used Qty" DataSetColumn="Used Qty" />
+              <Mapping SourceColumn="GP Target" DataSetColumn="GP Target" />
+              <Mapping SourceColumn="GP Actual" DataSetColumn="GP Actual" />
+              <Mapping SourceColumn="Primary MO" DataSetColumn="Primary MO" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="Identifier WO" DataSetColumn="Identifier WO" />
+              <Mapping SourceColumn="Identifier JO" DataSetColumn="Identifier JO" />
+              <Mapping SourceColumn="JO Number" DataSetColumn="JO Number" />
+              <Mapping SourceColumn="WO Number" DataSetColumn="WO Number" />
+              <Mapping SourceColumn="WO Date" DataSetColumn="WO Date" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TglBundling" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglBundling" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TglBundling">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_mo_item.`Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Desc`, tbltrans_mo_item_rm.`Primary Product Code RM` AS `Primary Product RM`, 
+                  tblmaster_product_1.`Product Code` AS `Product Code RM`, tblmaster_product_1.Description AS `Product Desc RM`, tblmaster_product_1.`Decimal` AS ```Decimal`` RM`, 
+                  tblmaster_product_1.`Primary Unit` AS `Primary Unit RM`, tblmaster_master_unit.`Unit Code` AS `Unit Code RM`, tbltrans_mo_item_rm.`Target Qty`, tbltrans_mo_item_rm.`Required Qty`, 
+                  tbltrans_mo_item_rm.`Allocated Qty`, tbltrans_mo_item_rm.`Additional Qty`, tbltrans_mo_item_rm.`Used Qty`, tbltrans_mo_item_rm.`GP Target`, tbltrans_mo_item_rm.`GP Actual`, tbltrans_mo_item.`Primary MO`, 
+                  tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, 
+                  tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltrans_mo_item_wo.Identifier AS `Identifier WO`, tbltrans_mo_item.Identifier AS `Identifier JO`, tbltrans_mo_item.`JO Number`, 
+                  tbltrans_mo_item_wo.`WO Number`, tbltrans_mo_item_wo.`Date` AS `WO Date`
+FROM     tbltrans_mo_item INNER JOIN
+                  tblmaster_product ON tbltrans_mo_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                  tbltrans_mo_item_wo ON tbltrans_mo_item.Identifier = tbltrans_mo_item_wo.`Identifier JO` INNER JOIN
+                  tbltrans_mo_item_rm ON tbltrans_mo_item_wo.Identifier = tbltrans_mo_item_rm.`Identifier WO` INNER JOIN
+                  tblmaster_product tblmaster_product_1 ON tbltrans_mo_item_rm.`Primary Product Code RM` = tblmaster_product_1.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tblmaster_product_1.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                  tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                  tbltrans_mo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo.`Primary` INNER JOIN
+                      (SELECT DISTINCT `primary mo`
+                       FROM      tbltransaksi_stockbundling
+                       WHERE   (`Tanggal Transaksi` &lt;= @TanggalBundlingSampai) AND (`Tanggal Transaksi` &gt;= @TanggalBundlingDari) AND (`primary mo` &lt;&gt; - 1)) derivedtbl_1 ON tbltrans_mo.`Primary` = derivedtbl_1.`primary mo`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalBundlingSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalBundlingSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalBundlingDari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalBundlingDari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TglKombinasi" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglKombinasi" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_TglKombinasi">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_mo_item.`Primary Product`, tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Desc`, tbltrans_mo_item_rm.`Primary Product Code RM` AS `Primary Product RM`, 
+                  tblmaster_product_1.`Product Code` AS `Product Code RM`, tblmaster_product_1.Description AS `Product Desc RM`, tblmaster_product_1.`Decimal` AS ```Decimal`` RM`, 
+                  tblmaster_product_1.`Primary Unit` AS `Primary Unit RM`, tblmaster_master_unit.`Unit Code` AS `Unit Code RM`, tbltrans_mo_item_rm.`Target Qty`, tbltrans_mo_item_rm.`Required Qty`, 
+                  tbltrans_mo_item_rm.`Allocated Qty`, tbltrans_mo_item_rm.`Additional Qty`, tbltrans_mo_item_rm.`Used Qty`, tbltrans_mo_item_rm.`GP Target`, tbltrans_mo_item_rm.`GP Actual`, tbltrans_mo_item.`Primary MO`, 
+                  tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, 
+                  tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltrans_mo_item_wo.Identifier AS `Identifier WO`, tbltrans_mo_item.Identifier AS `Identifier JO`, tbltrans_mo_item.`JO Number`, 
+                  tbltrans_mo_item_wo.`WO Number`, tbltrans_mo_item_wo.`Date` AS `WO Date`
+FROM     tbltrans_mo_item INNER JOIN
+                  tblmaster_product ON tbltrans_mo_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                  tbltrans_mo_item_wo ON tbltrans_mo_item.Identifier = tbltrans_mo_item_wo.`Identifier JO` INNER JOIN
+                  tbltrans_mo_item_rm ON tbltrans_mo_item_wo.Identifier = tbltrans_mo_item_rm.`Identifier WO` INNER JOIN
+                  tblmaster_product tblmaster_product_1 ON tbltrans_mo_item_rm.`Primary Product Code RM` = tblmaster_product_1.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tblmaster_product_1.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                  tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                  tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                  tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                  tbltrans_mo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo.`Primary` INNER JOIN
+                      (SELECT DISTINCT `primary mo`
+                       FROM      tbltransaksi_stockbundling
+                       WHERE   (`Tanggal Transaksi` &lt;= @TanggalBundlingSampai) AND (`Tanggal Transaksi` &gt;= @TanggalBundlingDari) AND (`primary mo` &lt;&gt; - 1)) derivedtbl_1 ON tbltrans_mo.`Primary` = derivedtbl_1.`primary mo`
+WHERE  (tbltrans_mo.`Date` &gt;= @from_mo) AND (tbltrans_mo.`Date` &lt;= @to_mo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="from_mo" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@from_mo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="to_mo" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@to_mo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalBundlingSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalBundlingSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalBundlingDari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalBundlingDari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Bundling UsageTableAdapter" GeneratorDataComponentClassName="Bundling_UsageTableAdapter" Name="Bundling Usage" UserDataComponentName="Bundling UsageTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltransaksi_stockbundling_item_before.`Primary Transaksi` AS `Primary Bundling`, tbltransaksi_stockbundling.`No Transaksi` AS `No Bundling`, 
+                  tbltransaksi_stockbundling_item_before.`Primary Product` AS `Primary Product RM`, SUM(tbltransaksi_stockbundling_item_before.Qty) AS `Qty Bundling`, tbltransaksi_stockbundling.`identifier wo` AS `Identifier WO`, 
+                  tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Bundling Date`
+FROM     tbltransaksi_stockbundling_item_before INNER JOIN
+                  tbltransaksi_stockbundling ON tbltransaksi_stockbundling_item_before.`Primary Transaksi` = tbltransaksi_stockbundling.`Primary`
+WHERE  (tbltransaksi_stockbundling.`Tanggal Transaksi` &gt;= @from_bundling) AND (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @to_bundling) AND (tbltransaksi_stockbundling.`primary mo` &lt;&gt; - 1)
+GROUP BY tbltransaksi_stockbundling_item_before.`Primary Product`, tbltransaksi_stockbundling.`identifier wo`, tbltransaksi_stockbundling_item_before.`Primary Transaksi`, tbltransaksi_stockbundling.`No Transaksi`, 
+                  tbltransaksi_stockbundling.`Tanggal Transaksi`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="from_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@from_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Bundling Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="to_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@to_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Bundling Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Bundling" DataSetColumn="Primary Bundling" />
+              <Mapping SourceColumn="No Bundling" DataSetColumn="No Bundling" />
+              <Mapping SourceColumn="Primary Product RM" DataSetColumn="Primary Product RM" />
+              <Mapping SourceColumn="Qty Bundling" DataSetColumn="Qty Bundling" />
+              <Mapping SourceColumn="Identifier WO" DataSetColumn="Identifier WO" />
+              <Mapping SourceColumn="Bundling Date" DataSetColumn="Bundling Date" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TglKombinasi" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglKombinasi" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TglKombinasi">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltransaksi_stockbundling_item_before.`Primary Transaksi` AS `Primary Bundling`, tbltransaksi_stockbundling.`No Transaksi` AS `No Bundling`, 
+                  tbltransaksi_stockbundling_item_before.`Primary Product` AS `Primary Product RM`, SUM(tbltransaksi_stockbundling_item_before.Qty) AS `Qty Bundling`, tbltransaksi_stockbundling.`identifier wo` AS `Identifier WO`, 
+                  tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Bundling Date`
+FROM     tbltransaksi_stockbundling_item_before INNER JOIN
+                  tbltransaksi_stockbundling ON tbltransaksi_stockbundling_item_before.`Primary Transaksi` = tbltransaksi_stockbundling.`Primary` INNER JOIN
+                      (SELECT `Primary` AS `Primary MO`
+                       FROM      tbltrans_mo
+                       WHERE   (`Date` &lt;= @TglMOSampai) AND (`Date` &gt;= @TglMODari)) derivedtbl_1 ON tbltransaksi_stockbundling.`primary mo` = derivedtbl_1.`Primary MO`
+WHERE  (tbltransaksi_stockbundling.`Tanggal Transaksi` &gt;= @from_bundling) AND (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @to_bundling) AND (tbltransaksi_stockbundling.`primary mo` &lt;&gt; - 1)
+GROUP BY tbltransaksi_stockbundling_item_before.`Primary Product`, tbltransaksi_stockbundling.`identifier wo`, tbltransaksi_stockbundling_item_before.`Primary Transaksi`, tbltransaksi_stockbundling.`No Transaksi`, 
+                  tbltransaksi_stockbundling.`Tanggal Transaksi`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="from_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@from_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Bundling Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="to_bundling" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@to_bundling" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Bundling Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglMOSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglMOSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglMODari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglMODari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TglMO" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglMO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_TglMO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltransaksi_stockbundling_item_before.`Primary Transaksi` AS `Primary Bundling`, tbltransaksi_stockbundling.`No Transaksi` AS `No Bundling`, 
+                  tbltransaksi_stockbundling_item_before.`Primary Product` AS `Primary Product RM`, SUM(tbltransaksi_stockbundling_item_before.Qty) AS `Qty Bundling`, tbltransaksi_stockbundling.`identifier wo` AS `Identifier WO`, 
+                  tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Bundling Date`
+FROM     tbltransaksi_stockbundling_item_before INNER JOIN
+                  tbltransaksi_stockbundling ON tbltransaksi_stockbundling_item_before.`Primary Transaksi` = tbltransaksi_stockbundling.`Primary` INNER JOIN
+                      (SELECT `Primary` AS `Primary MO`
+                       FROM      tbltrans_mo
+                       WHERE   (`Date` &lt;= @TglMOSampai) AND (`Date` &gt;= @TglMODari)) derivedtbl_1 ON tbltransaksi_stockbundling.`primary mo` = derivedtbl_1.`Primary MO`
+WHERE  (tbltransaksi_stockbundling.`primary mo` &lt;&gt; - 1)
+GROUP BY tbltransaksi_stockbundling_item_before.`Primary Product`, tbltransaksi_stockbundling.`identifier wo`, tbltransaksi_stockbundling_item_before.`Primary Transaksi`, tbltransaksi_stockbundling.`No Transaksi`, 
+                  tbltransaksi_stockbundling.`Tanggal Transaksi`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglMOSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglMOSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglMODari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglMODari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Work OrderTableAdapter" GeneratorDataComponentClassName="Work_OrderTableAdapter" Name="Work Order" UserDataComponentName="Work OrderTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_production.tbltrans_mo_item_wo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo_item_wo.`Identifier JO`, tbltrans_mo_item_wo.`Primary Product`
+FROM            tbltrans_mo_item_wo INNER JOIN
+                         tbltrans_mo ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo.`Primary`
+WHERE        (tbltrans_mo.`Date` &gt;= @mo_from AND tbltrans_mo.`Date` &lt;= @mo_to)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="mo_from" ColumnName="Date" DataSourceName="smess_production.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@mo_from" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="mo_to" ColumnName="Date" DataSourceName="smess_production.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@mo_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Identifier JO" DataSetColumn="Identifier JO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb.tbltrans_mo_item_wo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_TglBundling" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglBundling" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TglBundling">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_mo_item_wo.`Identifier JO`, tbltrans_mo_item_wo.`Primary Product`
+FROM     tbltrans_mo_item_wo INNER JOIN
+                  tbltrans_mo ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo.`Primary` INNER JOIN
+                      (SELECT DISTINCT `primary mo`
+                       FROM      tbltransaksi_stockbundling
+                       WHERE   (`Tanggal Transaksi` &lt;= @TanggalSampai) AND (`Tanggal Transaksi` &gt;= @TanggalDari) AND (`primary mo` &lt;&gt; - 1)) derivedtbl_1 ON tbltrans_mo.`Primary` = derivedtbl_1.`primary mo`
+ORDER BY tbltrans_mo_item_wo.`Identifier JO`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb.tbltrans_mo_item_wo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_TglKombinasi" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TglKombinasi" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_TglKombinasi">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_mo_item_wo.`Identifier JO`, tbltrans_mo_item_wo.`Primary Product`
+FROM     tbltrans_mo_item_wo INNER JOIN
+                  tbltrans_mo ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo.`Primary` INNER JOIN
+                      (SELECT DISTINCT `primary mo`
+                       FROM      tbltransaksi_stockbundling
+                       WHERE   (`Tanggal Transaksi` &lt;= @TanggalBundlingSampai) AND (`Tanggal Transaksi` &gt;= @TanggalBundlingDari) AND (`primary mo` &lt;&gt; - 1)) derivedtbl_1 ON tbltrans_mo.`Primary` = derivedtbl_1.`primary mo`
+WHERE  (tbltrans_mo.`Date` &gt;= @mo_from) AND (tbltrans_mo.`Date` &lt;= @mo_to)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="mo_from" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@mo_from" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="mo_to" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@mo_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalBundlingSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalBundlingSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalBundlingDari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalBundlingDari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltransaksi_stockbundlingTableAdapter" GeneratorDataComponentClassName="tbltransaksi_stockbundlingTableAdapter" Name="tbltransaksi_stockbundling" UserDataComponentName="tbltransaksi_stockbundlingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_lmb.tbltransaksi_stockbundling" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT `primary mo`
+FROM     tbltransaksi_stockbundling
+WHERE  (`Tanggal Transaksi` &lt;= @TanggalSampai) AND (`Tanggal Transaksi` &gt;= @TanggalDari) AND (`primary mo` &lt;&gt; - 1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary mo" DataSetColumn="primary mo" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT derivedtbl_1.`primary mo`, tbltrans_mo.`Date`
+FROM     (SELECT DISTINCT `primary mo`
+                  FROM      tbltransaksi_stockbundling
+                  WHERE   (`Tanggal Transaksi` &lt;= @TanggalSampai) AND (`Tanggal Transaksi` &gt;= @TanggalDari) AND (`primary mo` &lt;&gt; - 1)) derivedtbl_1 INNER JOIN
+                  tbltrans_mo ON derivedtbl_1.`primary mo` = tbltrans_mo.`Primary`
+ORDER BY tbltrans_mo.`Date`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary mo" DataSetColumn="primary mo" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_moTableAdapter" GeneratorDataComponentClassName="tbltrans_moTableAdapter" Name="tbltrans_mo" UserDataComponentName="tbltrans_moTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectName="smess_lmb.tbltrans_mo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `Primary` AS `Primary MO`
+FROM     tbltrans_mo
+WHERE  (`Date` &lt;= @TglMOSampai) AND (`Date` &gt;= @TglMODari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglMOSampai" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglMOSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglMODari" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglMODari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary MO" DataSetColumn="Primary MO" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_MO_PrimaryMinMax" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="FillBy_MO_PrimaryMinMax" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="FillBy_MO_PrimaryMinMax">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo_item.`Primary MO` AS `MO Primary`, tblmaster_product.`Primary` AS `Product JO Primary`, tblmaster_product.`Product Code` AS `Product JO Code`, 
+                         tblmaster_product.Description AS `Product JO Description`, tblmaster_product_1.`Primary` AS `Product RM Primary`, tblmaster_product_1.`Product Code` AS `Product RM Code`, 
+                         tblmaster_product_1.Description AS `Product RM Description`, tblmaster_master_unit.`Unit Code` AS `Unit Code RM`, SUM(tbltrans_mo_item_rm.`Required Qty`) AS `Required Qty`, 
+                         SUM(tbltrans_mo_item_rm.`Additional Qty`) AS `Additional Qty`, SUM(tbltrans_mo_item_rm.`Replace Qty`) AS `Replace Qty`, tblmaster_product_1.`Decimal` AS `Product RM ``Decimal```, 
+                         tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, 
+                         tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltrans_mo_item.`JO Number`, tbltrans_mo_item.Identifier AS `Identifier JO`
+FROM            tbltrans_mo_item INNER JOIN
+                         tblmaster_product ON tbltrans_mo_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tbltrans_mo_item_rm ON tbltrans_mo_item.`Primary MO` = tbltrans_mo_item_rm.`Primary MO` AND tbltrans_mo_item.Identifier = tbltrans_mo_item_rm.`Identifier JO` INNER JOIN
+                         tblmaster_product tblmaster_product_1 ON tbltrans_mo_item_rm.`Primary Product Code RM` = tblmaster_product_1.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product_1.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary`
+WHERE        (tbltrans_mo_item_rm.`is wip` = 0)
+GROUP BY tbltrans_mo_item.`Primary MO`, tblmaster_product.`Primary`, tblmaster_product_1.`Primary`
+HAVING        (tbltrans_mo_item.`Primary MO` &gt;= @primary_mo_min) AND (tbltrans_mo_item.`Primary MO` &lt;= @primary_mo_max)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_mo_min" ColumnName="Primary MO" DataSourceName="smess_lmb.tbltrans_mo_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_mo_min" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="MO Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_mo_max" ColumnName="Primary MO" DataSourceName="smess_lmb.tbltrans_mo_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_mo_max" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="MO Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MO Primary" DataSetColumn="MO Primary" />
+              <Mapping SourceColumn="Product JO Primary" DataSetColumn="Product JO Primary" />
+              <Mapping SourceColumn="Product JO Code" DataSetColumn="Product JO Code" />
+              <Mapping SourceColumn="Product JO Description" DataSetColumn="Product JO Description" />
+              <Mapping SourceColumn="Product RM Primary" DataSetColumn="Product RM Primary" />
+              <Mapping SourceColumn="Product RM Code" DataSetColumn="Product RM Code" />
+              <Mapping SourceColumn="Product RM Description" DataSetColumn="Product RM Description" />
+              <Mapping SourceColumn="Unit Code RM" DataSetColumn="Unit Code RM" />
+              <Mapping SourceColumn="Required Qty" DataSetColumn="Required Qty" />
+              <Mapping SourceColumn="Additional Qty" DataSetColumn="Additional Qty" />
+              <Mapping SourceColumn="Replace Qty" DataSetColumn="Replace Qty" />
+              <Mapping SourceColumn="Product RM `Decimal`" DataSetColumn="Product RM `Decimal`" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="JO Number" DataSetColumn="JO Number" />
+              <Mapping SourceColumn="Identifier JO" DataSetColumn="Identifier JO" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_MO_PrimaryMinMaxAndDate" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_MO_PrimaryMinMaxAndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_MO_PrimaryMinMaxAndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo_item.`Primary MO` AS `MO Primary`, tblmaster_product.`Primary` AS `Product JO Primary`, tblmaster_product.`Product Code` AS `Product JO Code`, 
+                         tblmaster_product.Description AS `Product JO Description`, tblmaster_product_1.`Primary` AS `Product RM Primary`, tblmaster_product_1.`Product Code` AS `Product RM Code`, 
+                         tblmaster_product_1.Description AS `Product RM Description`, tblmaster_master_unit.`Unit Code` AS `Unit Code RM`, SUM(tbltrans_mo_item_rm.`Required Qty`) AS `Required Qty`, 
+                         SUM(tbltrans_mo_item_rm.`Additional Qty`) AS `Additional Qty`, SUM(tbltrans_mo_item_rm.`Replace Qty`) AS `Replace Qty`, tblmaster_product_1.`Decimal` AS `Product RM ``Decimal```, 
+                         tblmaster_product.`Primary Category`, tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, 
+                         tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, tbltrans_mo_item.`JO Number`, tbltrans_mo_item.Identifier AS `Identifier JO`
+FROM            tbltrans_mo_item INNER JOIN
+                         tblmaster_product ON tbltrans_mo_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tbltrans_mo_item_rm ON tbltrans_mo_item.`Primary MO` = tbltrans_mo_item_rm.`Primary MO` AND tbltrans_mo_item.Identifier = tbltrans_mo_item_rm.`Identifier JO` INNER JOIN
+                         tblmaster_product tblmaster_product_1 ON tbltrans_mo_item_rm.`Primary Product Code RM` = tblmaster_product_1.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product_1.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary` INNER JOIN
+                         tbltrans_mo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo.`Primary`
+WHERE        (tbltrans_mo_item_rm.`is wip` = 0) AND (tbltrans_mo.`Date` &gt;= @mo_date_from) AND (tbltrans_mo.`Date` &lt;= @mo_date_to)
+GROUP BY tbltrans_mo_item.`Primary MO`, tblmaster_product.`Primary`, tblmaster_product_1.`Primary`
+HAVING        (tbltrans_mo_item.`Primary MO` &gt;= @primary_mo_min) AND (tbltrans_mo_item.`Primary MO` &lt;= @primary_mo_max)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="mo_date_from" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@mo_date_from" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="mo_date_to" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@mo_date_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_mo_min" ColumnName="Primary MO" DataSourceName="smess_lmb.tbltrans_mo_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_mo_min" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="MO Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_mo_max" ColumnName="Primary MO" DataSourceName="smess_lmb.tbltrans_mo_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_mo_max" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="MO Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_LogDate" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="FillBy_LogDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="FillBy_LogDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockbundling.`primary mo` AS `MO Primary`, tbltrans_mo_item.`Primary Product` AS `Product JO Primary`, tbltransaksi_stockbundling_item_before.`Primary Product` AS `Product RM Primary`, 
+                         tbltransaksi_stockbundling.`No Transaksi` AS `Log No`, tbltransaksi_stockbundling_item_before.Qty AS `Log Qty`, tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Log Date`, 
+                         tbltransaksi_stockbundling.`identifier jo` AS `Identifier JO`
+FROM            tbltransaksi_stockbundling_item_before INNER JOIN
+                         tbltransaksi_stockbundling ON tbltransaksi_stockbundling_item_before.`Primary Transaksi` = tbltransaksi_stockbundling.`Primary` INNER JOIN
+                         tbltrans_mo_item ON tbltransaksi_stockbundling.`identifier jo` = tbltrans_mo_item.Identifier INNER JOIN
+                         tbltrans_mo_item_wo ON tbltransaksi_stockbundling.`identifier jo` = tbltrans_mo_item_wo.`Identifier JO` AND tbltransaksi_stockbundling.`identifier wo` = tbltrans_mo_item_wo.Identifier
+WHERE        (tbltransaksi_stockbundling.`Tanggal Transaksi` &gt;= @log_date_from) AND (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @log_date_to) AND (tbltransaksi_stockbundling.`primary mo` &lt;&gt; - 1)
+ORDER BY `MO Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="log_date_from" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@log_date_from" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Log Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="log_date_to" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@log_date_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Log Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MO Primary" DataSetColumn="MO Primary" />
+              <Mapping SourceColumn="Product JO Primary" DataSetColumn="Product JO Primary" />
+              <Mapping SourceColumn="Product RM Primary" DataSetColumn="Product RM Primary" />
+              <Mapping SourceColumn="Log No" DataSetColumn="Log No" />
+              <Mapping SourceColumn="Log Qty" DataSetColumn="Log Qty" />
+              <Mapping SourceColumn="Log Date" DataSetColumn="Log Date" />
+              <Mapping SourceColumn="Identifier JO" DataSetColumn="Identifier JO" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_LogDateUntil" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_LogDateUntil" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_LogDateUntil">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockbundling.`primary mo` AS `MO Primary`, tbltrans_mo_item.`Primary Product` AS `Product JO Primary`, tbltransaksi_stockbundling_item_before.`Primary Product` AS `Product RM Primary`, 
+                         tbltransaksi_stockbundling.`No Transaksi` AS `Log No`, tbltransaksi_stockbundling_item_before.Qty AS `Log Qty`, tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Log Date`, 
+                         tbltransaksi_stockbundling.`identifier jo` AS `Identifier JO`
+FROM            tbltransaksi_stockbundling_item_before INNER JOIN
+                         tbltransaksi_stockbundling ON tbltransaksi_stockbundling_item_before.`Primary Transaksi` = tbltransaksi_stockbundling.`Primary` INNER JOIN
+                         tbltrans_mo_item ON tbltransaksi_stockbundling.`identifier jo` = tbltrans_mo_item.Identifier INNER JOIN
+                         tbltrans_mo_item_wo ON tbltransaksi_stockbundling.`identifier jo` = tbltrans_mo_item_wo.`Identifier JO` AND tbltransaksi_stockbundling.`identifier wo` = tbltrans_mo_item_wo.Identifier
+WHERE        (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @log_date_to) AND (tbltransaksi_stockbundling.`primary mo` &lt;&gt; - 1)
+ORDER BY `MO Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="log_date_to" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@log_date_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Log Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable5TableAdapter" GeneratorDataComponentClassName="DataTable5TableAdapter" Name="DataTable5" UserDataComponentName="DataTable5TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_MO_PrimaryMinMax" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="FillBy_MO_PrimaryMinMax" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="FillBy_MO_PrimaryMinMax">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo.`Primary` AS `MO Primary`, tbltrans_mo_item.`Primary Product` AS `Product JO Primary`, tbltrans_mo_item_wo.`Primary Product` AS `Product WO Primary`, tbltrans_mo_item_wo.`WO Number`, 
+                         tbltrans_mo_item_rm.`Primary Product Code RM` AS `Product RM Primary`, tblmaster_product.`Product Code` AS `Product RM Code`, tblmaster_product.Description AS `Product RM Description`, 
+                         tblmaster_master_unit.`Unit Code` AS `Product RM Unit Code`, SUM(tbltrans_mo_item_rm.`Required Qty`) AS `Required Qty`, SUM(tbltrans_mo_item_rm.`Additional Qty`) AS `Additional Qty`, 
+                         SUM(tbltrans_mo_item_rm.`Replace Qty`) AS `Replace Qty`, tblmaster_product.`Decimal` AS `Product RM Precision`, tblmaster_product.`Primary Category`, 
+                         tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, 
+                         tbltrans_mo_item_rm.`is wip` AS `Is WIP`, tbltrans_mo_item_wo.`Date` AS `WO Date`
+FROM            tbltrans_mo INNER JOIN
+                         tbltrans_mo_item ON tbltrans_mo.`Primary` = tbltrans_mo_item.`Primary MO` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo_item_wo.`Primary MO` AND tbltrans_mo_item.Identifier = tbltrans_mo_item_wo.`Identifier JO` INNER JOIN
+                         tbltrans_mo_item_rm ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo_item_rm.`Primary MO` AND tbltrans_mo_item_wo.`Identifier JO` = tbltrans_mo_item_rm.`Identifier JO` AND 
+                         tbltrans_mo_item_wo.Identifier = tbltrans_mo_item_rm.`Identifier WO` INNER JOIN
+                         tblmaster_product ON tbltrans_mo_item_rm.`Primary Product Code RM` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary`
+WHERE        (tbltrans_mo.`Primary` &gt;= @primary_mo_min) AND (tbltrans_mo_item_rm.`is wip` = @is_wip OR
+                         tbltrans_mo_item_rm.`is wip` = @is_wip2) AND (tbltrans_mo.`Primary` &lt;= @primary_mo_max)
+GROUP BY tbltrans_mo.`Primary`, tbltrans_mo_item.`Primary Product`, tbltrans_mo_item_wo.`Primary Product`, tbltrans_mo_item_rm.`Primary Product Code RM`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_mo_min" ColumnName="Primary" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_mo_min" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="MO Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="is_wip" ColumnName="is wip" DataSourceName="smess_lmb.tbltrans_mo_item_rm" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@is_wip" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Is WIP" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="is_wip2" ColumnName="is wip" DataSourceName="smess_lmb.tbltrans_mo_item_rm" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@is_wip2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Is WIP" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_mo_max" ColumnName="Primary" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_mo_max" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="MO Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MO Primary" DataSetColumn="MO Primary" />
+              <Mapping SourceColumn="Product JO Primary" DataSetColumn="Product JO Primary" />
+              <Mapping SourceColumn="Product WO Primary" DataSetColumn="Product WO Primary" />
+              <Mapping SourceColumn="WO Number" DataSetColumn="WO Number" />
+              <Mapping SourceColumn="Product RM Primary" DataSetColumn="Product RM Primary" />
+              <Mapping SourceColumn="Product RM Code" DataSetColumn="Product RM Code" />
+              <Mapping SourceColumn="Product RM Description" DataSetColumn="Product RM Description" />
+              <Mapping SourceColumn="Product RM Unit Code" DataSetColumn="Product RM Unit Code" />
+              <Mapping SourceColumn="Required Qty" DataSetColumn="Required Qty" />
+              <Mapping SourceColumn="Additional Qty" DataSetColumn="Additional Qty" />
+              <Mapping SourceColumn="Replace Qty" DataSetColumn="Replace Qty" />
+              <Mapping SourceColumn="Product RM Precision" DataSetColumn="Product RM Precision" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="Is WIP" DataSetColumn="Is WIP" />
+              <Mapping SourceColumn="WO Date" DataSetColumn="WO Date" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_MO_PrimaryMinMaxAndDate" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_MO_PrimaryMinMaxAndDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_MO_PrimaryMinMaxAndDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_mo.`Primary` AS `MO Primary`, tbltrans_mo_item.`Primary Product` AS `Product JO Primary`, tbltrans_mo_item_wo.`Primary Product` AS `Product WO Primary`, tbltrans_mo_item_wo.`WO Number`, 
+                         tbltrans_mo_item_rm.`Primary Product Code RM` AS `Product RM Primary`, tblmaster_product.`Product Code` AS `Product RM Code`, tblmaster_product.Description AS `Product RM Description`, 
+                         tblmaster_master_unit.`Unit Code` AS `Product RM Unit Code`, SUM(tbltrans_mo_item_rm.`Required Qty`) AS `Required Qty`, SUM(tbltrans_mo_item_rm.`Additional Qty`) AS `Additional Qty`, 
+                         SUM(tbltrans_mo_item_rm.`Replace Qty`) AS `Replace Qty`, tblmaster_product.`Decimal` AS `Product RM Precision`, tblmaster_product.`Primary Category`, 
+                         tblmaster_category.`Parent Group Primary` AS `Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Brand`, tblmaster_product_group_1.`Parent Group Primary` AS `Primary Group`, 
+                         tbltrans_mo_item_rm.`is wip` AS `Is WIP`, tbltrans_mo_item_wo.`Date` AS `WO Date`
+FROM            tbltrans_mo INNER JOIN
+                         tbltrans_mo_item ON tbltrans_mo.`Primary` = tbltrans_mo_item.`Primary MO` INNER JOIN
+                         tbltrans_mo_item_wo ON tbltrans_mo_item.`Primary MO` = tbltrans_mo_item_wo.`Primary MO` AND tbltrans_mo_item.Identifier = tbltrans_mo_item_wo.`Identifier JO` INNER JOIN
+                         tbltrans_mo_item_rm ON tbltrans_mo_item_wo.`Primary MO` = tbltrans_mo_item_rm.`Primary MO` AND tbltrans_mo_item_wo.`Identifier JO` = tbltrans_mo_item_rm.`Identifier JO` AND 
+                         tbltrans_mo_item_wo.Identifier = tbltrans_mo_item_rm.`Identifier WO` INNER JOIN
+                         tblmaster_product ON tbltrans_mo_item_rm.`Primary Product Code RM` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tblmaster_product.`Primary Unit` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tblmaster_category ON tblmaster_product.`Primary Category` = tblmaster_category.`Primary` INNER JOIN
+                         tblmaster_product_group ON tblmaster_category.`Parent Group Primary` = tblmaster_product_group.`Primary` INNER JOIN
+                         tblmaster_product_group tblmaster_product_group_1 ON tblmaster_product_group.`Parent Group Primary` = tblmaster_product_group_1.`Primary`
+WHERE        (tbltrans_mo.`Primary` &gt;= @primary_mo_min) AND (tbltrans_mo_item_rm.`is wip` = @is_wip OR
+                         tbltrans_mo_item_rm.`is wip` = @is_wip2) AND (tbltrans_mo.`Primary` &lt;= @primary_mo_max) AND (tbltrans_mo.`Date` &gt;= @mo_date_from) AND (tbltrans_mo.`Date` &lt;= @mo_date_to)
+GROUP BY tbltrans_mo.`Primary`, tbltrans_mo_item.`Primary Product`, tbltrans_mo_item_wo.`Primary Product`, tbltrans_mo_item_rm.`Primary Product Code RM`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_mo_min" ColumnName="Primary" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_mo_min" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="MO Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="is_wip" ColumnName="is wip" DataSourceName="smess_lmb.tbltrans_mo_item_rm" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@is_wip" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Is WIP" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="is_wip2" ColumnName="is wip" DataSourceName="smess_lmb.tbltrans_mo_item_rm" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@is_wip2" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Is WIP" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="primary_mo_max" ColumnName="Primary" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@primary_mo_max" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="MO Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="mo_date_from" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@mo_date_from" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="mo_date_to" ColumnName="Date" DataSourceName="smess_lmb.tbltrans_mo" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@mo_date_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable6TableAdapter" GeneratorDataComponentClassName="DataTable6TableAdapter" Name="DataTable6" UserDataComponentName="DataTable6TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_LogDate" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="FillBy_LogDate" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="FillBy_LogDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltransaksi_stockbundling.`primary mo` AS `MO Primary`, tbltrans_mo_item.`Primary Product` AS `Product JO Primary`, tbltrans_mo_item_wo.`Primary Product` AS `Product WO Primary`, 
+                         tbltransaksi_stockbundling_item_before.`Primary Product` AS `Product RM Primary`, tbltransaksi_stockbundling.`No Transaksi` AS `Log No`, tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Log Date`, 
+                         tbltransaksi_stockbundling_item_before.Qty AS `Log Qty`
+FROM            tbltransaksi_stockbundling INNER JOIN
+                         tbltrans_mo_item ON tbltransaksi_stockbundling.`identifier jo` = tbltrans_mo_item.Identifier INNER JOIN
+                         tbltrans_mo_item_wo ON tbltransaksi_stockbundling.`identifier jo` = tbltrans_mo_item_wo.`Identifier JO` AND tbltransaksi_stockbundling.`identifier wo` = tbltrans_mo_item_wo.Identifier INNER JOIN
+                         tbltransaksi_stockbundling_item_before ON tbltransaksi_stockbundling.`Primary` = tbltransaksi_stockbundling_item_before.`Primary Transaksi`
+WHERE        (tbltransaksi_stockbundling.`Tanggal Transaksi` &gt;= @log_date_from) AND (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @log_date_to)
+ORDER BY `MO Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="log_date_from" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@log_date_from" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Log Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="log_date_to" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@log_date_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Log Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Product JO Primary" DataSetColumn="Product JO Primary" />
+              <Mapping SourceColumn="Product WO Primary" DataSetColumn="Product WO Primary" />
+              <Mapping SourceColumn="Product RM Primary" DataSetColumn="Product RM Primary" />
+              <Mapping SourceColumn="Log No" DataSetColumn="Log No" />
+              <Mapping SourceColumn="Log Date" DataSetColumn="Log Date" />
+              <Mapping SourceColumn="Log Qty" DataSetColumn="Log Qty" />
+              <Mapping SourceColumn="MO Primary" DataSetColumn="MO Primary" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="reset_non_kayu_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_LogDateUntil" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_LogDateUntil" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_LogDateUntil">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltransaksi_stockbundling.`primary mo` AS `MO Primary`, tbltrans_mo_item.`Primary Product` AS `Product JO Primary`, tbltrans_mo_item_wo.`Primary Product` AS `Product WO Primary`, 
+                         tbltransaksi_stockbundling_item_before.`Primary Product` AS `Product RM Primary`, tbltransaksi_stockbundling.`No Transaksi` AS `Log No`, tbltransaksi_stockbundling.`Tanggal Transaksi` AS `Log Date`, 
+                         tbltransaksi_stockbundling_item_before.Qty AS `Log Qty`
+FROM            tbltransaksi_stockbundling INNER JOIN
+                         tbltrans_mo_item ON tbltransaksi_stockbundling.`identifier jo` = tbltrans_mo_item.Identifier INNER JOIN
+                         tbltrans_mo_item_wo ON tbltransaksi_stockbundling.`identifier jo` = tbltrans_mo_item_wo.`Identifier JO` AND tbltransaksi_stockbundling.`identifier wo` = tbltrans_mo_item_wo.Identifier INNER JOIN
+                         tbltransaksi_stockbundling_item_before ON tbltransaksi_stockbundling.`Primary` = tbltransaksi_stockbundling_item_before.`Primary Transaksi`
+WHERE        (tbltransaksi_stockbundling.`Tanggal Transaksi` &lt;= @log_date_to)
+ORDER BY `MO Primary`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="log_date_to" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockbundling" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@log_date_to" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Log Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanProd_RawMaterialUsage" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanProd_RawMaterialUsage" msprop:Generator_DataSetName="DseLaporanProd_RawMaterialUsage">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Base_x0020_on_x0020_Product" msprop:Generator_UserTableName="Base on Product" msprop:Generator_RowDeletedName="Base_on_ProductRowDeleted" msprop:Generator_RowChangedName="Base_on_ProductRowChanged" msprop:Generator_RowClassName="Base_on_ProductRow" msprop:Generator_RowChangingName="Base_on_ProductRowChanging" msprop:Generator_RowEvArgName="Base_on_ProductRowChangeEvent" msprop:Generator_RowEvHandlerName="Base_on_ProductRowChangeEventHandler" msprop:Generator_TableClassName="Base_on_ProductDataTable" msprop:Generator_TableVarName="tableBase_on_Product" msprop:Generator_RowDeletingName="Base_on_ProductRowDeleting" msprop:Generator_TablePropName="Base_on_Product">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Desc" msprop:Generator_UserColumnName="Product Desc" msprop:Generator_ColumnPropNameInRow="Product_Desc" msprop:Generator_ColumnVarNameInTable="columnProduct_Desc" msprop:Generator_ColumnPropNameInTable="Product_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product_x0020_RM" msprop:Generator_UserColumnName="Primary Product RM" msprop:Generator_ColumnPropNameInRow="Primary_Product_RM" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product_RM" msprop:Generator_ColumnPropNameInTable="Primary_Product_RMColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code_x0020_RM" msprop:Generator_UserColumnName="Product Code RM" msprop:Generator_ColumnPropNameInRow="Product_Code_RM" msprop:Generator_ColumnVarNameInTable="columnProduct_Code_RM" msprop:Generator_ColumnPropNameInTable="Product_Code_RMColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Desc_x0020_RM" msprop:Generator_UserColumnName="Product Desc RM" msprop:Generator_ColumnPropNameInRow="Product_Desc_RM" msprop:Generator_ColumnVarNameInTable="columnProduct_Desc_RM" msprop:Generator_ColumnPropNameInTable="Product_Desc_RMColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="_x0060_Decimal_x0060__x0020_RM" msprop:Generator_UserColumnName="`Decimal` RM" msprop:Generator_ColumnPropNameInRow="__Decimal__RM" msprop:Generator_ColumnVarNameInTable="_column_Decimal__RM" msprop:Generator_ColumnPropNameInTable="__Decimal__RMColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Unit_x0020_RM" msprop:Generator_UserColumnName="Primary Unit RM" msprop:Generator_ColumnPropNameInRow="Primary_Unit_RM" msprop:Generator_ColumnVarNameInTable="columnPrimary_Unit_RM" msprop:Generator_ColumnPropNameInTable="Primary_Unit_RMColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code_x0020_RM" msprop:Generator_UserColumnName="Unit Code RM" msprop:Generator_ColumnPropNameInRow="Unit_Code_RM" msprop:Generator_ColumnVarNameInTable="columnUnit_Code_RM" msprop:Generator_ColumnPropNameInTable="Unit_Code_RMColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Target_x0020_Qty" msprop:Generator_UserColumnName="Target Qty" msprop:Generator_ColumnPropNameInRow="Target_Qty" msprop:Generator_ColumnVarNameInTable="columnTarget_Qty" msprop:Generator_ColumnPropNameInTable="Target_QtyColumn" type="xs:decimal" />
+              <xs:element name="Required_x0020_Qty" msprop:Generator_UserColumnName="Required Qty" msprop:Generator_ColumnPropNameInRow="Required_Qty" msprop:Generator_ColumnVarNameInTable="columnRequired_Qty" msprop:Generator_ColumnPropNameInTable="Required_QtyColumn" type="xs:decimal" />
+              <xs:element name="Allocated_x0020_Qty" msprop:Generator_UserColumnName="Allocated Qty" msprop:Generator_ColumnPropNameInRow="Allocated_Qty" msprop:Generator_ColumnVarNameInTable="columnAllocated_Qty" msprop:Generator_ColumnPropNameInTable="Allocated_QtyColumn" type="xs:decimal" />
+              <xs:element name="Additional_x0020_Qty" msprop:Generator_UserColumnName="Additional Qty" msprop:Generator_ColumnPropNameInRow="Additional_Qty" msprop:Generator_ColumnVarNameInTable="columnAdditional_Qty" msprop:Generator_ColumnPropNameInTable="Additional_QtyColumn" type="xs:decimal" />
+              <xs:element name="Used_x0020_Qty" msprop:Generator_UserColumnName="Used Qty" msprop:Generator_ColumnPropNameInRow="Used_Qty" msprop:Generator_ColumnVarNameInTable="columnUsed_Qty" msprop:Generator_ColumnPropNameInTable="Used_QtyColumn" type="xs:decimal" />
+              <xs:element name="GP_x0020_Target" msprop:Generator_UserColumnName="GP Target" msprop:Generator_ColumnPropNameInRow="GP_Target" msprop:Generator_ColumnVarNameInTable="columnGP_Target" msprop:Generator_ColumnPropNameInTable="GP_TargetColumn" type="xs:decimal" />
+              <xs:element name="GP_x0020_Actual" msprop:Generator_UserColumnName="GP Actual" msprop:Generator_ColumnPropNameInRow="GP_Actual" msprop:Generator_ColumnVarNameInTable="columnGP_Actual" msprop:Generator_ColumnPropNameInTable="GP_ActualColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_MO" msprop:Generator_UserColumnName="Primary MO" msprop:Generator_ColumnPropNameInRow="Primary_MO" msprop:Generator_ColumnVarNameInTable="columnPrimary_MO" msprop:Generator_ColumnPropNameInTable="Primary_MOColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Identifier_x0020_WO" msprop:Generator_UserColumnName="Identifier WO" msprop:Generator_ColumnPropNameInRow="Identifier_WO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_WO" msprop:Generator_ColumnPropNameInTable="Identifier_WOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bundling_x0020_Qty" msprop:Generator_UserColumnName="Bundling Qty" msprop:Generator_ColumnPropNameInRow="Bundling_Qty" msprop:Generator_ColumnVarNameInTable="columnBundling_Qty" msprop:Generator_ColumnPropNameInTable="Bundling_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Bundling_x0020_No" msprop:Generator_UserColumnName="Bundling No" msprop:Generator_ColumnPropNameInRow="Bundling_No" msprop:Generator_ColumnVarNameInTable="columnBundling_No" msprop:Generator_ColumnPropNameInTable="Bundling_NoColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Bundling_x0020_Date" msprop:Generator_UserColumnName="Bundling Date" msprop:Generator_ColumnVarNameInTable="columnBundling_Date" msprop:Generator_ColumnPropNameInRow="Bundling_Date" msprop:Generator_ColumnPropNameInTable="Bundling_DateColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+              <xs:element name="Identifier_x0020_JO" msprop:Generator_UserColumnName="Identifier JO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_JO" msprop:Generator_ColumnPropNameInRow="Identifier_JO" msprop:Generator_ColumnPropNameInTable="Identifier_JOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="JO_x0020_Number" msprop:Generator_UserColumnName="JO Number" msprop:Generator_ColumnPropNameInRow="JO_Number" msprop:Generator_ColumnVarNameInTable="columnJO_Number" msprop:Generator_ColumnPropNameInTable="JO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WO_x0020_Number" msprop:Generator_UserColumnName="WO Number" msprop:Generator_ColumnVarNameInTable="columnWO_Number" msprop:Generator_ColumnPropNameInRow="WO_Number" msprop:Generator_ColumnPropNameInTable="WO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="WO_x0020_Date" msprop:Generator_UserColumnName="WO Date" msprop:Generator_ColumnVarNameInTable="columnWO_Date" msprop:Generator_ColumnPropNameInRow="WO_Date" msprop:Generator_ColumnPropNameInTable="WO_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Print_Old" msprop:Generator_UserTableName="Print_Old" msprop:Generator_RowDeletedName="Print_OldRowDeleted" msprop:Generator_RowChangedName="Print_OldRowChanged" msprop:Generator_RowClassName="Print_OldRow" msprop:Generator_RowChangingName="Print_OldRowChanging" msprop:Generator_RowEvArgName="Print_OldRowChangeEvent" msprop:Generator_RowEvHandlerName="Print_OldRowChangeEventHandler" msprop:Generator_TableClassName="Print_OldDataTable" msprop:Generator_TableVarName="tablePrint_Old" msprop:Generator_RowDeletingName="Print_OldRowDeleting" msprop:Generator_TablePropName="Print_Old">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Position_x0020_I" msprop:Generator_UserColumnName="Position I" msprop:Generator_ColumnPropNameInRow="Position_I" msprop:Generator_ColumnVarNameInTable="columnPosition_I" msprop:Generator_ColumnPropNameInTable="Position_IColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Position_x0020_II" msprop:Generator_UserColumnName="Position II" msprop:Generator_ColumnPropNameInRow="Position_II" msprop:Generator_ColumnVarNameInTable="columnPosition_II" msprop:Generator_ColumnPropNameInTable="Position_IIColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="RM_x0020_Code" msprop:Generator_UserColumnName="RM Code" msprop:Generator_ColumnPropNameInRow="RM_Code" msprop:Generator_ColumnVarNameInTable="columnRM_Code" msprop:Generator_ColumnPropNameInTable="RM_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="RM_x0020_Desc" msprop:Generator_UserColumnName="RM Desc" msprop:Generator_ColumnPropNameInRow="RM_Desc" msprop:Generator_ColumnVarNameInTable="columnRM_Desc" msprop:Generator_ColumnPropNameInTable="RM_DescColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_UserColumnName="Unit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInTable="UnitColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Target_x0020_Qty" msprop:Generator_UserColumnName="Target Qty" msprop:Generator_ColumnPropNameInRow="Target_Qty" msprop:Generator_ColumnVarNameInTable="columnTarget_Qty" msprop:Generator_ColumnPropNameInTable="Target_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Required_x0020_Qty" msprop:Generator_UserColumnName="Required Qty" msprop:Generator_ColumnPropNameInRow="Required_Qty" msprop:Generator_ColumnVarNameInTable="columnRequired_Qty" msprop:Generator_ColumnPropNameInTable="Required_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Allocated_x0020_Qty" msprop:Generator_UserColumnName="Allocated Qty" msprop:Generator_ColumnPropNameInRow="Allocated_Qty" msprop:Generator_ColumnVarNameInTable="columnAllocated_Qty" msprop:Generator_ColumnPropNameInTable="Allocated_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Additional_x0020_Qty" msprop:Generator_UserColumnName="Additional Qty" msprop:Generator_ColumnPropNameInRow="Additional_Qty" msprop:Generator_ColumnVarNameInTable="columnAdditional_Qty" msprop:Generator_ColumnPropNameInTable="Additional_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Used_x0020_Qty" msprop:Generator_UserColumnName="Used Qty" msprop:Generator_ColumnPropNameInRow="Used_Qty" msprop:Generator_ColumnVarNameInTable="columnUsed_Qty" msprop:Generator_ColumnPropNameInTable="Used_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Target_x0020_GP" msprop:Generator_UserColumnName="Target GP" msprop:Generator_ColumnPropNameInRow="Target_GP" msprop:Generator_ColumnVarNameInTable="columnTarget_GP" msprop:Generator_ColumnPropNameInTable="Target_GPColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Actual_x0020_GP" msprop:Generator_UserColumnName="Actual GP" msprop:Generator_ColumnPropNameInRow="Actual_GP" msprop:Generator_ColumnVarNameInTable="columnActual_GP" msprop:Generator_ColumnPropNameInTable="Actual_GPColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Bundling_x0020_No" msprop:Generator_UserColumnName="Bundling No" msprop:Generator_ColumnPropNameInRow="Bundling_No" msprop:Generator_ColumnVarNameInTable="columnBundling_No" msprop:Generator_ColumnPropNameInTable="Bundling_NoColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Bundling_x0020_Qty" msprop:Generator_UserColumnName="Bundling Qty" msprop:Generator_ColumnPropNameInRow="Bundling_Qty" msprop:Generator_ColumnVarNameInTable="columnBundling_Qty" msprop:Generator_ColumnPropNameInTable="Bundling_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:short" default="0" minOccurs="0" />
+              <xs:element name="Bundling_x0020_Date" msprop:Generator_UserColumnName="Bundling Date" msprop:Generator_ColumnVarNameInTable="columnBundling_Date" msprop:Generator_ColumnPropNameInRow="Bundling_Date" msprop:Generator_ColumnPropNameInTable="Bundling_DateColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+              <xs:element name="JO_x0020_Number" msprop:Generator_UserColumnName="JO Number" msprop:Generator_ColumnPropNameInRow="JO_Number" msprop:Generator_ColumnVarNameInTable="columnJO_Number" msprop:Generator_ColumnPropNameInTable="JO_NumberColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="WO_x0020_Number" msprop:Generator_UserColumnName="WO Number" msprop:Generator_ColumnVarNameInTable="columnWO_Number" msprop:Generator_ColumnPropNameInRow="WO_Number" msprop:Generator_ColumnPropNameInTable="WO_NumberColumn" type="xs:string" default="a" minOccurs="0" />
+              <xs:element name="WO_x0020_Date" msprop:Generator_UserColumnName="WO Date" msprop:Generator_ColumnVarNameInTable="columnWO_Date" msprop:Generator_ColumnPropNameInRow="WO_Date" msprop:Generator_ColumnPropNameInTable="WO_DateColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Bundling_x0020_Usage" msprop:Generator_UserTableName="Bundling Usage" msprop:Generator_RowDeletedName="Bundling_UsageRowDeleted" msprop:Generator_RowChangedName="Bundling_UsageRowChanged" msprop:Generator_RowClassName="Bundling_UsageRow" msprop:Generator_RowChangingName="Bundling_UsageRowChanging" msprop:Generator_RowEvArgName="Bundling_UsageRowChangeEvent" msprop:Generator_RowEvHandlerName="Bundling_UsageRowChangeEventHandler" msprop:Generator_TableClassName="Bundling_UsageDataTable" msprop:Generator_TableVarName="tableBundling_Usage" msprop:Generator_RowDeletingName="Bundling_UsageRowDeleting" msprop:Generator_TablePropName="Bundling_Usage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Bundling" msprop:Generator_UserColumnName="Primary Bundling" msprop:Generator_ColumnPropNameInRow="Primary_Bundling" msprop:Generator_ColumnVarNameInTable="columnPrimary_Bundling" msprop:Generator_ColumnPropNameInTable="Primary_BundlingColumn" type="xs:double" />
+              <xs:element name="No_x0020_Bundling" msprop:Generator_UserColumnName="No Bundling" msprop:Generator_ColumnPropNameInRow="No_Bundling" msprop:Generator_ColumnVarNameInTable="columnNo_Bundling" msprop:Generator_ColumnPropNameInTable="No_BundlingColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product_x0020_RM" msprop:Generator_UserColumnName="Primary Product RM" msprop:Generator_ColumnPropNameInRow="Primary_Product_RM" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product_RM" msprop:Generator_ColumnPropNameInTable="Primary_Product_RMColumn" type="xs:double" />
+              <xs:element name="Qty_x0020_Bundling" msprop:Generator_UserColumnName="Qty Bundling" msprop:Generator_ColumnPropNameInRow="Qty_Bundling" msprop:Generator_ColumnVarNameInTable="columnQty_Bundling" msprop:Generator_ColumnPropNameInTable="Qty_BundlingColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Identifier_x0020_WO" msprop:Generator_UserColumnName="Identifier WO" msprop:Generator_ColumnPropNameInRow="Identifier_WO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_WO" msprop:Generator_ColumnPropNameInTable="Identifier_WOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Bundling_x0020_Date" msprop:Generator_UserColumnName="Bundling Date" msprop:Generator_ColumnVarNameInTable="columnBundling_Date" msprop:Generator_ColumnPropNameInRow="Bundling_Date" msprop:Generator_ColumnPropNameInTable="Bundling_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RM_x0020_Usage" msprop:Generator_UserTableName="RM Usage" msprop:Generator_RowDeletedName="RM_UsageRowDeleted" msprop:Generator_RowChangedName="RM_UsageRowChanged" msprop:Generator_RowClassName="RM_UsageRow" msprop:Generator_RowChangingName="RM_UsageRowChanging" msprop:Generator_RowEvArgName="RM_UsageRowChangeEvent" msprop:Generator_RowEvHandlerName="RM_UsageRowChangeEventHandler" msprop:Generator_TableClassName="RM_UsageDataTable" msprop:Generator_TableVarName="tableRM_Usage" msprop:Generator_RowDeletingName="RM_UsageRowDeleting" msprop:Generator_TablePropName="RM_Usage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Primary_x0020_Product_x0020_RM" msprop:Generator_UserColumnName="Primary Product RM" msprop:Generator_ColumnPropNameInRow="Primary_Product_RM" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product_RM" msprop:Generator_ColumnPropNameInTable="Primary_Product_RMColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="RM_x0020_Uage_x0020_Qty" msprop:Generator_UserColumnName="RM Uage Qty" msprop:Generator_ColumnPropNameInRow="RM_Uage_Qty" msprop:Generator_ColumnVarNameInTable="columnRM_Uage_Qty" msprop:Generator_ColumnPropNameInTable="RM_Uage_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Identifier" msprop:Generator_UserColumnName="Identifier" msprop:Generator_ColumnPropNameInRow="Identifier" msprop:Generator_ColumnVarNameInTable="columnIdentifier" msprop:Generator_ColumnPropNameInTable="IdentifierColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Target_x0020_Qty" msprop:Generator_UserColumnName="Target Qty" msprop:Generator_ColumnPropNameInRow="Target_Qty" msprop:Generator_ColumnVarNameInTable="columnTarget_Qty" msprop:Generator_ColumnPropNameInTable="Target_QtyColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Required_x0020_Qty" msprop:Generator_UserColumnName="Required Qty" msprop:Generator_ColumnPropNameInRow="Required_Qty" msprop:Generator_ColumnVarNameInTable="columnRequired_Qty" msprop:Generator_ColumnPropNameInTable="Required_QtyColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Allocated_x0020_Qty" msprop:Generator_UserColumnName="Allocated Qty" msprop:Generator_ColumnPropNameInRow="Allocated_Qty" msprop:Generator_ColumnVarNameInTable="columnAllocated_Qty" msprop:Generator_ColumnPropNameInTable="Allocated_QtyColumn" type="xs:double" default="0" minOccurs="0" />
+              <xs:element name="Additional_x0020_Qty" msprop:Generator_UserColumnName="Additional Qty" msprop:Generator_ColumnPropNameInRow="Additional_Qty" msprop:Generator_ColumnVarNameInTable="columnAdditional_Qty" msprop:Generator_ColumnPropNameInTable="Additional_QtyColumn" type="xs:double" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Work_x0020_Order" msprop:Generator_UserTableName="Work Order" msprop:Generator_RowDeletedName="Work_OrderRowDeleted" msprop:Generator_RowChangedName="Work_OrderRowChanged" msprop:Generator_RowClassName="Work_OrderRow" msprop:Generator_RowChangingName="Work_OrderRowChanging" msprop:Generator_RowEvArgName="Work_OrderRowChangeEvent" msprop:Generator_RowEvHandlerName="Work_OrderRowChangeEventHandler" msprop:Generator_TableClassName="Work_OrderDataTable" msprop:Generator_TableVarName="tableWork_Order" msprop:Generator_RowDeletingName="Work_OrderRowDeleting" msprop:Generator_TablePropName="Work_Order">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Identifier_x0020_JO" msprop:Generator_UserColumnName="Identifier JO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_JO" msprop:Generator_ColumnPropNameInRow="Identifier_JO" msprop:Generator_ColumnPropNameInTable="Identifier_JOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltransaksi_stockbundling" msprop:Generator_UserTableName="tbltransaksi_stockbundling" msprop:Generator_RowDeletedName="tbltransaksi_stockbundlingRowDeleted" msprop:Generator_RowChangedName="tbltransaksi_stockbundlingRowChanged" msprop:Generator_RowClassName="tbltransaksi_stockbundlingRow" msprop:Generator_RowChangingName="tbltransaksi_stockbundlingRowChanging" msprop:Generator_RowEvArgName="tbltransaksi_stockbundlingRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltransaksi_stockbundlingRowChangeEventHandler" msprop:Generator_TableClassName="tbltransaksi_stockbundlingDataTable" msprop:Generator_TableVarName="tabletbltransaksi_stockbundling" msprop:Generator_RowDeletingName="tbltransaksi_stockbundlingRowDeleting" msprop:Generator_TablePropName="tbltransaksi_stockbundling">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_mo" msprop:Generator_UserColumnName="primary mo" msprop:Generator_ColumnPropNameInRow="primary_mo" msprop:Generator_ColumnVarNameInTable="columnprimary_mo" msprop:Generator_ColumnPropNameInTable="primary_moColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_mo" msprop:Generator_UserColumnName="primary mo" msprop:Generator_ColumnPropNameInRow="primary_mo" msprop:Generator_ColumnVarNameInTable="columnprimary_mo" msprop:Generator_ColumnPropNameInTable="primary_moColumn" type="xs:double" />
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_mo" msprop:Generator_UserTableName="tbltrans_mo" msprop:Generator_RowDeletedName="tbltrans_moRowDeleted" msprop:Generator_RowChangedName="tbltrans_moRowChanged" msprop:Generator_RowClassName="tbltrans_moRow" msprop:Generator_RowChangingName="tbltrans_moRowChanging" msprop:Generator_RowEvArgName="tbltrans_moRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_moRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_moDataTable" msprop:Generator_TableVarName="tabletbltrans_mo" msprop:Generator_RowDeletingName="tbltrans_moRowDeleting" msprop:Generator_TablePropName="tbltrans_mo">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_MO" msprop:Generator_UserColumnName="Primary MO" msprop:Generator_ColumnPropNameInRow="Primary_MO" msprop:Generator_ColumnVarNameInTable="columnPrimary_MO" msprop:Generator_ColumnPropNameInTable="Primary_MOColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable3" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_TablePropName="DataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MO_x0020_Primary" msprop:Generator_UserColumnName="MO Primary" msprop:Generator_ColumnVarNameInTable="columnMO_Primary" msprop:Generator_ColumnPropNameInRow="MO_Primary" msprop:Generator_ColumnPropNameInTable="MO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_JO_x0020_Primary" msprop:Generator_UserColumnName="Product JO Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_JO_Primary" msprop:Generator_ColumnPropNameInRow="Product_JO_Primary" msprop:Generator_ColumnPropNameInTable="Product_JO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_JO_x0020_Code" msprop:Generator_UserColumnName="Product JO Code" msprop:Generator_ColumnVarNameInTable="columnProduct_JO_Code" msprop:Generator_ColumnPropNameInRow="Product_JO_Code" msprop:Generator_ColumnPropNameInTable="Product_JO_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_JO_x0020_Description" msprop:Generator_UserColumnName="Product JO Description" msprop:Generator_ColumnVarNameInTable="columnProduct_JO_Description" msprop:Generator_ColumnPropNameInRow="Product_JO_Description" msprop:Generator_ColumnPropNameInTable="Product_JO_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_RM_x0020_Primary" msprop:Generator_UserColumnName="Product RM Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Primary" msprop:Generator_ColumnPropNameInRow="Product_RM_Primary" msprop:Generator_ColumnPropNameInTable="Product_RM_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_RM_x0020_Code" msprop:Generator_UserColumnName="Product RM Code" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Code" msprop:Generator_ColumnPropNameInRow="Product_RM_Code" msprop:Generator_ColumnPropNameInTable="Product_RM_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_RM_x0020_Description" msprop:Generator_UserColumnName="Product RM Description" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Description" msprop:Generator_ColumnPropNameInRow="Product_RM_Description" msprop:Generator_ColumnPropNameInTable="Product_RM_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code_x0020_RM" msprop:Generator_UserColumnName="Unit Code RM" msprop:Generator_ColumnVarNameInTable="columnUnit_Code_RM" msprop:Generator_ColumnPropNameInRow="Unit_Code_RM" msprop:Generator_ColumnPropNameInTable="Unit_Code_RMColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Required_x0020_Qty" msprop:Generator_UserColumnName="Required Qty" msprop:Generator_ColumnVarNameInTable="columnRequired_Qty" msprop:Generator_ColumnPropNameInRow="Required_Qty" msprop:Generator_ColumnPropNameInTable="Required_QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Additional_x0020_Qty" msprop:Generator_UserColumnName="Additional Qty" msprop:Generator_ColumnVarNameInTable="columnAdditional_Qty" msprop:Generator_ColumnPropNameInRow="Additional_Qty" msprop:Generator_ColumnPropNameInTable="Additional_QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Replace_x0020_Qty" msprop:Generator_UserColumnName="Replace Qty" msprop:Generator_ColumnVarNameInTable="columnReplace_Qty" msprop:Generator_ColumnPropNameInRow="Replace_Qty" msprop:Generator_ColumnPropNameInTable="Replace_QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Product_x0020_RM_x0020__x0060_Decimal_x0060_" msprop:Generator_UserColumnName="Product RM `Decimal`" msprop:Generator_ColumnPropNameInRow="_Product_RM__Decimal_" msprop:Generator_ColumnVarNameInTable="_columnProduct_RM__Decimal_" msprop:Generator_ColumnPropNameInTable="_Product_RM__Decimal_Column" type="xs:int" />
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="JO_x0020_Number" msprop:Generator_UserColumnName="JO Number" msprop:Generator_ColumnPropNameInRow="JO_Number" msprop:Generator_ColumnVarNameInTable="columnJO_Number" msprop:Generator_ColumnPropNameInTable="JO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Used_x0020_Qty" msprop:Generator_UserColumnName="Used Qty" msprop:Generator_ColumnPropNameInRow="Used_Qty" msprop:Generator_ColumnVarNameInTable="columnUsed_Qty" msprop:Generator_ColumnPropNameInTable="Used_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Balance_x0020_Qty" msprop:Generator_UserColumnName="Balance Qty" msprop:Generator_ColumnPropNameInRow="Balance_Qty" msprop:Generator_ColumnVarNameInTable="columnBalance_Qty" msprop:Generator_ColumnPropNameInTable="Balance_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Identifier_x0020_JO" msprop:Generator_UserColumnName="Identifier JO" msprop:Generator_ColumnPropNameInRow="Identifier_JO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_JO" msprop:Generator_ColumnPropNameInTable="Identifier_JOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MO_x0020_Primary" msprop:Generator_UserColumnName="MO Primary" msprop:Generator_ColumnPropNameInRow="MO_Primary" msprop:Generator_ColumnVarNameInTable="columnMO_Primary" msprop:Generator_ColumnPropNameInTable="MO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_JO_x0020_Primary" msprop:Generator_UserColumnName="Product JO Primary" msprop:Generator_ColumnPropNameInRow="Product_JO_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_JO_Primary" msprop:Generator_ColumnPropNameInTable="Product_JO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_RM_x0020_Primary" msprop:Generator_UserColumnName="Product RM Primary" msprop:Generator_ColumnPropNameInRow="Product_RM_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Primary" msprop:Generator_ColumnPropNameInTable="Product_RM_PrimaryColumn" type="xs:double" />
+              <xs:element name="Log_x0020_No" msprop:Generator_UserColumnName="Log No" msprop:Generator_ColumnPropNameInRow="Log_No" msprop:Generator_ColumnVarNameInTable="columnLog_No" msprop:Generator_ColumnPropNameInTable="Log_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Log_x0020_Qty" msprop:Generator_UserColumnName="Log Qty" msprop:Generator_ColumnPropNameInRow="Log_Qty" msprop:Generator_ColumnVarNameInTable="columnLog_Qty" msprop:Generator_ColumnPropNameInTable="Log_QtyColumn" type="xs:decimal" />
+              <xs:element name="Log_x0020_Date" msprop:Generator_UserColumnName="Log Date" msprop:Generator_ColumnPropNameInRow="Log_Date" msprop:Generator_ColumnVarNameInTable="columnLog_Date" msprop:Generator_ColumnPropNameInTable="Log_DateColumn" type="xs:dateTime" />
+              <xs:element name="Include" msprop:Generator_UserColumnName="Include" msprop:Generator_ColumnPropNameInRow="Include" msprop:Generator_ColumnVarNameInTable="columnInclude" msprop:Generator_ColumnPropNameInTable="IncludeColumn" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Identifier_x0020_JO" msprop:Generator_UserColumnName="Identifier JO" msprop:Generator_ColumnPropNameInRow="Identifier_JO" msprop:Generator_ColumnVarNameInTable="columnIdentifier_JO" msprop:Generator_ColumnPropNameInTable="Identifier_JOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Print" msprop:Generator_UserTableName="Print" msprop:Generator_RowDeletedName="PrintRowDeleted" msprop:Generator_RowChangedName="PrintRowChanged" msprop:Generator_RowClassName="PrintRow" msprop:Generator_RowChangingName="PrintRowChanging" msprop:Generator_RowEvArgName="PrintRowChangeEvent" msprop:Generator_RowEvHandlerName="PrintRowChangeEventHandler" msprop:Generator_TableClassName="PrintDataTable" msprop:Generator_TableVarName="tablePrint" msprop:Generator_RowDeletingName="PrintRowDeleting" msprop:Generator_TablePropName="Print">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Position_x0020_I" msprop:Generator_UserColumnName="Position I" msprop:Generator_ColumnVarNameInTable="columnPosition_I" msprop:Generator_ColumnPropNameInRow="Position_I" msprop:Generator_ColumnPropNameInTable="Position_IColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Position_x0020_II" msprop:Generator_UserColumnName="Position II" msprop:Generator_ColumnVarNameInTable="columnPosition_II" msprop:Generator_ColumnPropNameInRow="Position_II" msprop:Generator_ColumnPropNameInTable="Position_IIColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="RM_x0020_Code" msprop:Generator_UserColumnName="RM Code" msprop:Generator_ColumnVarNameInTable="columnRM_Code" msprop:Generator_ColumnPropNameInRow="RM_Code" msprop:Generator_ColumnPropNameInTable="RM_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="RM_x0020_Desc" msprop:Generator_UserColumnName="RM Desc" msprop:Generator_ColumnVarNameInTable="columnRM_Desc" msprop:Generator_ColumnPropNameInRow="RM_Desc" msprop:Generator_ColumnPropNameInTable="RM_DescColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Unit" msprop:Generator_UserColumnName="Unit" msprop:Generator_ColumnVarNameInTable="columnUnit" msprop:Generator_ColumnPropNameInRow="Unit" msprop:Generator_ColumnPropNameInTable="UnitColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Required_x0020_Qty" msdata:Caption="Target Qty" msprop:Generator_UserColumnName="Required Qty" msprop:Generator_ColumnVarNameInTable="columnRequired_Qty" msprop:Generator_ColumnPropNameInRow="Required_Qty" msprop:Generator_ColumnPropNameInTable="Required_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Additional_x0020_Qty" msdata:Caption="Required Qty" msprop:Generator_UserColumnName="Additional Qty" msprop:Generator_ColumnVarNameInTable="columnAdditional_Qty" msprop:Generator_ColumnPropNameInRow="Additional_Qty" msprop:Generator_ColumnPropNameInTable="Additional_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Replaced_x0020_Qty" msdata:Caption="Allocated Qty" msprop:Generator_UserColumnName="Replaced Qty" msprop:Generator_ColumnVarNameInTable="columnReplaced_Qty" msprop:Generator_ColumnPropNameInRow="Replaced_Qty" msprop:Generator_ColumnPropNameInTable="Replaced_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Used_x0020_Qty" msdata:Caption="Additional Qty" msprop:Generator_UserColumnName="Used Qty" msprop:Generator_ColumnVarNameInTable="columnUsed_Qty" msprop:Generator_ColumnPropNameInRow="Used_Qty" msprop:Generator_ColumnPropNameInTable="Used_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Balance_x0020_Qty" msdata:Caption="Used Qty" msprop:Generator_UserColumnName="Balance Qty" msprop:Generator_ColumnVarNameInTable="columnBalance_Qty" msprop:Generator_ColumnPropNameInRow="Balance_Qty" msprop:Generator_ColumnPropNameInTable="Balance_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Target_x0020_GP" msprop:Generator_UserColumnName="Target GP" msprop:Generator_ColumnVarNameInTable="columnTarget_GP" msprop:Generator_ColumnPropNameInRow="Target_GP" msprop:Generator_ColumnPropNameInTable="Target_GPColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Actual_x0020_GP" msprop:Generator_UserColumnName="Actual GP" msprop:Generator_ColumnVarNameInTable="columnActual_GP" msprop:Generator_ColumnPropNameInRow="Actual_GP" msprop:Generator_ColumnPropNameInTable="Actual_GPColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Bundling_x0020_No" msprop:Generator_UserColumnName="Bundling No" msprop:Generator_ColumnVarNameInTable="columnBundling_No" msprop:Generator_ColumnPropNameInRow="Bundling_No" msprop:Generator_ColumnPropNameInTable="Bundling_NoColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Bundling_x0020_Qty" msprop:Generator_UserColumnName="Bundling Qty" msprop:Generator_ColumnVarNameInTable="columnBundling_Qty" msprop:Generator_ColumnPropNameInRow="Bundling_Qty" msprop:Generator_ColumnPropNameInTable="Bundling_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:short" default="0" minOccurs="0" />
+              <xs:element name="Bundling_x0020_Date" msprop:Generator_UserColumnName="Bundling Date" msprop:Generator_ColumnVarNameInTable="columnBundling_Date" msprop:Generator_ColumnPropNameInRow="Bundling_Date" msprop:Generator_ColumnPropNameInTable="Bundling_DateColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+              <xs:element name="JO_x0020_Number" msprop:Generator_UserColumnName="JO Number" msprop:Generator_ColumnVarNameInTable="columnJO_Number" msprop:Generator_ColumnPropNameInRow="JO_Number" msprop:Generator_ColumnPropNameInTable="JO_NumberColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="WO_x0020_Number" msprop:Generator_UserColumnName="WO Number" msprop:Generator_ColumnVarNameInTable="columnWO_Number" msprop:Generator_ColumnPropNameInRow="WO_Number" msprop:Generator_ColumnPropNameInTable="WO_NumberColumn" type="xs:string" default="a" minOccurs="0" />
+              <xs:element name="WO_x0020_Date" msprop:Generator_UserColumnName="WO Date" msprop:Generator_ColumnVarNameInTable="columnWO_Date" msprop:Generator_ColumnPropNameInRow="WO_Date" msprop:Generator_ColumnPropNameInTable="WO_DateColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable4" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_RowClassName="DataTable4Row" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_TablePropName="DataTable4">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Product_x0020_JO_x0020_Primary" msprop:Generator_UserColumnName="Product JO Primary" msprop:Generator_ColumnPropNameInRow="Product_JO_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_JO_Primary" msprop:Generator_ColumnPropNameInTable="Product_JO_PrimaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Product_x0020_RM_x0020_Primary" msprop:Generator_UserColumnName="Product RM Primary" msprop:Generator_ColumnPropNameInRow="Product_RM_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Primary" msprop:Generator_ColumnPropNameInTable="Product_RM_PrimaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Log_x0020_Primary" msprop:Generator_UserColumnName="Log Primary" msprop:Generator_ColumnPropNameInRow="Log_Primary" msprop:Generator_ColumnVarNameInTable="columnLog_Primary" msprop:Generator_ColumnPropNameInTable="Log_PrimaryColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Log_x0020_No" msprop:Generator_UserColumnName="Log No" msprop:Generator_ColumnPropNameInRow="Log_No" msprop:Generator_ColumnVarNameInTable="columnLog_No" msprop:Generator_ColumnPropNameInTable="Log_NoColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Log_x0020_Date" msprop:Generator_UserColumnName="Log Date" msprop:Generator_ColumnPropNameInRow="Log_Date" msprop:Generator_ColumnVarNameInTable="columnLog_Date" msprop:Generator_ColumnPropNameInTable="Log_DateColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+              <xs:element name="log_x0020_Qty" msprop:Generator_UserColumnName="log Qty" msprop:Generator_ColumnPropNameInRow="log_Qty" msprop:Generator_ColumnVarNameInTable="columnlog_Qty" msprop:Generator_ColumnPropNameInTable="log_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable5" msprop:Generator_UserTableName="DataTable5" msprop:Generator_RowDeletedName="DataTable5RowDeleted" msprop:Generator_RowChangedName="DataTable5RowChanged" msprop:Generator_RowClassName="DataTable5Row" msprop:Generator_RowChangingName="DataTable5RowChanging" msprop:Generator_RowEvArgName="DataTable5RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable5RowChangeEventHandler" msprop:Generator_TableClassName="DataTable5DataTable" msprop:Generator_TableVarName="tableDataTable5" msprop:Generator_RowDeletingName="DataTable5RowDeleting" msprop:Generator_TablePropName="DataTable5">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MO_x0020_Primary" msprop:Generator_UserColumnName="MO Primary" msprop:Generator_ColumnPropNameInRow="MO_Primary" msprop:Generator_ColumnVarNameInTable="columnMO_Primary" msprop:Generator_ColumnPropNameInTable="MO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_JO_x0020_Primary" msprop:Generator_UserColumnName="Product JO Primary" msprop:Generator_ColumnPropNameInRow="Product_JO_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_JO_Primary" msprop:Generator_ColumnPropNameInTable="Product_JO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_WO_x0020_Primary" msprop:Generator_UserColumnName="Product WO Primary" msprop:Generator_ColumnPropNameInRow="Product_WO_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_WO_Primary" msprop:Generator_ColumnPropNameInTable="Product_WO_PrimaryColumn" type="xs:double" />
+              <xs:element name="WO_x0020_Number" msprop:Generator_UserColumnName="WO Number" msprop:Generator_ColumnPropNameInRow="WO_Number" msprop:Generator_ColumnVarNameInTable="columnWO_Number" msprop:Generator_ColumnPropNameInTable="WO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_RM_x0020_Primary" msprop:Generator_UserColumnName="Product RM Primary" msprop:Generator_ColumnPropNameInRow="Product_RM_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Primary" msprop:Generator_ColumnPropNameInTable="Product_RM_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_RM_x0020_Code" msprop:Generator_UserColumnName="Product RM Code" msprop:Generator_ColumnPropNameInRow="Product_RM_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Code" msprop:Generator_ColumnPropNameInTable="Product_RM_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_RM_x0020_Description" msprop:Generator_UserColumnName="Product RM Description" msprop:Generator_ColumnPropNameInRow="Product_RM_Description" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Description" msprop:Generator_ColumnPropNameInTable="Product_RM_DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_RM_x0020_Unit_x0020_Code" msprop:Generator_UserColumnName="Product RM Unit Code" msprop:Generator_ColumnPropNameInRow="Product_RM_Unit_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Unit_Code" msprop:Generator_ColumnPropNameInTable="Product_RM_Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Required_x0020_Qty" msprop:Generator_UserColumnName="Required Qty" msprop:Generator_ColumnPropNameInRow="Required_Qty" msprop:Generator_ColumnVarNameInTable="columnRequired_Qty" msprop:Generator_ColumnPropNameInTable="Required_QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Additional_x0020_Qty" msprop:Generator_UserColumnName="Additional Qty" msprop:Generator_ColumnPropNameInRow="Additional_Qty" msprop:Generator_ColumnVarNameInTable="columnAdditional_Qty" msprop:Generator_ColumnPropNameInTable="Additional_QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Replace_x0020_Qty" msprop:Generator_UserColumnName="Replace Qty" msprop:Generator_ColumnPropNameInRow="Replace_Qty" msprop:Generator_ColumnVarNameInTable="columnReplace_Qty" msprop:Generator_ColumnPropNameInTable="Replace_QtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Product_x0020_RM_x0020_Precision" msprop:Generator_UserColumnName="Product RM Precision" msprop:Generator_ColumnPropNameInRow="Product_RM_Precision" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Precision" msprop:Generator_ColumnPropNameInTable="Product_RM_PrecisionColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Is_x0020_WIP" msprop:Generator_UserColumnName="Is WIP" msprop:Generator_ColumnPropNameInRow="Is_WIP" msprop:Generator_ColumnVarNameInTable="columnIs_WIP" msprop:Generator_ColumnPropNameInTable="Is_WIPColumn" type="xs:int" />
+              <xs:element name="Used_x0020_Qty" msprop:Generator_UserColumnName="Used Qty" msprop:Generator_ColumnPropNameInRow="Used_Qty" msprop:Generator_ColumnVarNameInTable="columnUsed_Qty" msprop:Generator_ColumnPropNameInTable="Used_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Balance_x0020_Qty" msprop:Generator_UserColumnName="Balance Qty" msprop:Generator_ColumnPropNameInRow="Balance_Qty" msprop:Generator_ColumnVarNameInTable="columnBalance_Qty" msprop:Generator_ColumnPropNameInTable="Balance_QtyColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="WO_x0020_Date" msprop:Generator_UserColumnName="WO Date" msprop:Generator_ColumnPropNameInRow="WO_Date" msprop:Generator_ColumnVarNameInTable="columnWO_Date" msprop:Generator_ColumnPropNameInTable="WO_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable6" msprop:Generator_UserTableName="DataTable6" msprop:Generator_RowDeletedName="DataTable6RowDeleted" msprop:Generator_RowChangedName="DataTable6RowChanged" msprop:Generator_RowClassName="DataTable6Row" msprop:Generator_RowChangingName="DataTable6RowChanging" msprop:Generator_RowEvArgName="DataTable6RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable6RowChangeEventHandler" msprop:Generator_TableClassName="DataTable6DataTable" msprop:Generator_TableVarName="tableDataTable6" msprop:Generator_RowDeletingName="DataTable6RowDeleting" msprop:Generator_TablePropName="DataTable6">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Product_x0020_JO_x0020_Primary" msprop:Generator_UserColumnName="Product JO Primary" msprop:Generator_ColumnPropNameInRow="Product_JO_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_JO_Primary" msprop:Generator_ColumnPropNameInTable="Product_JO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_WO_x0020_Primary" msprop:Generator_UserColumnName="Product WO Primary" msprop:Generator_ColumnPropNameInRow="Product_WO_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_WO_Primary" msprop:Generator_ColumnPropNameInTable="Product_WO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Product_x0020_RM_x0020_Primary" msprop:Generator_UserColumnName="Product RM Primary" msprop:Generator_ColumnPropNameInRow="Product_RM_Primary" msprop:Generator_ColumnVarNameInTable="columnProduct_RM_Primary" msprop:Generator_ColumnPropNameInTable="Product_RM_PrimaryColumn" type="xs:double" />
+              <xs:element name="Log_x0020_No" msprop:Generator_UserColumnName="Log No" msprop:Generator_ColumnPropNameInRow="Log_No" msprop:Generator_ColumnVarNameInTable="columnLog_No" msprop:Generator_ColumnPropNameInTable="Log_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Log_x0020_Date" msprop:Generator_UserColumnName="Log Date" msprop:Generator_ColumnPropNameInRow="Log_Date" msprop:Generator_ColumnVarNameInTable="columnLog_Date" msprop:Generator_ColumnPropNameInTable="Log_DateColumn" type="xs:dateTime" />
+              <xs:element name="Log_x0020_Qty" msprop:Generator_UserColumnName="Log Qty" msprop:Generator_ColumnPropNameInRow="Log_Qty" msprop:Generator_ColumnVarNameInTable="columnLog_Qty" msprop:Generator_ColumnPropNameInTable="Log_QtyColumn" type="xs:decimal" />
+              <xs:element name="MO_x0020_Primary" msprop:Generator_UserColumnName="MO Primary" msprop:Generator_ColumnPropNameInRow="MO_Primary" msprop:Generator_ColumnVarNameInTable="columnMO_Primary" msprop:Generator_ColumnPropNameInTable="MO_PrimaryColumn" type="xs:double" />
+              <xs:element name="Include" msprop:Generator_UserColumnName="Include" msprop:Generator_ColumnVarNameInTable="columnInclude" msprop:Generator_ColumnPropNameInRow="Include" msprop:Generator_ColumnPropNameInTable="IncludeColumn" type="xs:boolean" default="false" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

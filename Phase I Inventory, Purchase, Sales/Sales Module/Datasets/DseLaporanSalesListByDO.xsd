@@ -1,0 +1,1200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanSalesListByDO" targetNamespace="http://tempuri.org/DseLaporanSalesListByDO.xsd" xmlns:mstns="http://tempuri.org/DseLaporanSalesListByDO.xsd" xmlns="http://tempuri.org/DseLaporanSalesListByDO.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Sales_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable3TableAdapter" GeneratorDataComponentClassName="DataTable3TableAdapter" Name="DataTable3" UserDataComponentName="DataTable3TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_closing.`Closing Period`, tbltrans_purchase_closing_item.`Primary Product`, tbltrans_purchase_closing_item.`Ending Qty`, 
+                         tbltrans_purchase_closing_item.`Ending Amount`, tbltrans_purchase_closing_item.`Out Qty`, tbltrans_purchase_closing_item.`Out Amount`
+FROM            tbltrans_purchase_closing INNER JOIN
+                         tbltrans_purchase_closing_item ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item.`Primary Transaksi`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Closing Period" DataSetColumn="Closing Period" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Ending Qty" DataSetColumn="Ending Qty" />
+              <Mapping SourceColumn="Ending Amount" DataSetColumn="Ending Amount" />
+              <Mapping SourceColumn="Out Qty" DataSetColumn="Out Qty" />
+              <Mapping SourceColumn="Out Amount" DataSetColumn="Out Amount" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalSampaiDari" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TanggalSampaiDari" GeneratorSourceName="FillBy_TanggalSampaiDari" GetMethodModifier="Public" GetMethodName="GetDataBy_TanggalSampaiDari" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_TanggalSampaiDari" UserSourceName="FillBy_TanggalSampaiDari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_purchase_closing.`Closing Period`, tbltrans_purchase_closing_item.`Primary Product`, tbltrans_purchase_closing_item.`Ending Qty`, 
+                         tbltrans_purchase_closing_item.`Ending Amount`, tbltrans_purchase_closing_item.`Out Qty`, tbltrans_purchase_closing_item.`Out Amount`
+FROM            tbltrans_purchase_closing INNER JOIN
+                         tbltrans_purchase_closing_item ON tbltrans_purchase_closing.`Primary` = tbltrans_purchase_closing_item.`Primary Transaksi`
+WHERE        (tbltrans_purchase_closing.`Closing Period` &lt;= @TanggalSampai) AND (tbltrans_purchase_closing.`Closing Period` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Closing Period" DataSourceName="tbltrans_purchase_closing" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Closing Period" DataSourceName="tbltrans_purchase_closing" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Closing Period" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2XTableAdapter" GeneratorDataComponentClassName="DataTable2XTableAdapter" Name="DataTable2X" UserDataComponentName="DataTable2XTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salesinvoice_item_exchangerate.`Primary`, tbltrans_salesinvoice_item_exchangerate.`Primary Sales Invoice`, 
+                         tbltrans_salesinvoice_item_exchangerate.`Primary Transaksi Rujukan`, tbltrans_salesinvoice_item_exchangerate.`Primary Currency`, 
+                         tbltrans_salesinvoice_item_exchangerate.`Exhange Rate`, tbltrans_salesinvoice_item_exchangerate.Remarks, 
+                         tbltrans_do.`Tanggal Transaksi` AS `Do Date`, tbltrans_salesinvoice.`Tanggal Transaksi` AS `Invoice Date`
+FROM            tbltrans_salesinvoice_item_exchangerate INNER JOIN
+                         tbltrans_salesinvoice ON tbltrans_salesinvoice_item_exchangerate.`Primary Sales Invoice` = tbltrans_salesinvoice.`Primary` INNER JOIN
+                         tbltrans_salesinvoice_item ON tbltrans_salesinvoice.`Primary` = tbltrans_salesinvoice_item.`Primary Transaksi` INNER JOIN
+                         tbltrans_do ON tbltrans_salesinvoice_item.`Primary DO` = tbltrans_do.`Primary`
+WHERE        (tbltrans_do.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_do.`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Do Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Do Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Sales Invoice" DataSetColumn="Primary Sales Invoice" />
+              <Mapping SourceColumn="Primary Transaksi Rujukan" DataSetColumn="Primary Transaksi Rujukan" />
+              <Mapping SourceColumn="Primary Currency" DataSetColumn="Primary Currency" />
+              <Mapping SourceColumn="Exhange Rate" DataSetColumn="Exhange Rate" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Do Date" DataSetColumn="Do Date" />
+              <Mapping SourceColumn="Invoice Date" DataSetColumn="Invoice Date" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalStockInOut" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TanggalStockInOut" GeneratorSourceName="FillBy_TanggalStockInOut" GetMethodModifier="Public" GetMethodName="GetDataBy_TanggalStockInOut" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_TanggalStockInOut" UserSourceName="FillBy_TanggalStockInOut">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salesinvoice_item_exchangerate.`Primary`, tbltrans_salesinvoice_item_exchangerate.`Primary Sales Invoice`, 
+                         tbltrans_salesinvoice_item_exchangerate.`Primary Transaksi Rujukan`, tbltrans_salesinvoice_item_exchangerate.`Primary Currency`, 
+                         tbltrans_salesinvoice_item_exchangerate.`Exhange Rate`, tbltrans_salesinvoice_item_exchangerate.Remarks, 
+                         tbltrans_do.`Tanggal Transaksi` AS `Do Date`, tbltrans_salesinvoice.`Tanggal Transaksi` AS `Invoice Date`
+FROM            tbltrans_salesinvoice_item_exchangerate INNER JOIN
+                         tbltrans_salesinvoice ON tbltrans_salesinvoice_item_exchangerate.`Primary Sales Invoice` = tbltrans_salesinvoice.`Primary` INNER JOIN
+                         tbltrans_salesinvoice_item ON tbltrans_salesinvoice.`Primary` = tbltrans_salesinvoice_item.`Primary Transaksi` INNER JOIN
+                         tbltrans_do ON tbltrans_salesinvoice_item.`Primary DO` = tbltrans_do.`Primary` INNER JOIN
+                         tbltransaksi_stockinout ON tbltrans_do.`Primary Stock Out Sales` = tbltransaksi_stockinout.`Primary`
+WHERE        (tbltransaksi_stockinout.`Tanggal Transaksi` &gt;= @TanggalDari) AND (tbltransaksi_stockinout.`Tanggal Transaksi` &lt;= @TanggalSampai)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_do.`Primary` AS `Primary DO`, tbltrans_do.`No Transaksi` AS `DO No`, tbltrans_do.`Tanggal Transaksi`, 
+                         tbltrans_salesinvoice_item.`Primary Transaksi` AS `Primary Invoice`, tbltrans_do.`Primary Customer`
+FROM            tbltrans_do LEFT OUTER JOIN
+                         tbltrans_salesinvoice_item ON tbltrans_do.`Primary` = tbltrans_salesinvoice_item.`Primary DO`
+WHERE        (tbltrans_do.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_do.`Tanggal Transaksi` &gt;= @TanggalDari)
+ORDER BY tbltrans_do.`Tanggal Transaksi`, `DO No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary DO" DataSetColumn="Primary DO" />
+              <Mapping SourceColumn="DO No" DataSetColumn="DO No" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Primary Invoice" DataSetColumn="Primary Invoice" />
+              <Mapping SourceColumn="Primary Customer" DataSetColumn="Primary Customer" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_do_obsTableAdapter" GeneratorDataComponentClassName="tbltrans_do_obsTableAdapter" Name="tbltrans_do_obs" UserDataComponentName="tbltrans_do_obsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        derivedtbl_1.`Primary DO`, derivedtbl_1.`DO No`, derivedtbl_1.`Tanggal Transaksi`, IFNULL(derivedtbl_1.`Primary Invoice`, - 1) AS `Primary Invoice`, 
+                         IFNULL(tbltrans_salesinvoice.`No Transaksi`, '') AS `No Invoice`, tblmaster_customer.`Customer Code`, tblmaster_customer.`Customer Name`, 
+                         derivedtbl_1.`Primary Stock Out Sales`
+FROM            tblmaster_customer INNER JOIN
+                             (SELECT DISTINCT 
+                                                         tbltrans_do.`Primary` AS `Primary DO`, tbltrans_do.`No Transaksi` AS `DO No`, tbltrans_do.`Tanggal Transaksi`, 
+                                                         tbltrans_salesinvoice_item.`Primary Transaksi` AS `Primary Invoice`, tbltrans_do.`Primary Customer`, 
+                                                         tbltrans_do.`Primary Stock Out Sales`
+                               FROM            tbltrans_do LEFT OUTER JOIN
+                                                         tbltrans_salesinvoice_item ON tbltrans_do.`Primary` = tbltrans_salesinvoice_item.`Primary DO`
+                               WHERE        (tbltrans_do.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_do.`Tanggal Transaksi` &gt;= @TanggalDari)) derivedtbl_1 ON 
+                         tblmaster_customer.`Primary` = derivedtbl_1.`Primary Customer` LEFT OUTER JOIN
+                         tbltrans_salesinvoice ON derivedtbl_1.`Primary Invoice` = tbltrans_salesinvoice.`Primary`
+ORDER BY derivedtbl_1.`DO No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary DO" DataSetColumn="Primary DO" />
+              <Mapping SourceColumn="DO No" DataSetColumn="DO No" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Primary Invoice" DataSetColumn="Primary Invoice" />
+              <Mapping SourceColumn="No Invoice" DataSetColumn="No Invoice" />
+              <Mapping SourceColumn="Customer Code" DataSetColumn="Customer Code" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+              <Mapping SourceColumn="Primary Stock Out Sales" DataSetColumn="Primary Stock Out Sales" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltransaksi_stockinout_salesTableAdapter" GeneratorDataComponentClassName="tbltransaksi_stockinout_salesTableAdapter" Name="tbltransaksi_stockinout_sales" UserDataComponentName="tbltransaksi_stockinout_salesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="tbltransaksi_stockinout" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tbltransaksi_stockinout` WHERE ((`Primary` = @Original_Primary) AND (`Tanggal Transaksi` = @Original_Tanggal_Transaksi))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Tanggal Transaksi`
+FROM            tbltransaksi_stockinout
+WHERE        (`Tipe Transaksi` = 3)</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tbltransaksi_stockinout` SET `Tanggal Transaksi` = @Tanggal_Transaksi WHERE ((`Primary` = @Original_Primary) AND (`Tanggal Transaksi` = @Original_Tanggal_Transaksi))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable4TableAdapter" GeneratorDataComponentClassName="DataTable4TableAdapter" Name="DataTable4" UserDataComponentName="DataTable4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT 
+                  tbltrans_do_item.`Primary`, tbltrans_do_item.`Primary DO`, tbltrans_do_item.`Primary Product`, tbltrans_do_item.`Primary SO`, tbltrans_do_item.`Total Qty`, tbltrans_do_item.`Secondary Qty`, tbltrans_so.`Primary Currency`, 
+                  tbltrans_so_item.`Nett Price`, tbltrans_do.`No Transaksi` AS `DO Number`, tbltrans_do.`Tanggal Transaksi`, tblmaster_currency.`Currency Code`, tbltrans_so_item.`Price Exclude`, tbltrans_so.Tax, tblmaster_currency.`Default Precision`, 
+                  tbltrans_do.`Primary Stock Out Sales`, tbltrans_do_item.`Total Qty Multi`, tbltrans_so_item.`Primary Units`, tbltrans_so_item.`Primary Units Multi`, tbltrans_so_item.`price by multi unit`
+FROM     tbltrans_do_item INNER JOIN
+                  tbltrans_so_item ON tbltrans_do_item.`Primary SO` = tbltrans_so_item.`Primary Transaksi` AND tbltrans_do_item.`Primary Product` = tbltrans_so_item.`Primary Product` AND 
+                  tbltrans_do_item.`Primary Units Multi` = tbltrans_so_item.`Primary Units Multi` INNER JOIN
+                  tbltrans_so ON tbltrans_so_item.`Primary Transaksi` = tbltrans_so.`Primary` INNER JOIN
+                  tbltrans_do ON tbltrans_do_item.`Primary DO` = tbltrans_do.`Primary` INNER JOIN
+                  tblmaster_currency ON tbltrans_so.`Primary Currency` = tblmaster_currency.`Primary`
+WHERE  (tbltrans_do.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_do.`Tanggal Transaksi` &gt;= @TanggalDari)
+ORDER BY `DO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt_fitri.tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt_fitri.tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary DO" DataSetColumn="Primary DO" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Primary SO" DataSetColumn="Primary SO" />
+              <Mapping SourceColumn="Total Qty" DataSetColumn="Total Qty" />
+              <Mapping SourceColumn="Secondary Qty" DataSetColumn="Secondary Qty" />
+              <Mapping SourceColumn="Primary Currency" DataSetColumn="Primary Currency" />
+              <Mapping SourceColumn="Nett Price" DataSetColumn="Nett Price" />
+              <Mapping SourceColumn="DO Number" DataSetColumn="DO Number" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Price Exclude" DataSetColumn="Price Exclude" />
+              <Mapping SourceColumn="Tax" DataSetColumn="Tax" />
+              <Mapping SourceColumn="Default Precision" DataSetColumn="Default Precision" />
+              <Mapping SourceColumn="Primary Stock Out Sales" DataSetColumn="Primary Stock Out Sales" />
+              <Mapping SourceColumn="Total Qty Multi" DataSetColumn="Total Qty Multi" />
+              <Mapping SourceColumn="Primary Units" DataSetColumn="Primary Units" />
+              <Mapping SourceColumn="Primary Units Multi" DataSetColumn="Primary Units Multi" />
+              <Mapping SourceColumn="price by multi unit" DataSetColumn="price by multi unit" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalStockOutSales" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TanggalStockOutSales" GeneratorSourceName="FillBy_TanggalStockOutSales" GetMethodModifier="Public" GetMethodName="GetDataBy_TanggalStockOutSales" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_TanggalStockOutSales" UserSourceName="FillBy_TanggalStockOutSales">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                  tbltrans_do_item.`Primary`, tbltrans_do_item.`Primary DO`, tbltrans_do_item.`Primary Product`, tbltrans_do_item.`Primary SO`, tbltrans_do_item.`Total Qty`, tbltrans_do_item.`Secondary Qty`, tbltrans_so.`Primary Currency`, 
+                  tbltrans_so_item.`Nett Price`, tbltrans_do.`No Transaksi` AS `DO Number`, tbltrans_do.`Tanggal Transaksi`, tblmaster_currency.`Currency Code`, tbltrans_so_item.`Price Exclude`, tbltrans_so.Tax, tblmaster_currency.`Default Precision`, 
+                  tbltrans_do.`Primary Stock Out Sales`, tbltrans_do_item.`Total Qty Multi`, tbltrans_so_item.`Primary Units`, tbltrans_so_item.`Primary Units Multi`, tbltrans_so_item.`price by multi unit`
+FROM     tbltrans_do_item INNER JOIN
+                  tbltrans_so_item ON tbltrans_do_item.`Primary SO` = tbltrans_so_item.`Primary Transaksi` AND tbltrans_do_item.`Primary Product` = tbltrans_so_item.`Primary Product` AND 
+                  tbltrans_do_item.`Primary Units Multi` = tbltrans_so_item.`Primary Units Multi` INNER JOIN
+                  tbltrans_so ON tbltrans_so_item.`Primary Transaksi` = tbltrans_so.`Primary` INNER JOIN
+                  tbltrans_do ON tbltrans_do_item.`Primary DO` = tbltrans_do.`Primary` INNER JOIN
+                  tblmaster_currency ON tbltrans_so.`Primary Currency` = tblmaster_currency.`Primary` INNER JOIN
+                  tbltransaksi_stockinout ON tbltrans_do.`Primary Stock Out Sales` = tbltransaksi_stockinout.`Primary`
+WHERE  (tbltransaksi_stockinout.`Tanggal Transaksi` &gt;= @TanggalDari) AND (tbltransaksi_stockinout.`Tanggal Transaksi` &lt;= @TanggalSampai)
+ORDER BY `DO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt_fitri.tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt_fitri.tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_do.`Tanggal Transaksi` AS `Do Date`, tbltrans_salesinvoice.`Tanggal Transaksi` AS `Invoice Date`, tbltrans_salesinvoice_item_exchangerate.`Primary`, tbltrans_salesinvoice_item_exchangerate.`Primary Sales Invoice`, 
+             tbltrans_salesinvoice_item_exchangerate.`Primary Transaksi Rujukan`, tbltrans_salesinvoice_item_exchangerate.`Primary Currency`, tbltrans_salesinvoice_item_exchangerate.`Exhange Rate`, tbltrans_salesinvoice_item_exchangerate.Remarks
+FROM   tbltrans_do LEFT OUTER JOIN
+             tbltrans_salesinvoice INNER JOIN
+             tbltrans_salesinvoice_item ON tbltrans_salesinvoice.`Primary` = tbltrans_salesinvoice_item.`Primary Transaksi` INNER JOIN
+             tbltrans_salesinvoice_item_exchangerate ON tbltrans_salesinvoice.`Primary` = tbltrans_salesinvoice_item_exchangerate.`Primary Sales Invoice` ON tbltrans_do.`Primary` = tbltrans_salesinvoice_item.`Primary DO`
+WHERE (tbltrans_do.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_do.`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_cmsi_2016.tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Do Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_cmsi_2016.tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Do Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Do Date" DataSetColumn="Do Date" />
+              <Mapping SourceColumn="Invoice Date" DataSetColumn="Invoice Date" />
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Sales Invoice" DataSetColumn="Primary Sales Invoice" />
+              <Mapping SourceColumn="Primary Transaksi Rujukan" DataSetColumn="Primary Transaksi Rujukan" />
+              <Mapping SourceColumn="Primary Currency" DataSetColumn="Primary Currency" />
+              <Mapping SourceColumn="Exhange Rate" DataSetColumn="Exhange Rate" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalStockInOut" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy_TanggalStockInOut" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TanggalStockInOut">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_do.`Tanggal Transaksi` AS `Do Date`, tbltrans_salesinvoice.`Tanggal Transaksi` AS `Invoice Date`, tbltrans_salesinvoice_item_exchangerate.`Primary`, tbltrans_salesinvoice_item_exchangerate.`Primary Sales Invoice`, 
+             tbltrans_salesinvoice_item_exchangerate.`Primary Transaksi Rujukan`, tbltrans_salesinvoice_item_exchangerate.`Primary Currency`, tbltrans_salesinvoice_item_exchangerate.`Exhange Rate`, tbltrans_salesinvoice_item_exchangerate.Remarks
+FROM   tbltrans_do INNER JOIN
+             tbltransaksi_stockinout ON tbltrans_do.`Primary Stock Out Sales` = tbltransaksi_stockinout.`Primary` LEFT OUTER JOIN
+             tbltrans_salesinvoice INNER JOIN
+             tbltrans_salesinvoice_item ON tbltrans_salesinvoice.`Primary` = tbltrans_salesinvoice_item.`Primary Transaksi` INNER JOIN
+             tbltrans_salesinvoice_item_exchangerate ON tbltrans_salesinvoice.`Primary` = tbltrans_salesinvoice_item_exchangerate.`Primary Sales Invoice` ON tbltrans_do.`Primary` = tbltrans_salesinvoice_item.`Primary DO`
+WHERE (tbltransaksi_stockinout.`Tanggal Transaksi` &gt;= @TanggalDari) AND (tbltransaksi_stockinout.`Tanggal Transaksi` &lt;= @TanggalSampai)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_cmsi_2016.tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="smess_cmsi_2016.tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="MaxMinTanggalStokTableAdapter" GeneratorDataComponentClassName="MaxMinTanggalStokTableAdapter" Name="MaxMinTanggalStok" UserDataComponentName="MaxMinTanggalStokTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_do.`Primary`, tbltrans_do.`No Transaksi`, tbltrans_do.Urutan, tbltrans_do.`Primary Stock Out Sales`, tbltrans_do.`Primary Customer`, tbltrans_do.`Address Identifier`, tbltrans_do.`Tanggal Transaksi`, tbltrans_do.`Cetak Invoice N Faktur Pajak`, 
+             tbltrans_do.`Cetak Kwitansi`, tbltrans_do.Remarks, tbltrans_do.`Created By`, tbltrans_do.`Created Date`, tbltrans_do.`Modified By`, tbltrans_do.`Modified Date`, tbltrans_do.`Timestamp`, tbltrans_do.`Authorization Level`, tbltrans_do.`Authorization Level Needed`, 
+             tbltrans_do.SudahCetakDOPendek, tbltrans_do.`User Cetak DO Pendek`, tbltrans_do.`Time Cetak DO Pendek`, tbltrans_do.`Sudah Cetak DO Panjang`, tbltrans_do.`User Cetak DO Panjang`, tbltrans_do.`Time Cetak DO Panjang`, tbltrans_do.`Sudah Buat Invoice`, 
+             tbltrans_do.`Primary Invoice`, tbltransaksi_stockinout.`Tanggal Transaksi` AS TanggalStok, tbltrans_salesinvoice.`Tanggal Transaksi` AS TanggalInvoice
+FROM   tbltrans_do LEFT OUTER JOIN
+             tbltransaksi_stockinout ON tbltrans_do.`Primary Stock Out Sales` = tbltransaksi_stockinout.`Primary` LEFT OUTER JOIN
+             tbltrans_salesinvoice ON tbltrans_do.`Primary Invoice` = tbltrans_salesinvoice.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Primary Stock Out Sales" DataSetColumn="Primary Stock Out Sales" />
+              <Mapping SourceColumn="Primary Customer" DataSetColumn="Primary Customer" />
+              <Mapping SourceColumn="Address Identifier" DataSetColumn="Address Identifier" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Cetak Invoice N Faktur Pajak" DataSetColumn="Cetak Invoice N Faktur Pajak" />
+              <Mapping SourceColumn="Cetak Kwitansi" DataSetColumn="Cetak Kwitansi" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+              <Mapping SourceColumn="Authorization Level" DataSetColumn="Authorization Level" />
+              <Mapping SourceColumn="Authorization Level Needed" DataSetColumn="Authorization Level Needed" />
+              <Mapping SourceColumn="SudahCetakDOPendek" DataSetColumn="SudahCetakDOPendek" />
+              <Mapping SourceColumn="User Cetak DO Pendek" DataSetColumn="User Cetak DO Pendek" />
+              <Mapping SourceColumn="Time Cetak DO Pendek" DataSetColumn="Time Cetak DO Pendek" />
+              <Mapping SourceColumn="Sudah Cetak DO Panjang" DataSetColumn="Sudah Cetak DO Panjang" />
+              <Mapping SourceColumn="User Cetak DO Panjang" DataSetColumn="User Cetak DO Panjang" />
+              <Mapping SourceColumn="Time Cetak DO Panjang" DataSetColumn="Time Cetak DO Panjang" />
+              <Mapping SourceColumn="Sudah Buat Invoice" DataSetColumn="Sudah Buat Invoice" />
+              <Mapping SourceColumn="Primary Invoice" DataSetColumn="Primary Invoice" />
+              <Mapping SourceColumn="TanggalStok" DataSetColumn="TanggalStok" />
+              <Mapping SourceColumn="TanggalInvoice" DataSetColumn="TanggalInvoice" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetMaxTanggalInvoice" Modifier="Public" Name="ScalarQuery_GetMaxTanggalInvoice" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetMaxTanggalInvoice">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT MAX(tbltrans_salesinvoice.`Tanggal Transaksi`) AS TanggalInvoice
+FROM   tbltrans_do INNER JOIN
+             tbltransaksi_stockinout ON tbltrans_do.`Primary Stock Out Sales` = tbltransaksi_stockinout.`Primary` LEFT OUTER JOIN
+             tbltrans_salesinvoice ON tbltrans_do.`Primary Invoice` = tbltrans_salesinvoice.`Primary`
+WHERE (tbltransaksi_stockinout.`Tanggal Transaksi` &gt;= @StartDate) AND (tbltransaksi_stockinout.`Tanggal Transaksi` &lt;= @EndDate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetMinTanggalInvoice" Modifier="Public" Name="ScalarQuery_GetMinTanggalInvoice" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetMinTanggalInvoice">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT Min(tbltrans_salesinvoice.`Tanggal Transaksi`) AS TanggalInvoice
+FROM   tbltrans_do INNER JOIN
+             tbltransaksi_stockinout ON tbltrans_do.`Primary Stock Out Sales` = tbltransaksi_stockinout.`Primary` LEFT OUTER JOIN
+             tbltrans_salesinvoice ON tbltrans_do.`Primary Invoice` = tbltrans_salesinvoice.`Primary`
+WHERE (tbltransaksi_stockinout.`Tanggal Transaksi` &gt;= @StartDate) AND (tbltransaksi_stockinout.`Tanggal Transaksi` &lt;= @EndDate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_do1TableAdapter" GeneratorDataComponentClassName="tbltrans_do1TableAdapter" Name="tbltrans_do1" UserDataComponentName="tbltrans_do1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cmsi_2016.tbltrans_do" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `smess_cmsi_2016`.`tbltrans_do` WHERE ((`Primary` = @Original_Primary) AND (`No Transaksi` = @Original_No_Transaksi) AND (`Urutan` = @Original_Urutan) AND (`Primary Stock Out Sales` = @Original_Primary_Stock_Out_Sales) AND (`Primary Customer` = @Original_Primary_Customer) AND (`Address Identifier` = @Original_Address_Identifier) AND (`Tanggal Transaksi` = @Original_Tanggal_Transaksi) AND (`Cetak Invoice N Faktur Pajak` = @Original_Cetak_Invoice_N_Faktur_Pajak) AND (`Cetak Kwitansi` = @Original_Cetak_Kwitansi) AND (`Remarks` = @Original_Remarks) AND (`Created By` = @Original_Created_By) AND (`Created Date` = @Original_Created_Date) AND (`Modified By` = @Original_Modified_By) AND (`Modified Date` = @Original_Modified_Date) AND (`Timestamp` = @Original_Timestamp) AND (`Authorization Level` = @Original_Authorization_Level) AND (`Authorization Level Needed` = @Original_Authorization_Level_Needed) AND (`SudahCetakDOPendek` = @Original_SudahCetakDOPendek) AND (`User Cetak DO Pendek` = @Original_User_Cetak_DO_Pendek) AND (`Time Cetak DO Pendek` = @Original_Time_Cetak_DO_Pendek) AND (`Sudah Cetak DO Panjang` = @Original_Sudah_Cetak_DO_Panjang) AND (`User Cetak DO Panjang` = @Original_User_Cetak_DO_Panjang) AND (`Time Cetak DO Panjang` = @Original_Time_Cetak_DO_Panjang) AND (`Sudah Buat Invoice` = @Original_Sudah_Buat_Invoice) AND (`Primary Invoice` = @Original_Primary_Invoice))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Stock_Out_Sales" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Stock Out Sales" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Customer" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Customer" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Address_Identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address Identifier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Original_Cetak_Invoice_N_Faktur_Pajak" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Cetak Invoice N Faktur Pajak" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Original_Cetak_Kwitansi" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Cetak Kwitansi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Authorization_Level" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Authorization Level" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Authorization_Level_Needed" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Authorization Level Needed" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_SudahCetakDOPendek" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="SudahCetakDOPendek" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_User_Cetak_DO_Pendek" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="User Cetak DO Pendek" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Time_Cetak_DO_Pendek" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Time Cetak DO Pendek" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Sudah_Cetak_DO_Panjang" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Sudah Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_User_Cetak_DO_Panjang" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="User Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Time_Cetak_DO_Panjang" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Time Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Sudah_Buat_Invoice" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Sudah Buat Invoice" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Invoice" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Invoice" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO `smess_cmsi_2016`.`tbltrans_do` (`No Transaksi`, `Urutan`, `Primary Stock Out Sales`, `Primary Customer`, `Address Identifier`, `Tanggal Transaksi`, `Cetak Invoice N Faktur Pajak`, `Cetak Kwitansi`, `Remarks`, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`, `Authorization Level`, `Authorization Level Needed`, `SudahCetakDOPendek`, `User Cetak DO Pendek`, `Time Cetak DO Pendek`, `Sudah Cetak DO Panjang`, `User Cetak DO Panjang`, `Time Cetak DO Panjang`, `Sudah Buat Invoice`, `Primary Invoice`) VALUES (@No_Transaksi, @Urutan, @Primary_Stock_Out_Sales, @Primary_Customer, @Address_Identifier, @Tanggal_Transaksi, @Cetak_Invoice_N_Faktur_Pajak, @Cetak_Kwitansi, @Remarks, @Created_By, @Created_Date, @Modified_By, @Modified_Date, @Timestamp, @Authorization_Level, @Authorization_Level_Needed, @SudahCetakDOPendek, @User_Cetak_DO_Pendek, @Time_Cetak_DO_Pendek, @Sudah_Cetak_DO_Panjang, @User_Cetak_DO_Panjang, @Time_Cetak_DO_Panjang, @Sudah_Buat_Invoice, @Primary_Invoice)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Stock_Out_Sales" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Stock Out Sales" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Customer" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Customer" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Address_Identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address Identifier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Cetak_Invoice_N_Faktur_Pajak" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Cetak Invoice N Faktur Pajak" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Cetak_Kwitansi" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Cetak Kwitansi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Authorization_Level" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Authorization Level" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Authorization_Level_Needed" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Authorization Level Needed" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@SudahCetakDOPendek" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="SudahCetakDOPendek" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@User_Cetak_DO_Pendek" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="User Cetak DO Pendek" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Time_Cetak_DO_Pendek" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Time Cetak DO Pendek" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Sudah_Cetak_DO_Panjang" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Sudah Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@User_Cetak_DO_Panjang" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="User Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Time_Cetak_DO_Panjang" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Time Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Sudah_Buat_Invoice" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Sudah Buat Invoice" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Invoice" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Invoice" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_do.`Primary`, tbltrans_do.`No Transaksi`, tbltrans_do.Urutan, tbltrans_do.`Primary Stock Out Sales`, tbltrans_do.`Primary Customer`, tbltrans_do.`Address Identifier`, tbltrans_do.`Tanggal Transaksi`, tbltrans_do.`Cetak Invoice N Faktur Pajak`, 
+             tbltrans_do.`Cetak Kwitansi`, tbltrans_do.Remarks, tbltrans_do.`Created By`, tbltrans_do.`Created Date`, tbltrans_do.`Modified By`, tbltrans_do.`Modified Date`, tbltrans_do.`Timestamp`, tbltrans_do.`Authorization Level`, tbltrans_do.`Authorization Level Needed`, 
+             tbltrans_do.SudahCetakDOPendek, tbltrans_do.`User Cetak DO Pendek`, tbltrans_do.`Time Cetak DO Pendek`, tbltrans_do.`Sudah Cetak DO Panjang`, tbltrans_do.`User Cetak DO Panjang`, tbltrans_do.`Time Cetak DO Panjang`, tbltrans_do.`Sudah Buat Invoice`, 
+             tbltrans_do.`Primary Invoice`
+FROM   tbltrans_do LEFT OUTER JOIN
+             tbltrans_salesinvoice ON tbltrans_do.`Primary Invoice` = tbltrans_salesinvoice.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `smess_cmsi_2016`.`tbltrans_do` SET `No Transaksi` = @No_Transaksi, `Urutan` = @Urutan, `Primary Stock Out Sales` = @Primary_Stock_Out_Sales, `Primary Customer` = @Primary_Customer, `Address Identifier` = @Address_Identifier, `Tanggal Transaksi` = @Tanggal_Transaksi, `Cetak Invoice N Faktur Pajak` = @Cetak_Invoice_N_Faktur_Pajak, `Cetak Kwitansi` = @Cetak_Kwitansi, `Remarks` = @Remarks, `Created By` = @Created_By, `Created Date` = @Created_Date, `Modified By` = @Modified_By, `Modified Date` = @Modified_Date, `Timestamp` = @Timestamp, `Authorization Level` = @Authorization_Level, `Authorization Level Needed` = @Authorization_Level_Needed, `SudahCetakDOPendek` = @SudahCetakDOPendek, `User Cetak DO Pendek` = @User_Cetak_DO_Pendek, `Time Cetak DO Pendek` = @Time_Cetak_DO_Pendek, `Sudah Cetak DO Panjang` = @Sudah_Cetak_DO_Panjang, `User Cetak DO Panjang` = @User_Cetak_DO_Panjang, `Time Cetak DO Panjang` = @Time_Cetak_DO_Panjang, `Sudah Buat Invoice` = @Sudah_Buat_Invoice, `Primary Invoice` = @Primary_Invoice WHERE ((`Primary` = @Original_Primary) AND (`No Transaksi` = @Original_No_Transaksi) AND (`Urutan` = @Original_Urutan) AND (`Primary Stock Out Sales` = @Original_Primary_Stock_Out_Sales) AND (`Primary Customer` = @Original_Primary_Customer) AND (`Address Identifier` = @Original_Address_Identifier) AND (`Tanggal Transaksi` = @Original_Tanggal_Transaksi) AND (`Cetak Invoice N Faktur Pajak` = @Original_Cetak_Invoice_N_Faktur_Pajak) AND (`Cetak Kwitansi` = @Original_Cetak_Kwitansi) AND (`Remarks` = @Original_Remarks) AND (`Created By` = @Original_Created_By) AND (`Created Date` = @Original_Created_Date) AND (`Modified By` = @Original_Modified_By) AND (`Modified Date` = @Original_Modified_Date) AND (`Timestamp` = @Original_Timestamp) AND (`Authorization Level` = @Original_Authorization_Level) AND (`Authorization Level Needed` = @Original_Authorization_Level_Needed) AND (`SudahCetakDOPendek` = @Original_SudahCetakDOPendek) AND (`User Cetak DO Pendek` = @Original_User_Cetak_DO_Pendek) AND (`Time Cetak DO Pendek` = @Original_Time_Cetak_DO_Pendek) AND (`Sudah Cetak DO Panjang` = @Original_Sudah_Cetak_DO_Panjang) AND (`User Cetak DO Panjang` = @Original_User_Cetak_DO_Panjang) AND (`Time Cetak DO Panjang` = @Original_Time_Cetak_DO_Panjang) AND (`Sudah Buat Invoice` = @Original_Sudah_Buat_Invoice) AND (`Primary Invoice` = @Original_Primary_Invoice))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Stock_Out_Sales" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Stock Out Sales" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Customer" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Customer" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Address_Identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address Identifier" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Cetak_Invoice_N_Faktur_Pajak" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Cetak Invoice N Faktur Pajak" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Cetak_Kwitansi" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Cetak Kwitansi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Authorization_Level" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Authorization Level" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Authorization_Level_Needed" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Authorization Level Needed" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@SudahCetakDOPendek" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="SudahCetakDOPendek" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@User_Cetak_DO_Pendek" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="User Cetak DO Pendek" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Time_Cetak_DO_Pendek" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Time Cetak DO Pendek" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Sudah_Cetak_DO_Panjang" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Sudah Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@User_Cetak_DO_Panjang" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="User Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Time_Cetak_DO_Panjang" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Time Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Sudah_Buat_Invoice" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Sudah Buat Invoice" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Primary_Invoice" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Invoice" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Stock_Out_Sales" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Stock Out Sales" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Customer" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Customer" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Address_Identifier" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Address Identifier" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Original_Cetak_Invoice_N_Faktur_Pajak" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Cetak Invoice N Faktur Pajak" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="SByte" Direction="Input" ParameterName="@Original_Cetak_Kwitansi" Precision="0" ProviderType="Byte" Scale="0" Size="0" SourceColumn="Cetak Kwitansi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Authorization_Level" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Authorization Level" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Authorization_Level_Needed" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Authorization Level Needed" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_SudahCetakDOPendek" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="SudahCetakDOPendek" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_User_Cetak_DO_Pendek" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="User Cetak DO Pendek" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Time_Cetak_DO_Pendek" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Time Cetak DO Pendek" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Sudah_Cetak_DO_Panjang" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Sudah Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_User_Cetak_DO_Panjang" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="User Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_Time_Cetak_DO_Panjang" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Time Cetak DO Panjang" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Sudah_Buat_Invoice" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Sudah Buat Invoice" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary_Invoice" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Invoice" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Primary Stock Out Sales" DataSetColumn="Primary Stock Out Sales" />
+              <Mapping SourceColumn="Primary Customer" DataSetColumn="Primary Customer" />
+              <Mapping SourceColumn="Address Identifier" DataSetColumn="Address Identifier" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Cetak Invoice N Faktur Pajak" DataSetColumn="Cetak Invoice N Faktur Pajak" />
+              <Mapping SourceColumn="Cetak Kwitansi" DataSetColumn="Cetak Kwitansi" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+              <Mapping SourceColumn="Authorization Level" DataSetColumn="Authorization Level" />
+              <Mapping SourceColumn="Authorization Level Needed" DataSetColumn="Authorization Level Needed" />
+              <Mapping SourceColumn="SudahCetakDOPendek" DataSetColumn="SudahCetakDOPendek" />
+              <Mapping SourceColumn="User Cetak DO Pendek" DataSetColumn="User Cetak DO Pendek" />
+              <Mapping SourceColumn="Time Cetak DO Pendek" DataSetColumn="Time Cetak DO Pendek" />
+              <Mapping SourceColumn="Sudah Cetak DO Panjang" DataSetColumn="Sudah Cetak DO Panjang" />
+              <Mapping SourceColumn="User Cetak DO Panjang" DataSetColumn="User Cetak DO Panjang" />
+              <Mapping SourceColumn="Time Cetak DO Panjang" DataSetColumn="Time Cetak DO Panjang" />
+              <Mapping SourceColumn="Sudah Buat Invoice" DataSetColumn="Sudah Buat Invoice" />
+              <Mapping SourceColumn="Primary Invoice" DataSetColumn="Primary Invoice" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetMaxTanggalInvoice" Modifier="Public" Name="ScalarQuery_GetMaxTanggalInvoice" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetMaxTanggalInvoice">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT MAX(tbltrans_salesinvoice.`Tanggal Transaksi`) AS TanggalInvoice
+FROM   tbltrans_do LEFT OUTER JOIN
+             tbltrans_salesinvoice ON tbltrans_do.`Primary Invoice` = tbltrans_salesinvoice.`Primary`
+WHERE (tbltrans_do.`Tanggal Transaksi` &gt;= @TanggalAwal) AND (tbltrans_do.`Tanggal Transaksi` &lt;= @TanggalAkhir)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalAwal" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalAwal" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalAkhir" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalAkhir" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetMinTanggalInvoice" Modifier="Public" Name="ScalarQuery_GetMinTanggalInvoice" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetMinTanggalInvoice">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT Min(tbltrans_salesinvoice.`Tanggal Transaksi`) AS TanggalInvoice
+FROM   tbltrans_do LEFT OUTER JOIN
+             tbltrans_salesinvoice ON tbltrans_do.`Primary Invoice` = tbltrans_salesinvoice.`Primary`
+WHERE (tbltrans_do.`Tanggal Transaksi` &gt;= @TanggalAwal AND tbltrans_do.`Tanggal Transaksi` &lt;= @TanggalAkhir)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalAwal" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@TanggalAwal" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalAkhir" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="Date" Direction="Input" ParameterName="@TanggalAkhir" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_doTableAdapter" GeneratorDataComponentClassName="tbltrans_doTableAdapter" Name="tbltrans_do" UserDataComponentName="tbltrans_doTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        derivedtbl_1.`Primary DO`, derivedtbl_1.`DO No`, derivedtbl_1.`Tanggal Transaksi`, IFNULL(derivedtbl_1.`Primary Invoice`, - 1) AS `Primary Invoice`, 
+                         IFNULL(tbltrans_salesinvoice.`No Transaksi`, '') AS `No Invoice`, tblmaster_customer.`Customer Code`, tblmaster_customer.`Customer Name`, 
+                         derivedtbl_1.`Primary Stock Out Sales`, tbltransaksi_stockinout.`Tanggal Transaksi` AS `Tanggal Stock Out`
+FROM            tblmaster_customer INNER JOIN
+                             (SELECT DISTINCT 
+                                                         tbltrans_do.`Primary` AS `Primary DO`, tbltrans_do.`No Transaksi` AS `DO No`, tbltrans_do.`Tanggal Transaksi`, 
+                                                         tbltrans_salesinvoice_item.`Primary Transaksi` AS `Primary Invoice`, tbltrans_do.`Primary Customer`, tbltrans_do.`Primary Stock Out Sales`
+                               FROM            tbltrans_do LEFT OUTER JOIN
+                                                         tbltrans_salesinvoice_item ON tbltrans_do.`Primary` = tbltrans_salesinvoice_item.`Primary DO`
+                               WHERE        (tbltrans_do.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_do.`Tanggal Transaksi` &gt;= @TanggalDari)) derivedtbl_1 ON 
+                         tblmaster_customer.`Primary` = derivedtbl_1.`Primary Customer` LEFT OUTER JOIN
+                         tbltransaksi_stockinout ON derivedtbl_1.`Primary Stock Out Sales` = tbltransaksi_stockinout.`Primary` LEFT OUTER JOIN
+                         tbltrans_salesinvoice ON derivedtbl_1.`Primary Invoice` = tbltrans_salesinvoice.`Primary`
+ORDER BY derivedtbl_1.`DO No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" Scale="0" Size="0" SourceColumn="" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary DO" DataSetColumn="Primary DO" />
+              <Mapping SourceColumn="DO No" DataSetColumn="DO No" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Primary Invoice" DataSetColumn="Primary Invoice" />
+              <Mapping SourceColumn="No Invoice" DataSetColumn="No Invoice" />
+              <Mapping SourceColumn="Customer Code" DataSetColumn="Customer Code" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+              <Mapping SourceColumn="Primary Stock Out Sales" DataSetColumn="Primary Stock Out Sales" />
+              <Mapping SourceColumn="Tanggal Stock Out" DataSetColumn="Tanggal Stock Out" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salesinvoice_itemTableAdapter" GeneratorDataComponentClassName="tbltrans_salesinvoice_itemTableAdapter" Name="tbltrans_salesinvoice_item" UserDataComponentName="tbltrans_salesinvoice_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_five_star.tbltrans_salesinvoice_item" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT     tbltrans_salesinvoice_item.`Primary DO`, SUM(tbltrans_salesinvoice_item.Cost) AS Cost
+FROM         tbltrans_salesinvoice_item INNER JOIN
+                      tbltrans_salesinvoice ON tbltrans_salesinvoice_item.`Primary Transaksi` = tbltrans_salesinvoice.`Primary`
+WHERE     (tbltrans_salesinvoice.`Tanggal Transaksi` &lt;= @EndPeriodClosing)
+GROUP BY tbltrans_salesinvoice_item.`Primary DO`
+HAVING      (tbltrans_salesinvoice_item.`Primary DO` &lt;= @PrimaryDOMax) AND (tbltrans_salesinvoice_item.`Primary DO` &gt;= @PrimaryDOMin)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndPeriodClosing" ColumnName="Tanggal Transaksi" DataSourceName="smess_five_star.tbltrans_salesinvoice" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndPeriodClosing" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryDOMax" ColumnName="Primary DO" DataSourceName="smess_five_star.tbltrans_salesinvoice_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryDOMax" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary DO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryDOMin" ColumnName="Primary DO" DataSourceName="smess_five_star.tbltrans_salesinvoice_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryDOMin" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary DO" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary DO" DataSetColumn="Primary DO" />
+              <Mapping SourceColumn="Cost" DataSetColumn="Cost" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanSalesListByDO" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanSalesListByDO" msprop:Generator_DataSetName="DseLaporanSalesListByDO">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable3" msprop:Generator_UserTableName="DataTable3" msprop:Generator_RowDeletedName="DataTable3RowDeleted" msprop:Generator_RowChangedName="DataTable3RowChanged" msprop:Generator_RowClassName="DataTable3Row" msprop:Generator_RowChangingName="DataTable3RowChanging" msprop:Generator_RowEvArgName="DataTable3RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable3RowChangeEventHandler" msprop:Generator_TableClassName="DataTable3DataTable" msprop:Generator_TableVarName="tableDataTable3" msprop:Generator_RowDeletingName="DataTable3RowDeleting" msprop:Generator_TablePropName="DataTable3">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Closing_x0020_Period" msprop:Generator_UserColumnName="Closing Period" msprop:Generator_ColumnVarNameInTable="columnClosing_Period" msprop:Generator_ColumnPropNameInRow="Closing_Period" msprop:Generator_ColumnPropNameInTable="Closing_PeriodColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Ending_x0020_Qty" msprop:Generator_UserColumnName="Ending Qty" msprop:Generator_ColumnVarNameInTable="columnEnding_Qty" msprop:Generator_ColumnPropNameInRow="Ending_Qty" msprop:Generator_ColumnPropNameInTable="Ending_QtyColumn" type="xs:double" />
+              <xs:element name="Ending_x0020_Amount" msprop:Generator_UserColumnName="Ending Amount" msprop:Generator_ColumnVarNameInTable="columnEnding_Amount" msprop:Generator_ColumnPropNameInRow="Ending_Amount" msprop:Generator_ColumnPropNameInTable="Ending_AmountColumn" type="xs:double" />
+              <xs:element name="Out_x0020_Qty" msprop:Generator_UserColumnName="Out Qty" msprop:Generator_ColumnPropNameInRow="Out_Qty" msprop:Generator_ColumnVarNameInTable="columnOut_Qty" msprop:Generator_ColumnPropNameInTable="Out_QtyColumn" type="xs:double" />
+              <xs:element name="Out_x0020_Amount" msprop:Generator_UserColumnName="Out Amount" msprop:Generator_ColumnPropNameInRow="Out_Amount" msprop:Generator_ColumnVarNameInTable="columnOut_Amount" msprop:Generator_ColumnPropNameInTable="Out_AmountColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2X" msprop:Generator_UserTableName="DataTable2X" msprop:Generator_RowDeletedName="DataTable2XRowDeleted" msprop:Generator_RowChangedName="DataTable2XRowChanged" msprop:Generator_RowClassName="DataTable2XRow" msprop:Generator_RowChangingName="DataTable2XRowChanging" msprop:Generator_RowEvArgName="DataTable2XRowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2XRowChangeEventHandler" msprop:Generator_TableClassName="DataTable2XDataTable" msprop:Generator_TableVarName="tableDataTable2X" msprop:Generator_RowDeletingName="DataTable2XRowDeleting" msprop:Generator_TablePropName="DataTable2X">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Sales_x0020_Invoice" msprop:Generator_UserColumnName="Primary Sales Invoice" msprop:Generator_ColumnPropNameInRow="Primary_Sales_Invoice" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sales_Invoice" msprop:Generator_ColumnPropNameInTable="Primary_Sales_InvoiceColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Transaksi_x0020_Rujukan" msprop:Generator_UserColumnName="Primary Transaksi Rujukan" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi_Rujukan" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi_Rujukan" msprop:Generator_ColumnPropNameInTable="Primary_Transaksi_RujukanColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Currency" msprop:Generator_UserColumnName="Primary Currency" msprop:Generator_ColumnPropNameInRow="Primary_Currency" msprop:Generator_ColumnVarNameInTable="columnPrimary_Currency" msprop:Generator_ColumnPropNameInTable="Primary_CurrencyColumn" type="xs:double" />
+              <xs:element name="Exhange_x0020_Rate" msprop:Generator_UserColumnName="Exhange Rate" msprop:Generator_ColumnPropNameInRow="Exhange_Rate" msprop:Generator_ColumnVarNameInTable="columnExhange_Rate" msprop:Generator_ColumnPropNameInTable="Exhange_RateColumn" type="xs:double" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Do_x0020_Date" msprop:Generator_UserColumnName="Do Date" msprop:Generator_ColumnPropNameInRow="Do_Date" msprop:Generator_ColumnVarNameInTable="columnDo_Date" msprop:Generator_ColumnPropNameInTable="Do_DateColumn" type="xs:dateTime" />
+              <xs:element name="Invoice_x0020_Date" msprop:Generator_UserColumnName="Invoice Date" msprop:Generator_ColumnPropNameInRow="Invoice_Date" msprop:Generator_ColumnVarNameInTable="columnInvoice_Date" msprop:Generator_ColumnPropNameInTable="Invoice_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Group_x0020_By_x0020_DO" msprop:Generator_UserTableName="Group By DO" msprop:Generator_RowDeletedName="Group_By_DORowDeleted" msprop:Generator_RowChangedName="Group_By_DORowChanged" msprop:Generator_RowClassName="Group_By_DORow" msprop:Generator_RowChangingName="Group_By_DORowChanging" msprop:Generator_RowEvArgName="Group_By_DORowChangeEvent" msprop:Generator_RowEvHandlerName="Group_By_DORowChangeEventHandler" msprop:Generator_TableClassName="Group_By_DODataTable" msprop:Generator_TableVarName="tableGroup_By_DO" msprop:Generator_RowDeletingName="Group_By_DORowDeleting" msprop:Generator_TablePropName="Group_By_DO">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DO_x0020_No" msprop:Generator_UserColumnName="DO No" msprop:Generator_ColumnPropNameInRow="DO_No" msprop:Generator_ColumnVarNameInTable="columnDO_No" msprop:Generator_ColumnPropNameInTable="DO_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="DO_x0020_Date" msprop:Generator_UserColumnName="DO Date" msprop:Generator_ColumnPropNameInRow="DO_Date" msprop:Generator_ColumnVarNameInTable="columnDO_Date" msprop:Generator_ColumnPropNameInTable="DO_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Sales_x0020_Amount" msprop:Generator_UserColumnName="Sales Amount" msprop:Generator_ColumnPropNameInRow="Sales_Amount" msprop:Generator_ColumnVarNameInTable="columnSales_Amount" msprop:Generator_ColumnPropNameInTable="Sales_AmountColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Cost_x0020_Of_x0020_Sales" msprop:Generator_UserColumnName="Cost Of Sales" msprop:Generator_ColumnPropNameInRow="Cost_Of_Sales" msprop:Generator_ColumnVarNameInTable="columnCost_Of_Sales" msprop:Generator_ColumnPropNameInTable="Cost_Of_SalesColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Invoice_x0020_No" msprop:Generator_UserColumnName="Invoice No" msprop:Generator_ColumnPropNameInRow="Invoice_No" msprop:Generator_ColumnVarNameInTable="columnInvoice_No" msprop:Generator_ColumnPropNameInTable="Invoice_NoColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="GM_x0020_Percentage" msprop:Generator_UserColumnName="GM Percentage" msprop:Generator_ColumnPropNameInRow="GM_Percentage" msprop:Generator_ColumnVarNameInTable="columnGM_Percentage" msprop:Generator_ColumnPropNameInTable="GM_PercentageColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Customer" msprop:Generator_UserColumnName="Customer" msprop:Generator_ColumnPropNameInRow="Customer" msprop:Generator_ColumnVarNameInTable="columnCustomer" msprop:Generator_ColumnPropNameInTable="CustomerColumn" type="xs:string" minOccurs="0" />
+              <xs:element name="Stock_x0020_Out_x0020_Date" msprop:Generator_UserColumnName="Stock Out Date" msprop:Generator_ColumnPropNameInRow="Stock_Out_Date" msprop:Generator_ColumnVarNameInTable="columnStock_Out_Date" msprop:Generator_ColumnPropNameInTable="Stock_Out_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Primary_x0020_DO" msprop:Generator_UserColumnName="Primary DO" msprop:Generator_ColumnPropNameInRow="Primary_DO" msprop:Generator_ColumnVarNameInTable="columnPrimary_DO" msprop:Generator_ColumnPropNameInTable="Primary_DOColumn" type="xs:double" default="-1" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable5" msprop:Generator_UserTableName="DataTable5" msprop:Generator_RowDeletedName="DataTable5RowDeleted" msprop:Generator_RowChangedName="DataTable5RowChanged" msprop:Generator_RowClassName="DataTable5Row" msprop:Generator_RowChangingName="DataTable5RowChanging" msprop:Generator_RowEvArgName="DataTable5RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable5RowChangeEventHandler" msprop:Generator_TableClassName="DataTable5DataTable" msprop:Generator_TableVarName="tableDataTable5" msprop:Generator_RowDeletingName="DataTable5RowDeleting" msprop:Generator_TablePropName="DataTable5">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Currency" msprop:Generator_UserColumnName="Primary Currency" msprop:Generator_ColumnPropNameInRow="Primary_Currency" msprop:Generator_ColumnVarNameInTable="columnPrimary_Currency" msprop:Generator_ColumnPropNameInTable="Primary_CurrencyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Rate" msprop:Generator_UserColumnName="Rate" msprop:Generator_ColumnPropNameInRow="Rate" msprop:Generator_ColumnVarNameInTable="columnRate" msprop:Generator_ColumnPropNameInTable="RateColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_DO" msprop:Generator_UserColumnName="Primary DO" msprop:Generator_ColumnPropNameInRow="Primary_DO" msprop:Generator_ColumnVarNameInTable="columnPrimary_DO" msprop:Generator_ColumnPropNameInTable="Primary_DOColumn" type="xs:double" />
+              <xs:element name="DO_x0020_No" msprop:Generator_UserColumnName="DO No" msprop:Generator_ColumnPropNameInRow="DO_No" msprop:Generator_ColumnVarNameInTable="columnDO_No" msprop:Generator_ColumnPropNameInTable="DO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Invoice" msprop:Generator_UserColumnName="Primary Invoice" msprop:Generator_ColumnPropNameInRow="Primary_Invoice" msprop:Generator_ColumnVarNameInTable="columnPrimary_Invoice" msprop:Generator_ColumnPropNameInTable="Primary_InvoiceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Customer" msprop:Generator_UserColumnName="Primary Customer" msprop:Generator_ColumnPropNameInRow="Primary_Customer" msprop:Generator_ColumnVarNameInTable="columnPrimary_Customer" msprop:Generator_ColumnPropNameInTable="Primary_CustomerColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_do_obs" msprop:Generator_UserTableName="tbltrans_do_obs" msprop:Generator_RowDeletedName="tbltrans_do_obsRowDeleted" msprop:Generator_RowChangedName="tbltrans_do_obsRowChanged" msprop:Generator_RowClassName="tbltrans_do_obsRow" msprop:Generator_RowChangingName="tbltrans_do_obsRowChanging" msprop:Generator_RowEvArgName="tbltrans_do_obsRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_do_obsRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_do_obsDataTable" msprop:Generator_TableVarName="tabletbltrans_do_obs" msprop:Generator_RowDeletingName="tbltrans_do_obsRowDeleting" msprop:Generator_TablePropName="tbltrans_do_obs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_DO" msprop:Generator_UserColumnName="Primary DO" msprop:Generator_ColumnPropNameInRow="Primary_DO" msprop:Generator_ColumnVarNameInTable="columnPrimary_DO" msprop:Generator_ColumnPropNameInTable="Primary_DOColumn" type="xs:double" />
+              <xs:element name="DO_x0020_No" msprop:Generator_UserColumnName="DO No" msprop:Generator_ColumnPropNameInRow="DO_No" msprop:Generator_ColumnVarNameInTable="columnDO_No" msprop:Generator_ColumnPropNameInTable="DO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Invoice" msprop:Generator_UserColumnName="Primary Invoice" msprop:Generator_ColumnPropNameInRow="Primary_Invoice" msprop:Generator_ColumnVarNameInTable="columnPrimary_Invoice" msprop:Generator_ColumnPropNameInTable="Primary_InvoiceColumn" type="xs:double" />
+              <xs:element name="No_x0020_Invoice" msprop:Generator_UserColumnName="No Invoice" msprop:Generator_ColumnPropNameInRow="No_Invoice" msprop:Generator_ColumnVarNameInTable="columnNo_Invoice" msprop:Generator_ColumnPropNameInTable="No_InvoiceColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Code" msprop:Generator_UserColumnName="Customer Code" msprop:Generator_ColumnPropNameInRow="Customer_Code" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code" msprop:Generator_ColumnPropNameInTable="Customer_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Name" msprop:Generator_UserColumnName="Customer Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Stock_x0020_Out_x0020_Sales" msprop:Generator_UserColumnName="Primary Stock Out Sales" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Out_Sales" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Out_Sales" msprop:Generator_ColumnPropNameInTable="Primary_Stock_Out_SalesColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Stock_x0020_Out" msprop:Generator_UserColumnName="Tanggal Stock Out" msprop:Generator_ColumnPropNameInRow="Tanggal_Stock_Out" msprop:Generator_ColumnVarNameInTable="columnTanggal_Stock_Out" msprop:Generator_ColumnPropNameInTable="Tanggal_Stock_OutColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltransaksi_stockinout_sales" msprop:Generator_UserTableName="tbltransaksi_stockinout_sales" msprop:Generator_RowDeletedName="tbltransaksi_stockinout_salesRowDeleted" msprop:Generator_RowChangedName="tbltransaksi_stockinout_salesRowChanged" msprop:Generator_RowClassName="tbltransaksi_stockinout_salesRow" msprop:Generator_RowChangingName="tbltransaksi_stockinout_salesRowChanging" msprop:Generator_RowEvArgName="tbltransaksi_stockinout_salesRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltransaksi_stockinout_salesRowChangeEventHandler" msprop:Generator_TableClassName="tbltransaksi_stockinout_salesDataTable" msprop:Generator_TableVarName="tabletbltransaksi_stockinout_sales" msprop:Generator_RowDeletingName="tbltransaksi_stockinout_salesRowDeleting" msprop:Generator_TablePropName="tbltransaksi_stockinout_sales">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable4" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_RowClassName="DataTable4Row" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_TablePropName="DataTable4">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_DO" msprop:Generator_UserColumnName="Primary DO" msprop:Generator_ColumnVarNameInTable="columnPrimary_DO" msprop:Generator_ColumnPropNameInRow="Primary_DO" msprop:Generator_ColumnPropNameInTable="Primary_DOColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_SO" msprop:Generator_UserColumnName="Primary SO" msprop:Generator_ColumnVarNameInTable="columnPrimary_SO" msprop:Generator_ColumnPropNameInRow="Primary_SO" msprop:Generator_ColumnPropNameInTable="Primary_SOColumn" type="xs:double" />
+              <xs:element name="Total_x0020_Qty" msprop:Generator_UserColumnName="Total Qty" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty" msprop:Generator_ColumnPropNameInRow="Total_Qty" msprop:Generator_ColumnPropNameInTable="Total_QtyColumn" type="xs:decimal" />
+              <xs:element name="Secondary_x0020_Qty" msprop:Generator_UserColumnName="Secondary Qty" msprop:Generator_ColumnVarNameInTable="columnSecondary_Qty" msprop:Generator_ColumnPropNameInRow="Secondary_Qty" msprop:Generator_ColumnPropNameInTable="Secondary_QtyColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Currency" msprop:Generator_UserColumnName="Primary Currency" msprop:Generator_ColumnVarNameInTable="columnPrimary_Currency" msprop:Generator_ColumnPropNameInRow="Primary_Currency" msprop:Generator_ColumnPropNameInTable="Primary_CurrencyColumn" type="xs:double" />
+              <xs:element name="Nett_x0020_Price" msprop:Generator_UserColumnName="Nett Price" msprop:Generator_ColumnVarNameInTable="columnNett_Price" msprop:Generator_ColumnPropNameInRow="Nett_Price" msprop:Generator_ColumnPropNameInTable="Nett_PriceColumn" type="xs:decimal" />
+              <xs:element name="DO_x0020_Number" msprop:Generator_UserColumnName="DO Number" msprop:Generator_ColumnVarNameInTable="columnDO_Number" msprop:Generator_ColumnPropNameInRow="DO_Number" msprop:Generator_ColumnPropNameInTable="DO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Price_x0020_Exclude" msprop:Generator_UserColumnName="Price Exclude" msprop:Generator_ColumnVarNameInTable="columnPrice_Exclude" msprop:Generator_ColumnPropNameInRow="Price_Exclude" msprop:Generator_ColumnPropNameInTable="Price_ExcludeColumn" type="xs:boolean" />
+              <xs:element name="Tax" msprop:Generator_UserColumnName="Tax" msprop:Generator_ColumnVarNameInTable="columnTax" msprop:Generator_ColumnPropNameInRow="Tax" msprop:Generator_ColumnPropNameInTable="TaxColumn" type="xs:double" />
+              <xs:element name="Default_x0020_Precision" msprop:Generator_UserColumnName="Default Precision" msprop:Generator_ColumnVarNameInTable="columnDefault_Precision" msprop:Generator_ColumnPropNameInRow="Default_Precision" msprop:Generator_ColumnPropNameInTable="Default_PrecisionColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Stock_x0020_Out_x0020_Sales" msprop:Generator_UserColumnName="Primary Stock Out Sales" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Out_Sales" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Out_Sales" msprop:Generator_ColumnPropNameInTable="Primary_Stock_Out_SalesColumn" type="xs:double" />
+              <xs:element name="Total_x0020_Qty_x0020_Multi" msprop:Generator_UserColumnName="Total Qty Multi" msprop:Generator_ColumnPropNameInRow="Total_Qty_Multi" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty_Multi" msprop:Generator_ColumnPropNameInTable="Total_Qty_MultiColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Units" msprop:Generator_UserColumnName="Primary Units" msprop:Generator_ColumnPropNameInRow="Primary_Units" msprop:Generator_ColumnVarNameInTable="columnPrimary_Units" msprop:Generator_ColumnPropNameInTable="Primary_UnitsColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Units_x0020_Multi" msprop:Generator_UserColumnName="Primary Units Multi" msprop:Generator_ColumnPropNameInRow="Primary_Units_Multi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Units_Multi" msprop:Generator_ColumnPropNameInTable="Primary_Units_MultiColumn" type="xs:double" />
+              <xs:element name="price_x0020_by_x0020_multi_x0020_unit" msprop:Generator_UserColumnName="price by multi unit" msprop:Generator_ColumnPropNameInRow="price_by_multi_unit" msprop:Generator_ColumnVarNameInTable="columnprice_by_multi_unit" msprop:Generator_ColumnPropNameInTable="price_by_multi_unitColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Do_x0020_Date" msprop:Generator_UserColumnName="Do Date" msprop:Generator_ColumnPropNameInRow="Do_Date" msprop:Generator_ColumnVarNameInTable="columnDo_Date" msprop:Generator_ColumnPropNameInTable="Do_DateColumn" type="xs:dateTime" />
+              <xs:element name="Invoice_x0020_Date" msprop:Generator_UserColumnName="Invoice Date" msprop:Generator_ColumnPropNameInRow="Invoice_Date" msprop:Generator_ColumnVarNameInTable="columnInvoice_Date" msprop:Generator_ColumnPropNameInTable="Invoice_DateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Sales_x0020_Invoice" msprop:Generator_UserColumnName="Primary Sales Invoice" msprop:Generator_ColumnPropNameInRow="Primary_Sales_Invoice" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sales_Invoice" msprop:Generator_ColumnPropNameInTable="Primary_Sales_InvoiceColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Transaksi_x0020_Rujukan" msprop:Generator_UserColumnName="Primary Transaksi Rujukan" msprop:Generator_ColumnPropNameInRow="Primary_Transaksi_Rujukan" msprop:Generator_ColumnVarNameInTable="columnPrimary_Transaksi_Rujukan" msprop:Generator_ColumnPropNameInTable="Primary_Transaksi_RujukanColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Currency" msprop:Generator_UserColumnName="Primary Currency" msprop:Generator_ColumnPropNameInRow="Primary_Currency" msprop:Generator_ColumnVarNameInTable="columnPrimary_Currency" msprop:Generator_ColumnPropNameInTable="Primary_CurrencyColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Exhange_x0020_Rate" msprop:Generator_UserColumnName="Exhange Rate" msprop:Generator_ColumnPropNameInRow="Exhange_Rate" msprop:Generator_ColumnVarNameInTable="columnExhange_Rate" msprop:Generator_ColumnPropNameInTable="Exhange_RateColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MaxMinTanggalStok" msprop:Generator_UserTableName="MaxMinTanggalStok" msprop:Generator_RowDeletedName="MaxMinTanggalStokRowDeleted" msprop:Generator_RowChangedName="MaxMinTanggalStokRowChanged" msprop:Generator_RowClassName="MaxMinTanggalStokRow" msprop:Generator_RowChangingName="MaxMinTanggalStokRowChanging" msprop:Generator_RowEvArgName="MaxMinTanggalStokRowChangeEvent" msprop:Generator_RowEvHandlerName="MaxMinTanggalStokRowChangeEventHandler" msprop:Generator_TableClassName="MaxMinTanggalStokDataTable" msprop:Generator_TableVarName="tableMaxMinTanggalStok" msprop:Generator_RowDeletingName="MaxMinTanggalStokRowDeleting" msprop:Generator_TablePropName="MaxMinTanggalStok">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Stock_x0020_Out_x0020_Sales" msprop:Generator_UserColumnName="Primary Stock Out Sales" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Out_Sales" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Out_Sales" msprop:Generator_ColumnPropNameInTable="Primary_Stock_Out_SalesColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Customer" msprop:Generator_UserColumnName="Primary Customer" msprop:Generator_ColumnPropNameInRow="Primary_Customer" msprop:Generator_ColumnVarNameInTable="columnPrimary_Customer" msprop:Generator_ColumnPropNameInTable="Primary_CustomerColumn" type="xs:double" />
+              <xs:element name="Address_x0020_Identifier" msprop:Generator_UserColumnName="Address Identifier" msprop:Generator_ColumnPropNameInRow="Address_Identifier" msprop:Generator_ColumnVarNameInTable="columnAddress_Identifier" msprop:Generator_ColumnPropNameInTable="Address_IdentifierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Cetak_x0020_Invoice_x0020_N_x0020_Faktur_x0020_Pajak" msprop:Generator_UserColumnName="Cetak Invoice N Faktur Pajak" msprop:Generator_ColumnPropNameInRow="Cetak_Invoice_N_Faktur_Pajak" msprop:Generator_ColumnVarNameInTable="columnCetak_Invoice_N_Faktur_Pajak" msprop:Generator_ColumnPropNameInTable="Cetak_Invoice_N_Faktur_PajakColumn" type="xs:boolean" />
+              <xs:element name="Cetak_x0020_Kwitansi" msprop:Generator_UserColumnName="Cetak Kwitansi" msprop:Generator_ColumnPropNameInRow="Cetak_Kwitansi" msprop:Generator_ColumnVarNameInTable="columnCetak_Kwitansi" msprop:Generator_ColumnPropNameInTable="Cetak_KwitansiColumn" type="xs:boolean" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+              <xs:element name="Authorization_x0020_Level" msprop:Generator_UserColumnName="Authorization Level" msprop:Generator_ColumnPropNameInRow="Authorization_Level" msprop:Generator_ColumnVarNameInTable="columnAuthorization_Level" msprop:Generator_ColumnPropNameInTable="Authorization_LevelColumn" type="xs:int" />
+              <xs:element name="Authorization_x0020_Level_x0020_Needed" msprop:Generator_UserColumnName="Authorization Level Needed" msprop:Generator_ColumnPropNameInRow="Authorization_Level_Needed" msprop:Generator_ColumnVarNameInTable="columnAuthorization_Level_Needed" msprop:Generator_ColumnPropNameInTable="Authorization_Level_NeededColumn" type="xs:int" />
+              <xs:element name="SudahCetakDOPendek" msprop:Generator_UserColumnName="SudahCetakDOPendek" msprop:Generator_ColumnPropNameInRow="SudahCetakDOPendek" msprop:Generator_ColumnVarNameInTable="columnSudahCetakDOPendek" msprop:Generator_ColumnPropNameInTable="SudahCetakDOPendekColumn" type="xs:int" />
+              <xs:element name="User_x0020_Cetak_x0020_DO_x0020_Pendek" msprop:Generator_UserColumnName="User Cetak DO Pendek" msprop:Generator_ColumnPropNameInRow="User_Cetak_DO_Pendek" msprop:Generator_ColumnVarNameInTable="columnUser_Cetak_DO_Pendek" msprop:Generator_ColumnPropNameInTable="User_Cetak_DO_PendekColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Time_x0020_Cetak_x0020_DO_x0020_Pendek" msprop:Generator_UserColumnName="Time Cetak DO Pendek" msprop:Generator_ColumnPropNameInRow="Time_Cetak_DO_Pendek" msprop:Generator_ColumnVarNameInTable="columnTime_Cetak_DO_Pendek" msprop:Generator_ColumnPropNameInTable="Time_Cetak_DO_PendekColumn" type="xs:dateTime" />
+              <xs:element name="Sudah_x0020_Cetak_x0020_DO_x0020_Panjang" msprop:Generator_UserColumnName="Sudah Cetak DO Panjang" msprop:Generator_ColumnPropNameInRow="Sudah_Cetak_DO_Panjang" msprop:Generator_ColumnVarNameInTable="columnSudah_Cetak_DO_Panjang" msprop:Generator_ColumnPropNameInTable="Sudah_Cetak_DO_PanjangColumn" type="xs:int" />
+              <xs:element name="User_x0020_Cetak_x0020_DO_x0020_Panjang" msprop:Generator_UserColumnName="User Cetak DO Panjang" msprop:Generator_ColumnPropNameInRow="User_Cetak_DO_Panjang" msprop:Generator_ColumnVarNameInTable="columnUser_Cetak_DO_Panjang" msprop:Generator_ColumnPropNameInTable="User_Cetak_DO_PanjangColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Time_x0020_Cetak_x0020_DO_x0020_Panjang" msprop:Generator_UserColumnName="Time Cetak DO Panjang" msprop:Generator_ColumnPropNameInRow="Time_Cetak_DO_Panjang" msprop:Generator_ColumnVarNameInTable="columnTime_Cetak_DO_Panjang" msprop:Generator_ColumnPropNameInTable="Time_Cetak_DO_PanjangColumn" type="xs:dateTime" />
+              <xs:element name="Sudah_x0020_Buat_x0020_Invoice" msprop:Generator_UserColumnName="Sudah Buat Invoice" msprop:Generator_ColumnPropNameInRow="Sudah_Buat_Invoice" msprop:Generator_ColumnVarNameInTable="columnSudah_Buat_Invoice" msprop:Generator_ColumnPropNameInTable="Sudah_Buat_InvoiceColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Invoice" msprop:Generator_UserColumnName="Primary Invoice" msprop:Generator_ColumnPropNameInRow="Primary_Invoice" msprop:Generator_ColumnVarNameInTable="columnPrimary_Invoice" msprop:Generator_ColumnPropNameInTable="Primary_InvoiceColumn" type="xs:double" />
+              <xs:element name="TanggalStok" msprop:Generator_UserColumnName="TanggalStok" msprop:Generator_ColumnPropNameInRow="TanggalStok" msprop:Generator_ColumnVarNameInTable="columnTanggalStok" msprop:Generator_ColumnPropNameInTable="TanggalStokColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TanggalInvoice" msprop:Generator_UserColumnName="TanggalInvoice" msprop:Generator_ColumnPropNameInRow="TanggalInvoice" msprop:Generator_ColumnVarNameInTable="columnTanggalInvoice" msprop:Generator_ColumnPropNameInTable="TanggalInvoiceColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_do1" msprop:Generator_UserTableName="tbltrans_do1" msprop:Generator_RowDeletedName="tbltrans_do1RowDeleted" msprop:Generator_RowChangedName="tbltrans_do1RowChanged" msprop:Generator_RowClassName="tbltrans_do1Row" msprop:Generator_RowChangingName="tbltrans_do1RowChanging" msprop:Generator_RowEvArgName="tbltrans_do1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_do1RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_do1DataTable" msprop:Generator_TableVarName="tabletbltrans_do1" msprop:Generator_RowDeletingName="tbltrans_do1RowDeleting" msprop:Generator_TablePropName="tbltrans_do1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Stock_x0020_Out_x0020_Sales" msprop:Generator_UserColumnName="Primary Stock Out Sales" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Out_Sales" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Out_Sales" msprop:Generator_ColumnPropNameInTable="Primary_Stock_Out_SalesColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Customer" msprop:Generator_UserColumnName="Primary Customer" msprop:Generator_ColumnPropNameInRow="Primary_Customer" msprop:Generator_ColumnVarNameInTable="columnPrimary_Customer" msprop:Generator_ColumnPropNameInTable="Primary_CustomerColumn" type="xs:double" />
+              <xs:element name="Address_x0020_Identifier" msprop:Generator_UserColumnName="Address Identifier" msprop:Generator_ColumnPropNameInRow="Address_Identifier" msprop:Generator_ColumnVarNameInTable="columnAddress_Identifier" msprop:Generator_ColumnPropNameInTable="Address_IdentifierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Cetak_x0020_Invoice_x0020_N_x0020_Faktur_x0020_Pajak" msprop:Generator_UserColumnName="Cetak Invoice N Faktur Pajak" msprop:Generator_ColumnPropNameInRow="Cetak_Invoice_N_Faktur_Pajak" msprop:Generator_ColumnVarNameInTable="columnCetak_Invoice_N_Faktur_Pajak" msprop:Generator_ColumnPropNameInTable="Cetak_Invoice_N_Faktur_PajakColumn" type="xs:boolean" />
+              <xs:element name="Cetak_x0020_Kwitansi" msprop:Generator_UserColumnName="Cetak Kwitansi" msprop:Generator_ColumnPropNameInRow="Cetak_Kwitansi" msprop:Generator_ColumnVarNameInTable="columnCetak_Kwitansi" msprop:Generator_ColumnPropNameInTable="Cetak_KwitansiColumn" type="xs:boolean" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+              <xs:element name="Authorization_x0020_Level" msprop:Generator_UserColumnName="Authorization Level" msprop:Generator_ColumnPropNameInRow="Authorization_Level" msprop:Generator_ColumnVarNameInTable="columnAuthorization_Level" msprop:Generator_ColumnPropNameInTable="Authorization_LevelColumn" type="xs:int" />
+              <xs:element name="Authorization_x0020_Level_x0020_Needed" msprop:Generator_UserColumnName="Authorization Level Needed" msprop:Generator_ColumnPropNameInRow="Authorization_Level_Needed" msprop:Generator_ColumnVarNameInTable="columnAuthorization_Level_Needed" msprop:Generator_ColumnPropNameInTable="Authorization_Level_NeededColumn" type="xs:int" />
+              <xs:element name="SudahCetakDOPendek" msprop:Generator_UserColumnName="SudahCetakDOPendek" msprop:Generator_ColumnPropNameInRow="SudahCetakDOPendek" msprop:Generator_ColumnVarNameInTable="columnSudahCetakDOPendek" msprop:Generator_ColumnPropNameInTable="SudahCetakDOPendekColumn" type="xs:int" />
+              <xs:element name="User_x0020_Cetak_x0020_DO_x0020_Pendek" msprop:Generator_UserColumnName="User Cetak DO Pendek" msprop:Generator_ColumnPropNameInRow="User_Cetak_DO_Pendek" msprop:Generator_ColumnVarNameInTable="columnUser_Cetak_DO_Pendek" msprop:Generator_ColumnPropNameInTable="User_Cetak_DO_PendekColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Time_x0020_Cetak_x0020_DO_x0020_Pendek" msprop:Generator_UserColumnName="Time Cetak DO Pendek" msprop:Generator_ColumnPropNameInRow="Time_Cetak_DO_Pendek" msprop:Generator_ColumnVarNameInTable="columnTime_Cetak_DO_Pendek" msprop:Generator_ColumnPropNameInTable="Time_Cetak_DO_PendekColumn" type="xs:dateTime" />
+              <xs:element name="Sudah_x0020_Cetak_x0020_DO_x0020_Panjang" msprop:Generator_UserColumnName="Sudah Cetak DO Panjang" msprop:Generator_ColumnPropNameInRow="Sudah_Cetak_DO_Panjang" msprop:Generator_ColumnVarNameInTable="columnSudah_Cetak_DO_Panjang" msprop:Generator_ColumnPropNameInTable="Sudah_Cetak_DO_PanjangColumn" type="xs:int" />
+              <xs:element name="User_x0020_Cetak_x0020_DO_x0020_Panjang" msprop:Generator_UserColumnName="User Cetak DO Panjang" msprop:Generator_ColumnPropNameInRow="User_Cetak_DO_Panjang" msprop:Generator_ColumnVarNameInTable="columnUser_Cetak_DO_Panjang" msprop:Generator_ColumnPropNameInTable="User_Cetak_DO_PanjangColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Time_x0020_Cetak_x0020_DO_x0020_Panjang" msprop:Generator_UserColumnName="Time Cetak DO Panjang" msprop:Generator_ColumnPropNameInRow="Time_Cetak_DO_Panjang" msprop:Generator_ColumnVarNameInTable="columnTime_Cetak_DO_Panjang" msprop:Generator_ColumnPropNameInTable="Time_Cetak_DO_PanjangColumn" type="xs:dateTime" />
+              <xs:element name="Sudah_x0020_Buat_x0020_Invoice" msprop:Generator_UserColumnName="Sudah Buat Invoice" msprop:Generator_ColumnPropNameInRow="Sudah_Buat_Invoice" msprop:Generator_ColumnVarNameInTable="columnSudah_Buat_Invoice" msprop:Generator_ColumnPropNameInTable="Sudah_Buat_InvoiceColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Invoice" msprop:Generator_UserColumnName="Primary Invoice" msprop:Generator_ColumnPropNameInRow="Primary_Invoice" msprop:Generator_ColumnVarNameInTable="columnPrimary_Invoice" msprop:Generator_ColumnPropNameInTable="Primary_InvoiceColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_do" msprop:Generator_UserTableName="tbltrans_do" msprop:Generator_RowDeletedName="tbltrans_doRowDeleted" msprop:Generator_RowChangedName="tbltrans_doRowChanged" msprop:Generator_RowClassName="tbltrans_doRow" msprop:Generator_RowChangingName="tbltrans_doRowChanging" msprop:Generator_RowEvArgName="tbltrans_doRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_doRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_doDataTable" msprop:Generator_TableVarName="tabletbltrans_do" msprop:Generator_RowDeletingName="tbltrans_doRowDeleting" msprop:Generator_TablePropName="tbltrans_do">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_DO" msprop:Generator_UserColumnName="Primary DO" msprop:Generator_ColumnVarNameInTable="columnPrimary_DO" msprop:Generator_ColumnPropNameInRow="Primary_DO" msprop:Generator_ColumnPropNameInTable="Primary_DOColumn" type="xs:double" />
+              <xs:element name="DO_x0020_No" msprop:Generator_UserColumnName="DO No" msprop:Generator_ColumnVarNameInTable="columnDO_No" msprop:Generator_ColumnPropNameInRow="DO_No" msprop:Generator_ColumnPropNameInTable="DO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Invoice" msprop:Generator_UserColumnName="Primary Invoice" msprop:Generator_ColumnVarNameInTable="columnPrimary_Invoice" msprop:Generator_ColumnPropNameInRow="Primary_Invoice" msprop:Generator_ColumnPropNameInTable="Primary_InvoiceColumn" type="xs:double" />
+              <xs:element name="No_x0020_Invoice" msprop:Generator_UserColumnName="No Invoice" msprop:Generator_ColumnVarNameInTable="columnNo_Invoice" msprop:Generator_ColumnPropNameInRow="No_Invoice" msprop:Generator_ColumnPropNameInTable="No_InvoiceColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Code" msprop:Generator_UserColumnName="Customer Code" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code" msprop:Generator_ColumnPropNameInRow="Customer_Code" msprop:Generator_ColumnPropNameInTable="Customer_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Name" msprop:Generator_UserColumnName="Customer Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Stock_x0020_Out_x0020_Sales" msprop:Generator_UserColumnName="Primary Stock Out Sales" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_Out_Sales" msprop:Generator_ColumnPropNameInRow="Primary_Stock_Out_Sales" msprop:Generator_ColumnPropNameInTable="Primary_Stock_Out_SalesColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Stock_x0020_Out" msprop:Generator_UserColumnName="Tanggal Stock Out" msprop:Generator_ColumnVarNameInTable="columnTanggal_Stock_Out" msprop:Generator_ColumnPropNameInRow="Tanggal_Stock_Out" msprop:Generator_ColumnPropNameInTable="Tanggal_Stock_OutColumn" type="xs:dateTime" default="1950-01-01T00:00:00+07:00" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salesinvoice_item" msprop:Generator_UserTableName="tbltrans_salesinvoice_item" msprop:Generator_RowDeletedName="tbltrans_salesinvoice_itemRowDeleted" msprop:Generator_RowChangedName="tbltrans_salesinvoice_itemRowChanged" msprop:Generator_RowClassName="tbltrans_salesinvoice_itemRow" msprop:Generator_RowChangingName="tbltrans_salesinvoice_itemRowChanging" msprop:Generator_RowEvArgName="tbltrans_salesinvoice_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salesinvoice_itemRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salesinvoice_itemDataTable" msprop:Generator_TableVarName="tabletbltrans_salesinvoice_item" msprop:Generator_RowDeletingName="tbltrans_salesinvoice_itemRowDeleting" msprop:Generator_TablePropName="tbltrans_salesinvoice_item">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_DO" msprop:Generator_UserColumnName="Primary DO" msprop:Generator_ColumnPropNameInRow="Primary_DO" msprop:Generator_ColumnVarNameInTable="columnPrimary_DO" msprop:Generator_ColumnPropNameInTable="Primary_DOColumn" type="xs:double" />
+              <xs:element name="Cost" msprop:Generator_UserColumnName="Cost" msprop:Generator_ColumnPropNameInRow="Cost" msprop:Generator_ColumnVarNameInTable="columnCost" msprop:Generator_ColumnPropNameInTable="CostColumn" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

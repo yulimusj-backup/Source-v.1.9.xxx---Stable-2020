@@ -1,0 +1,2993 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{48EBF45E-3461-4679-AA37-C148BD20BE39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <StartupObject>
+    </StartupObject>
+    <RootNamespace>Sales_Module</RootNamespace>
+    <AssemblyName>Sales Module</AssemblyName>
+    <MyType>Windows</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Sales Module.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Sales Module.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="MySql.Data, Version=5.2.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\MySql.Data\5.2.5.0__c5687fc88969c44d\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Class\ClsLicense.vb" />
+    <Compile Include="Class\ClsMultiAccount.vb" />
+    <Compile Include="Class\ClsTransaksiBookingGIT.vb" />
+    <Compile Include="Class\ClsTransaksiBookingGITitem.vb" />
+    <Compile Include="Class\ClsTransaksiBookingInv.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Class\ClsTransaksiBookingInvItem.vb" />
+    <Compile Include="Class\ClsTransaksiCreditNote.vb" />
+    <Compile Include="Class\ClsTransaksiDO.vb" />
+    <Compile Include="Class\ClsTransaksiDOItem.vb" />
+    <Compile Include="Class\ClsTransaksiDOLoss.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Class\ClsTransaksiDOLossItem.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Class\ClsTransaksiJurnal.vb" />
+    <Compile Include="Class\ClsTransaksiMonthlyClosing.vb" />
+    <Compile Include="Class\ClsTransaksiPackingList.vb" />
+    <Compile Include="Class\ClsTransaksiPackingListItem.vb" />
+    <Compile Include="Class\ClsTransaksiPOItem.vb" />
+    <Compile Include="Class\ClsTransaksiPurchaseClosing.vb" />
+    <Compile Include="Class\ClsTransaksiQuotation.vb" />
+    <Compile Include="Class\ClsTransaksiQuotationItem.vb" />
+    <Compile Include="Class\ClsTransaksiSalesBudget.vb" />
+    <Compile Include="Class\ClsTransaksiSalesBudget_Item.vb" />
+    <Compile Include="Class\ClsTransaksiSalesInvoice.vb" />
+    <Compile Include="Class\ClsTransaksiSalesInvoiceItem.vb" />
+    <Compile Include="Class\ClsTransaksiSalesInvoiceTaxRate.vb" />
+    <Compile Include="Class\ClsTransaksiSalesInvoice_SettingTaxInvoice.vb" />
+    <Compile Include="Class\ClsTransaksiSalesOrder.vb" />
+    <Compile Include="Class\ClsTransaksiSalesOrderItem.vb" />
+    <Compile Include="Class\ClsTransaksiSalesReturn.vb" />
+    <Compile Include="Class\ClsTransaksiSalesReturnItem.vb" />
+    <Compile Include="Class\clsTransaksiSettingcustomerProductCodeNoItem.vb" />
+    <Compile Include="Class\ClsTransaksiSOC.vb" />
+    <Compile Include="Class\ClsTransaksiSOCItem.vb" />
+    <Compile Include="Class\clsTransaksiSettingcustomerProductCodeNo.vb" />
+    <Compile Include="Class\ClsTransaksi_Kartu_APAR.vb" />
+    <Compile Include="Datasets\DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseCetakTransaksiSalesInvoice.Designer.vb">
+      <DependentUpon>DseCetakTransaksiSalesInvoice.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseCetakTransaksiSalesInvoice.vb">
+      <DependentUpon>DseCetakTransaksiSalesInvoice.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseClosing_Explain_Out.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseClosing_Explain_Out.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseClosing_Explain_Out.vb">
+      <DependentUpon>DseClosing_Explain_Out.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseEditPriceList.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dseEditPriceList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseEditPriceList.vb">
+      <DependentUpon>dseEditPriceList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanInternalPurchaseOrder.Designer.vb">
+      <DependentUpon>DseLaporanInternalPurchaseOrder.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanInternalPurchaseOrderByBrand.Designer.vb">
+      <DependentUpon>DseLaporanInternalPurchaseOrderByBrand.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanInternalPurchaseOrderByBrand.vb">
+      <DependentUpon>DseLaporanInternalPurchaseOrderByBrand.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanInternalPurchaseOrderBySupplier.Designer.vb">
+      <DependentUpon>DseLaporanInternalPurchaseOrderBySupplier.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesAnalysis.Designer.vb">
+      <DependentUpon>DseLaporanSalesAnalysis.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesAnalysis.vb">
+      <DependentUpon>DseLaporanSalesAnalysis.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesDP.Designer.vb">
+      <DependentUpon>DseLaporanSalesDP.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesDP.vb">
+      <DependentUpon>DseLaporanSalesDP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesListByDO.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanSalesListByDO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesOrderBalance.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanSalesOrderBalance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesOrderBalance.vb">
+      <DependentUpon>DseLaporanSalesOrderBalance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseLaporanSalesOrderBalance2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dseLaporanSalesOrderBalance2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseLaporanSalesOrderBalance2.vb">
+      <DependentUpon>dseLaporanSalesOrderBalance2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesPerformance.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanSalesPerformance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesPerformance.vb">
+      <DependentUpon>DseLaporanSalesPerformance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesReportByInvoice.Designer.vb">
+      <DependentUpon>DseLaporanSalesReportByInvoice.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesReportByInvoice.vb">
+      <DependentUpon>DseLaporanSalesReportByInvoice.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesReturnDetail.Designer.vb">
+      <DependentUpon>DseLaporanSalesReturnDetail.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesReturnDetail.vb">
+      <DependentUpon>DseLaporanSalesReturnDetail.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesReturnList.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanSalesReturnList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesReturnList.vb">
+      <DependentUpon>DseLaporanSalesReturnList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesReturnStatistic.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanSalesReturnStatistic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesStatistic.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanSalesStatistic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalesStatistic.vb">
+      <DependentUpon>DseLaporanSalesStatistic.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseLaporanStockDetail.Designer.vb">
+      <DependentUpon>dseLaporanStockDetail.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanTransaksiHistoricalSales.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanTransaksiHistoricalSales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanTransaksiHistoricalSales.vb">
+      <DependentUpon>DseLaporanTransaksiHistoricalSales.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMultiAccount.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMultiAccount.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseSalesOrderReportByDateDetail.Designer.vb">
+      <DependentUpon>DseSalesOrderReportByDateDetail.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseSalesOrderReportByDateDetail.vb">
+      <DependentUpon>DseSalesOrderReportByDateDetail.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTaxInvoiceSetting.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTaxInvoiceSetting.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseTransActivities.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dseTransActivities.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiBookingGIT.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiBookingGIT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiBookingGIT.vb">
+      <DependentUpon>DseTransaksiBookingGIT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiBookingInv.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiBookingInv.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiBookingInv.vb">
+      <DependentUpon>DseTransaksiBookingInv.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiCustomerCodeSetting.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiCustomerCodeSetting.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiCustomerCodeSetting.vb">
+      <DependentUpon>DseTransaksiCustomerCodeSetting.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiDO.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiDO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiDO.vb">
+      <DependentUpon>DseTransaksiDO.xsd</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiDOLoss.Designer.vb">
+      <DependentUpon>DseTransaksiDOLoss.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiDOLoss.vb">
+      <DependentUpon>DseTransaksiDOLoss.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiDO_AddByLocation.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiDO_AddByLocation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiDO_AddByLocation.vb">
+      <DependentUpon>DseTransaksiDO_AddByLocation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiJurnal.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiJurnal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiPackingList.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiPackingList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiPackingListItem.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiPackingListItem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiPackingListItem.vb">
+      <DependentUpon>DseTransaksiPackingListItem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiPOItem.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiPOItem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiPurchaseClosing.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiPurchaseClosing.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiQuick_DO.Designer.vb">
+      <DependentUpon>DseTransaksiQuick_DO.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiQuick_DO.vb">
+      <DependentUpon>DseTransaksiQuick_DO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiQuick_DO2.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiQuick_DO2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiQuotation.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiQuotation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiQuotation.vb">
+      <DependentUpon>DseTransaksiQuotation.xsd</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiRepairSalesPerson.Designer.vb">
+      <DependentUpon>DseTransaksiRepairSalesPerson.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalesBudget.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSalesBudget.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalesInvoice.Designer.vb">
+      <DependentUpon>DseTransaksiSalesInvoice.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalesInvoice.vb">
+      <DependentUpon>DseTransaksiSalesInvoice.xsd</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalesInvoice_QuickByStockOut.Designer.vb" />
+    <Compile Include="Datasets\DseTransaksiSalesInvoice_TaxRate.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSalesInvoice_TaxRate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalesInvoice_TransfJurnal.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSalesInvoice_TransfJurnal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\dseTransaksiSalesReturn.Designer.vb">
+      <DependentUpon>dseTransaksiSalesReturn.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\dseTransaksiSalesReturn.vb">
+      <DependentUpon>dseTransaksiSalesReturn.xsd</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalesReturn_TransJurnal.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSalesReturn_TransJurnal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSO.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSO.vb">
+      <DependentUpon>DseTransaksiSO.xsd</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSOC.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSOC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSOC.vb">
+      <DependentUpon>DseTransaksiSOC.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSOC_Quick.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSOC_Quick.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSO_OrderBalance.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSO_OrderBalance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransfGL.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransfGL.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Kartu_APAR.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_Kartu_APAR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariCustomerProductCodeNo.Designer.vb">
+      <DependentUpon>FrmCariCustomerProductCodeNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariCustomerProductCodeNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiBookingGIT.Designer.vb">
+      <DependentUpon>FrmCariTransaksiBookingGIT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiBookingGIT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiBookingInv.Designer.vb">
+      <DependentUpon>FrmCariTransaksiBookingInv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiBookingInv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiCustomerCodeNoSetting.Designer.vb">
+      <DependentUpon>FrmCariTransaksiCustomerCodeNoSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiCustomerCodeNoSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiDO.Designer.vb">
+      <DependentUpon>FrmCariTransaksiDO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiDO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiDOLoss.Designer.vb">
+      <DependentUpon>FrmCariTransaksiDOLoss.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiDOLoss.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiKwitansi.Designer.vb">
+      <DependentUpon>FrmCariTransaksiKwitansi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiKwitansi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiPackingList.Designer.vb">
+      <DependentUpon>FrmCariTransaksiPackingList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiPackingList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiQuotation.Designer.vb">
+      <DependentUpon>FrmCariTransaksiQuotation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiQuotation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiSalesInvoice.Designer.vb">
+      <DependentUpon>FrmCariTransaksiSalesInvoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiSalesInvoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiSalesReturn.Designer.vb">
+      <DependentUpon>FrmCariTransaksiSalesReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiSalesReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiSO.Designer.vb">
+      <DependentUpon>FrmCariTransaksiSO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiSO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiSOC.Designer.vb">
+      <DependentUpon>FrmCariTransaksiSOC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCariTransaksiSOC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakDO.Designer.vb">
+      <DependentUpon>FrmCetakDO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakDO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakFaktur.Designer.vb">
+      <DependentUpon>FrmCetakFaktur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakFaktur.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakFakturDP.Designer.vb">
+      <DependentUpon>FrmCetakFakturDP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakFakturDP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakInvoice.Designer.vb">
+      <DependentUpon>FrmCetakInvoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakInvoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakProformaInvoice.Designer.vb">
+      <DependentUpon>FrmCetakProformaInvoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakProformaInvoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakQuotation1.Designer.vb">
+      <DependentUpon>FrmCetakQuotation1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakQuotation1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakQuotation.Designer.vb">
+      <DependentUpon>FrmCetakQuotation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakQuotation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmCetakSO.Designer.vb">
+      <DependentUpon>frmCetakSO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmCetakSO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakTransaksiIPO.Designer.vb">
+      <DependentUpon>FrmCetakTransaksiIPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakTransaksiIPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakTransaksiNotaRetur.Designer.vb">
+      <DependentUpon>FrmCetakTransaksiNotaRetur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakTransaksiNotaRetur.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakTransaksiSalesOrder.Designer.vb">
+      <DependentUpon>FrmCetakTransaksiSalesOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakTransaksiSalesOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmCetakTransaksiSalesReturn.Designer.vb">
+      <DependentUpon>FrmCetakTransaksiSalesReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmCetakTransaksiSalesReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmDialogCancellationReason.Designer.vb">
+      <DependentUpon>FrmDialogCancellationReason.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmDialogCancellationReason.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmEditPriceList.Designer.vb">
+      <DependentUpon>FrmEditPriceList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmEditPriceList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanCommission.Designer.vb">
+      <DependentUpon>FrmLaporanCommission.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanCommission.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanCommission_DetailSorting.Designer.vb">
+      <DependentUpon>FrmLaporanCommission_DetailSorting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanCommission_DetailSorting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanExplainClosingB.Designer.vb">
+      <DependentUpon>FrmLaporanExplainClosingB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanExplainClosingB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanHistoricalSales.Designer.vb">
+      <DependentUpon>FrmLaporanHistoricalSales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanHistoricalSales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanInternalPurchaseOrder.Designer.vb">
+      <DependentUpon>FrmLaporanInternalPurchaseOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanInternalPurchaseOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanPenjualan.Designer.vb">
+      <DependentUpon>FrmLaporanPenjualan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanPenjualan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanQuotationDetail.Designer.vb">
+      <DependentUpon>FrmLaporanQuotationDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanQuotationDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanQuotationRealisasi.Designer.vb">
+      <DependentUpon>FrmLaporanQuotationRealisasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanQuotationRealisasi.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanQuotationRealisasiChart.Designer.vb">
+      <DependentUpon>FrmLaporanQuotationRealisasiChart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanQuotationRealisasiChart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanQuotationTrendChart.Designer.vb">
+      <DependentUpon>FrmLaporanQuotationTrendChart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanQuotationTrendChart.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesAnalysis.Designer.vb">
+      <DependentUpon>FrmLaporanSalesAnalysis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesAnalysis.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesDP.Designer.vb">
+      <DependentUpon>FrmLaporanSalesDP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesDP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesListByDO.Designer.vb">
+      <DependentUpon>FrmLaporanSalesListByDO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesListByDO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesListByDO_MataUang.Designer.vb">
+      <DependentUpon>FrmLaporanSalesListByDO_MataUang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesListByDO_MataUang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesOrderBalance.Designer.vb">
+      <DependentUpon>FrmLaporanSalesOrderBalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesOrderBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesOrderBalanceAll.Designer.vb">
+      <DependentUpon>FrmLaporanSalesOrderBalanceAll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesOrderBalanceAll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesPerformance.Designer.vb">
+      <DependentUpon>FrmLaporanSalesPerformance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesPerformance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesReturnDetail.designer.vb">
+      <DependentUpon>FrmLaporanSalesReturnDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesReturnDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesReturnList.Designer.vb">
+      <DependentUpon>FrmLaporanSalesReturnList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesReturnList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesStatistic.Designer.vb">
+      <DependentUpon>FrmLaporanSalesStatistic.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesStatistic.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMasterProspect.Designer.vb">
+      <DependentUpon>FrmMasterProspect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmMasterProspect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmMasterProspect_Opportunity.Designer.vb">
+      <DependentUpon>FrmMasterProspect_Opportunity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmMasterProspect_Opportunity.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesOrderReportByDateDetail.designer.vb">
+      <DependentUpon>FrmLaporanSalesOrderReportByDateDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmLaporanSalesOrderReportByDateDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmSalesReport.Designer.vb">
+      <DependentUpon>FrmSalesReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmSalesReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiBookingInv.designer.vb">
+      <DependentUpon>FrmTransaksiBookingInv.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiBookingInv.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO3.Designer.vb">
+      <DependentUpon>FrmTransaksiDO3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO3_Option.Designer.vb">
+      <DependentUpon>FrmTransaksiDO3_Option.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO3_Option.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO3_PickQty.Designer.vb">
+      <DependentUpon>FrmTransaksiDO3_PickQty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO3_PickQty.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO_Quick.Designer.vb">
+      <DependentUpon>FrmTransaksiDO_Quick.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO_Quick.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO_Quick_InputSoNo.Designer.vb">
+      <DependentUpon>FrmTransaksiDO_Quick_InputSoNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO_Quick_InputSoNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO_Quick_PerBatch.Designer.vb">
+      <DependentUpon>FrmTransaksiDO_Quick_PerBatch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO_Quick_PerBatch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiJournal_Sales.Designer.vb">
+      <DependentUpon>FrmTransaksiJournal_Sales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiJournal_Sales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotation.Designer.vb">
+      <DependentUpon>FrmTransaksiQuotation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotationAuthorizationDetail.Designer.vb">
+      <DependentUpon>FrmTransaksiQuotationAuthorizationDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotationAuthorizationDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotationOtorisasi2.Designer.vb">
+      <DependentUpon>FrmTransaksiQuotationOtorisasi2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotationOtorisasi2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotation_SetDelivery.Designer.vb">
+      <DependentUpon>FrmTransaksiQuotation_SetDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotation_SetDelivery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotation_SetQtyRatio.Designer.vb">
+      <DependentUpon>FrmTransaksiQuotation_SetQtyRatio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiQuotation_SetQtyRatio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiRepairInvoice.Designer.vb">
+      <DependentUpon>FrmTransaksiRepairInvoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiRepairInvoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesBudget.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesBudget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesBudget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesBudget_cari.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesBudget_cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesBudget_cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesBudget_Cetak.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesBudget_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesBudget_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesBudget_DetailBudget.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesBudget_DetailBudget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesBudget_DetailBudget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice1.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceCustDetail.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoiceCustDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceCustDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceDP.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoiceDP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceDP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceQuick.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoiceQuick.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceQuick.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceQuick_DetailNumber.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoiceQuick_DetailNumber.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceQuick_DetailNumber.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceSettingPajak.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoiceSettingPajak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceSettingPajak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceSettingPajak_Cari.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoiceSettingPajak_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceSettingPajak_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoiceSettingPajak_partial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_AddData.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_AddData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_AddData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_EditDONumber.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_EditDONumber.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_EditDONumber.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_EditNo.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_EditNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_EditNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_EditNo2.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_EditNo2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_EditNo2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_InfoFakturPajak.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_InfoFakturPajak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_InfoFakturPajak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_JenisFakturPajakStandar.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_JenisFakturPajakStandar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_JenisFakturPajakStandar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_KeteranganTambahanEFaktur.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_KeteranganTambahanEFaktur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_KeteranganTambahanEFaktur.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_QuickByStockOut.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut_Exception.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_QuickByStockOut_Exception.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut_Exception.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut_Option.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesInvoice_QuickByStockOut_Option.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut_Option.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesReturn.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesReturn_Quick.Designer.vb">
+      <DependentUpon>FrmTransaksiSalesReturn_Quick.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSalesReturn_Quick.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO.Designer.vb">
+      <DependentUpon>FrmTransaksiSO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSOC.Designer.vb">
+      <DependentUpon>FrmTransaksiSOC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSOC.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSOC_Cetak.Designer.vb">
+      <DependentUpon>FrmTransaksiSOC_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSOC_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSOC_Quick.Designer.vb">
+      <DependentUpon>FrmTransaksiSOC_Quick.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSOC_Quick.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_Exception.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_Exception.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_Exception.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_HistorycalPrice.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_HistorycalPrice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_HistorycalPrice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_ImporQuo.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_ImporQuo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_ImporQuo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_ReminderAR.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_ReminderAR.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_ReminderAR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetDelivery.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_SetDelivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetDelivery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetDeliveryDate.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_SetDeliveryDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetDeliveryDate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetQtyRatio.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_SetQtyRatio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetQtyRatio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetSOB.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_SetSOB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetSOB.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetVisible.Designer.vb">
+      <DependentUpon>FrmTransaksiSO_SetVisible.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiSO_SetVisible.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiStockOutSales.Designer.vb">
+      <DependentUpon>FrmTransaksiStockOutSales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiStockOutSales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransferBeginingBalance_Date.Designer.vb">
+      <DependentUpon>FrmTransferBeginingBalance_Date.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransferBeginingBalance_Date.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTransferBeginingBalance_Error.Designer.vb">
+      <DependentUpon>FrmTransferBeginingBalance_Error.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransferBeginingBalance_Error.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTrans_Opportunity.Designer.vb">
+      <DependentUpon>FrmTrans_Opportunity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTrans_Opportunity.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard.Designer.vb">
+      <DependentUpon>FrmTrans_SalesDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard_AR.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard_MA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard_MA_DeliveryDetail.Designer.vb">
+      <DependentUpon>FrmTrans_SalesDashboard_MA_DeliveryDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard_MA_DeliveryDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard_MA_Print.Designer.vb">
+      <DependentUpon>FrmTrans_SalesDashboard_MA_Print.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard_MA_Print.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmTrans_SalesDashboard_UP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\New\FrmImport_Art.Designer.vb">
+      <DependentUpon>FrmImport_Art.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\New\FrmImport_Art.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\New\DseImport_eFaktur.Designer.vb">
+      <DependentUpon>DseImport_eFaktur.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Form\New\FrmImport_eFaktur.Designer.vb">
+      <DependentUpon>FrmImport_eFaktur.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\New\FrmImport_eFaktur.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\New\FrmQtyOnHand.Designer.vb">
+      <DependentUpon>FrmQtyOnHand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\New\FrmQtyOnHand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ModGlobalVariable.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotation2_Batch.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotation2_Batch.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotationDetail_Batch.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotationDetail_Batch.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotationPanjang2_Batch.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotationPanjang2_Batch.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotationPanjang_Batch.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotationPanjang_Batch.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotation_Batch.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotation_Batch.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesDP.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesDP.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformance_Composition2.vb">
+      <DependentUpon>CrpLaporanSalesPerformance_Composition2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformance_Composition.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesPerformance_Composition.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformance_Trend2.vb">
+      <DependentUpon>CrpLaporanSalesPerformance_Trend2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformanceRecap5.vb">
+      <DependentUpon>CrpLaporanSalesPerformanceRecap5.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformanceRecap4.vb">
+      <DependentUpon>CrpLaporanSalesPerformanceRecap4.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformanceRecap3.vb">
+      <DependentUpon>CrpLaporanSalesPerformanceRecap3.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformanceRecap.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesPerformanceRecap.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformanceRecap2.vb">
+      <DependentUpon>CrpLaporanSalesPerformanceRecap2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiDO2a.vb">
+      <DependentUpon>CrpCetakTransaksiDO2a.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiInvoice.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiInvoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiInvoice2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiInvoice2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiSalesBudget.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiSalesBudget.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesAnalysisByBrand_Return.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesAnalysisByBrand_Return.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesPerformance_Trend.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesPerformance_Trend.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesReturnDetail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesReturnDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesReturnDetailGroup.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesReturnDetailGroup.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesReturnList_Rev_Invoice.vb">
+      <DependentUpon>CrpLaporanSalesReturnList_Rev_Invoice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\CrpSalesOrderReportByDateDetail.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpSalesOrderReportByDateDetail.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpSalesReportByInvoiceDetail.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpSalesReportByInvoiceDetail.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpSalesReportByInvoiceDetail_SubReport.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpSalesReportByInvoiceDetail_SubReport.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpSalesReportByInvoiceRekap.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpSalesReportByInvoiceRekap.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpSalesReportByInvoiceRekap_SubReport.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpSalesReportByInvoiceRekap_SubReport.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpVAT_Termin.vb">
+      <DependentUpon>CrpVAT_Termin.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpVAT_Uang Muka.vb">
+      <DependentUpon>CrpVAT_Uang Muka.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpVAT_Penggantian.vb">
+      <DependentUpon>CrpVAT_Penggantian.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpVAT_HargaJual.vb">
+      <DependentUpon>CrpVAT_HargaJual.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesReturnStatistic.vb">
+      <DependentUpon>CrpLaporanSalesReturnStatistic.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesOrderBalance.vb">
+      <DependentUpon>CrpLaporanSalesOrderBalance.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesListByDO2.vb">
+      <DependentUpon>CrpLaporanSalesListByDO2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanClosingB.vb">
+      <DependentUpon>CrpLaporanClosingB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpCetakFakturPajakSederhana.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakFakturPajakSederhana.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crpCetakKwitansiArtha.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crpCetakKwitansiArtha.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\crpCetakKwitansi_CMSI.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crpCetakKwitansi_CMSI.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiDOa.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiDOa.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiIPO.vb">
+      <DependentUpon>CrpCetakTransaksiIPO.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiNotaRetur.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiNotaRetur.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotation.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotation.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotation2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotation2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotationDetail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotationDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotationPanjang.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotationPanjang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiQuotationPanjang2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiQuotationPanjang2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiSalesReturnComplete.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiSalesReturnComplete.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiSalesReturnTanpaED.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiSalesReturnTanpaED.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiSalesReturnTanpaEDNBatchNo.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiSalesReturnTanpaEDNBatchNo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiSalesReturnTanpaEDNBatchNoNQtyPerBatch.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiSalesReturnTanpaEDNBatchNoNQtyPerBatch.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanClosingA.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanClosingA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanInternalPurchaseOrder.vb">
+      <DependentUpon>CrpLaporanInternalPurchaseOrder.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanInternalPurchaseOrderByBrand.vb">
+      <DependentUpon>CrpLaporanInternalPurchaseOrderByBrand.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanInternalPurchaseOrderBySupplier.vb">
+      <DependentUpon>CrpLaporanInternalPurchaseOrderBySupplier.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\crpLaporanSalesOrderBalance2.vb">
+      <DependentUpon>crpLaporanSalesOrderBalance2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesOrderBalance_3.vb">
+      <DependentUpon>CrpLaporanSalesOrderBalance_3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\CrpCetakTransaksiCustomerComplain.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransaksiCustomerComplain.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanHistoricalSales1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanHistoricalSales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesAnalysisByCustomerType.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesAnalysisByCustomerType.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesAnalysisByBrand.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesAnalysisByBrand.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesAnalysisBySalesAreaDetail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesAnalysisBySalesAreaDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesAnalysisBySalesAreaRekap.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesAnalysisBySalesAreaRekap.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesStatisticByCustomer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesStatisticByCustomer.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesListByDO.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesListByDO.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesAnalysisByMarketSegmentation.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanSalesAnalysisByMarketSegmentation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\CrpLaporanSalesStatisticByCustomerGroup.vb">
+      <DependentUpon>CrpLaporanSalesStatisticByCustomerGroup.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Reports\CrpTransaksiSO.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTransaksiSO.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form\FrmCariCustomerProductCodeNo.resx">
+      <DependentUpon>FrmCariCustomerProductCodeNo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiBookingGIT.resx">
+      <DependentUpon>FrmCariTransaksiBookingGIT.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiBookingInv.resx">
+      <DependentUpon>FrmCariTransaksiBookingInv.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiCustomerCodeNoSetting.resx">
+      <DependentUpon>FrmCariTransaksiCustomerCodeNoSetting.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiDO.resx">
+      <DependentUpon>FrmCariTransaksiDO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiDOLoss.resx">
+      <DependentUpon>FrmCariTransaksiDOLoss.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiKwitansi.resx">
+      <DependentUpon>FrmCariTransaksiKwitansi.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiPackingList.resx">
+      <DependentUpon>FrmCariTransaksiPackingList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiQuotation.resx">
+      <DependentUpon>FrmCariTransaksiQuotation.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiSalesInvoice.resx">
+      <DependentUpon>FrmCariTransaksiSalesInvoice.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiSalesReturn.resx">
+      <DependentUpon>FrmCariTransaksiSalesReturn.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiSO.resx">
+      <DependentUpon>FrmCariTransaksiSO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCariTransaksiSOC.resx">
+      <DependentUpon>FrmCariTransaksiSOC.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakDO.resx">
+      <DependentUpon>FrmCetakDO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakFaktur.resx">
+      <DependentUpon>FrmCetakFaktur.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakFakturDP.resx">
+      <DependentUpon>FrmCetakFakturDP.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakInvoice.resx">
+      <DependentUpon>FrmCetakInvoice.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakProformaInvoice.resx">
+      <DependentUpon>FrmCetakProformaInvoice.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakQuotation1.resx">
+      <DependentUpon>FrmCetakQuotation1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakQuotation.resx">
+      <DependentUpon>FrmCetakQuotation.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmCetakSO.resx">
+      <DependentUpon>frmCetakSO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakTransaksiIPO.resx">
+      <DependentUpon>FrmCetakTransaksiIPO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakTransaksiNotaRetur.resx">
+      <DependentUpon>FrmCetakTransaksiNotaRetur.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmCetakTransaksiSalesReturn.resx">
+      <DependentUpon>FrmCetakTransaksiSalesReturn.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmDialogCancellationReason.resx">
+      <DependentUpon>FrmDialogCancellationReason.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmEditPriceList.resx">
+      <DependentUpon>FrmEditPriceList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanCommission.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanCommission.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanCommission_DetailSorting.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanCommission_DetailSorting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanExplainClosingB.resx">
+      <DependentUpon>FrmLaporanExplainClosingB.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanHistoricalSales.resx">
+      <DependentUpon>FrmLaporanHistoricalSales.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanInternalPurchaseOrder.resx">
+      <DependentUpon>FrmLaporanInternalPurchaseOrder.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanPenjualan.resx">
+      <DependentUpon>FrmLaporanPenjualan.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanQuotationDetail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanQuotationDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanQuotationRealisasi.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanQuotationRealisasi.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanQuotationRealisasiChart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanQuotationRealisasiChart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanQuotationTrendChart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanQuotationTrendChart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesAnalysis.resx">
+      <DependentUpon>FrmLaporanSalesAnalysis.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesDP.resx">
+      <DependentUpon>FrmLaporanSalesDP.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesListByDO.resx">
+      <DependentUpon>FrmLaporanSalesListByDO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesListByDO_MataUang.resx">
+      <DependentUpon>FrmLaporanSalesListByDO_MataUang.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesOrderBalance.resx">
+      <DependentUpon>FrmLaporanSalesOrderBalance.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesOrderBalanceAll.resx">
+      <DependentUpon>FrmLaporanSalesOrderBalanceAll.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesPerformance.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanSalesPerformance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesReturnDetail.resx">
+      <DependentUpon>FrmLaporanSalesReturnDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesReturnList.resx">
+      <DependentUpon>FrmLaporanSalesReturnList.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesStatistic.resx">
+      <DependentUpon>FrmLaporanSalesStatistic.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmMasterProspect.resx">
+      <DependentUpon>FrmMasterProspect.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmMasterProspect_Opportunity.resx">
+      <DependentUpon>FrmMasterProspect_Opportunity.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmLaporanSalesOrderReportByDateDetail.resx">
+      <DependentUpon>FrmLaporanSalesOrderReportByDateDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmSalesReport.resx">
+      <DependentUpon>FrmSalesReport.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiBookingInv.resx">
+      <DependentUpon>FrmTransaksiBookingInv.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiDO3.resx">
+      <DependentUpon>FrmTransaksiDO3.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiDO3_Option.resx">
+      <DependentUpon>FrmTransaksiDO3_Option.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiDO3_PickQty.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiDO3_PickQty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiDO_Quick.resx">
+      <DependentUpon>FrmTransaksiDO_Quick.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiDO_Quick_InputSoNo.resx">
+      <DependentUpon>FrmTransaksiDO_Quick_InputSoNo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiDO_Quick_PerBatch.resx">
+      <DependentUpon>FrmTransaksiDO_Quick_PerBatch.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiJournal_Sales.resx">
+      <DependentUpon>FrmTransaksiJournal_Sales.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiQuotation.resx">
+      <DependentUpon>FrmTransaksiQuotation.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiQuotationAuthorizationDetail.resx">
+      <DependentUpon>FrmTransaksiQuotationAuthorizationDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiQuotationOtorisasi2.resx">
+      <DependentUpon>FrmTransaksiQuotationOtorisasi2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiQuotation_SetDelivery.resx">
+      <DependentUpon>FrmTransaksiQuotation_SetDelivery.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiQuotation_SetQtyRatio.resx">
+      <DependentUpon>FrmTransaksiQuotation_SetQtyRatio.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiRepairInvoice.resx">
+      <DependentUpon>FrmTransaksiRepairInvoice.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesBudget.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesBudget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesBudget_cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesBudget_cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesBudget_Cetak.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesBudget_Cetak.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesBudget_DetailBudget.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesBudget_DetailBudget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesInvoice1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoiceCustDetail.resx">
+      <DependentUpon>FrmTransaksiSalesInvoiceCustDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoiceDP.resx">
+      <DependentUpon>FrmTransaksiSalesInvoiceDP.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoiceQuick.resx">
+      <DependentUpon>FrmTransaksiSalesInvoiceQuick.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoiceQuick_DetailNumber.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesInvoiceQuick_DetailNumber.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoiceSettingPajak.resx">
+      <DependentUpon>FrmTransaksiSalesInvoiceSettingPajak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoiceSettingPajak_Cari.resx">
+      <DependentUpon>FrmTransaksiSalesInvoiceSettingPajak_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_AddData.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesInvoice_AddData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_EditDONumber.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice_EditDONumber.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_EditNo.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice_EditNo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_EditNo2.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice_EditNo2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_InfoFakturPajak.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice_InfoFakturPajak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_JenisFakturPajakStandar.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice_JenisFakturPajakStandar.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_KeteranganTambahanEFaktur.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesInvoice_KeteranganTambahanEFaktur.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice_QuickByStockOut.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut_Exception.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice_QuickByStockOut_Exception.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesInvoice_QuickByStockOut_Option.resx">
+      <DependentUpon>FrmTransaksiSalesInvoice_QuickByStockOut_Option.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesReturn.resx">
+      <DependentUpon>FrmTransaksiSalesReturn.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSalesReturn_Quick.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSalesReturn_Quick.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO.resx">
+      <DependentUpon>FrmTransaksiSO.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSOC.resx">
+      <DependentUpon>FrmTransaksiSOC.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSOC_Cetak.resx">
+      <DependentUpon>FrmTransaksiSOC_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSOC_Quick.resx">
+      <DependentUpon>FrmTransaksiSOC_Quick.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_Exception.resx">
+      <DependentUpon>FrmTransaksiSO_Exception.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_HistorycalPrice.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSO_HistorycalPrice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_ImporQuo.resx">
+      <DependentUpon>FrmTransaksiSO_ImporQuo.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_ReminderAR.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSO_ReminderAR.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_SetDelivery.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiSO_SetDelivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_SetDeliveryDate.resx">
+      <DependentUpon>FrmTransaksiSO_SetDeliveryDate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_SetQtyRatio.resx">
+      <DependentUpon>FrmTransaksiSO_SetQtyRatio.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_SetSOB.resx">
+      <DependentUpon>FrmTransaksiSO_SetSOB.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiSO_SetVisible.resx">
+      <DependentUpon>FrmTransaksiSO_SetVisible.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiStockOutSales.resx">
+      <DependentUpon>FrmTransaksiStockOutSales.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransferBeginingBalance_Date.resx">
+      <DependentUpon>FrmTransferBeginingBalance_Date.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransferBeginingBalance_Error.resx">
+      <DependentUpon>FrmTransferBeginingBalance_Error.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTrans_Opportunity.resx">
+      <DependentUpon>FrmTrans_Opportunity.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTrans_SalesDashboard.resx">
+      <DependentUpon>FrmTrans_SalesDashboard.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTrans_SalesDashboard_MA_DeliveryDetail.resx">
+      <DependentUpon>FrmTrans_SalesDashboard_MA_DeliveryDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTrans_SalesDashboard_MA_Print.resx">
+      <DependentUpon>FrmTrans_SalesDashboard_MA_Print.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\New\FrmImport_Art.resx">
+      <DependentUpon>FrmImport_Art.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\New\FrmImport_eFaktur.resx">
+      <DependentUpon>FrmImport_eFaktur.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\New\FrmQtyOnHand.resx">
+      <DependentUpon>FrmQtyOnHand.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotation2_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotation2_Batch.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotationDetail_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotationDetail_Batch.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotationPanjang2_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotationPanjang2_Batch.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotationPanjang_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotationPanjang_Batch.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotation_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotation_Batch.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesDP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesDP.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformance_Composition2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformance_Composition2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformance_Composition.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformance_Composition.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformance_Trend2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformance_Trend2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformanceRecap5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformanceRecap5.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformanceRecap4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformanceRecap4.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformanceRecap3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformanceRecap3.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformanceRecap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformanceRecap.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformanceRecap2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformanceRecap2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiDO2a.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiDO2a.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiInvoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiInvoice.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiInvoice2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiInvoice2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiSalesBudget.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiSalesBudget.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesAnalysisByBrand_Return.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesAnalysisByBrand_Return.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesPerformance_Trend.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesPerformance_Trend.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesReturnDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesReturnDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesReturnDetailGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesReturnDetailGroup.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesReturnList_Rev_Invoice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesReturnList_Rev_Invoice.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpSalesOrderReportByDateDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpSalesOrderReportByDateDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpSalesReportByInvoiceDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpSalesReportByInvoiceDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpSalesReportByInvoiceDetail_SubReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpSalesReportByInvoiceDetail_SubReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpSalesReportByInvoiceRekap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpSalesReportByInvoiceRekap.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpSalesReportByInvoiceRekap_SubReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpSalesReportByInvoiceRekap_SubReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpVAT_Termin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpVAT_Termin.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpVAT_Uang Muka.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpVAT_Uang Muka.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpVAT_Penggantian.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpVAT_Penggantian.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpVAT_HargaJual.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpVAT_HargaJual.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesReturnStatistic.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesReturnStatistic.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesOrderBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesOrderBalance.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesListByDO2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesListByDO2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanClosingB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanClosingB.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakFakturPajakSederhana.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakFakturPajakSederhana.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crpCetakKwitansiArtha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpCetakKwitansiArtha.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crpCetakKwitansi_CMSI.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpCetakKwitansi_CMSI.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiDOa.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiDOa.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiIPO.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiIPO.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiNotaRetur.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiNotaRetur.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotation.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotation2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotation2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotationDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotationDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotationPanjang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotationPanjang.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiQuotationPanjang2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiQuotationPanjang2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiSalesReturnComplete.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiSalesReturnComplete.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiSalesReturnTanpaED.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiSalesReturnTanpaED.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiSalesReturnTanpaEDNBatchNo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiSalesReturnTanpaEDNBatchNo.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiSalesReturnTanpaEDNBatchNoNQtyPerBatch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiSalesReturnTanpaEDNBatchNoNQtyPerBatch.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanClosingA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanClosingA.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanInternalPurchaseOrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanInternalPurchaseOrder.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanInternalPurchaseOrderByBrand.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanInternalPurchaseOrderByBrand.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanInternalPurchaseOrderBySupplier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanInternalPurchaseOrderBySupplier.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crpLaporanSalesOrderBalance2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crpLaporanSalesOrderBalance2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesOrderBalance_3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesOrderBalance_3.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpCetakTransaksiCustomerComplain.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransaksiCustomerComplain.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanHistoricalSales.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanHistoricalSales1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesAnalysisByCustomerType.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesAnalysisByCustomerType.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesAnalysisByBrand.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesAnalysisByBrand.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesAnalysisBySalesAreaDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesAnalysisBySalesAreaDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesAnalysisBySalesAreaRekap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesAnalysisBySalesAreaRekap.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesStatisticByCustomer.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesStatisticByCustomer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesListByDO.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesListByDO.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesAnalysisByMarketSegmentation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesAnalysisByMarketSegmentation.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpLaporanSalesStatisticByCustomerGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanSalesStatisticByCustomerGroup.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrpTransaksiSO.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTransaksiSO.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Datasets\DseLaporanInternalPurchaseOrder.xsc">
+      <DependentUpon>DseLaporanInternalPurchaseOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanInternalPurchaseOrder.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanInternalPurchaseOrder.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanInternalPurchaseOrder.xss">
+      <DependentUpon>DseLaporanInternalPurchaseOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanInternalPurchaseOrderByBrand.xsc">
+      <DependentUpon>DseLaporanInternalPurchaseOrderByBrand.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanInternalPurchaseOrderByBrand.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanInternalPurchaseOrderByBrand.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanInternalPurchaseOrderByBrand.xss">
+      <DependentUpon>DseLaporanInternalPurchaseOrderByBrand.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanInternalPurchaseOrderBySupplier.xsc">
+      <DependentUpon>DseLaporanInternalPurchaseOrderBySupplier.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanInternalPurchaseOrderBySupplier.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanInternalPurchaseOrderBySupplier.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanInternalPurchaseOrderBySupplier.xss">
+      <DependentUpon>DseLaporanInternalPurchaseOrderBySupplier.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesListByDO.xsc">
+      <DependentUpon>DseLaporanSalesListByDO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesListByDO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesListByDO.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalesListByDO.xss">
+      <DependentUpon>DseLaporanSalesListByDO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesOrderBalance.xsc">
+      <DependentUpon>DseLaporanSalesOrderBalance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesOrderBalance.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesOrderBalance.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalesOrderBalance.xss">
+      <DependentUpon>DseLaporanSalesOrderBalance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnList.xsc">
+      <DependentUpon>DseLaporanSalesReturnList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesReturnList.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnList.xss">
+      <DependentUpon>DseLaporanSalesReturnList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesStatistic.xsc">
+      <DependentUpon>DseLaporanSalesStatistic.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesStatistic.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesStatistic.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalesStatistic.xss">
+      <DependentUpon>DseLaporanSalesStatistic.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseLaporanStockDetail.xsc">
+      <DependentUpon>dseLaporanStockDetail.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseLaporanStockDetail.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseLaporanStockDetail.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\dseLaporanStockDetail.xss">
+      <DependentUpon>dseLaporanStockDetail.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanTransaksiHistoricalSales.xsc">
+      <DependentUpon>DseLaporanTransaksiHistoricalSales.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanTransaksiHistoricalSales.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanTransaksiHistoricalSales.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanTransaksiHistoricalSales.xss">
+      <DependentUpon>DseLaporanTransaksiHistoricalSales.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiBookingGIT.xsc">
+      <DependentUpon>DseTransaksiBookingGIT.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiBookingGIT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiBookingGIT.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiBookingGIT.xss">
+      <DependentUpon>DseTransaksiBookingGIT.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiBookingInv.xsc">
+      <DependentUpon>DseTransaksiBookingInv.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiBookingInv.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiBookingInv.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiBookingInv.xss">
+      <DependentUpon>DseTransaksiBookingInv.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiCustomerCodeSetting.xsc">
+      <DependentUpon>DseTransaksiCustomerCodeSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiCustomerCodeSetting.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiCustomerCodeSetting.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiCustomerCodeSetting.xss">
+      <DependentUpon>DseTransaksiCustomerCodeSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiPackingListItem.xsc">
+      <DependentUpon>DseTransaksiPackingListItem.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiPackingListItem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiPackingListItem.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiPackingListItem.xss">
+      <DependentUpon>DseTransaksiPackingListItem.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSOC.xsc">
+      <DependentUpon>DseTransaksiSOC.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSOC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSOC.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSOC.xss">
+      <DependentUpon>DseTransaksiSOC.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archive-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\button reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\classy.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\messagequeuing.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Datasets\DseCetakTransaksiSalesInvoice.xsc">
+      <DependentUpon>DseCetakTransaksiSalesInvoice.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseCetakTransaksiSalesInvoice.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseCetakTransaksiSalesInvoice.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseCetakTransaksiSalesInvoice.xss">
+      <DependentUpon>DseCetakTransaksiSalesInvoice.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseClosing_Explain_Out.xsc">
+      <DependentUpon>DseClosing_Explain_Out.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseClosing_Explain_Out.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseClosing_Explain_Out.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseClosing_Explain_Out.xss">
+      <DependentUpon>DseClosing_Explain_Out.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseEditPriceList.xsc">
+      <DependentUpon>dseEditPriceList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseEditPriceList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseEditPriceList.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseEditPriceList.xss">
+      <DependentUpon>dseEditPriceList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesAnalysis.xsc">
+      <DependentUpon>DseLaporanSalesAnalysis.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesAnalysis.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesAnalysis.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalesAnalysis.xss">
+      <DependentUpon>DseLaporanSalesAnalysis.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseLaporanSalesOrderBalance2.xsc">
+      <DependentUpon>dseLaporanSalesOrderBalance2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseLaporanSalesOrderBalance2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseLaporanSalesOrderBalance2.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseLaporanSalesOrderBalance2.xss">
+      <DependentUpon>dseLaporanSalesOrderBalance2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnStatistic.xsc">
+      <DependentUpon>DseLaporanSalesReturnStatistic.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnStatistic.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesReturnStatistic.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnStatistic.xss">
+      <DependentUpon>DseLaporanSalesReturnStatistic.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTaxInvoiceSetting.xsc">
+      <DependentUpon>DseTaxInvoiceSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTaxInvoiceSetting.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTaxInvoiceSetting.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTaxInvoiceSetting.xss">
+      <DependentUpon>DseTaxInvoiceSetting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseTransActivities.xsc">
+      <DependentUpon>dseTransActivities.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseTransActivities.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseTransActivities.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseTransActivities.xss">
+      <DependentUpon>dseTransActivities.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiDO.xsc">
+      <DependentUpon>DseTransaksiDO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiDO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiDO.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiDO.xss">
+      <DependentUpon>DseTransaksiDO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiDOLoss.xsc">
+      <DependentUpon>DseTransaksiDOLoss.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiDOLoss.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiDOLoss.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiDOLoss.xss">
+      <DependentUpon>DseTransaksiDOLoss.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiJurnal.xsc">
+      <DependentUpon>DseTransaksiJurnal.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiJurnal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiJurnal.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiJurnal.xss">
+      <DependentUpon>DseTransaksiJurnal.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiPackingList.xsc">
+      <DependentUpon>DseTransaksiPackingList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiPackingList.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiPackingList.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiPackingList.xss">
+      <DependentUpon>DseTransaksiPackingList.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiPOItem.xsc">
+      <DependentUpon>DseTransaksiPOItem.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiPOItem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiPOItem.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiPOItem.xss">
+      <DependentUpon>DseTransaksiPOItem.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiPurchaseClosing.xsc">
+      <DependentUpon>DseTransaksiPurchaseClosing.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiPurchaseClosing.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiPurchaseClosing.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiPurchaseClosing.xss">
+      <DependentUpon>DseTransaksiPurchaseClosing.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiQuotation.xsc">
+      <DependentUpon>DseTransaksiQuotation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiQuotation.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiQuotation.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiQuotation.xss">
+      <DependentUpon>DseTransaksiQuotation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_TaxRate.xsc">
+      <DependentUpon>DseTransaksiSalesInvoice_TaxRate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_TaxRate.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalesInvoice_TaxRate.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_TaxRate.xss">
+      <DependentUpon>DseTransaksiSalesInvoice_TaxRate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_TransfJurnal.xsc">
+      <DependentUpon>DseTransaksiSalesInvoice_TransfJurnal.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_TransfJurnal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalesInvoice_TransfJurnal.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_TransfJurnal.xss">
+      <DependentUpon>DseTransaksiSalesInvoice_TransfJurnal.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesReturn_TransJurnal.xsc">
+      <DependentUpon>DseTransaksiSalesReturn_TransJurnal.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesReturn_TransJurnal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalesReturn_TransJurnal.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesReturn_TransJurnal.xss">
+      <DependentUpon>DseTransaksiSalesReturn_TransJurnal.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSO.xsc">
+      <DependentUpon>DseTransaksiSO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSO.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSO.xss">
+      <DependentUpon>DseTransaksiSO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSO_OrderBalance.xsc">
+      <DependentUpon>DseTransaksiSO_OrderBalance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSO_OrderBalance.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSO_OrderBalance.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiSO_OrderBalance.xss">
+      <DependentUpon>DseTransaksiSO_OrderBalance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransfGL.xsc">
+      <DependentUpon>DseTransfGL.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransfGL.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransfGL.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransfGL.xss">
+      <DependentUpon>DseTransfGL.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Kartu_APAR.xsc">
+      <DependentUpon>DseTrans_Kartu_APAR.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Kartu_APAR.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Kartu_APAR.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_Kartu_APAR.xss">
+      <DependentUpon>DseTrans_Kartu_APAR.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\user-256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Datasets\DseLaporanSalesPerformance.xsc">
+      <DependentUpon>DseLaporanSalesPerformance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesPerformance.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesPerformance.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalesPerformance.xss">
+      <DependentUpon>DseLaporanSalesPerformance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesBudget.xsc">
+      <DependentUpon>DseTransaksiSalesBudget.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesBudget.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalesBudget.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesBudget.xss">
+      <DependentUpon>DseTransaksiSalesBudget.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\Green_RIght_Arrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Datasets\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesDP.xsc">
+      <DependentUpon>DseLaporanSalesDP.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesDP.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesDP.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanSalesDP.xss">
+      <DependentUpon>DseLaporanSalesDP.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReportByInvoice.xsc">
+      <DependentUpon>DseLaporanSalesReportByInvoice.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReportByInvoice.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesReportByInvoice.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReportByInvoice.xss">
+      <DependentUpon>DseLaporanSalesReportByInvoice.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnDetail.xsc">
+      <DependentUpon>DseLaporanSalesReturnDetail.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnDetail.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalesReturnDetail.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanSalesReturnDetail.xss">
+      <DependentUpon>DseLaporanSalesReturnDetail.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMultiAccount.xsc">
+      <DependentUpon>DseMultiAccount.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMultiAccount.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMultiAccount.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMultiAccount.xss">
+      <DependentUpon>DseMultiAccount.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseSalesOrderReportByDateDetail.xsc">
+      <DependentUpon>DseSalesOrderReportByDateDetail.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseSalesOrderReportByDateDetail.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseSalesOrderReportByDateDetail.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseSalesOrderReportByDateDetail.xss">
+      <DependentUpon>DseSalesOrderReportByDateDetail.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiDO_AddByLocation.xsc">
+      <DependentUpon>DseTransaksiDO_AddByLocation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiDO_AddByLocation.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiDO_AddByLocation.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiDO_AddByLocation.xss">
+      <DependentUpon>DseTransaksiDO_AddByLocation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_DO.xsc">
+      <DependentUpon>DseTransaksiQuick_DO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_DO.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiQuick_DO.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_DO.xss">
+      <DependentUpon>DseTransaksiQuick_DO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_DO2.xsc">
+      <DependentUpon>DseTransaksiQuick_DO2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_DO2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiQuick_DO2.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_DO2.xss">
+      <DependentUpon>DseTransaksiQuick_DO2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiRepairSalesPerson.xsc">
+      <DependentUpon>DseTransaksiRepairSalesPerson.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiRepairSalesPerson.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiRepairSalesPerson.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiRepairSalesPerson.xss">
+      <DependentUpon>DseTransaksiRepairSalesPerson.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice.xsc">
+      <DependentUpon>DseTransaksiSalesInvoice.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalesInvoice.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice.xss">
+      <DependentUpon>DseTransaksiSalesInvoice.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_QuickByStockOut.xsc">
+      <DependentUpon>DseTransaksiSalesInvoice_QuickByStockOut.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_QuickByStockOut.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiSalesInvoice_QuickByStockOut.xss">
+      <DependentUpon>DseTransaksiSalesInvoice_QuickByStockOut.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseTransaksiSalesReturn.xsc">
+      <DependentUpon>dseTransaksiSalesReturn.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\dseTransaksiSalesReturn.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dseTransaksiSalesReturn.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\dseTransaksiSalesReturn.xss">
+      <DependentUpon>dseTransaksiSalesReturn.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSOC_Quick.xsc">
+      <DependentUpon>DseTransaksiSOC_Quick.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSOC_Quick.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSOC_Quick.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiSOC_Quick.xss">
+      <DependentUpon>DseTransaksiSOC_Quick.xsd</DependentUpon>
+    </None>
+    <None Include="Form\New\DseImport_eFaktur.xsc">
+      <DependentUpon>DseImport_eFaktur.xsd</DependentUpon>
+    </None>
+    <None Include="Form\New\DseImport_eFaktur.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseImport_eFaktur.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Form\New\DseImport_eFaktur.xss">
+      <DependentUpon>DseImport_eFaktur.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\desktop icon 3.fw.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Custom\Creative\CustomSMESS\WindowsApplication1\Custom SMESS.vbproj">
+      <Project>{051C5D37-A626-4803-8A8A-FB321512AAF6}</Project>
+      <Name>Custom SMESS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core Module\Core Module.vbproj">
+      <Project>{F7AFB6D3-C463-4E71-811E-666E760D09FC}</Project>
+      <Name>Core Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\E-mail Module\E-mail Module.vbproj">
+      <Project>{F0D3342B-BD83-4F3C-87AC-7EECC58F702D}</Project>
+      <Name>E-mail Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Inventory Module\Inventory Module.vbproj">
+      <Project>{69264E24-0555-4065-8FF8-B7E625E764A3}</Project>
+      <Name>Inventory Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

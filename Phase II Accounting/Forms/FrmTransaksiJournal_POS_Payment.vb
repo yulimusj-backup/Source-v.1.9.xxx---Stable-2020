@@ -1,0 +1,3 @@
+Public Class FrmTransaksiJournal_POS_Payment
+
+End Class

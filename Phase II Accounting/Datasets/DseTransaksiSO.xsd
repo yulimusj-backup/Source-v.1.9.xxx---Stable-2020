@@ -1,0 +1,1131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTransaksiSO" targetNamespace="http://tempuri.org/DseTransaksiSO.xsd" xmlns:mstns="http://tempuri.org/DseTransaksiSO.xsd" xmlns="http://tempuri.org/DseTransaksiSO.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AccModule.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable2TableAdapter" GeneratorDataComponentClassName="DataTable2TableAdapter" Name="DataTable2" UserDataComponentName="DataTable2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="SO Number" DataSetColumn="SO Number" />
+              <Mapping SourceColumn="So Date" DataSetColumn="So Date" />
+              <Mapping SourceColumn="Customer Code" DataSetColumn="Customer Code" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+              <Mapping SourceColumn="Contact Person" DataSetColumn="Contact Person" />
+              <Mapping SourceColumn="Cust Phone No" DataSetColumn="Cust Phone No" />
+              <Mapping SourceColumn="Cust PO No" DataSetColumn="Cust PO No" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_CustCodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_CustCodeLIKE" GeneratorSourceName="FillBy_CustCodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_CustCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_CustCodeLIKE" UserSourceName="FillBy_CustCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary` INNER JOIN
+                         tblmaster_customer tblmaster_customer_1 ON tbltrans_so.`Primary Customer` = tblmaster_customer_1.`Primary`
+WHERE        (tblmaster_customer_1.`Customer Code` LIKE @CustoCode)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustoCode" ColumnName="Customer Code" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@CustoCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Customer Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_CustNameLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_CustNameLIKE" GeneratorSourceName="FillBy_CustNameLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_CustNameLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_CustNameLIKE" UserSourceName="FillBy_CustNameLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary` INNER JOIN
+                         tblmaster_customer tblmaster_customer_1 ON tbltrans_so.`Primary Customer` = tblmaster_customer_1.`Primary`
+WHERE        (tblmaster_customer_1.`Customer Name` LIKE @CustName)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustName" ColumnName="Customer Name" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@CustName" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Customer Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_CustPONOLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_CustPONOLIKE" GeneratorSourceName="FillBy_CustPONOLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_CustPONOLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_CustPONOLIKE" UserSourceName="FillBy_CustPONOLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary`
+WHERE        (tbltrans_so.`Cust PO No` LIKE @CustPONo)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustPONo" ColumnName="Cust PO No" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@CustPONo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Cust PO No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_NoTransaksiLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_NoTransaksiLIKE" GeneratorSourceName="FillBy_NoTransaksiLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_NoTransaksiLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_NoTransaksiLIKE" UserSourceName="FillBy_NoTransaksiLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary`
+WHERE        (tbltrans_so.`No Transaksi` LIKE @NoTransaksi)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="SO Number" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimarySO" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimarySO" GeneratorSourceName="FillBy_PrimarySO" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimarySO" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimarySO" UserSourceName="FillBy_PrimarySO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary`
+WHERE        (tbltrans_so.`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ProductCodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_ProductCodeLIKE" GeneratorSourceName="FillBy_ProductCodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_ProductCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_ProductCodeLIKE" UserSourceName="FillBy_ProductCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary` INNER JOIN
+                         tbltrans_so_item ON tbltrans_so.`Primary` = tbltrans_so_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_so_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.`Product Code` LIKE @ProductCode)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductCode" ColumnName="Product Code" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@ProductCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Product Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ProductDescLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_ProductDescLIKE" GeneratorSourceName="FillBy_ProductDescLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_ProductDescLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_ProductDescLIKE" UserSourceName="FillBy_ProductDescLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary` INNER JOIN
+                         tbltrans_so_item ON tbltrans_so.`Primary` = tbltrans_so_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_so_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.Description LIKE @ProductDesc)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductDesc" ColumnName="Description" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@ProductDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_ProductSpecLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_ProductSpecLIKE" GeneratorSourceName="FillBy_ProductSpecLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_ProductSpecLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_ProductSpecLIKE" UserSourceName="FillBy_ProductSpecLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary` INNER JOIN
+                         tbltrans_so_item ON tbltrans_so.`Primary` = tbltrans_so_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_so_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.Specification LIKE @ProductSpec)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductSpec" ColumnName="Specification" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@ProductSpec" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Specification" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_SalesPCodeLIKE" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_SalesPCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_SalesPCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, 
+            tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM  tbltrans_so INNER JOIN
+            tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary` INNER JOIN
+            tblmaster_salesperson ON tbltrans_so.`primary sales person` = tblmaster_salesperson.`Primary`
+WHERE (tblmaster_salesperson.Code LIKE @SalesPersonCode)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SalesPersonCode" ColumnName="Code" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@SalesPersonCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_SalesPersonDescLIKE" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_SalesPersonDescLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy_SalesPersonDescLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, 
+            tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM  tbltrans_so INNER JOIN
+            tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary` INNER JOIN
+            tblmaster_salesperson ON tbltrans_so.`primary sales person` = tblmaster_salesperson.`Primary`
+WHERE (tblmaster_salesperson.Description LIKE @SalesPersonName)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SalesPersonName" ColumnName="Description" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@SalesPersonName" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TanggalSampaiDari" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TanggalSampaiDari" GeneratorSourceName="FillBy_TanggalSampaiDari" GetMethodModifier="Public" GetMethodName="GetDataBy_TanggalSampaiDari" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_TanggalSampaiDari" UserSourceName="FillBy_TanggalSampaiDari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_so.`Primary`, tbltrans_so.`No Transaksi` AS `SO Number`, tbltrans_so.`Tanggal Transaksi` AS `So Date`, tblmaster_customer.`Customer Code`, 
+                         tblmaster_customer.`Customer Name`, tbltrans_so.`Contact Person`, tbltrans_so.`Cust Phone No`, tbltrans_so.`Cust PO No`, tbltrans_so.Remarks
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary`
+WHERE        (tbltrans_so.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_so.`Tanggal Transaksi` &gt;= @TanggalDari)
+ORDER BY `So Date`, `SO Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="So Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="So Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_soTableAdapter" GeneratorDataComponentClassName="tbltrans_soTableAdapter" Name="tbltrans_so" UserDataComponentName="tbltrans_soTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_so" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM tbltrans_so
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>INSERT INTO tbltrans_so
+            (`Primary Customer`, `No Transaksi`, Urutan, `Tanggal Transaksi`, `Indentifier Alamat Customer`, `Contact Person`, `Cust Phone No`, `Payment Term`, `Ship Via`, `Payment Due`, `Reference Payment Due`, `Primary Currency`, 
+            `Sub Total`, `Use Tax`, Tax, `Tax Amount`, Total, `Order By`, `Cust PO No`, `Jenis Faktur Pajak`, `Price Condition`, `Price Condtion Sama`, `Discount Sama`, `Reference Discount`, Remarks, `Created By`, `Created Date`, 
+            `Modified By`, `Modified Date`, `Timestamp`, `primary sales person`, `Exchange Rate`)
+VALUES (@Primary_Customer, @No_Transaksi, @Urutan, @Tanggal_Transaksi, @Indentifier_Alamat_Customer, @Contact_Person, @Cust_Phone_No, @Payment_Term, @Ship_Via, @Payment_Due, @Reference_Payment_Due, 
+            @Primary_Currency, @Sub_Total, @Use_Tax, @Tax, @Tax_Amount, @Total, @Order_By, @Cust_PO_No, @Jenis_Faktur_Pajak, @Price_Condition, @Price_Condtion_Sama, @Discount_Sama, @Reference_Discount, 
+            @Remarks, @Created_By, @Created_Date, @Modified_By, @Modified_Date, @Timestamp, @PrimarySalesInvoice, @ExchangeRate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Customer" ColumnName="Primary Customer" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Customer" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Customer" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="No_Transaksi" ColumnName="No Transaksi" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan" ColumnName="Urutan" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tanggal_Transaksi" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Indentifier_Alamat_Customer" ColumnName="Indentifier Alamat Customer" DataSourceName="" DataTypeServer="varchar(20)(20)" DbType="String" Direction="Input" ParameterName="@Indentifier_Alamat_Customer" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="Indentifier Alamat Customer" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Contact_Person" ColumnName="Contact Person" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Contact_Person" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Contact Person" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cust_Phone_No" ColumnName="Cust Phone No" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Cust_Phone_No" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Cust Phone No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Payment_Term" ColumnName="Payment Term" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Payment_Term" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment Term" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Ship_Via" ColumnName="Ship Via" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Ship_Via" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Ship Via" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Payment_Due" ColumnName="Payment Due" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Payment_Due" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Payment Due" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Reference_Payment_Due" ColumnName="Reference Payment Due" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Reference_Payment_Due" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Reference Payment Due" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Currency" ColumnName="Primary Currency" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Currency" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Currency" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Sub_Total" ColumnName="Sub Total" DataSourceName="" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@Sub_Total" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Sub Total" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Use_Tax" ColumnName="Use Tax" DataSourceName="" DataTypeServer="tinyint(1)" DbType="Object" Direction="Input" ParameterName="@Use_Tax" Precision="0" ProviderType="Byte" Scale="0" Size="1024" SourceColumn="Use Tax" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tax" ColumnName="Tax" DataSourceName="" DataTypeServer="double(9,6)" DbType="Decimal" Direction="Input" ParameterName="@Tax" Precision="9" ProviderType="Double" Scale="6" Size="0" SourceColumn="Tax" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tax_Amount" ColumnName="Tax Amount" DataSourceName="" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@Tax_Amount" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Tax Amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Total" ColumnName="Total" DataSourceName="" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@Total" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Total" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Order_By" ColumnName="Order By" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Order_By" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Order By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cust_PO_No" ColumnName="Cust PO No" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Cust_PO_No" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Cust PO No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Jenis_Faktur_Pajak" ColumnName="Jenis Faktur Pajak" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Jenis_Faktur_Pajak" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Jenis Faktur Pajak" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Price_Condition" ColumnName="Price Condition" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Price_Condition" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Price Condition" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Price_Condtion_Sama" ColumnName="Price Condtion Sama" DataSourceName="" DataTypeServer="tinyint(1)" DbType="Object" Direction="Input" ParameterName="@Price_Condtion_Sama" Precision="0" ProviderType="Byte" Scale="0" Size="1024" SourceColumn="Price Condtion Sama" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Discount_Sama" ColumnName="Discount Sama" DataSourceName="" DataTypeServer="tinyint(1)" DbType="Object" Direction="Input" ParameterName="@Discount_Sama" Precision="0" ProviderType="Byte" Scale="0" Size="1024" SourceColumn="Discount Sama" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Reference_Discount" ColumnName="Reference Discount" DataSourceName="" DataTypeServer="double(9,6)" DbType="Decimal" Direction="Input" ParameterName="@Reference_Discount" Precision="9" ProviderType="Double" Scale="6" Size="0" SourceColumn="Reference Discount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Created_By" ColumnName="Created By" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Created_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Created By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Created_Date" ColumnName="Created Date" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Created_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Created Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_By" ColumnName="Modified By" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_Date" ColumnName="Modified Date" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Timestamp" ColumnName="Timestamp" DataSourceName="" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalesInvoice" ColumnName="primary sales person" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalesInvoice" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary sales person" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ExchangeRate" ColumnName="Exchange Rate" DataSourceName="" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@ExchangeRate" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Exchange Rate" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Primary`, `Primary Customer`, `No Transaksi`, Urutan, `Tanggal Transaksi`, `Indentifier Alamat Customer`, `Contact Person`, `Cust Phone No`, `Payment Term`, `Ship Via`, `Payment Due`, `Reference Payment Due`, `Primary Currency`, `Sub Total`, `Use Tax`, Tax, `Tax Amount`, Total, `Order By`, `Cust PO No`, `Jenis Faktur Pajak`, `Price Condition`, `Price Condtion Sama`, `Discount Sama`, `Reference Discount`, Remarks, `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`, `primary sales person`, `Exchange Rate` FROM tbltrans_so</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE tbltrans_so
+SET     `Primary Customer` = @Primary_Customer, `No Transaksi` = @No_Transaksi, Urutan = @Urutan, `Tanggal Transaksi` = @Tanggal_Transaksi, `Indentifier Alamat Customer` = @Indentifier_Alamat_Customer, 
+            `Contact Person` = @Contact_Person, `Cust Phone No` = @Cust_Phone_No, `Payment Term` = @Payment_Term, `Ship Via` = @Ship_Via, `Payment Due` = @Payment_Due, 
+            `Reference Payment Due` = @Reference_Payment_Due, `Primary Currency` = @Primary_Currency, `Sub Total` = @Sub_Total, `Use Tax` = @Use_Tax, Tax = @Tax, `Tax Amount` = @Tax_Amount, Total = @Total, 
+            `Order By` = @Order_By, `Cust PO No` = @Cust_PO_No, `Jenis Faktur Pajak` = @Jenis_Faktur_Pajak, `Price Condition` = @Price_Condition, `Price Condtion Sama` = @Price_Condtion_Sama, `Discount Sama` = @Discount_Sama, 
+            `Reference Discount` = @Reference_Discount, Remarks = @Remarks, `Modified By` = @Modified_By, `Modified Date` = @Modified_Date, `Timestamp` = @Timestamp, `primary sales person` = @PrimarySalesPerson, 
+            `Exchange Rate` = @ExchangeRate
+WHERE (`Primary` = @Original_Primary) AND (`Timestamp` = @Original_Timestamp)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Customer" ColumnName="Primary Customer" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Customer" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Customer" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="No_Transaksi" ColumnName="No Transaksi" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan" ColumnName="Urutan" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tanggal_Transaksi" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@Tanggal_Transaksi" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Indentifier_Alamat_Customer" ColumnName="Indentifier Alamat Customer" DataSourceName="" DataTypeServer="varchar(20)(20)" DbType="String" Direction="Input" ParameterName="@Indentifier_Alamat_Customer" Precision="0" ProviderType="VarChar" Scale="0" Size="20" SourceColumn="Indentifier Alamat Customer" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Contact_Person" ColumnName="Contact Person" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Contact_Person" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Contact Person" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cust_Phone_No" ColumnName="Cust Phone No" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Cust_Phone_No" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Cust Phone No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Payment_Term" ColumnName="Payment Term" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Payment_Term" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Payment Term" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Ship_Via" ColumnName="Ship Via" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Ship_Via" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Ship Via" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Payment_Due" ColumnName="Payment Due" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Payment_Due" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Payment Due" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Reference_Payment_Due" ColumnName="Reference Payment Due" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Reference_Payment_Due" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Reference Payment Due" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary_Currency" ColumnName="Primary Currency" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary_Currency" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Currency" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Sub_Total" ColumnName="Sub Total" DataSourceName="" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@Sub_Total" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Sub Total" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Use_Tax" ColumnName="Use Tax" DataSourceName="" DataTypeServer="tinyint(1)" DbType="Object" Direction="Input" ParameterName="@Use_Tax" Precision="0" ProviderType="Byte" Scale="0" Size="1024" SourceColumn="Use Tax" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tax" ColumnName="Tax" DataSourceName="" DataTypeServer="double(9,6)" DbType="Decimal" Direction="Input" ParameterName="@Tax" Precision="9" ProviderType="Double" Scale="6" Size="0" SourceColumn="Tax" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Tax_Amount" ColumnName="Tax Amount" DataSourceName="" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@Tax_Amount" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Tax Amount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Total" ColumnName="Total" DataSourceName="" DataTypeServer="decimal(18,6)" DbType="Decimal" Direction="Input" ParameterName="@Total" Precision="18" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Total" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Order_By" ColumnName="Order By" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Order_By" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Order By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cust_PO_No" ColumnName="Cust PO No" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Cust_PO_No" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Cust PO No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Jenis_Faktur_Pajak" ColumnName="Jenis Faktur Pajak" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Jenis_Faktur_Pajak" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Jenis Faktur Pajak" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Price_Condition" ColumnName="Price Condition" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Price_Condition" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Price Condition" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Price_Condtion_Sama" ColumnName="Price Condtion Sama" DataSourceName="" DataTypeServer="tinyint(1)" DbType="Object" Direction="Input" ParameterName="@Price_Condtion_Sama" Precision="0" ProviderType="Byte" Scale="0" Size="1024" SourceColumn="Price Condtion Sama" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Discount_Sama" ColumnName="Discount Sama" DataSourceName="" DataTypeServer="tinyint(1)" DbType="Object" Direction="Input" ParameterName="@Discount_Sama" Precision="0" ProviderType="Byte" Scale="0" Size="1024" SourceColumn="Discount Sama" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Reference_Discount" ColumnName="Reference Discount" DataSourceName="" DataTypeServer="double(9,6)" DbType="Decimal" Direction="Input" ParameterName="@Reference_Discount" Precision="9" ProviderType="Double" Scale="6" Size="0" SourceColumn="Reference Discount" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Remarks" ColumnName="Remarks" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Remarks" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Remarks" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_By" ColumnName="Modified By" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Modified_By" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Modified By" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Modified_Date" ColumnName="Modified Date" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Modified_Date" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="Modified Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Timestamp" ColumnName="Timestamp" DataSourceName="" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySalesPerson" ColumnName="primary sales person" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySalesPerson" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary sales person" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ExchangeRate" ColumnName="Exchange Rate" DataSourceName="" DataTypeServer="decimal(21,6)" DbType="Decimal" Direction="Input" ParameterName="@ExchangeRate" Precision="21" ProviderType="NewDecimal" Scale="6" Size="0" SourceColumn="Exchange Rate" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Original_Timestamp" ColumnName="Timestamp" DataSourceName="" DataTypeServer="timestamp" DbType="DateTime" Direction="Input" ParameterName="@Original_Timestamp" Precision="0" ProviderType="Timestamp" Scale="0" Size="0" SourceColumn="Timestamp" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Customer" DataSetColumn="Primary Customer" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Indentifier Alamat Customer" DataSetColumn="Indentifier Alamat Customer" />
+              <Mapping SourceColumn="Contact Person" DataSetColumn="Contact Person" />
+              <Mapping SourceColumn="Cust Phone No" DataSetColumn="Cust Phone No" />
+              <Mapping SourceColumn="Payment Term" DataSetColumn="Payment Term" />
+              <Mapping SourceColumn="Ship Via" DataSetColumn="Ship Via" />
+              <Mapping SourceColumn="Payment Due" DataSetColumn="Payment Due" />
+              <Mapping SourceColumn="Reference Payment Due" DataSetColumn="Reference Payment Due" />
+              <Mapping SourceColumn="Primary Currency" DataSetColumn="Primary Currency" />
+              <Mapping SourceColumn="Use Tax" DataSetColumn="Use Tax" />
+              <Mapping SourceColumn="Tax" DataSetColumn="Tax" />
+              <Mapping SourceColumn="Order By" DataSetColumn="Order By" />
+              <Mapping SourceColumn="Cust PO No" DataSetColumn="Cust PO No" />
+              <Mapping SourceColumn="Jenis Faktur Pajak" DataSetColumn="Jenis Faktur Pajak" />
+              <Mapping SourceColumn="Price Condition" DataSetColumn="Price Condition" />
+              <Mapping SourceColumn="Price Condtion Sama" DataSetColumn="Price Condtion Sama" />
+              <Mapping SourceColumn="Discount Sama" DataSetColumn="Discount Sama" />
+              <Mapping SourceColumn="Reference Discount" DataSetColumn="Reference Discount" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+              <Mapping SourceColumn="primary sales person" DataSetColumn="primary sales person" />
+              <Mapping SourceColumn="Exchange Rate" DataSetColumn="Exchange Rate" />
+              <Mapping SourceColumn="Sub Total" DataSetColumn="Sub Total" />
+              <Mapping SourceColumn="Tax Amount" DataSetColumn="Tax Amount" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_Primary" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_Primary" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_Primary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetCreatedBy" Modifier="Public" Name="ScalarQuery_GetCreatedBy" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetCreatedBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(`Created By`, '') AS `Created By`
+FROM            tbltrans_so
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetCustPONo" Modifier="Public" Name="ScalarQuery_GetCustPONo" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetCustPONo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(`Cust PO No`, '') AS `Cust PO No`
+FROM            tbltrans_so
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetCustPONo_Max" Modifier="Public" Name="ScalarQuery_GetCustPONo_Max" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetCustPONo_Max">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(tbltrans_so_1.`Cust PO No`, '') AS CustPONo
+FROM            (SELECT        MAX(`Primary`) AS `Primary`
+                          FROM            tbltrans_so
+                          WHERE        (`Order By` &lt;&gt; 0)) derivedtbl_1 INNER JOIN
+                         tbltrans_so tbltrans_so_1 ON derivedtbl_1.`Primary` = tbltrans_so_1.`Primary`
+WHERE        (tbltrans_so_1.`Tanggal Transaksi` &lt;= @TanggalSampai) AND (tbltrans_so_1.`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJml" Modifier="Public" Name="ScalarQuery_GetJml" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_GetJml">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        COUNT(`Primary`) AS jml
+FROM            tbltrans_so
+WHERE        (`No Transaksi` = @NoTransaksi)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCustCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByCustCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_GetJmlByCustCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_so.`Primary`), 0) AS jml
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary`
+WHERE        (tblmaster_customer.`Customer Code` LIKE @CustCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustCode" ColumnName="Customer Code" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@CustCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Customer Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCustNameLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByCustNameLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy6" UserSourceName="ScalarQuery_GetJmlByCustNameLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_so.`Primary`), 0) AS JML
+FROM            tbltrans_so INNER JOIN
+                         tblmaster_customer ON tbltrans_so.`Primary Customer` = tblmaster_customer.`Primary`
+WHERE        (tblmaster_customer.`Customer Name` LIKE @CustName)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustName" ColumnName="Customer Name" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@CustName" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Customer Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCustPONo" Modifier="Public" Name="ScalarQuery_GetJmlByCustPONo" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy7" UserSourceName="ScalarQuery_GetJmlByCustPONo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tbltrans_so
+WHERE        (`Cust Phone No` = @CustPONo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustPONo" ColumnName="Cust Phone No" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@CustPONo" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Cust Phone No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCustPONoLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByCustPONoLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy8" UserSourceName="ScalarQuery_GetJmlByCustPONoLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS jml
+FROM            tbltrans_so
+WHERE        (`Cust PO No` LIKE @CustPONo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustPONo" ColumnName="Cust PO No" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@CustPONo" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Cust PO No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByNoTransaksiLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByNoTransaksiLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy9" UserSourceName="ScalarQuery_GetJmlByNoTransaksiLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS jml
+FROM            tbltrans_so
+WHERE        (`No Transaksi` LIKE @NoTransaksi)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByProductCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByProductCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy10" UserSourceName="ScalarQuery_GetJmlByProductCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(DISTINCT tbltrans_so.`Primary`), 0) AS jml
+FROM            tbltrans_so INNER JOIN
+                         tbltrans_so_item ON tbltrans_so.`Primary` = tbltrans_so_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_so_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.`Product Code` LIKE @ProductCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductCode" ColumnName="Product Code" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@ProductCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Product Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByProductDescLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByProductDescLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy11" UserSourceName="ScalarQuery_GetJmlByProductDescLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(DISTINCT tbltrans_so.`Primary`), 0) AS jml
+FROM            tbltrans_so INNER JOIN
+                         tbltrans_so_item ON tbltrans_so.`Primary` = tbltrans_so_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_so_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.Description LIKE @ProductDesc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductDesc" ColumnName="Description" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@ProductDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByProductSpecLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByProductSpecLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy12" UserSourceName="ScalarQuery_GetJmlByProductSpecLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(DISTINCT tbltrans_so.`Primary`), 0) AS jml
+FROM            tbltrans_so INNER JOIN
+                         tbltrans_so_item ON tbltrans_so.`Primary` = tbltrans_so_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_so_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.Specification LIKE @ProductSpec)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductSpec" ColumnName="Specification" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@ProductSpec" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Specification" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlBySalesPCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlBySalesPCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy13" UserSourceName="ScalarQuery_GetJmlBySalesPCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT COUNT(tbltrans_so.`Primary`) AS jml
+FROM  tbltrans_so INNER JOIN
+            tblmaster_salesperson ON tbltrans_so.`primary sales person` = tblmaster_salesperson.`Primary`
+WHERE (tblmaster_salesperson.Code LIKE @SalesPersonCode)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SalesPersonCode" ColumnName="Code" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@SalesPersonCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlBySalesPDescLIKE" Modifier="Public" Name="ScalarQuery_GetJmlBySalesPDescLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy14" UserSourceName="ScalarQuery_GetJmlBySalesPDescLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT COUNT(tbltrans_so.`Primary`) AS jml
+FROM  tbltrans_so INNER JOIN
+            tblmaster_salesperson ON tbltrans_so.`primary sales person` = tblmaster_salesperson.`Primary`
+WHERE (tblmaster_salesperson.Description LIKE @SalesPersonDesc)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SalesPersonDesc" ColumnName="Description" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@SalesPersonDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByTanggalSampaiDari" Modifier="Public" Name="ScalarQuery_GetJmlByTanggalSampaiDari" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy15" UserSourceName="ScalarQuery_GetJmlByTanggalSampaiDari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tbltrans_so
+WHERE        (`Tanggal Transaksi` &lt;= @TanggalSampai) AND (`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByUrutan" Modifier="Public" Name="ScalarQuery_GetJmlByUrutan" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy16" UserSourceName="ScalarQuery_GetJmlByUrutan">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        COUNT(`Primary`) AS Expr1
+FROM            tbltrans_so
+WHERE        (Urutan = @Urutan) AND (`Tanggal Transaksi` &lt;= @TanggalSampai) AND (`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan" ColumnName="Urutan" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetNoPO" Modifier="Public" Name="ScalarQuery_GetNoPO" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy17" UserSourceName="ScalarQuery_GetNoPO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`No Transaksi` = @NoSO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoSO" ColumnName="No Transaksi" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoSO" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetNoTransaksi" Modifier="Public" Name="ScalarQuery_GetNoTransaksi" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy18" UserSourceName="ScalarQuery_GetNoTransaksi">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Cust PO No` = @Cust_PO_Number)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cust_PO_Number" ColumnName="Cust PO No" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Cust_PO_Number" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Cust PO No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPaymentDuedate" Modifier="Public" Name="ScalarQuery_GetPaymentDuedate" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy19" UserSourceName="ScalarQuery_GetPaymentDuedate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimary" Modifier="Public" Name="ScalarQuery_GetPrimary" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy20" UserSourceName="ScalarQuery_GetPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(`Primary`, - 1) AS `Primary`
+FROM            tbltrans_so
+WHERE        (`No Transaksi` = @NoTransaksi)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimary_ByCustPONumber" Modifier="Public" Name="ScalarQuery_GetPrimary_ByCustPONumber" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy21" UserSourceName="ScalarQuery_GetPrimary_ByCustPONumber">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Cust PO No` = @CustPONumber)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustPONumber" ColumnName="Cust PO No" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@CustPONumber" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Cust PO No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryCurrency" Modifier="Public" Name="ScalarQuery_GetPrimaryCurrency" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy22" UserSourceName="ScalarQuery_GetPrimaryCurrency">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(`Primary Currency`, - 1) AS `Primary Currency`
+FROM            tbltrans_so
+WHERE        (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryCust" Modifier="Public" Name="ScalarQuery_GetPrimaryCust" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy23" UserSourceName="ScalarQuery_GetPrimaryCust">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(`Primary Customer`, - 1) AS PrimaryCust
+FROM            tbltrans_so
+WHERE        (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryMaxByCustPONO" Modifier="Public" Name="ScalarQuery_GetPrimaryMaxByCustPONO" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy24" UserSourceName="ScalarQuery_GetPrimaryMaxByCustPONO">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(MAX(`Primary`), - 1) AS PrimaryMax
+FROM            tbltrans_so
+WHERE        (`Order By` &lt;&gt; 0) AND (`Cust PO No` = @Cust_PO_No)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cust_PO_No" ColumnName="Cust PO No" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Cust_PO_No" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Cust PO No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryMaxByUrutan" Modifier="Public" Name="ScalarQuery_GetPrimaryMaxByUrutan" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy25" UserSourceName="ScalarQuery_GetPrimaryMaxByUrutan">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        MAX(`Primary`) AS Expr1
+FROM            tbltrans_so
+WHERE        (Urutan = @Urutan) AND (`Tanggal Transaksi` &lt;= @TanggalSampai) AND (`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan" ColumnName="Urutan" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryQuickInvoice" Modifier="Public" Name="ScalarQuery_GetPrimaryQuickInvoice" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy26" UserSourceName="ScalarQuery_GetPrimaryQuickInvoice">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimarySalesPerson" Modifier="Public" Name="ScalarQuery_GetPrimarySalesPerson" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy27" UserSourceName="ScalarQuery_GetPrimarySalesPerson">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetSONo" Modifier="Public" Name="ScalarQuery_GetSONo" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy28" UserSourceName="ScalarQuery_GetSONo">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(`No Transaksi`, '') AS `So No`
+FROM            tbltrans_so
+WHERE        (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetSubTotal" Modifier="Public" Name="ScalarQuery_GetSubTotal" QueryType="Scalar" ScalarCallRetval="System.Decimal, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy29" UserSourceName="ScalarQuery_GetSubTotal">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetTanggal" Modifier="Public" Name="ScalarQuery_GetTanggal" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy30" UserSourceName="ScalarQuery_GetTanggal">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Primary` = @PrimarySo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySo" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySo" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetTaxPercentage" Modifier="Public" Name="ScalarQuery_GetTaxPercentage" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy31" UserSourceName="ScalarQuery_GetTaxPercentage">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        IFNULL(SUM(Tax), 0) AS `Tax Percentage`
+FROM            tbltrans_so
+WHERE        (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetTimestamp" Modifier="Public" Name="ScalarQuery_GetTimestamp" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy32" UserSourceName="ScalarQuery_GetTimestamp">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetUrutanMax" Modifier="Public" Name="ScalarQuery_GetUrutanMax" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy33" UserSourceName="ScalarQuery_GetUrutanMax">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        MAX(Urutan) AS MaxValue
+FROM            tbltrans_so
+WHERE        (`Tanggal Transaksi` &lt;= @TanggalSampai) AND (`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual.tbltrans_so" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetUseTax" Modifier="Public" Name="ScalarQuery_GetUseTax" QueryType="Scalar" ScalarCallRetval="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy34" UserSourceName="ScalarQuery_GetUseTax">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT `Contact Person`, `Created By`, `Created Date`, `Cust PO No`, `Cust Phone No`, `Discount Sama`, `Exchange Rate`, `Indentifier Alamat Customer`, `Jenis Faktur Pajak`, `Modified By`, `Modified Date`, `No Transaksi`, `Order By`, `Payment Due`, `Payment Term`, `Price Condition`, `Price Condtion Sama`, `Primary`, `Primary Currency`, `Primary Customer`, `Reference Discount`, `Reference Payment Due`, Remarks, `Ship Via`, `Sub Total`, `Tanggal Transaksi`, Tax, `Tax Amount`, `Timestamp`, Total, Urutan, `Use Tax`, `primary sales person` FROM tbltrans_so WHERE (`Primary` = @PrimarySO)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySO" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySO" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_CustPONO" Modifier="Public" Name="UpdateQuery_CustPONO" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy35" UserSourceName="UpdateQuery_CustPONO">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE       tbltrans_so
+SET                `Cust PO No` = @Cust_PO_No
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Cust_PO_No" ColumnName="Cust PO No" DataSourceName="" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@Cust_PO_No" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Cust PO No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_NoTrans_NoUrut" Modifier="Public" Name="UpdateQuery_NoTrans_NoUrut" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy36" UserSourceName="UpdateQuery_NoTrans_NoUrut">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE       tbltrans_so
+SET                `No Transaksi` = @No_Transaksi, Urutan = @Urutan
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="No_Transaksi" ColumnName="No Transaksi" DataSourceName="" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@No_Transaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Urutan" ColumnName="Urutan" DataSourceName="" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Urutan" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Urutan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="UpdateQuery_SetPrimaryQuickInvoice" Modifier="Public" Name="UpdateQuery_SetPrimaryQuickInvoice" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy37" UserSourceName="UpdateQuery_SetPrimaryQuickInvoice">
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE       tbltrans_so
+SET                `Primary Quick Invoice` = @PrimaryQuickInvoice
+WHERE        (`Primary` = @Original_Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryQuickInvoice" ColumnName="Primary Quick Invoice" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryQuickInvoice" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Quick Invoice" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Original_Primary" ColumnName="Primary" DataSourceName="" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Original_Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTransaksiSO" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTransaksiSO" msprop:Generator_DataSetName="DseTransaksiSO">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable2" msprop:Generator_UserTableName="DataTable2" msprop:Generator_RowDeletedName="DataTable2RowDeleted" msprop:Generator_RowChangedName="DataTable2RowChanged" msprop:Generator_RowClassName="DataTable2Row" msprop:Generator_RowChangingName="DataTable2RowChanging" msprop:Generator_RowEvArgName="DataTable2RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable2RowChangeEventHandler" msprop:Generator_TableClassName="DataTable2DataTable" msprop:Generator_TableVarName="tableDataTable2" msprop:Generator_RowDeletingName="DataTable2RowDeleting" msprop:Generator_TablePropName="DataTable2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="SO_x0020_Number" msprop:Generator_UserColumnName="SO Number" msprop:Generator_ColumnVarNameInTable="columnSO_Number" msprop:Generator_ColumnPropNameInRow="SO_Number" msprop:Generator_ColumnPropNameInTable="SO_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="So_x0020_Date" msprop:Generator_UserColumnName="So Date" msprop:Generator_ColumnVarNameInTable="columnSo_Date" msprop:Generator_ColumnPropNameInRow="So_Date" msprop:Generator_ColumnPropNameInTable="So_DateColumn" type="xs:dateTime" />
+              <xs:element name="Customer_x0020_Code" msprop:Generator_UserColumnName="Customer Code" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code" msprop:Generator_ColumnPropNameInRow="Customer_Code" msprop:Generator_ColumnPropNameInTable="Customer_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Name" msprop:Generator_UserColumnName="Customer Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contact_x0020_Person" msprop:Generator_UserColumnName="Contact Person" msprop:Generator_ColumnVarNameInTable="columnContact_Person" msprop:Generator_ColumnPropNameInRow="Contact_Person" msprop:Generator_ColumnPropNameInTable="Contact_PersonColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cust_x0020_Phone_x0020_No" msprop:Generator_UserColumnName="Cust Phone No" msprop:Generator_ColumnVarNameInTable="columnCust_Phone_No" msprop:Generator_ColumnPropNameInRow="Cust_Phone_No" msprop:Generator_ColumnPropNameInTable="Cust_Phone_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cust_x0020_PO_x0020_No" msprop:Generator_UserColumnName="Cust PO No" msprop:Generator_ColumnVarNameInTable="columnCust_PO_No" msprop:Generator_ColumnPropNameInRow="Cust_PO_No" msprop:Generator_ColumnPropNameInTable="Cust_PO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_so" msprop:Generator_UserTableName="tbltrans_so" msprop:Generator_RowDeletedName="tbltrans_soRowDeleted" msprop:Generator_RowChangedName="tbltrans_soRowChanged" msprop:Generator_RowClassName="tbltrans_soRow" msprop:Generator_RowChangingName="tbltrans_soRowChanging" msprop:Generator_RowEvArgName="tbltrans_soRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_soRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_soDataTable" msprop:Generator_TableVarName="tabletbltrans_so" msprop:Generator_RowDeletingName="tbltrans_soRowDeleting" msprop:Generator_TablePropName="tbltrans_so">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Customer" msprop:Generator_UserColumnName="Primary Customer" msprop:Generator_ColumnVarNameInTable="columnPrimary_Customer" msprop:Generator_ColumnPropNameInRow="Primary_Customer" msprop:Generator_ColumnPropNameInTable="Primary_CustomerColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Indentifier_x0020_Alamat_x0020_Customer" msprop:Generator_UserColumnName="Indentifier Alamat Customer" msprop:Generator_ColumnVarNameInTable="columnIndentifier_Alamat_Customer" msprop:Generator_ColumnPropNameInRow="Indentifier_Alamat_Customer" msprop:Generator_ColumnPropNameInTable="Indentifier_Alamat_CustomerColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Contact_x0020_Person" msprop:Generator_UserColumnName="Contact Person" msprop:Generator_ColumnVarNameInTable="columnContact_Person" msprop:Generator_ColumnPropNameInRow="Contact_Person" msprop:Generator_ColumnPropNameInTable="Contact_PersonColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cust_x0020_Phone_x0020_No" msprop:Generator_UserColumnName="Cust Phone No" msprop:Generator_ColumnVarNameInTable="columnCust_Phone_No" msprop:Generator_ColumnPropNameInRow="Cust_Phone_No" msprop:Generator_ColumnPropNameInTable="Cust_Phone_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Payment_x0020_Term" msprop:Generator_UserColumnName="Payment Term" msprop:Generator_ColumnVarNameInTable="columnPayment_Term" msprop:Generator_ColumnPropNameInRow="Payment_Term" msprop:Generator_ColumnPropNameInTable="Payment_TermColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ship_x0020_Via" msprop:Generator_UserColumnName="Ship Via" msprop:Generator_ColumnVarNameInTable="columnShip_Via" msprop:Generator_ColumnPropNameInRow="Ship_Via" msprop:Generator_ColumnPropNameInTable="Ship_ViaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Payment_x0020_Due" msprop:Generator_UserColumnName="Payment Due" msprop:Generator_ColumnVarNameInTable="columnPayment_Due" msprop:Generator_ColumnPropNameInRow="Payment_Due" msprop:Generator_ColumnPropNameInTable="Payment_DueColumn" type="xs:int" />
+              <xs:element name="Reference_x0020_Payment_x0020_Due" msprop:Generator_UserColumnName="Reference Payment Due" msprop:Generator_ColumnVarNameInTable="columnReference_Payment_Due" msprop:Generator_ColumnPropNameInRow="Reference_Payment_Due" msprop:Generator_ColumnPropNameInTable="Reference_Payment_DueColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Currency" msprop:Generator_UserColumnName="Primary Currency" msprop:Generator_ColumnVarNameInTable="columnPrimary_Currency" msprop:Generator_ColumnPropNameInRow="Primary_Currency" msprop:Generator_ColumnPropNameInTable="Primary_CurrencyColumn" type="xs:double" />
+              <xs:element name="Sub_x0020_Total" msprop:Generator_UserColumnName="Sub Total" msprop:Generator_ColumnVarNameInTable="columnSub_Total" msprop:Generator_ColumnPropNameInRow="Sub_Total" msprop:Generator_ColumnPropNameInTable="Sub_TotalColumn" type="xs:decimal" />
+              <xs:element name="Use_x0020_Tax" msprop:Generator_UserColumnName="Use Tax" msprop:Generator_ColumnVarNameInTable="columnUse_Tax" msprop:Generator_ColumnPropNameInRow="Use_Tax" msprop:Generator_ColumnPropNameInTable="Use_TaxColumn" type="xs:boolean" />
+              <xs:element name="Tax" msprop:Generator_UserColumnName="Tax" msprop:Generator_ColumnVarNameInTable="columnTax" msprop:Generator_ColumnPropNameInRow="Tax" msprop:Generator_ColumnPropNameInTable="TaxColumn" type="xs:double" />
+              <xs:element name="Tax_x0020_Amount" msprop:Generator_UserColumnName="Tax Amount" msprop:Generator_ColumnVarNameInTable="columnTax_Amount" msprop:Generator_ColumnPropNameInRow="Tax_Amount" msprop:Generator_ColumnPropNameInTable="Tax_AmountColumn" type="xs:decimal" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" />
+              <xs:element name="Order_x0020_By" msprop:Generator_UserColumnName="Order By" msprop:Generator_ColumnVarNameInTable="columnOrder_By" msprop:Generator_ColumnPropNameInRow="Order_By" msprop:Generator_ColumnPropNameInTable="Order_ByColumn" type="xs:int" />
+              <xs:element name="Cust_x0020_PO_x0020_No" msprop:Generator_UserColumnName="Cust PO No" msprop:Generator_ColumnVarNameInTable="columnCust_PO_No" msprop:Generator_ColumnPropNameInRow="Cust_PO_No" msprop:Generator_ColumnPropNameInTable="Cust_PO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Jenis_x0020_Faktur_x0020_Pajak" msprop:Generator_UserColumnName="Jenis Faktur Pajak" msprop:Generator_ColumnVarNameInTable="columnJenis_Faktur_Pajak" msprop:Generator_ColumnPropNameInRow="Jenis_Faktur_Pajak" msprop:Generator_ColumnPropNameInTable="Jenis_Faktur_PajakColumn" type="xs:int" />
+              <xs:element name="Price_x0020_Condition" msprop:Generator_UserColumnName="Price Condition" msprop:Generator_ColumnVarNameInTable="columnPrice_Condition" msprop:Generator_ColumnPropNameInRow="Price_Condition" msprop:Generator_ColumnPropNameInTable="Price_ConditionColumn" type="xs:int" />
+              <xs:element name="Price_x0020_Condtion_x0020_Sama" msprop:Generator_UserColumnName="Price Condtion Sama" msprop:Generator_ColumnVarNameInTable="columnPrice_Condtion_Sama" msprop:Generator_ColumnPropNameInRow="Price_Condtion_Sama" msprop:Generator_ColumnPropNameInTable="Price_Condtion_SamaColumn" type="xs:boolean" />
+              <xs:element name="Discount_x0020_Sama" msprop:Generator_UserColumnName="Discount Sama" msprop:Generator_ColumnVarNameInTable="columnDiscount_Sama" msprop:Generator_ColumnPropNameInRow="Discount_Sama" msprop:Generator_ColumnPropNameInTable="Discount_SamaColumn" type="xs:boolean" />
+              <xs:element name="Reference_x0020_Discount" msprop:Generator_UserColumnName="Reference Discount" msprop:Generator_ColumnVarNameInTable="columnReference_Discount" msprop:Generator_ColumnPropNameInRow="Reference_Discount" msprop:Generator_ColumnPropNameInTable="Reference_DiscountColumn" type="xs:double" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+              <xs:element name="primary_x0020_sales_x0020_person" msprop:Generator_UserColumnName="primary sales person" msprop:Generator_ColumnVarNameInTable="columnprimary_sales_person" msprop:Generator_ColumnPropNameInRow="primary_sales_person" msprop:Generator_ColumnPropNameInTable="primary_sales_personColumn" type="xs:double" />
+              <xs:element name="Exchange_x0020_Rate" msprop:Generator_UserColumnName="Exchange Rate" msprop:Generator_ColumnVarNameInTable="columnExchange_Rate" msprop:Generator_ColumnPropNameInRow="Exchange_Rate" msprop:Generator_ColumnPropNameInTable="Exchange_RateColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable2" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_so_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_so" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTransaksiSalesReturn" targetNamespace="http://tempuri.org/DseTransaksiSalesReturn.xsd" xmlns:mstns="http://tempuri.org/DseTransaksiSalesReturn.xsd" xmlns="http://tempuri.org/DseTransaksiSalesReturn.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.AccModule.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salesreturn.`Primary`, tbltrans_salesreturn.`No Transaksi` AS `Sales Return No`, tbltrans_salesreturn.`Tanggal Transaksi` AS `Date`, 
+                         IFNULL(tbltrans_do.`No Transaksi`, '') AS `Delivery Order No`, IFNULL(tblmaster_customer_1.`Customer Code`, tblmaster_customer.`Customer Code`) 
+                         AS `Customer Code`, IFNULL(tblmaster_customer_1.`Customer Name`, tblmaster_customer.`Customer Name`) AS `Customer Name`, 
+                         tbltrans_salesreturn.Remarks, tbltrans_salesreturn.`Reason Of Return`, tbltransaksi_stockinout.`No Transaksi` AS `Stock In Sales Return No`, 
+                         tbltrans_salesreturn.`Tipe SR`
+FROM            tbltransaksi_stockinout INNER JOIN
+                         tblmaster_customer ON tbltransaksi_stockinout.`Primary Customer` = tblmaster_customer.`Primary` RIGHT OUTER JOIN
+                         tbltrans_salesreturn ON tbltransaksi_stockinout.`Primary` = tbltrans_salesreturn.`Primary Stock In Sales Return` LEFT OUTER JOIN
+                         tblmaster_customer tblmaster_customer_1 INNER JOIN
+                         tbltrans_do ON tblmaster_customer_1.`Primary` = tbltrans_do.`Primary Customer` ON tbltrans_salesreturn.`Primary DO` = tbltrans_do.`Primary`
+ORDER BY `Date`, `Sales Return No`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Sales Return No" DataSetColumn="Sales Return No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Delivery Order No" DataSetColumn="Delivery Order No" />
+              <Mapping SourceColumn="Customer Code" DataSetColumn="Customer Code" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Reason Of Return" DataSetColumn="Reason Of Return" />
+              <Mapping SourceColumn="Stock In Sales Return No" DataSetColumn="Stock In Sales Return No" />
+              <Mapping SourceColumn="Tipe SR" DataSetColumn="Tipe SR" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salesreturn_view0TableAdapter" GeneratorDataComponentClassName="tbltrans_salesreturn_view0TableAdapter" Name="tbltrans_salesreturn_view0" UserDataComponentName="tbltrans_salesreturn_view0TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Sales Return No`, `Date`, `Delivery Order No`, `Customer Code`, `Customer Name`, Remarks, `Reason Of Return`, 
+                         `Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Sales Return No" DataSetColumn="Sales Return No" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Delivery Order No" DataSetColumn="Delivery Order No" />
+              <Mapping SourceColumn="Customer Code" DataSetColumn="Customer Code" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Reason Of Return" DataSetColumn="Reason Of Return" />
+              <Mapping SourceColumn="Stock In Sales Return No" DataSetColumn="Stock In Sales Return No" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_CustCodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_CustCodeLIKE" GeneratorSourceName="FillBy_CustCodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_CustCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_CustCodeLIKE" UserSourceName="FillBy_CustCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Sales Return No`, `Date`, `Delivery Order No`, `Customer Code`, `Customer Name`, Remarks, `Reason Of Return`, 
+                         `Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Customer Code` LIKE @CustCode) AND (`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="CustCode" ColumnName="Customer Code" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@CustCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Customer Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_CustNameLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_CustNameLIKE" GeneratorSourceName="FillBy_CustNameLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_CustNameLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_CustNameLIKE" UserSourceName="FillBy_CustNameLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Sales Return No`, `Date`, `Delivery Order No`, `Customer Code`, `Customer Name`, Remarks, `Reason Of Return`, 
+                         `Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Customer Name` LIKE @CustName) AND (`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="CustName" ColumnName="Customer Name" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@CustName" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Customer Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_NoStockInSalesReturnLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_NoStockInSalesReturnLIKE" GeneratorSourceName="FillBy_NoStockInSalesReturnLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_NoStockInSalesReturnLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_NoStockInSalesReturnLIKE" UserSourceName="FillBy_NoStockInSalesReturnLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Sales Return No`, `Date`, `Delivery Order No`, `Customer Code`, `Customer Name`, Remarks, `Reason Of Return`, 
+                         `Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Stock In Sales Return No` LIKE @NoStockInSR) AND (`Tipe SR` = @TipeSR)
+ORDER BY `Date`, `Sales Return No`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="NoStockInSR" ColumnName="Stock In Sales Return No" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoStockInSR" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Stock In Sales Return No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_NoTransaksiLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_NoTransaksiLIKE" GeneratorSourceName="FillBy_NoTransaksiLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_NoTransaksiLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_NoTransaksiLIKE" UserSourceName="FillBy_NoTransaksiLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Sales Return No`, `Date`, `Delivery Order No`, `Customer Code`, `Customer Name`, Remarks, `Reason Of Return`, 
+                         `Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Sales Return No` LIKE @NoTranskasi) AND (`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTranskasi" ColumnName="Sales Return No" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTranskasi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Sales Return No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_ProductCodeLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_ProductCodeLIKE" GeneratorSourceName="FillBy_ProductCodeLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_ProductCodeLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_ProductCodeLIKE" UserSourceName="FillBy_ProductCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_salesreturn_view0.`Primary`, tbltrans_salesreturn_view0.`Sales Return No`, tbltrans_salesreturn_view0.`Date`, 
+                         tbltrans_salesreturn_view0.`Delivery Order No`, tbltrans_salesreturn_view0.`Customer Code`, tbltrans_salesreturn_view0.`Customer Name`, 
+                         tbltrans_salesreturn_view0.Remarks, tbltrans_salesreturn_view0.`Reason Of Return`, tbltrans_salesreturn_view0.`Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0 INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn_view0.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_salesreturn_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.`Product Code` LIKE @ProductCode) AND (tbltrans_salesreturn_view0.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductCode" ColumnName="Product Code" DataSourceName="core_db.tblmaster_product" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@ProductCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Product Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_ProductDescLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_ProductDescLIKE" GeneratorSourceName="FillBy_ProductDescLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_ProductDescLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_ProductDescLIKE" UserSourceName="FillBy_ProductDescLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_salesreturn_view0.`Primary`, tbltrans_salesreturn_view0.`Sales Return No`, tbltrans_salesreturn_view0.`Date`, 
+                         tbltrans_salesreturn_view0.`Delivery Order No`, tbltrans_salesreturn_view0.`Customer Code`, tbltrans_salesreturn_view0.`Customer Name`, 
+                         tbltrans_salesreturn_view0.Remarks, tbltrans_salesreturn_view0.`Reason Of Return`, tbltrans_salesreturn_view0.`Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0 INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn_view0.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_salesreturn_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.Description LIKE @ProductDesc) AND (tbltrans_salesreturn_view0.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductDesc" ColumnName="Description" DataSourceName="core_db.tblmaster_product" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@ProductDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_ProductSpecLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_ProductSpecLIKE" GeneratorSourceName="FillBy_ProductSpecLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_ProductSpecLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_ProductSpecLIKE" UserSourceName="FillBy_ProductSpecLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_salesreturn_view0.`Primary`, tbltrans_salesreturn_view0.`Sales Return No`, tbltrans_salesreturn_view0.`Date`, 
+                         tbltrans_salesreturn_view0.`Delivery Order No`, tbltrans_salesreturn_view0.`Customer Code`, tbltrans_salesreturn_view0.`Customer Name`, 
+                         tbltrans_salesreturn_view0.Remarks, tbltrans_salesreturn_view0.`Reason Of Return`, tbltrans_salesreturn_view0.`Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0 INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn_view0.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_salesreturn_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.Specification LIKE @ProductSpec) AND (tbltrans_salesreturn_view0.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductSpec" ColumnName="Specification" DataSourceName="core_db.tblmaster_product" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@ProductSpec" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Specification" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_SONumberLIKE" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_SONumberLIKE" GeneratorSourceName="FillBy_SONumberLIKE" GetMethodModifier="Public" GetMethodName="GetDataBy_SONumberLIKE" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_SONumberLIKE" UserSourceName="FillBy_SONumberLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_salesreturn_view0.`Primary`, tbltrans_salesreturn_view0.`Sales Return No`, tbltrans_salesreturn_view0.`Date`, 
+                         tbltrans_salesreturn_view0.`Delivery Order No`, tbltrans_salesreturn_view0.`Customer Code`, tbltrans_salesreturn_view0.`Customer Name`, 
+                         tbltrans_salesreturn_view0.Remarks, tbltrans_salesreturn_view0.`Reason Of Return`, tbltrans_salesreturn_view0.`Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0 INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn_view0.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tbltrans_so ON tbltrans_salesreturn_item.`Primary SO` = tbltrans_so.`Primary`
+WHERE        (tbltrans_so.`No Transaksi` LIKE @Sono) AND (tbltrans_salesreturn_view0.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Sono" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_so" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Sono" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy_TanggalSampaiDari" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_TanggalSampaiDari" GeneratorSourceName="FillBy_TanggalSampaiDari" GetMethodModifier="Public" GetMethodName="GetDataBy_TanggalSampaiDari" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_TanggalSampaiDari" UserSourceName="FillBy_TanggalSampaiDari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Sales Return No`, `Date`, `Delivery Order No`, `Customer Code`, `Customer Name`, Remarks, `Reason Of Return`, 
+                         `Stock In Sales Return No`
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Date` &lt;= @TanggalSampai) AND (`Date` &gt;= @TanggalDari) AND (`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Date" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Date" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetCustCode" Modifier="Public" Name="ScalarQuery_GetCustCode" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetCustCode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Customer Code`, '') AS Customer_Code
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="ScalarQuery_GetCustName" Modifier="Public" Name="ScalarQuery_GetCustName" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetCustName">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Customer Name`, '') AS Customer_Name
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByNoTransaksi" Modifier="Public" Name="ScalarQuery_GetJmlByNoTransaksi" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetJmlByNoTransaksi">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Sales Return No` = @SR_Number) AND (`Tipe SR` = @Tipe)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SR_Number" ColumnName="Sales Return No" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@SR_Number" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Sales Return No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="Tipe" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@Tipe" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimary" Modifier="Public" Name="ScalarQuery_GetPrimary" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetPrimary">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Primary`, - 1) AS `Primary`
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Sales Return No` = @Sales_Return_No)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Sales_Return_No" ColumnName="Sales Return No" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@Sales_Return_No" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Sales Return No" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="ScalarQuery_GetSales_Return_Number" Modifier="Public" Name="ScalarQuery_GetSales_Return_Number" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_GetSales_Return_Number">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(`Sales Return No`, '') AS Sales_Return_No
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn_view0" DbObjectType="View" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetSRDate" Modifier="Public" Name="ScalarQuery_GetSRDate" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_GetSRDate">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Date`
+FROM            tbltrans_salesreturn_view0
+WHERE        (`Primary` = @Primary)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Primary" ColumnName="Primary" DataSourceName="core_db.tbltrans_salesreturn_view0" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@Primary" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salesreturnTableAdapter" GeneratorDataComponentClassName="tbltrans_salesreturnTableAdapter" Name="tbltrans_salesreturn" UserDataComponentName="tbltrans_salesreturnTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `No Transaksi`, Urutan, `Primary Stock In Sales Return`, `Primary DO`, `Tanggal Transaksi`, Remarks, `Reason Of Return`, `Use Nota Retur Pajak`, 
+                         `Created By`, `Created Date`, `Modified By`, `Modified Date`, `Timestamp`, `No Nota Retur Pajak`, `Tipe SR`, `Primary Currency`, `Sub Total`, `Use Tax`, 
+                         `Tax Percent`, `Tax Amount`, `Tax Exchange Rate`, `Duty stamp`, Total, `Payment Term`
+FROM            tbltrans_salesreturn</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Urutan" DataSetColumn="Urutan" />
+              <Mapping SourceColumn="Primary Stock In Sales Return" DataSetColumn="Primary Stock In Sales Return" />
+              <Mapping SourceColumn="Primary DO" DataSetColumn="Primary DO" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="Reason Of Return" DataSetColumn="Reason Of Return" />
+              <Mapping SourceColumn="Use Nota Retur Pajak" DataSetColumn="Use Nota Retur Pajak" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Created Date" DataSetColumn="Created Date" />
+              <Mapping SourceColumn="Modified By" DataSetColumn="Modified By" />
+              <Mapping SourceColumn="Modified Date" DataSetColumn="Modified Date" />
+              <Mapping SourceColumn="Timestamp" DataSetColumn="Timestamp" />
+              <Mapping SourceColumn="No Nota Retur Pajak" DataSetColumn="No Nota Retur Pajak" />
+              <Mapping SourceColumn="Tipe SR" DataSetColumn="Tipe SR" />
+              <Mapping SourceColumn="Primary Currency" DataSetColumn="Primary Currency" />
+              <Mapping SourceColumn="Sub Total" DataSetColumn="Sub Total" />
+              <Mapping SourceColumn="Use Tax" DataSetColumn="Use Tax" />
+              <Mapping SourceColumn="Tax Percent" DataSetColumn="Tax Percent" />
+              <Mapping SourceColumn="Tax Amount" DataSetColumn="Tax Amount" />
+              <Mapping SourceColumn="Tax Exchange Rate" DataSetColumn="Tax Exchange Rate" />
+              <Mapping SourceColumn="Duty stamp" DataSetColumn="Duty stamp" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Payment Term" DataSetColumn="Payment Term" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCustCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByCustCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="ScalarQuery_GetJmlByCustCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(DISTINCT tbltrans_salesreturn.`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn INNER JOIN
+                         tbltrans_do ON tbltrans_salesreturn.`Primary DO` = tbltrans_do.`Primary` INNER JOIN
+                         tblmaster_customer ON tbltrans_do.`Primary Customer` = tblmaster_customer.`Primary`
+WHERE        (tblmaster_customer.`Customer Code` LIKE @CustCode) AND (tbltrans_salesreturn.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustCode" ColumnName="Customer Code" DataSourceName="core_db.tblmaster_customer" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@CustCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Customer Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByCustNameLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByCustNameLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="ScalarQuery_GetJmlByCustNameLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(DISTINCT tbltrans_salesreturn.`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn INNER JOIN
+                         tbltrans_do ON tbltrans_salesreturn.`Primary DO` = tbltrans_do.`Primary` INNER JOIN
+                         tblmaster_customer ON tbltrans_do.`Primary Customer` = tblmaster_customer.`Primary`
+WHERE        (tblmaster_customer.`Customer Name` LIKE @CustName) AND (tbltrans_salesreturn.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="CustName" ColumnName="Customer Name" DataSourceName="core_db.tblmaster_customer" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@CustName" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Customer Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByDONumberLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByDONumberLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_GetJmlByDONumberLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_salesreturn.`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn INNER JOIN
+                         tbltrans_do ON tbltrans_salesreturn.`Primary DO` = tbltrans_do.`Primary`
+WHERE        (tbltrans_do.`No Transaksi` LIKE @DoNumber) AND (tbltrans_salesreturn.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="DoNumber" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_do" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@DoNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByNoSOLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByNoSOLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQuery_GetJmlByNoSOLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(tbltrans_salesreturn.`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tbltrans_so ON tbltrans_salesreturn_item.`Primary SO` = tbltrans_so.`Primary`
+WHERE        (tbltrans_so.`No Transaksi` LIKE @SoNumber) AND (tbltrans_salesreturn.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="SoNumber" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_so" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@SoNumber" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByNoTransaksiLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByNoTransaksiLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQuery_GetJmlByNoTransaksiLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn
+WHERE        (`No Transaksi` LIKE @NoTransaksi) AND (`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByProductCodeLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByProductCodeLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy5" UserSourceName="ScalarQuery_GetJmlByProductCodeLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(DISTINCT tbltrans_salesreturn.`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_salesreturn_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.`Product Code` LIKE @ProductCode) AND (tbltrans_salesreturn.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductCode" ColumnName="Product Code" DataSourceName="core_db.tblmaster_product" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@ProductCode" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="Product Code" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByProductDescLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByProductDescLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy6" UserSourceName="ScalarQuery_GetJmlByProductDescLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(DISTINCT tbltrans_salesreturn.`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_salesreturn_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.Description LIKE @ProductDesc) AND (tbltrans_salesreturn.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductDesc" ColumnName="Description" DataSourceName="core_db.tblmaster_product" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@ProductDesc" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByProductSpecLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByProductSpecLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy7" UserSourceName="ScalarQuery_GetJmlByProductSpecLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(DISTINCT tbltrans_salesreturn.`Primary`), 0) AS Jml
+FROM            tbltrans_salesreturn INNER JOIN
+                         tbltrans_salesreturn_item ON tbltrans_salesreturn.`Primary` = tbltrans_salesreturn_item.`Primary Transaksi` INNER JOIN
+                         tblmaster_product ON tbltrans_salesreturn_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE        (tblmaster_product.Specification LIKE @ProductSpec) AND (tbltrans_salesreturn.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="ProductSpec" ColumnName="Specification" DataSourceName="core_db.tblmaster_product" DataTypeServer="varchar(150)(150)" DbType="String" Direction="Input" ParameterName="@ProductSpec" Precision="0" ProviderType="VarChar" Scale="0" Size="150" SourceColumn="Specification" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByStockInSRLIKE" Modifier="Public" Name="ScalarQuery_GetJmlByStockInSRLIKE" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy8" UserSourceName="ScalarQuery_GetJmlByStockInSRLIKE">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        COUNT(tbltrans_salesreturn.`Primary`) AS Expr1
+FROM            tbltrans_salesreturn INNER JOIN
+                             (SELECT        `Primary`, `No Transaksi`
+                               FROM            tbltransaksi_stockinout
+                               WHERE        (`Tipe Transaksi` = 1)) derivedtbl_1 ON tbltrans_salesreturn.`Primary Stock In Sales Return` = derivedtbl_1.`Primary`
+WHERE        (derivedtbl_1.`No Transaksi` LIKE @NoStockIn) AND (tbltrans_salesreturn.`Tipe SR` = @TipeSR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoStockIn" ColumnName="No Transaksi" DataSourceName="SELECT `Primary`, `No Transaksi` FROM tbltransaksi_stockinout WHERE (`Tipe Transaksi` = 1)" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoStockIn" Precision="0" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetJmlByTanggalSampaiDari" Modifier="Public" Name="ScalarQuery_GetJmlByTanggalSampaiDari" QueryType="Scalar" ScalarCallRetval="System.Int64, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy9" UserSourceName="ScalarQuery_GetJmlByTanggalSampaiDari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(COUNT(`Primary`), 0) AS Jml, `Tanggal Transaksi`
+FROM            tbltrans_salesreturn
+WHERE        (`Tipe SR` = @TipeSR)
+GROUP BY `Tanggal Transaksi`
+HAVING        (`Tanggal Transaksi` &lt;= @TanggalSampai) AND (`Tanggal Transaksi` &gt;= @TanggalDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="True" AutogeneratedName="TipeSR" ColumnName="Tipe SR" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipeSR" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe SR" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalSampai" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TanggalDari" ColumnName="Tanggal Transaksi" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TanggalDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryCurrency" Modifier="Public" Name="ScalarQuery_GetPrimaryCurrency" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy11" UserSourceName="ScalarQuery_GetPrimaryCurrency">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary Currency`
+FROM            tbltrans_salesreturn
+WHERE        (`Primary` = @PrimarySR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySR" ColumnName="Primary" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySR" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn" DbObjectType="Table" GenerateShortCommands="True" GeneratorSourceName="ScalarQuery_GetPrimaryDO_NonQuick" Modifier="Public" Name="ScalarQuery_GetPrimaryDO_NonQuick" QueryType="Scalar" ScalarCallRetval="System.Double, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy10" UserSourceName="ScalarQuery_GetPrimaryDO_NonQuick">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary DO`
+FROM            tbltrans_salesreturn
+WHERE        (`Quick Sales Return` = 0) AND (`No Transaksi` = @NoTransaksi)
+GROUP BY `Primary DO`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="NoTransaksi" ColumnName="No Transaksi" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="varchar(50)(50)" DbType="String" Direction="Input" ParameterName="@NoTransaksi" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumn="No Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_salesreturn1TableAdapter" GeneratorDataComponentClassName="tbltrans_salesreturn1TableAdapter" Name="tbltrans_salesreturn1" UserDataComponentName="tbltrans_salesreturn1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tbltrans_salesreturn" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_salesreturn.`Primary`, tbltrans_salesreturn.`No Transaksi`, tbltrans_salesreturn.`primary invoice`, tbltrans_salesreturn.Remarks, 
+                         IFNULL(tbltrans_salesinvoice.`No Transaksi`, '') AS `No Invoice`, tbltrans_salesreturn.`Tanggal Transaksi`
+FROM            tbltrans_salesreturn LEFT OUTER JOIN
+                         tbltrans_salesinvoice ON tbltrans_salesreturn.`primary invoice` = tbltrans_salesinvoice.`Primary`
+WHERE        (tbltrans_salesreturn.`Primary` = @PrimarySR)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimarySR" ColumnName="Primary" DataSourceName="core_db.tbltrans_salesreturn" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimarySR" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="primary invoice" DataSetColumn="primary invoice" />
+              <Mapping SourceColumn="Remarks" DataSetColumn="Remarks" />
+              <Mapping SourceColumn="No Invoice" DataSetColumn="No Invoice" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTransaksiSalesReturn" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTransaksiSalesReturn" msprop:Generator_DataSetName="DseTransaksiSalesReturn">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Sales_x0020_Return_x0020_No" msprop:Generator_UserColumnName="Sales Return No" msprop:Generator_ColumnVarNameInTable="columnSales_Return_No" msprop:Generator_ColumnPropNameInRow="Sales_Return_No" msprop:Generator_ColumnPropNameInTable="Sales_Return_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Delivery_x0020_Order_x0020_No" msprop:Generator_UserColumnName="Delivery Order No" msprop:Generator_ColumnVarNameInTable="columnDelivery_Order_No" msprop:Generator_ColumnPropNameInRow="Delivery_Order_No" msprop:Generator_ColumnPropNameInTable="Delivery_Order_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Code" msprop:Generator_UserColumnName="Customer Code" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code" msprop:Generator_ColumnPropNameInRow="Customer_Code" msprop:Generator_ColumnPropNameInTable="Customer_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Name" msprop:Generator_UserColumnName="Customer Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reason_x0020_Of_x0020_Return" msprop:Generator_UserColumnName="Reason Of Return" msprop:Generator_ColumnVarNameInTable="columnReason_Of_Return" msprop:Generator_ColumnPropNameInRow="Reason_Of_Return" msprop:Generator_ColumnPropNameInTable="Reason_Of_ReturnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Stock_x0020_In_x0020_Sales_x0020_Return_x0020_No" msprop:Generator_UserColumnName="Stock In Sales Return No" msprop:Generator_ColumnVarNameInTable="columnStock_In_Sales_Return_No" msprop:Generator_ColumnPropNameInRow="Stock_In_Sales_Return_No" msprop:Generator_ColumnPropNameInTable="Stock_In_Sales_Return_NoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tipe_x0020_SR" msprop:Generator_UserColumnName="Tipe SR" msprop:Generator_ColumnVarNameInTable="columnTipe_SR" msprop:Generator_ColumnPropNameInRow="Tipe_SR" msprop:Generator_ColumnPropNameInTable="Tipe_SRColumn" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salesreturn_view0" msprop:Generator_UserTableName="tbltrans_salesreturn_view0" msprop:Generator_RowDeletedName="tbltrans_salesreturn_view0RowDeleted" msprop:Generator_RowChangedName="tbltrans_salesreturn_view0RowChanged" msprop:Generator_RowClassName="tbltrans_salesreturn_view0Row" msprop:Generator_RowChangingName="tbltrans_salesreturn_view0RowChanging" msprop:Generator_RowEvArgName="tbltrans_salesreturn_view0RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salesreturn_view0RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salesreturn_view0DataTable" msprop:Generator_TableVarName="tabletbltrans_salesreturn_view0" msprop:Generator_RowDeletingName="tbltrans_salesreturn_view0RowDeleting" msprop:Generator_TablePropName="tbltrans_salesreturn_view0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Sales_x0020_Return_x0020_No" msprop:Generator_UserColumnName="Sales Return No" msprop:Generator_ColumnVarNameInTable="columnSales_Return_No" msprop:Generator_ColumnPropNameInRow="Sales_Return_No" msprop:Generator_ColumnPropNameInTable="Sales_Return_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Delivery_x0020_Order_x0020_No" msprop:Generator_UserColumnName="Delivery Order No" msprop:Generator_ColumnVarNameInTable="columnDelivery_Order_No" msprop:Generator_ColumnPropNameInRow="Delivery_Order_No" msprop:Generator_ColumnPropNameInTable="Delivery_Order_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Code" msprop:Generator_UserColumnName="Customer Code" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code" msprop:Generator_ColumnPropNameInRow="Customer_Code" msprop:Generator_ColumnPropNameInTable="Customer_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Name" msprop:Generator_UserColumnName="Customer Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reason_x0020_Of_x0020_Return" msprop:Generator_UserColumnName="Reason Of Return" msprop:Generator_ColumnVarNameInTable="columnReason_Of_Return" msprop:Generator_ColumnPropNameInRow="Reason_Of_Return" msprop:Generator_ColumnPropNameInTable="Reason_Of_ReturnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Stock_x0020_In_x0020_Sales_x0020_Return_x0020_No" msprop:Generator_UserColumnName="Stock In Sales Return No" msprop:Generator_ColumnVarNameInTable="columnStock_In_Sales_Return_No" msprop:Generator_ColumnPropNameInRow="Stock_In_Sales_Return_No" msprop:Generator_ColumnPropNameInTable="Stock_In_Sales_Return_NoColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salesreturn" msprop:Generator_UserTableName="tbltrans_salesreturn" msprop:Generator_RowDeletedName="tbltrans_salesreturnRowDeleted" msprop:Generator_RowChangedName="tbltrans_salesreturnRowChanged" msprop:Generator_RowClassName="tbltrans_salesreturnRow" msprop:Generator_RowChangingName="tbltrans_salesreturnRowChanging" msprop:Generator_RowEvArgName="tbltrans_salesreturnRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salesreturnRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salesreturnDataTable" msprop:Generator_TableVarName="tabletbltrans_salesreturn" msprop:Generator_RowDeletingName="tbltrans_salesreturnRowDeleting" msprop:Generator_TablePropName="tbltrans_salesreturn">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Urutan" msprop:Generator_UserColumnName="Urutan" msprop:Generator_ColumnVarNameInTable="columnUrutan" msprop:Generator_ColumnPropNameInRow="Urutan" msprop:Generator_ColumnPropNameInTable="UrutanColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Stock_x0020_In_x0020_Sales_x0020_Return" msprop:Generator_UserColumnName="Primary Stock In Sales Return" msprop:Generator_ColumnVarNameInTable="columnPrimary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInRow="Primary_Stock_In_Sales_Return" msprop:Generator_ColumnPropNameInTable="Primary_Stock_In_Sales_ReturnColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_DO" msprop:Generator_UserColumnName="Primary DO" msprop:Generator_ColumnVarNameInTable="columnPrimary_DO" msprop:Generator_ColumnPropNameInRow="Primary_DO" msprop:Generator_ColumnPropNameInTable="Primary_DOColumn" type="xs:double" />
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Reason_x0020_Of_x0020_Return" msprop:Generator_UserColumnName="Reason Of Return" msprop:Generator_ColumnVarNameInTable="columnReason_Of_Return" msprop:Generator_ColumnPropNameInRow="Reason_Of_Return" msprop:Generator_ColumnPropNameInTable="Reason_Of_ReturnColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Use_x0020_Nota_x0020_Retur_x0020_Pajak" msprop:Generator_UserColumnName="Use Nota Retur Pajak" msprop:Generator_ColumnVarNameInTable="columnUse_Nota_Retur_Pajak" msprop:Generator_ColumnPropNameInRow="Use_Nota_Retur_Pajak" msprop:Generator_ColumnPropNameInTable="Use_Nota_Retur_PajakColumn" type="xs:boolean" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Created_x0020_Date" msprop:Generator_UserColumnName="Created Date" msprop:Generator_ColumnVarNameInTable="columnCreated_Date" msprop:Generator_ColumnPropNameInRow="Created_Date" msprop:Generator_ColumnPropNameInTable="Created_DateColumn" type="xs:dateTime" />
+              <xs:element name="Modified_x0020_By" msprop:Generator_UserColumnName="Modified By" msprop:Generator_ColumnVarNameInTable="columnModified_By" msprop:Generator_ColumnPropNameInRow="Modified_By" msprop:Generator_ColumnPropNameInTable="Modified_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Modified_x0020_Date" msprop:Generator_UserColumnName="Modified Date" msprop:Generator_ColumnVarNameInTable="columnModified_Date" msprop:Generator_ColumnPropNameInRow="Modified_Date" msprop:Generator_ColumnPropNameInTable="Modified_DateColumn" type="xs:dateTime" />
+              <xs:element name="Timestamp" msprop:Generator_UserColumnName="Timestamp" msprop:Generator_ColumnVarNameInTable="columnTimestamp" msprop:Generator_ColumnPropNameInRow="Timestamp" msprop:Generator_ColumnPropNameInTable="TimestampColumn" type="xs:dateTime" />
+              <xs:element name="No_x0020_Nota_x0020_Retur_x0020_Pajak" msprop:Generator_UserColumnName="No Nota Retur Pajak" msprop:Generator_ColumnVarNameInTable="columnNo_Nota_Retur_Pajak" msprop:Generator_ColumnPropNameInRow="No_Nota_Retur_Pajak" msprop:Generator_ColumnPropNameInTable="No_Nota_Retur_PajakColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tipe_x0020_SR" msprop:Generator_UserColumnName="Tipe SR" msprop:Generator_ColumnVarNameInTable="columnTipe_SR" msprop:Generator_ColumnPropNameInRow="Tipe_SR" msprop:Generator_ColumnPropNameInTable="Tipe_SRColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Primary_x0020_Currency" msprop:Generator_UserColumnName="Primary Currency" msprop:Generator_ColumnVarNameInTable="columnPrimary_Currency" msprop:Generator_ColumnPropNameInRow="Primary_Currency" msprop:Generator_ColumnPropNameInTable="Primary_CurrencyColumn" type="xs:double" />
+              <xs:element name="Sub_x0020_Total" msprop:Generator_UserColumnName="Sub Total" msprop:Generator_ColumnVarNameInTable="columnSub_Total" msprop:Generator_ColumnPropNameInRow="Sub_Total" msprop:Generator_ColumnPropNameInTable="Sub_TotalColumn" type="xs:double" />
+              <xs:element name="Use_x0020_Tax" msprop:Generator_UserColumnName="Use Tax" msprop:Generator_ColumnVarNameInTable="columnUse_Tax" msprop:Generator_ColumnPropNameInRow="Use_Tax" msprop:Generator_ColumnPropNameInTable="Use_TaxColumn" type="xs:int" />
+              <xs:element name="Tax_x0020_Percent" msprop:Generator_UserColumnName="Tax Percent" msprop:Generator_ColumnVarNameInTable="columnTax_Percent" msprop:Generator_ColumnPropNameInRow="Tax_Percent" msprop:Generator_ColumnPropNameInTable="Tax_PercentColumn" type="xs:double" />
+              <xs:element name="Tax_x0020_Amount" msprop:Generator_UserColumnName="Tax Amount" msprop:Generator_ColumnVarNameInTable="columnTax_Amount" msprop:Generator_ColumnPropNameInRow="Tax_Amount" msprop:Generator_ColumnPropNameInTable="Tax_AmountColumn" type="xs:double" />
+              <xs:element name="Tax_x0020_Exchange_x0020_Rate" msprop:Generator_UserColumnName="Tax Exchange Rate" msprop:Generator_ColumnVarNameInTable="columnTax_Exchange_Rate" msprop:Generator_ColumnPropNameInRow="Tax_Exchange_Rate" msprop:Generator_ColumnPropNameInTable="Tax_Exchange_RateColumn" type="xs:double" />
+              <xs:element name="Duty_x0020_stamp" msprop:Generator_UserColumnName="Duty stamp" msprop:Generator_ColumnVarNameInTable="columnDuty_stamp" msprop:Generator_ColumnPropNameInRow="Duty_stamp" msprop:Generator_ColumnPropNameInTable="Duty_stampColumn" type="xs:double" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:double" />
+              <xs:element name="Payment_x0020_Term" msprop:Generator_UserColumnName="Payment Term" msprop:Generator_ColumnVarNameInTable="columnPayment_Term" msprop:Generator_ColumnPropNameInRow="Payment_Term" msprop:Generator_ColumnPropNameInTable="Payment_TermColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_salesreturn1" msprop:Generator_UserTableName="tbltrans_salesreturn1" msprop:Generator_RowDeletedName="tbltrans_salesreturn1RowDeleted" msprop:Generator_RowChangedName="tbltrans_salesreturn1RowChanged" msprop:Generator_RowClassName="tbltrans_salesreturn1Row" msprop:Generator_RowChangingName="tbltrans_salesreturn1RowChanging" msprop:Generator_RowEvArgName="tbltrans_salesreturn1RowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_salesreturn1RowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_salesreturn1DataTable" msprop:Generator_TableVarName="tabletbltrans_salesreturn1" msprop:Generator_RowDeletingName="tbltrans_salesreturn1RowDeleting" msprop:Generator_TablePropName="tbltrans_salesreturn1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_invoice" msprop:Generator_UserColumnName="primary invoice" msprop:Generator_ColumnVarNameInTable="columnprimary_invoice" msprop:Generator_ColumnPropNameInRow="primary_invoice" msprop:Generator_ColumnPropNameInTable="primary_invoiceColumn" type="xs:double" />
+              <xs:element name="Remarks" msprop:Generator_UserColumnName="Remarks" msprop:Generator_ColumnVarNameInTable="columnRemarks" msprop:Generator_ColumnPropNameInRow="Remarks" msprop:Generator_ColumnPropNameInTable="RemarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_Invoice" msprop:Generator_UserColumnName="No Invoice" msprop:Generator_ColumnVarNameInTable="columnNo_Invoice" msprop:Generator_ColumnPropNameInRow="No_Invoice" msprop:Generator_ColumnPropNameInTable="No_InvoiceColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="Constraint2">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Sales_x0020_Return_x0020_No" />
+    </xs:unique>
+    <xs:unique name="Constraint3">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:Stock_x0020_In_x0020_Sales_x0020_Return_x0020_No" />
+    </xs:unique>
+    <xs:unique name="tbltrans_salesreturn_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_salesreturn" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_salesreturn_Constraint2" msdata:ConstraintName="Constraint2">
+      <xs:selector xpath=".//mstns:tbltrans_salesreturn" />
+      <xs:field xpath="mstns:No_x0020_Transaksi" />
+    </xs:unique>
+    <xs:unique name="tbltrans_salesreturn1_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_salesreturn1" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tbltrans_salesreturn1_Constraint2" msdata:ConstraintName="Constraint2">
+      <xs:selector xpath=".//mstns:tbltrans_salesreturn1" />
+      <xs:field xpath="mstns:No_x0020_Transaksi" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

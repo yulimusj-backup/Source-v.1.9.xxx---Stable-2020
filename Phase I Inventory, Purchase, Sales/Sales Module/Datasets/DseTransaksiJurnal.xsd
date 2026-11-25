@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTransaksiJurnal" targetNamespace="http://tempuri.org/DseTransaksiJurnal.xsd" xmlns:mstns="http://tempuri.org/DseTransaksiJurnal.xsd" xmlns="http://tempuri.org/DseTransaksiJurnal.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Sales_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_jurnal_item_paymentTableAdapter" GeneratorDataComponentClassName="tbltrans_jurnal_item_paymentTableAdapter" Name="tbltrans_jurnal_item_payment" UserDataComponentName="tbltrans_jurnal_item_paymentTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_jurnal_item_payment.`Primary`, tbltrans_jurnal_item_payment.`Primary Journal`, tbltrans_jurnal_item_payment.Payment, 
+                         tbltrans_jurnal_item_payment.TipePayment, tbltrans_jurnal_item_payment.`Primary Document Acuan`, tbltrans_jurnal_item_payment.`Tipe Document Acuan`,
+                          tbltrans_jurnal.`Ref Number`
+FROM            tbltrans_jurnal_item_payment INNER JOIN
+                         tbltrans_jurnal ON tbltrans_jurnal_item_payment.`Primary Journal` = tbltrans_jurnal.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Primary Journal" DataSetColumn="Primary Journal" />
+              <Mapping SourceColumn="Payment" DataSetColumn="Payment" />
+              <Mapping SourceColumn="TipePayment" DataSetColumn="TipePayment" />
+              <Mapping SourceColumn="Primary Document Acuan" DataSetColumn="Primary Document Acuan" />
+              <Mapping SourceColumn="Tipe Document Acuan" DataSetColumn="Tipe Document Acuan" />
+              <Mapping SourceColumn="Ref Number" DataSetColumn="Ref Number" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy1" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_jurnal_item_payment.`Primary`, tbltrans_jurnal_item_payment.`Primary Journal`, tbltrans_jurnal_item_payment.Payment, 
+                         tbltrans_jurnal_item_payment.TipePayment, tbltrans_jurnal_item_payment.`Primary Document Acuan`, tbltrans_jurnal_item_payment.`Tipe Document Acuan`,
+                          tbltrans_jurnal.`Ref Number`
+FROM            tbltrans_jurnal_item_payment INNER JOIN
+                         tbltrans_jurnal ON tbltrans_jurnal_item_payment.`Primary Journal` = tbltrans_jurnal.`Primary`
+WHERE        (tbltrans_jurnal_item_payment.TipePayment = @TipePayment) AND (tbltrans_jurnal_item_payment.`Primary Document Acuan` = @PrimaryDocumentAcuan) 
+                         AND (tbltrans_jurnal_item_payment.`Tipe Document Acuan` = @TipeDocumentAcuan)
+ORDER BY tbltrans_jurnal.`Ref Number`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipePayment" ColumnName="TipePayment" DataSourceName="tbltrans_jurnal_item_payment" DataTypeServer="int(11)" DbType="Int32" Direction="Input" ParameterName="@TipePayment" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="TipePayment" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryDocumentAcuan" ColumnName="Primary Document Acuan" DataSourceName="tbltrans_jurnal_item_payment" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryDocumentAcuan" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Document Acuan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeDocumentAcuan" ColumnName="Tipe Document Acuan" DataSourceName="tbltrans_jurnal_item_payment" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@TipeDocumentAcuan" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Tipe Document Acuan" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTransaksiJurnal" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTransaksiJurnal" msprop:Generator_DataSetName="DseTransaksiJurnal">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbltrans_jurnal_item_payment" msprop:Generator_UserTableName="tbltrans_jurnal_item_payment" msprop:Generator_RowDeletedName="tbltrans_jurnal_item_paymentRowDeleted" msprop:Generator_RowChangedName="tbltrans_jurnal_item_paymentRowChanged" msprop:Generator_RowClassName="tbltrans_jurnal_item_paymentRow" msprop:Generator_RowChangingName="tbltrans_jurnal_item_paymentRowChanging" msprop:Generator_RowEvArgName="tbltrans_jurnal_item_paymentRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_jurnal_item_paymentRowChangeEventHandler" msprop:Generator_TableClassName="tbltrans_jurnal_item_paymentDataTable" msprop:Generator_TableVarName="tabletbltrans_jurnal_item_payment" msprop:Generator_RowDeletingName="tbltrans_jurnal_item_paymentRowDeleting" msprop:Generator_TablePropName="tbltrans_jurnal_item_payment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Journal" msprop:Generator_UserColumnName="Primary Journal" msprop:Generator_ColumnVarNameInTable="columnPrimary_Journal" msprop:Generator_ColumnPropNameInRow="Primary_Journal" msprop:Generator_ColumnPropNameInTable="Primary_JournalColumn" type="xs:double" />
+              <xs:element name="Payment" msprop:Generator_UserColumnName="Payment" msprop:Generator_ColumnVarNameInTable="columnPayment" msprop:Generator_ColumnPropNameInRow="Payment" msprop:Generator_ColumnPropNameInTable="PaymentColumn" type="xs:double" />
+              <xs:element name="TipePayment" msprop:Generator_UserColumnName="TipePayment" msprop:Generator_ColumnVarNameInTable="columnTipePayment" msprop:Generator_ColumnPropNameInRow="TipePayment" msprop:Generator_ColumnPropNameInTable="TipePaymentColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Document_x0020_Acuan" msprop:Generator_UserColumnName="Primary Document Acuan" msprop:Generator_ColumnVarNameInTable="columnPrimary_Document_Acuan" msprop:Generator_ColumnPropNameInRow="Primary_Document_Acuan" msprop:Generator_ColumnPropNameInTable="Primary_Document_AcuanColumn" type="xs:double" />
+              <xs:element name="Tipe_x0020_Document_x0020_Acuan" msprop:Generator_UserColumnName="Tipe Document Acuan" msprop:Generator_ColumnVarNameInTable="columnTipe_Document_Acuan" msprop:Generator_ColumnPropNameInRow="Tipe_Document_Acuan" msprop:Generator_ColumnPropNameInTable="Tipe_Document_AcuanColumn" type="xs:double" />
+              <xs:element name="Ref_x0020_Number" msprop:Generator_UserColumnName="Ref Number" msprop:Generator_ColumnVarNameInTable="columnRef_Number" msprop:Generator_ColumnPropNameInRow="Ref_Number" msprop:Generator_ColumnPropNameInTable="Ref_NumberColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tbltrans_jurnal_item_payment" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

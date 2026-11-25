@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseUpdate_CheckData" targetNamespace="http://tempuri.org/DseUpdate_CheckData.xsd" xmlns:mstns="http://tempuri.org/DseUpdate_CheckData.xsd" xmlns="http://tempuri.org/DseUpdate_CheckData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SMESS.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbldo_itemTableAdapter" GeneratorDataComponentClassName="tbldo_itemTableAdapter" Name="tbldo_item" UserDataComponentName="tbldo_itemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_do_item.`Primary DO`, tbltrans_do.`No Transaksi`, tbltrans_do_item.`Primary Product`, tbltrans_do_item.`Total Qty`, tbltrans_do_item.`Total Qty Multi`, tbltrans_do_item.`Ratio Reference`, tbltrans_do_item.`Ratio Default`, 
+                  tblmaster_product.`Decimal`, tblmaster_product.`Product Code`
+FROM     tbltrans_do INNER JOIN
+                  tbltrans_do_item ON tbltrans_do.`Primary` = tbltrans_do_item.`Primary DO` INNER JOIN
+                  tblmaster_product ON tbltrans_do_item.`Primary Product` = tblmaster_product.`Primary`
+ORDER BY tbltrans_do_item.`Primary Product`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary DO" DataSetColumn="Primary DO" />
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Total Qty" DataSetColumn="Total Qty" />
+              <Mapping SourceColumn="Total Qty Multi" DataSetColumn="Total Qty Multi" />
+              <Mapping SourceColumn="Ratio Reference" DataSetColumn="Ratio Reference" />
+              <Mapping SourceColumn="Ratio Default" DataSetColumn="Ratio Default" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_TGLDari" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_TGLDari" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_TGLDari">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltrans_do_item.`Primary DO`, tbltrans_do.`No Transaksi`, tbltrans_do_item.`Primary Product`, tbltrans_do_item.`Total Qty`, tbltrans_do_item.`Total Qty Multi`, tbltrans_do_item.`Ratio Reference`, tbltrans_do_item.`Ratio Default`, 
+                  tblmaster_product.`Decimal`, tblmaster_product.`Product Code`
+FROM     tbltrans_do INNER JOIN
+                  tbltrans_do_item ON tbltrans_do.`Primary` = tbltrans_do_item.`Primary DO` INNER JOIN
+                  tblmaster_product ON tbltrans_do_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE  (tbltrans_do.`Tanggal Transaksi` &gt;= @TglDari)
+ORDER BY tbltrans_do_item.`Primary Product`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltrans_do" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbltrans_stockinoutTableAdapter" GeneratorDataComponentClassName="tbltrans_stockinoutTableAdapter" Name="tbltrans_stockinout" UserDataComponentName="tbltrans_stockinoutTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tbltransaksi_stockinout.`No Transaksi`, tbltransaksi_stockinout.`Tipe Transaksi`, tbltransaksi_stockinout.`Tanggal Transaksi`, tbltransaksi_stockinout_item.`Primary Product`, tbltransaksi_stockinout_item.Qty, 
+                  tbltransaksi_stockinout_item.`Qty Multi Unit`, tbltransaksi_stockinout_item.Rasio, tbltransaksi_stockinout_item.`Ratio Default`, tblmaster_product.`Product Code`, tblmaster_product.`Decimal`
+FROM     tbltransaksi_stockinout INNER JOIN
+                  tbltransaksi_stockinout_item ON tbltransaksi_stockinout.`Primary` = tbltransaksi_stockinout_item.`Primary Transaksi` INNER JOIN
+                  tblmaster_product ON tbltransaksi_stockinout_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE  (tbltransaksi_stockinout.`Tipe Transaksi` = @TipeTransaksi) AND (tbltransaksi_stockinout.`Tanggal Transaksi` &gt;= @TglDari)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TipeTransaksi" ColumnName="Tipe Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockinout" DataTypeServer="int(5)" DbType="Int32" Direction="Input" ParameterName="@TipeTransaksi" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="Tipe Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="Tanggal Transaksi" DataSourceName="smess_lmb.tbltransaksi_stockinout" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Tanggal Transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="No Transaksi" DataSetColumn="No Transaksi" />
+              <Mapping SourceColumn="Tipe Transaksi" DataSetColumn="Tipe Transaksi" />
+              <Mapping SourceColumn="Tanggal Transaksi" DataSetColumn="Tanggal Transaksi" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Qty Multi Unit" DataSetColumn="Qty Multi Unit" />
+              <Mapping SourceColumn="Rasio" DataSetColumn="Rasio" />
+              <Mapping SourceColumn="Ratio Default" DataSetColumn="Ratio Default" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseUpdate_CheckData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseUpdate_CheckData" msprop:Generator_DataSetName="DseUpdate_CheckData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbldo_item" msprop:Generator_UserTableName="tbldo_item" msprop:Generator_RowDeletedName="tbldo_itemRowDeleted" msprop:Generator_TableClassName="tbldo_itemDataTable" msprop:Generator_RowChangedName="tbldo_itemRowChanged" msprop:Generator_RowClassName="tbldo_itemRow" msprop:Generator_RowChangingName="tbldo_itemRowChanging" msprop:Generator_RowEvArgName="tbldo_itemRowChangeEvent" msprop:Generator_RowEvHandlerName="tbldo_itemRowChangeEventHandler" msprop:Generator_TablePropName="tbldo_item" msprop:Generator_TableVarName="tabletbldo_item" msprop:Generator_RowDeletingName="tbldo_itemRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_DO" msprop:Generator_UserColumnName="Primary DO" msprop:Generator_ColumnPropNameInRow="Primary_DO" msprop:Generator_ColumnVarNameInTable="columnPrimary_DO" msprop:Generator_ColumnPropNameInTable="Primary_DOColumn" type="xs:double" />
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Total_x0020_Qty" msprop:Generator_UserColumnName="Total Qty" msprop:Generator_ColumnPropNameInRow="Total_Qty" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty" msprop:Generator_ColumnPropNameInTable="Total_QtyColumn" type="xs:decimal" />
+              <xs:element name="Total_x0020_Qty_x0020_Multi" msprop:Generator_UserColumnName="Total Qty Multi" msprop:Generator_ColumnPropNameInRow="Total_Qty_Multi" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty_Multi" msprop:Generator_ColumnPropNameInTable="Total_Qty_MultiColumn" type="xs:decimal" />
+              <xs:element name="Ratio_x0020_Reference" msprop:Generator_UserColumnName="Ratio Reference" msprop:Generator_ColumnPropNameInRow="Ratio_Reference" msprop:Generator_ColumnVarNameInTable="columnRatio_Reference" msprop:Generator_ColumnPropNameInTable="Ratio_ReferenceColumn" type="xs:decimal" />
+              <xs:element name="Ratio_x0020_Default" msprop:Generator_UserColumnName="Ratio Default" msprop:Generator_ColumnPropNameInRow="Ratio_Default" msprop:Generator_ColumnVarNameInTable="columnRatio_Default" msprop:Generator_ColumnPropNameInTable="Ratio_DefaultColumn" type="xs:decimal" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbltrans_stockinout" msprop:Generator_UserTableName="tbltrans_stockinout" msprop:Generator_RowDeletedName="tbltrans_stockinoutRowDeleted" msprop:Generator_TableClassName="tbltrans_stockinoutDataTable" msprop:Generator_RowChangedName="tbltrans_stockinoutRowChanged" msprop:Generator_RowClassName="tbltrans_stockinoutRow" msprop:Generator_RowChangingName="tbltrans_stockinoutRowChanging" msprop:Generator_RowEvArgName="tbltrans_stockinoutRowChangeEvent" msprop:Generator_RowEvHandlerName="tbltrans_stockinoutRowChangeEventHandler" msprop:Generator_TablePropName="tbltrans_stockinout" msprop:Generator_TableVarName="tabletbltrans_stockinout" msprop:Generator_RowDeletingName="tbltrans_stockinoutRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="No_x0020_Transaksi" msprop:Generator_UserColumnName="No Transaksi" msprop:Generator_ColumnPropNameInRow="No_Transaksi" msprop:Generator_ColumnVarNameInTable="columnNo_Transaksi" msprop:Generator_ColumnPropNameInTable="No_TransaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tipe_x0020_Transaksi" msprop:Generator_UserColumnName="Tipe Transaksi" msprop:Generator_ColumnPropNameInRow="Tipe_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTipe_Transaksi" msprop:Generator_ColumnPropNameInTable="Tipe_TransaksiColumn" type="xs:int" />
+              <xs:element name="Tanggal_x0020_Transaksi" msprop:Generator_UserColumnName="Tanggal Transaksi" msprop:Generator_ColumnPropNameInRow="Tanggal_Transaksi" msprop:Generator_ColumnVarNameInTable="columnTanggal_Transaksi" msprop:Generator_ColumnPropNameInTable="Tanggal_TransaksiColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" />
+              <xs:element name="Qty_x0020_Multi_x0020_Unit" msprop:Generator_UserColumnName="Qty Multi Unit" msprop:Generator_ColumnPropNameInRow="Qty_Multi_Unit" msprop:Generator_ColumnVarNameInTable="columnQty_Multi_Unit" msprop:Generator_ColumnPropNameInTable="Qty_Multi_UnitColumn" type="xs:decimal" />
+              <xs:element name="Rasio" msprop:Generator_UserColumnName="Rasio" msprop:Generator_ColumnPropNameInRow="Rasio" msprop:Generator_ColumnVarNameInTable="columnRasio" msprop:Generator_ColumnPropNameInTable="RasioColumn" type="xs:decimal" />
+              <xs:element name="Ratio_x0020_Default" msprop:Generator_UserColumnName="Ratio Default" msprop:Generator_ColumnPropNameInRow="Ratio_Default" msprop:Generator_ColumnVarNameInTable="columnRatio_Default" msprop:Generator_ColumnPropNameInTable="Ratio_DefaultColumn" type="xs:decimal" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

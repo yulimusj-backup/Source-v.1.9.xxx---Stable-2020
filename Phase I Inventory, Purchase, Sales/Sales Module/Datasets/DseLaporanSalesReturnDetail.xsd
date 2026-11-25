@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanSalesReturnDetail" targetNamespace="http://tempuri.org/DseLaporanSalesReturnDetail.xsd" xmlns:mstns="http://tempuri.org/DseLaporanSalesReturnDetail.xsd" xmlns="http://tempuri.org/DseLaporanSalesReturnDetail.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Sales_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Tbl_CetakTableAdapter" GeneratorDataComponentClassName="Tbl_CetakTableAdapter" Name="Tbl_Cetak" UserDataComponentName="Tbl_CetakTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_salesreturn.`Primary`, tbltrans_salesreturn.`No Transaksi` AS `SR No`, tbltrans_salesreturn.`Tanggal Transaksi` AS `SR Date`, tbltrans_salesreturn.`Primary Currency`, IFNULL(tblmaster_currency.`Currency Code`, '') 
+                  AS `Currency Code`, IFNULL(tbltrans_so.`Primary Customer`, - 1) AS `Primary Customer`, tbltrans_salesreturn.`Primary Customer Quick`, IFNULL(tblmaster_customer_1.`Customer Code`, '-') AS `Customer Code`, 
+                  IFNULL(tblmaster_customer_1.`Customer Name`, '-') AS `Customer Name`, IFNULL(tblmaster_customer.`Customer Code`, '-') AS `Customer Code Quick`, IFNULL(tblmaster_customer.`Customer Name`, '-') AS `Customer Name Quick`, 
+                  tbltrans_salesreturn.`Payment Term`, IFNULL(tbltrans_so.`Primary`, - 1) AS `Primary SO`, IFNULL(tbltrans_so.`No Transaksi`, '-') AS `SO No`, tbltrans_salesreturn.`Tipe SR`, tbltrans_salesreturn_item.`Primary Product`, 
+                  tblmaster_product.`Product Code`, tblmaster_product.Description AS `Product Desc`, tbltrans_salesreturn_item.`Primary Units`, tblmaster_master_unit.`Unit Code` AS `Unit Code Default`, tbltrans_salesreturn_item.`Primary Units Multi`, 
+                  tblmaster_master_unit_1.`Unit Code` AS `Unit Code Multi`, tbltrans_salesreturn_item.`Total Qty Multi`, tblmaster_product.`Decimal`, tbltrans_salesreturn_item.`Nett Price`, tbltrans_salesreturn_item.Amount, 
+                  tbltrans_salesreturn.`Sub Total`, tbltrans_salesreturn.`Tax Amount`, tbltrans_salesreturn.Total, IFNULL(tblmaster_currency.`Default Precision`, 0) AS `Default Precision`, tbltrans_salesreturn.`Created By`, 
+                  tblmaster_product.`Primary Category`, product_sub_brand_view.`Primary Brand`, product_sub_brand_view.`Primary Sub Brand`, tblmaster_product_group.`Parent Group Primary` AS `Primary Group`, 
+                  tbltrans_salesreturn.`Invoice Cancellation`, tbltrans_salesreturn_item.`Ratio Reference`, tbltrans_salesreturn_item.`Ratio Default`, tbltrans_salesreturn.`Primary Curr Tax`, IFNULL(tblmaster_currency_1.`Currency Code`, '') 
+                  AS `Currency Code Tax`, IFNULL(tblmaster_currency_1.`Default Precision`, 0) AS `Default ``Precision`` Tax`, tbltrans_salesreturn.`Tax Percent`, tbltrans_salesreturn.`Tax Exchange Rate`, tbltrans_salesreturn.`Duty stamp`, 
+                  tbltrans_salesreturn_item.`price by multi unit`, IFNULL(tblmaster_product_item_multiunit.`Default Precision`, tblmaster_product.`Decimal`) AS `Dec Multi`, tbltrans_salesreturn_item.`Total Qty`
+FROM     tbltrans_salesreturn_item INNER JOIN
+                  tbltrans_salesreturn ON tbltrans_salesreturn_item.`Primary Transaksi` = tbltrans_salesreturn.`Primary` INNER JOIN
+                  tblmaster_master_unit ON tbltrans_salesreturn_item.`Primary Units` = tblmaster_master_unit.`Primary` INNER JOIN
+                  tblmaster_master_unit tblmaster_master_unit_1 ON tbltrans_salesreturn_item.`Primary Units Multi` = tblmaster_master_unit_1.`Primary` LEFT OUTER JOIN
+                  tblmaster_currency tblmaster_currency_1 ON tbltrans_salesreturn.`Primary Curr Tax` = tblmaster_currency_1.`Primary` LEFT OUTER JOIN
+                  tbltrans_so ON tbltrans_salesreturn_item.`Primary SO` = tbltrans_so.`Primary` LEFT OUTER JOIN
+                  tblmaster_customer tblmaster_customer_1 ON tbltrans_so.`Primary Customer` = tblmaster_customer_1.`Primary` LEFT OUTER JOIN
+                  tblmaster_product_item_multiunit ON tbltrans_salesreturn_item.`Primary Units Multi` = tblmaster_product_item_multiunit.`Primary Unit` AND 
+                  tbltrans_salesreturn_item.`Primary Product` = tblmaster_product_item_multiunit.`Primary Product` LEFT OUTER JOIN
+                  tblmaster_customer ON tbltrans_salesreturn.`Primary Customer Quick` = tblmaster_customer.`Primary` LEFT OUTER JOIN
+                  tblmaster_currency ON tbltrans_salesreturn.`Primary Currency` = tblmaster_currency.`Primary` LEFT OUTER JOIN
+                  tblmaster_category INNER JOIN
+                  tblmaster_product ON tblmaster_category.`Primary` = tblmaster_product.`Primary Category` INNER JOIN
+                  product_sub_brand_view ON tblmaster_category.`Parent Group Primary` = product_sub_brand_view.`Primary Sub Brand` INNER JOIN
+                  tblmaster_product_group ON product_sub_brand_view.`Primary Brand` = tblmaster_product_group.`Primary` ON tbltrans_salesreturn_item.`Primary Product` = tblmaster_product.`Primary`
+WHERE  (tbltrans_salesreturn.`Tanggal Transaksi` &gt;= @StartDate) AND (tbltrans_salesreturn.`Tanggal Transaksi` &lt;= @EndDate)
+ORDER BY `SR Date`, `SR No`, tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="StartDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt_fitri.tbltrans_salesreturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@StartDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="SR Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="Tanggal Transaksi" DataSourceName="smess_abt_fitri.tbltrans_salesreturn" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="SR Date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="SR No" DataSetColumn="SR No" />
+              <Mapping SourceColumn="SR Date" DataSetColumn="SR Date" />
+              <Mapping SourceColumn="Primary Currency" DataSetColumn="Primary Currency" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Primary Customer" DataSetColumn="Primary Customer" />
+              <Mapping SourceColumn="Primary Customer Quick" DataSetColumn="Primary Customer Quick" />
+              <Mapping SourceColumn="Customer Code" DataSetColumn="Customer Code" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+              <Mapping SourceColumn="Customer Code Quick" DataSetColumn="Customer Code Quick" />
+              <Mapping SourceColumn="Payment Term" DataSetColumn="Payment Term" />
+              <Mapping SourceColumn="Primary SO" DataSetColumn="Primary SO" />
+              <Mapping SourceColumn="SO No" DataSetColumn="SO No" />
+              <Mapping SourceColumn="Tipe SR" DataSetColumn="Tipe SR" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Product Desc" DataSetColumn="Product Desc" />
+              <Mapping SourceColumn="Primary Units" DataSetColumn="Primary Units" />
+              <Mapping SourceColumn="Unit Code Default" DataSetColumn="Unit Code Default" />
+              <Mapping SourceColumn="Primary Units Multi" DataSetColumn="Primary Units Multi" />
+              <Mapping SourceColumn="Unit Code Multi" DataSetColumn="Unit Code Multi" />
+              <Mapping SourceColumn="Total Qty Multi" DataSetColumn="Total Qty Multi" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+              <Mapping SourceColumn="Nett Price" DataSetColumn="Nett Price" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Sub Total" DataSetColumn="Sub Total" />
+              <Mapping SourceColumn="Tax Amount" DataSetColumn="Tax Amount" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Default Precision" DataSetColumn="Default Precision" />
+              <Mapping SourceColumn="Created By" DataSetColumn="Created By" />
+              <Mapping SourceColumn="Primary Category" DataSetColumn="Primary Category" />
+              <Mapping SourceColumn="Primary Sub Brand" DataSetColumn="Primary Sub Brand" />
+              <Mapping SourceColumn="Primary Group" DataSetColumn="Primary Group" />
+              <Mapping SourceColumn="Invoice Cancellation" DataSetColumn="Invoice Cancellation" />
+              <Mapping SourceColumn="Ratio Reference" DataSetColumn="Ratio Reference" />
+              <Mapping SourceColumn="Ratio Default" DataSetColumn="Ratio Default" />
+              <Mapping SourceColumn="Primary Brand" DataSetColumn="Primary Brand" />
+              <Mapping SourceColumn="Customer Name Quick" DataSetColumn="Customer Name Quick" />
+              <Mapping SourceColumn="Primary Curr Tax" DataSetColumn="Primary Curr Tax" />
+              <Mapping SourceColumn="Currency Code Tax" DataSetColumn="Currency Code Tax" />
+              <Mapping SourceColumn="Default `Precision` Tax" DataSetColumn="Default `Precision` Tax" />
+              <Mapping SourceColumn="Tax Percent" DataSetColumn="Tax Percent" />
+              <Mapping SourceColumn="Tax Exchange Rate" DataSetColumn="Tax Exchange Rate" />
+              <Mapping SourceColumn="Duty stamp" DataSetColumn="Duty stamp" />
+              <Mapping SourceColumn="price by multi unit" DataSetColumn="price by multi unit" />
+              <Mapping SourceColumn="Dec Multi" DataSetColumn="Dec Multi" />
+              <Mapping SourceColumn="Total Qty" DataSetColumn="Total Qty" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanSalesReturnDetail" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanSalesReturnDetail" msprop:Generator_DataSetName="DseLaporanSalesReturnDetail">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Tbl_Cetak" msprop:Generator_UserTableName="Tbl_Cetak" msprop:Generator_RowDeletedName="Tbl_CetakRowDeleted" msprop:Generator_RowChangedName="Tbl_CetakRowChanged" msprop:Generator_RowClassName="Tbl_CetakRow" msprop:Generator_RowChangingName="Tbl_CetakRowChanging" msprop:Generator_RowEvArgName="Tbl_CetakRowChangeEvent" msprop:Generator_RowEvHandlerName="Tbl_CetakRowChangeEventHandler" msprop:Generator_TableClassName="Tbl_CetakDataTable" msprop:Generator_TableVarName="tableTbl_Cetak" msprop:Generator_RowDeletingName="Tbl_CetakRowDeleting" msprop:Generator_TablePropName="Tbl_Cetak">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="SR_x0020_No" msprop:Generator_UserColumnName="SR No" msprop:Generator_ColumnVarNameInTable="columnSR_No" msprop:Generator_ColumnPropNameInRow="SR_No" msprop:Generator_ColumnPropNameInTable="SR_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SR_x0020_Date" msprop:Generator_UserColumnName="SR Date" msprop:Generator_ColumnVarNameInTable="columnSR_Date" msprop:Generator_ColumnPropNameInRow="SR_Date" msprop:Generator_ColumnPropNameInTable="SR_DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Currency" msprop:Generator_UserColumnName="Primary Currency" msprop:Generator_ColumnVarNameInTable="columnPrimary_Currency" msprop:Generator_ColumnPropNameInRow="Primary_Currency" msprop:Generator_ColumnPropNameInTable="Primary_CurrencyColumn" type="xs:double" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Customer" msprop:Generator_UserColumnName="Primary Customer" msprop:Generator_ColumnVarNameInTable="columnPrimary_Customer" msprop:Generator_ColumnPropNameInRow="Primary_Customer" msprop:Generator_ColumnPropNameInTable="Primary_CustomerColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Customer_x0020_Quick" msprop:Generator_UserColumnName="Primary Customer Quick" msprop:Generator_ColumnVarNameInTable="columnPrimary_Customer_Quick" msprop:Generator_ColumnPropNameInRow="Primary_Customer_Quick" msprop:Generator_ColumnPropNameInTable="Primary_Customer_QuickColumn" type="xs:double" />
+              <xs:element name="Customer_x0020_Code" msprop:Generator_UserColumnName="Customer Code" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code" msprop:Generator_ColumnPropNameInRow="Customer_Code" msprop:Generator_ColumnPropNameInTable="Customer_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Name" msprop:Generator_UserColumnName="Customer Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Code_x0020_Quick" msprop:Generator_UserColumnName="Customer Code Quick" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code_Quick" msprop:Generator_ColumnPropNameInRow="Customer_Code_Quick" msprop:Generator_ColumnPropNameInTable="Customer_Code_QuickColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Payment_x0020_Term" msprop:Generator_UserColumnName="Payment Term" msprop:Generator_ColumnVarNameInTable="columnPayment_Term" msprop:Generator_ColumnPropNameInRow="Payment_Term" msprop:Generator_ColumnPropNameInTable="Payment_TermColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_SO" msprop:Generator_UserColumnName="Primary SO" msprop:Generator_ColumnVarNameInTable="columnPrimary_SO" msprop:Generator_ColumnPropNameInRow="Primary_SO" msprop:Generator_ColumnPropNameInTable="Primary_SOColumn" type="xs:double" />
+              <xs:element name="SO_x0020_No" msprop:Generator_UserColumnName="SO No" msprop:Generator_ColumnVarNameInTable="columnSO_No" msprop:Generator_ColumnPropNameInRow="SO_No" msprop:Generator_ColumnPropNameInTable="SO_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tipe_x0020_SR" msprop:Generator_UserColumnName="Tipe SR" msprop:Generator_ColumnVarNameInTable="columnTipe_SR" msprop:Generator_ColumnPropNameInRow="Tipe_SR" msprop:Generator_ColumnPropNameInTable="Tipe_SRColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Desc" msprop:Generator_UserColumnName="Product Desc" msprop:Generator_ColumnVarNameInTable="columnProduct_Desc" msprop:Generator_ColumnPropNameInRow="Product_Desc" msprop:Generator_ColumnPropNameInTable="Product_DescColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Units" msprop:Generator_UserColumnName="Primary Units" msprop:Generator_ColumnVarNameInTable="columnPrimary_Units" msprop:Generator_ColumnPropNameInRow="Primary_Units" msprop:Generator_ColumnPropNameInTable="Primary_UnitsColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code_x0020_Default" msprop:Generator_UserColumnName="Unit Code Default" msprop:Generator_ColumnVarNameInTable="columnUnit_Code_Default" msprop:Generator_ColumnPropNameInRow="Unit_Code_Default" msprop:Generator_ColumnPropNameInTable="Unit_Code_DefaultColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Units_x0020_Multi" msprop:Generator_UserColumnName="Primary Units Multi" msprop:Generator_ColumnVarNameInTable="columnPrimary_Units_Multi" msprop:Generator_ColumnPropNameInRow="Primary_Units_Multi" msprop:Generator_ColumnPropNameInTable="Primary_Units_MultiColumn" type="xs:double" />
+              <xs:element name="Unit_x0020_Code_x0020_Multi" msprop:Generator_UserColumnName="Unit Code Multi" msprop:Generator_ColumnVarNameInTable="columnUnit_Code_Multi" msprop:Generator_ColumnPropNameInRow="Unit_Code_Multi" msprop:Generator_ColumnPropNameInTable="Unit_Code_MultiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total_x0020_Qty_x0020_Multi" msprop:Generator_UserColumnName="Total Qty Multi" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty_Multi" msprop:Generator_ColumnPropNameInRow="Total_Qty_Multi" msprop:Generator_ColumnPropNameInTable="Total_Qty_MultiColumn" type="xs:decimal" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Nett_x0020_Price" msprop:Generator_UserColumnName="Nett Price" msprop:Generator_ColumnVarNameInTable="columnNett_Price" msprop:Generator_ColumnPropNameInRow="Nett_Price" msprop:Generator_ColumnPropNameInTable="Nett_PriceColumn" type="xs:double" />
+              <xs:element name="Amount" msprop:Generator_UserColumnName="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" type="xs:decimal" />
+              <xs:element name="Sub_x0020_Total" msprop:Generator_UserColumnName="Sub Total" msprop:Generator_ColumnVarNameInTable="columnSub_Total" msprop:Generator_ColumnPropNameInRow="Sub_Total" msprop:Generator_ColumnPropNameInTable="Sub_TotalColumn" type="xs:decimal" />
+              <xs:element name="Tax_x0020_Amount" msprop:Generator_UserColumnName="Tax Amount" msprop:Generator_ColumnVarNameInTable="columnTax_Amount" msprop:Generator_ColumnPropNameInRow="Tax_Amount" msprop:Generator_ColumnPropNameInTable="Tax_AmountColumn" type="xs:decimal" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" />
+              <xs:element name="Default_x0020_Precision" msprop:Generator_UserColumnName="Default Precision" msprop:Generator_ColumnVarNameInTable="columnDefault_Precision" msprop:Generator_ColumnPropNameInRow="Default_Precision" msprop:Generator_ColumnPropNameInTable="Default_PrecisionColumn" type="xs:long" />
+              <xs:element name="Created_x0020_By" msprop:Generator_UserColumnName="Created By" msprop:Generator_ColumnVarNameInTable="columnCreated_By" msprop:Generator_ColumnPropNameInRow="Created_By" msprop:Generator_ColumnPropNameInTable="Created_ByColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Category" msprop:Generator_UserColumnName="Primary Category" msprop:Generator_ColumnVarNameInTable="columnPrimary_Category" msprop:Generator_ColumnPropNameInRow="Primary_Category" msprop:Generator_ColumnPropNameInTable="Primary_CategoryColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Sub_x0020_Brand" msprop:Generator_UserColumnName="Primary Sub Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Sub_Brand" msprop:Generator_ColumnPropNameInRow="Primary_Sub_Brand" msprop:Generator_ColumnPropNameInTable="Primary_Sub_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Group" msprop:Generator_UserColumnName="Primary Group" msprop:Generator_ColumnVarNameInTable="columnPrimary_Group" msprop:Generator_ColumnPropNameInRow="Primary_Group" msprop:Generator_ColumnPropNameInTable="Primary_GroupColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Invoice_x0020_Cancellation" msprop:Generator_UserColumnName="Invoice Cancellation" msprop:Generator_ColumnVarNameInTable="columnInvoice_Cancellation" msprop:Generator_ColumnPropNameInRow="Invoice_Cancellation" msprop:Generator_ColumnPropNameInTable="Invoice_CancellationColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Ratio_x0020_Reference" msprop:Generator_UserColumnName="Ratio Reference" msprop:Generator_ColumnVarNameInTable="columnRatio_Reference" msprop:Generator_ColumnPropNameInRow="Ratio_Reference" msprop:Generator_ColumnPropNameInTable="Ratio_ReferenceColumn" type="xs:decimal" />
+              <xs:element name="Ratio_x0020_Default" msprop:Generator_UserColumnName="Ratio Default" msprop:Generator_ColumnVarNameInTable="columnRatio_Default" msprop:Generator_ColumnPropNameInRow="Ratio_Default" msprop:Generator_ColumnPropNameInTable="Ratio_DefaultColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Brand" msprop:Generator_UserColumnName="Primary Brand" msprop:Generator_ColumnPropNameInRow="Primary_Brand" msprop:Generator_ColumnVarNameInTable="columnPrimary_Brand" msprop:Generator_ColumnPropNameInTable="Primary_BrandColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Customer_x0020_Name_x0020_Quick" msprop:Generator_UserColumnName="Customer Name Quick" msprop:Generator_ColumnPropNameInRow="Customer_Name_Quick" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name_Quick" msprop:Generator_ColumnPropNameInTable="Customer_Name_QuickColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Curr_x0020_Tax" msprop:Generator_UserColumnName="Primary Curr Tax" msprop:Generator_ColumnVarNameInTable="columnPrimary_Curr_Tax" msprop:Generator_ColumnPropNameInRow="Primary_Curr_Tax" msprop:Generator_ColumnPropNameInTable="Primary_Curr_TaxColumn" type="xs:double" />
+              <xs:element name="Currency_x0020_Code_x0020_Tax" msprop:Generator_UserColumnName="Currency Code Tax" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code_Tax" msprop:Generator_ColumnPropNameInRow="Currency_Code_Tax" msprop:Generator_ColumnPropNameInTable="Currency_Code_TaxColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Default_x0020__x0060_Precision_x0060__x0020_Tax" msprop:Generator_UserColumnName="Default `Precision` Tax" msprop:Generator_ColumnVarNameInTable="_columnDefault__Precision__Tax" msprop:Generator_ColumnPropNameInRow="_Default__Precision__Tax" msprop:Generator_ColumnPropNameInTable="_Default__Precision__TaxColumn" type="xs:long" />
+              <xs:element name="Tax_x0020_Percent" msprop:Generator_UserColumnName="Tax Percent" msprop:Generator_ColumnVarNameInTable="columnTax_Percent" msprop:Generator_ColumnPropNameInRow="Tax_Percent" msprop:Generator_ColumnPropNameInTable="Tax_PercentColumn" type="xs:decimal" />
+              <xs:element name="Tax_x0020_Exchange_x0020_Rate" msprop:Generator_UserColumnName="Tax Exchange Rate" msprop:Generator_ColumnVarNameInTable="columnTax_Exchange_Rate" msprop:Generator_ColumnPropNameInRow="Tax_Exchange_Rate" msprop:Generator_ColumnPropNameInTable="Tax_Exchange_RateColumn" type="xs:decimal" />
+              <xs:element name="Duty_x0020_stamp" msprop:Generator_UserColumnName="Duty stamp" msprop:Generator_ColumnPropNameInRow="Duty_stamp" msprop:Generator_ColumnVarNameInTable="columnDuty_stamp" msprop:Generator_ColumnPropNameInTable="Duty_stampColumn" type="xs:decimal" />
+              <xs:element name="Payment_x0020_Term_x0020_Days" msprop:Generator_UserColumnName="Payment Term Days" msprop:Generator_ColumnPropNameInRow="Payment_Term_Days" msprop:Generator_ColumnVarNameInTable="columnPayment_Term_Days" msprop:Generator_ColumnPropNameInTable="Payment_Term_DaysColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Ratio_x0020_Desc" msprop:Generator_UserColumnName="Ratio Desc" msprop:Generator_ColumnPropNameInRow="Ratio_Desc" msprop:Generator_ColumnVarNameInTable="columnRatio_Desc" msprop:Generator_ColumnPropNameInTable="Ratio_DescColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Return_x0020_Type" msprop:Generator_UserColumnName="Return Type" msprop:Generator_ColumnPropNameInRow="Return_Type" msprop:Generator_ColumnVarNameInTable="columnReturn_Type" msprop:Generator_ColumnPropNameInTable="Return_TypeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="VAT" msprop:Generator_UserColumnName="VAT" msprop:Generator_ColumnPropNameInRow="VAT" msprop:Generator_ColumnVarNameInTable="columnVAT" msprop:Generator_ColumnPropNameInTable="VATColumn" type="xs:decimal" default="0" minOccurs="0" />
+              <xs:element name="Decimal_x0020_multi" msprop:Generator_UserColumnName="Decimal multi" msprop:Generator_ColumnPropNameInRow="Decimal_multi" msprop:Generator_ColumnVarNameInTable="columnDecimal_multi" msprop:Generator_ColumnPropNameInTable="Decimal_multiColumn" type="xs:string" default="0" minOccurs="0" />
+              <xs:element name="price_x0020_by_x0020_multi_x0020_unit" msprop:Generator_UserColumnName="price by multi unit" msprop:Generator_ColumnPropNameInRow="price_by_multi_unit" msprop:Generator_ColumnVarNameInTable="columnprice_by_multi_unit" msprop:Generator_ColumnPropNameInTable="price_by_multi_unitColumn" type="xs:int" />
+              <xs:element name="Dec_x0020_Multi" msprop:Generator_UserColumnName="Dec Multi" msprop:Generator_ColumnPropNameInRow="Dec_Multi" msprop:Generator_ColumnVarNameInTable="columnDec_Multi" msprop:Generator_ColumnPropNameInTable="Dec_MultiColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Total_x0020_Qty" msprop:Generator_UserColumnName="Total Qty" msprop:Generator_ColumnPropNameInRow="Total_Qty" msprop:Generator_ColumnVarNameInTable="columnTotal_Qty" msprop:Generator_ColumnPropNameInTable="Total_QtyColumn" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Total_Curr" msprop:Generator_UserTableName="Total_Curr" msprop:Generator_RowDeletedName="Total_CurrRowDeleted" msprop:Generator_RowChangedName="Total_CurrRowChanged" msprop:Generator_RowClassName="Total_CurrRow" msprop:Generator_RowChangingName="Total_CurrRowChanging" msprop:Generator_RowEvArgName="Total_CurrRowChangeEvent" msprop:Generator_RowEvHandlerName="Total_CurrRowChangeEventHandler" msprop:Generator_TableClassName="Total_CurrDataTable" msprop:Generator_TableVarName="tableTotal_Curr" msprop:Generator_RowDeletingName="Total_CurrRowDeleting" msprop:Generator_TablePropName="Total_Curr">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Currency" msprop:Generator_UserColumnName="Primary Currency" msprop:Generator_ColumnVarNameInTable="columnPrimary_Currency" msprop:Generator_ColumnPropNameInRow="Primary_Currency" msprop:Generator_ColumnPropNameInTable="Primary_CurrencyColumn" type="xs:decimal" />
+              <xs:element name="Default_x0020_Precision" msprop:Generator_UserColumnName="Default Precision" msprop:Generator_ColumnVarNameInTable="columnDefault_Precision" msprop:Generator_ColumnPropNameInRow="Default_Precision" msprop:Generator_ColumnPropNameInTable="Default_PrecisionColumn" type="xs:int" />
+              <xs:element name="Sub_x0020_Total" msprop:Generator_UserColumnName="Sub Total" msprop:Generator_ColumnVarNameInTable="columnSub_Total" msprop:Generator_ColumnPropNameInRow="Sub_Total" msprop:Generator_ColumnPropNameInTable="Sub_TotalColumn" type="xs:decimal" default="0" />
+              <xs:element name="Total" msprop:Generator_UserColumnName="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" type="xs:decimal" default="0" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="VAT" msprop:Generator_UserColumnName="VAT" msprop:Generator_ColumnVarNameInTable="columnVAT" msprop:Generator_ColumnPropNameInRow="VAT" msprop:Generator_ColumnPropNameInTable="VATColumn" type="xs:decimal" default="0" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

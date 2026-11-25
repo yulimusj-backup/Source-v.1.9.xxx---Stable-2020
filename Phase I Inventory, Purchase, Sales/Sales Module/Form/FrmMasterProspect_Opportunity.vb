@@ -1,0 +1,3 @@
+Public Class FrmMasterProspect_Opportunity
+
+End Class

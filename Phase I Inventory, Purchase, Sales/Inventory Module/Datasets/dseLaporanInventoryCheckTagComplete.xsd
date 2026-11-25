@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dseLaporanInventoryCheckTagComplete" targetNamespace="http://tempuri.org/dseLaporanInventoryCheckTagComplete.xsd" xmlns:mstns="http://tempuri.org/dseLaporanInventoryCheckTagComplete.xsd" xmlns="http://tempuri.org/dseLaporanInventoryCheckTagComplete.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Inventory_Module.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblLaporanCheckTagTableAdapter" GeneratorDataComponentClassName="tblLaporanCheckTagTableAdapter" Name="tblLaporanCheckTag" UserDataComponentName="tblLaporanCheckTagTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_stock_taking_tag_item.`Primary Tag`, tbltrans_stock_taking_tag_item.`Primary Product`, tbltrans_stock_taking_tag_item.Qty, 
+                         tbltrans_stock_taking_tag_item.`Primary Units`, tbltrans_stock_taking_tag_item.`Secondary Qty`, tbltrans_stock_taking_tag_item.`Primary Secondary Units`, 
+                         tbltrans_stock_taking_tag_item.`Batch No`, tbltrans_stock_taking_tag_item.`Expiry Date`, tbltrans_stock_taking_tag.`Tag No`, tblmaster_product.`Product Code`, 
+                         tblmaster_product.Description, tbltrans_stock_taking_tag.`Date`, tbltrans_stock_taking_tag.`Primary Storage Area`, tblmaster_storage_area.`Primary Warehouse`, 
+                         tbltrans_stock_taking_tag.Team_Identifier, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit_1.`Unit Code` AS `Unit Code Secondary`, 
+                         SUM(tbltrans_stock_taking_tag_item_1.Qty) AS TotalQty, SUM(tbltrans_stock_taking_tag_item_1.`Secondary Qty`) AS TotalSecondaryQty, 
+                         tblmaster_product.`Decimal`
+FROM            tbltrans_stock_taking_tag_item INNER JOIN
+                         tbltrans_stock_taking_tag ON tbltrans_stock_taking_tag_item.`Primary Tag` = tbltrans_stock_taking_tag.`Primary` INNER JOIN
+                         tblmaster_product ON tbltrans_stock_taking_tag_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_storage_area ON tbltrans_stock_taking_tag.`Primary Storage Area` = tblmaster_storage_area.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tbltrans_stock_taking_tag_item.`Primary Units` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tbltrans_stock_taking_tag_item tbltrans_stock_taking_tag_item_1 ON 
+                         tbltrans_stock_taking_tag_item.`Primary Product` = tbltrans_stock_taking_tag_item_1.`Primary Product` LEFT OUTER JOIN
+                         tblmaster_master_unit tblmaster_master_unit_1 ON tbltrans_stock_taking_tag_item.`Primary Secondary Units` = tblmaster_master_unit_1.`Primary`
+GROUP BY tbltrans_stock_taking_tag_item.`Primary Tag`, tbltrans_stock_taking_tag_item.`Primary Product`, tbltrans_stock_taking_tag_item.Qty, 
+                         tbltrans_stock_taking_tag_item.`Primary Units`, tbltrans_stock_taking_tag_item.`Secondary Qty`, tbltrans_stock_taking_tag_item.`Primary Secondary Units`, 
+                         tbltrans_stock_taking_tag_item.`Batch No`, tbltrans_stock_taking_tag_item.`Expiry Date`, tbltrans_stock_taking_tag.`Tag No`, tblmaster_product.`Product Code`, 
+                         tblmaster_product.Description, tbltrans_stock_taking_tag.`Date`, tbltrans_stock_taking_tag.`Primary Storage Area`, tblmaster_storage_area.`Primary Warehouse`, 
+                         tbltrans_stock_taking_tag.Team_Identifier, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit_1.`Unit Code`, tblmaster_product.`Decimal`
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary Tag" DataSetColumn="Primary Tag" />
+              <Mapping SourceColumn="Primary Product" DataSetColumn="Primary Product" />
+              <Mapping SourceColumn="Qty" DataSetColumn="Qty" />
+              <Mapping SourceColumn="Primary Units" DataSetColumn="Primary Units" />
+              <Mapping SourceColumn="Secondary Qty" DataSetColumn="Secondary Qty" />
+              <Mapping SourceColumn="Primary Secondary Units" DataSetColumn="Primary Secondary Units" />
+              <Mapping SourceColumn="Batch No" DataSetColumn="Batch No" />
+              <Mapping SourceColumn="Expiry Date" DataSetColumn="Expiry Date" />
+              <Mapping SourceColumn="Tag No" DataSetColumn="Tag No" />
+              <Mapping SourceColumn="Product Code" DataSetColumn="Product Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Primary Storage Area" DataSetColumn="Primary Storage Area" />
+              <Mapping SourceColumn="Primary Warehouse" DataSetColumn="Primary Warehouse" />
+              <Mapping SourceColumn="Team_Identifier" DataSetColumn="Team_Identifier" />
+              <Mapping SourceColumn="Unit Code" DataSetColumn="Unit Code" />
+              <Mapping SourceColumn="Unit Code Secondary" DataSetColumn="Unit Code Secondary" />
+              <Mapping SourceColumn="TotalQty" DataSetColumn="TotalQty" />
+              <Mapping SourceColumn="TotalSecondaryQty" DataSetColumn="TotalSecondaryQty" />
+              <Mapping SourceColumn="Decimal" DataSetColumn="Decimal" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryTag" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetDataBy_PrimaryTag" GeneratorSourceName="FillBy_PrimaryTag" GetMethodModifier="Public" GetMethodName="GetDataBy_PrimaryTag" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy_PrimaryTag" UserSourceName="FillBy_PrimaryTag">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tbltrans_stock_taking_tag_item.`Primary Tag`, tbltrans_stock_taking_tag_item.`Primary Product`, tbltrans_stock_taking_tag_item.Qty, 
+                         tbltrans_stock_taking_tag_item.`Primary Units`, tbltrans_stock_taking_tag_item.`Secondary Qty`, tbltrans_stock_taking_tag_item.`Primary Secondary Units`, 
+                         tbltrans_stock_taking_tag_item.`Batch No`, tbltrans_stock_taking_tag_item.`Expiry Date`, tbltrans_stock_taking_tag.`Tag No`, tblmaster_product.`Product Code`, 
+                         tblmaster_product.Description, tbltrans_stock_taking_tag.`Date`, tbltrans_stock_taking_tag.`Primary Storage Area`, tblmaster_storage_area.`Primary Warehouse`, 
+                         tbltrans_stock_taking_tag.Team_Identifier, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit_1.`Unit Code` AS `Unit Code Secondary`, 
+                         SUM(tbltrans_stock_taking_tag_item_1.Qty) AS TotalQty, SUM(tbltrans_stock_taking_tag_item_1.`Secondary Qty`) AS TotalSecondaryQty, 
+                         tblmaster_product.`Decimal`
+FROM            tbltrans_stock_taking_tag_item INNER JOIN
+                         tbltrans_stock_taking_tag ON tbltrans_stock_taking_tag_item.`Primary Tag` = tbltrans_stock_taking_tag.`Primary` INNER JOIN
+                         tblmaster_product ON tbltrans_stock_taking_tag_item.`Primary Product` = tblmaster_product.`Primary` INNER JOIN
+                         tblmaster_storage_area ON tbltrans_stock_taking_tag.`Primary Storage Area` = tblmaster_storage_area.`Primary` INNER JOIN
+                         tblmaster_master_unit ON tbltrans_stock_taking_tag_item.`Primary Units` = tblmaster_master_unit.`Primary` INNER JOIN
+                         tbltrans_stock_taking_tag_item tbltrans_stock_taking_tag_item_1 ON 
+                         tbltrans_stock_taking_tag_item.`Primary Product` = tbltrans_stock_taking_tag_item_1.`Primary Product` LEFT OUTER JOIN
+                         tblmaster_master_unit tblmaster_master_unit_1 ON tbltrans_stock_taking_tag_item.`Primary Secondary Units` = tblmaster_master_unit_1.`Primary`
+WHERE        (tbltrans_stock_taking_tag_item.`Primary Tag` = @PrimaryTag)
+GROUP BY tbltrans_stock_taking_tag_item.`Primary Tag`, tbltrans_stock_taking_tag_item.`Primary Product`, tbltrans_stock_taking_tag_item.Qty, 
+                         tbltrans_stock_taking_tag_item.`Primary Units`, tbltrans_stock_taking_tag_item.`Secondary Qty`, tbltrans_stock_taking_tag_item.`Primary Secondary Units`, 
+                         tbltrans_stock_taking_tag_item.`Batch No`, tbltrans_stock_taking_tag_item.`Expiry Date`, tbltrans_stock_taking_tag.`Tag No`, tblmaster_product.`Product Code`, 
+                         tblmaster_product.Description, tbltrans_stock_taking_tag.`Date`, tbltrans_stock_taking_tag.`Primary Storage Area`, tblmaster_storage_area.`Primary Warehouse`, 
+                         tbltrans_stock_taking_tag.Team_Identifier, tblmaster_master_unit.`Unit Code`, tblmaster_master_unit_1.`Unit Code`, tblmaster_product.`Decimal`
+ORDER BY tblmaster_product.`Product Code`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryTag" ColumnName="Primary Tag" DataSourceName="tbltrans_stock_taking_tag_item" DataTypeServer="double(15,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryTag" Precision="15" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary Tag" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dseLaporanInventoryCheckTagComplete" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="dseLaporanInventoryCheckTagComplete" msprop:Generator_DataSetName="dseLaporanInventoryCheckTagComplete">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tblLaporanCheckTag" msprop:Generator_UserTableName="tblLaporanCheckTag" msprop:Generator_RowDeletedName="tblLaporanCheckTagRowDeleted" msprop:Generator_TableClassName="tblLaporanCheckTagDataTable" msprop:Generator_RowChangedName="tblLaporanCheckTagRowChanged" msprop:Generator_RowClassName="tblLaporanCheckTagRow" msprop:Generator_RowChangingName="tblLaporanCheckTagRowChanging" msprop:Generator_RowEvArgName="tblLaporanCheckTagRowChangeEvent" msprop:Generator_RowEvHandlerName="tblLaporanCheckTagRowChangeEventHandler" msprop:Generator_TablePropName="tblLaporanCheckTag" msprop:Generator_TableVarName="tabletblLaporanCheckTag" msprop:Generator_RowDeletingName="tblLaporanCheckTagRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary_x0020_Tag" msprop:Generator_UserColumnName="Primary Tag" msprop:Generator_ColumnPropNameInRow="Primary_Tag" msprop:Generator_ColumnVarNameInTable="columnPrimary_Tag" msprop:Generator_ColumnPropNameInTable="Primary_TagColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Product" msprop:Generator_UserColumnName="Primary Product" msprop:Generator_ColumnPropNameInRow="Primary_Product" msprop:Generator_ColumnVarNameInTable="columnPrimary_Product" msprop:Generator_ColumnPropNameInTable="Primary_ProductColumn" type="xs:double" />
+              <xs:element name="Qty" msprop:Generator_UserColumnName="Qty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInTable="QtyColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Units" msprop:Generator_UserColumnName="Primary Units" msprop:Generator_ColumnPropNameInRow="Primary_Units" msprop:Generator_ColumnVarNameInTable="columnPrimary_Units" msprop:Generator_ColumnPropNameInTable="Primary_UnitsColumn" type="xs:double" />
+              <xs:element name="Secondary_x0020_Qty" msprop:Generator_UserColumnName="Secondary Qty" msprop:Generator_ColumnPropNameInRow="Secondary_Qty" msprop:Generator_ColumnVarNameInTable="columnSecondary_Qty" msprop:Generator_ColumnPropNameInTable="Secondary_QtyColumn" type="xs:decimal" />
+              <xs:element name="Primary_x0020_Secondary_x0020_Units" msprop:Generator_UserColumnName="Primary Secondary Units" msprop:Generator_ColumnPropNameInRow="Primary_Secondary_Units" msprop:Generator_ColumnVarNameInTable="columnPrimary_Secondary_Units" msprop:Generator_ColumnPropNameInTable="Primary_Secondary_UnitsColumn" type="xs:double" />
+              <xs:element name="Batch_x0020_No" msprop:Generator_UserColumnName="Batch No" msprop:Generator_ColumnPropNameInRow="Batch_No" msprop:Generator_ColumnVarNameInTable="columnBatch_No" msprop:Generator_ColumnPropNameInTable="Batch_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expiry_x0020_Date" msprop:Generator_UserColumnName="Expiry Date" msprop:Generator_ColumnPropNameInRow="Expiry_Date" msprop:Generator_ColumnVarNameInTable="columnExpiry_Date" msprop:Generator_ColumnPropNameInTable="Expiry_DateColumn" type="xs:dateTime" />
+              <xs:element name="Tag_x0020_No" msprop:Generator_UserColumnName="Tag No" msprop:Generator_ColumnPropNameInRow="Tag_No" msprop:Generator_ColumnVarNameInTable="columnTag_No" msprop:Generator_ColumnPropNameInTable="Tag_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Product_x0020_Code" msprop:Generator_UserColumnName="Product Code" msprop:Generator_ColumnPropNameInRow="Product_Code" msprop:Generator_ColumnVarNameInTable="columnProduct_Code" msprop:Generator_ColumnPropNameInTable="Product_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_UserColumnName="Date" msprop:Generator_ColumnPropNameInRow="_Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInTable="DateColumn" type="xs:dateTime" />
+              <xs:element name="Primary_x0020_Storage_x0020_Area" msprop:Generator_UserColumnName="Primary Storage Area" msprop:Generator_ColumnPropNameInRow="Primary_Storage_Area" msprop:Generator_ColumnVarNameInTable="columnPrimary_Storage_Area" msprop:Generator_ColumnPropNameInTable="Primary_Storage_AreaColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Warehouse" msprop:Generator_UserColumnName="Primary Warehouse" msprop:Generator_ColumnPropNameInRow="Primary_Warehouse" msprop:Generator_ColumnVarNameInTable="columnPrimary_Warehouse" msprop:Generator_ColumnPropNameInTable="Primary_WarehouseColumn" type="xs:double" />
+              <xs:element name="Team_Identifier" msprop:Generator_UserColumnName="Team_Identifier" msprop:Generator_ColumnPropNameInRow="Team_Identifier" msprop:Generator_ColumnVarNameInTable="columnTeam_Identifier" msprop:Generator_ColumnPropNameInTable="Team_IdentifierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code" msprop:Generator_UserColumnName="Unit Code" msprop:Generator_ColumnPropNameInRow="Unit_Code" msprop:Generator_ColumnVarNameInTable="columnUnit_Code" msprop:Generator_ColumnPropNameInTable="Unit_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Unit_x0020_Code_x0020_Secondary" msprop:Generator_UserColumnName="Unit Code Secondary" msprop:Generator_ColumnPropNameInRow="Unit_Code_Secondary" msprop:Generator_ColumnVarNameInTable="columnUnit_Code_Secondary" msprop:Generator_ColumnPropNameInTable="Unit_Code_SecondaryColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalQty" msprop:Generator_UserColumnName="TotalQty" msprop:Generator_ColumnPropNameInRow="TotalQty" msprop:Generator_ColumnVarNameInTable="columnTotalQty" msprop:Generator_ColumnPropNameInTable="TotalQtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalSecondaryQty" msprop:Generator_UserColumnName="TotalSecondaryQty" msprop:Generator_ColumnPropNameInRow="TotalSecondaryQty" msprop:Generator_ColumnVarNameInTable="columnTotalSecondaryQty" msprop:Generator_ColumnPropNameInTable="TotalSecondaryQtyColumn" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Decimal" msprop:Generator_UserColumnName="Decimal" msprop:Generator_ColumnPropNameInRow="_Decimal" msprop:Generator_ColumnVarNameInTable="columnDecimal" msprop:Generator_ColumnPropNameInTable="DecimalColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,2779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA18E8B0-D42C-4A64-8A92-7BC9810292D5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>HR</RootNamespace>
+    <AssemblyName>HR</AssemblyName>
+    <MyType>Windows</MyType>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>HR.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>HR.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>HR.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>HR.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ciloci.Flee, Version=0.9.26.0, Culture=neutral, PublicKeyToken=c8526a021ef298ed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Phase I Inventory, Purchase, Sales\Core Module\Resources\Ciloci.Flee.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\CrystalDecisions.CrystalReports.Engine\10.2.3600.0__692fbea5521e1304\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\CrystalDecisions.ReportSource\10.2.3600.0__692fbea5521e1304\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\CrystalDecisions.Shared\10.2.3600.0__692fbea5521e1304\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.2.3600.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=5.2.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\MySql.Data\5.2.5.0__c5687fc88969c44d\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Class\ClsAttendanceFileParser.vb" />
+    <Compile Include="Class\ClsLicense.vb" />
+    <Compile Include="Class\ClsMasterAttendanceServer.vb" />
+    <Compile Include="Class\ClsMasterSettingPajak.vb" />
+    <Compile Include="Class\ClsSettingLeave.vb" />
+    <Compile Include="Class\ClsTransaksiLoan.vb" />
+    <Compile Include="Class\ClsTransaksiLoanPayment.vb" />
+    <Compile Include="Class\ClsTransaksiLoanPayment_Item.vb" />
+    <Compile Include="Class\ClsTransaksiLoan_Item.vb" />
+    <Compile Include="Class\ClsTransaksiQuick_Sorting.vb" />
+    <Compile Include="Class\ClsTransaksiSalary.vb" />
+    <Compile Include="Class\ClsTransaksiSalary_Item.vb" />
+    <Compile Include="Class\ClsTransaksiSalary_Override.vb" />
+    <Compile Include="Class\ClsTransaksiSalary_Override_Item.vb" />
+    <Compile Include="Class\ClsTransaksiSalary_Quick.vb" />
+    <Compile Include="Class\ClsTrans_Gaji_MasaSblm.vb" />
+    <Compile Include="Class\ClsTrans_SPL.vb" />
+    <Compile Include="Class\ClsTrans_SPL_Budget.vb" />
+    <Compile Include="Class\ClsTrans_SPL_Budget_Item.vb" />
+    <Compile Include="Class\ClsTrans_SPL_Item.vb" />
+    <Compile Include="Class\ClsTrans_SPL_Setting.vb" />
+    <Compile Include="Class\ClsTrans_SPL_Setting_Item.vb" />
+    <Compile Include="Class\ClsTrans_TaxRecalculate.vb" />
+    <Compile Include="Class\ClsTrans_TaxRecalculateItem.vb" />
+    <Compile Include="Class\ClsTrans_Attendance.vb" />
+    <Compile Include="Class\ClsTrans_Attendance_Item.vb" />
+    <Compile Include="Class\ClsTrans_Attendance_laporan.vb" />
+    <Compile Include="Class\ClsTrans_Attendance_Log.vb" />
+    <Compile Include="Class\ClsTrans_Attendance_quick.vb" />
+    <Compile Include="Class\ClsTrans_Cuti_Approval.vb" />
+    <Compile Include="Class\ClsTrans_Cuti_Pengajuan.vb" />
+    <Compile Include="Class\ClsTrans_Cuti_Pengajuan_Item.vb" />
+    <Compile Include="Class\ClsTrans_Payment.vb" />
+    <Compile Include="Class\ClsTrans_Payment_Item.vb" />
+    <Compile Include="Class\ClsTrans_Tax_Beginning_Balance.vb" />
+    <Compile Include="Class\ClsTrans_Tax_Beginning_Balance_Item.vb" />
+    <Compile Include="Datasets\DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanAttendance.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanAttendance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanAttendance.vb">
+      <DependentUpon>DseLaporanAttendance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanEmployeeData.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanEmployeeData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanIncomeTax_SMESS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanIncomeTax_SMESS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanKontrakKaryawan.Designer.vb">
+      <DependentUpon>DseLaporanKontrakKaryawan.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanKontrakKaryawan.vb">
+      <DependentUpon>DseLaporanKontrakKaryawan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanLogUser.Designer.vb" />
+    <Compile Include="Datasets\DseLaporanOtherPayment.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanOtherPayment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanOvertimeAnalysis.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanOvertimeAnalysis.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanOvertimeAnalysis.vb">
+      <DependentUpon>DseLaporanOvertimeAnalysis.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanOvertimeAnalysis2.Designer.vb">
+      <DependentUpon>DseLaporanOvertimeAnalysis2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanOvertimeAnalysis2.vb">
+      <DependentUpon>DseLaporanOvertimeAnalysis2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanPinjamanKaryawan.Designer.vb">
+      <DependentUpon>DseLaporanPinjamanKaryawan.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanPinjamanKaryawan.vb">
+      <DependentUpon>DseLaporanPinjamanKaryawan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalaryStaff_IGI.Designer.vb">
+      <DependentUpon>DseLaporanSalaryStaff_IGI.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalaryStaff_IGI.vb">
+      <DependentUpon>DseLaporanSalaryStaff_IGI.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalaryStaff_SMESS.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLaporanSalaryStaff_SMESS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanSalaryStaff_SMESS.vb">
+      <DependentUpon>DseLaporanSalaryStaff_SMESS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanStandarCompetence.Designer.vb">
+      <DependentUpon>DseLaporanStandarCompetence.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanStandarCompetence.vb">
+      <DependentUpon>DseLaporanStandarCompetence.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLap_Cuti.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseLap_Cuti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLap_Cuti.vb">
+      <DependentUpon>DseLap_Cuti.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMasterAttendanceServer.Designer.vb">
+      <DependentUpon>DseMasterAttendanceServer.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseMasterAttendanceServer.vb">
+      <DependentUpon>DseMasterAttendanceServer.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseMasterSettingPajak.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseMasterSettingPajak.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseMonthlyTax.Designer.vb">
+      <DependentUpon>DseMonthlyTax.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseMonthlyTax.vb">
+      <DependentUpon>DseMonthlyTax.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseRepairWSAllocation.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseRepairWSAllocation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiLoan.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiLoan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiLoan.vb">
+      <DependentUpon>DseTransaksiLoan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiLoanPayment.Designer.vb">
+      <DependentUpon>DseTransaksiLoanPayment.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiLoanPayment.vb">
+      <DependentUpon>DseTransaksiLoanPayment.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiQuick_Sorting.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiQuick_Sorting.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSalary.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary.vb">
+      <DependentUpon>DseTransaksiSalary.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary_Cetakan_IGI.Designer.vb">
+      <DependentUpon>DseTransaksiSalary_Cetakan_IGI.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary_Cetakan_IGI.vb">
+      <DependentUpon>DseTransaksiSalary_Cetakan_IGI.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary_Override.Designer.vb">
+      <DependentUpon>DseTransaksiSalary_Override.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary_Override.vb">
+      <DependentUpon>DseTransaksiSalary_Override.xsd</DependentUpon>
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary_Override_Create.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSalary_Override_Create.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary_Quick.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransaksiSalary_Quick.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransaksiSalary_Quick.vb">
+      <DependentUpon>DseTransaksiSalary_Quick.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransPayment.Designer.vb">
+      <DependentUpon>DseTransPayment.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseTransPayment.vb">
+      <DependentUpon>DseTransPayment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTransPayment_Cetak.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTransPayment_Cetak.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Attendance.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_Attendance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Attendance.vb">
+      <DependentUpon>DseTrans_Attendance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Attendance1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_Attendance1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Attendance_Actual_In_Report.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_Attendance_Actual_In_Report.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Attendance_Cetak_IGI.Designer.vb">
+      <DependentUpon>DseTrans_Attendance_Cetak_IGI.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Attendance_Cetak_IGI.vb">
+      <DependentUpon>DseTrans_Attendance_Cetak_IGI.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Attendance_Log.Designer.vb">
+      <DependentUpon>DseTrans_Attendance_Log.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Attendance_Log.vb">
+      <DependentUpon>DseTrans_Attendance_Log.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Cuti_Approval.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_Cuti_Approval.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Cuti_Pengajuan.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_Cuti_Pengajuan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Cuti_Pengajuan.vb">
+      <DependentUpon>DseTrans_Cuti_Pengajuan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Export_eSPT.Designer.vb">
+      <DependentUpon>DseTrans_Export_eSPT.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Export_eSPT.vb">
+      <DependentUpon>DseTrans_Export_eSPT.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Gaji_MasaSblm.Designer.vb">
+      <DependentUpon>DseTrans_Gaji_MasaSblm.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Gaji_MasaSblm.vb">
+      <DependentUpon>DseTrans_Gaji_MasaSblm.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_SPL_Budget.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_SPL_Budget.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Tax_Beginning_Balance.Designer.vb">
+      <DependentUpon>DseTrans_Tax_Beginning_Balance.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Tax_Beginning_Balance.vb">
+      <DependentUpon>DseTrans_Tax_Beginning_Balance.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_Tax_Recalculate.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseTrans_Tax_Recalculate.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddReplace.Designer.vb">
+      <DependentUpon>FrmAddReplace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddReplace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff.Designer.vb">
+      <DependentUpon>FrmLaporanIncomeTaxStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff_Recap.Designer.vb">
+      <DependentUpon>FrmLaporanIncomeTaxStaff_Recap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff_Recap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainMonthly.Designer.vb">
+      <DependentUpon>FrmLaporanIncomeTaxStaff_Recap_ExplainMonthly.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainMonthly.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainYearly.Designer.vb">
+      <DependentUpon>FrmLaporanIncomeTaxStaff_Recap_ExplainYearly.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainYearly.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainYearly1.Designer.vb">
+      <DependentUpon>FrmLaporanIncomeTaxStaff_Recap_ExplainYearly1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainYearly1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanKontrakKaryawan.Designer.vb">
+      <DependentUpon>FrmLaporanKontrakKaryawan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanKontrakKaryawan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanLogUser.designer.vb">
+      <DependentUpon>FrmLaporanLogUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanLogUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOtherPayment.Designer.vb">
+      <DependentUpon>FrmLaporanOtherPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOtherPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOvertimeAnalysis2.Designer.vb">
+      <DependentUpon>FrmLaporanOvertimeAnalysis2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOvertimeAnalysis2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOvertimeOrder.Designer.vb">
+      <DependentUpon>FrmLaporanOvertimeOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOvertimeOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanPinjamanKaryawan.Designer.vb">
+      <DependentUpon>FrmLaporanPinjamanKaryawan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanPinjamanKaryawan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanSalaryStaff_SMESS.Designer.vb">
+      <DependentUpon>FrmLaporanSalaryStaff_SMESS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanSalaryStaff_SMESS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMassageCSV.Designer.vb">
+      <DependentUpon>FrmMassageCSV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMassageCSV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAttendanceServer.Designer.vb">
+      <DependentUpon>FrmMasterAttendanceServer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAttendanceServer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAttendanceServer_Cari.Designer.vb">
+      <DependentUpon>FrmMasterAttendanceServer_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterAttendanceServer_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSettingPajak.Designer.vb">
+      <DependentUpon>FrmMasterSettingPajak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSettingPajak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMasterSettingPajak_RateFinal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmRepairWSAllocation.Designer.vb">
+      <DependentUpon>FrmRepairWSAllocation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmRepairWSAllocation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiQuick_Sorting.Designer.vb">
+      <DependentUpon>FrmTransaksiQuick_Sorting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiQuick_Sorting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Actual_In_Report.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_Actual_In_Report.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Actual_In_Report.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Actual_In_Report_ColSetting.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_Actual_In_Report_ColSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Actual_In_Report_ColSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Cetak_Opt.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_Cetak_Opt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Cetak_Opt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_ColumnsSettings.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_ColumnsSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_ColumnsSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Log.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_Log.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Log.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Log_IndexSettings.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_Log_IndexSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Log_IndexSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_SendEmail.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_SendEmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_SendEmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_ShowLog.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_ShowLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_ShowLog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT_Check.Designer.vb">
+      <DependentUpon>FrmTrans_Export_eSPT_Check.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT_Check.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT_Check1.Designer.vb">
+      <DependentUpon>FrmTrans_Export_eSPT_Check1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT_Check1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT_Edit.Designer.vb">
+      <DependentUpon>FrmTrans_Export_eSPT_Edit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT_Edit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT_Msg.Designer.vb">
+      <DependentUpon>FrmTrans_Export_eSPT_Msg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT_Msg.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Cetak_IGI.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Cetak_IGI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Cetak_IGI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Cetak_IGI_Options.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Cetak_IGI_Options.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Cetak_IGI_Options.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_EditPPh.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_EditPPh.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_EditPPh.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_IncomeTax2.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_IncomeTax2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_IncomeTax2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_MasaSblm.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_MasaSblm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_MasaSblm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_MasaSblm_Cari.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_MasaSblm_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_MasaSblm_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_MasaSblm_Cetak.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_MasaSblm_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_MasaSblm_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_MsgBox.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_MsgBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_MsgBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_OtherPayment.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_OtherPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_OtherPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Override.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_Cari2.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Override_Cari2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_Cari2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_Cari_Formula.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Override_Cari_Formula.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_Cari_Formula.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_Cetak.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Override_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_Create.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Override_Create.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_Create.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_PickDate.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Override_PickDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Override_PickDate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Payment.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Payment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanAtt.Designer.vb">
+      <DependentUpon>FrmLaporanAtt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanAtt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOvertimeAnalysis.Designer.vb">
+      <DependentUpon>FrmLaporanOvertimeAnalysis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanOvertimeAnalysis.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanSalaryStaff_Cetak_IGI.Designer.vb">
+      <DependentUpon>FrmLaporanSalaryStaff_Cetak_IGI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanSalaryStaff_Cetak_IGI.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPilihCetakLoan.Designer.vb">
+      <DependentUpon>FrmPilihCetakLoan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPilihCetakLoan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSettingLeave.Designer.vb">
+      <DependentUpon>FrmSettingLeave.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSettingLeave.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_Balance.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_Balance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_Balance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanCuti.Designer.vb">
+      <DependentUpon>FrmLaporanCuti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanCuti.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanEmployeeData.Designer.vb">
+      <DependentUpon>FrmLaporanEmployeeData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanEmployeeData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanStandarCompetence.Designer.vb">
+      <DependentUpon>FrmLaporanStandarCompetence.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLaporanStandarCompetence.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Approval.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Approval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Approval.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Approval_StatusNotes.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Approval_StatusNotes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Approval_StatusNotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Approval_StatusNotes_1.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Approval_StatusNotes_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Approval_StatusNotes_1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_History.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_History.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_History.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_Cari.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Pengajuan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_ExplainDuration.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_ExplainDuration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_ExplainDuration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_Setting.Designer.vb">
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_Setting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiCuti_Pengajuan_Setting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan.Designer.vb">
+      <DependentUpon>FrmTransaksiLoan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_CetakDetail.Designer.vb">
+      <DependentUpon>FrmTransaksiLoan_CetakDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_CetakDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_CetakJournal.Designer.vb">
+      <DependentUpon>FrmTransaksiLoan_CetakJournal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_CetakJournal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Payment.Designer.vb">
+      <DependentUpon>FrmTransaksiLoan_Payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Payment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Payment_Cari.Designer.vb">
+      <DependentUpon>FrmTransaksiLoan_Payment_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Payment_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Cari.Designer.vb">
+      <DependentUpon>FrmTransaksiLoan_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Information.Designer.vb">
+      <DependentUpon>FrmTransaksiLoan_Information.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Information.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Payment_Cari12.Designer.vb">
+      <DependentUpon>FrmTransaksiLoan_Payment_Cari12.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiLoan_Payment_Cari12.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment.Designer.vb">
+      <DependentUpon>FrmTransaksiPayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Cari.Designer.vb">
+      <DependentUpon>FrmTransaksiPayment_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Cetak.Designer.vb">
+      <DependentUpon>FrmTransaksiPayment_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Cetak_Option.Designer.vb">
+      <DependentUpon>FrmTransaksiPayment_Cetak_Option.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Cetak_Option.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Income_Deduction.Designer.vb">
+      <DependentUpon>FrmTransaksiPayment_Income_Deduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Income_Deduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Loan_Payment.Designer.vb">
+      <DependentUpon>FrmTransaksiPayment_Loan_Payment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTransaksiPayment_Loan_Payment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Cari.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Cetak.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_DataImport.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_DataImport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_DataImport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Quick2.Designer.vb">
+      <DependentUpon>FrmTrans_Attendance_Quick2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Attendance_Quick2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_BeginingBalanceTax.Designer.vb">
+      <DependentUpon>FrmTrans_BeginingBalanceTax.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_BeginingBalanceTax.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_BeginingBalanceTax_Cari.Designer.vb">
+      <DependentUpon>FrmTrans_BeginingBalanceTax_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_BeginingBalanceTax_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_BeginingBalanceTax_Detail.Designer.vb">
+      <DependentUpon>FrmTrans_BeginingBalanceTax_Detail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_BeginingBalanceTax_Detail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_BeginningBalanceTax_Cetak.Designer.vb">
+      <DependentUpon>FrmTrans_BeginningBalanceTax_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_BeginningBalanceTax_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT.Designer.vb">
+      <DependentUpon>FrmTrans_Export_eSPT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Export_eSPT.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Cari.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Cetak.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_OtherDeduction.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_OtherDeduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_OtherDeduction.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Quick.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Quick.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Quick.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Quick2.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_Quick2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_Quick2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_SendEmail.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_SendEmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_SendEmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_ShowAttendance.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_ShowAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_ShowAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_ShowExplaination.Designer.vb">
+      <DependentUpon>FrmTrans_Gaji_ShowExplaination.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_Gaji_ShowExplaination.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL.Designer.vb">
+      <DependentUpon>FrmTrans_SPL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApproval.Designer.vb">
+      <DependentUpon>FrmTrans_SPLApproval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApproval.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApprovalBudget.Designer.vb">
+      <DependentUpon>FrmTrans_SPLApprovalBudget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApprovalBudget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApprovalBudgetDetail.Designer.vb">
+      <DependentUpon>FrmTrans_SPLApprovalBudgetDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApprovalBudgetDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApprovalNotes.Designer.vb">
+      <DependentUpon>FrmTrans_SPLApprovalNotes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApprovalNotes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApprovalScope.Designer.vb">
+      <DependentUpon>FrmTrans_SPLApprovalScope.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLApprovalScope.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLCari.Designer.vb">
+      <DependentUpon>FrmTrans_SPLCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPLCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_AuthDetail.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_AuthDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_AuthDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Budget.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_Budget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Budget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_BudgetCari.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_BudgetCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_BudgetCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Budget_Cetak.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_Budget_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Budget_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Budget_Opt.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_Budget_Opt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Budget_Opt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Cetak.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_Cetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Cetak.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_ColumnsSettings.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_ColumnsSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_ColumnsSettings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_SendEmail.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_SendEmail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_SendEmail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Setting.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_Setting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_Setting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_SettingCari.Designer.vb">
+      <DependentUpon>FrmTrans_SPL_SettingCari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_SPL_SettingCari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_TaxRecalculate.Designer.vb">
+      <DependentUpon>FrmTrans_TaxRecalculate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_TaxRecalculate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_TaxRecalculate_Cari.Designer.vb">
+      <DependentUpon>FrmTrans_TaxRecalculate_Cari.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_TaxRecalculate_Cari.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_TaxRecalculate_Process.Designer.vb">
+      <DependentUpon>FrmTrans_TaxRecalculate_Process.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_TaxRecalculate_Process.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_TaxRecalculate_Update.Designer.vb">
+      <DependentUpon>FrmTrans_TaxRecalculate_Update.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTrans_TaxRecalculate_Update.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WaitForm.Designer.vb">
+      <DependentUpon>WaitForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WaitForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\ModGlobalVariable.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Report\CrpCetakTransSalary_IGI.vb">
+      <DependentUpon>CrpCetakTransSalary_IGI.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\CrpCetakTransSalary_IGI_Detail.vb">
+      <DependentUpon>CrpCetakTransSalary_IGI_Detail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\CrpCetakTrans_Attendace_IGI_A4_Batch.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTrans_Attendace_IGI_A4_Batch.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpCetakTrans_Attendace_IGI_A5_Batch.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTrans_Attendace_IGI_A5_Batch.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanAtt_Detail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanAtt_Detail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanClockInOutGroupByEmp.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanClockInOutGroupByEmp.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanClockInOutGroupByShift.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanClockInOutGroupByShift.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanIncomeTax_SMESS.vb">
+      <DependentUpon>CrpLaporanIncomeTax_SMESS.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\CrpLaporanKontrakKaryawan.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanKontrakKaryawan.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanLogUser.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanLogUser.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOtherPaymentGroup.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOtherPaymentGroup.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOtherPaymentNoGroup.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOtherPaymentNoGroup.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOvertimeAnalysis_Chart_Line.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOvertimeAnalysis_Chart_Line.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOvertimeAnalysis_Chart_Pie.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOvertimeAnalysis_Chart_Pie.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOvertimeAnalysis_Data.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOvertimeAnalysis_Data.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanPinjamanKaryawan_Detail1.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanPinjamanKaryawan_Detail1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanPinjamanKaryawan_Rekap1.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanPinjamanKaryawan_Rekap1.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanStaffSalary_Detail_SMESS.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanStaffSalary_Detail_SMESS.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanStaffSalary_Rekap_SMESS.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanStaffSalary_Rekap_SMESS.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLap_Cuti_Rekap.vb">
+      <DependentUpon>CrpLap_Cuti_Rekap.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnal2_DetailInv.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakJurnal2_DetailInv.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnal3_DetailInv.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakJurnal3_DetailInv.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnalDetail.vb">
+      <DependentUpon>CrpCetakJurnalDetail.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnal.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakJurnal.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnal2.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakJurnal2.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnal3.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakJurnal3.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnalDetail2.vb">
+      <DependentUpon>CrpCetakJurnalDetail2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnalDetail3.vb">
+      <DependentUpon>CrpCetakJurnalDetail3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnalDetail_Item.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakJurnalDetail_Item.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpCetakJurnalDetail_Item2.vb">
+      <DependentUpon>CrpCetakJurnalDetail_Item2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\CrpCetakTransTaxBeginning.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTransTaxBeginning.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpCetakTrans_Attendace_IGI_A4.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTrans_Attendace_IGI_A4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpCetakTrans_Attendace_IGI_A5.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetakTrans_Attendace_IGI_A5.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpCetkDetail.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpCetkDetail.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanAtt.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanAtt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanEmployee_FamilyData.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanEmployee_FamilyData.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanEmployee_Format1.vb">
+      <DependentUpon>CrpLaporanEmployee_Format1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="Report\CrpLaporanEmployee_Format2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanEmployee_Format2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanIncomeTax_IGI_1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanIncomeTax_IGI_1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanIncomeTax_IGI_2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanIncomeTax_IGI_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanIncomeTax_IGI_3.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanIncomeTax_IGI_3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanIncomeTax_IGI_4.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanIncomeTax_IGI_4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanIncomeTax_IGI_5.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanIncomeTax_IGI_5.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOvertimeAnalysis.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOvertimeAnalysis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanStandarCompetence.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanStandarCompetence.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLap_Cuti_Detail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLap_Cuti_Detail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpTaxIncomeCalculation.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTaxIncomeCalculation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpTransaksiPayment_Cetak_PaymentDetail.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTransaksiPayment_Cetak_PaymentDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpTransaksiSalary.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTransaksiSalary.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpTransSalary_Override_Amount.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTransSalary_Override_Amount.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpTrans_Attendance_Actual_In_Report.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTrans_Attendance_Actual_In_Report.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpTrans_Gaji_MasaSblm.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTrans_Gaji_MasaSblm.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpTrans_Gaji_MasaSblm_Landscape.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTrans_Gaji_MasaSblm_Landscape.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOvertimeOrder_BySPL.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOvertimeOrder_BySPL.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOvertimeOrder_Detail.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOvertimeOrder_Detail.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOvertimeOrder_DetailEmp.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOvertimeOrder_DetailEmp.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpLaporanOvertimeOrder_Recap.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpLaporanOvertimeOrder_Recap.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpTrans_SPL.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTrans_SPL.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpTrans_SPL_Budget.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTrans_SPL_Budget.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Report\CrpTrans_SPL_DetailEmp.vb">
+      <SubType>Component</SubType>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrpTrans_SPL_DetailEmp.rpt</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseLaporanOvertimeOrder.Designer.vb" />
+    <Compile Include="Datasets\DseTrans_SPL.Designer.vb">
+      <DependentUpon>DseTrans_SPL.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_SPL.vb">
+      <DependentUpon>DseTrans_SPL.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_SPLCetak.Designer.vb">
+      <DependentUpon>DseTrans_SPLCetak.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_SPLCetak.vb">
+      <DependentUpon>DseTrans_SPLCetak.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseTrans_SPL_BudgetCetak.Designer.vb" />
+    <Compile Include="Datasets\DseTrans_SPL_Setting.Designer.vb" />
+    <Compile Include="Forms\FormDummy.Designer.vb">
+      <DependentUpon>FormDummy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDummy.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddReplace.resx">
+      <DependentUpon>FrmAddReplace.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanIncomeTaxStaff.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanIncomeTaxStaff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanIncomeTaxStaff_Recap.resx">
+      <DependentUpon>FrmLaporanIncomeTaxStaff_Recap.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainMonthly.resx">
+      <DependentUpon>FrmLaporanIncomeTaxStaff_Recap_ExplainMonthly.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainYearly.resx">
+      <DependentUpon>FrmLaporanIncomeTaxStaff_Recap_ExplainYearly.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanIncomeTaxStaff_Recap_ExplainYearly1.resx">
+      <DependentUpon>FrmLaporanIncomeTaxStaff_Recap_ExplainYearly1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanKontrakKaryawan.resx">
+      <DependentUpon>FrmLaporanKontrakKaryawan.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanLogUser.resx">
+      <DependentUpon>FrmLaporanLogUser.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanOtherPayment.resx">
+      <DependentUpon>FrmLaporanOtherPayment.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanOvertimeAnalysis2.resx">
+      <DependentUpon>FrmLaporanOvertimeAnalysis2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanPinjamanKaryawan.resx">
+      <DependentUpon>FrmLaporanPinjamanKaryawan.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanSalaryStaff_SMESS.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanSalaryStaff_SMESS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMassageCSV.resx">
+      <DependentUpon>FrmMassageCSV.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAttendanceServer.resx">
+      <DependentUpon>FrmMasterAttendanceServer.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterAttendanceServer_Cari.resx">
+      <DependentUpon>FrmMasterAttendanceServer_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMasterSettingPajak.resx">
+      <DependentUpon>FrmMasterSettingPajak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmRepairWSAllocation.resx">
+      <DependentUpon>FrmRepairWSAllocation.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiQuick_Sorting.resx">
+      <DependentUpon>FrmTransaksiQuick_Sorting.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_Actual_In_Report.resx">
+      <DependentUpon>FrmTrans_Attendance_Actual_In_Report.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_Actual_In_Report_ColSetting.resx">
+      <DependentUpon>FrmTrans_Attendance_Actual_In_Report_ColSetting.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_Cetak_Opt.resx">
+      <DependentUpon>FrmTrans_Attendance_Cetak_Opt.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_ColumnsSettings.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Attendance_ColumnsSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_Log.resx">
+      <DependentUpon>FrmTrans_Attendance_Log.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_Log_IndexSettings.resx">
+      <DependentUpon>FrmTrans_Attendance_Log_IndexSettings.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_SendEmail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Attendance_SendEmail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_ShowLog.resx">
+      <DependentUpon>FrmTrans_Attendance_ShowLog.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Export_eSPT_Check.resx">
+      <DependentUpon>FrmTrans_Export_eSPT_Check.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Export_eSPT_Check1.resx">
+      <DependentUpon>FrmTrans_Export_eSPT_Check1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Export_eSPT_Edit.resx">
+      <DependentUpon>FrmTrans_Export_eSPT_Edit.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Export_eSPT_Msg.resx">
+      <DependentUpon>FrmTrans_Export_eSPT_Msg.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Cetak_IGI.resx">
+      <DependentUpon>FrmTrans_Gaji_Cetak_IGI.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Cetak_IGI_Options.resx">
+      <DependentUpon>FrmTrans_Gaji_Cetak_IGI_Options.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_EditPPh.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Gaji_EditPPh.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_IncomeTax2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Gaji_IncomeTax2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_MasaSblm.resx">
+      <DependentUpon>FrmTrans_Gaji_MasaSblm.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_MasaSblm_Cari.resx">
+      <DependentUpon>FrmTrans_Gaji_MasaSblm_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_MasaSblm_Cetak.resx">
+      <DependentUpon>FrmTrans_Gaji_MasaSblm_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_MsgBox.resx">
+      <DependentUpon>FrmTrans_Gaji_MsgBox.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_OtherPayment.resx">
+      <DependentUpon>FrmTrans_Gaji_OtherPayment.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Override.resx">
+      <DependentUpon>FrmTrans_Gaji_Override.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Override_Cari2.resx">
+      <DependentUpon>FrmTrans_Gaji_Override_Cari2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Override_Cari_Formula.resx">
+      <DependentUpon>FrmTrans_Gaji_Override_Cari_Formula.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Override_Cetak.resx">
+      <DependentUpon>FrmTrans_Gaji_Override_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Override_Create.resx">
+      <DependentUpon>FrmTrans_Gaji_Override_Create.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Override_PickDate.resx">
+      <DependentUpon>FrmTrans_Gaji_Override_PickDate.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Payment.resx">
+      <DependentUpon>FrmTrans_Gaji_Payment.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanAtt.resx">
+      <DependentUpon>FrmLaporanAtt.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanOvertimeAnalysis.resx">
+      <DependentUpon>FrmLaporanOvertimeAnalysis.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanSalaryStaff_Cetak_IGI.resx">
+      <DependentUpon>FrmLaporanSalaryStaff_Cetak_IGI.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPilihCetakLoan.resx">
+      <DependentUpon>FrmPilihCetakLoan.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSettingLeave.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmSettingLeave.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Pengajuan_Balance.resx">
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_Balance.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanCuti.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanCuti.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanEmployeeData.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLaporanEmployeeData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLaporanStandarCompetence.resx">
+      <DependentUpon>FrmLaporanStandarCompetence.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Approval.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiCuti_Approval.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Approval_StatusNotes.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiCuti_Approval_StatusNotes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Approval_StatusNotes_1.resx">
+      <DependentUpon>FrmTransaksiCuti_Approval_StatusNotes_1.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_History.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiCuti_History.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Pengajuan_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Pengajuan.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiCuti_Pengajuan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Pengajuan_ExplainDuration.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_ExplainDuration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiCuti_Pengajuan_Setting.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiCuti_Pengajuan_Setting.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiLoan.resx">
+      <DependentUpon>FrmTransaksiLoan.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiLoan_CetakDetail.resx">
+      <DependentUpon>FrmTransaksiLoan_CetakDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiLoan_CetakJournal.resx">
+      <DependentUpon>FrmTransaksiLoan_CetakJournal.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiLoan_Information.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiLoan_Information.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiLoan_Payment.resx">
+      <DependentUpon>FrmTransaksiLoan_Payment.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiLoan_Payment_Cari.resx">
+      <DependentUpon>FrmTransaksiLoan_Payment_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiLoan_Cari.resx">
+      <DependentUpon>FrmTransaksiLoan_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiLoan_Payment_Cari12.resx">
+      <DependentUpon>FrmTransaksiLoan_Payment_Cari12.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiPayment.resx">
+      <DependentUpon>FrmTransaksiPayment.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiPayment_Cari.resx">
+      <DependentUpon>FrmTransaksiPayment_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiPayment_Cetak.resx">
+      <DependentUpon>FrmTransaksiPayment_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiPayment_Cetak_Option.resx">
+      <DependentUpon>FrmTransaksiPayment_Cetak_Option.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiPayment_Income_Deduction.resx">
+      <DependentUpon>FrmTransaksiPayment_Income_Deduction.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTransaksiPayment_Loan_Payment.resx">
+      <DependentUpon>FrmTransaksiPayment_Loan_Payment.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance.resx">
+      <DependentUpon>FrmTrans_Attendance.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Attendance_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_Cetak.resx">
+      <DependentUpon>FrmTrans_Attendance_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_DataImport.resx">
+      <DependentUpon>FrmTrans_Attendance_DataImport.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Attendance_Quick2.resx">
+      <DependentUpon>FrmTrans_Attendance_Quick2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_BeginingBalanceTax.resx">
+      <DependentUpon>FrmTrans_BeginingBalanceTax.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_BeginingBalanceTax_Cari.resx">
+      <DependentUpon>FrmTrans_BeginingBalanceTax_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_BeginingBalanceTax_Detail.resx">
+      <DependentUpon>FrmTrans_BeginingBalanceTax_Detail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_BeginningBalanceTax_Cetak.resx">
+      <DependentUpon>FrmTrans_BeginningBalanceTax_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Export_eSPT.resx">
+      <DependentUpon>FrmTrans_Export_eSPT.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji.resx">
+      <DependentUpon>FrmTrans_Gaji.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Cari.resx">
+      <DependentUpon>FrmTrans_Gaji_Cari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Cetak.resx">
+      <DependentUpon>FrmTrans_Gaji_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_OtherDeduction.resx">
+      <DependentUpon>FrmTrans_Gaji_OtherDeduction.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Quick.resx">
+      <DependentUpon>FrmTrans_Gaji_Quick.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_Quick2.resx">
+      <DependentUpon>FrmTrans_Gaji_Quick2.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_SendEmail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_Gaji_SendEmail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_ShowAttendance.resx">
+      <DependentUpon>FrmTrans_Gaji_ShowAttendance.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_Gaji_ShowExplaination.resx">
+      <DependentUpon>FrmTrans_Gaji_ShowExplaination.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL.resx">
+      <DependentUpon>FrmTrans_SPL.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPLApproval.resx">
+      <DependentUpon>FrmTrans_SPLApproval.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPLApprovalBudget.resx">
+      <DependentUpon>FrmTrans_SPLApprovalBudget.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPLApprovalBudgetDetail.resx">
+      <DependentUpon>FrmTrans_SPLApprovalBudgetDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPLApprovalNotes.resx">
+      <DependentUpon>FrmTrans_SPLApprovalNotes.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPLApprovalScope.resx">
+      <DependentUpon>FrmTrans_SPLApprovalScope.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPLCari.resx">
+      <DependentUpon>FrmTrans_SPLCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_AuthDetail.resx">
+      <DependentUpon>FrmTrans_SPL_AuthDetail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_Budget.resx">
+      <DependentUpon>FrmTrans_SPL_Budget.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_BudgetCari.resx">
+      <DependentUpon>FrmTrans_SPL_BudgetCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_Budget_Cetak.resx">
+      <DependentUpon>FrmTrans_SPL_Budget_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_Budget_Opt.resx">
+      <DependentUpon>FrmTrans_SPL_Budget_Opt.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_Cetak.resx">
+      <DependentUpon>FrmTrans_SPL_Cetak.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_ColumnsSettings.resx">
+      <DependentUpon>FrmTrans_SPL_ColumnsSettings.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_SendEmail.resx">
+      <DependentUpon>FrmTrans_SPL_SendEmail.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_Setting.resx">
+      <DependentUpon>FrmTrans_SPL_Setting.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_SPL_SettingCari.resx">
+      <DependentUpon>FrmTrans_SPL_SettingCari.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_TaxRecalculate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_TaxRecalculate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_TaxRecalculate_Cari.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_TaxRecalculate_Cari.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_TaxRecalculate_Process.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTrans_TaxRecalculate_Process.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTrans_TaxRecalculate_Update.resx">
+      <DependentUpon>FrmTrans_TaxRecalculate_Update.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WaitForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>WaitForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakTransSalary_IGI.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransSalary_IGI.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakTransSalary_IGI_Detail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransSalary_IGI_Detail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakTrans_Attendace_IGI_A4_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTrans_Attendace_IGI_A4_Batch.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakTrans_Attendace_IGI_A5_Batch.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTrans_Attendace_IGI_A5_Batch.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanAtt_Detail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanAtt_Detail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanClockInOutGroupByEmp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanClockInOutGroupByEmp.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanClockInOutGroupByShift.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanClockInOutGroupByShift.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanIncomeTax_SMESS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanIncomeTax_SMESS.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanKontrakKaryawan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanKontrakKaryawan.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanLogUser.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanLogUser.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOtherPaymentGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOtherPaymentGroup.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOtherPaymentNoGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOtherPaymentNoGroup.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOvertimeAnalysis_Chart_Line.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOvertimeAnalysis_Chart_Line.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOvertimeAnalysis_Chart_Pie.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOvertimeAnalysis_Chart_Pie.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOvertimeAnalysis_Data.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOvertimeAnalysis_Data.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanPinjamanKaryawan_Detail1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanPinjamanKaryawan_Detail1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanPinjamanKaryawan_Rekap1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanPinjamanKaryawan_Rekap1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanStaffSalary_Detail_SMESS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanStaffSalary_Detail_SMESS.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanStaffSalary_Rekap_SMESS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanStaffSalary_Rekap_SMESS.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLap_Cuti_Rekap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLap_Cuti_Rekap.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnal2_DetailInv.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnal2_DetailInv.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnal3_DetailInv.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnal3_DetailInv.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnalDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnalDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnal.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnal2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnal2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnal3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnal3.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnalDetail2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnalDetail2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnalDetail3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnalDetail3.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnalDetail_Item.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnalDetail_Item.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakJurnalDetail_Item2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakJurnalDetail_Item2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakTransTaxBeginning.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTransTaxBeginning.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakTrans_Attendace_IGI_A4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTrans_Attendace_IGI_A4.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetakTrans_Attendace_IGI_A5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetakTrans_Attendace_IGI_A5.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpCetkDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpCetkDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanAtt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanAtt.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanEmployee_FamilyData.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanEmployee_FamilyData.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanEmployee_Format1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanEmployee_Format1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanEmployee_Format2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanEmployee_Format2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanIncomeTax_IGI_1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanIncomeTax_IGI_1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanIncomeTax_IGI_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanIncomeTax_IGI_2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanIncomeTax_IGI_3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanIncomeTax_IGI_3.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanIncomeTax_IGI_4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanIncomeTax_IGI_4.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanIncomeTax_IGI_5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanIncomeTax_IGI_5.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOvertimeAnalysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOvertimeAnalysis.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanStandarCompetence.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanStandarCompetence.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLap_Cuti_Detail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLap_Cuti_Detail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTaxIncomeCalculation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTaxIncomeCalculation.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTransaksiPayment_Cetak_PaymentDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTransaksiPayment_Cetak_PaymentDetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTransaksiSalary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTransaksiSalary.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTransSalary_Override_Amount.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTransSalary_Override_Amount.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTrans_Attendance_Actual_In_Report.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTrans_Attendance_Actual_In_Report.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTrans_Gaji_MasaSblm.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTrans_Gaji_MasaSblm.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTrans_Gaji_MasaSblm_Landscape.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTrans_Gaji_MasaSblm_Landscape.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOvertimeOrder_BySPL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOvertimeOrder_BySPL.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOvertimeOrder_Detail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOvertimeOrder_Detail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOvertimeOrder_DetailEmp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOvertimeOrder_DetailEmp.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpLaporanOvertimeOrder_Recap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpLaporanOvertimeOrder_Recap.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTrans_SPL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTrans_SPL.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTrans_SPL_Budget.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTrans_SPL_Budget.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\CrpTrans_SPL_DetailEmp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrpTrans_SPL_DetailEmp.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDummy.resx">
+      <DependentUpon>FormDummy.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Datasets\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanAttendance.xsc">
+      <DependentUpon>DseLaporanAttendance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanAttendance.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanAttendance.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanAttendance.xss">
+      <DependentUpon>DseLaporanAttendance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanEmployeeData.xsc">
+      <DependentUpon>DseLaporanEmployeeData.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanEmployeeData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanEmployeeData.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanEmployeeData.xss">
+      <DependentUpon>DseLaporanEmployeeData.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanIncomeTax_SMESS.xsc">
+      <DependentUpon>DseLaporanIncomeTax_SMESS.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanIncomeTax_SMESS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanIncomeTax_SMESS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanIncomeTax_SMESS.xss">
+      <DependentUpon>DseLaporanIncomeTax_SMESS.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanKontrakKaryawan.xsc">
+      <DependentUpon>DseLaporanKontrakKaryawan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanKontrakKaryawan.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanKontrakKaryawan.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanKontrakKaryawan.xss">
+      <DependentUpon>DseLaporanKontrakKaryawan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanLogUser.xsc">
+      <DependentUpon>DseLaporanLogUser.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanLogUser.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanLogUser.xss">
+      <DependentUpon>DseLaporanLogUser.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOtherPayment.xsc">
+      <DependentUpon>DseLaporanOtherPayment.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOtherPayment.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanOtherPayment.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanOtherPayment.xss">
+      <DependentUpon>DseLaporanOtherPayment.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeAnalysis.xsc">
+      <DependentUpon>DseLaporanOvertimeAnalysis.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeAnalysis.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanOvertimeAnalysis.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeAnalysis.xss">
+      <DependentUpon>DseLaporanOvertimeAnalysis.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeAnalysis2.xsc">
+      <DependentUpon>DseLaporanOvertimeAnalysis2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeAnalysis2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeAnalysis2.xss">
+      <DependentUpon>DseLaporanOvertimeAnalysis2.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanPinjamanKaryawan.xsc">
+      <DependentUpon>DseLaporanPinjamanKaryawan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanPinjamanKaryawan.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanPinjamanKaryawan.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanPinjamanKaryawan.xss">
+      <DependentUpon>DseLaporanPinjamanKaryawan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalaryStaff_IGI.xsc">
+      <DependentUpon>DseLaporanSalaryStaff_IGI.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalaryStaff_IGI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalaryStaff_IGI.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalaryStaff_IGI.xss">
+      <DependentUpon>DseLaporanSalaryStaff_IGI.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalaryStaff_SMESS.xsc">
+      <DependentUpon>DseLaporanSalaryStaff_SMESS.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanSalaryStaff_SMESS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanSalaryStaff_SMESS.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanSalaryStaff_SMESS.xss">
+      <DependentUpon>DseLaporanSalaryStaff_SMESS.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanStandarCompetence.xsc">
+      <DependentUpon>DseLaporanStandarCompetence.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanStandarCompetence.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLaporanStandarCompetence.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanStandarCompetence.xss">
+      <DependentUpon>DseLaporanStandarCompetence.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLap_Cuti.xsc">
+      <DependentUpon>DseLap_Cuti.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLap_Cuti.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseLap_Cuti.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLap_Cuti.xss">
+      <DependentUpon>DseLap_Cuti.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAttendanceServer.xsc">
+      <DependentUpon>DseMasterAttendanceServer.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterAttendanceServer.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterAttendanceServer.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMasterAttendanceServer.xss">
+      <DependentUpon>DseMasterAttendanceServer.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSettingPajak.xsc">
+      <DependentUpon>DseMasterSettingPajak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMasterSettingPajak.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMasterSettingPajak.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseMasterSettingPajak.xss">
+      <DependentUpon>DseMasterSettingPajak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMonthlyTax.xsc">
+      <DependentUpon>DseMonthlyTax.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseMonthlyTax.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseMonthlyTax.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseMonthlyTax.xss">
+      <DependentUpon>DseMonthlyTax.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseRepairWSAllocation.xsc">
+      <DependentUpon>DseRepairWSAllocation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseRepairWSAllocation.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseRepairWSAllocation.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseRepairWSAllocation.xss">
+      <DependentUpon>DseRepairWSAllocation.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiLoan.xsc">
+      <DependentUpon>DseTransaksiLoan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiLoan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiLoan.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiLoan.xss">
+      <DependentUpon>DseTransaksiLoan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiLoanPayment.xsc">
+      <DependentUpon>DseTransaksiLoanPayment.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiLoanPayment.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiLoanPayment.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiLoanPayment.xss">
+      <DependentUpon>DseTransaksiLoanPayment.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_Sorting.xsc">
+      <DependentUpon>DseTransaksiQuick_Sorting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_Sorting.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiQuick_Sorting.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiQuick_Sorting.xss">
+      <DependentUpon>DseTransaksiQuick_Sorting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary.xsc">
+      <DependentUpon>DseTransaksiSalary.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalary.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary.xss">
+      <DependentUpon>DseTransaksiSalary.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Cetakan_IGI.xsc">
+      <DependentUpon>DseTransaksiSalary_Cetakan_IGI.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Cetakan_IGI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalary_Cetakan_IGI.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Cetakan_IGI.xss">
+      <DependentUpon>DseTransaksiSalary_Cetakan_IGI.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Override.xsc">
+      <DependentUpon>DseTransaksiSalary_Override.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Override.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalary_Override.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Override.xss">
+      <DependentUpon>DseTransaksiSalary_Override.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Override_Create.xsc">
+      <DependentUpon>DseTransaksiSalary_Override_Create.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Override_Create.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalary_Override_Create.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Override_Create.xss">
+      <DependentUpon>DseTransaksiSalary_Override_Create.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Quick.xsc">
+      <DependentUpon>DseTransaksiSalary_Quick.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Quick.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransaksiSalary_Quick.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransaksiSalary_Quick.xss">
+      <DependentUpon>DseTransaksiSalary_Quick.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransPayment.xsc">
+      <DependentUpon>DseTransPayment.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransPayment.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransPayment.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransPayment.xss">
+      <DependentUpon>DseTransPayment.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransPayment_Cetak.xsc">
+      <DependentUpon>DseTransPayment_Cetak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTransPayment_Cetak.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTransPayment_Cetak.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTransPayment_Cetak.xss">
+      <DependentUpon>DseTransPayment_Cetak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance.xsc">
+      <DependentUpon>DseTrans_Attendance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Attendance.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance.xss">
+      <DependentUpon>DseTrans_Attendance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance1.xsc">
+      <DependentUpon>DseTrans_Attendance1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Attendance1.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance1.xss">
+      <DependentUpon>DseTrans_Attendance1.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Actual_In_Report.xsc">
+      <DependentUpon>DseTrans_Attendance_Actual_In_Report.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Actual_In_Report.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Attendance_Actual_In_Report.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Actual_In_Report.xss">
+      <DependentUpon>DseTrans_Attendance_Actual_In_Report.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Cetak_IGI.xsc">
+      <DependentUpon>DseTrans_Attendance_Cetak_IGI.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Cetak_IGI.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Attendance_Cetak_IGI.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Cetak_IGI.xss">
+      <DependentUpon>DseTrans_Attendance_Cetak_IGI.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Log.xsc">
+      <DependentUpon>DseTrans_Attendance_Log.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Log.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Attendance_Log.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Attendance_Log.xss">
+      <DependentUpon>DseTrans_Attendance_Log.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Cuti_Approval.xsc">
+      <DependentUpon>DseTrans_Cuti_Approval.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Cuti_Approval.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Cuti_Approval.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Cuti_Approval.xss">
+      <DependentUpon>DseTrans_Cuti_Approval.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Cuti_Pengajuan.xsc">
+      <DependentUpon>DseTrans_Cuti_Pengajuan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Cuti_Pengajuan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Cuti_Pengajuan.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Cuti_Pengajuan.xss">
+      <DependentUpon>DseTrans_Cuti_Pengajuan.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Export_eSPT.xsc">
+      <DependentUpon>DseTrans_Export_eSPT.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Export_eSPT.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Export_eSPT.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Export_eSPT.xss">
+      <DependentUpon>DseTrans_Export_eSPT.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Gaji_MasaSblm.xsc">
+      <DependentUpon>DseTrans_Gaji_MasaSblm.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Gaji_MasaSblm.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Gaji_MasaSblm.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_Gaji_MasaSblm.xss">
+      <DependentUpon>DseTrans_Gaji_MasaSblm.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_Budget.xsc">
+      <DependentUpon>DseTrans_SPL_Budget.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_Budget.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_SPL_Budget.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_Budget.xss">
+      <DependentUpon>DseTrans_SPL_Budget.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Tax_Beginning_Balance.xsc">
+      <DependentUpon>DseTrans_Tax_Beginning_Balance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Tax_Beginning_Balance.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Tax_Beginning_Balance.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Tax_Beginning_Balance.xss">
+      <DependentUpon>DseTrans_Tax_Beginning_Balance.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Tax_Recalculate.xsc">
+      <DependentUpon>DseTrans_Tax_Recalculate.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_Tax_Recalculate.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseTrans_Tax_Recalculate.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseTrans_Tax_Recalculate.xss">
+      <DependentUpon>DseTrans_Tax_Recalculate.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeOrder.xsc">
+      <DependentUpon>DseLaporanOvertimeOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeOrder.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseLaporanOvertimeOrder.xss">
+      <DependentUpon>DseLaporanOvertimeOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPL.xsc">
+      <DependentUpon>DseTrans_SPL.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPL.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_SPL.xss">
+      <DependentUpon>DseTrans_SPL.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPLCetak.xsc">
+      <DependentUpon>DseTrans_SPLCetak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPLCetak.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_SPLCetak.xss">
+      <DependentUpon>DseTrans_SPLCetak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_BudgetCetak.xsc">
+      <DependentUpon>DseTrans_SPL_BudgetCetak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_BudgetCetak.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_BudgetCetak.xss">
+      <DependentUpon>DseTrans_SPL_BudgetCetak.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_Setting.xsc">
+      <DependentUpon>DseTrans_SPL_Setting.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_Setting.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\DseTrans_SPL_Setting.xss">
+      <DependentUpon>DseTrans_SPL_Setting.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Custom\Creative\CustomSMESS\WindowsApplication1\Custom SMESS.vbproj">
+      <Project>{051C5D37-A626-4803-8A8A-FB321512AAF6}</Project>
+      <Name>Custom SMESS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Phase I Inventory, Purchase, Sales\Core Module\Core Module.vbproj">
+      <Project>{F7AFB6D3-C463-4E71-811E-666E760D09FC}</Project>
+      <Name>Core Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Phase I Inventory, Purchase, Sales\Inventory Module\Inventory Module.vbproj">
+      <Project>{69264E24-0555-4065-8FF8-B7E625E764A3}</Project>
+      <Name>Inventory Module</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Phase II Accounting\Accounting Module.vbproj">
+      <Project>{56634451-5849-4F88-A0D3-43A48A67943D}</Project>
+      <Name>Accounting Module</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

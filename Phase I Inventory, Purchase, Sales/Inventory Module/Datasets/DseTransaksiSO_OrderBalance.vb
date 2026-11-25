@@ -1,0 +1,2 @@
+﻿Partial Class DseTransaksiSO_OrderBalance
+End Class

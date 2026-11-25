@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseTrans_Attendance_Actual_In_Report" targetNamespace="http://tempuri.org/DseTrans_Attendance_Actual_In_Report.xsd" xmlns:mstns="http://tempuri.org/DseTrans_Attendance_Actual_In_Report.xsd" xmlns="http://tempuri.org/DseTrans_Attendance_Actual_In_Report.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HR.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_fingerprint_server.location, tbltrans_attendancelog.`transaction time`, tblmaster_karyawan.`Full Name`, tbltrans_attendancelog.`primary attendance server`, tbltrans_attendancelog.`terminal id`, 
+                         tbltrans_attendancelog.`primary employee`
+FROM            tbltrans_attendancelog INNER JOIN
+                         tblmaster_karyawan ON tbltrans_attendancelog.`primary employee` = tblmaster_karyawan.`Primary` INNER JOIN
+                         tblmaster_fingerprint_server ON tbltrans_attendancelog.`primary attendance server` = tblmaster_fingerprint_server.`primary`
+GROUP BY tbltrans_attendancelog.`primary employee`, tbltrans_attendancelog.`primary attendance server`, tbltrans_attendancelog.`terminal id`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="location" DataSetColumn="location" />
+              <Mapping SourceColumn="transaction time" DataSetColumn="transaction time" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="primary attendance server" DataSetColumn="primary attendance server" />
+              <Mapping SourceColumn="terminal id" DataSetColumn="terminal id" />
+              <Mapping SourceColumn="primary employee" DataSetColumn="primary employee" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_Date2" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_Date2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_Date2">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        IFNULL(tblmaster_fingerprint_server.location, 'From File') AS location, tbltrans_attendancelog.`transaction time`, tblmaster_karyawan.`Full Name`, tbltrans_attendancelog.`primary attendance server`, 
+                         tbltrans_attendancelog.`terminal id`, tbltrans_attendancelog.`primary employee`
+FROM            tbltrans_attendancelog INNER JOIN
+                         tblmaster_karyawan ON tbltrans_attendancelog.`primary employee` = tblmaster_karyawan.`Primary` LEFT OUTER JOIN
+                         tblmaster_fingerprint_server ON tbltrans_attendancelog.`primary attendance server` = tblmaster_fingerprint_server.`primary`
+WHERE        (tbltrans_attendancelog.`transaction time` &gt;= @from) AND (tbltrans_attendancelog.`transaction time` &lt;= @to)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="from" ColumnName="transaction time" DataSourceName="smess_tachi.tbltrans_attendancelog" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@from" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="transaction time" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="to" ColumnName="transaction time" DataSourceName="smess_tachi.tbltrans_attendancelog" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@to" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="transaction time" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_fingerprint_server_machinesTableAdapter" GeneratorDataComponentClassName="tblmaster_fingerprint_server_machinesTableAdapter" Name="tblmaster_fingerprint_server_machines" UserDataComponentName="tblmaster_fingerprint_server_machinesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_hr_iniled_actual_fingerprint.tblmaster_fingerprint_server_machines" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary server`, `terminal id`, remarks
+FROM            tblmaster_fingerprint_server_machines
+ORDER BY remarks</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary server" DataSetColumn="primary server" />
+              <Mapping SourceColumn="terminal id" DataSetColumn="terminal id" />
+              <Mapping SourceColumn="remarks" DataSetColumn="remarks" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblKaryawanTableAdapter" GeneratorDataComponentClassName="tblKaryawanTableAdapter" Name="tblKaryawan" UserDataComponentName="tblKaryawanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_attendancelog.`transaction time`, tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`, tblmaster_departemen.`Dept Code`, 
+                         tblmaster_departemen.Description AS `Dept Desc`, tbltrans_attendancelog.`fingerprint id`, tblmaster_karyawan.`Primary` AS `Primary Karyawan`, 
+                         tblmaster_departemen.`Primary` AS `Primary Dept`, tblmaster_karyawan.Aktif, tblmaster_karyawan.`Resign Date`
+FROM            tblmaster_departemen RIGHT OUTER JOIN
+                         tblmaster_karyawan ON tblmaster_departemen.`Primary` = tblmaster_karyawan.`primary departemen` RIGHT OUTER JOIN
+                         tbltrans_attendancelog ON tblmaster_karyawan.`fingerprint id` = tbltrans_attendancelog.`fingerprint id`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="transaction time" DataSetColumn="transaction time" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="Dept Code" DataSetColumn="Dept Code" />
+              <Mapping SourceColumn="Dept Desc" DataSetColumn="Dept Desc" />
+              <Mapping SourceColumn="fingerprint id" DataSetColumn="fingerprint id" />
+              <Mapping SourceColumn="Primary Karyawan" DataSetColumn="Primary Karyawan" />
+              <Mapping SourceColumn="Primary Dept" DataSetColumn="Primary Dept" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+              <Mapping SourceColumn="Resign Date" DataSetColumn="Resign Date" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_Periode" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_Periode" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_Periode">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT DISTINCT 
+                         tbltrans_attendancelog.`transaction time`, IFNULL(tblmaster_karyawan.Code, '') AS Code, IFNULL(tblmaster_karyawan.`Full Name`, '') AS `Full Name`, 
+                         IFNULL(tblmaster_departemen.`Dept Code`, '') AS `Dept Code`, IFNULL(tblmaster_departemen.Description, '') AS `Dept Desc`, tbltrans_attendancelog.`fingerprint id`, 
+                         tblmaster_karyawan.`Primary` AS `Primary Karyawan`, IFNULL(tblmaster_departemen.`Primary`, - 1) AS `Primary Dept`, tblmaster_karyawan.Aktif, 
+                         tblmaster_karyawan.`Resign Date`
+FROM            tblmaster_departemen RIGHT OUTER JOIN
+                         tblmaster_karyawan ON tblmaster_departemen.`Primary` = tblmaster_karyawan.`primary departemen` RIGHT OUTER JOIN
+                         tbltrans_attendancelog ON tblmaster_karyawan.`fingerprint id` = tbltrans_attendancelog.`fingerprint id`
+WHERE        (tbltrans_attendancelog.`transaction time` &gt;= @Start) AND (tbltrans_attendancelog.`transaction time` &lt;= @EndDate) AND 
+                         (NOT (tblmaster_karyawan.`Primary` IS NULL))
+ORDER BY `Primary Karyawan`, tbltrans_attendancelog.`transaction time`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Start" ColumnName="transaction time" DataSourceName="smess_taci.tbltrans_attendancelog" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@Start" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="transaction time" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="EndDate" ColumnName="transaction time" DataSourceName="smess_taci.tbltrans_attendancelog" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@EndDate" Precision="0" ProviderType="Datetime" Scale="0" Size="0" SourceColumn="transaction time" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workshift_itemallocate_obsTableAdapter" GeneratorDataComponentClassName="tblmaster_workshift_itemallocate_obsTableAdapter" Name="tblmaster_workshift_itemallocate_obs" UserDataComponentName="tblmaster_workshift_itemallocate_obsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_workshift_itemallocate.`primary entity`, tblmaster_workshift_itemallocate.`start date`, tblmaster_workshift_itemallocate.`end date`, 
+                         tblmaster_workshift_itemallocate.`primary workshift`, tblmaster_workshift_item.`day of week`, tblmaster_workshift_item.`schedule in`, 
+                         tblmaster_workshift_item.`schedule out`, tblmaster_workshift_item.`schedule break out`, tblmaster_workshift_item.`schedule break in`, 
+                         tblmaster_workshift.code AS `Workshift Code`, tblmaster_workshift.description AS `Workshift Desc`, tblmaster_departemen.`Primary` AS `Primary Dept`, 
+                         tblmaster_departemen.`Dept Code`, tblmaster_departemen.Description, tblmaster_karyawan.Code, tblmaster_karyawan.`Full Name`
+FROM            tblmaster_karyawan LEFT OUTER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` RIGHT OUTER JOIN
+                         tblmaster_workshift_itemallocate ON tblmaster_karyawan.`Primary` = tblmaster_workshift_itemallocate.`primary` LEFT OUTER JOIN
+                         tblmaster_workshift INNER JOIN
+                         tblmaster_workshift_item ON tblmaster_workshift.`primary` = tblmaster_workshift_item.`primary transaksi` ON 
+                         tblmaster_workshift_itemallocate.`primary workshift` = tblmaster_workshift_item.`primary transaksi`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary entity" DataSetColumn="primary entity" />
+              <Mapping SourceColumn="start date" DataSetColumn="start date" />
+              <Mapping SourceColumn="end date" DataSetColumn="end date" />
+              <Mapping SourceColumn="primary workshift" DataSetColumn="primary workshift" />
+              <Mapping SourceColumn="day of week" DataSetColumn="day of week" />
+              <Mapping SourceColumn="schedule in" DataSetColumn="schedule in" />
+              <Mapping SourceColumn="schedule out" DataSetColumn="schedule out" />
+              <Mapping SourceColumn="schedule break out" DataSetColumn="schedule break out" />
+              <Mapping SourceColumn="schedule break in" DataSetColumn="schedule break in" />
+              <Mapping SourceColumn="Workshift Code" DataSetColumn="Workshift Code" />
+              <Mapping SourceColumn="Workshift Desc" DataSetColumn="Workshift Desc" />
+              <Mapping SourceColumn="Primary Dept" DataSetColumn="Primary Dept" />
+              <Mapping SourceColumn="Dept Code" DataSetColumn="Dept Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_StartandEnd" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_StartandEnd" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_StartandEnd">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_workshift_itemallocate.`primary entity`, tblmaster_workshift_itemallocate.`start date`, tblmaster_workshift_itemallocate.`end date`, 
+                         tblmaster_workshift_itemallocate.`primary workshift`, tblmaster_workshift_item.`day of week`, tblmaster_workshift_item.`schedule in`, 
+                         tblmaster_workshift_item.`schedule out`, tblmaster_workshift_item.`schedule break out`, tblmaster_workshift_item.`schedule break in`, 
+                         tblmaster_workshift.code AS `Workshift Code`, tblmaster_workshift.description AS `Workshift Desc`, tblmaster_karyawan.`Full Name`, 
+                         tblmaster_departemen.`Primary` AS `Primary Dept`, tblmaster_departemen.`Dept Code`, tblmaster_departemen.Description, tblmaster_karyawan.Code
+FROM            tblmaster_karyawan LEFT OUTER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` RIGHT OUTER JOIN
+                         tblmaster_workshift_itemallocate ON tblmaster_karyawan.`Primary` = tblmaster_workshift_itemallocate.`primary entity` LEFT OUTER JOIN
+                         tblmaster_workshift INNER JOIN
+                         tblmaster_workshift_item ON tblmaster_workshift.`primary` = tblmaster_workshift_item.`primary transaksi` ON 
+                         tblmaster_workshift_itemallocate.`primary workshift` = tblmaster_workshift_item.`primary transaksi`
+WHERE        (tblmaster_workshift_itemallocate.`start date` &lt;= @endate) AND (tblmaster_workshift_itemallocate.`end date` &gt;= @startdate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="endate" ColumnName="start date" DataSourceName="smess_cls.tblmaster_workshift_itemallocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@endate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="start date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="startdate" ColumnName="end date" DataSourceName="smess_cls.tblmaster_workshift_itemallocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@startdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="end date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workshift_itemparametersTableAdapter" GeneratorDataComponentClassName="tblmaster_workshift_itemparametersTableAdapter" Name="tblmaster_workshift_itemparameters" UserDataComponentName="tblmaster_workshift_itemparametersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cls.tblmaster_workshift_itemparameters" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary transaksi`, `schedule type`, `is get value`, `limit before`, `limit after`, `first or last`, `default`
+FROM            tblmaster_workshift_itemparameters</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary transaksi" DataSetColumn="primary transaksi" />
+              <Mapping SourceColumn="schedule type" DataSetColumn="schedule type" />
+              <Mapping SourceColumn="is get value" DataSetColumn="is get value" />
+              <Mapping SourceColumn="limit before" DataSetColumn="limit before" />
+              <Mapping SourceColumn="limit after" DataSetColumn="limit after" />
+              <Mapping SourceColumn="first or last" DataSetColumn="first or last" />
+              <Mapping SourceColumn="default" DataSetColumn="default" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cls.tblmaster_workshift_itemparameters" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_PrimaryWorkshift" GenerateMethods="Fill" GenerateShortCommands="True" GeneratorSourceName="FillBy_PrimaryWorkshift" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetDataBy" UserSourceName="FillBy_PrimaryWorkshift">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary transaksi`, `schedule type`, `is get value`, `limit before`, `limit after`, `first or last`, `default`
+FROM            tblmaster_workshift_itemparameters
+WHERE        (`primary transaksi` = @PrimaryWorkshift)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="PrimaryWorkshift" ColumnName="primary transaksi" DataSourceName="smess_cls.tblmaster_workshift_itemparameters" DataTypeServer="double(18,0)" DbType="Decimal" Direction="Input" ParameterName="@PrimaryWorkshift" Precision="18" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_karyawanTableAdapter" GeneratorDataComponentClassName="tblmaster_karyawanTableAdapter" Name="tblmaster_karyawan" UserDataComponentName="tblmaster_karyawanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_taci.tblmaster_karyawan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary`, `Full Name`, Aktif, `Resign Date`
+FROM            tblmaster_karyawan</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+              <Mapping SourceColumn="Resign Date" DataSetColumn="Resign Date" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workshift_itemallocateTableAdapter" GeneratorDataComponentClassName="tblmaster_workshift_itemallocateTableAdapter" Name="tblmaster_workshift_itemallocate" UserDataComponentName="tblmaster_workshift_itemallocateTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy_StartAndEnd" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="FillBy_StartAndEnd" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="FillBy_StartAndEnd">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_workshift_itemallocate.`primary entity`, tblmaster_workshift_itemallocate.`start date`, tblmaster_workshift_itemallocate.`end date`, 
+                         tblmaster_workshift_itemallocate.`primary workshift`, tblmaster_workshift_item.`day of week`, tblmaster_workshift_item.`schedule in`, 
+                         tblmaster_workshift_item.`schedule out`, tblmaster_workshift_item.`schedule break out`, tblmaster_workshift_item.`schedule break in`, 
+                         tblmaster_workshift.code AS `Workshift Code`, tblmaster_workshift.description AS `Workshift Desc`, tblmaster_karyawan.`Full Name`, 
+                         tblmaster_departemen.`Primary` AS `Primary Dept`, tblmaster_departemen.`Dept Code`, tblmaster_departemen.Description, tblmaster_karyawan.Code, 
+                         tblmaster_workshift_item.`tipe workdays`
+FROM            tblmaster_karyawan LEFT OUTER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` RIGHT OUTER JOIN
+                         tblmaster_workshift_itemallocate ON tblmaster_karyawan.`Primary` = tblmaster_workshift_itemallocate.`primary entity` LEFT OUTER JOIN
+                         tblmaster_workshift INNER JOIN
+                         tblmaster_workshift_item ON tblmaster_workshift.`primary` = tblmaster_workshift_item.`primary transaksi` ON 
+                         tblmaster_workshift_itemallocate.`primary workshift` = tblmaster_workshift_item.`primary transaksi`
+WHERE        (tblmaster_workshift_itemallocate.`start date` &lt;= @endate) AND (tblmaster_workshift_itemallocate.`end date` &gt;= @startdate)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="endate" ColumnName="start date" DataSourceName="smess_cls.tblmaster_workshift_itemallocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@endate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="start date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="startdate" ColumnName="end date" DataSourceName="smess_cls.tblmaster_workshift_itemallocate" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@startdate" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="end date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary entity" DataSetColumn="primary entity" />
+              <Mapping SourceColumn="start date" DataSetColumn="start date" />
+              <Mapping SourceColumn="end date" DataSetColumn="end date" />
+              <Mapping SourceColumn="primary workshift" DataSetColumn="primary workshift" />
+              <Mapping SourceColumn="day of week" DataSetColumn="day of week" />
+              <Mapping SourceColumn="schedule in" DataSetColumn="schedule in" />
+              <Mapping SourceColumn="schedule out" DataSetColumn="schedule out" />
+              <Mapping SourceColumn="schedule break out" DataSetColumn="schedule break out" />
+              <Mapping SourceColumn="schedule break in" DataSetColumn="schedule break in" />
+              <Mapping SourceColumn="Workshift Code" DataSetColumn="Workshift Code" />
+              <Mapping SourceColumn="Workshift Desc" DataSetColumn="Workshift Desc" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+              <Mapping SourceColumn="Primary Dept" DataSetColumn="Primary Dept" />
+              <Mapping SourceColumn="Dept Code" DataSetColumn="Dept Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Code" DataSetColumn="Code" />
+              <Mapping SourceColumn="tipe workdays" DataSetColumn="tipe workdays" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_workshift_itemholidayTableAdapter" GeneratorDataComponentClassName="tblmaster_workshift_itemholidayTableAdapter" Name="tblmaster_workshift_itemholiday" UserDataComponentName="tblmaster_workshift_itemholidayTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cls.tblmaster_workshift_itemholiday" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `smess_cls`.`tblmaster_workshift_itemholiday` WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`date` = @Original_date) AND (`holiday description` = @Original_holiday_description))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_holiday_description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="holiday description" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `primary`, `primary transaksi`, `date`, `holiday description`
+FROM            tblmaster_workshift_itemholiday
+WHERE        (`date` &gt;= @DateFrom AND `date` &lt;= @DateTo)
+ORDER BY `primary transaksi`, `date`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="DateFrom" ColumnName="date" DataSourceName="smess_cls.tblmaster_workshift_itemholiday" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@DateFrom" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="DateTo" ColumnName="date" DataSourceName="smess_cls.tblmaster_workshift_itemholiday" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@DateTo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `smess_cls`.`tblmaster_workshift_itemholiday` SET `primary transaksi` = @primary_transaksi, `date` = @date, `holiday description` = @holiday_description WHERE ((`primary` = @Original_primary) AND (`primary transaksi` = @Original_primary_transaksi) AND (`date` = @Original_date) AND (`holiday description` = @Original_holiday_description))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@holiday_description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="holiday description" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary_transaksi" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary transaksi" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_holiday_description" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="holiday description" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary transaksi" DataSetColumn="primary transaksi" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="holiday description" DataSetColumn="holiday description" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_leaveTableAdapter" GeneratorDataComponentClassName="tbl_leaveTableAdapter" Name="tbl_leave" UserDataComponentName="tbl_leaveTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tbltrans_cuti_pengajuan.`primary`, tbltrans_cuti_pengajuan.`no transaksi`, tbltrans_cuti_pengajuan.`primary karyawan`, tbltrans_cuti_pengajuan.status, 
+                         tbltrans_cuti_pengajuan_item.`date`, tbltrans_cuti_pengajuan_item.duration, tbltrans_cuti_pengajuan.reason
+FROM            tbltrans_cuti_pengajuan INNER JOIN
+                         tbltrans_cuti_pengajuan_item ON tbltrans_cuti_pengajuan.`primary` = tbltrans_cuti_pengajuan_item.`primary transaksi`
+WHERE        (tbltrans_cuti_pengajuan_item.`date` &gt;= @DateFrom) AND (tbltrans_cuti_pengajuan_item.`date` &lt;= @DateTo) AND (tbltrans_cuti_pengajuan.status = @Status)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="DateFrom" ColumnName="date" DataSourceName="smess_cls.tbltrans_cuti_pengajuan_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@DateFrom" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="DateTo" ColumnName="date" DataSourceName="smess_cls.tbltrans_cuti_pengajuan_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@DateTo" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="Status" ColumnName="status" DataSourceName="smess_cls.tbltrans_cuti_pengajuan" DataTypeServer="int(3)" DbType="Int32" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="Int32" Scale="0" Size="0" SourceColumn="status" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="no transaksi" DataSetColumn="no transaksi" />
+              <Mapping SourceColumn="primary karyawan" DataSetColumn="primary karyawan" />
+              <Mapping SourceColumn="status" DataSetColumn="status" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="duration" DataSetColumn="duration" />
+              <Mapping SourceColumn="reason" DataSetColumn="reason" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tbl_attendanceTableAdapter" GeneratorDataComponentClassName="tbl_attendanceTableAdapter" Name="tbl_attendance" UserDataComponentName="tbl_attendanceTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT tbltrans_attendance.`primary`, tbltrans_attendance.`primary karyawan`, tbltrans_attendance_item.`date`, tbltrans_attendance_item.`is sick`, tbltrans_attendance_item.`Is alfa`, tbltrans_attendance_item.`is permit`, 
+                  tbltrans_attendance_item.`is late`, tbltrans_attendance_item.`is early out`, tbltrans_attendance_item.`Permit duration`
+FROM     tbltrans_attendance INNER JOIN
+                  tbltrans_attendance_item ON tbltrans_attendance.`primary` = tbltrans_attendance_item.`primary transaksi`
+WHERE  (tbltrans_attendance_item.`date` &gt;= @TglDari) AND (tbltrans_attendance_item.`date` &lt;= @TglSampai) OR
+                  (tbltrans_attendance_item.`is sick` &gt; 0) OR
+                  (tbltrans_attendance_item.`Is alfa` &gt; 0) OR
+                  (tbltrans_attendance_item.`is permit` &gt; 0) OR
+                  (tbltrans_attendance_item.`is late` &gt; 0) OR
+                  (tbltrans_attendance_item.`is early out` &gt; 0) OR
+                  (tbltrans_attendance_item.`Permit duration` &gt; 0)
+ORDER BY tbltrans_attendance.`primary karyawan`, tbltrans_attendance_item.`date`</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglDari" ColumnName="date" DataSourceName="smess_abt_fitri.tbltrans_attendance_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglDari" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="TglSampai" ColumnName="date" DataSourceName="smess_abt_fitri.tbltrans_attendance_item" DataTypeServer="date" DbType="DateTime" Direction="Input" ParameterName="@TglSampai" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="date" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="primary karyawan" DataSetColumn="primary karyawan" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="is sick" DataSetColumn="is sick" />
+              <Mapping SourceColumn="Is alfa" DataSetColumn="Is alfa" />
+              <Mapping SourceColumn="is permit" DataSetColumn="is permit" />
+              <Mapping SourceColumn="is late" DataSetColumn="is late" />
+              <Mapping SourceColumn="is early out" DataSetColumn="is early out" />
+              <Mapping SourceColumn="Permit duration" DataSetColumn="Permit duration" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseTrans_Attendance_Actual_In_Report" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseTrans_Attendance_Actual_In_Report" msprop:Generator_DataSetName="DseTrans_Attendance_Actual_In_Report">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_TablePropName="DataTable1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="location" msprop:Generator_UserColumnName="location" msprop:Generator_ColumnPropNameInRow="location" msprop:Generator_ColumnVarNameInTable="columnlocation" msprop:Generator_ColumnPropNameInTable="locationColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="transaction_x0020_time" msprop:Generator_UserColumnName="transaction time" msprop:Generator_ColumnPropNameInRow="transaction_time" msprop:Generator_ColumnVarNameInTable="columntransaction_time" msprop:Generator_ColumnPropNameInTable="transaction_timeColumn" type="xs:dateTime" />
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_attendance_x0020_server" msprop:Generator_UserColumnName="primary attendance server" msprop:Generator_ColumnVarNameInTable="columnprimary_attendance_server" msprop:Generator_ColumnPropNameInRow="primary_attendance_server" msprop:Generator_ColumnPropNameInTable="primary_attendance_serverColumn" type="xs:double" />
+              <xs:element name="terminal_x0020_id" msprop:Generator_UserColumnName="terminal id" msprop:Generator_ColumnVarNameInTable="columnterminal_id" msprop:Generator_ColumnPropNameInRow="terminal_id" msprop:Generator_ColumnPropNameInTable="terminal_idColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_employee" msprop:Generator_UserColumnName="primary employee" msprop:Generator_ColumnPropNameInRow="primary_employee" msprop:Generator_ColumnVarNameInTable="columnprimary_employee" msprop:Generator_ColumnPropNameInTable="primary_employeeColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_fingerprint_server_machines" msprop:Generator_UserTableName="tblmaster_fingerprint_server_machines" msprop:Generator_RowDeletedName="tblmaster_fingerprint_server_machinesRowDeleted" msprop:Generator_RowChangedName="tblmaster_fingerprint_server_machinesRowChanged" msprop:Generator_RowClassName="tblmaster_fingerprint_server_machinesRow" msprop:Generator_RowChangingName="tblmaster_fingerprint_server_machinesRowChanging" msprop:Generator_RowEvArgName="tblmaster_fingerprint_server_machinesRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_fingerprint_server_machinesRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_fingerprint_server_machinesDataTable" msprop:Generator_TableVarName="tabletblmaster_fingerprint_server_machines" msprop:Generator_RowDeletingName="tblmaster_fingerprint_server_machinesRowDeleting" msprop:Generator_TablePropName="tblmaster_fingerprint_server_machines">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_server" msprop:Generator_UserColumnName="primary server" msprop:Generator_ColumnVarNameInTable="columnprimary_server" msprop:Generator_ColumnPropNameInRow="primary_server" msprop:Generator_ColumnPropNameInTable="primary_serverColumn" type="xs:double" />
+              <xs:element name="terminal_x0020_id" msprop:Generator_UserColumnName="terminal id" msprop:Generator_ColumnVarNameInTable="columnterminal_id" msprop:Generator_ColumnPropNameInRow="terminal_id" msprop:Generator_ColumnPropNameInTable="terminal_idColumn" type="xs:int" />
+              <xs:element name="remarks" msprop:Generator_UserColumnName="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblKaryawan" msprop:Generator_UserTableName="tblKaryawan" msprop:Generator_RowDeletedName="tblKaryawanRowDeleted" msprop:Generator_RowChangedName="tblKaryawanRowChanged" msprop:Generator_RowClassName="tblKaryawanRow" msprop:Generator_RowChangingName="tblKaryawanRowChanging" msprop:Generator_RowEvArgName="tblKaryawanRowChangeEvent" msprop:Generator_RowEvHandlerName="tblKaryawanRowChangeEventHandler" msprop:Generator_TableClassName="tblKaryawanDataTable" msprop:Generator_TableVarName="tabletblKaryawan" msprop:Generator_RowDeletingName="tblKaryawanRowDeleting" msprop:Generator_TablePropName="tblKaryawan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="transaction_x0020_time" msprop:Generator_UserColumnName="transaction time" msprop:Generator_ColumnPropNameInRow="transaction_time" msprop:Generator_ColumnVarNameInTable="columntransaction_time" msprop:Generator_ColumnPropNameInTable="transaction_timeColumn" type="xs:dateTime" />
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInTable="CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_x0020_Code" msprop:Generator_UserColumnName="Dept Code" msprop:Generator_ColumnPropNameInRow="Dept_Code" msprop:Generator_ColumnVarNameInTable="columnDept_Code" msprop:Generator_ColumnPropNameInTable="Dept_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_x0020_Desc" msprop:Generator_UserColumnName="Dept Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fingerprint_x0020_id" msprop:Generator_UserColumnName="fingerprint id" msprop:Generator_ColumnVarNameInTable="columnfingerprint_id" msprop:Generator_ColumnPropNameInRow="fingerprint_id" msprop:Generator_ColumnPropNameInTable="fingerprint_idColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Karyawan" msprop:Generator_UserColumnName="Primary Karyawan" msprop:Generator_ColumnPropNameInRow="Primary_Karyawan" msprop:Generator_ColumnVarNameInTable="columnPrimary_Karyawan" msprop:Generator_ColumnPropNameInTable="Primary_KaryawanColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Primary_x0020_Dept" msprop:Generator_UserColumnName="Primary Dept" msprop:Generator_ColumnPropNameInRow="Primary_Dept" msprop:Generator_ColumnVarNameInTable="columnPrimary_Dept" msprop:Generator_ColumnPropNameInTable="Primary_DeptColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="Resign_x0020_Date" msprop:Generator_UserColumnName="Resign Date" msprop:Generator_ColumnPropNameInRow="Resign_Date" msprop:Generator_ColumnVarNameInTable="columnResign_Date" msprop:Generator_ColumnPropNameInTable="Resign_DateColumn" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblLaporanClockInOut" msprop:Generator_UserTableName="tblLaporanClockInOut" msprop:Generator_RowDeletedName="tblLaporanClockInOutRowDeleted" msprop:Generator_RowChangedName="tblLaporanClockInOutRowChanged" msprop:Generator_RowClassName="tblLaporanClockInOutRow" msprop:Generator_RowChangingName="tblLaporanClockInOutRowChanging" msprop:Generator_RowEvArgName="tblLaporanClockInOutRowChangeEvent" msprop:Generator_RowEvHandlerName="tblLaporanClockInOutRowChangeEventHandler" msprop:Generator_TableClassName="tblLaporanClockInOutDataTable" msprop:Generator_TableVarName="tabletblLaporanClockInOut" msprop:Generator_RowDeletingName="tblLaporanClockInOutRowDeleting" msprop:Generator_TablePropName="tblLaporanClockInOut">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Kode_x0020_Karyawan" msdata:Caption="Code" msprop:Generator_UserColumnName="Kode Karyawan" msprop:Generator_ColumnPropNameInRow="Kode_Karyawan" msprop:Generator_ColumnVarNameInTable="columnKode_Karyawan" msprop:Generator_ColumnPropNameInTable="Kode_KaryawanColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nama_x0020_Karyawan" msdata:Caption="Full Name" msprop:Generator_UserColumnName="Nama Karyawan" msprop:Generator_ColumnPropNameInRow="Nama_Karyawan" msprop:Generator_ColumnVarNameInTable="columnNama_Karyawan" msprop:Generator_ColumnPropNameInTable="Nama_KaryawanColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_x0020_Code" msprop:Generator_UserColumnName="Dept Code" msprop:Generator_ColumnPropNameInRow="Dept_Code" msprop:Generator_ColumnVarNameInTable="columnDept_Code" msprop:Generator_ColumnPropNameInTable="Dept_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_x0020_Desc" msprop:Generator_UserColumnName="Dept Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal" msprop:Generator_UserColumnName="Tanggal" msprop:Generator_ColumnPropNameInRow="Tanggal" msprop:Generator_ColumnVarNameInTable="columnTanggal" msprop:Generator_ColumnPropNameInTable="TanggalColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Schedule_x0020_In" msprop:Generator_UserColumnName="Schedule In" msprop:Generator_ColumnPropNameInRow="Schedule_In" msprop:Generator_ColumnVarNameInTable="columnSchedule_In" msprop:Generator_ColumnPropNameInTable="Schedule_InColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Schedule_x0020_Out" msprop:Generator_UserColumnName="Schedule Out" msprop:Generator_ColumnPropNameInRow="Schedule_Out" msprop:Generator_ColumnVarNameInTable="columnSchedule_Out" msprop:Generator_ColumnPropNameInTable="Schedule_OutColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Actual_x0020_In" msprop:Generator_UserColumnName="Actual In" msprop:Generator_ColumnPropNameInRow="Actual_In" msprop:Generator_ColumnVarNameInTable="columnActual_In" msprop:Generator_ColumnPropNameInTable="Actual_InColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Actual_x0020_Out" msprop:Generator_UserColumnName="Actual Out" msprop:Generator_ColumnPropNameInRow="Actual_Out" msprop:Generator_ColumnVarNameInTable="columnActual_Out" msprop:Generator_ColumnPropNameInTable="Actual_OutColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="WorkShift_x0020_Code" msprop:Generator_UserColumnName="WorkShift Code" msprop:Generator_ColumnPropNameInRow="WorkShift_Code" msprop:Generator_ColumnVarNameInTable="columnWorkShift_Code" msprop:Generator_ColumnPropNameInTable="WorkShift_CodeColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="WorkShift_x0020_Desc" msprop:Generator_UserColumnName="WorkShift Desc" msprop:Generator_ColumnPropNameInRow="WorkShift_Desc" msprop:Generator_ColumnVarNameInTable="columnWorkShift_Desc" msprop:Generator_ColumnPropNameInTable="WorkShift_DescColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Primary_x0020_Karyawan" msprop:Generator_UserColumnName="Primary Karyawan" msprop:Generator_ColumnPropNameInRow="Primary_Karyawan" msprop:Generator_ColumnVarNameInTable="columnPrimary_Karyawan" msprop:Generator_ColumnPropNameInTable="Primary_KaryawanColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Schedule_x0020_break_x0020_out" msprop:Generator_UserColumnName="Schedule break out" msprop:Generator_ColumnPropNameInRow="Schedule_break_out" msprop:Generator_ColumnVarNameInTable="columnSchedule_break_out" msprop:Generator_ColumnPropNameInTable="Schedule_break_outColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Schedule_x0020_break_x0020_in" msprop:Generator_UserColumnName="Schedule break in" msprop:Generator_ColumnPropNameInRow="Schedule_break_in" msprop:Generator_ColumnVarNameInTable="columnSchedule_break_in" msprop:Generator_ColumnPropNameInTable="Schedule_break_inColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Primary_x0020_Workshift" msprop:Generator_UserColumnName="Primary Workshift" msprop:Generator_ColumnVarNameInTable="columnPrimary_Workshift" msprop:Generator_ColumnPropNameInRow="Primary_Workshift" msprop:Generator_ColumnPropNameInTable="Primary_WorkshiftColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Primary_x0020_Departement" msprop:Generator_UserColumnName="Primary Departement" msprop:Generator_ColumnVarNameInTable="columnPrimary_Departement" msprop:Generator_ColumnPropNameInRow="Primary_Departement" msprop:Generator_ColumnPropNameInTable="Primary_DepartementColumn" type="xs:double" default="-1" minOccurs="0" />
+              <xs:element name="Actual_x0020_Break_x0020_In" msprop:Generator_UserColumnName="Actual Break In" msprop:Generator_ColumnVarNameInTable="columnActual_Break_In" msprop:Generator_ColumnPropNameInRow="Actual_Break_In" msprop:Generator_ColumnPropNameInTable="Actual_Break_InColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Actual_x0020_Break_x0020_Out" msprop:Generator_UserColumnName="Actual Break Out" msprop:Generator_ColumnVarNameInTable="columnActual_Break_Out" msprop:Generator_ColumnPropNameInRow="Actual_Break_Out" msprop:Generator_ColumnPropNameInTable="Actual_Break_OutColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="reason_x0020_status" msprop:Generator_UserColumnName="reason status" msprop:Generator_ColumnPropNameInRow="reason_status" msprop:Generator_ColumnVarNameInTable="columnreason_status" msprop:Generator_ColumnPropNameInTable="reason_statusColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workshift_itemallocate_obs" msprop:Generator_UserTableName="tblmaster_workshift_itemallocate_obs" msprop:Generator_RowDeletedName="tblmaster_workshift_itemallocate_obsRowDeleted" msprop:Generator_RowChangedName="tblmaster_workshift_itemallocate_obsRowChanged" msprop:Generator_RowClassName="tblmaster_workshift_itemallocate_obsRow" msprop:Generator_RowChangingName="tblmaster_workshift_itemallocate_obsRowChanging" msprop:Generator_RowEvArgName="tblmaster_workshift_itemallocate_obsRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workshift_itemallocate_obsRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workshift_itemallocate_obsDataTable" msprop:Generator_TableVarName="tabletblmaster_workshift_itemallocate_obs" msprop:Generator_RowDeletingName="tblmaster_workshift_itemallocate_obsRowDeleting" msprop:Generator_TablePropName="tblmaster_workshift_itemallocate_obs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_entity" msprop:Generator_UserColumnName="primary entity" msprop:Generator_ColumnPropNameInRow="primary_entity" msprop:Generator_ColumnVarNameInTable="columnprimary_entity" msprop:Generator_ColumnPropNameInTable="primary_entityColumn" type="xs:double" />
+              <xs:element name="start_x0020_date" msprop:Generator_UserColumnName="start date" msprop:Generator_ColumnPropNameInRow="start_date" msprop:Generator_ColumnVarNameInTable="columnstart_date" msprop:Generator_ColumnPropNameInTable="start_dateColumn" type="xs:dateTime" />
+              <xs:element name="end_x0020_date" msprop:Generator_UserColumnName="end date" msprop:Generator_ColumnPropNameInRow="end_date" msprop:Generator_ColumnVarNameInTable="columnend_date" msprop:Generator_ColumnPropNameInTable="end_dateColumn" type="xs:dateTime" />
+              <xs:element name="primary_x0020_workshift" msprop:Generator_UserColumnName="primary workshift" msprop:Generator_ColumnPropNameInRow="primary_workshift" msprop:Generator_ColumnVarNameInTable="columnprimary_workshift" msprop:Generator_ColumnPropNameInTable="primary_workshiftColumn" type="xs:double" />
+              <xs:element name="day_x0020_of_x0020_week" msprop:Generator_UserColumnName="day of week" msprop:Generator_ColumnPropNameInRow="day_of_week" msprop:Generator_ColumnVarNameInTable="columnday_of_week" msprop:Generator_ColumnPropNameInTable="day_of_weekColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="schedule_x0020_in" msprop:Generator_UserColumnName="schedule in" msprop:Generator_ColumnPropNameInRow="schedule_in" msprop:Generator_ColumnVarNameInTable="columnschedule_in" msprop:Generator_ColumnPropNameInTable="schedule_inColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="schedule_x0020_out" msprop:Generator_UserColumnName="schedule out" msprop:Generator_ColumnPropNameInRow="schedule_out" msprop:Generator_ColumnVarNameInTable="columnschedule_out" msprop:Generator_ColumnPropNameInTable="schedule_outColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="schedule_x0020_break_x0020_out" msprop:Generator_UserColumnName="schedule break out" msprop:Generator_ColumnPropNameInRow="schedule_break_out" msprop:Generator_ColumnVarNameInTable="columnschedule_break_out" msprop:Generator_ColumnPropNameInTable="schedule_break_outColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="schedule_x0020_break_x0020_in" msprop:Generator_UserColumnName="schedule break in" msprop:Generator_ColumnPropNameInRow="schedule_break_in" msprop:Generator_ColumnVarNameInTable="columnschedule_break_in" msprop:Generator_ColumnPropNameInTable="schedule_break_inColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Workshift_x0020_Code" msprop:Generator_UserColumnName="Workshift Code" msprop:Generator_ColumnPropNameInRow="Workshift_Code" msprop:Generator_ColumnVarNameInTable="columnWorkshift_Code" msprop:Generator_ColumnPropNameInTable="Workshift_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Workshift_x0020_Desc" msprop:Generator_UserColumnName="Workshift Desc" msprop:Generator_ColumnPropNameInRow="Workshift_Desc" msprop:Generator_ColumnVarNameInTable="columnWorkshift_Desc" msprop:Generator_ColumnPropNameInTable="Workshift_DescColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Dept" msprop:Generator_UserColumnName="Primary Dept" msprop:Generator_ColumnVarNameInTable="columnPrimary_Dept" msprop:Generator_ColumnPropNameInRow="Primary_Dept" msprop:Generator_ColumnPropNameInTable="Primary_DeptColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Dept_x0020_Code" msprop:Generator_UserColumnName="Dept Code" msprop:Generator_ColumnVarNameInTable="columnDept_Code" msprop:Generator_ColumnPropNameInRow="Dept_Code" msprop:Generator_ColumnPropNameInTable="Dept_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workshift_itemparameters" msprop:Generator_UserTableName="tblmaster_workshift_itemparameters" msprop:Generator_RowDeletedName="tblmaster_workshift_itemparametersRowDeleted" msprop:Generator_RowChangedName="tblmaster_workshift_itemparametersRowChanged" msprop:Generator_RowClassName="tblmaster_workshift_itemparametersRow" msprop:Generator_RowChangingName="tblmaster_workshift_itemparametersRowChanging" msprop:Generator_RowEvArgName="tblmaster_workshift_itemparametersRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workshift_itemparametersRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workshift_itemparametersDataTable" msprop:Generator_TableVarName="tabletblmaster_workshift_itemparameters" msprop:Generator_RowDeletingName="tblmaster_workshift_itemparametersRowDeleting" msprop:Generator_TablePropName="tblmaster_workshift_itemparameters">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_transaksi" msprop:Generator_UserColumnName="primary transaksi" msprop:Generator_ColumnPropNameInRow="primary_transaksi" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi" msprop:Generator_ColumnPropNameInTable="primary_transaksiColumn" type="xs:double" />
+              <xs:element name="schedule_x0020_type" msprop:Generator_UserColumnName="schedule type" msprop:Generator_ColumnPropNameInRow="schedule_type" msprop:Generator_ColumnVarNameInTable="columnschedule_type" msprop:Generator_ColumnPropNameInTable="schedule_typeColumn" type="xs:int" />
+              <xs:element name="is_x0020_get_x0020_value" msprop:Generator_UserColumnName="is get value" msprop:Generator_ColumnPropNameInRow="is_get_value" msprop:Generator_ColumnVarNameInTable="columnis_get_value" msprop:Generator_ColumnPropNameInTable="is_get_valueColumn" type="xs:int" />
+              <xs:element name="limit_x0020_before" msprop:Generator_UserColumnName="limit before" msprop:Generator_ColumnPropNameInRow="limit_before" msprop:Generator_ColumnVarNameInTable="columnlimit_before" msprop:Generator_ColumnPropNameInTable="limit_beforeColumn" type="xs:decimal" />
+              <xs:element name="limit_x0020_after" msprop:Generator_UserColumnName="limit after" msprop:Generator_ColumnPropNameInRow="limit_after" msprop:Generator_ColumnVarNameInTable="columnlimit_after" msprop:Generator_ColumnPropNameInTable="limit_afterColumn" type="xs:decimal" />
+              <xs:element name="first_x0020_or_x0020_last" msprop:Generator_UserColumnName="first or last" msprop:Generator_ColumnPropNameInRow="first_or_last" msprop:Generator_ColumnVarNameInTable="columnfirst_or_last" msprop:Generator_ColumnPropNameInTable="first_or_lastColumn" type="xs:int" />
+              <xs:element name="default" msprop:Generator_UserColumnName="default" msprop:Generator_ColumnPropNameInRow="_default" msprop:Generator_ColumnVarNameInTable="columndefault" msprop:Generator_ColumnPropNameInTable="defaultColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_karyawan" msprop:Generator_UserTableName="tblmaster_karyawan" msprop:Generator_RowDeletedName="tblmaster_karyawanRowDeleted" msprop:Generator_RowChangedName="tblmaster_karyawanRowChanged" msprop:Generator_RowClassName="tblmaster_karyawanRow" msprop:Generator_RowChangingName="tblmaster_karyawanRowChanging" msprop:Generator_RowEvArgName="tblmaster_karyawanRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_karyawanRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_karyawanDataTable" msprop:Generator_TableVarName="tabletblmaster_karyawan" msprop:Generator_RowDeletingName="tblmaster_karyawanRowDeleting" msprop:Generator_TablePropName="tblmaster_karyawan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" />
+              <xs:element name="Resign_x0020_Date" msprop:Generator_UserColumnName="Resign Date" msprop:Generator_ColumnVarNameInTable="columnResign_Date" msprop:Generator_ColumnPropNameInRow="Resign_Date" msprop:Generator_ColumnPropNameInTable="Resign_DateColumn" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workshift_itemallocate" msprop:Generator_UserTableName="tblmaster_workshift_itemallocate" msprop:Generator_RowDeletedName="tblmaster_workshift_itemallocateRowDeleted" msprop:Generator_RowChangedName="tblmaster_workshift_itemallocateRowChanged" msprop:Generator_RowClassName="tblmaster_workshift_itemallocateRow" msprop:Generator_RowChangingName="tblmaster_workshift_itemallocateRowChanging" msprop:Generator_RowEvArgName="tblmaster_workshift_itemallocateRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workshift_itemallocateRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workshift_itemallocateDataTable" msprop:Generator_TableVarName="tabletblmaster_workshift_itemallocate" msprop:Generator_RowDeletingName="tblmaster_workshift_itemallocateRowDeleting" msprop:Generator_TablePropName="tblmaster_workshift_itemallocate">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary_x0020_entity" msprop:Generator_UserColumnName="primary entity" msprop:Generator_ColumnPropNameInRow="primary_entity" msprop:Generator_ColumnVarNameInTable="columnprimary_entity" msprop:Generator_ColumnPropNameInTable="primary_entityColumn" type="xs:double" />
+              <xs:element name="start_x0020_date" msprop:Generator_UserColumnName="start date" msprop:Generator_ColumnPropNameInRow="start_date" msprop:Generator_ColumnVarNameInTable="columnstart_date" msprop:Generator_ColumnPropNameInTable="start_dateColumn" type="xs:dateTime" />
+              <xs:element name="end_x0020_date" msprop:Generator_UserColumnName="end date" msprop:Generator_ColumnPropNameInRow="end_date" msprop:Generator_ColumnVarNameInTable="columnend_date" msprop:Generator_ColumnPropNameInTable="end_dateColumn" type="xs:dateTime" />
+              <xs:element name="primary_x0020_workshift" msprop:Generator_UserColumnName="primary workshift" msprop:Generator_ColumnPropNameInRow="primary_workshift" msprop:Generator_ColumnVarNameInTable="columnprimary_workshift" msprop:Generator_ColumnPropNameInTable="primary_workshiftColumn" type="xs:double" />
+              <xs:element name="day_x0020_of_x0020_week" msprop:Generator_UserColumnName="day of week" msprop:Generator_ColumnPropNameInRow="day_of_week" msprop:Generator_ColumnVarNameInTable="columnday_of_week" msprop:Generator_ColumnPropNameInTable="day_of_weekColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="schedule_x0020_in" msprop:Generator_UserColumnName="schedule in" msprop:Generator_ColumnPropNameInRow="schedule_in" msprop:Generator_ColumnVarNameInTable="columnschedule_in" msprop:Generator_ColumnPropNameInTable="schedule_inColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="schedule_x0020_out" msprop:Generator_UserColumnName="schedule out" msprop:Generator_ColumnPropNameInRow="schedule_out" msprop:Generator_ColumnVarNameInTable="columnschedule_out" msprop:Generator_ColumnPropNameInTable="schedule_outColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="schedule_x0020_break_x0020_out" msprop:Generator_UserColumnName="schedule break out" msprop:Generator_ColumnPropNameInRow="schedule_break_out" msprop:Generator_ColumnVarNameInTable="columnschedule_break_out" msprop:Generator_ColumnPropNameInTable="schedule_break_outColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="schedule_x0020_break_x0020_in" msprop:Generator_UserColumnName="schedule break in" msprop:Generator_ColumnPropNameInRow="schedule_break_in" msprop:Generator_ColumnVarNameInTable="columnschedule_break_in" msprop:Generator_ColumnPropNameInTable="schedule_break_inColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Workshift_x0020_Code" msprop:Generator_UserColumnName="Workshift Code" msprop:Generator_ColumnPropNameInRow="Workshift_Code" msprop:Generator_ColumnVarNameInTable="columnWorkshift_Code" msprop:Generator_ColumnPropNameInTable="Workshift_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Workshift_x0020_Desc" msprop:Generator_UserColumnName="Workshift Desc" msprop:Generator_ColumnPropNameInRow="Workshift_Desc" msprop:Generator_ColumnVarNameInTable="columnWorkshift_Desc" msprop:Generator_ColumnPropNameInTable="Workshift_DescColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_x0020_Dept" msprop:Generator_UserColumnName="Primary Dept" msprop:Generator_ColumnPropNameInRow="Primary_Dept" msprop:Generator_ColumnVarNameInTable="columnPrimary_Dept" msprop:Generator_ColumnPropNameInTable="Primary_DeptColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="Dept_x0020_Code" msprop:Generator_UserColumnName="Dept Code" msprop:Generator_ColumnPropNameInRow="Dept_Code" msprop:Generator_ColumnVarNameInTable="columnDept_Code" msprop:Generator_ColumnPropNameInTable="Dept_CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Code" msprop:Generator_UserColumnName="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInTable="CodeColumn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipe_x0020_workdays" msprop:Generator_UserColumnName="tipe workdays" msprop:Generator_ColumnPropNameInRow="tipe_workdays" msprop:Generator_ColumnVarNameInTable="columntipe_workdays" msprop:Generator_ColumnPropNameInTable="tipe_workdaysColumn" type="xs:int" minOccurs="0" />
+              <xs:element name="reason_x0020_status" msprop:Generator_UserColumnName="reason status" msprop:Generator_ColumnPropNameInRow="reason_status" msprop:Generator_ColumnVarNameInTable="columnreason_status" msprop:Generator_ColumnPropNameInTable="reason_statusColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_workshift_itemholiday" msprop:Generator_UserTableName="tblmaster_workshift_itemholiday" msprop:Generator_RowDeletedName="tblmaster_workshift_itemholidayRowDeleted" msprop:Generator_RowChangedName="tblmaster_workshift_itemholidayRowChanged" msprop:Generator_RowClassName="tblmaster_workshift_itemholidayRow" msprop:Generator_RowChangingName="tblmaster_workshift_itemholidayRowChanging" msprop:Generator_RowEvArgName="tblmaster_workshift_itemholidayRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_workshift_itemholidayRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_workshift_itemholidayDataTable" msprop:Generator_TableVarName="tabletblmaster_workshift_itemholiday" msprop:Generator_RowDeletingName="tblmaster_workshift_itemholidayRowDeleting" msprop:Generator_TablePropName="tblmaster_workshift_itemholiday">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_transaksi" msprop:Generator_UserColumnName="primary transaksi" msprop:Generator_ColumnPropNameInRow="primary_transaksi" msprop:Generator_ColumnVarNameInTable="columnprimary_transaksi" msprop:Generator_ColumnPropNameInTable="primary_transaksiColumn" type="xs:double" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" />
+              <xs:element name="holiday_x0020_description" msprop:Generator_UserColumnName="holiday description" msprop:Generator_ColumnPropNameInRow="holiday_description" msprop:Generator_ColumnVarNameInTable="columnholiday_description" msprop:Generator_ColumnPropNameInTable="holiday_descriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_leave" msprop:Generator_UserTableName="tbl_leave" msprop:Generator_RowDeletedName="tbl_leaveRowDeleted" msprop:Generator_RowChangedName="tbl_leaveRowChanged" msprop:Generator_RowClassName="tbl_leaveRow" msprop:Generator_RowChangingName="tbl_leaveRowChanging" msprop:Generator_RowEvArgName="tbl_leaveRowChangeEvent" msprop:Generator_RowEvHandlerName="tbl_leaveRowChangeEventHandler" msprop:Generator_TableClassName="tbl_leaveDataTable" msprop:Generator_TableVarName="tabletbl_leave" msprop:Generator_RowDeletingName="tbl_leaveRowDeleting" msprop:Generator_TablePropName="tbl_leave">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="no_x0020_transaksi" msprop:Generator_UserColumnName="no transaksi" msprop:Generator_ColumnPropNameInRow="no_transaksi" msprop:Generator_ColumnVarNameInTable="columnno_transaksi" msprop:Generator_ColumnPropNameInTable="no_transaksiColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_karyawan" msprop:Generator_UserColumnName="primary karyawan" msprop:Generator_ColumnPropNameInRow="primary_karyawan" msprop:Generator_ColumnVarNameInTable="columnprimary_karyawan" msprop:Generator_ColumnPropNameInTable="primary_karyawanColumn" type="xs:double" />
+              <xs:element name="status" msprop:Generator_UserColumnName="status" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInTable="statusColumn" type="xs:int" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" />
+              <xs:element name="duration" msprop:Generator_UserColumnName="duration" msprop:Generator_ColumnPropNameInRow="duration" msprop:Generator_ColumnVarNameInTable="columnduration" msprop:Generator_ColumnPropNameInTable="durationColumn" type="xs:decimal" />
+              <xs:element name="reason" msprop:Generator_UserColumnName="reason" msprop:Generator_ColumnPropNameInRow="reason" msprop:Generator_ColumnVarNameInTable="columnreason" msprop:Generator_ColumnPropNameInTable="reasonColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1000" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbl_attendance" msprop:Generator_UserTableName="tbl_attendance" msprop:Generator_RowDeletedName="tbl_attendanceRowDeleted" msprop:Generator_RowChangedName="tbl_attendanceRowChanged" msprop:Generator_RowClassName="tbl_attendanceRow" msprop:Generator_RowChangingName="tbl_attendanceRowChanging" msprop:Generator_RowEvArgName="tbl_attendanceRowChangeEvent" msprop:Generator_RowEvHandlerName="tbl_attendanceRowChangeEventHandler" msprop:Generator_TableClassName="tbl_attendanceDataTable" msprop:Generator_TableVarName="tabletbl_attendance" msprop:Generator_RowDeletingName="tbl_attendanceRowDeleting" msprop:Generator_TablePropName="tbl_attendance">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="primary_x0020_karyawan" msprop:Generator_UserColumnName="primary karyawan" msprop:Generator_ColumnVarNameInTable="columnprimary_karyawan" msprop:Generator_ColumnPropNameInRow="primary_karyawan" msprop:Generator_ColumnPropNameInTable="primary_karyawanColumn" type="xs:double" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" />
+              <xs:element name="is_x0020_sick" msprop:Generator_UserColumnName="is sick" msprop:Generator_ColumnVarNameInTable="columnis_sick" msprop:Generator_ColumnPropNameInRow="is_sick" msprop:Generator_ColumnPropNameInTable="is_sickColumn" type="xs:double" />
+              <xs:element name="Is_x0020_alfa" msprop:Generator_UserColumnName="Is alfa" msprop:Generator_ColumnVarNameInTable="columnIs_alfa" msprop:Generator_ColumnPropNameInRow="Is_alfa" msprop:Generator_ColumnPropNameInTable="Is_alfaColumn" type="xs:double" />
+              <xs:element name="is_x0020_permit" msprop:Generator_UserColumnName="is permit" msprop:Generator_ColumnVarNameInTable="columnis_permit" msprop:Generator_ColumnPropNameInRow="is_permit" msprop:Generator_ColumnPropNameInTable="is_permitColumn" type="xs:double" />
+              <xs:element name="is_x0020_late" msprop:Generator_UserColumnName="is late" msprop:Generator_ColumnPropNameInRow="is_late" msprop:Generator_ColumnVarNameInTable="columnis_late" msprop:Generator_ColumnPropNameInTable="is_lateColumn" type="xs:double" />
+              <xs:element name="is_x0020_early_x0020_out" msprop:Generator_UserColumnName="is early out" msprop:Generator_ColumnPropNameInRow="is_early_out" msprop:Generator_ColumnVarNameInTable="columnis_early_out" msprop:Generator_ColumnPropNameInTable="is_early_outColumn" type="xs:double" />
+              <xs:element name="Permit_x0020_duration" msprop:Generator_UserColumnName="Permit duration" msprop:Generator_ColumnPropNameInRow="Permit_duration" msprop:Generator_ColumnVarNameInTable="columnPermit_duration" msprop:Generator_ColumnPropNameInTable="Permit_durationColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

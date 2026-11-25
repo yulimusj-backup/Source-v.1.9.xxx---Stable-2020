@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DseLaporanEmployeeData" targetNamespace="http://tempuri.org/DseLaporanEmployeeData.xsd" xmlns:mstns="http://tempuri.org/DseLaporanEmployeeData.xsd" xmlns="http://tempuri.org/DseLaporanEmployeeData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="core_dbConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="core_dbConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.HR.My.MySettings.GlobalReference.Default.core_dbConnectionString" Provider="MySql.Data.MySqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Format 1TableAdapter" GeneratorDataComponentClassName="Format_1TableAdapter" Name="Format 1" UserDataComponentName="Format 1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tblmaster_karyawan.`Primary`, tblmaster_departemen.Description AS `Dept Desc`, tblmaster_karyawan.`Full Name` AS `Nama Karyawan`, tblmaster_karyawan.`id card no` AS `No KTP`, 
+                  tblmaster_karyawan.`id card expiry` AS `Masa Berlaku KTP`, tblmaster_karyawan.`npwp no` AS `No NPWP`, tblmaster_karyawan.`kpj no` AS `No KPJ`, tblmaster_karyawan.`Birth Place` AS `Tempat Lahir`, 
+                  tblmaster_karyawan.`Date Of Birth` AS `Tanggal Lahir`, tblmaster_karyawan.`admision date` AS `Tgl Masuk`, tblmaster_jobposition.`desc` AS Jabatan, tblmaster_karyawan.`primary departemen`, 
+                  tblmaster_karyawan.`primary position`, IFNULL(tblmaster_karyawan_item_kontrak.`document no`, '') AS `DOC NO`, tblmaster_karyawan_item_kontrak.`date`, tblmaster_karyawan_item_kontrak.`start date`, 
+                  tblmaster_karyawan_item_kontrak.`end date`, tblmaster_karyawan.Aktif, tblmaster_karyawan.`npwp category`
+FROM     tblmaster_karyawan INNER JOIN
+                  tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` INNER JOIN
+                  tblmaster_jobposition ON tblmaster_karyawan.`primary position` = tblmaster_jobposition.`primary` LEFT OUTER JOIN
+                  tblmaster_karyawan_item_kontrak ON tblmaster_karyawan.`Primary` = tblmaster_karyawan_item_kontrak.`primary karyawan`
+ORDER BY `Dept Desc`, `Nama Karyawan`, tblmaster_karyawan_item_kontrak.`end date` DESC</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Dept Desc" DataSetColumn="Dept Desc" />
+              <Mapping SourceColumn="Nama Karyawan" DataSetColumn="Nama Karyawan" />
+              <Mapping SourceColumn="No KTP" DataSetColumn="No KTP" />
+              <Mapping SourceColumn="Masa Berlaku KTP" DataSetColumn="Masa Berlaku KTP" />
+              <Mapping SourceColumn="No NPWP" DataSetColumn="No NPWP" />
+              <Mapping SourceColumn="No KPJ" DataSetColumn="No KPJ" />
+              <Mapping SourceColumn="Tempat Lahir" DataSetColumn="Tempat Lahir" />
+              <Mapping SourceColumn="Tanggal Lahir" DataSetColumn="Tanggal Lahir" />
+              <Mapping SourceColumn="Tgl Masuk" DataSetColumn="Tgl Masuk" />
+              <Mapping SourceColumn="Jabatan" DataSetColumn="Jabatan" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="primary position" DataSetColumn="primary position" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="start date" DataSetColumn="start date" />
+              <Mapping SourceColumn="end date" DataSetColumn="end date" />
+              <Mapping SourceColumn="DOC NO" DataSetColumn="DOC NO" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+              <Mapping SourceColumn="npwp category" DataSetColumn="npwp category" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Format 2TableAdapter" GeneratorDataComponentClassName="Format_2TableAdapter" Name="Format 2" UserDataComponentName="Format 2TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_karyawan.`Primary`, tblmaster_karyawan.`Full Name` AS `Nama Karyawan`, tblmaster_karyawan.NIK, 
+                         tblmaster_karyawan.`id card address` AS `Alamat KTP`, tblmaster_karyawan.`phone no` AS Telepon, tblmaster_karyawan.`Blood Type` AS `Golongan Darah`, 
+                         tblmaster_karyawan.`mariage date` AS `Tanggal Menikah`, tblmaster_karyawan.education AS `Pendidikan Terakhir`, 
+                         tblmaster_karyawan.`Bank Account No` AS `Rekening Bank`, tblmaster_karyawan.`Balai Pengobatan JPK`, tblmaster_departemen.Description AS `Dept Desc`, 
+                         tblmaster_karyawan.`primary departemen`, tblmaster_karyawan.`primary position`, tblmaster_karyawan.`marital status`, 
+                         tblmaster_karyawan_item_kontrak.`primary karyawan`, IFNULL(tblmaster_karyawan_item_kontrak.`document no`, '') AS `DOC No`, 
+                         tblmaster_karyawan_item_kontrak.`date`, tblmaster_karyawan_item_kontrak.`start date`, tblmaster_karyawan_item_kontrak.`end date`, 
+                         tblmaster_karyawan.Aktif
+FROM            tblmaster_karyawan INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` LEFT OUTER JOIN
+                         tblmaster_karyawan_item_kontrak ON tblmaster_karyawan.`Primary` = tblmaster_karyawan_item_kontrak.`primary karyawan`
+ORDER BY `Dept Desc`, `Nama Karyawan`, tblmaster_karyawan_item_kontrak.`end date` DESC</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Nama Karyawan" DataSetColumn="Nama Karyawan" />
+              <Mapping SourceColumn="NIK" DataSetColumn="NIK" />
+              <Mapping SourceColumn="Alamat KTP" DataSetColumn="Alamat KTP" />
+              <Mapping SourceColumn="Telepon" DataSetColumn="Telepon" />
+              <Mapping SourceColumn="Golongan Darah" DataSetColumn="Golongan Darah" />
+              <Mapping SourceColumn="Tanggal Menikah" DataSetColumn="Tanggal Menikah" />
+              <Mapping SourceColumn="Pendidikan Terakhir" DataSetColumn="Pendidikan Terakhir" />
+              <Mapping SourceColumn="Rekening Bank" DataSetColumn="Rekening Bank" />
+              <Mapping SourceColumn="Balai Pengobatan JPK" DataSetColumn="Balai Pengobatan JPK" />
+              <Mapping SourceColumn="Dept Desc" DataSetColumn="Dept Desc" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="primary position" DataSetColumn="primary position" />
+              <Mapping SourceColumn="marital status" DataSetColumn="marital status" />
+              <Mapping SourceColumn="primary karyawan" DataSetColumn="primary karyawan" />
+              <Mapping SourceColumn="DOC No" DataSetColumn="DOC No" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="start date" DataSetColumn="start date" />
+              <Mapping SourceColumn="end date" DataSetColumn="end date" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Anggota KeluargaTableAdapter" GeneratorDataComponentClassName="Anggota_KeluargaTableAdapter" Name="Anggota Keluarga" UserDataComponentName="Anggota KeluargaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        tblmaster_karyawan.`Primary`, tblmaster_departemen.Description AS `Dept Desc`, tblmaster_karyawan.`Full Name` AS `Nama Karyawan`, 
+                         tblmaster_karyawan_item.nama AS `Nama Anggota Keluarga`, tblmaster_karyawan_item.relationship AS `Hubungan Keluarga`, 
+                         tblmaster_karyawan_item.`birth place` AS `Tempat Lahir`, tblmaster_karyawan_item.birthday AS `Tanggal Lahir`, tblmaster_karyawan_item.sex AS `Jenis Kelamin`, 
+                         tblmaster_karyawan_item.`Blood Type`, tblmaster_karyawan.`primary departemen`, tblmaster_karyawan.`primary position`, tblmaster_karyawan_item.identifier, 
+                         IFNULL(tblmaster_karyawan_item_kontrak.`document no`, '') AS `DOC NO`, tblmaster_karyawan_item_kontrak.`date`, tblmaster_karyawan_item_kontrak.`start date`, 
+                         tblmaster_karyawan_item_kontrak.`end date`, tblmaster_karyawan.Aktif
+FROM            tblmaster_karyawan INNER JOIN
+                         tblmaster_karyawan_item ON tblmaster_karyawan.`Primary` = tblmaster_karyawan_item.`primary karyawan` INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` LEFT OUTER JOIN
+                         tblmaster_karyawan_item_kontrak ON tblmaster_karyawan.`Primary` = tblmaster_karyawan_item_kontrak.`primary karyawan`
+ORDER BY `Dept Desc`, `Nama Karyawan`, `Nama Anggota Keluarga`, tblmaster_karyawan_item_kontrak.`end date` DESC</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Dept Desc" DataSetColumn="Dept Desc" />
+              <Mapping SourceColumn="Nama Karyawan" DataSetColumn="Nama Karyawan" />
+              <Mapping SourceColumn="Nama Anggota Keluarga" DataSetColumn="Nama Anggota Keluarga" />
+              <Mapping SourceColumn="Hubungan Keluarga" DataSetColumn="Hubungan Keluarga" />
+              <Mapping SourceColumn="Tempat Lahir" DataSetColumn="Tempat Lahir" />
+              <Mapping SourceColumn="Tanggal Lahir" DataSetColumn="Tanggal Lahir" />
+              <Mapping SourceColumn="Jenis Kelamin" DataSetColumn="Jenis Kelamin" />
+              <Mapping SourceColumn="Blood Type" DataSetColumn="Blood Type" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="primary position" DataSetColumn="primary position" />
+              <Mapping SourceColumn="identifier" DataSetColumn="identifier" />
+              <Mapping SourceColumn="DOC NO" DataSetColumn="DOC NO" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="start date" DataSetColumn="start date" />
+              <Mapping SourceColumn="end date" DataSetColumn="end date" />
+              <Mapping SourceColumn="Aktif" DataSetColumn="Aktif" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_jobpositionTableAdapter" GeneratorDataComponentClassName="tblmaster_jobpositionTableAdapter" Name="tblmaster_jobposition" UserDataComponentName="tblmaster_jobpositionTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_jobposition" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_jobposition` WHERE ((`primary` = @Original_primary) AND (`desc` = @Original_Position))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `primary`, `desc` AS Position
+FROM            tblmaster_jobposition
+ORDER BY Position</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_jobposition` SET `desc` = @Position WHERE ((`primary` = @Original_primary) AND (`desc` = @Original_Position))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Position" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Position" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="primary" DataSetColumn="primary" />
+              <Mapping SourceColumn="Position" DataSetColumn="Position" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_departemenTableAdapter" GeneratorDataComponentClassName="tblmaster_departemenTableAdapter" Name="tblmaster_departemen" UserDataComponentName="tblmaster_departemenTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="core_db.tblmaster_departemen" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="True" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `tblmaster_departemen` WHERE ((`Primary` = @Original_Primary) AND (`Description` = @Original_Departement))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Departement" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Departement" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        `Primary`, Description AS Departement
+FROM            tblmaster_departemen
+ORDER BY Departement</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `tblmaster_departemen` SET `Description` = @Departement WHERE ((`Primary` = @Original_Primary) AND (`Description` = @Original_Departement))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Departement" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Departement" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Departement" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Departement" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Departement" DataSetColumn="Departement" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Format 11TableAdapter" GeneratorDataComponentClassName="Format_11TableAdapter" Name="Format 11" UserDataComponentName="Format 11TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>SELECT        tblmaster_karyawan.`Primary`, tblmaster_departemen.Description AS `Dept Desc`, tblmaster_karyawan.`Full Name` AS `Nama Karyawan`, 
+                         tblmaster_karyawan.`id card no` AS `No KTP`, tblmaster_karyawan.`id card expiry` AS `Masa Berlaku KTP`, tblmaster_karyawan.`npwp no` AS `No NPWP`, 
+                         tblmaster_karyawan.`kpj no` AS `No KPJ`, tblmaster_karyawan.`Birth Place` AS `Tempat Lahir`, tblmaster_karyawan.`Date Of Birth` AS `Tanggal Lahir`, 
+                         tblmaster_karyawan.`admision date` AS `Tgl Masuk`, tblmaster_jobposition.`desc` AS Jabatan, tblmaster_karyawan.`primary departemen`, 
+                         tblmaster_karyawan.`primary position`
+FROM            tblmaster_karyawan INNER JOIN
+                         tblmaster_departemen ON tblmaster_karyawan.`primary departemen` = tblmaster_departemen.`Primary` INNER JOIN
+                         tblmaster_jobposition ON tblmaster_karyawan.`primary position` = tblmaster_jobposition.`primary`
+ORDER BY `Dept Desc`, `Nama Karyawan`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Dept Desc" DataSetColumn="Dept Desc" />
+              <Mapping SourceColumn="Nama Karyawan" DataSetColumn="Nama Karyawan" />
+              <Mapping SourceColumn="No KTP" DataSetColumn="No KTP" />
+              <Mapping SourceColumn="Masa Berlaku KTP" DataSetColumn="Masa Berlaku KTP" />
+              <Mapping SourceColumn="No NPWP" DataSetColumn="No NPWP" />
+              <Mapping SourceColumn="No KPJ" DataSetColumn="No KPJ" />
+              <Mapping SourceColumn="Tempat Lahir" DataSetColumn="Tempat Lahir" />
+              <Mapping SourceColumn="Tanggal Lahir" DataSetColumn="Tanggal Lahir" />
+              <Mapping SourceColumn="Tgl Masuk" DataSetColumn="Tgl Masuk" />
+              <Mapping SourceColumn="Jabatan" DataSetColumn="Jabatan" />
+              <Mapping SourceColumn="primary departemen" DataSetColumn="primary departemen" />
+              <Mapping SourceColumn="primary position" DataSetColumn="primary position" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_karyawanTableAdapter" GeneratorDataComponentClassName="tblmaster_karyawanTableAdapter" Name="tblmaster_karyawan" UserDataComponentName="tblmaster_karyawanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_cls.tblmaster_karyawan" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>DELETE FROM `smess_cls`.`tblmaster_karyawan` WHERE ((`Primary` = @Original_Primary) AND (`Full Name` = @Original_Full_Name))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Full_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Full Name" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT        `Primary`, `Full Name`
+FROM            tblmaster_karyawan</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="False">
+                    <CommandText>UPDATE `smess_cls`.`tblmaster_karyawan` SET `Full Name` = @Full_Name WHERE ((`Primary` = @Original_Primary) AND (`Full Name` = @Original_Full_Name))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Full_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Full Name" SourceColumnNullMapping="False" SourceVersion="Current">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="Double" Direction="Input" ParameterName="@Original_Primary" Precision="0" ProviderType="Double" Scale="0" Size="0" SourceColumn="Primary" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                      <Parameter AllowDbNull="False" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Full_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Full Name" SourceColumnNullMapping="False" SourceVersion="Original">
+                      </Parameter>
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Full Name" DataSetColumn="Full Name" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DseLaporanEmployeeData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DseLaporanEmployeeData" msprop:Generator_DataSetName="DseLaporanEmployeeData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Format_x0020_1" msprop:Generator_UserTableName="Format 1" msprop:Generator_RowDeletedName="Format_1RowDeleted" msprop:Generator_RowChangedName="Format_1RowChanged" msprop:Generator_RowClassName="Format_1Row" msprop:Generator_RowChangingName="Format_1RowChanging" msprop:Generator_RowEvArgName="Format_1RowChangeEvent" msprop:Generator_RowEvHandlerName="Format_1RowChangeEventHandler" msprop:Generator_TableClassName="Format_1DataTable" msprop:Generator_TableVarName="tableFormat_1" msprop:Generator_RowDeletingName="Format_1RowDeleting" msprop:Generator_TablePropName="Format_1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Dept_x0020_Desc" msprop:Generator_UserColumnName="Dept Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nama_x0020_Karyawan" msprop:Generator_UserColumnName="Nama Karyawan" msprop:Generator_ColumnVarNameInTable="columnNama_Karyawan" msprop:Generator_ColumnPropNameInRow="Nama_Karyawan" msprop:Generator_ColumnPropNameInTable="Nama_KaryawanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_KTP" msprop:Generator_UserColumnName="No KTP" msprop:Generator_ColumnVarNameInTable="columnNo_KTP" msprop:Generator_ColumnPropNameInRow="No_KTP" msprop:Generator_ColumnPropNameInTable="No_KTPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Masa_x0020_Berlaku_x0020_KTP" msprop:Generator_UserColumnName="Masa Berlaku KTP" msprop:Generator_ColumnVarNameInTable="columnMasa_Berlaku_KTP" msprop:Generator_ColumnPropNameInRow="Masa_Berlaku_KTP" msprop:Generator_ColumnPropNameInTable="Masa_Berlaku_KTPColumn" type="xs:dateTime" />
+              <xs:element name="No_x0020_NPWP" msprop:Generator_UserColumnName="No NPWP" msprop:Generator_ColumnVarNameInTable="columnNo_NPWP" msprop:Generator_ColumnPropNameInRow="No_NPWP" msprop:Generator_ColumnPropNameInTable="No_NPWPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_KPJ" msprop:Generator_UserColumnName="No KPJ" msprop:Generator_ColumnVarNameInTable="columnNo_KPJ" msprop:Generator_ColumnPropNameInRow="No_KPJ" msprop:Generator_ColumnPropNameInTable="No_KPJColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tempat_x0020_Lahir" msprop:Generator_UserColumnName="Tempat Lahir" msprop:Generator_ColumnVarNameInTable="columnTempat_Lahir" msprop:Generator_ColumnPropNameInRow="Tempat_Lahir" msprop:Generator_ColumnPropNameInTable="Tempat_LahirColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Lahir" msprop:Generator_UserColumnName="Tanggal Lahir" msprop:Generator_ColumnVarNameInTable="columnTanggal_Lahir" msprop:Generator_ColumnPropNameInRow="Tanggal_Lahir" msprop:Generator_ColumnPropNameInTable="Tanggal_LahirColumn" type="xs:dateTime" />
+              <xs:element name="Tgl_x0020_Masuk" msprop:Generator_UserColumnName="Tgl Masuk" msprop:Generator_ColumnVarNameInTable="columnTgl_Masuk" msprop:Generator_ColumnPropNameInRow="Tgl_Masuk" msprop:Generator_ColumnPropNameInTable="Tgl_MasukColumn" type="xs:dateTime" />
+              <xs:element name="Jabatan" msprop:Generator_UserColumnName="Jabatan" msprop:Generator_ColumnVarNameInTable="columnJabatan" msprop:Generator_ColumnPropNameInRow="Jabatan" msprop:Generator_ColumnPropNameInTable="JabatanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="primary_x0020_position" msprop:Generator_UserColumnName="primary position" msprop:Generator_ColumnVarNameInTable="columnprimary_position" msprop:Generator_ColumnPropNameInRow="primary_position" msprop:Generator_ColumnPropNameInTable="primary_positionColumn" type="xs:double" />
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="start_x0020_date" msprop:Generator_UserColumnName="start date" msprop:Generator_ColumnVarNameInTable="columnstart_date" msprop:Generator_ColumnPropNameInRow="start_date" msprop:Generator_ColumnPropNameInTable="start_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="end_x0020_date" msprop:Generator_UserColumnName="end date" msprop:Generator_ColumnVarNameInTable="columnend_date" msprop:Generator_ColumnPropNameInRow="end_date" msprop:Generator_ColumnPropNameInTable="end_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DOC_x0020_NO" msprop:Generator_UserColumnName="DOC NO" msprop:Generator_ColumnPropNameInRow="DOC_NO" msprop:Generator_ColumnVarNameInTable="columnDOC_NO" msprop:Generator_ColumnPropNameInTable="DOC_NOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" />
+              <xs:element name="npwp_x0020_category" msprop:Generator_UserColumnName="npwp category" msprop:Generator_ColumnPropNameInRow="npwp_category" msprop:Generator_ColumnVarNameInTable="columnnpwp_category" msprop:Generator_ColumnPropNameInTable="npwp_categoryColumn" type="xs:int" />
+              <xs:element name="str_x0020_npwp_x0020_category" msprop:Generator_UserColumnName="str npwp category" msprop:Generator_ColumnPropNameInRow="str_npwp_category" msprop:Generator_ColumnVarNameInTable="columnstr_npwp_category" msprop:Generator_ColumnPropNameInTable="str_npwp_categoryColumn" type="xs:string" default="" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Format_x0020_2" msprop:Generator_UserTableName="Format 2" msprop:Generator_RowDeletedName="Format_2RowDeleted" msprop:Generator_RowChangedName="Format_2RowChanged" msprop:Generator_RowClassName="Format_2Row" msprop:Generator_RowChangingName="Format_2RowChanging" msprop:Generator_RowEvArgName="Format_2RowChangeEvent" msprop:Generator_RowEvHandlerName="Format_2RowChangeEventHandler" msprop:Generator_TableClassName="Format_2DataTable" msprop:Generator_TableVarName="tableFormat_2" msprop:Generator_RowDeletingName="Format_2RowDeleting" msprop:Generator_TablePropName="Format_2">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Nama_x0020_Karyawan" msprop:Generator_UserColumnName="Nama Karyawan" msprop:Generator_ColumnVarNameInTable="columnNama_Karyawan" msprop:Generator_ColumnPropNameInRow="Nama_Karyawan" msprop:Generator_ColumnPropNameInTable="Nama_KaryawanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NIK" msprop:Generator_UserColumnName="NIK" msprop:Generator_ColumnVarNameInTable="columnNIK" msprop:Generator_ColumnPropNameInRow="NIK" msprop:Generator_ColumnPropNameInTable="NIKColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Alamat_x0020_KTP" msprop:Generator_UserColumnName="Alamat KTP" msprop:Generator_ColumnVarNameInTable="columnAlamat_KTP" msprop:Generator_ColumnPropNameInRow="Alamat_KTP" msprop:Generator_ColumnPropNameInTable="Alamat_KTPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Telepon" msprop:Generator_UserColumnName="Telepon" msprop:Generator_ColumnVarNameInTable="columnTelepon" msprop:Generator_ColumnPropNameInRow="Telepon" msprop:Generator_ColumnPropNameInTable="TeleponColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Golongan_x0020_Darah" msprop:Generator_UserColumnName="Golongan Darah" msprop:Generator_ColumnVarNameInTable="columnGolongan_Darah" msprop:Generator_ColumnPropNameInRow="Golongan_Darah" msprop:Generator_ColumnPropNameInTable="Golongan_DarahColumn" type="xs:int" />
+              <xs:element name="Tanggal_x0020_Menikah" msprop:Generator_UserColumnName="Tanggal Menikah" msprop:Generator_ColumnVarNameInTable="columnTanggal_Menikah" msprop:Generator_ColumnPropNameInRow="Tanggal_Menikah" msprop:Generator_ColumnPropNameInTable="Tanggal_MenikahColumn" type="xs:dateTime" />
+              <xs:element name="Pendidikan_x0020_Terakhir" msprop:Generator_UserColumnName="Pendidikan Terakhir" msprop:Generator_ColumnVarNameInTable="columnPendidikan_Terakhir" msprop:Generator_ColumnPropNameInRow="Pendidikan_Terakhir" msprop:Generator_ColumnPropNameInTable="Pendidikan_TerakhirColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Rekening_x0020_Bank" msprop:Generator_UserColumnName="Rekening Bank" msprop:Generator_ColumnVarNameInTable="columnRekening_Bank" msprop:Generator_ColumnPropNameInRow="Rekening_Bank" msprop:Generator_ColumnPropNameInTable="Rekening_BankColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Balai_x0020_Pengobatan_x0020_JPK" msprop:Generator_UserColumnName="Balai Pengobatan JPK" msprop:Generator_ColumnVarNameInTable="columnBalai_Pengobatan_JPK" msprop:Generator_ColumnPropNameInRow="Balai_Pengobatan_JPK" msprop:Generator_ColumnPropNameInTable="Balai_Pengobatan_JPKColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dept_x0020_Desc" msprop:Generator_UserColumnName="Dept Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="primary_x0020_position" msprop:Generator_UserColumnName="primary position" msprop:Generator_ColumnVarNameInTable="columnprimary_position" msprop:Generator_ColumnPropNameInRow="primary_position" msprop:Generator_ColumnPropNameInTable="primary_positionColumn" type="xs:double" />
+              <xs:element name="Golongan_x0020_Darah_x0020_Str" msprop:Generator_UserColumnName="Golongan Darah Str" msprop:Generator_ColumnVarNameInTable="columnGolongan_Darah_Str" msprop:Generator_ColumnPropNameInRow="Golongan_Darah_Str" msprop:Generator_ColumnPropNameInTable="Golongan_Darah_StrColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Tanggal_x0020_Menikah_x0020_Str" msprop:Generator_UserColumnName="Tanggal Menikah Str" msprop:Generator_ColumnVarNameInTable="columnTanggal_Menikah_Str" msprop:Generator_ColumnPropNameInRow="Tanggal_Menikah_Str" msprop:Generator_ColumnPropNameInTable="Tanggal_Menikah_StrColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="marital_x0020_status" msprop:Generator_UserColumnName="marital status" msprop:Generator_ColumnVarNameInTable="columnmarital_status" msprop:Generator_ColumnPropNameInRow="marital_status" msprop:Generator_ColumnPropNameInTable="marital_statusColumn" type="xs:int" />
+              <xs:element name="primary_x0020_karyawan" msprop:Generator_UserColumnName="primary karyawan" msprop:Generator_ColumnPropNameInRow="primary_karyawan" msprop:Generator_ColumnVarNameInTable="columnprimary_karyawan" msprop:Generator_ColumnPropNameInTable="primary_karyawanColumn" type="xs:double" minOccurs="0" />
+              <xs:element name="DOC_x0020_No" msprop:Generator_UserColumnName="DOC No" msprop:Generator_ColumnPropNameInRow="DOC_No" msprop:Generator_ColumnVarNameInTable="columnDOC_No" msprop:Generator_ColumnPropNameInTable="DOC_NoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="start_x0020_date" msprop:Generator_UserColumnName="start date" msprop:Generator_ColumnPropNameInRow="start_date" msprop:Generator_ColumnVarNameInTable="columnstart_date" msprop:Generator_ColumnPropNameInTable="start_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="end_x0020_date" msprop:Generator_UserColumnName="end date" msprop:Generator_ColumnPropNameInRow="end_date" msprop:Generator_ColumnVarNameInTable="columnend_date" msprop:Generator_ColumnPropNameInTable="end_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Anggota_x0020_Keluarga" msprop:Generator_UserTableName="Anggota Keluarga" msprop:Generator_RowDeletedName="Anggota_KeluargaRowDeleted" msprop:Generator_RowChangedName="Anggota_KeluargaRowChanged" msprop:Generator_RowClassName="Anggota_KeluargaRow" msprop:Generator_RowChangingName="Anggota_KeluargaRowChanging" msprop:Generator_RowEvArgName="Anggota_KeluargaRowChangeEvent" msprop:Generator_RowEvHandlerName="Anggota_KeluargaRowChangeEventHandler" msprop:Generator_TableClassName="Anggota_KeluargaDataTable" msprop:Generator_TableVarName="tableAnggota_Keluarga" msprop:Generator_RowDeletingName="Anggota_KeluargaRowDeleting" msprop:Generator_TablePropName="Anggota_Keluarga">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Dept_x0020_Desc" msprop:Generator_UserColumnName="Dept Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nama_x0020_Karyawan" msprop:Generator_UserColumnName="Nama Karyawan" msprop:Generator_ColumnVarNameInTable="columnNama_Karyawan" msprop:Generator_ColumnPropNameInRow="Nama_Karyawan" msprop:Generator_ColumnPropNameInTable="Nama_KaryawanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nama_x0020_Anggota_x0020_Keluarga" msprop:Generator_UserColumnName="Nama Anggota Keluarga" msprop:Generator_ColumnVarNameInTable="columnNama_Anggota_Keluarga" msprop:Generator_ColumnPropNameInRow="Nama_Anggota_Keluarga" msprop:Generator_ColumnPropNameInTable="Nama_Anggota_KeluargaColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hubungan_x0020_Keluarga" msprop:Generator_UserColumnName="Hubungan Keluarga" msprop:Generator_ColumnVarNameInTable="columnHubungan_Keluarga" msprop:Generator_ColumnPropNameInRow="Hubungan_Keluarga" msprop:Generator_ColumnPropNameInTable="Hubungan_KeluargaColumn" type="xs:int" />
+              <xs:element name="Tempat_x0020_Lahir" msprop:Generator_UserColumnName="Tempat Lahir" msprop:Generator_ColumnVarNameInTable="columnTempat_Lahir" msprop:Generator_ColumnPropNameInRow="Tempat_Lahir" msprop:Generator_ColumnPropNameInTable="Tempat_LahirColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Lahir" msprop:Generator_UserColumnName="Tanggal Lahir" msprop:Generator_ColumnVarNameInTable="columnTanggal_Lahir" msprop:Generator_ColumnPropNameInRow="Tanggal_Lahir" msprop:Generator_ColumnPropNameInTable="Tanggal_LahirColumn" type="xs:dateTime" />
+              <xs:element name="Jenis_x0020_Kelamin" msprop:Generator_UserColumnName="Jenis Kelamin" msprop:Generator_ColumnVarNameInTable="columnJenis_Kelamin" msprop:Generator_ColumnPropNameInRow="Jenis_Kelamin" msprop:Generator_ColumnPropNameInTable="Jenis_KelaminColumn" type="xs:int" />
+              <xs:element name="Blood_x0020_Type" msprop:Generator_UserColumnName="Blood Type" msprop:Generator_ColumnVarNameInTable="columnBlood_Type" msprop:Generator_ColumnPropNameInRow="Blood_Type" msprop:Generator_ColumnPropNameInTable="Blood_TypeColumn" type="xs:int" />
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="primary_x0020_position" msprop:Generator_UserColumnName="primary position" msprop:Generator_ColumnVarNameInTable="columnprimary_position" msprop:Generator_ColumnPropNameInRow="primary_position" msprop:Generator_ColumnPropNameInTable="primary_positionColumn" type="xs:double" />
+              <xs:element name="identifier" msprop:Generator_UserColumnName="identifier" msprop:Generator_ColumnVarNameInTable="columnidentifier" msprop:Generator_ColumnPropNameInRow="identifier" msprop:Generator_ColumnPropNameInTable="identifierColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hubungan_x0020_Keluarga_x0020_Str" msprop:Generator_UserColumnName="Hubungan Keluarga Str" msprop:Generator_ColumnVarNameInTable="columnHubungan_Keluarga_Str" msprop:Generator_ColumnPropNameInRow="Hubungan_Keluarga_Str" msprop:Generator_ColumnPropNameInTable="Hubungan_Keluarga_StrColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Blood_x0020_Type_x0020_Str" msprop:Generator_UserColumnName="Blood Type Str" msprop:Generator_ColumnVarNameInTable="columnBlood_Type_Str" msprop:Generator_ColumnPropNameInRow="Blood_Type_Str" msprop:Generator_ColumnPropNameInTable="Blood_Type_StrColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Jenis_x0020_Kelamin_x0020_Str" msprop:Generator_UserColumnName="Jenis Kelamin Str" msprop:Generator_ColumnVarNameInTable="columnJenis_Kelamin_Str" msprop:Generator_ColumnPropNameInRow="Jenis_Kelamin_Str" msprop:Generator_ColumnPropNameInTable="Jenis_Kelamin_StrColumn" type="xs:string" default="" minOccurs="0" />
+              <xs:element name="Nomor" msprop:Generator_UserColumnName="Nomor" msprop:Generator_ColumnVarNameInTable="columnNomor" msprop:Generator_ColumnPropNameInRow="Nomor" msprop:Generator_ColumnPropNameInTable="NomorColumn" type="xs:long" default="0" minOccurs="0" />
+              <xs:element name="Visible" msprop:Generator_UserColumnName="Visible" msprop:Generator_ColumnVarNameInTable="columnVisible" msprop:Generator_ColumnPropNameInRow="Visible" msprop:Generator_ColumnPropNameInTable="VisibleColumn" type="xs:short" default="0" minOccurs="0" />
+              <xs:element name="Visible_Garis_Penuh" msprop:Generator_UserColumnName="Visible_Garis_Penuh" msprop:Generator_ColumnPropNameInRow="Visible_Garis_Penuh" msprop:Generator_ColumnVarNameInTable="columnVisible_Garis_Penuh" msprop:Generator_ColumnPropNameInTable="Visible_Garis_PenuhColumn" type="xs:short" default="0" minOccurs="0" />
+              <xs:element name="DOC_x0020_NO" msprop:Generator_UserColumnName="DOC NO" msprop:Generator_ColumnPropNameInRow="DOC_NO" msprop:Generator_ColumnVarNameInTable="columnDOC_NO" msprop:Generator_ColumnPropNameInTable="DOC_NOColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msprop:Generator_UserColumnName="date" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInTable="dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="start_x0020_date" msprop:Generator_UserColumnName="start date" msprop:Generator_ColumnPropNameInRow="start_date" msprop:Generator_ColumnVarNameInTable="columnstart_date" msprop:Generator_ColumnPropNameInTable="start_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="end_x0020_date" msprop:Generator_UserColumnName="end date" msprop:Generator_ColumnPropNameInRow="end_date" msprop:Generator_ColumnVarNameInTable="columnend_date" msprop:Generator_ColumnPropNameInTable="end_dateColumn" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Aktif" msprop:Generator_UserColumnName="Aktif" msprop:Generator_ColumnVarNameInTable="columnAktif" msprop:Generator_ColumnPropNameInRow="Aktif" msprop:Generator_ColumnPropNameInTable="AktifColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_jobposition" msprop:Generator_UserTableName="tblmaster_jobposition" msprop:Generator_RowDeletedName="tblmaster_jobpositionRowDeleted" msprop:Generator_RowChangedName="tblmaster_jobpositionRowChanged" msprop:Generator_RowClassName="tblmaster_jobpositionRow" msprop:Generator_RowChangingName="tblmaster_jobpositionRowChanging" msprop:Generator_RowEvArgName="tblmaster_jobpositionRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_jobpositionRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_jobpositionDataTable" msprop:Generator_TableVarName="tabletblmaster_jobposition" msprop:Generator_RowDeletingName="tblmaster_jobpositionRowDeleting" msprop:Generator_TablePropName="tblmaster_jobposition">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="primary" msprop:Generator_UserColumnName="primary" msprop:Generator_ColumnVarNameInTable="columnprimary" msprop:Generator_ColumnPropNameInRow="primary" msprop:Generator_ColumnPropNameInTable="primaryColumn" type="xs:double" />
+              <xs:element name="Position" msprop:Generator_UserColumnName="Position" msprop:Generator_ColumnVarNameInTable="columnPosition" msprop:Generator_ColumnPropNameInRow="Position" msprop:Generator_ColumnPropNameInTable="PositionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_departemen" msprop:Generator_UserTableName="tblmaster_departemen" msprop:Generator_RowDeletedName="tblmaster_departemenRowDeleted" msprop:Generator_RowChangedName="tblmaster_departemenRowChanged" msprop:Generator_RowClassName="tblmaster_departemenRow" msprop:Generator_RowChangingName="tblmaster_departemenRowChanging" msprop:Generator_RowEvArgName="tblmaster_departemenRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_departemenRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_departemenDataTable" msprop:Generator_TableVarName="tabletblmaster_departemen" msprop:Generator_RowDeletingName="tblmaster_departemenRowDeleting" msprop:Generator_TablePropName="tblmaster_departemen">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Departement" msprop:Generator_UserColumnName="Departement" msprop:Generator_ColumnVarNameInTable="columnDepartement" msprop:Generator_ColumnPropNameInRow="Departement" msprop:Generator_ColumnPropNameInTable="DepartementColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Format_x0020_11" msprop:Generator_UserTableName="Format 11" msprop:Generator_RowDeletedName="Format_11RowDeleted" msprop:Generator_RowChangedName="Format_11RowChanged" msprop:Generator_RowClassName="Format_11Row" msprop:Generator_RowChangingName="Format_11RowChanging" msprop:Generator_RowEvArgName="Format_11RowChangeEvent" msprop:Generator_RowEvHandlerName="Format_11RowChangeEventHandler" msprop:Generator_TableClassName="Format_11DataTable" msprop:Generator_TableVarName="tableFormat_11" msprop:Generator_RowDeletingName="Format_11RowDeleting" msprop:Generator_TablePropName="Format_11">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Dept_x0020_Desc" msprop:Generator_UserColumnName="Dept Desc" msprop:Generator_ColumnVarNameInTable="columnDept_Desc" msprop:Generator_ColumnPropNameInRow="Dept_Desc" msprop:Generator_ColumnPropNameInTable="Dept_DescColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nama_x0020_Karyawan" msprop:Generator_UserColumnName="Nama Karyawan" msprop:Generator_ColumnVarNameInTable="columnNama_Karyawan" msprop:Generator_ColumnPropNameInRow="Nama_Karyawan" msprop:Generator_ColumnPropNameInTable="Nama_KaryawanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_KTP" msprop:Generator_UserColumnName="No KTP" msprop:Generator_ColumnVarNameInTable="columnNo_KTP" msprop:Generator_ColumnPropNameInRow="No_KTP" msprop:Generator_ColumnPropNameInTable="No_KTPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Masa_x0020_Berlaku_x0020_KTP" msprop:Generator_UserColumnName="Masa Berlaku KTP" msprop:Generator_ColumnVarNameInTable="columnMasa_Berlaku_KTP" msprop:Generator_ColumnPropNameInRow="Masa_Berlaku_KTP" msprop:Generator_ColumnPropNameInTable="Masa_Berlaku_KTPColumn" type="xs:dateTime" />
+              <xs:element name="No_x0020_NPWP" msprop:Generator_UserColumnName="No NPWP" msprop:Generator_ColumnVarNameInTable="columnNo_NPWP" msprop:Generator_ColumnPropNameInRow="No_NPWP" msprop:Generator_ColumnPropNameInTable="No_NPWPColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="No_x0020_KPJ" msprop:Generator_UserColumnName="No KPJ" msprop:Generator_ColumnVarNameInTable="columnNo_KPJ" msprop:Generator_ColumnPropNameInRow="No_KPJ" msprop:Generator_ColumnPropNameInTable="No_KPJColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tempat_x0020_Lahir" msprop:Generator_UserColumnName="Tempat Lahir" msprop:Generator_ColumnVarNameInTable="columnTempat_Lahir" msprop:Generator_ColumnPropNameInRow="Tempat_Lahir" msprop:Generator_ColumnPropNameInTable="Tempat_LahirColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tanggal_x0020_Lahir" msprop:Generator_UserColumnName="Tanggal Lahir" msprop:Generator_ColumnVarNameInTable="columnTanggal_Lahir" msprop:Generator_ColumnPropNameInRow="Tanggal_Lahir" msprop:Generator_ColumnPropNameInTable="Tanggal_LahirColumn" type="xs:dateTime" />
+              <xs:element name="Tgl_x0020_Masuk" msprop:Generator_UserColumnName="Tgl Masuk" msprop:Generator_ColumnVarNameInTable="columnTgl_Masuk" msprop:Generator_ColumnPropNameInRow="Tgl_Masuk" msprop:Generator_ColumnPropNameInTable="Tgl_MasukColumn" type="xs:dateTime" />
+              <xs:element name="Jabatan" msprop:Generator_UserColumnName="Jabatan" msprop:Generator_ColumnVarNameInTable="columnJabatan" msprop:Generator_ColumnPropNameInRow="Jabatan" msprop:Generator_ColumnPropNameInTable="JabatanColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primary_x0020_departemen" msprop:Generator_UserColumnName="primary departemen" msprop:Generator_ColumnVarNameInTable="columnprimary_departemen" msprop:Generator_ColumnPropNameInRow="primary_departemen" msprop:Generator_ColumnPropNameInTable="primary_departemenColumn" type="xs:double" />
+              <xs:element name="primary_x0020_position" msprop:Generator_UserColumnName="primary position" msprop:Generator_ColumnVarNameInTable="columnprimary_position" msprop:Generator_ColumnPropNameInRow="primary_position" msprop:Generator_ColumnPropNameInTable="primary_positionColumn" type="xs:double" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_karyawan" msprop:Generator_UserTableName="tblmaster_karyawan" msprop:Generator_RowDeletedName="tblmaster_karyawanRowDeleted" msprop:Generator_RowChangedName="tblmaster_karyawanRowChanged" msprop:Generator_RowClassName="tblmaster_karyawanRow" msprop:Generator_RowChangingName="tblmaster_karyawanRowChanging" msprop:Generator_RowEvArgName="tblmaster_karyawanRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_karyawanRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_karyawanDataTable" msprop:Generator_TableVarName="tabletblmaster_karyawan" msprop:Generator_RowDeletingName="tblmaster_karyawanRowDeleting" msprop:Generator_TablePropName="tblmaster_karyawan">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Full_x0020_Name" msprop:Generator_UserColumnName="Full Name" msprop:Generator_ColumnPropNameInRow="Full_Name" msprop:Generator_ColumnVarNameInTable="columnFull_Name" msprop:Generator_ColumnPropNameInTable="Full_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_jobposition" />
+      <xs:field xpath="mstns:primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_departemen_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_departemen" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="Format_x0020_11_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Format_x0020_11" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
