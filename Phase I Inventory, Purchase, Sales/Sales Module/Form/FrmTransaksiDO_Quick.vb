@@ -2536,7 +2536,7 @@ Public Class FrmTransaksiDO_Quick
                     ij.vDirectlySave = Me.chkDirectSave.Checked
                     ij.vShowDialog = True
                     ij.ShowDialog()
-                    If ij.vPrimaryDO() <> -1 And String.IsNullOrEmpty(TransactionNo) = False Then
+                    If ij.vPrimaryDO <> -1 And String.IsNullOrEmpty(TransactionNo) = False Then
                         'TransactionNoArray = TransactionNo.Split(";"c)
                         'For Each No As String In TransactionNoArray
 
