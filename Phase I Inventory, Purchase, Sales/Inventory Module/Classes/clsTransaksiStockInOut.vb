@@ -4621,6 +4621,29 @@ Public Class clsTransaksiStockInOut
         End Try
     End Sub
 
+    Public Sub IsiCboSettingActive(ByVal vCbo As ComboBox, Optional ByVal vOnlyAktive As Boolean = False)
+        Dim dta As New dseTransaksiStockInOutTableAdapters.tbl_setting_adjustmentTableAdapter
+        Dim tbl As New dseTransaksiStockInOut.tbl_setting_adjustmentDataTable
+        Dim row As dseTransaksiStockInOut.tbl_setting_adjustmentRow
+
+        Try 'update ahdar
+            vCbo.Items.Clear()
+            vCbo.Items.Add(" ")
+            dta.Connection.ConnectionString = Core_Module.GetConstring
+            If dta.Fill(tbl) > 0 Then 'fill all
+                For Each row In tbl.Rows
+                    vCbo.Items.Add(row.Code)
+                Next
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            dta.Dispose()
+            tbl.Dispose()
+        End Try
+    End Sub
+
     Public Function GetPrimarySettingByCode(ByVal vCode As String) As Double
         Dim dta As New dseTransaksiStockInOutTableAdapters.tbl_setting_adjustmentTableAdapter
         Dim primary As Nullable(Of Double)
@@ -5138,5 +5161,33 @@ Public Class clsTransaksiStockInOut
         Return Me.GetPrimaryPurchaseReturn(vPrimaryStockInPurchase)
     End Function
 
+
+    'update by ahdar: 2024-2-29
+    Public Function ApakahAdjustmentTypeAktif(ByVal vPrimarySetting As Double) As Boolean
+        Dim DTA As New dseTransaksiStockInOutTableAdapters.tbl_setting_adjustmentTableAdapter
+        Dim Retval As New Nullable(Of Integer)
+        Try
+            'DTA.Connection.ConnectionString = Core_Module.GetConstring
+            'If vPrimarySetting < 0 Then
+            '    Return True
+            'End If
+
+            'Retval = DTA.ScalarQuery_GetIsActiveByPrimary(vPrimarySetting)
+            'If Retval.HasValue = True Then
+            '    If Retval.Value = 0 Then
+            '        Return False
+            '    Else
+            '        Return True
+            '    End If
+            'End If
+            'Return False
+            Return True
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return False
+        Finally
+            DTA.Dispose()
+        End Try
+    End Function
    
 End Class

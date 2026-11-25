@@ -649,6 +649,81 @@ WHERE        (`No Transaksi` LIKE @No_Transaksi)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_customerTableAdapter" GeneratorDataComponentClassName="tblmaster_customerTableAdapter" Name="tblmaster_customer" UserDataComponentName="tblmaster_customerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_bagus.tblmaster_customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `Primary`, `Customer Code`, `Customer Name`
+FROM     tblmaster_customer</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Customer Code" DataSetColumn="Customer Code" />
+              <Mapping SourceColumn="Customer Name" DataSetColumn="Customer Name" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_currencyTableAdapter" GeneratorDataComponentClassName="tblmaster_currencyTableAdapter" Name="tblmaster_currency" UserDataComponentName="tblmaster_currencyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tblmaster_currency.`Primary`, tblmaster_currency.`Currency Code`, tblmaster_currency.`Default Precision`, tblmaster_currency.`Primary Payable Account`, tblmaster_currency.`Primary Receivable Account`, 
+                  tblmaster_akun.`Account Code` AS `AP Account`, tblmaster_akun_1.`Account Code` AS `AR Account`
+FROM     tblmaster_currency INNER JOIN
+                  tblmaster_akun ON tblmaster_currency.`Primary Payable Account` = tblmaster_akun.`Primary` INNER JOIN
+                  tblmaster_akun tblmaster_akun_1 ON tblmaster_currency.`Primary Receivable Account` = tblmaster_akun_1.`Primary`</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+              <Mapping SourceColumn="Default Precision" DataSetColumn="Default Precision" />
+              <Mapping SourceColumn="Primary Payable Account" DataSetColumn="Primary Payable Account" />
+              <Mapping SourceColumn="Primary Receivable Account" DataSetColumn="Primary Receivable Account" />
+              <Mapping SourceColumn="AP Account" DataSetColumn="AP Account" />
+              <Mapping SourceColumn="AR Account" DataSetColumn="AR Account" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_akunTableAdapter" GeneratorDataComponentClassName="tblmaster_akunTableAdapter" Name="tblmaster_akun" UserDataComponentName="tblmaster_akunTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="False" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT tblmaster_akun.`Primary`, tblmaster_akun.`Account Code`, tblmaster_akun.Description, tblmaster_akun.`Tipe Perkiraan`, tblmaster_akun.`Tipe Perkiraan2`, tblmaster_currency.`Currency Code`
+FROM     tblmaster_akun INNER JOIN
+                  tblmaster_currency ON tblmaster_akun.`primary currency` = tblmaster_currency.`Primary`
+WHERE  (tblmaster_akun.Header = 0)</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Account Code" DataSetColumn="Account Code" />
+              <Mapping SourceColumn="Description" DataSetColumn="Description" />
+              <Mapping SourceColumn="Tipe Perkiraan" DataSetColumn="Tipe Perkiraan" />
+              <Mapping SourceColumn="Tipe Perkiraan2" DataSetColumn="Tipe Perkiraan2" />
+              <Mapping SourceColumn="Currency Code" DataSetColumn="Currency Code" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources>
         </Sources>
@@ -893,6 +968,88 @@ WHERE        (`No Transaksi` LIKE @No_Transaksi)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="tblmaster_customer" msprop:Generator_UserTableName="tblmaster_customer" msprop:Generator_RowDeletedName="tblmaster_customerRowDeleted" msprop:Generator_RowChangedName="tblmaster_customerRowChanged" msprop:Generator_RowClassName="tblmaster_customerRow" msprop:Generator_RowChangingName="tblmaster_customerRowChanging" msprop:Generator_RowEvArgName="tblmaster_customerRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_customerRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_customerDataTable" msprop:Generator_TableVarName="tabletblmaster_customer" msprop:Generator_RowDeletingName="tblmaster_customerRowDeleting" msprop:Generator_TablePropName="tblmaster_customer">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Customer_x0020_Code" msprop:Generator_UserColumnName="Customer Code" msprop:Generator_ColumnVarNameInTable="columnCustomer_Code" msprop:Generator_ColumnPropNameInRow="Customer_Code" msprop:Generator_ColumnPropNameInTable="Customer_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Customer_x0020_Name" msprop:Generator_UserColumnName="Customer Name" msprop:Generator_ColumnVarNameInTable="columnCustomer_Name" msprop:Generator_ColumnPropNameInRow="Customer_Name" msprop:Generator_ColumnPropNameInTable="Customer_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_currency" msprop:Generator_UserTableName="tblmaster_currency" msprop:Generator_RowDeletedName="tblmaster_currencyRowDeleted" msprop:Generator_RowChangedName="tblmaster_currencyRowChanged" msprop:Generator_RowClassName="tblmaster_currencyRow" msprop:Generator_RowChangingName="tblmaster_currencyRowChanging" msprop:Generator_RowEvArgName="tblmaster_currencyRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_currencyRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_currencyDataTable" msprop:Generator_TableVarName="tabletblmaster_currency" msprop:Generator_RowDeletingName="tblmaster_currencyRowDeleting" msprop:Generator_TablePropName="tblmaster_currency">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Default_x0020_Precision" msprop:Generator_UserColumnName="Default Precision" msprop:Generator_ColumnVarNameInTable="columnDefault_Precision" msprop:Generator_ColumnPropNameInRow="Default_Precision" msprop:Generator_ColumnPropNameInTable="Default_PrecisionColumn" type="xs:int" />
+              <xs:element name="Primary_x0020_Payable_x0020_Account" msprop:Generator_UserColumnName="Primary Payable Account" msprop:Generator_ColumnVarNameInTable="columnPrimary_Payable_Account" msprop:Generator_ColumnPropNameInRow="Primary_Payable_Account" msprop:Generator_ColumnPropNameInTable="Primary_Payable_AccountColumn" type="xs:double" />
+              <xs:element name="Primary_x0020_Receivable_x0020_Account" msprop:Generator_UserColumnName="Primary Receivable Account" msprop:Generator_ColumnVarNameInTable="columnPrimary_Receivable_Account" msprop:Generator_ColumnPropNameInRow="Primary_Receivable_Account" msprop:Generator_ColumnPropNameInTable="Primary_Receivable_AccountColumn" type="xs:double" />
+              <xs:element name="AP_x0020_Account" msprop:Generator_UserColumnName="AP Account" msprop:Generator_ColumnVarNameInTable="columnAP_Account" msprop:Generator_ColumnPropNameInRow="AP_Account" msprop:Generator_ColumnPropNameInTable="AP_AccountColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AR_x0020_Account" msprop:Generator_UserColumnName="AR Account" msprop:Generator_ColumnVarNameInTable="columnAR_Account" msprop:Generator_ColumnPropNameInRow="AR_Account" msprop:Generator_ColumnPropNameInTable="AR_AccountColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tblmaster_akun" msprop:Generator_UserTableName="tblmaster_akun" msprop:Generator_RowDeletedName="tblmaster_akunRowDeleted" msprop:Generator_RowChangedName="tblmaster_akunRowChanged" msprop:Generator_RowClassName="tblmaster_akunRow" msprop:Generator_RowChangingName="tblmaster_akunRowChanging" msprop:Generator_RowEvArgName="tblmaster_akunRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_akunRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_akunDataTable" msprop:Generator_TableVarName="tabletblmaster_akun" msprop:Generator_RowDeletingName="tblmaster_akunRowDeleting" msprop:Generator_TablePropName="tblmaster_akun">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Account_x0020_Code" msprop:Generator_UserColumnName="Account Code" msprop:Generator_ColumnVarNameInTable="columnAccount_Code" msprop:Generator_ColumnPropNameInRow="Account_Code" msprop:Generator_ColumnPropNameInTable="Account_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Tipe_x0020_Perkiraan" msprop:Generator_UserColumnName="Tipe Perkiraan" msprop:Generator_ColumnVarNameInTable="columnTipe_Perkiraan" msprop:Generator_ColumnPropNameInRow="Tipe_Perkiraan" msprop:Generator_ColumnPropNameInTable="Tipe_PerkiraanColumn" type="xs:int" />
+              <xs:element name="Tipe_x0020_Perkiraan2" msprop:Generator_UserColumnName="Tipe Perkiraan2" msprop:Generator_ColumnVarNameInTable="columnTipe_Perkiraan2" msprop:Generator_ColumnPropNameInRow="Tipe_Perkiraan2" msprop:Generator_ColumnPropNameInTable="Tipe_Perkiraan2Column" type="xs:int" />
+              <xs:element name="Currency_x0020_Code" msprop:Generator_UserColumnName="Currency Code" msprop:Generator_ColumnVarNameInTable="columnCurrency_Code" msprop:Generator_ColumnPropNameInRow="Currency_Code" msprop:Generator_ColumnPropNameInTable="Currency_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -911,10 +1068,17 @@ WHERE        (`No Transaksi` LIKE @No_Transaksi)</CommandText>
       <xs:selector xpath=".//mstns:tbltrans_salesbalance_import" />
       <xs:field xpath="mstns:Primary" />
     </xs:unique>
+    <xs:unique name="tblmaster_customer_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_customer" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_currency_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_currency" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
+    <xs:unique name="tblmaster_akun_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_akun" />
+      <xs:field xpath="mstns:Primary" />
+    </xs:unique>
   </xs:element>
-  <xs:annotation>
-    <xs:appinfo>
-      <msdata:Relationship name="tbltrans_salesbalance_import_item_fk" msdata:parent="tbltrans_salesbalance_import" msdata:child="tbltrans_salesbalance_import_item" msdata:parentkey="Primary" msdata:childkey="Primary_x0020_Transaksi" msprop:Generator_UserRelationName="tbltrans_salesbalance_import_item_fk" msprop:Generator_RelationVarName="relationtbltrans_salesbalance_import_item_fk" msprop:Generator_UserChildTable="tbltrans_salesbalance_import_item" msprop:Generator_UserParentTable="tbltrans_salesbalance_import" msprop:Generator_ParentPropName="tbltrans_salesbalance_importRow" msprop:Generator_ChildPropName="Gettbltrans_salesbalance_import_itemRows" />
-    </xs:appinfo>
-  </xs:annotation>
 </xs:schema>

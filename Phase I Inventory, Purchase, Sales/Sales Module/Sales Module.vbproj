@@ -143,6 +143,14 @@
     <Compile Include="Datasets\dseEditPriceList.vb">
       <DependentUpon>dseEditPriceList.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Datasets\DseImportSO.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DseImportSO.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\DseImportSO.vb">
+      <DependentUpon>DseImportSO.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datasets\DseLaporanInternalPurchaseOrder.Designer.vb">
       <DependentUpon>DseLaporanInternalPurchaseOrder.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -808,6 +816,12 @@
     <Compile Include="Form\FrmTransaksiDO_Quick_PerBatch.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form\FrmTransaksiDO_Quick_Result.Designer.vb">
+      <DependentUpon>FrmTransaksiDO_Quick_Result.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmTransaksiDO_Quick_Result.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form\FrmTransaksiJournal_Sales.Designer.vb">
       <DependentUpon>FrmTransaksiJournal_Sales.vb</DependentUpon>
     </Compile>
@@ -1124,6 +1138,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\FrmTrans_SalesDashboard_UP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\FrmImport_SO.Designer.vb">
+      <DependentUpon>FrmImport_SO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\FrmImport_SO.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form\New\FrmImport_Art.Designer.vb">
@@ -1804,6 +1824,10 @@
       <DependentUpon>FrmTransaksiDO_Quick_PerBatch.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmTransaksiDO_Quick_Result.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmTransaksiDO_Quick_Result.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\FrmTransaksiJournal_Sales.resx">
       <DependentUpon>FrmTransaksiJournal_Sales.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -2006,6 +2030,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\FrmTrans_SalesDashboard_MA_Print.resx">
       <DependentUpon>FrmTrans_SalesDashboard_MA_Print.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\FrmImport_SO.resx">
+      <DependentUpon>FrmImport_SO.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\New\FrmImport_Art.resx">
@@ -2810,6 +2838,17 @@
     <None Include="Datasets\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>
+    <None Include="Datasets\DseImportSO.xsc">
+      <DependentUpon>DseImportSO.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\DseImportSO.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DseImportSO.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Datasets\DseImportSO.xss">
+      <DependentUpon>DseImportSO.xsd</DependentUpon>
+    </None>
     <None Include="Datasets\DseLaporanSalesDP.xsc">
       <DependentUpon>DseLaporanSalesDP.xsd</DependentUpon>
     </None>
@@ -2965,7 +3004,7 @@
     <None Include="Resources\desktop icon 3.fw.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Custom\Creative\CustomSMESS\WindowsApplication1\Custom SMESS.vbproj">
+    <ProjectReference Include="..\..\..\CustomSMESS\WindowsApplication1\Custom SMESS.vbproj">
       <Project>{051C5D37-A626-4803-8A8A-FB321512AAF6}</Project>
       <Name>Custom SMESS</Name>
     </ProjectReference>

@@ -370,13 +370,7 @@ Partial Class FrmMain
         Me.FrmLaporanSalesStatistic1 = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.AccountingStartUpSettingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.FrmTransaksiSalesBalanceManual1 = New System.Windows.Forms.ToolStripMenuItem
-        Me.FrmTransaksiSalesReturnBalanceManual1 = New System.Windows.Forms.ToolStripMenuItem
-        Me.FrmTransaksiPurchaseBalanceManual1 = New System.Windows.Forms.ToolStripMenuItem
-        Me.FrmTransaksiPurchaseReturnBalanceManual1 = New System.Windows.Forms.ToolStripMenuItem
-        Me.FrmTransaksiBalanceManual_DPSls1 = New System.Windows.Forms.ToolStripMenuItem
-        Me.FrmTransaksiBalanceManual_DPPch1 = New System.Windows.Forms.ToolStripMenuItem
-        Me.FrmTransaksiInventoryBeginingBalance1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmExportBeginningData1 = New System.Windows.Forms.ToolStripMenuItem
         Me.FrmTransaksiStockInAdj_SetAmount1 = New System.Windows.Forms.ToolStripMenuItem
         Me.CheckForUpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.FrmMasterCompanyData1 = New System.Windows.Forms.ToolStripMenuItem
@@ -411,6 +405,17 @@ Partial Class FrmMain
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.FrmTransaksiImport_DebitNote1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmTransaksiImport_CreditNote1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmTransaksiBalanceManual_DPPch1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmTransaksiBalanceManual_DPSls1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmTransaksiPurchaseReturnBalanceManual1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmTransaksiPurchaseBalanceManual1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmTransaksiSalesReturnBalanceManual1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmTransaksiSalesBalanceManual1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmTransaksiInventoryBeginingBalance1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmImport_PO1 = New System.Windows.Forms.ToolStripMenuItem
+        Me.FrmImport_SO1 = New System.Windows.Forms.ToolStripMenuItem
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -1325,19 +1330,19 @@ Partial Class FrmMain
         'FrmTrans_MaterialPlanningDashboard_MP_Authorize11
         '
         Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize11.Name = "FrmTrans_MaterialPlanningDashboard_MP_Authorize11"
-        Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize11.Size = New System.Drawing.Size(110, 22)
+        Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize11.Size = New System.Drawing.Size(152, 22)
         Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize11.Text = "Level 1"
         '
         'FrmTrans_MaterialPlanningDashboard_MP_Authorize21
         '
         Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize21.Name = "FrmTrans_MaterialPlanningDashboard_MP_Authorize21"
-        Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize21.Size = New System.Drawing.Size(110, 22)
+        Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize21.Size = New System.Drawing.Size(152, 22)
         Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize21.Text = "Level 2"
         '
         'FrmTrans_MaterialPlanningDashboard_MP_Authorize31
         '
         Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize31.Name = "FrmTrans_MaterialPlanningDashboard_MP_Authorize31"
-        Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize31.Size = New System.Drawing.Size(110, 22)
+        Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize31.Size = New System.Drawing.Size(152, 22)
         Me.FrmTrans_MaterialPlanningDashboard_MP_Authorize31.Text = "Level 3"
         '
         'FrmMasterKondisiStock1
@@ -2517,59 +2522,23 @@ Partial Class FrmMain
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountingStartUpSettingToolStripMenuItem, Me.FrmTransaksiInventoryBeginingBalance1, Me.FrmTransaksiStockInAdj_SetAmount1, Me.CheckForUpdateToolStripMenuItem, Me.FrmMasterCompanyData1, Me.FrmMasterDefaultValues1, Me.FrmMasterUser_Otorisasi1, Me.FrmEmailSettings1, Me.FrmSettingAP_AR1, Me.FrmTransaksiMonitor, Me.FrmPersonalSetting1, Me.FrmTransaksiPO2, Me.FrmMasterNumbering1, Me.FrmTransaksiSalesInvoiceSettingPajak1, Me.FrmMasterTaxAddInfoReference1, Me.FrmMasterTaxFacilityStampReference1, Me.FrmTransactionQueue1, Me.ToolStripSeparator17, Me.FrmTrans_TaxBeginningBalance11, Me.LoanBeginningBalanceToolStripMenuItem, Me.UpdateUtilityToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AccountingStartUpSettingToolStripMenuItem, Me.FrmTransaksiStockInAdj_SetAmount1, Me.CheckForUpdateToolStripMenuItem, Me.FrmMasterCompanyData1, Me.FrmMasterDefaultValues1, Me.FrmMasterUser_Otorisasi1, Me.FrmEmailSettings1, Me.FrmSettingAP_AR1, Me.FrmTransaksiMonitor, Me.FrmPersonalSetting1, Me.FrmTransaksiPO2, Me.FrmMasterNumbering1, Me.FrmTransaksiSalesInvoiceSettingPajak1, Me.FrmMasterTaxAddInfoReference1, Me.FrmMasterTaxFacilityStampReference1, Me.FrmTransactionQueue1, Me.ToolStripSeparator17, Me.FrmTrans_TaxBeginningBalance11, Me.LoanBeginningBalanceToolStripMenuItem, Me.UpdateUtilityToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(100, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools && Setting"
         '
         'AccountingStartUpSettingToolStripMenuItem
         '
-        Me.AccountingStartUpSettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FrmTransaksiSalesBalanceManual1, Me.FrmTransaksiSalesReturnBalanceManual1, Me.FrmTransaksiPurchaseBalanceManual1, Me.FrmTransaksiPurchaseReturnBalanceManual1, Me.FrmTransaksiBalanceManual_DPSls1, Me.FrmTransaksiBalanceManual_DPPch1})
+        Me.AccountingStartUpSettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FrmTransaksiSalesBalanceManual1, Me.FrmTransaksiPurchaseBalanceManual1, Me.FrmTransaksiInventoryBeginingBalance1, Me.FrmImport_PO1, Me.FrmTransaksiBalanceManual_DPPch1, Me.FrmTransaksiPurchaseReturnBalanceManual1, Me.FrmImport_SO1, Me.FrmTransaksiBalanceManual_DPSls1, Me.FrmTransaksiSalesReturnBalanceManual1, Me.FrmExportBeginningData1, Me.FrmTransaksiImport_CreditNote1, Me.FrmTransaksiImport_DebitNote1})
         Me.AccountingStartUpSettingToolStripMenuItem.Name = "AccountingStartUpSettingToolStripMenuItem"
         Me.AccountingStartUpSettingToolStripMenuItem.Size = New System.Drawing.Size(292, 22)
         Me.AccountingStartUpSettingToolStripMenuItem.Text = "Accounting Setting"
         '
-        'FrmTransaksiSalesBalanceManual1
+        'FrmExportBeginningData1
         '
-        Me.FrmTransaksiSalesBalanceManual1.Name = "FrmTransaksiSalesBalanceManual1"
-        Me.FrmTransaksiSalesBalanceManual1.Size = New System.Drawing.Size(303, 22)
-        Me.FrmTransaksiSalesBalanceManual1.Text = "Historical Sales Balance"
-        '
-        'FrmTransaksiSalesReturnBalanceManual1
-        '
-        Me.FrmTransaksiSalesReturnBalanceManual1.Name = "FrmTransaksiSalesReturnBalanceManual1"
-        Me.FrmTransaksiSalesReturnBalanceManual1.Size = New System.Drawing.Size(303, 22)
-        Me.FrmTransaksiSalesReturnBalanceManual1.Text = "Historical Sales Return Balance"
-        '
-        'FrmTransaksiPurchaseBalanceManual1
-        '
-        Me.FrmTransaksiPurchaseBalanceManual1.Name = "FrmTransaksiPurchaseBalanceManual1"
-        Me.FrmTransaksiPurchaseBalanceManual1.Size = New System.Drawing.Size(303, 22)
-        Me.FrmTransaksiPurchaseBalanceManual1.Text = "Historical Purchase Balance"
-        '
-        'FrmTransaksiPurchaseReturnBalanceManual1
-        '
-        Me.FrmTransaksiPurchaseReturnBalanceManual1.Name = "FrmTransaksiPurchaseReturnBalanceManual1"
-        Me.FrmTransaksiPurchaseReturnBalanceManual1.Size = New System.Drawing.Size(303, 22)
-        Me.FrmTransaksiPurchaseReturnBalanceManual1.Text = "Historical Purchase Return Balance"
-        '
-        'FrmTransaksiBalanceManual_DPSls1
-        '
-        Me.FrmTransaksiBalanceManual_DPSls1.Name = "FrmTransaksiBalanceManual_DPSls1"
-        Me.FrmTransaksiBalanceManual_DPSls1.Size = New System.Drawing.Size(303, 22)
-        Me.FrmTransaksiBalanceManual_DPSls1.Text = "Historical Down Payment Sales Balance"
-        '
-        'FrmTransaksiBalanceManual_DPPch1
-        '
-        Me.FrmTransaksiBalanceManual_DPPch1.Name = "FrmTransaksiBalanceManual_DPPch1"
-        Me.FrmTransaksiBalanceManual_DPPch1.Size = New System.Drawing.Size(303, 22)
-        Me.FrmTransaksiBalanceManual_DPPch1.Text = "Historical Down Payment Purchase Balance"
-        '
-        'FrmTransaksiInventoryBeginingBalance1
-        '
-        Me.FrmTransaksiInventoryBeginingBalance1.Name = "FrmTransaksiInventoryBeginingBalance1"
-        Me.FrmTransaksiInventoryBeginingBalance1.Size = New System.Drawing.Size(292, 22)
-        Me.FrmTransaksiInventoryBeginingBalance1.Text = "Begining Balance Inventory"
+        Me.FrmExportBeginningData1.Name = "FrmExportBeginningData1"
+        Me.FrmExportBeginningData1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmExportBeginningData1.Text = "Export Cut Off Data"
         '
         'FrmTransaksiStockInAdj_SetAmount1
         '
@@ -2771,6 +2740,72 @@ Partial Class FrmMain
         '
         Me.Timer1.Interval = 120000
         '
+        'FrmTransaksiImport_DebitNote1
+        '
+        Me.FrmTransaksiImport_DebitNote1.Name = "FrmTransaksiImport_DebitNote1"
+        Me.FrmTransaksiImport_DebitNote1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiImport_DebitNote1.Text = "Historical Debit Note Balance"
+        '
+        'FrmTransaksiImport_CreditNote1
+        '
+        Me.FrmTransaksiImport_CreditNote1.Name = "FrmTransaksiImport_CreditNote1"
+        Me.FrmTransaksiImport_CreditNote1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiImport_CreditNote1.Text = "Hirstorical Credit Note Balance"
+        '
+        'FrmTransaksiBalanceManual_DPPch1
+        '
+        Me.FrmTransaksiBalanceManual_DPPch1.Name = "FrmTransaksiBalanceManual_DPPch1"
+        Me.FrmTransaksiBalanceManual_DPPch1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiBalanceManual_DPPch1.Text = "Beginning Balance Purchase Down Payment"
+        '
+        'FrmTransaksiBalanceManual_DPSls1
+        '
+        Me.FrmTransaksiBalanceManual_DPSls1.Name = "FrmTransaksiBalanceManual_DPSls1"
+        Me.FrmTransaksiBalanceManual_DPSls1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiBalanceManual_DPSls1.Text = "Beginning Balance Sales Down Payment"
+        '
+        'FrmTransaksiPurchaseReturnBalanceManual1
+        '
+        Me.FrmTransaksiPurchaseReturnBalanceManual1.Name = "FrmTransaksiPurchaseReturnBalanceManual1"
+        Me.FrmTransaksiPurchaseReturnBalanceManual1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiPurchaseReturnBalanceManual1.Text = "Beginning Balance Purchase Return"
+        '
+        'FrmTransaksiPurchaseBalanceManual1
+        '
+        Me.FrmTransaksiPurchaseBalanceManual1.Name = "FrmTransaksiPurchaseBalanceManual1"
+        Me.FrmTransaksiPurchaseBalanceManual1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiPurchaseBalanceManual1.Text = "Beginning Balance AP"
+        '
+        'FrmTransaksiSalesReturnBalanceManual1
+        '
+        Me.FrmTransaksiSalesReturnBalanceManual1.Name = "FrmTransaksiSalesReturnBalanceManual1"
+        Me.FrmTransaksiSalesReturnBalanceManual1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiSalesReturnBalanceManual1.Text = "Beginning Balance Sales Return"
+        '
+        'FrmTransaksiSalesBalanceManual1
+        '
+        Me.FrmTransaksiSalesBalanceManual1.Name = "FrmTransaksiSalesBalanceManual1"
+        Me.FrmTransaksiSalesBalanceManual1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiSalesBalanceManual1.Text = "Beginning Balance AR"
+        '
+        'FrmTransaksiInventoryBeginingBalance1
+        '
+        Me.FrmTransaksiInventoryBeginingBalance1.Name = "FrmTransaksiInventoryBeginingBalance1"
+        Me.FrmTransaksiInventoryBeginingBalance1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmTransaksiInventoryBeginingBalance1.Text = "Beginning Balance Inventory"
+        '
+        'FrmImport_PO1
+        '
+        Me.FrmImport_PO1.Name = "FrmImport_PO1"
+        Me.FrmImport_PO1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmImport_PO1.Text = "Beginning Balance PO "
+        '
+        'FrmImport_SO1
+        '
+        Me.FrmImport_SO1.Name = "FrmImport_SO1"
+        Me.FrmImport_SO1.Size = New System.Drawing.Size(307, 22)
+        Me.FrmImport_SO1.Text = "Beginning Balance SO "
+        '
         'FrmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2900,10 +2935,6 @@ Partial Class FrmMain
     Friend WithEvents FrmMasterCompanyData1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmTransaksiBookingInv1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AccountingStartUpSettingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FrmTransaksiSalesBalanceManual1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FrmTransaksiSalesReturnBalanceManual1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FrmTransaksiPurchaseBalanceManual1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FrmTransaksiPurchaseReturnBalanceManual1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator9 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents FrmLaporanAgingAR1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmLaporanKartuAR1 As System.Windows.Forms.ToolStripMenuItem
@@ -2927,7 +2958,6 @@ Partial Class FrmMain
     Friend WithEvents FrmTrans_POS1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmTrans_Session1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmMasterDefaultValues1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FrmTransaksiInventoryBeginingBalance1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProductDataToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmMasterProductGroup1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmMasterBrand1 As System.Windows.Forms.ToolStripMenuItem
@@ -3150,8 +3180,6 @@ Partial Class FrmMain
     Friend WithEvents FrmTransaksiStockBundling21 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmTrans_StockBundling_Quick1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MonthlyClosingTools1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FrmTransaksiBalanceManual_DPSls1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FrmTransaksiBalanceManual_DPPch1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UpdateUtilityToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmTransaksiStockTransfer_Receive1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmTransaksiExpiryDateUpdate_Merge1 As System.Windows.Forms.ToolStripMenuItem
@@ -3181,4 +3209,16 @@ Partial Class FrmMain
     Friend WithEvents FrmMasterTaxFacilityStampReference1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmTransaksiDO1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FrmTransaksiDO_Quick1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmExportBeginningData1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiSalesBalanceManual1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiPurchaseBalanceManual1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiInventoryBeginingBalance1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmImport_PO1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiBalanceManual_DPPch1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiPurchaseReturnBalanceManual1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmImport_SO1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiBalanceManual_DPSls1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiSalesReturnBalanceManual1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiImport_CreditNote1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FrmTransaksiImport_DebitNote1 As System.Windows.Forms.ToolStripMenuItem
 End Class

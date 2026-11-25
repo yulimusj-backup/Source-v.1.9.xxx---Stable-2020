@@ -162,7 +162,7 @@ Partial Class FrmTransaksiSalesBalanceManual_Cari
         Me.Name = "FrmTransaksiSalesBalanceManual_Cari"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Find Historical Sales Data"
+        Me.Text = "Find Beginning Balance AR Data"
         Me.gboKriteria.ResumeLayout(False)
         Me.gboKriteria.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)

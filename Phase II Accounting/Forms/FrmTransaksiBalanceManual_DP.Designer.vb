@@ -23,6 +23,7 @@ Partial Class FrmTransaksiBalanceManual_DP
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gboDetail = New System.Windows.Forms.GroupBox
+        Me.llbImportAR = New System.Windows.Forms.LinkLabel
         Me.Panel1 = New System.Windows.Forms.Panel
         Me.TxtRemarks = New System.Windows.Forms.TextBox
         Me.TxtBalance = New System.Windows.Forms.TextBox
@@ -81,6 +82,7 @@ Partial Class FrmTransaksiBalanceManual_DP
         Me.gboDetail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gboDetail.Controls.Add(Me.llbImportAR)
         Me.gboDetail.Controls.Add(Me.Panel1)
         Me.gboDetail.Controls.Add(Me.TxtPrimaryDocAcuan)
         Me.gboDetail.Controls.Add(Me.TxtPrimaryPihakAcuan)
@@ -100,6 +102,19 @@ Partial Class FrmTransaksiBalanceManual_DP
         Me.gboDetail.Size = New System.Drawing.Size(530, 307)
         Me.gboDetail.TabIndex = 0
         Me.gboDetail.TabStop = False
+        '
+        'llbImportAR
+        '
+        Me.llbImportAR.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.llbImportAR.AutoSize = True
+        Me.llbImportAR.Location = New System.Drawing.Point(468, 0)
+        Me.llbImportAR.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.llbImportAR.Name = "llbImportAR"
+        Me.llbImportAR.Size = New System.Drawing.Size(62, 13)
+        Me.llbImportAR.TabIndex = 63
+        Me.llbImportAR.TabStop = True
+        Me.llbImportAR.Text = "Import Data"
+        Me.llbImportAR.Visible = False
         '
         'Panel1
         '
@@ -488,14 +503,14 @@ Partial Class FrmTransaksiBalanceManual_DP
         'tslCreatedBy
         '
         Me.tslCreatedBy.Name = "tslCreatedBy"
-        Me.tslCreatedBy.Size = New System.Drawing.Size(291, 17)
+        Me.tslCreatedBy.Size = New System.Drawing.Size(267, 17)
         Me.tslCreatedBy.Spring = True
         Me.tslCreatedBy.Text = "Created By:"
         '
         'tslCreatedDate
         '
         Me.tslCreatedDate.Name = "tslCreatedDate"
-        Me.tslCreatedDate.Size = New System.Drawing.Size(291, 17)
+        Me.tslCreatedDate.Size = New System.Drawing.Size(267, 17)
         Me.tslCreatedDate.Spring = True
         Me.tslCreatedDate.Text = "Created Date:"
         '
@@ -511,14 +526,14 @@ Partial Class FrmTransaksiBalanceManual_DP
         'tslModifiedBy
         '
         Me.tslModifiedBy.Name = "tslModifiedBy"
-        Me.tslModifiedBy.Size = New System.Drawing.Size(291, 17)
+        Me.tslModifiedBy.Size = New System.Drawing.Size(267, 17)
         Me.tslModifiedBy.Spring = True
         Me.tslModifiedBy.Text = "Modified By:"
         '
         'tslModifiedDate
         '
         Me.tslModifiedDate.Name = "tslModifiedDate"
-        Me.tslModifiedDate.Size = New System.Drawing.Size(291, 17)
+        Me.tslModifiedDate.Size = New System.Drawing.Size(267, 17)
         Me.tslModifiedDate.Spring = True
         Me.tslModifiedDate.Text = "Modified Date:"
         '
@@ -589,7 +604,7 @@ Partial Class FrmTransaksiBalanceManual_DP
         Me.MinimumSize = New System.Drawing.Size(557, 437)
         Me.Name = "FrmTransaksiBalanceManual_DP"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Historical Purchase Down Payment"
+        Me.Text = "Beginning Balance Purchase Down Payment"
         Me.gboDetail.ResumeLayout(False)
         Me.gboDetail.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -650,4 +665,5 @@ Partial Class FrmTransaksiBalanceManual_DP
     Friend WithEvents cboPrimaryDPAccount As System.Windows.Forms.ComboBox
     Friend WithEvents cboPrimaryAccount As System.Windows.Forms.ComboBox
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents llbImportAR As System.Windows.Forms.LinkLabel
 End Class

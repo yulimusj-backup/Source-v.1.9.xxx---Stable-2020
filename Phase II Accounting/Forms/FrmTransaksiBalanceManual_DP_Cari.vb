@@ -22,12 +22,14 @@ Public Class FrmTransaksiBalanceManual_DP_Cari
 
         Try
             If vTipeDP = ClsTransaksiBalanceManual_DP.EnumTipeDP.DP_AOP Then
+                Me.Text = "Find Beginning Balance Purchase Down Payment Data"
                 Me.Criteria_1 = "Supplier Code"
                 Me.Criteria_2 = "Supplier Name"
                 Me.Criteria_3 = "AOP DP No"
                 Me.Criteria_4 = "Supplier Invoice No"
                 Me.Criteria_5 = "PO No"
             Else
+                Me.Text = "Find Beginning Balance Sales Down Payment Data"
                 Me.Criteria_1 = "Customer Code"
                 Me.Criteria_2 = "Customer Name"
                 Me.Criteria_3 = "Invoice DP No"

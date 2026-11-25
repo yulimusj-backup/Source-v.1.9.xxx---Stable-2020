@@ -729,6 +729,9 @@ Public Class FrmMain
 
             'update login time
             ObjVersionControl.SetLoginTimeStamp(My.Settings.a, FrmLogin.UsernameTextBox.Text, My.Computer.Name, Me.ObjLicense.GetExpiryDate(My.Settings.b))
+
+            Me.AktifkanBalance()
+
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         Finally
@@ -760,6 +763,30 @@ Public Class FrmMain
                 Me.FrmTransaksiPurchaseBalanceManual1.Visible = False
                 Me.FrmTransaksiPurchaseReturnBalanceManual1.Visible = False
             End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub AktifkanBalance()
+        Dim ObjClosing As New Purchase_Module.ClsTransaksiMonthlyClosing
+
+        Try
+            'jika jumlah closing > jan 2018 = 0
+            'aktifkan menu balance ar
+            'If ObjClosing.GetLastClosingPeriod.Date < #1/1/2018# Then
+            AccountingStartUpSettingToolStripMenuItem.Visible = True
+            FrmTransaksiSalesBalanceManual1.Visible = True
+            FrmTransaksiSalesReturnBalanceManual1.Visible = True
+            Me.FrmTransaksiPurchaseBalanceManual1.Visible = True
+            Me.FrmTransaksiPurchaseReturnBalanceManual1.Visible = True
+            Me.FrmTransaksiBalanceManual_DPPch1.Visible = True
+            Me.FrmTransaksiBalanceManual_DPSls1.Visible = True
+            Me.FrmTransaksiInventoryBeginingBalance1.Visible = True
+            Me.FrmImport_SO1.Visible = True
+            Me.FrmImport_PO1.Visible = True
+            Me.FrmExportBeginningData1.Visible = True
+            'End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -798,6 +825,7 @@ Public Class FrmMain
                     Me.FrmTransaksiStockInAdj_SetAmount1.Visible = False
                 End If
             End If
+            Me.AktifkanBalance()
 
             'Me.FrmSettingUpdate1.Visible = True
             'UploadToolStripMenuItem.Visible = True
@@ -11589,6 +11617,146 @@ Public Class FrmMain
             Next
 
             Dim i As New Sales_Module.FrmTransaksiDO_Quick
+            ' Increment the caption counter.
+            i.UserCode = FrmLogin.UsernameTextBox.Text
+            ' Set the caption to be unique.
+            i.BackColorAll = Core_Module.GetSMESSBackColorAll
+            i.MdiParent = Me
+            i.ShowIcon = False
+            i.Show()
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub CreditNoteBalanceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FrmTransaksiImport_CreditNote1.Click
+        Try
+            Dim ij As AccModule.FrmTransaksiImport_CreditNote
+            Dim j As Windows.Forms.Form
+
+            For Each j In Me.MdiChildren
+                ij = TryCast(j, AccModule.FrmTransaksiImport_CreditNote)
+                If IsNothing(ij) = False Then
+                    ij.BringToFront()
+                    ij.Focus()
+                    Exit Sub
+                End If
+            Next
+
+            Dim i As New AccModule.FrmTransaksiImport_CreditNote
+            ' Increment the caption counter.
+            i.UserCode = FrmLogin.UsernameTextBox.Text
+            ' Set the caption to be unique.
+            i.BackColorAll = Core_Module.GetSMESSBackColorAll
+            i.MdiParent = Me
+            i.ShowIcon = False
+            i.Show()
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub DebitNoteBalanceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FrmTransaksiImport_DebitNote1.Click
+        Try
+            Dim ij As AccModule.FrmTransaksiImport_DebitNote
+            Dim j As Windows.Forms.Form
+
+            For Each j In Me.MdiChildren
+                ij = TryCast(j, AccModule.FrmTransaksiImport_DebitNote)
+                If IsNothing(ij) = False Then
+                    ij.BringToFront()
+                    ij.Focus()
+                    Exit Sub
+                End If
+            Next
+
+            Dim i As New AccModule.FrmTransaksiImport_DebitNote
+            ' Increment the caption counter.
+            i.UserCode = FrmLogin.UsernameTextBox.Text
+            ' Set the caption to be unique.
+            i.BackColorAll = Core_Module.GetSMESSBackColorAll
+            i.MdiParent = Me
+            i.ShowIcon = False
+            i.Show()
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub FrmImport_SO1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FrmImport_SO1.Click
+        Try
+            Dim ij As Sales_Module.FrmImport_SO
+            Dim j As Windows.Forms.Form
+
+            For Each j In Me.MdiChildren
+                ij = TryCast(j, Sales_Module.FrmImport_SO)
+                If IsNothing(ij) = False Then
+                    ij.BringToFront()
+                    ij.Focus()
+                    Exit Sub
+                End If
+            Next
+
+            Dim i As New Sales_Module.FrmImport_SO
+            ' Increment the caption counter.
+            i.UserCode = FrmLogin.UsernameTextBox.Text
+            ' Set the caption to be unique.
+            i.BackCOlorAll = Core_Module.GetSMESSBackColorAll
+            i.MdiParent = Me
+            i.ShowIcon = False
+            i.Show()
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub FrmImport_PO1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FrmImport_PO1.Click
+        Try
+            Dim ij As Purchase_Module.FrmImport_PO
+            Dim j As Windows.Forms.Form
+
+            For Each j In Me.MdiChildren
+                ij = TryCast(j, Purchase_Module.FrmImport_PO)
+                If IsNothing(ij) = False Then
+                    ij.BringToFront()
+                    ij.Focus()
+                    Exit Sub
+                End If
+            Next
+
+            Dim i As New Purchase_Module.FrmImport_PO
+            ' Increment the caption counter.
+            i.UserCode = FrmLogin.UsernameTextBox.Text
+            ' Set the caption to be unique.
+            i.BackCOlorAll = Core_Module.GetSMESSBackColorAll
+            i.MdiParent = Me
+            i.ShowIcon = False
+            i.Show()
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub FrmExportBeginningData1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FrmExportBeginningData1.Click
+        Try
+            Dim ij As Purchase_Module.FrmExportBeginningData
+            Dim j As Windows.Forms.Form
+
+            For Each j In Me.MdiChildren
+                ij = TryCast(j, Purchase_Module.FrmExportBeginningData)
+                If IsNothing(ij) = False Then
+                    ij.BringToFront()
+                    ij.Focus()
+                    Exit Sub
+                End If
+            Next
+
+            Dim i As New Purchase_Module.FrmExportBeginningData
             ' Increment the caption counter.
             i.UserCode = FrmLogin.UsernameTextBox.Text
             ' Set the caption to be unique.

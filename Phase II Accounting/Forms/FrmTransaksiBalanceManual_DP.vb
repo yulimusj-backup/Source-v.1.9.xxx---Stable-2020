@@ -554,7 +554,7 @@ Public Class FrmTransaksiBalanceManual_DP
         Try
             Me.TxtRemarks.Multiline = True
             If Me.vTipeDP = ClsTransaksiBalanceManual_DP.EnumTipeDP.DP_AOP Then
-                Me.Text = "Historical Down Payment Purchase Balance"
+                Me.Text = "Beginning Balance Purchase Down Payment"
                 Me.LblDPNo.Text = "AOP DP No"
                 Me.LblPONo.Text = "Purchase Order No"
                 Me.LblPihakAcuan.Text = "Supplier"
@@ -569,7 +569,7 @@ Public Class FrmTransaksiBalanceManual_DP
                 Me.LblInvNo.Visible = False
                 Me.TxtSuppInvNo.Visible = False
 
-                Me.Text = "Historical Down Payment Sales Balance"
+                Me.Text = "Beginning Balance Sales Down Payment"
                 Me.LblDPNo.Text = "Invoice DP No"
                 Me.LblPONo.Text = "Sales Order No"
                 Me.LblPihakAcuan.Text = "Customer"
@@ -1232,6 +1232,29 @@ setDef:
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub llbImportAR_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles llbImportAR.LinkClicked
+        Dim FrmSalesDP As New FrmTransaksiBalanceManual_DP_Import_Sales
+        Dim FrmPurchaseDP As New FrmTransaksiBalanceManual_DP_Import_Purchase
+
+        Try
+            If vTipeDP = ClsTransaksiBalanceManual_DP.EnumTipeDP.DP_Invoice Then
+                FrmSalesDP.UserCode = Me.UserCode
+                FrmSalesDP.BackCOlorAll = Me.BackCOlorAll
+                FrmSalesDP.ShowDialog()
+            Else
+                FrmPurchaseDP.UserCode = Me.UserCode
+                FrmPurchaseDP.BackCOlorAll = Me.BackCOlorAll
+                FrmPurchaseDP.ShowDialog()
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            FrmSalesDP.Dispose()
+            FrmPurchaseDP.Dispose()
         End Try
     End Sub
 End Class

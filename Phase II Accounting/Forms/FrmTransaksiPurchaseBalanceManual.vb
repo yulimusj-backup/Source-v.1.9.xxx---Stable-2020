@@ -7,6 +7,9 @@ Public Class FrmTransaksiPurchaseBalanceManual
     Dim objImport As New CustomSMESS.ClsTrans_ImportAPBalance
     Public UserCode As String = ""
     Public BackCOlorAll As Color = Color.LightSeaGreen
+    Public Import_SuppCode, Import_SuppName, Import_InvoiceNo, Import_Curr, Import_APAccount, Import_Remarks, Import_APAccountDefault As String
+    Public Import_InvDate, Import_DueDate As Date
+    Public Import_Amount, Import_ExchangeRate As Decimal
 
     Dim baru As Boolean
     Dim ObjProcess As ClsTransaksiPurchaseBalance
@@ -15,6 +18,7 @@ Public Class FrmTransaksiPurchaseBalanceManual
     Dim ObjCD As New ClsCekData
     Dim ObjCust As New clsMasterSupplier
     Dim ObjClosing As New ClsTransaksiClosing
+    Dim ObjAkun As New ClsMasterAkun
     Dim Default_Prec As Integer
     Dim ObjCur As New Core_Module.clsMasterCurrency
     Dim TBLCurr As New dseMasterCurrency.tblmaster_currencyDataTable
@@ -209,13 +213,6 @@ Public Class FrmTransaksiPurchaseBalanceManual
                 Return False
             End If
 
-            '2024-04-23 Ilham, balance tidak boleh lebih besar dari 99 Miliar
-            If CDec(Me.TxtBalance.Text) > 99000000000 Then
-                MsgBox("Please input balance less than 99 Billions.", MsgBoxStyle.Information, "Information")
-                Me.TxtBalance.Focus()
-                Return False
-            End If
-
             'kalo sampe sini return true
             Return True
         Catch ex As Exception
@@ -321,14 +318,63 @@ Public Class FrmTransaksiPurchaseBalanceManual
 
             ''@rosadinnn
             Me.llbImport.Visible = False
+            Me.ShowIcon = False
             'Me.LinkLabel1.Visible = False
             Me.ProgressBar1.Visible = False
             If Me.objImport.ApakahBisaImport = True Then
                 Me.llbImport.Visible = True
                 'Me.LinkLabel1.Visible = True
                 Me.ProgressBar1.Visible = True
+            Else
+                If Me.Import_SuppCode <> "" Then
+                    Me.ImportData()
+                    Exit Sub
+                End If
             End If
-            Me.ShowIcon = False
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub ImportData()
+        Try
+            Me.Location = New Point((Me.Width * -1) - 5, (Me.Height * -1) - 5)
+
+            Me.btnNew.PerformClick()
+
+            'salin ke obj
+            With Me.ObjProcess
+                .Primary_Supplier = Me.ObjCust.GetPrimary(Me.Import_SuppCode)
+                .AOPNumber = Me.Import_InvoiceNo
+                .AOPDate = Me.Import_InvDate
+                .Purchase = Me.Import_Amount
+                .VAT = 0
+                .Dutystamp = 0
+                .Total = Me.Import_Amount
+                .DueDate = Me.Import_DueDate
+                .Paid = 0
+                .Balance = Me.Import_Amount
+                .Remarks = Me.Import_Remarks
+                .PrimaryCurrency = Me.ObjCur.GetPrimary(Me.Import_Curr)
+                .ExchangeRate = Me.Import_ExchangeRate
+                .PrimaryAP = Me.ObjAkun.GetPrimary(Me.Import_APAccount)
+
+                .CreatedBy = Me.UserCode
+                .CreatedDate = Now
+                .ModifiedBy = Me.UserCode
+                .ModifiedDate = Now
+                .TimeStamp = Now
+            End With 
+
+            Me.SalinKeField()
+
+            If Me.ObjProcess.SimpanBaru(Me.UserCode) Then
+                Me.NonAktifkanDetail()
+                Me.SalinKeField()
+                Me.btnFind.Focus()
+            End If
+
+            Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -1415,4 +1461,19 @@ Public Class FrmTransaksiPurchaseBalanceManual
             Me.ObjProcess = Nothing
         End Try
     End Function
+
+    Private Sub llbImportAR_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles llbImportAR.LinkClicked
+        Dim Frm As New FrmTransaksiPurchaseBalanceManual_Import
+
+        Try
+            Frm.UserCode = Me.UserCode
+            Frm.BackCOlorAll = Me.BackCOlorAll
+            Frm.ShowDialog()
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            Frm.Dispose()
+        End Try
+    End Sub
 End Class

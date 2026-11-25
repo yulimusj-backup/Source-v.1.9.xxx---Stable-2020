@@ -2308,7 +2308,7 @@ Public Class Form2
     End Sub
 
     Private Function Simpan_UsingScript() As Boolean
-        Dim conStr As String = "server=server;user id=root;Password=#SMeSS_p4ss*897%#;persist security info=True;database=core_db;port=3307;port=3307"
+        Dim conStr As String = "server=localhost;user id=root;Password=123;persist security info=True;database=smess_creative;port=3307;port=3307"
         Dim Conn As New MySql.Data.MySqlClient.MySqlConnection(conStr)
         Dim sql As String = ""
         Dim script As New MySql.Data.MySqlClient.MySqlScript(Conn, sql)

@@ -116,8 +116,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=server;user id=root;Password=#SMeSS_p4ss*897%#;persist security info=True;"& _ 
-            "database=core_db;port=3307;default command timeout=19000000")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;Password=123;persist security info=True;database=sm"& _ 
+            "ess_creative;port=3307;default command timeout=19000000")>  _
         Public ReadOnly Property core_dbConnectionString() As String
             Get
                 Return CType(Me("core_dbConnectionString"),String)

@@ -80,6 +80,16 @@ Public Class FrmTransaksiStockInAdj
                 Me.llbAdvance.Enabled = False
             End If
             Me.AturHakAksesFormCustom()
+
+            Me.objStockIn.IsiCboSettingActive(Me.CboAdjType, True)
+            If Me.TxtPrimarySetting.Text <> "" Or Me.TxtPrimarySetting.Text <> "-1" Then
+                Me.CboAdjType.ValueMember = Me.objStockIn.GetCodeSettingByPrimary(Me.TxtPrimarySetting.Text)
+                If Me.objStockIn.ApakahAdjustmentTypeAktif(Me.TxtPrimarySetting.Text) = True Then
+                    Me.CboAdjType.SelectedItem = Me.CboAdjType.ValueMember
+                    Me.TxtAdjustmentTypeDesc.Text = Me.objStockIn.GetDescriptionSettingAdjustment(Me.TxtPrimarySetting.Text)
+                End If
+            End If
+
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -563,6 +573,7 @@ Public Class FrmTransaksiStockInAdj
 
         Try
             With Me.objStockIn
+                Me.objStockIn.IsiCboSettingActive(Me.CboAdjType, False) 'update ahdar
                 Me.TxtStockInNo.Text = .NoTransaksi
                 Me.dtpDate.Value = .TanggalTransaksi
                 Me.TxtRemark.Text = .Remarks
@@ -589,6 +600,38 @@ Public Class FrmTransaksiStockInAdj
                     row.Cells(7).Value = Me.ObjCD.DigitGrouping(row.Cells(7).Value)
                 End If
             Next
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub FrmTransaksiStockInAdj_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Activated
+        Try 'update ahdar
+
+            If Me.TxtStockInNo.Text <> "" Then
+                If Me.TxtRemark.Enabled = False Then
+                    Me.objStockIn.IsiCboSettingActive(Me.CboAdjType, False)
+                    If Me.TxtPrimarySetting.Text <> "" Or Me.TxtPrimarySetting.Text <> "-1" Then
+                        Me.CboAdjType.ValueMember = Me.objStockIn.GetCodeSettingByPrimary(Me.TxtPrimarySetting.Text)
+                        Me.CboAdjType.SelectedItem = Me.CboAdjType.ValueMember
+                        Me.TxtAdjustmentTypeDesc.Text = Me.objStockIn.GetDescriptionSettingAdjustment(Me.TxtPrimarySetting.Text)
+                    End If
+
+                Else
+                    Me.objStockIn.IsiCboSettingActive(Me.CboAdjType, True)
+                    If Me.TxtPrimarySetting.Text <> "" Or Me.TxtPrimarySetting.Text <> "-1" Then
+                        Me.CboAdjType.ValueMember = Me.objStockIn.GetCodeSettingByPrimary(Me.TxtPrimarySetting.Text)
+                        If Me.objStockIn.ApakahAdjustmentTypeAktif(Me.TxtPrimarySetting.Text) = True Then
+                            Me.CboAdjType.SelectedItem = Me.CboAdjType.ValueMember
+                            Me.TxtAdjustmentTypeDesc.Text = Me.objStockIn.GetDescriptionSettingAdjustment(Me.TxtPrimarySetting.Text)
+                        End If
+                    End If
+                End If
+            End If
+
+            If Me.CboAdjType.SelectedIndex = -1 Or Me.CboAdjType.SelectedIndex = Nothing Then
+                Me.TxtAdjustmentTypeDesc.Text = ""
+            End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -632,6 +675,7 @@ Public Class FrmTransaksiStockInAdj
             Me.TxtAdjustmentTypeDesc.Left += 50
             Me.TxtAdjustmentTypeDesc.Width -= 50
             Me.CboAdjType.Width += 50
+
 
             Me.AturHakAksesFormCustom()
         Catch ex As Exception
@@ -789,6 +833,12 @@ Public Class FrmTransaksiStockInAdj
             End If
 
             If Me.TxtStockInNo.Text <> "" Then
+                'update baru by: 2024-2-29 'update ahdar
+                If Me.objStockIn.ApakahAdjustmentTypeAktif(Me.TxtPrimarySetting.Text) = False Then
+                    MsgBox("Please activate the adjustment type first so you can edit this transaction.", MsgBoxStyle.Information, "Information")
+                    Exit Sub
+                End If
+
                 If Me.objStockIn.ApakahBolehEdit(Me.UserCode) = True Then
                     Me.baru = False
                     Me.AktifkanDetail()
@@ -808,6 +858,12 @@ Public Class FrmTransaksiStockInAdj
             End If
 
             If Me.TxtStockInNo.Text <> "" Then
+                'update baru by: 2024-2-29
+                If Me.objStockIn.ApakahAdjustmentTypeAktif(Me.TxtPrimarySetting.Text) = False Then 'update ahdar
+                    MsgBox("Please activate the adjustment type first so you can delete this transaction.", MsgBoxStyle.Information, "Information")
+                    Exit Sub
+                End If
+
                 'tidak cek stock minus ketika cek apakah boleh hapus, karena akan di cek tepat sebelum di hapus,
                 'pengecekan ada dalam fungsi hapus di kelas, sehingga memperhitungkan antrian
                 If Me.objStockIn.ApakahBolehHapus(Me.UserCode, True, True, False, False) = False Then
@@ -1969,15 +2025,16 @@ Public Class FrmTransaksiStockInAdj
     Private Function ApakahEditSah(ByVal row As DataGridViewRow, ByVal PrimaryLocation As Double, _
     ByVal PrimaryPdO As Double, ByVal PrimaryProduct As Double, ByVal BatchNo As String, _
     ByVal ExpiryDate As Date, ByVal SecondaryQty As Double, ByVal JmlDGV As Double, Optional ByVal QtyCheck As Boolean = False) As Boolean
-        Dim JmlGudang, JmlObjLama, JmlSetelahHapus, JmlDGVTotal As Double
+        Dim JmlGudang, JmlObjLama, JmlSetelahHapus, JmlDGVTotal As Decimal '2026-03-23: ganti ke decimal. kalo double ngaco
         Dim LocationCont, BatchNoCont, ExpiryDateCont, UseSecondary As Boolean
+        Dim decimalPoint As Integer = 0
 
         Try
             JmlGudang = Me.ObjProduct.GetJml3(PrimaryProduct, SecondaryQty, PrimaryLocation, BatchNo)
             'perhitungan menggunakan nilai jumlah dgv yang baru
             JmlObjLama = Me.ObjStockInOutItem.GetJml(Me.TxtPrimaryStockIn.Text, PrimaryProduct, _
             SecondaryQty, PrimaryLocation, BatchNo, PrimaryPdO, ExpiryDate)
-            Me.ObjProduct.GetProductProperties(PrimaryProduct, LocationCont, BatchNoCont, ExpiryDateCont, UseSecondary)
+            Me.ObjProduct.GetProductProperties1(PrimaryProduct, LocationCont, BatchNoCont, ExpiryDateCont, UseSecondary, decimalPoint)
             JmlDGVTotal = Me.GetJmlDGV(PrimaryProduct, SecondaryQty, PrimaryLocation, BatchNo, _
             BatchNoCont, LocationCont, UseSecondary)
             JmlSetelahHapus = JmlGudang - JmlObjLama + JmlDGV
@@ -1986,7 +2043,7 @@ Public Class FrmTransaksiStockInAdj
                     MsgBox("Your data change was cancelled, because it will make you stock quantity minus.", _
                     MsgBoxStyle.Information, "Information")
                 Else
-                    MsgBox("Minimum value you must can enter is " + CStr(JmlObjLama - JmlGudang) + _
+                    MsgBox("Minimum value you must can enter is " + ObjCD.DigitGrouping(JmlObjLama - JmlGudang, decimalPoint) + _
                     " " + Me.ObjProduct.GetUnitCode(PrimaryProduct) + ".", _
                     MsgBoxStyle.Information, "Information")
                 End If
@@ -2471,6 +2528,9 @@ Public Class FrmTransaksiStockInAdj
         Try
             Me.TxtPrimarySetting.Text = Me.objStockIn.GetPrimarySettingByCode(Me.CboAdjType.Text)
             Me.TxtAdjustmentTypeDesc.Text = Me.objStockIn.GetDescriptionSettingAdjustment(Me.TxtPrimarySetting.Text)
+            If Me.CboAdjType.SelectedIndex = -1 Then
+                Me.TxtAdjustmentTypeDesc.Clear()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -2542,125 +2602,166 @@ Public Class FrmTransaksiStockInAdj
                 Exit Sub
             End If
 
-            If ij.chkImportFromDB.Checked = True Then
-                Me.ImportQtyFromDB(ij, DTA, TBL)
-            ElseIf ij.ChkMirror.Checked = True Then
-                If MsgBox("We will mirror stock data as off " + Format(Me.dtpDate.Value, "dd MMM yyyy") + ". Continue process?", MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.Yes Then
-                    Me.ImportMirror(ij)
-                End If
-            ElseIf ij.chkCoverMinus.Checked = True Then
-                Me.CoverMinus(ij.dtpCoverMinus_RefDate.Value.Date - TimeSpan.FromDays(1))
-            Else
-                QtyRef = CDec(ij.TxtQty.Text)
+            '2025 IM, tambah pengecekan count, agar membedakan
+            ij.dgvItemProductGroup.AllowUserToAddRows = False
+            If ij.dgvItemProductGroup.Rows.Count > 0 Then
+                If ij.chkImportFromDB.Checked = True Then
+                    Me.ImportQtyFromDB(ij, DTA, TBL)
+                ElseIf ij.ChkMirror.Checked = True Then
+                    If MsgBox("We will mirror stock data as off " + Format(Me.dtpDate.Value, "dd MMM yyyy") + ". Continue process?", MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.Yes Then
+                        Me.ImportMirror(ij)
+                    End If
+                ElseIf ij.chkCoverMinus.Checked = True Then
+                    Me.CoverMinus(ij.dtpCoverMinus_RefDate.Value.Date - TimeSpan.FromDays(1))
+                Else
+                    QtyRef = CDec(ij.TxtQty.Text)
 
-                Windows.Forms.Cursor.Current = Cursors.WaitCursor
+                    Windows.Forms.Cursor.Current = Cursors.WaitCursor
 
-                DTA.Connection.ConnectionString = Core_Module.GetConstring
-                DTALocation.Connection.ConnectionString = DTA.Connection.ConnectionString
+                    DTA.Connection.ConnectionString = Core_Module.GetConstring
+                    DTALocation.Connection.ConnectionString = DTA.Connection.ConnectionString
 
-                ij.dgvItemProductGroup.AllowUserToAddRows = False
-                DTALocation.Fill(TBLLocation)
+                    ij.dgvItemProductGroup.AllowUserToAddRows = False
+                    DTALocation.Fill(TBLLocation)
 
-                'get kode lokasi
-                If TBLLocation.Rows.Count > 0 Then
-                    'rowLocation = TBLLocation.Rows(0)
-                    'PrimaryLocationRef = rowLocation.Primary
-                    'WarehouseCodeRef = obj.GetWarehouseCode(PrimaryLocationRef)
-                    'LocationCodeRef = obj.GetStorageAreaCode(PrimaryLocationRef)
-                    Dim ijk As New Core_Module.FrmCariMasterStorageArea
-                    ijk.ShowDialog()
-                    If ijk.PrimaryStorageArea <> -1 Then
-                        PrimaryLocationRef = ijk.PrimaryStorageArea
-                        WarehouseCodeRef = obj.GetWarehouseCode(PrimaryLocationRef)
-                        LocationCodeRef = obj.GetStorageAreaCode(PrimaryLocationRef)
+                    'get kode lokasi
+                    If TBLLocation.Rows.Count > 0 Then
+                        'rowLocation = TBLLocation.Rows(0)
+                        'PrimaryLocationRef = rowLocation.Primary
+                        'WarehouseCodeRef = obj.GetWarehouseCode(PrimaryLocationRef)
+                        'LocationCodeRef = obj.GetStorageAreaCode(PrimaryLocationRef)
+                        Dim ijk As New Core_Module.FrmCariMasterStorageArea
+                        ijk.ShowDialog()
+                        If ijk.PrimaryStorageArea <> -1 Then
+                            PrimaryLocationRef = ijk.PrimaryStorageArea
+                            WarehouseCodeRef = obj.GetWarehouseCode(PrimaryLocationRef)
+                            LocationCodeRef = obj.GetStorageAreaCode(PrimaryLocationRef)
+                        Else
+                            PrimaryLocationRef = -1
+                            WarehouseCodeRef = ""
+                            LocationCodeRef = ""
+                        End If
                     Else
                         PrimaryLocationRef = -1
                         WarehouseCodeRef = ""
                         LocationCodeRef = ""
                     End If
-                Else
-                    PrimaryLocationRef = -1
-                    WarehouseCodeRef = ""
-                    LocationCodeRef = ""
-                End If
 
-                For Each rowDGV1 In ij.dgvItemProductGroup.Rows
-                    TBL.Rows.Clear()
-                    Level = Me.objItem.GetProductLevel(rowDGV1.Cells(ij.ColProductGroup_Level.Index).Value)
-                    If Level = ClsTransaksiMaterialPlanningGroup.ProductLevel.ProductGroup Then
-                        DTA.FillBy_PrimaryProductGroup(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
-                    ElseIf Level = ClsTransaksiMaterialPlanningGroup.ProductLevel.Brand Then
-                        DTA.FillBy_PrimaryBrand(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
-                    ElseIf Level = ClsTransaksiMaterialPlanningGroup.ProductLevel.SubBrand Then
-                        DTA.FillBy_PrimarySubBrand(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
-                    ElseIf Level = ClsTransaksiMaterialPlanningGroup.ProductLevel.Category Then
-                        DTA.FillBy_PrimaryCategory(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
-                    Else
-                        DTA.FillBy_PrimaryCategory(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
-                    End If
-
-                    For Each row In TBL.Rows
-                        If Me.ApakahSudahAda(row.Primary) = False Then
-                            If PrimaryLocationRef = -1 And row.Location_Controlled = 1 Then
-                                'kalo sampe ada product yang kontrol lokasi tetapi tidak ada master lokasi
-                                ListProductTidakDiInput.Add(row.Product_Code)
-                            Else
-                                If row.Batch_No_Controlled = 0 Then
-                                    BatchNumber = ""
-                                    Expiry = #1/1/1950#
-                                Else
-                                    BatchNumber = BatchRef
-                                    If row.Expiry_Date_Controlled = True Then
-                                        Expiry = ExpiryRef
-                                    Else
-                                        Expiry = #1/1/1950#
-                                    End If
-                                End If
-                                If row.Location_Controlled = 1 Then
-                                    PrimaryLocation = PrimaryLocationRef
-                                    LocationCode = LocationCodeRef
-                                    WarehouseCode = WarehouseCodeRef
-                                Else
-                                    PrimaryLocation = -1
-                                    LocationCode = ""
-                                    WarehouseCode = ""
-                                End If
-
-                                Me.dgvItem.Rows.Add()
-                                rowDGV = Me.dgvItem.Rows(Me.dgvItem.Rows.Count - 1)
-                                With rowDGV
-                                    .Cells(Me.ColAmount.Index).Value = 0
-                                    .Cells(Me.ColBatch.Index).Value = BatchNumber
-                                    .Cells(Me.ColCodeNo.Index).Value = row.Product_Code
-                                    .Cells(Me.ColDescription.Index).Value = row.Description
-                                    If Expiry = #1/1/1950# Then
-                                        .Cells(Me.ColExpiredDate.Index).Value = "-"
-                                    Else
-                                        .Cells(Me.ColExpiredDate.Index).Value = Format(Expiry, "dd MMM yyyy")
-                                    End If
-                                    .Cells(Me.ColLocation.Index).Value = LocationCode
-                                    .Cells(Me.ColNo.Index).Value = rowDGV.Index + 1
-                                    .Cells(Me.ColPONo.Index).Value = ""
-                                    .Cells(Me.ColPrimaryCodeNo.Index).Value = row.Primary
-                                    .Cells(Me.ColPrimaryLocation.Index).Value = PrimaryLocation
-                                    .Cells(Me.ColPrimaryPdO.Index).Value = -1
-                                    .Cells(Me.ColPrimaryPOno.Index).Value = -1
-                                    .Cells(Me.ColPrimarySecondaryUnits.Index).Value = -1
-                                    .Cells(Me.ColPrimaryUnits.Index).Value = row.Primary_Unit
-                                    .Cells(Me.ColQty.Index).Value = Me.ObjCD.DigitGrouping(QtyRef, row._Decimal)
-                                    .Cells(Me.ColRemark.Index).Value = ""
-                                    .Cells(Me.ColSecondaryQty.Index).Value = -1
-                                    .Cells(Me.ColSecondaryUnit.Index).Value = ""
-                                    .Cells(Me.ColSuppDONo.Index).Value = ""
-                                    .Cells(Me.ColUnit.Index).Value = row.Unit_Code
-                                    .Cells(Me.ColWareHouse.Index).Value = WarehouseCode
-                                End With
-                            End If
+                    For Each rowDGV1 In ij.dgvItemProductGroup.Rows
+                        TBL.Rows.Clear()
+                        Level = Me.objItem.GetProductLevel(rowDGV1.Cells(ij.ColProductGroup_Level.Index).Value)
+                        If Level = ClsTransaksiMaterialPlanningGroup.ProductLevel.ProductGroup Then
+                            DTA.FillBy_PrimaryProductGroup(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
+                        ElseIf Level = ClsTransaksiMaterialPlanningGroup.ProductLevel.Brand Then
+                            DTA.FillBy_PrimaryBrand(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
+                        ElseIf Level = ClsTransaksiMaterialPlanningGroup.ProductLevel.SubBrand Then
+                            DTA.FillBy_PrimarySubBrand(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
+                        ElseIf Level = ClsTransaksiMaterialPlanningGroup.ProductLevel.Category Then
+                            DTA.FillBy_PrimaryCategory(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
+                        Else
+                            DTA.FillBy_PrimaryCategory(TBL, CInt(Tipe), CDec(rowDGV1.Cells(ij.ColProductGroup_PrimaryAcuan.Index).Value))
                         End If
-                    Next
-                Next
-            End If
 
+                        For Each row In TBL.Rows
+                            If Me.ApakahSudahAda(row.Primary) = False Then
+                                If PrimaryLocationRef = -1 And row.Location_Controlled = 1 Then
+                                    'kalo sampe ada product yang kontrol lokasi tetapi tidak ada master lokasi
+                                    ListProductTidakDiInput.Add(row.Product_Code)
+                                Else
+                                    If row.Batch_No_Controlled = 0 Then
+                                        BatchNumber = ""
+                                        Expiry = #1/1/1950#
+                                    Else
+                                        BatchNumber = BatchRef
+                                        If row.Expiry_Date_Controlled = True Then
+                                            Expiry = ExpiryRef
+                                        Else
+                                            Expiry = #1/1/1950#
+                                        End If
+                                    End If
+                                    If row.Location_Controlled = 1 Then
+                                        PrimaryLocation = PrimaryLocationRef
+                                        LocationCode = LocationCodeRef
+                                        WarehouseCode = WarehouseCodeRef
+                                    Else
+                                        PrimaryLocation = -1
+                                        LocationCode = ""
+                                        WarehouseCode = ""
+                                    End If
+
+                                    Me.dgvItem.Rows.Add()
+                                    rowDGV = Me.dgvItem.Rows(Me.dgvItem.Rows.Count - 1)
+                                    With rowDGV
+                                        .Cells(Me.ColAmount.Index).Value = 0
+                                        .Cells(Me.ColBatch.Index).Value = BatchNumber
+                                        .Cells(Me.ColCodeNo.Index).Value = row.Product_Code
+                                        .Cells(Me.ColDescription.Index).Value = row.Description
+                                        If Expiry = #1/1/1950# Then
+                                            .Cells(Me.ColExpiredDate.Index).Value = "-"
+                                        Else
+                                            .Cells(Me.ColExpiredDate.Index).Value = Format(Expiry, "dd MMM yyyy")
+                                        End If
+                                        .Cells(Me.ColLocation.Index).Value = LocationCode
+                                        .Cells(Me.ColNo.Index).Value = rowDGV.Index + 1
+                                        .Cells(Me.ColPONo.Index).Value = ""
+                                        .Cells(Me.ColPrimaryCodeNo.Index).Value = row.Primary
+                                        .Cells(Me.ColPrimaryLocation.Index).Value = PrimaryLocation
+                                        .Cells(Me.ColPrimaryPdO.Index).Value = -1
+                                        .Cells(Me.ColPrimaryPOno.Index).Value = -1
+                                        .Cells(Me.ColPrimarySecondaryUnits.Index).Value = -1
+                                        .Cells(Me.ColPrimaryUnits.Index).Value = row.Primary_Unit
+                                        .Cells(Me.ColQty.Index).Value = Me.ObjCD.DigitGrouping(QtyRef, row._Decimal)
+                                        .Cells(Me.ColRemark.Index).Value = ""
+                                        .Cells(Me.ColSecondaryQty.Index).Value = -1
+                                        .Cells(Me.ColSecondaryUnit.Index).Value = ""
+                                        .Cells(Me.ColSuppDONo.Index).Value = ""
+                                        .Cells(Me.ColUnit.Index).Value = row.Unit_Code
+                                        .Cells(Me.ColWareHouse.Index).Value = WarehouseCode
+                                    End With
+                                End If
+                            End If
+                        Next
+                    Next
+                End If
+            ElseIf ij.dgvImport.Rows.Count > 0 Then
+                '2025 IM, tambah rowdgv untuk import
+                Dim rowDGVImport As DataGridViewRow
+                'pindahkan dgv import ke dgv item (karena kolom sudah sama)
+                For Each rowDGVImport In ij.dgvImport.Rows
+                    Me.dgvItem.Rows.Add()
+                    rowDGV = Me.dgvItem.Rows(Me.dgvItem.Rows.Count - 1)
+                    With rowDGV
+                        .Cells(Me.ColAmount.Index).Value = rowDGVImport.Cells(ij.Col_Import_Amount.Index).Value
+                        .Cells(Me.ColBatch.Index).Value = rowDGVImport.Cells(ij.Col_Import_Batch.Index).Value
+                        .Cells(Me.ColCodeNo.Index).Value = rowDGVImport.Cells(ij.Col_Import_CodeNo.Index).Value
+                        .Cells(Me.ColDescription.Index).Value = rowDGVImport.Cells(ij.Col_Import_Description.Index).Value
+                        If rowDGVImport.Cells(ij.Col_Import_Description.Index).Value = "-" Or String.IsNullOrEmpty(rowDGVImport.Cells(ij.Col_Import_Description.Index).Value) Then
+                            .Cells(Me.ColExpiredDate.Index).Value = "-"
+                        Else
+                            .Cells(Me.ColExpiredDate.Index).Value = Format(rowDGVImport.Cells(ij.Col_Import_Description.Index).Value, "dd MMM yyyy")
+                        End If
+                        .Cells(Me.ColLocation.Index).Value = rowDGVImport.Cells(ij.Col_Import_Location.Index).Value
+                        .Cells(Me.ColNo.Index).Value = rowDGV.Index + 1
+                        .Cells(Me.ColPONo.Index).Value = rowDGVImport.Cells(ij.Col_Import_PONo.Index).Value
+                        .Cells(Me.ColPrimaryCodeNo.Index).Value = rowDGVImport.Cells(ij.Col_Import_PrimaryCodeNo.Index).Value
+                        .Cells(Me.ColPrimaryLocation.Index).Value = rowDGVImport.Cells(ij.Col_Import_PrimaryLocation.Index).Value
+                        .Cells(Me.ColPrimaryPdO.Index).Value = rowDGVImport.Cells(ij.Col_Import_PrimaryPdO.Index).Value
+                        .Cells(Me.ColPrimaryPOno.Index).Value = rowDGVImport.Cells(ij.Col_Import_PrimaryPOno.Index).Value
+                        .Cells(Me.ColPrimarySecondaryUnits.Index).Value = rowDGVImport.Cells(ij.Col_Import_PrimarySecondaryUnits.Index).Value
+                        .Cells(Me.ColPrimaryUnits.Index).Value = rowDGVImport.Cells(ij.Col_Import_PrimaryUnits.Index).Value
+                        .Cells(Me.ColQty.Index).Value = rowDGVImport.Cells(ij.Col_Import_Qty.Index).Value
+                        .Cells(Me.ColRemark.Index).Value = rowDGVImport.Cells(ij.col_Import_Remarks.Index).Value
+                        .Cells(Me.ColSecondaryQty.Index).Value = rowDGVImport.Cells(ij.Col_Import_SecondaryQty.Index).Value
+                        .Cells(Me.ColSecondaryUnit.Index).Value = rowDGVImport.Cells(ij.Col_Import_SecondaryUnit.Index).Value
+                        .Cells(Me.ColSuppDONo.Index).Value = rowDGVImport.Cells(ij.Col_Import_SuppDONo.Index).Value
+                        .Cells(Me.ColUnit.Index).Value = rowDGVImport.Cells(ij.Col_Import_Unit.Index).Value
+                        .Cells(Me.ColUnitCost.Index).Value = rowDGVImport.Cells(ij.Col_Import_UnitCost.Index).Value
+                        .Cells(Me.ColWareHouse.Index).Value = rowDGVImport.Cells(ij.Col_Import_WareHouse.Index).Value
+                    End With
+                Next
+            Else
+                Exit Sub
+            End If
 
             FormatDGV()
 

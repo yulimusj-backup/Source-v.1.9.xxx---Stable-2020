@@ -1180,4 +1180,19 @@ Public Class FrmTransaksiSalesReturnBalanceManual
             Me.ObjProcess = Nothing
         End Try
     End Function
+
+    Private Sub llbImportARRetrun_LinkClicked(ByVal sender As System.Object, ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles llbImportARRetrun.LinkClicked
+        Dim Frm As New FrmTransaksiSalesReturnBalanceManual_Import
+
+        Try
+            Frm.UserCode = Me.UserCode
+            Frm.BackCOlorAll = Me.BackCOlorAll
+            Frm.ShowDialog()
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            Frm.Dispose()
+        End Try
+    End Sub
 End Class

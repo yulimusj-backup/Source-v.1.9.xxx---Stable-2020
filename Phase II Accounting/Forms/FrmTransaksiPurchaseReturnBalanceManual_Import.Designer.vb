@@ -1,0 +1,320 @@
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class FrmTransaksiPurchaseReturnBalanceManual_Import
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Me.cboSeparator = New System.Windows.Forms.ComboBox
+        Me.prgBar1 = New System.Windows.Forms.ProgressBar
+        Me.LblProgress = New System.Windows.Forms.Label
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog
+        Me.bgw1 = New System.ComponentModel.BackgroundWorker
+        Me.Label2 = New System.Windows.Forms.Label
+        Me.Label1 = New System.Windows.Forms.Label
+        Me.dgvItem = New System.Windows.Forms.DataGridView
+        Me.ColNo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColSupplierCode = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColSuppName = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColInvoiceNo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColInvoiceDate = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColDueDate = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColCurrency = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColAmount = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColExchangeRate = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColAPAccount = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColRemarks = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColException = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.btnStart = New System.Windows.Forms.Button
+        Me.btnFindFile = New System.Windows.Forms.Button
+        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.bgw2 = New System.ComponentModel.BackgroundWorker
+        CType(Me.dgvItem, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'cboSeparator
+        '
+        Me.cboSeparator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboSeparator.FormattingEnabled = True
+        Me.cboSeparator.Items.AddRange(New Object() {",", ";"})
+        Me.cboSeparator.Location = New System.Drawing.Point(73, 33)
+        Me.cboSeparator.Margin = New System.Windows.Forms.Padding(2)
+        Me.cboSeparator.Name = "cboSeparator"
+        Me.cboSeparator.Size = New System.Drawing.Size(262, 21)
+        Me.cboSeparator.TabIndex = 17
+        '
+        'prgBar1
+        '
+        Me.prgBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.prgBar1.Location = New System.Drawing.Point(399, 10)
+        Me.prgBar1.Margin = New System.Windows.Forms.Padding(2)
+        Me.prgBar1.Name = "prgBar1"
+        Me.prgBar1.Size = New System.Drawing.Size(328, 19)
+        Me.prgBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous
+        Me.prgBar1.TabIndex = 19
+        '
+        'LblProgress
+        '
+        Me.LblProgress.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.LblProgress.AutoSize = True
+        Me.LblProgress.Location = New System.Drawing.Point(399, 37)
+        Me.LblProgress.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.LblProgress.Name = "LblProgress"
+        Me.LblProgress.Size = New System.Drawing.Size(16, 13)
+        Me.LblProgress.TabIndex = 18
+        Me.LblProgress.Text = "..."
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.Filter = "csv files|*.csv"
+        '
+        'bgw1
+        '
+        Me.bgw1.WorkerReportsProgress = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(9, 37)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.TabIndex = 16
+        Me.Label2.Text = "Separator"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(9, 12)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(60, 13)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Source File"
+        '
+        'dgvItem
+        '
+        Me.dgvItem.AllowUserToAddRows = False
+        Me.dgvItem.AllowUserToDeleteRows = False
+        Me.dgvItem.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvItem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvItem.ColumnHeadersHeight = 25
+        Me.dgvItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dgvItem.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ColNo, Me.ColSupplierCode, Me.ColSuppName, Me.ColInvoiceNo, Me.ColInvoiceDate, Me.ColDueDate, Me.ColCurrency, Me.ColAmount, Me.ColExchangeRate, Me.ColAPAccount, Me.ColRemarks, Me.ColException})
+        Me.dgvItem.Location = New System.Drawing.Point(9, 58)
+        Me.dgvItem.Margin = New System.Windows.Forms.Padding(2)
+        Me.dgvItem.Name = "dgvItem"
+        Me.dgvItem.ReadOnly = True
+        Me.dgvItem.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.dgvItem.RowTemplate.Height = 24
+        Me.dgvItem.Size = New System.Drawing.Size(718, 438)
+        Me.dgvItem.TabIndex = 15
+        '
+        'ColNo
+        '
+        Me.ColNo.HeaderText = "No"
+        Me.ColNo.Name = "ColNo"
+        Me.ColNo.ReadOnly = True
+        Me.ColNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColNo.Width = 27
+        '
+        'ColSupplierCode
+        '
+        Me.ColSupplierCode.HeaderText = "Supplier Code"
+        Me.ColSupplierCode.Name = "ColSupplierCode"
+        Me.ColSupplierCode.ReadOnly = True
+        Me.ColSupplierCode.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColSupplierCode.Width = 79
+        '
+        'ColSuppName
+        '
+        Me.ColSuppName.HeaderText = "Supplier Name"
+        Me.ColSuppName.Name = "ColSuppName"
+        Me.ColSuppName.ReadOnly = True
+        Me.ColSuppName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColSuppName.Width = 82
+        '
+        'ColInvoiceNo
+        '
+        Me.ColInvoiceNo.HeaderText = "Purchase Return No"
+        Me.ColInvoiceNo.Name = "ColInvoiceNo"
+        Me.ColInvoiceNo.ReadOnly = True
+        Me.ColInvoiceNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColInvoiceNo.Width = 110
+        '
+        'ColInvoiceDate
+        '
+        Me.ColInvoiceDate.HeaderText = "Purchase Return Date"
+        Me.ColInvoiceDate.Name = "ColInvoiceDate"
+        Me.ColInvoiceDate.ReadOnly = True
+        Me.ColInvoiceDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColInvoiceDate.Width = 119
+        '
+        'ColDueDate
+        '
+        Me.ColDueDate.HeaderText = "Due Date"
+        Me.ColDueDate.Name = "ColDueDate"
+        Me.ColDueDate.ReadOnly = True
+        Me.ColDueDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColDueDate.Width = 59
+        '
+        'ColCurrency
+        '
+        Me.ColCurrency.HeaderText = "Currency"
+        Me.ColCurrency.Name = "ColCurrency"
+        Me.ColCurrency.ReadOnly = True
+        Me.ColCurrency.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColCurrency.Width = 55
+        '
+        'ColAmount
+        '
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ColAmount.DefaultCellStyle = DataGridViewCellStyle1
+        Me.ColAmount.HeaderText = "Amount"
+        Me.ColAmount.Name = "ColAmount"
+        Me.ColAmount.ReadOnly = True
+        Me.ColAmount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColAmount.Width = 49
+        '
+        'ColExchangeRate
+        '
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ColExchangeRate.DefaultCellStyle = DataGridViewCellStyle2
+        Me.ColExchangeRate.HeaderText = "Exchange Rate"
+        Me.ColExchangeRate.Name = "ColExchangeRate"
+        Me.ColExchangeRate.ReadOnly = True
+        Me.ColExchangeRate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColExchangeRate.Width = 87
+        '
+        'ColAPAccount
+        '
+        Me.ColAPAccount.HeaderText = "AP Account"
+        Me.ColAPAccount.Name = "ColAPAccount"
+        Me.ColAPAccount.ReadOnly = True
+        Me.ColAPAccount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColAPAccount.Width = 70
+        '
+        'ColRemarks
+        '
+        Me.ColRemarks.HeaderText = "Remarks"
+        Me.ColRemarks.Name = "ColRemarks"
+        Me.ColRemarks.ReadOnly = True
+        Me.ColRemarks.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColRemarks.Width = 55
+        '
+        'ColException
+        '
+        Me.ColException.HeaderText = "Exception"
+        Me.ColException.Name = "ColException"
+        Me.ColException.ReadOnly = True
+        Me.ColException.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.ColException.Width = 60
+        '
+        'btnStart
+        '
+        Me.btnStart.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnStart.Location = New System.Drawing.Point(338, 33)
+        Me.btnStart.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnStart.Name = "btnStart"
+        Me.btnStart.Size = New System.Drawing.Size(56, 20)
+        Me.btnStart.TabIndex = 14
+        Me.btnStart.Text = "Start"
+        Me.btnStart.UseVisualStyleBackColor = True
+        '
+        'btnFindFile
+        '
+        Me.btnFindFile.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnFindFile.Location = New System.Drawing.Point(338, 10)
+        Me.btnFindFile.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnFindFile.Name = "btnFindFile"
+        Me.btnFindFile.Size = New System.Drawing.Size(56, 20)
+        Me.btnFindFile.TabIndex = 13
+        Me.btnFindFile.Text = "Find"
+        Me.btnFindFile.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox1.Location = New System.Drawing.Point(73, 10)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ReadOnly = True
+        Me.TextBox1.Size = New System.Drawing.Size(262, 20)
+        Me.TextBox1.TabIndex = 12
+        '
+        'bgw2
+        '
+        Me.bgw2.WorkerReportsProgress = True
+        '
+        'FrmTransaksiPurchaseReturnBalanceManual_Import
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(736, 506)
+        Me.Controls.Add(Me.cboSeparator)
+        Me.Controls.Add(Me.prgBar1)
+        Me.Controls.Add(Me.LblProgress)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.dgvItem)
+        Me.Controls.Add(Me.btnStart)
+        Me.Controls.Add(Me.btnFindFile)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Name = "FrmTransaksiPurchaseReturnBalanceManual_Import"
+        Me.ShowIcon = False
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Beginning Balance Purchase Return Data Import"
+        CType(Me.dgvItem, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents cboSeparator As System.Windows.Forms.ComboBox
+    Friend WithEvents prgBar1 As System.Windows.Forms.ProgressBar
+    Friend WithEvents LblProgress As System.Windows.Forms.Label
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents bgw1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents dgvItem As System.Windows.Forms.DataGridView
+    Friend WithEvents btnStart As System.Windows.Forms.Button
+    Friend WithEvents btnFindFile As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents bgw2 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents ColNo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColSupplierCode As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColSuppName As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColInvoiceNo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColInvoiceDate As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColDueDate As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColCurrency As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColAmount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColExchangeRate As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColAPAccount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColRemarks As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ColException As System.Windows.Forms.DataGridViewTextBoxColumn
+End Class

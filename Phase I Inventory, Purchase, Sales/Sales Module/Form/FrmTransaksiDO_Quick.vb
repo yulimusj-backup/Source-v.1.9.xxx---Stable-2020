@@ -1912,6 +1912,7 @@ Public Class FrmTransaksiDO_Quick
                                 Me.RowSimpan.Primary_Transaction = .Cells(Me.ColPrimarySO.Index).Value
                                 Me.RowSimpan.Transaction_No = .Cells(Me.ColSONo.Index).Value
                             End If
+                            Me.RowSimpan.Result_No = .Cells(Me.ColDocumentNO.Index).Value '2026-11-25 IM, untuk Result nanti
                             Me.RowSimpan.Primary_Customer = .Cells(Me.ColPrimaryCustomer.Index).Value
                             Me.RowSimpan.Primary_Currency = .Cells(Me.ColPrimaryCurrency.Index).Value
                             Me.RowSimpan.Primary_Product = .Cells(Me.ColPrimaryPoduct.Index).Value
@@ -1958,6 +1959,7 @@ Public Class FrmTransaksiDO_Quick
                                     Me.RowSimpan.Primary_Transaction = .Cells(Me.ColPrimarySO.Index).Value
                                     Me.RowSimpan.Transaction_No = .Cells(Me.ColSONo.Index).Value
                                 End If
+                                Me.RowSimpan.Result_No = .Cells(Me.ColDocumentNO.Index).Value '2026-11-25 IM, untuk Result nanti
                                 Me.RowSimpan.Primary_Customer = .Cells(Me.ColPrimaryCustomer.Index).Value
                                 Me.RowSimpan.Primary_Currency = .Cells(Me.ColPrimaryCurrency.Index).Value
                                 Me.RowSimpan.Primary_Product = .Cells(Me.ColPrimaryPoduct.Index).Value
@@ -2274,6 +2276,10 @@ Public Class FrmTransaksiDO_Quick
         Dim IdentifierAddress As String = ""
         Dim GroupCustomer As String = ""
         Dim MinDate As Date
+        Dim TransactionNo As String = ""
+        Dim TransactionNoArray() As String
+        Dim tblResult As New DseTransaksiQuick_DO2.tblResultDataTable
+        Dim rowResult As DseTransaksiQuick_DO2.tblResultRow
         Try
 
             Me.IsikanTbl(False)
@@ -2375,7 +2381,7 @@ Public Class FrmTransaksiDO_Quick
                     ' Ambil kembali isi GroupCustomer
                     '=========================================
                     Dim GroupData() As String = GroupCustomer.Split("|"c)
-
+                    TransactionNo = ""
                     PrimaryCust = CDbl(GroupData(0))
                     tax = CDbl(GroupData(1))
                     noFaktur = GroupData(2)
@@ -2513,6 +2519,13 @@ Public Class FrmTransaksiDO_Quick
                                 .Cells(ij.ColPrimaryUnitsMulti.Index).Value = Me.RowSimpan.Primary_Multi_Unit
                                 .Cells(ij.ColRemarks.Index).Value = Me.RowSimpan.Remarks
                             End With
+                            If TransactionNo.Contains(.Result_No) = False Then
+                                If String.IsNullOrEmpty(TransactionNo) Then
+                                    TransactionNo = .Result_No
+                                Else
+                                    TransactionNo = TransactionNo & ";" & .Result_No
+                                End If
+                            End If
                         End With
                     Next
 
@@ -2523,12 +2536,27 @@ Public Class FrmTransaksiDO_Quick
                     ij.vDirectlySave = Me.chkDirectSave.Checked
                     ij.vShowDialog = True
                     ij.ShowDialog()
+                    If ij.vPrimaryDO() <> -1 And String.IsNullOrEmpty(TransactionNo) = False Then
+                        'TransactionNoArray = TransactionNo.Split(";"c)
+                        'For Each No As String In TransactionNoArray
+
+                        'Next
+                        rowResult = tblResult.NewtblResultRow
+                        With rowResult
+                            .Primary_DO = ij.vPrimaryDO
+                            .No_DO = ij.vDONo
+                            .No_Transaksi = TransactionNo
+                        End With
+                    End If
+                    
                     If ij.vStopCancellation = True Then
                         Exit For
                     End If
                 Next
             End If
             'Me.btnFilter.PerformClick()
+            Dim jk As New FrmTransaksiDO_Quick_Result
+
             Return True
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

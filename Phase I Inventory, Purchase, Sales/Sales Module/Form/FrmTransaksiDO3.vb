@@ -17,6 +17,8 @@ Public Class FrmTransaksiDO3
     Public UserCode As String = ""
     Public BackColorAll As Color = Me.BackColorAll
     Public FormNo As Integer = 0
+    Public vPrimaryDO As Double = -1
+    Public vDONo As Double = -1
 
     Dim baru As Boolean
     Dim objDO As New ClsTransaksiDO
@@ -1369,6 +1371,8 @@ Public Class FrmTransaksiDO3
                                 Me.SalinKeField()
                                 Me.NonAktifkanDetail()
                                 Me.btnFind.Focus()
+                                Me.vPrimaryDO = Me.objDO.Primary
+                                Me.vDONo = Me.objDO.NoTransaksi
                             End If
                             Me.Close()
                         Else
@@ -5379,6 +5383,8 @@ Public Class FrmTransaksiDO3
                     'konfirmasi disimpan atau tidak
                     Windows.Forms.Cursor.Current = Cursors.WaitCursor
                     If Me.objDO.SimpanBaru1(Me.dgvItem, Me.UserCode, Me) = True Then
+                        Me.vPrimaryDO = Me.objDO.Primary
+                        Me.vDONo = Me.objDO.NoTransaksi
                         Me.KosongkanItem()
                         Me.SalinKeField()
                         Me.NonAktifkanDetail()

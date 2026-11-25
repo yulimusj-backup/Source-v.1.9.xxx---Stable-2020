@@ -23,6 +23,7 @@ Partial Class FrmTransaksiSalesReturnBalanceManual
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gboDetail = New System.Windows.Forms.GroupBox
+        Me.llbImportARRetrun = New System.Windows.Forms.LinkLabel
         Me.txtPrimaryAccount = New System.Windows.Forms.TextBox
         Me.Label13 = New System.Windows.Forms.Label
         Me.cboAccount = New System.Windows.Forms.ComboBox
@@ -84,6 +85,7 @@ Partial Class FrmTransaksiSalesReturnBalanceManual
         Me.gboDetail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gboDetail.Controls.Add(Me.llbImportARRetrun)
         Me.gboDetail.Controls.Add(Me.txtPrimaryAccount)
         Me.gboDetail.Controls.Add(Me.Label13)
         Me.gboDetail.Controls.Add(Me.cboAccount)
@@ -119,6 +121,18 @@ Partial Class FrmTransaksiSalesReturnBalanceManual
         Me.gboDetail.Size = New System.Drawing.Size(523, 284)
         Me.gboDetail.TabIndex = 0
         Me.gboDetail.TabStop = False
+        '
+        'llbImportARRetrun
+        '
+        Me.llbImportARRetrun.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.llbImportARRetrun.AutoSize = True
+        Me.llbImportARRetrun.Location = New System.Drawing.Point(460, 3)
+        Me.llbImportARRetrun.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.llbImportARRetrun.Name = "llbImportARRetrun"
+        Me.llbImportARRetrun.Size = New System.Drawing.Size(62, 13)
+        Me.llbImportARRetrun.TabIndex = 32
+        Me.llbImportARRetrun.TabStop = True
+        Me.llbImportARRetrun.Text = "Import Data"
         '
         'txtPrimaryAccount
         '
@@ -589,14 +603,14 @@ Partial Class FrmTransaksiSalesReturnBalanceManual
         'tslModifiedBy
         '
         Me.tslModifiedBy.Name = "tslModifiedBy"
-        Me.tslModifiedBy.Size = New System.Drawing.Size(291, 17)
+        Me.tslModifiedBy.Size = New System.Drawing.Size(262, 17)
         Me.tslModifiedBy.Spring = True
         Me.tslModifiedBy.Text = "Modified By:"
         '
         'tslModifiedDate
         '
         Me.tslModifiedDate.Name = "tslModifiedDate"
-        Me.tslModifiedDate.Size = New System.Drawing.Size(291, 17)
+        Me.tslModifiedDate.Size = New System.Drawing.Size(262, 17)
         Me.tslModifiedDate.Spring = True
         Me.tslModifiedDate.Text = "Modified Date:"
         '
@@ -621,14 +635,14 @@ Partial Class FrmTransaksiSalesReturnBalanceManual
         'tslCreatedBy
         '
         Me.tslCreatedBy.Name = "tslCreatedBy"
-        Me.tslCreatedBy.Size = New System.Drawing.Size(291, 17)
+        Me.tslCreatedBy.Size = New System.Drawing.Size(262, 17)
         Me.tslCreatedBy.Spring = True
         Me.tslCreatedBy.Text = "Created By:"
         '
         'tslCreatedDate
         '
         Me.tslCreatedDate.Name = "tslCreatedDate"
-        Me.tslCreatedDate.Size = New System.Drawing.Size(291, 17)
+        Me.tslCreatedDate.Size = New System.Drawing.Size(262, 17)
         Me.tslCreatedDate.Spring = True
         Me.tslCreatedDate.Text = "Created Date:"
         '
@@ -652,7 +666,7 @@ Partial Class FrmTransaksiSalesReturnBalanceManual
         Me.Name = "FrmTransaksiSalesReturnBalanceManual"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Historical Sales Return"
+        Me.Text = "Beginning Balance Sales Return"
         Me.gboDetail.ResumeLayout(False)
         Me.gboDetail.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -716,4 +730,5 @@ Partial Class FrmTransaksiSalesReturnBalanceManual
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents cboAccount As System.Windows.Forms.ComboBox
     Friend WithEvents cboPrimaryAR As System.Windows.Forms.ComboBox
+    Friend WithEvents llbImportARRetrun As System.Windows.Forms.LinkLabel
 End Class

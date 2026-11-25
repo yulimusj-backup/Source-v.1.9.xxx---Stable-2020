@@ -120,9 +120,9 @@ Partial Class FrmTransaksiSalesReturnBalanceManual_Cari
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tslQuery})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 399)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 404)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(702, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(710, 22)
         Me.StatusStrip1.TabIndex = 12
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -155,7 +155,7 @@ Partial Class FrmTransaksiSalesReturnBalanceManual_Cari
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnClose
-        Me.ClientSize = New System.Drawing.Size(702, 421)
+        Me.ClientSize = New System.Drawing.Size(710, 426)
         Me.Controls.Add(Me.gboKriteria)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.dgvHasil)
@@ -164,7 +164,7 @@ Partial Class FrmTransaksiSalesReturnBalanceManual_Cari
         Me.Name = "FrmTransaksiSalesReturnBalanceManual_Cari"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Find Historical Sales Return"
+        Me.Text = "Find Beginning Balance Sales Return Data"
         Me.gboKriteria.ResumeLayout(False)
         Me.gboKriteria.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)

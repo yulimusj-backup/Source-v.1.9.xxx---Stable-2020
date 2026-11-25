@@ -976,6 +976,52 @@ Public Class clsMasterProduct
         End Try
     End Sub
 
+    Public Sub GetProductProperties1(ByVal vPrimaryProduct As Double, ByRef Location As Boolean, ByRef BatchNo As Boolean, _
+    ByRef ExpiryDate As Boolean, ByRef SecondaryUnit As Boolean, ByRef decimalPoint As Integer)
+        Dim DTA As New dseMasterProductTableAdapters.tblmaster_product3TableAdapter
+        Dim TBL As New dseMasterProduct.tblmaster_product3DataTable
+        Dim row As dseMasterProduct.tblmaster_product3Row
+
+        Try
+            DTA.Connection.ConnectionString = Core_Module.GetConstring
+            If DTA.FillBy(TBL, vPrimaryProduct) > 0 Then
+                row = TBL.Rows(0)
+                If CBool(row.Batch_No_Controlled) = True Then
+                    BatchNo = True
+                Else
+                    BatchNo = False
+                End If
+                If CBool(row.Location_Controlled) = True Then
+                    Location = True
+                Else
+                    Location = False
+                End If
+                If CBool(row.Expiry_Date_Controlled) = True Then
+                    ExpiryDate = True
+                Else
+                    ExpiryDate = False
+                End If
+                If CBool(row.Use_Secondary_Unit) = True Then
+                    SecondaryUnit = True
+                Else
+                    SecondaryUnit = False
+                End If
+                decimalPoint = row._Decimal '2026-03-23: tambah mengembalikan decimal point supaya ga perlu panggil lagi jika butuh. terkait pembulatan stock in adjust WD Indonesia
+            Else
+                Location = False
+                BatchNo = False
+                ExpiryDate = False
+                SecondaryUnit = False
+                decimalPoint = 0 '2026-03-23: tambah mengembalikan decimal point supaya ga perlu panggil lagi jika butuh. terkait pembulatan stock in adjust WD Indonesia
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            DTA.Dispose()
+            TBL.Dispose()
+        End Try
+    End Sub
+
     Public Sub IsiCheckBoxControll(ByVal vPrimaryProduct As Double, ByVal chkLocation As CheckBox, ByVal chkBatchNo As CheckBox, ByVal chkExpiryDate As CheckBox, _
     ByVal chkSecondaryUnit As CheckBox, ByVal chkPdoControlled As CheckBox, ByVal TxtPrimaryUnit As TextBox, _
     ByVal TxtPrimarySecondaryUnits As TextBox)

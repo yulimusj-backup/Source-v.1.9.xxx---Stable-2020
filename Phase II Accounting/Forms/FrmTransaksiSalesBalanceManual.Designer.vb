@@ -23,6 +23,7 @@ Partial Class FrmTransaksiSalesBalanceManual
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gboDetail = New System.Windows.Forms.GroupBox
+        Me.llbImportAR = New System.Windows.Forms.LinkLabel
         Me.txtPrimaryAccount = New System.Windows.Forms.TextBox
         Me.Label13 = New System.Windows.Forms.Label
         Me.cboAccount = New System.Windows.Forms.ComboBox
@@ -88,6 +89,7 @@ Partial Class FrmTransaksiSalesBalanceManual
         Me.gboDetail.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gboDetail.Controls.Add(Me.llbImportAR)
         Me.gboDetail.Controls.Add(Me.txtPrimaryAccount)
         Me.gboDetail.Controls.Add(Me.Label13)
         Me.gboDetail.Controls.Add(Me.cboAccount)
@@ -125,6 +127,18 @@ Partial Class FrmTransaksiSalesBalanceManual
         Me.gboDetail.Size = New System.Drawing.Size(523, 293)
         Me.gboDetail.TabIndex = 0
         Me.gboDetail.TabStop = False
+        '
+        'llbImportAR
+        '
+        Me.llbImportAR.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.llbImportAR.AutoSize = True
+        Me.llbImportAR.Location = New System.Drawing.Point(460, -1)
+        Me.llbImportAR.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.llbImportAR.Name = "llbImportAR"
+        Me.llbImportAR.Size = New System.Drawing.Size(62, 13)
+        Me.llbImportAR.TabIndex = 31
+        Me.llbImportAR.TabStop = True
+        Me.llbImportAR.Text = "Import Data"
         '
         'txtPrimaryAccount
         '
@@ -180,7 +194,7 @@ Partial Class FrmTransaksiSalesBalanceManual
         '
         Me.ProgressBar1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ProgressBar1.Location = New System.Drawing.Point(11, 268)
-        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(2)
+        Me.ProgressBar1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(131, 20)
         Me.ProgressBar1.TabIndex = 30
@@ -283,7 +297,7 @@ Partial Class FrmTransaksiSalesBalanceManual
         Me.TxtBalance.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtBalance.Location = New System.Drawing.Point(186, 149)
-        Me.TxtBalance.MaxLength = 17
+        Me.TxtBalance.MaxLength = 12
         Me.TxtBalance.Name = "TxtBalance"
         Me.TxtBalance.Size = New System.Drawing.Size(144, 20)
         Me.TxtBalance.TabIndex = 10
@@ -580,35 +594,35 @@ Partial Class FrmTransaksiSalesBalanceManual
         Me.StatusStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tslCreatedBy, Me.tslCreatedDate})
         Me.StatusStrip2.Location = New System.Drawing.Point(0, 330)
         Me.StatusStrip2.Name = "StatusStrip2"
-        Me.StatusStrip2.Size = New System.Drawing.Size(543, 22)
+        Me.StatusStrip2.Size = New System.Drawing.Size(541, 22)
         Me.StatusStrip2.TabIndex = 28
         Me.StatusStrip2.Text = "StatusStrip2"
         '
         'tslCreatedBy
         '
         Me.tslCreatedBy.Name = "tslCreatedBy"
-        Me.tslCreatedBy.Size = New System.Drawing.Size(299, 17)
+        Me.tslCreatedBy.Size = New System.Drawing.Size(263, 17)
         Me.tslCreatedBy.Spring = True
         Me.tslCreatedBy.Text = "Created By:"
         '
         'tslCreatedDate
         '
         Me.tslCreatedDate.Name = "tslCreatedDate"
-        Me.tslCreatedDate.Size = New System.Drawing.Size(299, 17)
+        Me.tslCreatedDate.Size = New System.Drawing.Size(263, 17)
         Me.tslCreatedDate.Spring = True
         Me.tslCreatedDate.Text = "Created Date:"
         '
         'tslModifiedDate
         '
         Me.tslModifiedDate.Name = "tslModifiedDate"
-        Me.tslModifiedDate.Size = New System.Drawing.Size(299, 17)
+        Me.tslModifiedDate.Size = New System.Drawing.Size(263, 17)
         Me.tslModifiedDate.Spring = True
         Me.tslModifiedDate.Text = "Modified Date:"
         '
         'tslModifiedBy
         '
         Me.tslModifiedBy.Name = "tslModifiedBy"
-        Me.tslModifiedBy.Size = New System.Drawing.Size(299, 17)
+        Me.tslModifiedBy.Size = New System.Drawing.Size(263, 17)
         Me.tslModifiedBy.Spring = True
         Me.tslModifiedBy.Text = "Modified By:"
         '
@@ -617,7 +631,7 @@ Partial Class FrmTransaksiSalesBalanceManual
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tslModifiedBy, Me.tslModifiedDate})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 352)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(543, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(541, 22)
         Me.StatusStrip1.TabIndex = 27
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -681,7 +695,7 @@ Partial Class FrmTransaksiSalesBalanceManual
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnExit
-        Me.ClientSize = New System.Drawing.Size(543, 374)
+        Me.ClientSize = New System.Drawing.Size(541, 374)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
@@ -690,11 +704,12 @@ Partial Class FrmTransaksiSalesBalanceManual
         Me.Controls.Add(Me.gboDetail)
         Me.Controls.Add(Me.StatusStrip2)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.MinimumSize = New System.Drawing.Size(551, 355)
+        Me.MinimumSize = New System.Drawing.Size(549, 352)
         Me.Name = "FrmTransaksiSalesBalanceManual"
+        Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Historical Sales Transaction"
+        Me.Text = "Beginning Balance AR"
         Me.gboDetail.ResumeLayout(False)
         Me.gboDetail.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -762,4 +777,5 @@ Partial Class FrmTransaksiSalesBalanceManual
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents cboAccount As System.Windows.Forms.ComboBox
     Friend WithEvents cboPrimaryAR As System.Windows.Forms.ComboBox
+    Friend WithEvents llbImportAR As System.Windows.Forms.LinkLabel
 End Class

@@ -593,6 +593,27 @@ WHERE        (`Primary` = @PrimaryAOP)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblmaster_supplierTableAdapter" GeneratorDataComponentClassName="tblmaster_supplierTableAdapter" Name="tblmaster_supplier" UserDataComponentName="tblmaster_supplierTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="core_dbConnectionString (MySettings)" DbObjectName="smess_bagus.tblmaster_supplier" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="False" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT `Primary`, `Supplier Code`, `Supplier Name`
+FROM     tblmaster_supplier</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Primary" DataSetColumn="Primary" />
+              <Mapping SourceColumn="Supplier Code" DataSetColumn="Supplier Code" />
+              <Mapping SourceColumn="Supplier Name" DataSetColumn="Supplier Name" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
         </Tables>
         <Sources>
         </Sources>
@@ -799,6 +820,27 @@ WHERE        (`Primary` = @PrimaryAOP)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="tblmaster_supplier" msprop:Generator_UserTableName="tblmaster_supplier" msprop:Generator_RowDeletedName="tblmaster_supplierRowDeleted" msprop:Generator_RowChangedName="tblmaster_supplierRowChanged" msprop:Generator_RowClassName="tblmaster_supplierRow" msprop:Generator_RowChangingName="tblmaster_supplierRowChanging" msprop:Generator_RowEvArgName="tblmaster_supplierRowChangeEvent" msprop:Generator_RowEvHandlerName="tblmaster_supplierRowChangeEventHandler" msprop:Generator_TableClassName="tblmaster_supplierDataTable" msprop:Generator_TableVarName="tabletblmaster_supplier" msprop:Generator_RowDeletingName="tblmaster_supplierRowDeleting" msprop:Generator_TablePropName="tblmaster_supplier">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Primary" msprop:Generator_UserColumnName="Primary" msprop:Generator_ColumnVarNameInTable="columnPrimary" msprop:Generator_ColumnPropNameInRow="Primary" msprop:Generator_ColumnPropNameInTable="PrimaryColumn" type="xs:double" />
+              <xs:element name="Supplier_x0020_Code" msprop:Generator_UserColumnName="Supplier Code" msprop:Generator_ColumnVarNameInTable="columnSupplier_Code" msprop:Generator_ColumnPropNameInRow="Supplier_Code" msprop:Generator_ColumnPropNameInTable="Supplier_CodeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Supplier_x0020_Name" msprop:Generator_UserColumnName="Supplier Name" msprop:Generator_ColumnVarNameInTable="columnSupplier_Name" msprop:Generator_ColumnPropNameInRow="Supplier_Name" msprop:Generator_ColumnPropNameInTable="Supplier_NameColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -820,6 +862,10 @@ WHERE        (`Primary` = @PrimaryAOP)</CommandText>
     <xs:unique name="Constraint2">
       <xs:selector xpath=".//mstns:tbltrans_aop" />
       <xs:field xpath="mstns:No_x0020_Transaksi" />
+    </xs:unique>
+    <xs:unique name="tblmaster_supplier_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:tblmaster_supplier" />
+      <xs:field xpath="mstns:Primary" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
