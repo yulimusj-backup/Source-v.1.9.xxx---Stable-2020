@@ -163,7 +163,7 @@ Public Class FrmBackUpData2
     'End Sub
 
     Private Function GetTargetDatabase(ByVal vConstring As String) As String
-        '"server=server;user id=root;Password=#SMeSS_p4ss*897%#;persist security info=True;database=core_db;port=3307;default command timeout=19000000"
+        '"server=localhost;user id=root;Password=123;persist security info=True;database=smess_creative;port=3307;default command timeout=19000000"
         Dim Retval As String = ""
         Dim StartIndex As Integer = 0
         Dim EndIndex As Integer = 0

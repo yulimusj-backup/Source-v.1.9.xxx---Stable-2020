@@ -68,7 +68,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("localhost")>  _
         Public ReadOnly Property server() As String
             Get
                 Return CType(Me("server"),String)
@@ -86,7 +86,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("#SMeSS_p4ss*897%#")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("123")>  _
         Public ReadOnly Property password() As String
             Get
                 Return CType(Me("password"),String)
@@ -104,7 +104,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("core_db")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("smess_creative")>  _
         Public ReadOnly Property database_name() As String
             Get
                 Return CType(Me("database_name"),String)
@@ -126,8 +126,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=server;user id=root;Password=#SMeSS_p4ss*897%#;persist security info=True;"& _ 
-            "database=core_db;port=3307;default command timeout=19000000")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;Password=123;persist security info=True;database=sm"& _ 
+            "ess_creative;port=3307;default command timeout=19000000")>  _
         Public ReadOnly Property Core_DbConnectionString() As String
             Get
                 Return CType(Me("Core_DbConnectionString"),String)
@@ -137,8 +137,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("server=server;user id=root;Password=#SMeSS_p4ss*897%#;persist security info=True;"& _ 
-            "database=core_db;port=3307;default command timeout=19000000")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("server=localhost;user id=root;Password=123;persist security info=True;database=sm"& _ 
+            "ess_creative;port=3307;default command timeout=19000000")>  _
         Public ReadOnly Property core_dbConnectionString1() As String
             Get
                 Return CType(Me("core_dbConnectionString1"),String)
