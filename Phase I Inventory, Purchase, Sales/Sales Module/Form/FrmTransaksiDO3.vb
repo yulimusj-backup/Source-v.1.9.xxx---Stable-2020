@@ -18,7 +18,7 @@ Public Class FrmTransaksiDO3
     Public BackColorAll As Color = Me.BackColorAll
     Public FormNo As Integer = 0
     Public vPrimaryDO As Double = -1
-    Public vDONo As Double = -1
+    Public vDONo As String = ""
 
     Dim baru As Boolean
     Dim objDO As New ClsTransaksiDO

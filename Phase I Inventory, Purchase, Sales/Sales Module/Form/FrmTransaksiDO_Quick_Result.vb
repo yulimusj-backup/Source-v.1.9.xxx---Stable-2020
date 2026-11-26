@@ -6,9 +6,9 @@ Public Class FrmTransaksiDO_Quick_Result
     Public BackColorAll As Color = Color.LightGoldenrodYellow
     Public UserCode As String = ""
     Public vRboSO As Boolean = True
-    Dim tblResult As New DseTransaksiQuick_DO2.tblResultDataTable
+    Public tblResult As New DseTransaksiQuick_DO2.tblResultDataTable
     Dim rowResult As DseTransaksiQuick_DO2.tblResultRow
-
+    Dim ObjUser As New Core_Module.ClsUser
     Dim objCD As New Core_Module.ClsCekData
 
     Private Sub FrmTransaksiDO_Quick_Result_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -16,6 +16,9 @@ Public Class FrmTransaksiDO_Quick_Result
             Me.DgvItem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None
             Me.DgvItem.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None
             Me.DgvItem.AlternatingRowsDefaultCellStyle.BackColor = Me.BackColorAll
+            If Me.vRboSO = False Then
+                Me.DgvItem.Columns(Me.colSONo.Index).HeaderText = "Booking No"
+            End If
             Me.loadData()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -47,6 +50,40 @@ Public Class FrmTransaksiDO_Quick_Result
         Try
             If e.ColumnIndex <> Me.ColPrint.Index Then
                 e.Cancel = True
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
+    End Sub
+
+    Private Sub DgvItem_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DgvItem.CellClick
+        Try
+            If e.ColumnIndex = Me.ColPrint.Index Then
+                Me.PrintDO(Me.DgvItem.Item(Me.ColPrimaryDO.Index, e.RowIndex).Value)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub PrintDO(ByVal vPrimary As Double)
+        Dim FrmO As New Core_Module.FrmMasterUser_Otorisasi
+        Try
+            If vPrimary <> -1 Then
+                If Me.ObjUser.ApakahMemilikiHakAkses(Me.UserCode, "FrmTransaksiDO_Cetak") = False Then
+                    FrmO.AccessName = "FrmTransaksiDO_Cetak"
+                    If FrmO.ShowDialog <> Windows.Forms.DialogResult.OK Then
+                        MsgBox("You don't have permission to perform this action.", MsgBoxStyle.Information, "Information")
+                        Exit Sub
+                    End If
+                End If
+
+                Dim frmCetak As New FrmCetakDO
+                frmCetak.Primary = vPrimary
+                frmCetak.UserCode = Me.UserCode
+                frmCetak.ShowDialog()
+                frmCetak = Nothing
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

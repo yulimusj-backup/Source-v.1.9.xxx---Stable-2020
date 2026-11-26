@@ -2280,6 +2280,7 @@ Public Class FrmTransaksiDO_Quick
         Dim TransactionNoArray() As String
         Dim tblResult As New DseTransaksiQuick_DO2.tblResultDataTable
         Dim rowResult As DseTransaksiQuick_DO2.tblResultRow
+        Dim jk As New FrmTransaksiDO_Quick_Result
         Try
 
             Me.IsikanTbl(False)
@@ -2547,6 +2548,7 @@ Public Class FrmTransaksiDO_Quick
                             .No_DO = ij.vDONo
                             .No_Transaksi = TransactionNo
                         End With
+                        tblResult.AddtblResultRow(rowResult)
                     End If
                     
                     If ij.vStopCancellation = True Then
@@ -2555,11 +2557,19 @@ Public Class FrmTransaksiDO_Quick
                 Next
             End If
             'Me.btnFilter.PerformClick()
-            Dim jk As New FrmTransaksiDO_Quick_Result
+
+            jk.UserCode = Me.UserCode
+            jk.BackColorAll = Me.BackColorAll
+            jk.tblResult = tblResult
+            jk.vRboSO = Me.rbSO.Checked
+            jk.ShowDialog()
 
             Return True
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            jk.Dispose()
+            tblResult.Dispose()
         End Try
     End Function
 
