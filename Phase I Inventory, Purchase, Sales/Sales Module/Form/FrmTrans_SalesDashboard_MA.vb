@@ -829,12 +829,12 @@ Partial Public Class FrmTrans_SalesDashboard
             For Each col In Me.dgvItem.Columns
                 col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
             Next
-            Me.dgvItem.Columns(7).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+            Me.dgvItem.Columns(9).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
             'Me.dgvItem.Columns(9).DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
             For Each row In Me.dgvItem.Rows
-                'If row.Cells(9).Value <> -1 Then
-                'row.Cells(9).Value = Me.ObjCd.DigitGrouping(row.Cells(9).Value)
-                'End If
+                If row.Cells(9).Value <> -1 Then
+                    row.Cells(9).Value = Me.ObjCd.DigitGrouping(row.Cells(9).Value)
+                End If
             Next
             Me.dgvItem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
         Catch ex As Exception
