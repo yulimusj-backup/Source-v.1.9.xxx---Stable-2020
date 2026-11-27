@@ -24,11 +24,11 @@ Partial Class FrmTransaksiStockInAdj
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmTransaksiStockInAdj))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.TxtRemarkItem = New System.Windows.Forms.TextBox
         Me.Label16 = New System.Windows.Forms.Label
         Me.TxtWarehouse = New System.Windows.Forms.TextBox
@@ -607,21 +607,21 @@ Partial Class FrmTransaksiStockInAdj
         'tslModifiedDate
         '
         Me.tslModifiedDate.Name = "tslModifiedDate"
-        Me.tslModifiedDate.Size = New System.Drawing.Size(219, 17)
+        Me.tslModifiedDate.Size = New System.Drawing.Size(221, 17)
         Me.tslModifiedDate.Spring = True
         Me.tslModifiedDate.Text = "Modified Date: "
         '
         'tslCreatedBy
         '
         Me.tslCreatedBy.Name = "tslCreatedBy"
-        Me.tslCreatedBy.Size = New System.Drawing.Size(219, 17)
+        Me.tslCreatedBy.Size = New System.Drawing.Size(221, 17)
         Me.tslCreatedBy.Spring = True
         Me.tslCreatedBy.Text = "Created By: "
         '
         'tslCreatedDate
         '
         Me.tslCreatedDate.Name = "tslCreatedDate"
-        Me.tslCreatedDate.Size = New System.Drawing.Size(219, 17)
+        Me.tslCreatedDate.Size = New System.Drawing.Size(221, 17)
         Me.tslCreatedDate.Spring = True
         Me.tslCreatedDate.Text = "Created Date:"
         '
@@ -668,16 +668,16 @@ Partial Class FrmTransaksiStockInAdj
         'tslModifiedBy
         '
         Me.tslModifiedBy.Name = "tslModifiedBy"
-        Me.tslModifiedBy.Size = New System.Drawing.Size(219, 17)
+        Me.tslModifiedBy.Size = New System.Drawing.Size(221, 17)
         Me.tslModifiedBy.Spring = True
         Me.tslModifiedBy.Text = "Modified By: "
         '
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tslCreatedBy, Me.tslCreatedDate, Me.tslModifiedBy, Me.tslModifiedDate})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 432)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 439)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(894, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(902, 22)
         Me.StatusStrip1.TabIndex = 14
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -825,13 +825,13 @@ Partial Class FrmTransaksiStockInAdj
         '
         Me.lblQuickInput.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.lblQuickInput.AutoSize = True
-        Me.lblQuickInput.Location = New System.Drawing.Point(73, 342)
+        Me.lblQuickInput.Location = New System.Drawing.Point(806, 0)
         Me.lblQuickInput.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.lblQuickInput.Name = "lblQuickInput"
         Me.lblQuickInput.Size = New System.Drawing.Size(62, 13)
         Me.lblQuickInput.TabIndex = 15
         Me.lblQuickInput.TabStop = True
-        Me.lblQuickInput.Text = "Quick Input"
+        Me.lblQuickInput.Text = "Import Data"
         '
         'Label1
         '
@@ -897,8 +897,8 @@ Partial Class FrmTransaksiStockInAdj
         Me.dgvItem.AllowUserToDeleteRows = False
         Me.dgvItem.AllowUserToResizeColumns = False
         Me.dgvItem.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.dgvItem.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.dgvItem.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvItem.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -956,8 +956,8 @@ Partial Class FrmTransaksiStockInAdj
         '
         'ColQty
         '
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.ColQty.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ColQty.DefaultCellStyle = DataGridViewCellStyle7
         Me.ColQty.HeaderText = "Qty"
         Me.ColQty.Name = "ColQty"
         Me.ColQty.Width = 48
@@ -970,8 +970,8 @@ Partial Class FrmTransaksiStockInAdj
         '
         'ColSecondaryQty
         '
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.ColSecondaryQty.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ColSecondaryQty.DefaultCellStyle = DataGridViewCellStyle8
         Me.ColSecondaryQty.HeaderText = "@"
         Me.ColSecondaryQty.Name = "ColSecondaryQty"
         Me.ColSecondaryQty.Width = 43
@@ -1056,16 +1056,16 @@ Partial Class FrmTransaksiStockInAdj
         '
         'ColUnitCost
         '
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.ColUnitCost.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ColUnitCost.DefaultCellStyle = DataGridViewCellStyle9
         Me.ColUnitCost.HeaderText = "Unit Cost"
         Me.ColUnitCost.Name = "ColUnitCost"
         Me.ColUnitCost.Width = 75
         '
         'ColAmount
         '
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        Me.ColAmount.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        Me.ColAmount.DefaultCellStyle = DataGridViewCellStyle10
         Me.ColAmount.HeaderText = "Amount"
         Me.ColAmount.Name = "ColAmount"
         Me.ColAmount.Width = 68
@@ -1172,7 +1172,7 @@ Partial Class FrmTransaksiStockInAdj
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnExit
-        Me.ClientSize = New System.Drawing.Size(894, 454)
+        Me.ClientSize = New System.Drawing.Size(902, 461)
         Me.Controls.Add(Me.LlbUpdDecProd)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.gboDetail)

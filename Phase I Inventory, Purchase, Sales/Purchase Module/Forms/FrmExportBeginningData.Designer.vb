@@ -470,7 +470,7 @@ Partial Class FrmExportBeginningData
         Me.Name = "FrmExportBeginningData"
         Me.ShowIcon = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Export Beginning Data"
+        Me.Text = "Export Data"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
