@@ -6272,13 +6272,15 @@ SalesBalanceReturnManual2:
             Core_Module.SetConstring(Me.TargetConstring)
             If Me.status_status <> "default" Then
                 Me.status_status = "default"
-                Me.SumberConstring = "server=fitri-pc;user id=root;Password=123;persist security info=True;database=" & Me.TxtDB.Text & ";port=3307;default command timeout=19000000"
-                Me.TargetConstring = "server=fitri-pc;user id=root;Password=123;persist security info=True;database=" & Me.Temporary_DB & ";port=3307;default command timeout=19000000"
+                Me.SumberConstring = Core_Module.GetConstring_withDB(Me.TxtDB.Text)
+                Me.TargetConstring = Core_Module.GetConstring_withDB(Me.Temporary_DB)
                 Me.SetDefaultConnectionString()
             Else
                 Me.status_status = "target"
-                Me.SumberConstring = "server=fitri-pc;user id=root;Password=123;persist security info=True;database=" & Me.TxtDB.Text & ";port=3307;default command timeout=19000000"
-                Me.TargetConstring = "server=fitri-pc;user id=root;Password=123;persist security info=True;database=" & Me.Temporary_DB & ";port=3307;default command timeout=19000000"
+                'Me.SumberConstring = "server=fitri-pc;user id=root;Password=123;persist security info=True;database=" & Me.TxtDB.Text & ";port=3307;default command timeout=19000000"
+                'Me.TargetConstring = "server=fitri-pc;user id=root;Password=123;persist security info=True;database=" & Me.Temporary_DB & ";port=3307;default command timeout=19000000"
+                Me.SumberConstring = Core_Module.GetConstring_withDB(Me.TxtDB.Text)
+                Me.TargetConstring = Core_Module.GetConstring_withDB(Me.Temporary_DB)
                 Me.SetTargetConnectionString()
             End If
 

@@ -786,6 +786,7 @@ Public Class FrmMain
             Me.FrmImport_SO1.Visible = True
             Me.FrmImport_PO1.Visible = True
             Me.FrmExportBeginningData1.Visible = True
+            FrmTrans_CutOffDB1.Visible = True
             'End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

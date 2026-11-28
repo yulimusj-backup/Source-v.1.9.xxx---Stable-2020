@@ -118,6 +118,16 @@ Public Module ModGlobalVariable
         End Try
     End Function
 
+    Public Function GetConstring_withDB(ByVal vDatabase As String) As String
+        Try
+            Return "server=" + My.Settings.server + ";user id=" + My.Settings.user_id + ";Password=" + My.Settings.password + _
+            ";persist security info=True;database=" + vDatabase + ";port=" + My.Settings.port_number + ";default command timeout=19000000"
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Return "server=fitri-pc;user id=root;Password=123;persist security info=True;database=payroll_db;port=3307;default command timeout=19000000"
+        End Try
+    End Function
+
     'berkaitan cut off
     Public Sub SetConstring(ByVal vNewConnString As String)
         Dim connection_ As New MySql.Data.MySqlClient.MySqlConnection
